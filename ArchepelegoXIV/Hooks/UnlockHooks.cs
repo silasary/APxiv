@@ -33,11 +33,10 @@ namespace ArchepelegoXIV.Hooks
             //return;
             if (!initialized)
             {
-                echo("Hooking...");
                 initialized = true;
                 if (!DalamudApi.SigScanner.TryScanText("E8 ?? ?? ?? ?? 88 45 80", out nint address))
                 {
-                    echo("Error: Could not hook");
+                    DalamudApi.Echo("Error: Could not hook");
                     return;
                 }
 
@@ -68,15 +67,6 @@ namespace ArchepelegoXIV.Hooks
             //    return false;
             //}
             return x;
-        }
-
-        private static void echo(string Text)
-        {
-            DalamudApi.ChatGui.PrintChat(new XivChatEntry
-            {
-                Message = new SeStringBuilder().AddText(Text).Build(),
-                Type = XivChatType.Echo,
-            });
         }
 
         public void Dispose()

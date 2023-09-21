@@ -25,6 +25,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Game.DutyState;
+using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text;
 
 namespace ArchepelegoXIV
 {
@@ -42,6 +45,7 @@ namespace ArchepelegoXIV
         [PluginService][RequiredVersion("1.0")] public static DalamudPluginInterface PluginInterface { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static DataManager DataManager { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static DtrBar DtrBar { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static DutyState DutyState { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static FateTable FateTable { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static FlyTextGui FlyTextGui { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static Framework Framework { get; private set; } = null;
@@ -57,5 +61,16 @@ namespace ArchepelegoXIV
         [PluginService][RequiredVersion("1.0")] public static SigScanner SigScanner { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static TargetManager TargetManager { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static ToastGui ToastGui { get; private set; } = null;
+
+
+        internal static void Echo(string Text)
+        {
+            ChatGui.PrintChat(new XivChatEntry
+            {
+                Message = new SeStringBuilder().AddText(Text).Build(),
+                Type = XivChatType.Echo,
+            });
+        }
+
     }
 }

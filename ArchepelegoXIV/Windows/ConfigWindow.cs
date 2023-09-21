@@ -10,7 +10,7 @@ public class ConfigWindow : Window, IDisposable
 {
     private Configuration Configuration;
 
-    public ConfigWindow(Plugin plugin, ArchepelegoXIV.ApState apState) : base(
+    public ConfigWindow(Plugin plugin, ApState apState) : base(
         "Debug Window",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
@@ -29,10 +29,9 @@ public class ConfigWindow : Window, IDisposable
     public override void Draw()
     {
         // can't ref a property, so use a local copy
-        var configValue = this.Configuration.AllowTeleport;
+        var configValue = this.ApState.CanTeleport;
         if (ImGui.Checkbox("Allow Teleport", ref configValue))
         {
-            this.Configuration.AllowTeleport = configValue;
             this.ApState.CanTeleport = configValue;
             // can save immediately on change, if you don't want to provide a "Save and Close" button
             this.Configuration.Save();

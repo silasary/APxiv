@@ -33,7 +33,7 @@ public class MainWindow : Window, IDisposable
 
     public override void Draw()
     {
-        ImGui.Text($"The random config bool is {this.Plugin.Configuration.AllowTeleport}");
+        ImGui.Text($"The AP server is at {this.Plugin.Configuration.Connection} (Connected: {this.state.Connected})");
 
         if (ImGui.Button("Show Settings"))
         {

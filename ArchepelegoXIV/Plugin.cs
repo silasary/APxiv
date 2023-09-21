@@ -23,12 +23,12 @@ namespace SamplePlugin
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private CommandManager CommandManager { get; init; }
-        private DutyState dutyState { get; init; }
-        private ClientState clientState { get; init; }
 
         private ApState apState { get; init; }
+
         internal UnlockHooks Hooks { get; }
-        public TerritoryType[] Territories { get; }
+        internal Events Events { get; }
+
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("ArchepelegoXIV");
 
@@ -37,26 +37,19 @@ namespace SamplePlugin
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] CommandManager commandManager,
-            [RequiredVersion("1.0")] DutyState dutyState,
-            [RequiredVersion("1.0")] ClientState clientState,
-            [RequiredVersion("1.0")] DataManager dataManager,
-            [RequiredVersion("1.0")] SigScanner sigScanner
+            [RequiredVersion("1.0")] CommandManager commandManager
         )
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
-            this.dutyState = dutyState;
-            this.clientState = clientState;
+
+            DalamudApi.Initialize(pluginInterface);
+            Data.Initialize();
 
             this.apState = new ApState();
 
             this.Hooks = new UnlockHooks(apState);
-
-            var territoryTypes = dataManager.GetExcelSheet<TerritoryType>();
-            Territories = territoryTypes.ToArray();
-
-            DalamudApi.Initialize(pluginInterface);
+            this.Events = new Events(apState);
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
@@ -76,10 +69,8 @@ namespace SamplePlugin
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
-            this.clientState.TerritoryChanged += State_TerritoryChanged;
-            if (clientState.IsLoggedIn)
-                State_TerritoryChanged(this, clientState.TerritoryType);
             this.Hooks.Enable();
+            this.Events.Enable();
         }
 
         public void Dispose()
@@ -90,13 +81,19 @@ namespace SamplePlugin
             MainWindow.Dispose();
             Hooks.Dispose();
             this.CommandManager.RemoveHandler(CommandName);
-            clientState.TerritoryChanged -= State_TerritoryChanged;
+            
         }
 
         private void OnCommand(string command, string args)
         {
             // in response to the slash command, just display our main ui
             this.MainWindow.IsOpen = true;
+            if (!this.apState.Connected)
+                this.apState.Connect("GARCHOMP:38281");
+            else
+            {
+
+            }
         }
 
         private void DrawUI()
@@ -109,11 +106,6 @@ namespace SamplePlugin
             ConfigWindow.IsOpen = true;
         }
 
-        private void State_TerritoryChanged(object? sender, ushort e)
-        {
-            var territory = apState.territory = Territories.First(row => row.RowId == e);
-            apState.territoryName = territory.PlaceName.Value?.Name;
-            apState.territoryRegion = territory.PlaceNameRegion.Value?.Name;
-        }
+        
     }
 }
