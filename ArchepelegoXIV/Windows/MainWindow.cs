@@ -14,7 +14,7 @@ public class MainWindow : Window, IDisposable
     private Plugin Plugin;
 
     public MainWindow(Plugin plugin, ApState state) : base(
-        "My Amazing Window", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
+        "Archipelego", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         this.SizeConstraints = new WindowSizeConstraints
         {
@@ -44,7 +44,12 @@ public class MainWindow : Window, IDisposable
 
         ImGui.Text($"DutyState: {state.DebugText}");
         ImGui.Indent(55);
-        //ImGui.Image(this.GoatImage.ImGuiHandle, new Vector2(this.GoatImage.Width, this.GoatImage.Height));
+        if (state.MissingLocations != null)
+            foreach (var location in state.MissingLocations)
+            {
+                if (location.IsAccessible() && !location.Cleared)
+                    ImGui.Text($"{location.Name}");
+            }
 
         ImGui.Unindent(55);
     }

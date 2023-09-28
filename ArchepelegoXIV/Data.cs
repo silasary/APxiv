@@ -8,13 +8,17 @@ namespace ArchepelegoXIV
     {
         public static TerritoryType[] Territories { get; private set; } = Array.Empty<TerritoryType>();
         public static InstanceContent[] Duties { get; private set; } = Array.Empty<InstanceContent>();
+        public static ClassJob[] ClassJobs { get; private set; } = Array.Empty<ClassJob>();
 
         public static void Initialize() {
-            var territoryTypes = DalamudApi.DataManager.GetExcelSheet<TerritoryType>();
-            Territories = territoryTypes.ToArray();
+            var dataManager = DalamudApi.DataManager;
+            if (dataManager == null)
+                return;
+            Territories = dataManager.GetExcelSheet<TerritoryType>().ToArray();
 
-            var duties = DalamudApi.DataManager.GetExcelSheet<InstanceContent>();
-            Duties = duties.ToArray();
+            Duties = dataManager.GetExcelSheet<InstanceContent>().ToArray();
+
+            ClassJobs = dataManager.GetExcelSheet<ClassJob>().ToArray();
         }
     }
 }
