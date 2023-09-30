@@ -43,6 +43,7 @@ public class MainWindow : Window, IDisposable
         ImGui.Spacing();
 
         ImGui.Text($"DutyState: {state.DebugText}");
+        ImGui.Text($"Available Checks:");
         ImGui.Indent(55);
         if (state.MissingLocations != null)
             foreach (var location in state.MissingLocations)

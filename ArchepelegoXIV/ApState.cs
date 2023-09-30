@@ -76,7 +76,7 @@ namespace ArchepelegoXIV
         {
             var item = helper.DequeueItem();
             var name = session?.Items.GetItemName(item.Item);
-            DalamudApi.Echo($"{name}");
+            //DalamudApi.Echo($"{name}");
             this.RefreshLocations(false);
         }
 
