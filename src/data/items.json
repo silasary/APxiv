@@ -1,403 +1,267 @@
-[ 
-    { 
-        "name": "Jill", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Shuma-Gorath", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Nemesis T-Type", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Firebrand", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Strider Hiryu", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Phoenix Wright", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Nova", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Ghost Rider", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Hawkeye", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Doctor Strange", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Chris", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Arthur", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Frank West", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Vergil", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Iron Fist", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Rocket Raccoon", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Captain America", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Dormammu", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Wesker", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Zero", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Ryu", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Dante", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Deadpool", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Wolverine", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Iron Man", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Doctor Doom", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Morrigan", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Tron", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Chun-Li", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Trish", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "X-23", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Storm", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Thor", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "M.O.D.O.K.", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Felicia", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Spencer", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Akuma", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Viewtiful Joe", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Spider-Man", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Sentinel", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Hulk", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Super-Skrull", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Hsien-Ko", 
-        "category": [
-            "Characters",
-            "Left Side",
-            "Trash"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Haggar", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "C. Viper", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Amaterasu", 
-        "category": [
-            "Characters",
-            "Left Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Phoenix", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Magneto", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "She-Hulk", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    },
-    { 
-        "name": "Taskmaster", 
-        "category": [
-            "Characters",
-            "Right Side"
-        ],
-        "progression": true 
-    }
+[
+
+	{
+		"name": "Limsa Lominsa and Middle La Noscea Access",
+		"category": ["Starting", "Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Gridania and Central Shroud Access",
+		"category": ["Starting", "Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Ul'dah and Central Thanalan Access",
+		"category": ["Starting", "Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Lower La Noscea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Eastern La Noscea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Western La Noscea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Upper La Noscea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Outer La Noscea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "East Shroud Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "South Shroud Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "North Shroud Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Western Thanalan Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Eastern Thanalan Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Southern Thanalan Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Northern Thanalan Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Coerthas Central Highlands Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Mor Dhona Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Ishgard Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Coerthas Western Highlands Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Sea of Clouds Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Dravanian Forelands Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Churning Mists Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Dravanian Hinterlands and Idyllshire Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Azys Lla Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Rhalgr's Reach Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Fringes Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Peaks Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Lochs Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Kugane Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Ruby Sea Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Yanxia Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Azim Steppe Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Crystarium Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Lakeland Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Kholusia Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Eulmore Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Amh Araeng Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Il Mheg Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Rak'tika Greatwood Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "The Tempest Access",
+		"category": ["Location"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Bahamut Key",
+		"category": ["Raid Key"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Alexander Key",
+		"category": ["Raid Key"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Omega Key",
+		"category": ["Raid Key"],
+		"count":1,
+		"progression": true
+	},
+	{
+		"name": "Eden Key",
+		"category": ["Raid Key"],
+		"count":1,
+		"progression": true
+	}
 ]

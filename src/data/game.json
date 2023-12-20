@@ -1,26 +1,15 @@
 {
-    "game": "UltimateMarvelVsCapcom3",
-    "player": "Fuzzy",
-
-    "filler_item_name": "Free Character of Your Choice",
-
-    "starting_items": [
+	"game": "FFXIV",
+	"player": "Silasary",
+	"filler_item_name": "/pet",
+	"starting_items":[
         {
-            "items": ["Ryu", "Akuma"]
-        },
-        {
-            "item_categories": ["Left Side"],
+            "item_categories": ["Class Level"],
             "random": 1
         },
         {
-            "items": ["Wolverine", "Storm", "Phoenix"],
+            "item_categories": ["Starting Location"],
             "random": 1
-        },
-        {
-            "item_categories": ["Trash"]
-        },
-        {
-            "random": 3
         }
     ]
 }

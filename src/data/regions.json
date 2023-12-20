@@ -1,1 +1,397 @@
-{}
+
+{
+	"Limsa Lominsa": {
+		"requires": "|Limsa Lominsa and Middle La Noscea Access:1|",
+		"connects_to": [
+			"Lower La Noscea",
+			"Middle La Noscea",
+			"Western La Noscea",
+			"Eastern La Noscea",
+			"Ishgard",
+			"Kugane"
+		],
+		"starting": true
+	},
+	"Middle La Noscea":
+	{
+		"requires": "|Limsa Lominsa and Middle La Noscea Access:1|",
+		"connects_to": [
+			"Limsa Lominsa",
+			"Lower La Noscea",
+			"Western La Noscea",
+			"Eastern La Noscea"
+		]
+	},
+	"Lower La Noscea":
+	{
+		"requires": "|Lower La Noscea Access:1|",
+		"connects_to": [
+			"Limsa Lominsa",
+			"Middle La Noscea",
+			"Eastern La Noscea",
+			"Western La Noscea"
+		]
+	},
+	"Eastern La Noscea":
+	{
+		"requires": "|Eastern La Noscea Access:1|",
+		"connects_to": [
+			"Lower La Noscea",
+			"Limsa Lominsa",
+			"Middle La Noscea",
+			"Upper La Noscea"
+		]
+	},
+	"Western La Noscea":
+	{
+		"requires": "|Western La Noscea Access:1|",
+		"connects_to": [
+			"Middle La Noscea",
+			"Upper La Noscea",
+			"Limsa Lominsa",
+			"Lower La Noscea"
+		]
+	},
+	"Upper La Noscea":
+	{
+		"requires": "|Upper La Noscea Access:1|",
+		"connects_to": [
+			"Outer La Noscea",
+			"Eastern La Noscea",
+			"Western La Noscea"
+		]
+
+	},
+	"Outer La Noscea":
+	{
+		"requires": "|Outer La Noscea Access:1|",
+		"connects_to": ["Upper La Noscea"]
+	},
+	"Gridania": {
+		"requires": "|Gridania and Central Shroud Access:1|",
+		"connects_to": [
+			"Central Shroud",
+			"North Shroud",
+			"East Shroud",
+			"Ishgard"
+		],
+		"starting": true
+	},
+	"Central Shroud":
+	{
+		"requires": "|Gridania and Central Shroud Access:1|",
+		"connects_to": [
+			"Gridania",
+			"North Shroud",
+			"East Shroud",
+			"South Shroud"
+		]
+	},
+	"East Shroud":
+	{
+		"requires": "|East Shroud Access:1|",
+		"connects_to": [
+			"South Shroud",
+			"Central Shroud",
+			"Gridania",
+			"The Fringes"
+		]
+	},
+	"South Shroud":
+	{
+		"requires": "|South Shroud Access:1|",
+		"connects_to": [
+			"Central Shroud",
+			"East Shroud",
+			"Eastern Thanalan"
+		]
+	},
+	"North Shroud":
+	{
+		"requires": "|North Shroud Access:1|",
+		"connects_to": [
+			"Gridania",
+			"Central Shroud",
+			"Coerthas Central Highlands"
+		]
+	},
+	"Ul'dah": {
+		"requires": "|Ul'dah and Central Thanalan Access:1|",
+		"connects_to": [
+			"Central Thanalan",
+			"Western Thanalan",
+			"Masked Carnivale",
+			"Ishgard"
+		],
+		"starting": true
+	},
+	"Central Thanalan":
+	{
+		"requires": "|Ul'dah and Central Thanalan Access:1|",
+		"connects_to": [
+			"Northern Thanalan",
+			"Eastern Thanalan",
+			"Southern Thanalan",
+			"Western Thanalan",
+			"Ul'dah"
+		]
+	},
+	"Masked Carnivale":
+	{
+		"requires": "|Ul'dah and Central Thanalan Access:1| and |10 Equip Levels:5|",
+		"connects_to": ["Ul'dah"]
+	},
+	"Western Thanalan":
+	{
+		"requires": "|Western Thanalan Access:1|",
+		"connects_to": [
+			"Ul'dah",
+			"Central Thanalan",
+			"Limsa Lominsa"
+		]
+	},
+	"Eastern Thanalan":
+	{
+		"requires": "|Eastern Thanalan Access:1|",
+		"connects_to": [
+			"Central Thanalan",
+			"Southern Thanalan",
+			"South Shroud"
+		]
+	},
+	"Southern Thanalan":
+	{
+		"requires": "|Southern Thanalan Access:1|",
+		"connects_to": [
+			"Eastern Thanalan",
+			"Central Thanalan"
+		]
+	},
+	"Northern Thanalan":
+	{
+		"requires": "|Northern Thanalan Access:1|",
+		"connects_to": [
+			"Central Thanalan",
+			"Mor Dhona"
+		]
+	},
+	"Coerthas Central Highlands":
+	{
+		"requires": "|Coerthas Central Highlands Access:1|",
+		"connects_to": [
+			"Mor Dhona",
+			"North Shroud",
+			"Ishgard"
+		]
+	},
+	"Mor Dhona":
+	{
+		"requires": "|Mor Dhona Access:1|",
+		"connects_to": [
+			"Northern Thanalan",
+			"Coerthas Central Highlands",
+			"The Crystarium"
+		]
+	},
+
+	"Ishgard":
+	{
+		"requires": "|Ishgard Access:1|",
+		"connects_to": [
+			"Limsa Lominsa",
+			"Gridania",
+			"Ul'dah",
+			"Coerthas Central Highlands",
+			"Coerthas Western Highlands",
+			"The Sea of Clouds",
+			"Azys Lla"
+		]
+	},
+	"Coerthas Western Highlands":
+	{
+		"requires": "|Coerthas Western Highlands Access:1|",
+		"connects_to": [
+			"The Sea of Clouds",
+			"The Dravanian Forelands",
+			"The Dravanian Hinterlands",
+			"Ishgard"
+		]
+	},
+	"The Sea of Clouds":
+	{
+		"requires": "|The Sea of Clouds Access:1|",
+		"connects_to": [
+			"Ishgard",
+			"Coerthas Western Highlands"
+		]
+	},
+	"The Dravanian Forelands":
+	{
+		"requires": "|The Dravanian Forelands Access:1|",
+		"connects_to": [
+			"The Churning Mists",
+			"The Dravanian Hinterlands",
+			"Coerthas Western Highlands"
+		]
+	},
+	"The Churning Mists":
+	{
+		"requires": "|The Churning Mists Access:1|",
+		"connects_to": [
+			"The Dravanian Forelands",
+			"The Dravanian Hinterlands"
+		]
+	},
+	"The Dravanian Hinterlands":
+	{
+		"requires": "|The Dravanian Hinterlands and Idyllshire Access:1|",
+		"connects_to": [
+			"The Dravanian Forelands",
+			"Coerthas Western Highlands"
+		]
+	},
+	"Azys Lla":
+	{
+		"requires": "|Azys Lla Access:1|",
+		"connects_to:": [
+			"Ishgard"
+		]
+	},
+
+	"Rhalgr's Reach":
+	{
+		"requires": "|Rhalgr's Reach Access: 1|",
+		"connects_to":[
+			"The Fringes",
+			"The Peaks"
+		]
+	},
+	"The Fringes":
+	{
+		"requires": "|The Fringes Access: 1|",
+		"connects_to": [
+			"East Shroud",
+			"Rhalgr's Reach",
+			"The Peaks"
+		]
+	},
+	"The Peaks":
+	{
+		"requires": "|The Peaks Access: 1|",
+		"connects_to": [
+			"Rhalgr's Reach",
+			"The Fringes",
+			"The Lochs"
+		]
+	},
+	"The Lochs":
+	{
+		"requires": "|The Lochs Access: 1|",
+		"connects_to": [
+			"The Peaks"
+		]
+	},
+	"Kugane":
+	{
+		"requires": "|Kugane Access: 1|",
+		"connects_to": [
+			"Limsa Lominsa",
+			"The Ruby Sea"
+		]
+	},
+	"The Ruby Sea":
+	{
+		"requires": "|The Ruby Sea Access: 1|",
+		"connects_to": [
+			"Kugane",
+			"Yanxia",
+			"The Azim Steppe"
+		]
+	},
+	"Yanxia":
+	{
+		"requires": "|Yanxia Access: 1|",
+		"connects_to": [
+			"The Ruby Sea",
+			"The Azim Steppe"
+		]
+	},
+	"The Azim Steppe":
+	{
+		"requires": "|The Azim Steppe Access: 1|",
+		"connects_to": [
+			"The Ruby Sea",
+			"Yanxia"
+		]
+	},
+	"The Crystarium":
+	{
+		"requires": "|The Crystarium Access: 1|",
+		"connects_to": [
+			"Mor Dhona",
+			"Lakeland",
+			"Amh Araeng",
+			"Kholusia",
+			"Eulmore"
+		]
+	},
+	"Lakeland":
+	{
+		"requires": "|Lakeland Access: 1|",
+		"connects_to": [
+			"Il Mheg",
+			"Amh Araeng",
+			"The Crystarium",
+			"The Rak'tika Greatwood"
+		]
+	},
+	"Kholusia":
+	{
+		"requires": "|Kholusia Access: 1|",
+		"connects_to": [
+			"The Tempest",
+			"Eulmore",
+			"The Crystarium"
+		]
+	},
+	"Amh Araeng":
+	{
+		"requires": "|Amh Araeng Access: 1|",
+		"connects_to": [
+			"Lakeland",
+			"The Crystarium"
+		]
+	},
+	"Il Mheg":
+	{
+		"requires": "|Il Mheg Access: 1|",
+		"connects_to": [
+			"Lakeland"
+		]
+	},
+	"The Rak'tika Greatwood":
+	{
+		"requires": "|The Rak'tika Greatwood Access: 1|",
+		"connects_to": [
+			"Lakeland"
+		]
+	},
+	"Eulmore":
+	{
+		"requires": "|Eulmore Access: 1|",
+		"connects_to": [
+			"Kholusia",
+			"The Crystarium"
+		]
+	},
+	"The Tempest":
+	{
+		"requires": "|The Tempest Access: 1|",
+		"connects_to": [
+			"Kholusia"
+		]
+	},
+	"Duty": {
+		"starting": true
+	}
+}
