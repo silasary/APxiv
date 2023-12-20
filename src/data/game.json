@@ -1,0 +1,26 @@
+{
+    "game": "UltimateMarvelVsCapcom3",
+    "player": "Fuzzy",
+
+    "filler_item_name": "Free Character of Your Choice",
+
+    "starting_items": [
+        {
+            "items": ["Ryu", "Akuma"]
+        },
+        {
+            "item_categories": ["Left Side"],
+            "random": 1
+        },
+        {
+            "items": ["Wolverine", "Storm", "Phoenix"],
+            "random": 1
+        },
+        {
+            "item_categories": ["Trash"]
+        },
+        {
+            "random": 3
+        }
+    ]
+}
