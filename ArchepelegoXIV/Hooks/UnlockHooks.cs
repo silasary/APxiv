@@ -15,16 +15,10 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Hooks
 {
-    internal class UnlockHooks : IDisposable
+    internal class UnlockHooks(ApState apState) : IDisposable
     {
-        private readonly ApState apState;
         private bool initialized;
         private Hook<IsUnlockLinkUnlockedDelegate> isUnlockLinkUnlockedHook;
-
-        public UnlockHooks(ApState apState)
-        {
-            this.apState = apState;
-        }
 
         private unsafe delegate bool IsUnlockLinkUnlockedDelegate(UIState* ui, uint unlockLink);
 

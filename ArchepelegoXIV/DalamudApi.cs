@@ -34,6 +34,8 @@ namespace ArchepelegoXIV
 {
     public class DalamudApi
     {
+        private static DtrBarEntry? logicBar = null;
+
         public static void Initialize(DalamudPluginInterface pluginInterface) => pluginInterface.Create<DalamudApi>();
 
         [PluginService][RequiredVersion("1.0")] public static IAetheryteList AetheryteList { get; private set; } = null;
@@ -73,5 +75,10 @@ namespace ArchepelegoXIV
             });
         }
 
+        internal static void SetStatusBar(string text)
+        {
+            logicBar ??= DtrBar.Get("archipelago");
+            logicBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
+        }
     }
 }

@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Rando
 {
-    public class Location
+    public class Location(ApState apState, long i)
     {
-        private readonly ApState apState;
-
-        public string Name;
-        public long ApId;
+        public string Name = apState.session.Locations.GetLocationNameFromId(i);
+        public long ApId = i;
 
         public bool Accessible;
 
-        internal bool stale;
+        internal bool stale = true;
 
         public bool IsAccessible()
         {
@@ -36,13 +34,5 @@ namespace ArchepelegoXIV.Rando
         }
 
         public bool Cleared;
-
-        public Location(ApState apState, long i)
-        {
-            this.apState = apState;
-            ApId = i;
-            Name = apState.session.Locations.GetLocationNameFromId(i);
-            stale = true;
-        }
     }
 }

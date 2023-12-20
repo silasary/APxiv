@@ -19,7 +19,6 @@ namespace SamplePlugin
 {
     public sealed class Plugin : IDalamudPlugin
     {
-        public string Name => "ArchepelegoXIV";
         private const string CommandName = "/ap";
 
         private DalamudPluginInterface PluginInterface { get; init; }
@@ -72,6 +71,7 @@ namespace SamplePlugin
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.Hooks.Enable();
             this.Events.Enable();
+            DalamudApi.SetStatusBar("Loaded");
         }
 
         public void Dispose()
@@ -82,7 +82,6 @@ namespace SamplePlugin
             MainWindow.Dispose();
             Hooks.Dispose();
             this.CommandManager.RemoveHandler(CommandName);
-            
         }
 
         private void OnCommand(string command, string args)
@@ -90,11 +89,7 @@ namespace SamplePlugin
             // in response to the slash command, just display our main ui
             this.MainWindow.IsOpen = true;
             if (!this.apState.Connected)
-                this.apState.Connect("GARCHOMP:38281");
-            else
-            {
-
-            }
+                this.apState.Connect("archipelago.gg:41475");
         }
 
         private void DrawUI()

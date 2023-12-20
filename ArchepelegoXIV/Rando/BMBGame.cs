@@ -7,32 +7,27 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Rando
 {
-    internal class BMBGame : BaseGame
+    internal class BMBGame(ApState apState) : BaseGame(apState)
     {
-        readonly Regex FATE = new("([A-Za-z ]+): FATE #(\\d+)");
-
-        public BMBGame(ApState apState) : base(apState)
-        {
-        }
+        private readonly Regex FATE = new("([A-Za-z ]+): FATE #(\\d+)");
 
         public override string Name => "Manual_FFXIVBMB_Pizzie";
 
         public override bool MeetsRequirements(Location location)
         {
-            if (location.Name.StartsWith("Masked Carnivale"))
-                return apState.Items.Contains("Ul'dah and Central Thanalan Access");
-            
-            var match = FATE.Match(location.Name);
+            var zone = location.Name;
+            if (zone.StartsWith("Masked Carnivale"))
+                zone = "Masked Carnivale";
+
+            var match = FATE.Match(zone);
             if (match.Success)
             {
-                var zone = match.Groups[1].Value;
-
-                return HaveZoneAccess(zone);
+                zone = match.Groups[1].Value;
             }
-            if (Data.DungeonEntrances.TryGetValue(location.Name, out var value) && value != null)
-            {
-                return HaveZoneAccess(value);
-            }
+            if (!HaveZoneAccess(zone))
+                return false;
+            // TODO: Location-specific requirements.
+            return true;
             // We don't know this location yet?
             //DalamudApi.Echo($"Unknown Location {location.Name}");
             return false;
@@ -40,15 +35,7 @@ namespace ArchepelegoXIV.Rando
 
         private bool HaveZoneAccess(string zone)
         {
-            if (zone == "Central Shroud")
-                zone = "Gridania and Central Shroud";
-            if (zone == "Central Thanalan")
-                zone = "Ul'dah and Central Thanalan";
-            if (zone == "Middle La Noscea")
-                zone = "Limsa Lominsa and Middle La Noscea";
-            if (apState.Items.Contains($"{zone} Access"))
-                return true;
-            return false;
+            return RegionContainer.CanReach(apState, zone);
         }
     }
 }

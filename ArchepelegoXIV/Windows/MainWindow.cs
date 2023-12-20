@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using ArchepelegoXIV;
+using ArchepelegoXIV.Rando;
 using Dalamud.Game.DutyState;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
@@ -10,8 +11,8 @@ namespace SamplePlugin.Windows;
 
 public class MainWindow : Window, IDisposable
 {
-    private ApState state;
-    private Plugin Plugin;
+    private readonly ApState state;
+    private readonly Plugin Plugin;
 
     public MainWindow(Plugin plugin, ApState state) : base(
         "Archipelego", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
@@ -43,6 +44,7 @@ public class MainWindow : Window, IDisposable
         ImGui.Spacing();
 
         ImGui.Text($"DutyState: {state.DebugText}");
+        ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName)}");
         ImGui.Text($"Available Checks:");
         ImGui.Indent(55);
         if (state.MissingLocations != null)

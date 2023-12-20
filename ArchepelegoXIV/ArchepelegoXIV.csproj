@@ -1,72 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Authors></Authors>
-    <Company></Company>
-    <Version>0.0.0.1</Version>
-    <Description>A sample plugin.</Description>
-    <Copyright></Copyright>
-    <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
-  </PropertyGroup>
+    <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
-  <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <Platforms>x64</Platforms>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-  </PropertyGroup>
+    <PropertyGroup>
+        <Authors></Authors>
+        <Company></Company>
+        <Version>0.0.0.1</Version>
+        <Description>A sample plugin.</Description>
+        <Copyright></Copyright>
+        <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
 
-  <ItemGroup>
-    <Content Include="..\Data\goat.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Visible>false</Visible>
-    </Content>
-  </ItemGroup>
 
-  <PropertyGroup>
-    <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
-  
-   <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">
-    <DalamudLibPath>$(DALAMUD_HOME)/</DalamudLibPath>
-  </PropertyGroup>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Archipelago.MultiClient.Net" Version="5.0.6" />
-    <PackageReference Include="DalamudPackager" Version="2.1.12" />
-    <Reference Include="FFXIVClientStructs">
-      <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Dalamud">
-      <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="ImGui.NET">
-      <HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="ImGuiScene">
-      <HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Lumina">
-      <HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Lumina.Excel">
-      <HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+    <PropertyGroup>
+        <LangVersion>12.0</LangVersion>
+        <TargetFramework>net7.0-windows7.0</TargetFramework>
+    </PropertyGroup>
 
+    <ItemGroup>
+        <Content Include="..\Data\goat.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
+        <AdditionalFiles Include="..\src\data\regions.json" Link="regions.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Archipelago.MultiClient.Net" Version="5.0.6" />
+    </ItemGroup>
 </Project>

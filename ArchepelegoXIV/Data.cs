@@ -7,21 +7,19 @@ namespace ArchepelegoXIV
 {
     internal partial class Data
     {
-        public static TerritoryType[] Territories { get; private set; } = Array.Empty<TerritoryType>();
-        public static InstanceContent[] Duties { get; private set; } = Array.Empty<InstanceContent>();
-        public static ClassJob[] ClassJobs { get; private set; } = Array.Empty<ClassJob>();
-
-        public static Dictionary<string, string> DungeonEntrances { get; private set; }
+        public static TerritoryType[] Territories { get; private set; } = [];
+        public static InstanceContent[] Duties { get; private set; } = [];
+        public static ClassJob[] ClassJobs { get; private set; } = [];
 
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;
             if (dataManager == null)
                 return;
-            Territories = dataManager.GetExcelSheet<TerritoryType>().ToArray();
+            Territories = [.. dataManager.GetExcelSheet<TerritoryType>()];
 
-            Duties = dataManager.GetExcelSheet<InstanceContent>().ToArray();
+            Duties = [.. dataManager.GetExcelSheet<InstanceContent>()];
 
-            ClassJobs = dataManager.GetExcelSheet<ClassJob>().ToArray();
+            ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>()];
             
         }
     }

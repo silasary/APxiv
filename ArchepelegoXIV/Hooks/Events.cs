@@ -1,4 +1,7 @@
+using ArchepelegoXIV.Rando;
 using Dalamud.Game.ClientState;
+using Dalamud.Game.Gui.Dtr;
+using Dalamud.Game.Text;
 using Dalamud.Plugin.Services;
 using System;
 using System.Collections.Generic;
@@ -8,15 +11,8 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Hooks
 {
-    internal class Events
+    internal class Events(ApState apState)
     {
-        private readonly ApState apState;
-
-        public Events(ApState apState)
-        {
-            this.apState = apState;
-        }
-
         public void Enable()
         {
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
@@ -43,6 +39,12 @@ namespace ArchepelegoXIV.Hooks
             var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
             apState.territoryName = territory.PlaceName?.Value?.Name ?? "Unknown";
             apState.territoryRegion = territory.PlaceNameRegion?.Value?.Name ?? "Unknown";
+
+            var canReach = RegionContainer.CanReach(apState, apState.territoryName);
+            if (canReach)
+                DalamudApi.SetStatusBar("In Logic");
+            else
+                DalamudApi.SetStatusBar("Out of Logic");
         }
     }
 }

@@ -1,6 +1,8 @@
 using ArchepelegoXIV.Rando;
 using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Helpers;
+using Dalamud.Game.Gui.Dtr;
+using Dalamud.Game.Text;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
@@ -44,6 +46,7 @@ namespace ArchepelegoXIV
 
         internal void Connect(string address)
         {
+            DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.ClientState.LocalPlayer;
             if (localPlayer == null)
                 return;
@@ -69,15 +72,26 @@ namespace ArchepelegoXIV
             var loginSuccessful = (LoginSuccessful)result;
             slot = loginSuccessful.Slot;
 
-            this.session.Items.ItemReceived += Items_ItemReceived;
+            session.Items.ItemReceived += Items_ItemReceived;
+
+            DalamudApi.SetStatusBar("Connected");
+
         }
+
 
         private void Items_ItemReceived(ReceivedItemsHelper helper)
         {
             var item = helper.DequeueItem();
             var name = session?.Items.GetItemName(item.Item);
-            //DalamudApi.Echo($"{name}");
+            var sender = session.Players.GetPlayerName(item.Player);
+            DalamudApi.Echo($"Recieved {name} from {sender}");
+            this.RefreshRegions();
             this.RefreshLocations(false);
+        }
+
+        private void RefreshRegions()
+        {
+            RegionContainer.MarkStale();
         }
 
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
