@@ -23,7 +23,7 @@ namespace ArchepelegoXIV.Hooks
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
 
             if (DalamudApi.ClientState.IsLoggedIn)
-                ClientState_TerritoryChanged(this, DalamudApi.ClientState.TerritoryType);
+                ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
         }
 
         public void Disable() { 
@@ -38,7 +38,7 @@ namespace ArchepelegoXIV.Hooks
 
         }
 
-        private void ClientState_TerritoryChanged(object? sender, ushort e)
+        private void ClientState_TerritoryChanged(ushort e)
         {
             var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
             apState.territoryName = territory.PlaceName?.Value?.Name ?? "Unknown";

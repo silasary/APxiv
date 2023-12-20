@@ -17,7 +17,7 @@ namespace ArchepelegoXIV.Hooks
 {
     internal class UnlockHooks : IDisposable
     {
-        private ApState apState;
+        private readonly ApState apState;
         private bool initialized;
         private Hook<IsUnlockLinkUnlockedDelegate> isUnlockLinkUnlockedHook;
 
@@ -34,15 +34,15 @@ namespace ArchepelegoXIV.Hooks
             if (!initialized)
             {
                 initialized = true;
-                if (!DalamudApi.SigScanner.TryScanText("E8 ?? ?? ?? ?? 88 45 80", out nint address))
-                {
-                    DalamudApi.Echo("Error: Could not hook");
-                    return;
-                }
+                //    if (!DalamudApi.SigScanner.TryScanText("E8 ?? ?? ?? ?? 88 45 80", out nint address))
+                //    {
+                //        DalamudApi.Echo("Error: Could not hook");
+                //        return;
+                //    }
 
-                isUnlockLinkUnlockedHook = Hook<IsUnlockLinkUnlockedDelegate>.FromAddress(address, IsUnlockLinkUnlocked);
-                isUnlockLinkUnlockedHook.Enable();
-                apState.Hooked = true;
+                //    isUnlockLinkUnlockedHook = Hook<IsUnlockLinkUnlockedDelegate>.FromAddress(address, IsUnlockLinkUnlocked);
+                //    isUnlockLinkUnlockedHook.Enable();
+                //apState.Hooked = true;
 
                 initialized = true;
             }
@@ -72,8 +72,8 @@ namespace ArchepelegoXIV.Hooks
         public void Dispose()
         {
             apState.Hooked = false;
-            isUnlockLinkUnlockedHook.Disable();
-            isUnlockLinkUnlockedHook.Dispose();
+            //isUnlockLinkUnlockedHook.Disable();
+            //isUnlockLinkUnlockedHook.Dispose();
         }
     }
 }

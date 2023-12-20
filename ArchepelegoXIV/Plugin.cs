@@ -13,6 +13,7 @@ using Lumina.Excel.GeneratedSheets;
 using System.Linq;
 using Dalamud.Game;
 using ArchepelegoXIV.Hooks;
+using Dalamud.Plugin.Services;
 
 namespace SamplePlugin
 {
@@ -22,7 +23,7 @@ namespace SamplePlugin
         private const string CommandName = "/ap";
 
         private DalamudPluginInterface PluginInterface { get; init; }
-        private CommandManager CommandManager { get; init; }
+        private ICommandManager CommandManager { get; init; }
 
         private ApState apState { get; init; }
 
@@ -37,7 +38,7 @@ namespace SamplePlugin
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] CommandManager commandManager
+            [RequiredVersion("1.0")] ICommandManager commandManager
         )
         {
             this.PluginInterface = pluginInterface;

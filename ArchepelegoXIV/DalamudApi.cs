@@ -28,6 +28,7 @@ using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.DutyState;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text;
+using Dalamud.Plugin.Services;
 
 namespace ArchepelegoXIV
 {
@@ -35,37 +36,37 @@ namespace ArchepelegoXIV
     {
         public static void Initialize(DalamudPluginInterface pluginInterface) => pluginInterface.Create<DalamudApi>();
 
-        [PluginService][RequiredVersion("1.0")] public static AetheryteList AetheryteList { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static BuddyList BuddyList { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static ChatGui ChatGui { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static ChatHandlers ChatHandlers { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static ClientState ClientState { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static CommandManager CommandManager { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static Condition Condition { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IAetheryteList AetheryteList { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IBuddyList BuddyList { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IChatGui ChatGui { get; private set; } = null;
+        //[PluginService][RequiredVersion("1.0")] public static ChatHandlers ChatHandlers { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IClientState ClientState { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static ICommandManager CommandManager { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static ICondition Condition { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static DalamudPluginInterface PluginInterface { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static DataManager DataManager { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static DtrBar DtrBar { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static DutyState DutyState { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static FateTable FateTable { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static FlyTextGui FlyTextGui { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static Framework Framework { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static GameGui GameGui { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static GameNetwork GameNetwork { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static GamepadState GamePadState { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static JobGauges JobGauges { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static KeyState KeyState { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static LibcFunction LibcFunction { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static ObjectTable ObjectTable { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static PartyFinderGui PartyFinderGui { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static PartyList PartyList { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static SigScanner SigScanner { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static TargetManager TargetManager { get; private set; } = null;
-        [PluginService][RequiredVersion("1.0")] public static ToastGui ToastGui { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IDataManager DataManager { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IDtrBar DtrBar { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IDutyState DutyState { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IFateTable FateTable { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IFlyTextGui FlyTextGui { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IFramework Framework { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IGameGui GameGui { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IGameNetwork GameNetwork { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IGamepadState GamePadState { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IJobGauges JobGauges { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IKeyState KeyState { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static ILibcFunction LibcFunction { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IObjectTable ObjectTable { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IPartyFinderGui PartyFinderGui { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IPartyList PartyList { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static ISigScanner SigScanner { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static ITargetManager TargetManager { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IToastGui ToastGui { get; private set; } = null;
 
 
         internal static void Echo(string Text)
         {
-            ChatGui.PrintChat(new XivChatEntry
+            ChatGui.Print(new XivChatEntry
             {
                 Message = new SeStringBuilder().AddText(Text).Build(),
                 Type = XivChatType.Echo,
