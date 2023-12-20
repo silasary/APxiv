@@ -1,5 +1,10 @@
 [
-
+    {
+        "name": "Memory of a Distant World",
+        "category": ["McGuffin"],
+        "count": 30,
+        "progression": true
+    },
 	{
 		"name": "Limsa Lominsa and Middle La Noscea Access",
 		"category": ["Starting", "Location"],

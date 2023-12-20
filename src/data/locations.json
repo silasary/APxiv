@@ -1,3 +1,7 @@
 [
-	
+	{
+        "name": "Goal",
+        "requires": "|Memory of a Distant World:all|",
+        "victory": true
+    }
 ]
