@@ -233,6 +233,27 @@ def create_FATE_location(number, key, lvl):
             "requires": "|$anyClassLevel:" + str(lvl) + "|"
         }
 
+def ocean_fishing():
+    indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
+    ruby_route = ["Ruby Sea", "One River"]
+
+    locations = []
+    for route in indigo_route:
+        locations.append({
+            "name": "Ocean Fishing: " + route,
+            "region": "Ocean Fishing",
+            "category": ["Ocean Fishing", "Indigo Route"],
+            "requires": "|5 FSH Levels:1|"
+        })
+    for route in ruby_route:
+        locations.append({
+            "name": "Ocean Fishing: " + route,
+            "region": "Ocean Fishing",
+            "category": ["Ocean Fishing", "Ruby Route"],
+            "requires": "|5 FSH Levels:12| and |Kugane Access:1|"  # Level 60, because why not
+        })
+    return locations
+
 # called after the categories.json file has been loaded
 def after_load_category_file(category_table: dict) -> dict:
     return category_table

@@ -1,5 +1,8 @@
 {
     "Starting": {
         "hidden": true
+    },
+    "Ocean Fishing": {
+        "yaml_option": ["include_ocean_fishing"]
     }
 }

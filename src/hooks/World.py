@@ -60,9 +60,14 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
     world.random.shuffle(ranged)
     prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
+    prog_fish = False
     for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
+        if item.name == "5 FSH Levels" and not prog_fish:
+            # Let's make one level of Fisher required
+            item.classification = ItemClassification.progression
+            prog_fish = True
     return item_pool
 
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs

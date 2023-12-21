@@ -8,7 +8,8 @@
 			"Western La Noscea",
 			"Eastern La Noscea",
 			"Ishgard",
-			"Kugane"
+			"Kugane",
+            "Ocean Fishing"
 		],
 		"starting": true
 	},
@@ -393,5 +394,7 @@
 	},
 	"Duty": {
 		"starting": true
-	}
+	},
+    "Ocean Fishing": {
+    }
 }
