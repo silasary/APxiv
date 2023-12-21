@@ -57,7 +57,7 @@ def generate_duty_list():
 
     for row in dutyreader:
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
-            requires_str = "|" + row[4] + " Access:1|" # and "|10 Equip Levels:" + str(ceil(int(row[2])/10)) + "|"
+            requires_str = "|" + row[4] + " Access:1| and |$anyClassLevel:" + row[2] + "|"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             duty_list.append(
                 {
@@ -123,27 +123,28 @@ def after_load_item_file(item_table: list) -> list:
         "BTN",
         "FSH",
         ]
+    max_level = 90
 
     for job in classes:
         item_table.append({
             "name": f"5 {job} Levels",
-            "category": ["Class Level"],
-            "count":18,
+            "category": ["Class Level", "DOW/DOM"],
+            "count": max_level / 5,
             "useful": True,
         })
     for job in DOH:
         item_table.append({
             "name": f"5 {job} Levels",
-            "category": ["Class Level"],
-            "count":18,
-            "useful": True,
+            "category": ["Class Level", "DOH"],
+            "count": max_level / 5,
+            "filler": True,
         })
     for job in DOL:
         item_table.append({
             "name": f"5 {job} Levels",
-            "category": ["Class Level"],
-            "count":18,
-            "useful": True,
+            "category": ["Class Level", "DOL"],
+            "count": max_level / 5,
+            "filler": True,
         })
 
     return item_table
@@ -216,6 +217,7 @@ def after_load_location_file(location_table: list) -> list:
 
     location_table.extend(fate_list)
     location_table.extend(duty_locations)
+    location_table.extend(ocean_fishing())
     return location_table
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
@@ -228,7 +230,7 @@ def create_FATE_location(number, key, lvl):
             "name": short_long[key] + ": FATE #" + str(number),
             "region": short_long[key],
             "category": ["FATEs", short_long[key]],
-            # "requires": "|10 Equip Levels:" + str(ceil(lvl/10)) + "|"
+            "requires": "|$anyClassLevel:" + str(lvl) + "|"
         }
 
 # called after the categories.json file has been loaded

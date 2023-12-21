@@ -1,6 +1,6 @@
 # Object classes from AP core, to represent an entire MultiWorld and this individual World that's part of it
 from worlds.AutoWorld import World
-from BaseClasses import MultiWorld
+from BaseClasses import MultiWorld, ItemClassification
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem
@@ -46,7 +46,23 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     pass
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
-def before_generate_basic(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
+def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
+    tanks = ["PLD","WAR","DRK","GNB"]
+    healers = ["WHM","SCH","AST","SGE"]
+    melee = ["MNK","DRG","NIN","SAM","RPR"]
+    caster = ["BLM","SMN","RDM",]
+    ranged = ["BRD","MCH","DNC"]
+
+    world.random.shuffle(tanks)
+    world.random.shuffle(healers)
+    world.random.shuffle(melee)
+    world.random.shuffle(caster)
+    world.random.shuffle(ranged)
+    prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+    prog_levels = [f"5 {job} Levels" for job in prog_classes]
+    for item in item_pool:
+        if item.name in prog_levels:
+            item.classification = ItemClassification.progression
     return item_pool
 
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs
