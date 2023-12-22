@@ -316,9 +316,14 @@
 		"requires": "|Yanxia Access: 1|",
 		"connects_to": [
 			"The Ruby Sea",
-			"The Azim Steppe"
+			"The Azim Steppe",
+            "Gangos"
 		]
 	},
+    "Gangos": {
+        "requires": "|Gangos Access: 1|",
+        "connects_to": []
+    },
 	"The Azim Steppe":
 	{
 		"requires": "|The Azim Steppe Access: 1|",
@@ -443,9 +448,6 @@
         "connects_to": [
         ]
     },
-	"Duty": {
-		"starting": true
-	},
     "Ocean Fishing": {
     }
 }

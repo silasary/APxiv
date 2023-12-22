@@ -14,6 +14,15 @@ class OceanFishing(Toggle):
     display_name = "Enable Ocean Fishing"
     default = True
 
+class Fatesanity(Toggle):
+    """
+    Include individual FATEs in the location pool.
+
+    If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
+    """
+    display_name = "Fatesanity"
+    default = True
+
 class UnreasonableFates(Toggle):
     """
     Include World Bosses and other FATEs that are not reasonable to complete.
@@ -24,14 +33,6 @@ class UnreasonableFates(Toggle):
     display_name = "Include Unreasonable FATEs"
     default = True
 
-class Fatesanity(Toggle):
-    """
-    Include individual FATEs in the location pool.
-
-    If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
-    """
-    display_name = "Fatesanity"
-    default = True
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
@@ -40,6 +41,6 @@ def before_options_defined(options: dict) -> dict:
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
 def after_options_defined(options: dict) -> dict:
     options["include_ocean_fishing"] = OceanFishing
-    options["include_unreasonable_fates"] = UnreasonableFates
     options["fatesanity"] = Fatesanity
+    options["include_unreasonable_fates"] = UnreasonableFates
     return options

@@ -160,20 +160,20 @@ def after_load_item_file(item_table: list) -> list:
     ]
     # crafters
     DOH = [
-        # "CRP",
-        # "BSM",
-        # "ARM",
-        # "GSM",
-        # "LTW",
-        # "WVR",
-        # "ALC",
-        # "CUL",
+        "CRP",
+        "BSM",
+        "ARM",
+        "GSM",
+        "LTW",
+        "WVR",
+        "ALC",
+        "CUL",
     ]
 
     # gatherers
     DOL = [
-        # "MIN",
-        # "BTN",
+        "MIN",
+        "BTN",
         "FSH",
         ]
     max_level = 90
