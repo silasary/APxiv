@@ -36,8 +36,8 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 # Called after regions and locations are created, in case you want to see or modify that information.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = []
-    if not is_option_enabled("include_unreasonable_fates", world, multiworld, player):
-        locationNamesToRemove.extend(["He Taketh It with His Eyes (FATE)", "Steel Reign  (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)", "A Horse Outside (FATE)", "Foxy Lady (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)", "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)"])
+    if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
+        locationNamesToRemove.extend(["He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)", "A Horse Outside (FATE)", "Foxy Lady (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)", "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)"])
 
     for region in multiworld.regions:
         if region.player == player:

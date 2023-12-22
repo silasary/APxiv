@@ -1,36 +1,6 @@
 import csv
 import pkgutil
 
-short_long = {
-    "CCH": "Coerthas Central Highlands",
-    "CWH": "Coerthas Western Highlands",
-
-    "MD": "Mor Dhona",
-
-    "TSC": "The Sea of Clouds",
-    "AL": "Azys Lla",
-
-    "TDF": "The Dravanian Forelands",
-    "TCM": "The Churning Mists",
-    "TDH": "The Dravanian Hinterlands",
-
-    "TF": "The Fringes",
-    "TP": "The Peaks",
-    "TL": "The Lochs",
-
-    "TRS": "The Ruby Sea",
-    "Y": "Yanxia",
-    "TAS": "The Azim Steppe",
-
-    "L": "Lakeland",
-    "K": "Kholusia",
-    "IM": "Il Mheg",
-    "AA": "Amh Araeng",
-    "TRG": "The Rak'tika Greatwood",
-    "TT": "The Tempest"
-}
-long_short = {v: k for k, v in short_long.items()}
-
 fate_zones = {
     "Middle La Noscea": [3,3],
     "Lower La Noscea": [3,3],
@@ -50,32 +20,32 @@ fate_zones = {
     "Southern Thanalan": [25,26],
     "Northern Thanalan": [49,49],
 
-    "CCH": [35,35],
-    "CWH": [50, 130],
+    "Coerthas Central Highlands": [35,35],
+    "Coerthas Western Highlands": [50, 130],
 
-    "MD": [44,44],
+    "Mor Dhona": [44,44],
 
-    "TSC": [50, 130],
-    "AL": [59, 145],
+    "The Sea of Clouds": [50, 130],
+    "Azys Lla": [59, 145],
 
-    "TDF": [52, 130],
-    "TCM": [54, 130],
-    "TDH": [58, 145],
+    "The Dravanian Forelands": [52, 130],
+    "The Churning Mists": [54, 130],
+    "The Dravanian Hinterlands": [58, 145],
 
-    "TF": [60,0],
-    "TP": [60,0],
-    "TL": [69,0],
+    "The Fringes": [60,0],
+    "The Peaks": [60,0],
+    "The Lochs": [69,0],
 
-    "TRS": [62],
-    "Y": [64],
-    "TAS": [65],
+    "The Ruby Sea": [62],
+    "Yanxia": [64],
+    "The Azim Steppe": [65],
 
-    "L": [70],
-    "K": [70],
-    "IM": [72],
-    "AA": [76],
-    "TRG": [74],
-    "TT": [79],
+    "Lakeland": [70],
+    "Kholusia": [70],
+    "Il Mheg": [72],
+    "Amh Araeng": [76],
+    "The Rak'tika Greatwood": [74],
+    "The Tempest": [79],
 
     "Labyrinthos": [80],
     "Thavnair": [80],
@@ -91,6 +61,7 @@ def generate_duty_list():
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
 
     for row in dutyreader:
+        row = [x.strip() for x in row]
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
             requires_str = "|$anyClassLevel:" + row[2] + "|"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
@@ -126,14 +97,13 @@ def generate_fate_list():
                     "name": name,
                     "region": row[2],
                     "category": ["FATEs", row[2]],
-                    "requires": "|$anyClassLevel:" + str(int(row[1]) - 3) + "|",
+                    "requires": "|$anyClassLevel:" + str(int(row[1]) - 5) + "|",
                     "level" : row[1]
                 }
             )
             # remove generic FATEs from fate_zones if they exist
-            code = long_short.get(row[2], row[2])
-            if code in fate_zones:
-                fate_zones.pop(code)
+            if row[2] in fate_zones:
+                fate_zones.pop(row[2])
 
     if fate_zones:
         lookup = False
@@ -143,7 +113,7 @@ def generate_fate_list():
                 lookup = True
                 from . import wiki_scraper
                 import os
-                additional = wiki_scraper.find_fates(short_long.get(key, key))
+                additional = wiki_scraper.find_fates(key)
                 fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
                 with open(fates_path, 'a', newline='') as csvfile:
                     writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -256,9 +226,9 @@ def after_load_region_file(region_table: dict) -> dict:
 
 def create_FATE_location(number, key, lvl):
     return {
-            "name": short_long.get(key, key) + ": FATE #" + str(number),
-            "region": short_long.get(key, key),
-            "category": ["FATEs", short_long.get(key, key)],
+            "name": key + ": FATE #" + str(number),
+            "region": key,
+            "category": ["FATEs", key],
             "requires": "|$anyClassLevel:" + str(lvl) + "|"
         }
 
