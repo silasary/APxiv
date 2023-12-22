@@ -83,7 +83,7 @@ duty_locations = generate_duty_list()
 
 def generate_fate_list():
     fate_list = []
-
+    missing_fatesanity_zones = fate_zones.copy()
     fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='|')
 
     for row in fatereader:
@@ -96,37 +96,35 @@ def generate_fate_list():
                 {
                     "name": name,
                     "region": row[2],
-                    "category": ["FATEs", row[2]],
+                    "category": ["FATEsanity", row[2]],
                     "requires": "|$anyClassLevel:" + str(int(row[1]) - 5) + "|",
                     "level" : row[1]
                 }
             )
             # remove generic FATEs from fate_zones if they exist
-            if row[2] in fate_zones:
-                fate_zones.pop(row[2])
+            if row[2] in missing_fatesanity_zones:
+                missing_fatesanity_zones.pop(row[2])
 
-    if fate_zones:
-        lookup = False
-        for key in list(fate_zones.keys()):
-            if not lookup:
-                # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
-                lookup = True
-                from . import wiki_scraper
-                import os
-                additional = wiki_scraper.find_fates(key)
-                fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
-                with open(fates_path, 'a', newline='') as csvfile:
-                    writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-                    for line in additional:
-                        writer.writerow(line.split(','))
+    if missing_fatesanity_zones:
+        # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
+        key = list(missing_fatesanity_zones.keys())[0]
+        from . import wiki_scraper
+        import os
+        additional = wiki_scraper.find_fates(key)
+        fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
+        with open(fates_path, 'a', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            for line in additional:
+                writer.writerow(line.split(','))
 
-            level = fate_zones[key][0]
-            #ilvl = fate_zones[key][1]
-            fate_list.append(create_FATE_location(1,key,level))
-            fate_list.append(create_FATE_location(2,key,level))
-            fate_list.append(create_FATE_location(3,key,level))
-            fate_list.append(create_FATE_location(4,key,level))
-            fate_list.append(create_FATE_location(5,key,level))
+    for key in list(fate_zones.keys()):
+        level = fate_zones[key][0]
+        #ilvl = fate_zones[key][1]
+        fate_list.append(create_FATE_location(1,key,level))
+        fate_list.append(create_FATE_location(2,key,level))
+        fate_list.append(create_FATE_location(3,key,level))
+        fate_list.append(create_FATE_location(4,key,level))
+        fate_list.append(create_FATE_location(5,key,level))
 
     return fate_list
 
@@ -162,20 +160,20 @@ def after_load_item_file(item_table: list) -> list:
     ]
     # crafters
     DOH = [
-        "CRP",
-        "BSM",
-        "ARM",
-        "GSM",
-        "LTW",
-        "WVR",
-        "ALC",
-        "CUL",
+        # "CRP",
+        # "BSM",
+        # "ARM",
+        # "GSM",
+        # "LTW",
+        # "WVR",
+        # "ALC",
+        # "CUL",
     ]
 
     # gatherers
     DOL = [
-        "MIN",
-        "BTN",
+        # "MIN",
+        # "BTN",
         "FSH",
         ]
     max_level = 90

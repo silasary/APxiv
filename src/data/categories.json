@@ -4,5 +4,11 @@
     },
     "Ocean Fishing": {
         "yaml_option": ["include_ocean_fishing"]
+    },
+    "FATEs": {
+        "hidden": true
+    },
+    "FATEsanity": {
+        "hidden": true
     }
 }

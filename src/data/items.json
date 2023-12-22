@@ -289,6 +289,12 @@
         "progression": true
     },
     {
+        "name": "Gangos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
         "name": "Elpis Access",
         "category": ["Location"],
         "count": 1,
