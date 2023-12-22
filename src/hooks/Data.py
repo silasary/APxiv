@@ -1,27 +1,7 @@
-from math import ceil
-
 import csv
 import pkgutil
 
 short_long = {
-    "MLN": "Middle La Noscea",
-    "LLN": "Lower La Noscea",
-    "ELN": "Eastern La Noscea",
-    "WLN": "Western La Noscea",
-    "ULN": "Upper La Noscea",
-    "OLN": "Outer La Noscea",
-
-    "CS": "Central Shroud",
-    "ES": "East Shroud",
-    "SS": "South Shroud",
-    "NS": "North Shroud",
-
-    "CT": "Central Thanalan",
-    "WT": "Western Thanalan",
-    "ET": "Eastern Thanalan",
-    "ST": "Southern Thanalan",
-    "NT": "Northern Thanalan",
-
     "CCH": "Coerthas Central Highlands",
     "CWH": "Coerthas Western Highlands",
 
@@ -49,6 +29,61 @@ short_long = {
     "TRG": "The Rak'tika Greatwood",
     "TT": "The Tempest"
 }
+long_short = {v: k for k, v in short_long.items()}
+
+fate_zones = {
+    "Middle La Noscea": [3,3],
+    "Lower La Noscea": [3,3],
+    "Eastern La Noscea": [30,30],
+    "Western La Noscea": [10,10,],
+    "Upper La Noscea": [20,20],
+    "Outer La Noscea": [30,30],
+
+    "Central Shroud": [4,4],
+    "East Shroud": [11,11],
+    "South Shroud": [21,21],
+    "North Shroud": [3,3],
+
+    "Central Thanalan": [5,5],
+    "Western Thanalan": [5,5],
+    "Eastern Thanalan": [15,15],
+    "Southern Thanalan": [25,26],
+    "Northern Thanalan": [49,49],
+
+    "CCH": [35,35],
+    "CWH": [50, 130],
+
+    "MD": [44,44],
+
+    "TSC": [50, 130],
+    "AL": [59, 145],
+
+    "TDF": [52, 130],
+    "TCM": [54, 130],
+    "TDH": [58, 145],
+
+    "TF": [60,0],
+    "TP": [60,0],
+    "TL": [69,0],
+
+    "TRS": [62],
+    "Y": [64],
+    "TAS": [65],
+
+    "L": [70],
+    "K": [70],
+    "IM": [72],
+    "AA": [76],
+    "TRG": [74],
+    "TT": [79],
+
+    "Labyrinthos": [80],
+    "Thavnair": [80],
+    "Garlemald": [82],
+    "Mare Lamentorum": [83],
+    "Elpis": [86],
+    "Ultima Thule": [88],
+}
 
 def generate_duty_list():
     duty_list = []
@@ -57,12 +92,12 @@ def generate_duty_list():
 
     for row in dutyreader:
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
-            requires_str = "|" + row[4] + " Access:1| and |$anyClassLevel:" + row[2] + "|"
+            requires_str = "|$anyClassLevel:" + row[2] + "|"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             duty_list.append(
                 {
                     "name": row[0],
-                    "region": "Duty",
+                    "region": row[4],
                     "category": [row[1], row[4]],
                     "requires": requires_str,
                     #"level" : row[3]
@@ -74,6 +109,56 @@ def generate_duty_list():
     return duty_list
 
 duty_locations = generate_duty_list()
+
+def generate_fate_list():
+    fate_list = []
+
+    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='|')
+
+    for row in fatereader:
+        row = [x.strip() for x in row]
+        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
+            name = row[0]
+            if "(FATE)" not in name:
+                name += " (FATE)"
+            fate_list.append(
+                {
+                    "name": name,
+                    "region": row[2],
+                    "category": ["FATEs", row[2]],
+                    "requires": "|$anyClassLevel:" + str(int(row[1]) - 3) + "|",
+                    "level" : row[1]
+                }
+            )
+            # remove generic FATEs from fate_zones if they exist
+            code = long_short.get(row[2], row[2])
+            if code in fate_zones:
+                fate_zones.pop(code)
+
+    if fate_zones:
+        lookup = False
+        for key in list(fate_zones.keys()):
+            if not lookup:
+                # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
+                lookup = True
+                from . import wiki_scraper
+                import os
+                additional = wiki_scraper.find_fates(short_long.get(key, key))
+                fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
+                with open(fates_path, 'a', newline='') as csvfile:
+                    writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                    for line in additional:
+                        writer.writerow(line.split(','))
+
+            level = fate_zones[key][0]
+            #ilvl = fate_zones[key][1]
+            fate_list.append(create_FATE_location(1,key,level))
+            fate_list.append(create_FATE_location(2,key,level))
+            fate_list.append(create_FATE_location(3,key,level))
+            fate_list.append(create_FATE_location(4,key,level))
+            fate_list.append(create_FATE_location(5,key,level))
+
+    return fate_list
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
@@ -158,66 +243,10 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
-    fate_list = []
-    fate_zones = {
-        "MLN": [3,3],
-        "LLN": [3,3],
-        "ELN": [30,30],
-        "WLN": [10,10,],
-        "ULN": [20,20],
-        "OLN": [30,30],
-
-        "CS": [4,4],
-        "ES": [11,11],
-        "SS": [21,21],
-        "NS": [3,3],
-
-        "CT": [5,5],
-        "WT": [5,5],
-        "ET": [15,15],
-        "ST": [25,26],
-        "NT": [49,49],
-
-        "CCH": [35,35],
-        "CWH": [50, 130],
-
-        "MD": [44,44],
-
-        "TSC": [50, 130],
-        "AL": [59, 145],
-
-        "TDF": [52, 130],
-        "TCM": [54, 130],
-        "TDH": [58, 145],
-
-        "TF": [60,0],
-        "TP": [60,0],
-        "TL": [69,0],
-
-        "TRS": [62],
-        "Y": [64],
-        "TAS": [65],
-
-        "L": [70],
-        "K": [70],
-        "IM": [72],
-        "AA": [76],
-        "TRG": [74],
-        "TT": [79]
-    }
-
-    for key in list(fate_zones.keys()):
-        level = fate_zones[key][0]
-        #ilvl = fate_zones[key][1]
-        fate_list.append(create_FATE_location(1,key,level))
-        fate_list.append(create_FATE_location(2,key,level))
-        fate_list.append(create_FATE_location(3,key,level))
-        fate_list.append(create_FATE_location(4,key,level))
-        fate_list.append(create_FATE_location(5,key,level))
-
-    location_table.extend(fate_list)
+    location_table.extend(generate_fate_list())
     location_table.extend(duty_locations)
     location_table.extend(ocean_fishing())
+
     return location_table
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
@@ -227,9 +256,9 @@ def after_load_region_file(region_table: dict) -> dict:
 
 def create_FATE_location(number, key, lvl):
     return {
-            "name": short_long[key] + ": FATE #" + str(number),
-            "region": short_long[key],
-            "category": ["FATEs", short_long[key]],
+            "name": short_long.get(key, key) + ": FATE #" + str(number),
+            "region": short_long.get(key, key),
+            "category": ["FATEs", short_long.get(key, key)],
             "requires": "|$anyClassLevel:" + str(lvl) + "|"
         }
 

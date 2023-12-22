@@ -1,14 +1,14 @@
 Name,Category,Level Sync,Ilvl Sync,Location,Req Size,Difficulty,Req Spells
 ARR,,,,,,,
 Satasha,Dungeon (ARR),18,18,Western La Noscea,Solo,Normal,
-The Tam-Tara Deepcroft,Dungeon (ARR),19,19,Gridania and Central Shroud,Solo,Normal,
+The Tam-Tara Deepcroft,Dungeon (ARR),19,19,Central Shroud,Solo,Normal,
 Copperbell Mines,Dungeon (ARR),20,20,Western Thanalan,Solo,Normal,
 Halatali,Dungeon (ARR),23,23,Eastern Thanalan,Solo,Normal,
 The Thousand Maws of Toto-Rak,Dungeon (ARR),27,27,South Shroud,Solo,Normal,
-Haukke Manor,Dungeon (ARR),31,31,Gridania and Central Shroud,Solo,Normal,
+Haukke Manor,Dungeon (ARR),31,31,Central Shroud,Solo,Normal,
 Brayflox's Longstop,Dungeon (ARR),34,34,Eastern La Noscea,Solo,Normal,
 The Sunken Temple of Qarn ,Dungeon (ARR),37,37,Southern Thanalan,Solo,Normal,
-Cutter's Cry,Dungeon (ARR),40,40,Ul'dah and Central Thanalan,Solo,Normal,
+Cutter's Cry,Dungeon (ARR),40,40,Central Thanalan,Solo,Normal,
 The Stone Vigil,Dungeon (ARR),43,43,Coerthas Central Highlands,Solo,Normal,
 Dzemael Darkhold,Dungeon (ARR),46,46,Coerthas Central Highlands,Solo,Normal,
 The Aurum Vale,Dungeon (ARR),49,49,Coerthas Central Highlands,Solo,Normal,
@@ -18,12 +18,12 @@ The Wanderer's Palace,Dungeon (ARR),50,110,Upper La Noscea,Solo,Normal,
 Amdapor Keep,Dungeon (ARR),50,110,South Shroud,Solo,Normal,
 Pharos Sirius,Dungeon (ARR),50,110,Western La Noscea,Solo,Normal,
 Copperbell Mines (Hard),Dungeon (ARR),50,110,Western Thanalan,Solo,Normal,
-Haukke Manor (Hard),Dungeon (ARR),50,110,Gridania and Central Shroud,Solo,Normal,
+Haukke Manor (Hard),Dungeon (ARR),50,110,Central Shroud,Solo,Normal,
 The Lost City of Amdapor,Dungeon (ARR),50,110,South Shroud,Light Party,Normal,
 Halatali (Hard),Dungeon (ARR),50,110,Eastern Thanalan,Solo,Normal,
 Brayflox's Longstop (Hard),Dungeon (ARR),50,110,Eastern La Noscea,Solo,Normal,
 Hullbreaker Isle,Dungeon (ARR),50,110,Lower La Noscea,Solo,Normal,
-The Tam-Tara Deepcroft (Hard),Dungeon (ARR),50,110,Gridania and Central Shroud,Solo,Normal,
+The Tam-Tara Deepcroft (Hard),Dungeon (ARR),50,110,Central Shroud,Solo,Normal,
 The Stone Vigil (Hard),Dungeon (ARR),50,110,Coerthas Central Highlands,Solo,Normal,
 Snowcloak,Dungeon (ARR),50,130,Coerthas Central Highlands,Solo,Normal,
 Sastasha (Hard),Dungeon (ARR),50,130,Western La Noscea,Solo,Normal,
@@ -34,10 +34,10 @@ Amdapor Keep (Hard),Dungeon (ARR),50,130,South Shroud,Solo,Normal,
 ,,,,,,,
 The Bowl of Embers,Trial (ARR),22,22,Southern Thanalan,Solo,Normal,
 The Navel,Trial (ARR),36,36,Upper La Noscea,Solo,Normal,
-The Howling Eye,Trial (ARR),46,46,Gridania and Central Shroud,Solo,Normal,
+The Howling Eye,Trial (ARR),46,46,Gridania,Solo,Normal,
 The Porta Decumana,Trial (ARR),50,60,Northern Thanalan,Solo,Normal,
 The Bowl of Embers (Hard),Trial (ARR),50,130,Southern Thanalan,Solo,Normal,
-The Howling Eye (Hard),Trial (ARR),50,130,Gridania and Central Shroud,Solo,Normal,
+The Howling Eye (Hard),Trial (ARR),50,130,Gridania,Solo,Normal,
 The Navel (Hard),Trial (ARR),50,130,Upper La Noscea,Solo,Normal,
 Thornmarch (Hard),Trial (ARR),50,130,East Shroud,Solo,Normal,
 A Relic Reborn: The Chimera,Trial (ARR),50,130,Coerthas Central Highlands,Solo,Normal,
@@ -52,7 +52,7 @@ Battle in the Big Keep,Trial (ARR),50,130,South Shroud,Solo,Normal,
 Urth's Fount,Trial (ARR),50,130,South Shroud,Full Party,Savage,
 ,Trial (ARR),,,,,,
 The Minstrel's Ballad: Ultima's Bane,Trial (ARR),50,130,Northern Thanalan,Full Party,Savage,
-The Howling Eye (Extreme),Trial (ARR),50,130,Gridania and Central Shroud,Full Party,Savage,
+The Howling Eye (Extreme),Trial (ARR),50,130,Gridania,Full Party,Savage,
 The Navel (Extreme),Trial (ARR),50,130,Upper La Noscea,Full Party,Savage,
 The Bowl of Embers (Extreme),Trial (ARR),50,130,Southern Thanalan,Full Party,Savage,
 Thornmarch (Extreme),Trial (ARR),50,130,East Shroud,Full Party,Savage,
@@ -82,38 +82,38 @@ The Labyrinth of the Ancients,Alliance Raid (ARR),50,130,Mor Dhona,Alliance,Norm
 Syrcus Tower,Alliance Raid (ARR),50,130,Mor Dhona,Alliance,Normal,
 The World of Darkness,Alliance Raid (ARR),50,130,Mor Dhona,Alliance,Normal,
 ,Guildhest (ARR),,,,,,
-Basic Training: Enemy Parties,Guildhest (ARR),10,10,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Under the Armor,Guildhest (ARR),10,10,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Basic Training: Enemy Strongholds,Guildhest (ARR),15,15,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Hero on the Halfshell,Guildhest (ARR),15,15,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Pulling Poison Posies,Guildhest (ARR),20,20,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Stinging Back,Guildhest (ARR),20,20,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-All's Well that Ends in the Well,Guildhest (ARR),25,25,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Flicking Sticks and Taking Names,Guildhest (ARR),25,25,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-More than a Feeler,Guildhest (ARR),30,30,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Annoy the Void,Guildhest (ARR),30,30,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Shadow and Claw,Guildhest (ARR),35,35,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Long Live the Queen,Guildhest (ARR),35,35,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Ward Up,Guildhest (ARR),40,40,Limsa Lominsa and Middle La Noscea,Light Party,Normal,
-Solemn Trinity,Guildhest (ARR),40,40,Limsa Lominsa and Middle La Noscea,Full Party,Normal,
+Basic Training: Enemy Parties,Guildhest (ARR),10,10,Limsa Lominsa,Light Party,Normal,
+Under the Armor,Guildhest (ARR),10,10,Limsa Lominsa,Light Party,Normal,
+Basic Training: Enemy Strongholds,Guildhest (ARR),15,15,Limsa Lominsa,Light Party,Normal,
+Hero on the Halfshell,Guildhest (ARR),15,15,Limsa Lominsa,Light Party,Normal,
+Pulling Poison Posies,Guildhest (ARR),20,20,Limsa Lominsa,Light Party,Normal,
+Stinging Back,Guildhest (ARR),20,20,Limsa Lominsa,Light Party,Normal,
+All's Well that Ends in the Well,Guildhest (ARR),25,25,Limsa Lominsa,Light Party,Normal,
+Flicking Sticks and Taking Names,Guildhest (ARR),25,25,Limsa Lominsa,Light Party,Normal,
+More than a Feeler,Guildhest (ARR),30,30,Limsa Lominsa,Light Party,Normal,
+Annoy the Void,Guildhest (ARR),30,30,Limsa Lominsa,Light Party,Normal,
+Shadow and Claw,Guildhest (ARR),35,35,Limsa Lominsa,Light Party,Normal,
+Long Live the Queen,Guildhest (ARR),35,35,Limsa Lominsa,Light Party,Normal,
+Ward Up,Guildhest (ARR),40,40,Limsa Lominsa,Light Party,Normal,
+Solemn Trinity,Guildhest (ARR),40,40,Limsa Lominsa,Full Party,Normal,
 ,,,,,,,
 HW,,,,,,,
 The Dusk Vigil,Dungeon (HW),52,130,Coerthas Western Highlands,Solo,Normal,
 Sohm Al,Dungeon (HW),54,130,The Dravanian Forelands,Solo,Normal,
 The Aery,Dungeon (HW),56,139,Ishgard,Solo,Normal,
 The Vault,Dungeon (HW),58,145,Ishgard,Solo,Normal,
-The Great Gubal Library,Dungeon (HW),60,150,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
+The Great Gubal Library,Dungeon (HW),60,150,The Dravanian Hinterlands,Solo,Normal,
 The Aetherochemical Research Facility,Dungeon (HW),60,180,Azys Lla,Solo,Normal,
 Neverreap,Dungeon (HW),60,210,The Sea of Clouds,Solo,Normal,
 The Fractal Continuum,Dungeon (HW),60,210,Azys Lla,Solo,Normal,
-Saint Mocianne's Arboretum,Dungeon (HW),60,240,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
-Pharos Sirius (Hard),Dungeon (HW),60,240,Limsa Lominsa and Middle La Noscea,Solo,Normal,
-The Antitower,Dungeon (HW),60,270,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
+Saint Mocianne's Arboretum,Dungeon (HW),60,240,The Dravanian Hinterlands,Solo,Normal,
+Pharos Sirius (Hard),Dungeon (HW),60,240,Middle La Noscea,Solo,Normal,
+The Antitower,Dungeon (HW),60,270,The Dravanian Hinterlands,Solo,Normal,
 The Lost City of Amdapor (Hard),Dungeon (HW),60,270,South Shroud,Solo,Normal,
 Sohr Khai,Dungeon (HW),60,270,The Churning Mists,Solo,Normal,
 Hullbreaker Isle (Hard),Dungeon (HW),60,270,Lower La Noscea,Solo,Normal,
 Xelphatol,Dungeon (HW),60,270,Coerthas Central Highlands,Solo,Normal,
-The Great Gubal Library (Hard),Dungeon (HW),60,270,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
+The Great Gubal Library (Hard),Dungeon (HW),60,270,The Dravanian Hinterlands,Solo,Normal,
 Baelsar's Wall,Dungeon (HW),60,270,East Shroud,Solo,Normal,
 Sohm Al (Hard),Dungeon (HW),60,270,The Churning Mists,Solo,Normal,
 ,,,,,,,
@@ -133,37 +133,37 @@ The Minstrel's Ballad: Nidhogg's Rage,Trial (HW),60,270,Ishgard,Full Party,Savag
 Containment Bay P1T6 (Extreme),Trial (HW),60,270,Azys Lla,Full Party,Savage,
 Containment Bay Z1T9 (Extreme),Trial (HW),60,270,Azys Lla,Full Party,Savage,
 ,,,,,,,
-The Fist of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Cuff of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Arm of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Burden of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Fist of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Cuff of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Arm of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Burden of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Eyes of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Breath of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Heart of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Soul of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Normal,Alexander Key
-The Fist of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Cuff of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Arm of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Burden of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Fist of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Cuff of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Arm of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Burden of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Eyes of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Breath of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Heart of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
-The Soul of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands and Idyllshire,Full Party,Savage,Alexander Key
+The Fist of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Cuff of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Arm of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Burden of the Father,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Fist of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Cuff of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Arm of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Burden of the Son,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Eyes of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Breath of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Heart of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Soul of the Creator,Normal Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Normal,Alexander Key
+The Fist of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Cuff of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Arm of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Burden of the Father (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Fist of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Cuff of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Arm of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Burden of the Son (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Eyes of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Breath of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Heart of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
+The Soul of the Creator (Savage),Savage Raid (HW),60,270,The Dravanian Hinterlands,Full Party,Savage,Alexander Key
 ,,,,,,,
 The Void Ark,Alliance Raid (HW),60,270,The Sea of Clouds,Alliance,Normal,
 The Weeping City of Mhach,Alliance Raid (HW),60,270,The Sea of Clouds,Alliance,Normal,
 Dun Scaith,Alliance Raid (HW),60,270,The Sea of Clouds,Alliance,Normal,
 ,,,,,,,
 STB,,,,,,,
-The Sirensong Sea,Dungeon (StB),61,,Limsa Lominsa and Middle La Noscea,Solo,Normal,
+The Sirensong Sea,Dungeon (StB),61,,Limsa Lominsa,Solo,Normal,
 Shisui of the Violet Tides,Dungeon (StB),63,,The Ruby Sea,Solo,Normal,
 Bardam's Mettle,Dungeon (StB),65,,The Azim Steppe,Solo,Normal,
 Doma Castle,Dungeon (StB),67,,Yanxia,Solo,Normal,
@@ -176,7 +176,7 @@ Hell's Lid,Dungeon (StB),70,,The Ruby Sea,Solo,Normal,
 The Fractal Continuum (Hard),Dungeon (StB),70,,Azys Lla,Solo,Normal,
 The Swallow's Compass,Dungeon (StB),70,,Yanxia,Solo,Normal,
 The Burn,Dungeon (StB),70,,Yanxia,Solo,Normal,
-Saint Mocianne's Arboretum (Hard),Dungeon (StB),70,,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
+Saint Mocianne's Arboretum (Hard),Dungeon (StB),70,,The Dravanian Hinterlands,Solo,Normal,
 The Ghimlyt Dark,Dungeon (StB),70,,The Lochs,Solo,Normal,
 ,,,,,,,
 The Pool of Tribute,Trial (StB),63,,The Ruby Sea,Solo,Normal,
@@ -239,8 +239,8 @@ Akademia Anyder,Dungeon (ShB),80,,The Tempest,Solo,Normal,
 The Grand Cosmos,Dungeon (ShB),80,,Lakeland,Solo,Normal,
 Anamnesis Anyder,Dungeon (ShB),80,,Kholusia,Solo,Normal,
 The Heroes’ Gauntlet,Dungeon (ShB),80,,Eulmore,Solo,Normal,
-Matoya’s Relict,Dungeon (ShB),80,,The Dravanian Hinterlands and Idyllshire,Solo,Normal,
-Paglth’an,Dungeon (ShB),80,,Ul'dah and Central Thanalan,Solo,Normal,
+Matoya’s Relict,Dungeon (ShB),80,,The Dravanian Hinterlands,Solo,Normal,
+Paglth’an,Dungeon (ShB),80,,Ul'dah,Solo,Normal,
 ,,,,,,,
 The Dancing Plague,Trial (ShB),73,,Il Mheg,Solo,Normal,
 The Crown of the Immaculate,Trial (ShB),79,,Kholusia,Solo,Normal,

@@ -9,6 +9,7 @@
 			"Eastern La Noscea",
 			"Ishgard",
 			"Kugane",
+            "Old Sharlayan",
             "Ocean Fishing"
 		],
 		"starting": true
@@ -289,7 +290,8 @@
 	{
 		"requires": "|The Lochs Access: 1|",
 		"connects_to": [
-			"The Peaks"
+			"The Peaks",
+            "Garlemald"
 		]
 	},
 	"Kugane":
@@ -333,7 +335,8 @@
 			"Lakeland",
 			"Amh Araeng",
 			"Kholusia",
-			"Eulmore"
+			"Eulmore",
+            "Elpis"
 		]
 	},
 	"Lakeland":
@@ -392,6 +395,54 @@
 			"Kholusia"
 		]
 	},
+    "Old Sharlayan": {
+        "requires": "|Old Sharlayan Access: 1|",
+        "connects_to": [
+            "Labyrinthos"
+        ]
+    },
+    "Labyrinthos": {
+        "requires": "|Labyrinthos Access: 1|",
+        "connects_to": [
+            "Ultima Thule",
+            "Thavnair"
+        ]
+    },
+    "Ultima Thule": {
+        "requires": "|Ultima Thule Access: 1|",
+        "connects_to": [
+            "Old Sharlayan"
+        ]
+    },
+    "Thavnair": {
+        "requires": "|Thavnair Access: 1|",
+        "connects_to": [
+            "Radz-at-Han"
+        ]
+    },
+    "Radz-at-Han": {
+        "requires": "|Radz-at-Han Access: 1|",
+        "connects_to": [
+            "Thavnair"
+        ]
+    },
+    "Garlemald": {
+        "requires": "|Garlemald Access: 1|",
+        "connects_to": [
+            "Mare Lamentorum"
+        ]
+    },
+    "Mare Lamentorum": {
+        "requires": "|Mare Lamentorum Access: 1|",
+        "connects_to": [
+            "Garlemald"
+        ]
+    },
+    "Elpis": {
+        "requires": "|Elpis Access: 1|",
+        "connects_to": [
+        ]
+    },
 	"Duty": {
 		"starting": true
 	},

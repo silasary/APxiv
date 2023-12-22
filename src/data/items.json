@@ -245,6 +245,55 @@
 		"count":1,
 		"progression": true
 	},
+    {
+        "name": "Old Sharlayan Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Labyrinthos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Ultima Thule Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Thavnair Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Radz-at-Han Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Garlemald Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+
+    },
+    {
+        "name": "Mare Lamentorum Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Elpis Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
 	{
 		"name": "Bahamut Key",
 		"category": ["Raid Key"],

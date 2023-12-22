@@ -203,9 +203,9 @@ class ManualWorld(World):
             if "dont_place_item" in manual_location:
                 if len(manual_location["dont_place_item"]) == 0:
                     continue
-                
+
                 forbidden_item_names.extend([i["name"] for i in item_name_to_item.values() if i["name"] in manual_location["dont_place_item"]])
-            
+
             if "dont_place_item_category" in manual_location:
                 if len(manual_location["dont_place_item_category"]) == 0:
                     continue
@@ -245,9 +245,9 @@ class ManualWorld(World):
             if "dont_place_item" in manual_location:
                 if len(manual_location["dont_place_item"]) == 0:
                     continue
-                
+
                 eligible_items = [item for item in eligible_items if item.name not in manual_location["dont_place_item"]]
-                
+
                 if len(eligible_items) == 0:
                     raise Exception("Could not find a suitable item to place at %s. No items that match placed_items(_category) because of forbidden %s." % (manual_location["name"], ", ".join(manual_location["dont_place_item"])))
 
@@ -256,7 +256,7 @@ class ManualWorld(World):
                     continue
 
                 forbidden_item_names = [i["name"] for i in item_name_to_item.values() if "category" in i and set(i["category"]).intersection(manual_location["dont_place_item_category"])]
-                
+
                 eligible_items = [item for item in eligible_items if item.name not in forbidden_item_names]
 
                 if len(eligible_items) == 0:
@@ -270,7 +270,7 @@ class ManualWorld(World):
 
             item_to_place = self.random.choice(eligible_items)
             location.place_locked_item(item_to_place)
-            
+
             # remove the item we're about to place from the pool so it isn't placed twice
             self.multiworld.itempool.remove(item_to_place)
 
@@ -278,8 +278,8 @@ class ManualWorld(World):
 
         # Uncomment these to generate a diagram of your manual.  Only works on 0.4.4+
 
-        # from Utils import visualize_regions
-        # visualize_regions(self.multiworld.get_region("Menu", self.player), f"{self.game}.puml")
+        from Utils import visualize_regions
+        visualize_regions(self.multiworld.get_region("Menu", self.player), f"{self.game}.puml")
 
     def create_item(self, name: str) -> Item:
         name = before_create_item(name, self, self.multiworld, self.player)
