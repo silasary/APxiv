@@ -49,6 +49,14 @@ namespace ArchepelegoXIV.Rando
         public static Dictionary<string, Region> Regions;
         private static readonly Region Menu;
         private static readonly Region Limsa;
+        private static readonly Region MiddleLaNoscea;
+        private static readonly Region LowerLaNoscea;
+        private static readonly Region EasternLaNoscea;
+
+        private static readonly Region WesternLaNoscea;
+        private static readonly Region UpperLaNoscea;
+        private static readonly Region OuterLaNoscea;
+
         private static readonly Region Gridania;
         private static readonly Region NorthShroud;
         private static readonly Region SouthShroud;
@@ -70,7 +78,15 @@ namespace ArchepelegoXIV.Rando
         {
             Regions = [];
             Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah", "Ishgard"]);
+
+            // La Noscea
             Limsa = new Region("Limsa Lominsa", ["Lower La Noscea", "Middle La Noscea", "Western La Noscea", "Eastern La Noscea", "Western Thanalan", "Kugane"], Logic.HasItem("Limsa Lominsa and Middle La Noscea Access"));
+            MiddleLaNoscea = new Region("Middle La Noscea", ["Limsa Lominsa", "Lower La Noscea", "Western La Noscea", "Eastern La Noscea"], Logic.HasItem("Limsa Lominsa and Middle La Noscea Access"));
+            LowerLaNoscea = new Region("Lower La Noscea", ["Limsa Lominsa", "Middle La Noscea", "Eastern La Noscea", "Western La Noscea"], Logic.HasItem("Lower La Noscea Access"));
+            EasternLaNoscea = new Region("Eastern La Noscea",["Lower La Noscea", "Limsa Lominsa", "Middle La Noscea", "Upper La Noscea"], Logic.HasItem("Eastern La Noscea Access"));
+            WesternLaNoscea = new Region("Western La Noscea", ["Middle La Noscea", "Upper La Noscea", "Limsa Lominsa", "Lower La Noscea"], Logic.HasItem("Western La Noscea Access"));
+            UpperLaNoscea = new Region("Upper La Noscea", ["Outer La Noscea", "Eastern La Noscea", "Western La Noscea"], Logic.HasItem("Upper La Noscea Access"));
+            OuterLaNoscea = new Region("Outer La Noscea", ["Upper La Noscea"], Logic.HasItem("Outer La Noscea Access"));
 
             // Shroud
             Gridania = new Region("Gridania", ["Central Shroud", "East Shroud", "North Shroud"], Logic.HasItem("Gridania and Central Shroud Access"));
