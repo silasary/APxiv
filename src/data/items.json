@@ -317,5 +317,11 @@
 		"category": ["Raid Key"],
 		"count":1,
 		"progression": true
-	}
+	},
+    {
+        "name": "Pandaemonium Key",
+        "category": ["Raid Key"],
+        "count": 1,
+        "progression": true
+    }
 ]

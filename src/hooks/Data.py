@@ -62,7 +62,7 @@ def generate_duty_list():
 
     for row in dutyreader:
         row = [x.strip() for x in row]
-        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
+        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB", "EW"]:
             requires_str = "|$anyClassLevel:" + row[2] + "|"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             duty_list.append(
@@ -88,7 +88,7 @@ def generate_fate_list():
 
     for row in fatereader:
         row = [x.strip() for x in row]
-        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB"]:
+        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB","EW"]:
             name = row[0]
             if "(FATE)" not in name:
                 name += " (FATE)"
