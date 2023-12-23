@@ -6,13 +6,13 @@ using Dalamud.Interface.Windowing;
 using SamplePlugin.Windows;
 using Dalamud.Game.DutyState;
 using Dalamud.Game.ClientState;
-using ArchepelegoXIV;
+using ArchipelegoXIV;
 using System;
 using Dalamud.Data;
 using Lumina.Excel.GeneratedSheets;
 using System.Linq;
 using Dalamud.Game;
-using ArchepelegoXIV.Hooks;
+using ArchipelegoXIV.Hooks;
 using Dalamud.Plugin.Services;
 
 namespace SamplePlugin
@@ -30,7 +30,7 @@ namespace SamplePlugin
         internal Events Events { get; }
 
         public Configuration Configuration { get; init; }
-        public WindowSystem WindowSystem = new("ArchepelegoXIV");
+        public WindowSystem WindowSystem = new("ArchipelegoXIV");
 
         private ConfigWindow ConfigWindow { get; init; }
         private MainWindow MainWindow { get; init; }
@@ -56,7 +56,7 @@ namespace SamplePlugin
 
             ConfigWindow = new ConfigWindow(this, this.apState);
             MainWindow = new MainWindow(this, this.apState);
-            
+
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
 
@@ -77,7 +77,7 @@ namespace SamplePlugin
         public void Dispose()
         {
             this.WindowSystem.RemoveAllWindows();
-            
+
             ConfigWindow.Dispose();
             Hooks.Dispose();
             this.CommandManager.RemoveHandler(CommandName);
@@ -101,6 +101,6 @@ namespace SamplePlugin
             ConfigWindow.IsOpen = true;
         }
 
-        
+
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArchepelegoXIV.Rando
+namespace ArchipelegoXIV.Rando
 {
     public abstract class BaseGame(ApState apState)
     {

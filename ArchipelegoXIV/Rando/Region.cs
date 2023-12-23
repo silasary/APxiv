@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace ArchepelegoXIV.Rando
+namespace ArchipelegoXIV.Rando
 {
     internal static class RegionContainer
     {
@@ -63,7 +63,7 @@ namespace ArchepelegoXIV.Rando
 
         public static void LoadJson()
         {
-            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchepelegoXIV.regions.json");
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.regions.json");
             using var reader = new StreamReader(stream);
             var regions = JObject.Parse(reader.ReadToEnd());
             foreach (var region in regions)

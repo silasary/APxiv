@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Lumina.Excel.GeneratedSheets;
 
-namespace ArchepelegoXIV
+namespace ArchipelegoXIV
 {
     internal partial class Data
     {
@@ -20,7 +20,7 @@ namespace ArchepelegoXIV
             Duties = [.. dataManager.GetExcelSheet<InstanceContent>()];
 
             ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>()];
-            
+
         }
     }
 }

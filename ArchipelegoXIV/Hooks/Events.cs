@@ -1,4 +1,4 @@
-using ArchepelegoXIV.Rando;
+using ArchipelegoXIV.Rando;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArchepelegoXIV.Hooks
+namespace ArchipelegoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
@@ -22,7 +22,7 @@ namespace ArchepelegoXIV.Hooks
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
         }
 
-        public void Disable() { 
+        public void Disable() {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
         }

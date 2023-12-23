@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ArchepelegoXIV.Rando
+namespace ArchipelegoXIV.Rando
 {
     internal static partial class Logic
     {
@@ -29,7 +29,7 @@ namespace ArchepelegoXIV.Rando
                     return gLevel >= level;
                 }
                 throw new NotImplementedException();
-                return false;                
+                return false;
             };
         }
 

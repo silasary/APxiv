@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArchepelegoXIV.Rando
+namespace ArchipelegoXIV.Rando
 {
     public class Location(ApState apState, long i)
     {
@@ -29,7 +29,7 @@ namespace ArchepelegoXIV.Rando
                     return Accessible = false;
                 return Accessible = true;
             }
-            
+
             return Accessible;
         }
 
