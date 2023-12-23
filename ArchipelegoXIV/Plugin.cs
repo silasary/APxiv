@@ -71,7 +71,7 @@ namespace SamplePlugin
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.Hooks.Enable();
             this.Events.Enable();
-            DalamudApi.SetStatusBar("Loaded");
+            DalamudApi.SetStatusBar("AP Disconnected");
         }
 
         public void Dispose()

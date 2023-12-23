@@ -16,8 +16,11 @@ namespace ArchipelegoXIV.Rando
             { "Limsa Lominsa Upper Decks", "Limsa Lominsa"},
             { "Old Gridania", "Gridania" },
             { "New Gridania", "Gridania" },
+            { "Ul'dah - Steps of Nald", "Ul'dah" },
+            { "Ul'dah - Steps of Thal", "Ul'dah" },
+            { "Blue Sky", "Masked Carnivale" },
             // Dungeons
-            { "Satasha", "Western La Noscea" },
+            { "Sastasha", "Western La Noscea" },
             { "The Tam-Tara Deepcroft", "Central Shroud" },
             { "Copperbell Mines", "Western Thanalan" },
             { "Halatali", "Eastern Thanalan" },
@@ -42,6 +45,7 @@ namespace ArchipelegoXIV.Rando
             { "The Qitana Ravel", "The Rak'tika Greatwood" },
             { "Dhon Mheg", "Il Mheg" },
             { "Holminster Switch", "Lakeland" },
+            { "Mt. Gulg", "Kholusia" },
             // Trials
             { "The Dancing Plague", "Il Mheg" },
             { "The Crown of the Immaculate", "Kholusia" },
@@ -74,7 +78,7 @@ namespace ArchipelegoXIV.Rando
                 var rule = Logic.Always();
                 var requires = region.Value.Value<string>("requires");
                 if (requires != null)
-                    rule = Logic.HasItem(requires);
+                    rule = Logic.FromString(requires);
                 _ = new Region(region.Key, connections.ToArray() ?? [], rule);
             }
         }

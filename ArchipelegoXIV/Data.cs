@@ -10,6 +10,7 @@ namespace ArchipelegoXIV
         public static TerritoryType[] Territories { get; private set; } = [];
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
+        public static ContentFinderCondition[] Content { get; private set; } = [];
 
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;
@@ -21,6 +22,13 @@ namespace ArchipelegoXIV
 
             ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>()];
 
+            Content = [.. dataManager.GetExcelSheet<ContentFinderCondition>()];
+
+        }
+
+        public static ContentFinderCondition GetDuty(ushort territoryId) {
+            var territory = Data.Territories.FirstOrDefault(row => row.RowId == territoryId);
+            return territory?.ContentFinderCondition?.Value;
         }
     }
 }
