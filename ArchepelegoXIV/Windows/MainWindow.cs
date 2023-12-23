@@ -9,10 +9,10 @@ using ImGuiScene;
 
 namespace SamplePlugin.Windows;
 
-public class MainWindow : Window, IDisposable
+public class MainWindow : Window
 {
     private readonly ApState state;
-    private readonly Plugin Plugin;
+    private readonly Plugin plugin;
 
     public MainWindow(Plugin plugin, ApState state) : base(
         "Archipelego", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
@@ -24,21 +24,16 @@ public class MainWindow : Window, IDisposable
         };
 
         this.state = state;
-        this.Plugin = plugin;
-    }
-
-    public void Dispose()
-    {
-        
+        this.plugin = plugin;
     }
 
     public override void Draw()
     {
-        ImGui.Text($"The AP server is at {this.Plugin.Configuration.Connection} (Connected: {this.state.Connected})");
+        ImGui.Text($"The AP server is at {this.plugin.Configuration.Connection} (Connected: {this.state.Connected})");
 
         if (ImGui.Button("Show Settings"))
         {
-            this.Plugin.DrawConfigUI();
+            this.plugin.DrawConfigUI();
         }
 
         ImGui.Spacing();

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Rando
 {
-    internal class BMBGame(ApState apState) : BaseGame(apState)
+    internal partial class BMBGame(ApState apState) : BaseGame(apState)
     {
-        private readonly Regex FATE = new("([A-Za-z ]+): FATE #(\\d+)");
+        private readonly Regex FATE = FateRegex();
 
         public override string Name => "Manual_FFXIVBMB_Pizzie";
 
@@ -28,14 +28,14 @@ namespace ArchepelegoXIV.Rando
                 return false;
             // TODO: Location-specific requirements.
             return true;
-            // We don't know this location yet?
-            //DalamudApi.Echo($"Unknown Location {location.Name}");
-            return false;
         }
 
         private bool HaveZoneAccess(string zone)
         {
             return RegionContainer.CanReach(apState, zone);
         }
+
+        [GeneratedRegex("([A-Za-z ]+): FATE #(\\d+)")]
+        private static partial Regex FateRegex();
     }
 }

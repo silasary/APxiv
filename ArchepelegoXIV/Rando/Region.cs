@@ -14,6 +14,8 @@ namespace ArchepelegoXIV.Rando
             // Cities
             { "Limsa Lominsa Lower Decks", "Limsa Lominsa"},
             { "Limsa Lominsa Upper Decks", "Limsa Lominsa"},
+            { "Old Gridania", "Gridania" },
+            { "New Gridania", "Gridania" },
             // Dungeons
             { "Satasha", "Western La Noscea" },
             { "The Tam-Tara Deepcroft", "Central Shroud" },

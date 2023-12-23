@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace ArchepelegoXIV.Rando
 {
-    public abstract class BaseGame
+    public abstract class BaseGame(ApState apState)
     {
-        protected ApState apState;
-
-        public BaseGame(ApState apState)
-        {
-            this.apState = apState;
-        }
+        protected ApState apState = apState;
 
         public abstract string Name { get; }
 

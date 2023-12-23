@@ -79,7 +79,6 @@ namespace SamplePlugin
             this.WindowSystem.RemoveAllWindows();
             
             ConfigWindow.Dispose();
-            MainWindow.Dispose();
             Hooks.Dispose();
             this.CommandManager.RemoveHandler(CommandName);
         }

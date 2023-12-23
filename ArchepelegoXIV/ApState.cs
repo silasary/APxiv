@@ -85,11 +85,11 @@ namespace ArchepelegoXIV
             var name = session?.Items.GetItemName(item.Item);
             var sender = session.Players.GetPlayerName(item.Player);
             DalamudApi.Echo($"Recieved {name} from {sender}");
-            this.RefreshRegions();
+            RefreshRegions();
             this.RefreshLocations(false);
         }
 
-        private void RefreshRegions()
+        private static void RefreshRegions()
         {
             RegionContainer.MarkStale();
         }
