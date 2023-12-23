@@ -1,6 +1,10 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace ArchepelegoXIV.Rando
 {
@@ -46,71 +50,31 @@ namespace ArchepelegoXIV.Rando
 
         };
 
-        public static Dictionary<string, Region> Regions;
+        public static Dictionary<string, Region> Regions = [];
         private static readonly Region Menu;
-        private static readonly Region Limsa;
-        private static readonly Region MiddleLaNoscea;
-        private static readonly Region LowerLaNoscea;
-        private static readonly Region EasternLaNoscea;
-
-        private static readonly Region WesternLaNoscea;
-        private static readonly Region UpperLaNoscea;
-        private static readonly Region OuterLaNoscea;
-
-        private static readonly Region Gridania;
-        private static readonly Region NorthShroud;
-        private static readonly Region SouthShroud;
-        private static readonly Region Uldah;
-        private static readonly Region MaskedCarnivale;
-        private static readonly Region WesternThanalan;
-        private static readonly Region Fringes;
-        private static readonly Region Lochs;
-        private static readonly Region Peaks;
-        private static readonly Region Crystarium;
-        private static readonly Region Lakeland;
-        private static readonly Region Kholusia;
-        private static readonly Region Eulmore;
-        private static readonly Region AmhAraeng;
-        private static readonly Region IlMheg;
-        private static readonly Region Tempest;
 
         static RegionContainer()
         {
-            Regions = [];
             Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah", "Ishgard"]);
+            LoadJson();
+        }
 
-            // La Noscea
-            Limsa = new Region("Limsa Lominsa", ["Lower La Noscea", "Middle La Noscea", "Western La Noscea", "Eastern La Noscea", "Western Thanalan", "Kugane"], Logic.HasItem("Limsa Lominsa and Middle La Noscea Access"));
-            MiddleLaNoscea = new Region("Middle La Noscea", ["Limsa Lominsa", "Lower La Noscea", "Western La Noscea", "Eastern La Noscea"], Logic.HasItem("Limsa Lominsa and Middle La Noscea Access"));
-            LowerLaNoscea = new Region("Lower La Noscea", ["Limsa Lominsa", "Middle La Noscea", "Eastern La Noscea", "Western La Noscea"], Logic.HasItem("Lower La Noscea Access"));
-            EasternLaNoscea = new Region("Eastern La Noscea",["Lower La Noscea", "Limsa Lominsa", "Middle La Noscea", "Upper La Noscea"], Logic.HasItem("Eastern La Noscea Access"));
-            WesternLaNoscea = new Region("Western La Noscea", ["Middle La Noscea", "Upper La Noscea", "Limsa Lominsa", "Lower La Noscea"], Logic.HasItem("Western La Noscea Access"));
-            UpperLaNoscea = new Region("Upper La Noscea", ["Outer La Noscea", "Eastern La Noscea", "Western La Noscea"], Logic.HasItem("Upper La Noscea Access"));
-            OuterLaNoscea = new Region("Outer La Noscea", ["Upper La Noscea"], Logic.HasItem("Outer La Noscea Access"));
+        public static void LoadJson()
+        {
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchepelegoXIV.regions.json");
+            using var reader = new StreamReader(stream);
+            var regions = JObject.Parse(reader.ReadToEnd());
+            foreach (var region in regions)
+            {
+                var connections = new List<string>();
+                connections.AddRange(region.Value["connects_to"]?.ToObject<List<string>>() ?? []);
 
-            // Shroud
-            Gridania = new Region("Gridania", ["Central Shroud", "East Shroud", "North Shroud"], Logic.HasItem("Gridania and Central Shroud Access"));
-            NorthShroud = new Region("North Shroud", ["Central Shroud", "Gridania", "Coerthas Central Highlands"], Logic.HasItem("North Shroud Access"));
-            SouthShroud = new Region("South Shroud", ["Central Shroud", "East Shroud", "Eastern Thanalan"], Logic.HasItem("South Shroud Access"));
-
-            // Thanalan
-            Uldah = new Region("Ul'dah", ["Western Thanalan", "Central Thanalan", "Masked Carnivale"], Logic.HasItem("Ul'dah and Central Thanalan Access"));
-            MaskedCarnivale = new Region("Masked Carnivale", [], Logic.Level(50));
-            WesternThanalan = new Region("Western Thanalan", ["Ul'dah", "Central Thanalan", "Limsa Lominsa"], Logic.HasItem("Western Thanalan Access"));
-
-            // Gyr Abania
-            Fringes = new Region("The Fringes", ["Rhalgr's Reach", "The Peaks"], Logic.HasItem("The Fringes Access"));
-            Peaks = new Region("The Peaks", ["Rhalgr's Reach", "The Fringes", "The Lochs"], Logic.HasItem("The Peaks Access"));
-            Lochs = new Region("The Lochs", [], Logic.HasItem("The Lochs Access"));
-
-            // First
-            Crystarium = new Region("The Crystarium", ["Lakeland", "Kholusia", "Eulmore"], Logic.HasItem("The Crystarium Access"));
-            Lakeland = new Region("Lakeland", ["Il Mheg", "Amh Araeng", "The Crystarium", "The Rak'tika Greatwood"], Logic.HasItem("Lakeland Access"));
-            Kholusia = new Region("Kholusia", ["The Tempest"], Logic.HasItem("Kholusia Access"));
-            Eulmore = new Region("Eulmore", [], Logic.HasItem("Eulmore Access"));
-            AmhAraeng = new Region("Amh Araeng", [], Logic.HasItem("Amh Araeng Access"));
-            IlMheg = new Region("Il Mheg", [], Logic.HasItem("Il Mheg Access"));
-            Tempest = new Region("The Tempest", [], Logic.HasItem("The Tempest Access"));
+                var rule = Logic.Always();
+                var requires = region.Value.Value<string>("requires");
+                if (requires != null)
+                    rule = Logic.HasItem(requires);
+                _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+            }
         }
 
         internal static void MarkStale()

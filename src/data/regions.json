@@ -449,5 +449,6 @@
         ]
     },
     "Ocean Fishing": {
+        "connects_to": []
     }
 }

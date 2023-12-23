@@ -8,7 +8,7 @@
         <Version>0.0.0.1</Version>
         <Description>A sample plugin.</Description>
         <Copyright></Copyright>
-        <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/silasary/APxiv</PackageProjectUrl>
 
 
     </PropertyGroup>
@@ -23,10 +23,13 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
-        <AdditionalFiles Include="..\src\data\regions.json" Link="regions.json" />
+        <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
+        <EmbeddedResource Include="..\src\hooks\duties.csv" Link="duties.csv" />
+        <EmbeddedResource Include="..\src\hooks\fates.csv" Link="fates.csv" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Archipelago.MultiClient.Net" Version="5.0.6" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 </Project>
