@@ -43,7 +43,7 @@ namespace ArchipelegoXIV.Rando
             };
         }
 
-        [GeneratedRegex("\\|([\\w ]+):(\\d)\\|")]
+        [GeneratedRegex("\\|([\\w ']+):(\\d)\\|")]
         private static partial Regex ItemRegex();
     }
 }

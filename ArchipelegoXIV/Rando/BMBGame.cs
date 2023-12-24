@@ -35,7 +35,7 @@ namespace ArchipelegoXIV.Rando
             return RegionContainer.CanReach(apState, zone);
         }
 
-        [GeneratedRegex("([A-Za-z ]+): FATE #(\\d+)")]
+        [GeneratedRegex("([A-Za-z ']+): FATE #(\\d+)")]
         private static partial Regex FateRegex();
     }
 }

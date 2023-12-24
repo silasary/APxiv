@@ -19,41 +19,6 @@ namespace ArchipelegoXIV.Rando
             { "Ul'dah - Steps of Nald", "Ul'dah" },
             { "Ul'dah - Steps of Thal", "Ul'dah" },
             { "Blue Sky", "Masked Carnivale" },
-            // Dungeons
-            { "Sastasha", "Western La Noscea" },
-            { "The Tam-Tara Deepcroft", "Central Shroud" },
-            { "Copperbell Mines", "Western Thanalan" },
-            { "Halatali", "Eastern Thanalan" },
-            { "The Thousand Maws of Toto-Rak", "South Shroud" },
-            { "Haukke Manor", "Central Shroud" },
-            { "Brayflox’s Longstop", "Eastern La Noscea" },
-            { "The Sunken Temple of Qarn", "Southern Thanalan" },
-            { "Cutter's Cry", "Central Thanalan" },
-            { "The Stone Vigil", "Coerthas Central Highlands" },
-            { "Dzemael Darkhold", "Coerthas Central Highlands" },
-            { "The Aurum Vale", "Coerthas Central Highlands" },
-            { "Castrum Meridianum", "Northern Thanalan" },
-            { "The Praetorium", "Northern Thanalan" },
-            { "The Dying Gasp", "The Tempest" },
-            { "The Heroes’ Gauntlet", "Eulmore" },
-            { "Akademia Anyder", "The Tempest" },
-            { "Anamnesis Anyder", "Kholusia" },
-            { "Paglth’an", "Ul'dah" },
-            { "Matoya’s Relict", "The Dravanian Hinterlands" },
-            { "Amaurot", "The Tempest" },
-            { "The Twinning", "The Crystarium" },
-            { "The Qitana Ravel", "The Rak'tika Greatwood" },
-            { "Dhon Mheg", "Il Mheg" },
-            { "Holminster Switch", "Lakeland" },
-            { "Mt. Gulg", "Kholusia" },
-            // Trials
-            { "The Dancing Plague", "Il Mheg" },
-            { "The Crown of the Immaculate", "Kholusia" },
-            { "Cinder Drift", "The Lochs" },
-            { "Castrum Marinum", "Western Thanalan" },
-            { "The Cloud Deck", "The Lochs" },
-
-
         };
 
         public static Dictionary<string, Region> Regions = [];
@@ -63,6 +28,7 @@ namespace ArchipelegoXIV.Rando
         {
             Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah", "Ishgard"]);
             LoadJson();
+            LoadCsv();
         }
 
         public static void LoadJson()
@@ -80,6 +46,22 @@ namespace ArchipelegoXIV.Rando
                 if (requires != null)
                     rule = Logic.FromString(requires);
                 _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+            }
+        }
+
+        public static void LoadCsv()
+        {
+            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW"];
+            // TODO: Load duties.csv, and populate Aliases with Dungeon Location -> Entrance Location.
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.duties.csv");
+            using var reader = new StreamReader(stream);
+            string? line = null;
+            while ((line = reader.ReadLine()) != null)
+            {
+                var row = line.Split(',');
+                if (headers.Contains(row[0]))
+                    continue;
+                Aliases[row[0]] = row[4];
             }
         }
 
