@@ -11,7 +11,7 @@ public class ConfigWindow : Window, IDisposable
     private Configuration Configuration;
 
     public ConfigWindow(Plugin plugin, ApState apState) : base(
-        "Debug Window",
+        "AP Config",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
@@ -29,12 +29,19 @@ public class ConfigWindow : Window, IDisposable
     public override void Draw()
     {
         // can't ref a property, so use a local copy
-        var configValue = this.ApState.CanTeleport;
-        if (ImGui.Checkbox("Allow Teleport", ref configValue))
+        //var configValue = this.ApState.CanTeleport;
+        //if (ImGui.Checkbox("Allow Teleport", ref configValue))
+        //{
+        //    this.ApState.CanTeleport = configValue;
+        //    // can save immediately on change, if you don't want to provide a "Save and Close" button
+        //    this.Configuration.Save();
+        //}
+        ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref Configuration.SlotName, 63);
+        ImGui.InputTextWithHint("Address", "archipelago.gg:", ref Configuration.Connection, 64);
+        if (ImGui.Button("Save & Connect"))
         {
-            this.ApState.CanTeleport = configValue;
-            // can save immediately on change, if you don't want to provide a "Save and Close" button
-            this.Configuration.Save();
+            Configuration.Save();
+            ApState.Connect(Configuration.Connection, Configuration.SlotName);
         }
     }
 }

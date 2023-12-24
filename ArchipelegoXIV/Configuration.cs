@@ -9,11 +9,11 @@ namespace SamplePlugin
     {
         public int Version { get; set; } = 0;
 
-        public string Connection { get; set; }
-
         // the below exist just to make saving less cumbersome
         [NonSerialized]
         private DalamudPluginInterface? pluginInterface;
+        public string Connection;
+        public string SlotName;
 
         public void Initialize(DalamudPluginInterface pluginInterface)
         {

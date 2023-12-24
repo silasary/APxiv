@@ -87,8 +87,13 @@ namespace SamplePlugin
         {
             // in response to the slash command, just display our main ui
             this.MainWindow.IsOpen = true;
+            if (string.IsNullOrEmpty(Configuration.Connection))
+            {
+                this.ConfigWindow.IsOpen = true;
+                return;
+            }
             if (!this.apState.Connected)
-                this.apState.Connect("archipelago.gg:41475");
+                this.apState.Connect(Configuration.Connection, Configuration.SlotName);
         }
 
         private void DrawUI()

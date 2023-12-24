@@ -26,7 +26,7 @@ namespace ArchipelegoXIV.Hooks
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
         }
 
-        private void ClientState_CfPop(Lumina.Excel.GeneratedSheets.ContentFinderCondition obj)
+        private void ClientState_CfPop(ContentFinderCondition obj)
         {
             DalamudApi.Echo(obj.Name);
             this.last_pop = obj;

@@ -44,7 +44,7 @@ namespace ArchipelegoXIV
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
         public IEnumerable<Location> MissingLocations { get; private set; }
 
-        internal void Connect(string address)
+        internal void Connect(string address, string player = null)
         {
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.ClientState.LocalPlayer;
@@ -59,8 +59,12 @@ namespace ArchipelegoXIV
 
             this.session = ArchipelagoSessionFactory.CreateSession(address);
             this.session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
-            DalamudApi.Echo($"Connecting as {localPlayer.Name} Playing {Game.Name}");
-            var result = this.session.TryConnectAndLogin(Game.Name, localPlayer.Name.ToString(), Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems, tags: new string[] { "dalamud" });
+            if (string.IsNullOrEmpty(player))
+            {
+                player = localPlayer.Name.ToString();
+            }
+            DalamudApi.Echo($"Connecting as {player} Playing {Game.Name}");
+            var result = this.session.TryConnectAndLogin(Game.Name, player, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems, tags: new string[] { "Dalamud" });
             Connected = result.Successful;
             if (!result.Successful)
             {
