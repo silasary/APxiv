@@ -38,7 +38,5 @@ namespace ArchipelegoXIV.Rando
 
             return Accessible;
         }
-
-        public bool Cleared;
     }
 }

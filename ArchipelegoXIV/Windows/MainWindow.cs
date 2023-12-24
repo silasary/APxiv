@@ -29,11 +29,11 @@ public class MainWindow : Window
 
     public override void Draw()
     {
-        ImGui.Text($"The AP server is at {this.plugin.Configuration.Connection} (Connected: {this.state.Connected})");
+        ImGui.Text($"The AP server is at {plugin.Configuration.Connection} (Connected: {state.Connected})");
 
         if (ImGui.Button("Show Settings"))
         {
-            this.plugin.DrawConfigUI();
+            plugin.DrawConfigUI();
         }
 
         ImGui.Spacing();
@@ -47,7 +47,7 @@ public class MainWindow : Window
         if (state.MissingLocations != null)
             foreach (var location in state.MissingLocations)
             {
-                if (location.IsAccessible() && !location.Cleared)
+                if (location.IsAccessible())
                     ImGui.Text($"{location.Name}");
             }
 

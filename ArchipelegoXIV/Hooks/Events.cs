@@ -50,7 +50,15 @@ namespace ArchipelegoXIV.Hooks
             var canReach = RegionContainer.CanReach(apState, apState.territoryName);
             if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState))
             {
-                DalamudApi.Echo("Dry Marking Check");
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                if (location == null)
+                {
+                    DalamudApi.Echo("Location already completed, nothing to do.");
+                    return;
+                }
+                DalamudApi.Echo("Marking Check");
+                apState.session.Locations.CompleteLocationChecks(location.ApId);
+
             }
             else
             {
