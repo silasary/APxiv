@@ -12,8 +12,8 @@ namespace SamplePlugin
         // the below exist just to make saving less cumbersome
         [NonSerialized]
         private DalamudPluginInterface? pluginInterface;
-        public string Connection;
-        public string SlotName;
+        public string Connection { get; set; } = "";
+        public string SlotName { get; set; } = "";
 
         public void Initialize(DalamudPluginInterface pluginInterface)
         {

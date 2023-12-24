@@ -9,22 +9,32 @@ namespace SamplePlugin.Windows;
 public class ConfigWindow : Window, IDisposable
 {
     private Configuration Configuration;
+    private string slotName;
+    private string connection;
 
     public ConfigWindow(Plugin plugin, ApState apState) : base(
         "AP Config",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 75);
+        this.Size = new Vector2(232, 125);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
         ApState = apState;
+        this.slotName = Configuration.SlotName;
+        this.connection = Configuration.Connection;
     }
 
     public ApState ApState { get; }
 
     public void Dispose() { }
+
+    public override void OnOpen()
+    {
+        this.slotName = Configuration.SlotName;
+        this.connection = Configuration.Connection;
+    }
 
     public override void Draw()
     {
@@ -36,10 +46,12 @@ public class ConfigWindow : Window, IDisposable
         //    // can save immediately on change, if you don't want to provide a "Save and Close" button
         //    this.Configuration.Save();
         //}
-        ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref Configuration.SlotName, 63);
-        ImGui.InputTextWithHint("Address", "archipelago.gg:", ref Configuration.Connection, 64);
+        ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref slotName, 63);
+        ImGui.InputTextWithHint("Address", "archipelago.gg:38281", ref connection, 64);
         if (ImGui.Button("Save & Connect"))
         {
+            Configuration.Connection = connection;
+            Configuration.SlotName = slotName;
             Configuration.Save();
             ApState.Connect(Configuration.Connection, Configuration.SlotName);
         }
