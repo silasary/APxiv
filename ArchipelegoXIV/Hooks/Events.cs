@@ -65,7 +65,12 @@ namespace ArchipelegoXIV.Hooks
             apState.territoryRegion = territory.PlaceNameRegion?.Value?.Name ?? "Unknown";
 
             if (!apState.Connected)
+            {
+                // Check if known location
+                RegionContainer.CanReach(apState, apState.territoryName);
                 return;
+            }
+
             var canReach = RegionContainer.CanReach(apState, apState.territoryName);
             if (canReach)
                 DalamudApi.SetStatusBar("In Logic");

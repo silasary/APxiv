@@ -19,6 +19,37 @@ namespace ArchipelegoXIV.Rando
             { "Ul'dah - Steps of Nald", "Ul'dah" },
             { "Ul'dah - Steps of Thal", "Ul'dah" },
             { "Blue Sky", "Masked Carnivale" },
+            { "Maelstrom Barracks", "Limsa Lominsa"}, 
+            { "Twin Adder Barracks", "Gridania"},
+            { "Flame Barracks", "Uldah"},
+            { "Foundation", "Ishgard"},
+            { "The Pillars", "Ishgard"},
+            { "Idyllshire", "The Dravnian Hinterlands"}, 
+            // Inns
+            { "Location Mizzenmast Inn", "Limsa Lominsa"},
+            { "The Roost", "Gridania"}, 
+            { "The Hourglass", "Ul'dah"},
+            { "Cloud Nine", "Ishgard"}, 
+            { "Bokairo Inn", "Kugane"}, 
+            { "Andron", "Old Sharlayan"}, 
+            // Player Housing
+            { "The Goblet", "Uldah"},
+            { "Mist", "Limsa Lominsa"},
+            { "The Lavender Beds", "Gridania"},
+            { "Shirogane", "Kugane"},
+            { "Empyreum", "Ishgard"},
+            // Gold Saucer
+            { "The Gold Saucer", "Southern Thanalan" },
+            { "Chocobo Square", "Southern Thanalan"},
+            // Instanced Zone
+            { "The Waking Sands", "Western Thanalan"},
+            { "Fortemps Manor", "Ishgard"},
+            { "Matoya's Cave", "The Dravnian Hinterlands"}, 
+            { "The Lightfeather Proving Grounds", "Ishgard"},
+            { "Ruby Bazaar Offices", "Kugane"},
+            { "The Doman Enclave", "Yanxia" },
+            { "The Omphalos", "Mor Dhona"  },
+            { "Main Hall", "Old Sharlayan" }, 
         };
 
         public static Dictionary<string, Region> Regions = [];
