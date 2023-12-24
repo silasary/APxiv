@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ArchipelegoXIV.Rando
@@ -12,6 +13,23 @@ namespace ArchipelegoXIV.Rando
 
         public abstract string Name { get; }
 
-        public abstract bool MeetsRequirements(Location location);
+        public virtual bool MeetsRequirements(Location location)
+        {
+            var zone = location.Name;
+            if (zone.StartsWith("Masked Carnivale"))
+                zone = "Masked Carnivale";
+
+            var match = Regexes.FATE.Match(zone);
+            if (match.Success)
+            {
+                zone = match.Groups[1].Value;
+            }
+            if (!RegionContainer.CanReach(apState, zone))
+                return false;
+            
+            // TODO: Location-specific requirements.
+            return true;
+
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace ArchipelegoXIV.Rando
 
         internal bool stale = true;
 
+        public Func<ApState, bool>? MeetsRequirements = null;
+
         public bool IsAccessible()
         {
             if (stale)
@@ -27,6 +29,10 @@ namespace ArchipelegoXIV.Rando
                     return Accessible = false;
                 if (!apState.Game.MeetsRequirements(this))
                     return Accessible = false;
+                if (MeetsRequirements == null)
+                {
+
+                }
                 return Accessible = true;
             }
 

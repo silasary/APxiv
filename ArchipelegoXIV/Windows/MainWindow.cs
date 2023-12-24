@@ -39,6 +39,8 @@ public class MainWindow : Window
         ImGui.Spacing();
 
         ImGui.Text($"DutyState: {state.DebugText}");
+        if (state.territoryName == null)
+            return;
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName)}");
         ImGui.Text($"Available Checks:");
         ImGui.Indent(55);

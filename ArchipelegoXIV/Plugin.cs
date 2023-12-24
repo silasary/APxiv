@@ -76,11 +76,11 @@ namespace SamplePlugin
 
         public void Dispose()
         {
-            this.WindowSystem.RemoveAllWindows();
-
+            apState.session?.Socket?.DisconnectAsync()?.RunSynchronously();
+            WindowSystem.RemoveAllWindows();
             ConfigWindow.Dispose();
             Hooks.Dispose();
-            this.CommandManager.RemoveHandler(CommandName);
+            CommandManager.RemoveHandler(CommandName);
         }
 
         private void OnCommand(string command, string args)

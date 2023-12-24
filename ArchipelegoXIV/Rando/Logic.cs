@@ -7,14 +7,13 @@ namespace ArchipelegoXIV.Rando
 {
     internal static partial class Logic
     {
-        private static readonly Regex itemRegex = ItemRegex();
         public static Func<ApState, bool> Always() => (state) => true;
 
         public static Func<ApState, bool> HasItem(string Item) => (state) =>
         {
             if (Item.StartsWith("|"))
             {
-                var m = itemRegex.Match(Item);
+                var m = Regexes.itemRegex.Match(Item);
                 return state.Items.Contains(m.Groups[1].Value);
             }
             return state.Items.Contains(Item);
@@ -22,7 +21,7 @@ namespace ArchipelegoXIV.Rando
 
         internal static Func<ApState, bool> FromString(string requires)
         {
-            var rules = (from Match m in itemRegex.Matches(requires)
+            var rules = (from Match m in Regexes.itemRegex.Matches(requires)
                          select HasItem(m.Groups[0].Value)).ToArray();
             if (rules.Any())
                 return (state) => rules.All(r => r(state));
@@ -42,8 +41,5 @@ namespace ArchipelegoXIV.Rando
                 return false;
             };
         }
-
-        [GeneratedRegex("\\|([\\w ']+):(\\d)\\|")]
-        private static partial Regex ItemRegex();
     }
 }
