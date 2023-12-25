@@ -3,5 +3,9 @@
         "name": "Goal",
         "requires": "|Memory of a Distant World:all|",
         "victory": true
+    },
+    {
+        "name": "Return to the Waking Sands",
+        "region": "Western Thanalan"
     }
 ]

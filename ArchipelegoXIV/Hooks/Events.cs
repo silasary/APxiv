@@ -1,23 +1,28 @@
 using ArchipelegoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
-using Dalamud.Game.ClientState;
-using Dalamud.Game.Gui.Dtr;
-using Dalamud.Game.Text;
-using Dalamud.Plugin.Services;
-using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using Lumina.Excel.GeneratedSheets;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArchipelegoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
+        public static unsafe AtkResNode* GetChildNodeByID(AtkResNode* node, uint nodeId) => GetChildNodeByID(node->GetComponent(), nodeId);
+        public static unsafe AtkResNode* GetChildNodeByID(AtkComponentBase* component, uint nodeId) => GetChildNodeByID(&component->UldManager, nodeId);
+        public static unsafe AtkResNode* GetChildNodeByID(AtkUldManager* uldManager, uint nodeId)
+        {
+            for (var i = 0; i < uldManager->NodeListCount; i++)
+            {
+                var n = uldManager->NodeList[i];
+                if (n->NodeID != nodeId) continue;
+                return n;
+            }
+            return null;
+        }
+
         private ContentFinderCondition last_pop;
 
         public void Enable()
@@ -35,8 +40,36 @@ namespace ArchipelegoXIV.Hooks
         private unsafe void OnFatePostSetup(AddonEvent type, AddonArgs args)
         {
             // TODO: Figure out how to get data out of this
-            var fateRewardAddon = (AddonFateReward*)args.Addon;
-            //fateRewardAddon->
+            var fateRewardAddon = (AtkUnitBase*)args.Addon;
+            var FateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
+            for (uint i = 0; i <= 14; i++)
+            {
+                try
+                {
+
+                    if (fateRewardAddon->GetNodeById(i)->Type == NodeType.Text)
+                    {
+                        var text = fateRewardAddon->GetNodeById(i)->GetAsAtkTextNode()->NodeText.ToString();
+                        DalamudApi.Echo($"{i} -> {text}");
+                    }
+                    //else if (fateRewardAddon->GetNodeById(i)->Type == NodeType.Res)
+                    //{
+                    //}
+                    else
+                    {
+                        DalamudApi.Echo($"{i} -> {fateRewardAddon->GetNodeById(i)->Type}");
+
+                    }
+                }
+                catch (NullReferenceException)
+                {
+                    DalamudApi.Echo($"{i} -> null");
+
+                }
+            }
+            
+
+            //DalamudApi.Echo(name);
         }
 
         private void ClientState_CfPop(ContentFinderCondition obj)
