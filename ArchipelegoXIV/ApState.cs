@@ -35,7 +35,7 @@ namespace ArchipelegoXIV
         {
             get
             {
-                return $"{territory}\n{territoryName}\n{territoryRegion}\n\nHooked: {Hooked}";
+                return $"{territory}\n{territoryName}\n{territoryRegion}\n\nMax Level: {Logic.MaxLevel(this)}";
             }
         }
 
@@ -44,7 +44,7 @@ namespace ArchipelegoXIV
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
         public IEnumerable<Location> MissingLocations { get; private set; }
 
-        internal void Connect(string address, string player = null)
+        internal void Connect(string address, string? player = null)
         {
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.ClientState.LocalPlayer;

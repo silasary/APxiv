@@ -76,7 +76,8 @@ namespace SamplePlugin
 
         public void Dispose()
         {
-            apState.session?.Socket?.DisconnectAsync()?.RunSynchronously();
+            if (apState.Connected && (apState.session?.Socket?.Connected ?? false))
+                apState.session?.Socket?.DisconnectAsync()?.Wait();
             WindowSystem.RemoveAllWindows();
             ConfigWindow.Dispose();
             Hooks.Dispose();

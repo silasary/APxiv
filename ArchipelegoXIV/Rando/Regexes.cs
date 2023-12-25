@@ -11,9 +11,13 @@ namespace ArchipelegoXIV.Rando
         [GeneratedRegex("\\|([\\w ']+):(\\d)\\|")]
         private static partial Regex ItemRegex();
 
+        [GeneratedRegex("^Masked Carnivale #(\\d+)$")]
+        private static partial Regex CarnivaleRegex();
+
 
         public static readonly Regex FATE = FateRegex();
         public static readonly Regex itemRegex = ItemRegex();
+        public static readonly Regex Carnivale = CarnivaleRegex();
 
     }
 }

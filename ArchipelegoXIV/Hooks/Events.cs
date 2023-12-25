@@ -43,7 +43,7 @@ namespace ArchipelegoXIV.Hooks
             var duty = Data.GetDuty(e);
             string name = duty.Name;
             if (name.StartsWith("the"))
-                name = "The" + name[2..];
+                name = "The" + name[3..];
             DalamudApi.Echo($"{name} Completed");
             if (!apState.Connected)
                 return;

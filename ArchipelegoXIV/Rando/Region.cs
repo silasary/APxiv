@@ -49,7 +49,7 @@ namespace ArchipelegoXIV.Rando
             { "Ruby Bazaar Offices", "Kugane"},
             { "The Doman Enclave", "Yanxia" },
             { "The Omphalos", "Mor Dhona"  },
-            { "Main Hall", "Old Sharlayan" }, 
+            { "Main Hall", "Old Sharlayan" },
         };
 
         public static Dictionary<string, Region> Regions = [];
