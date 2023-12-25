@@ -47,7 +47,7 @@ namespace ArchipelegoXIV.Hooks
             DalamudApi.Echo($"{name} Completed");
             if (!apState.Connected)
                 return;
-            var canReach = RegionContainer.CanReach(apState, apState.territoryName);
+            var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
             if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState))
             {
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
@@ -79,7 +79,7 @@ namespace ArchipelegoXIV.Hooks
                 return;
             }
 
-            var canReach = RegionContainer.CanReach(apState, apState.territoryName);
+            var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
             if (canReach)
                 DalamudApi.SetStatusBar("In Logic");
             else

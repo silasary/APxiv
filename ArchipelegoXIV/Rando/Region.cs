@@ -136,15 +136,27 @@ namespace ArchipelegoXIV.Rando
             return target.Reachable;
         }
 
-        internal static bool CanReach(ApState apState, string name)
+        internal static bool CanReach(ApState apState, string name, ushort territoryId = 0)
         {
             if (Aliases.TryGetValue(name, out var alias))
             {
                 name = alias;
             }
 
-            if (!Regions.TryGetValue(name, out var value))
+            if (!Regions.ContainsKey(name) && territoryId > 0)
             {
+                var duty = Data.GetDuty(territoryId);
+                if (duty != null)
+                {
+                    name = duty.Name;
+                    if (name.StartsWith("the"))
+                        name = "The" + name[3..];
+                    if (Aliases.TryGetValue(name, out alias))
+                        name = alias;
+                }
+            }
+            if (!Regions.TryGetValue(name, out var value))
+            { 
                 DalamudApi.SetStatusBar($"Unknown Location {name}");
                 DalamudApi.Echo($"Unknown Location {name}");
                 return false;

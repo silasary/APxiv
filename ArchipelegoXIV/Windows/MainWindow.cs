@@ -41,7 +41,7 @@ public class MainWindow : Window
         ImGui.Text($"DutyState: {state.DebugText}");
         if (state.territoryName == null)
             return;
-        ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName)}");
+        ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
         ImGui.Text($"Available Checks:");
         ImGui.Indent(55);
         if (state.MissingLocations != null)

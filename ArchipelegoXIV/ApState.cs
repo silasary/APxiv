@@ -112,7 +112,6 @@ namespace ArchipelegoXIV
                 foreach (var l in MissingLocations)
                     l.stale = true;
             }
-
         }
     }
 }
