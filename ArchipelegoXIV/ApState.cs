@@ -89,6 +89,7 @@ namespace ArchipelegoXIV
             var name = session?.Items.GetItemName(item.Item);
             var sender = session.Players.GetPlayerName(item.Player);
             DalamudApi.Echo($"Recieved {name} from {sender}");
+            DalamudApi.ShowToast($"Recieved {name} from {sender}");
             RefreshRegions();
             this.RefreshLocations(false);
         }
@@ -101,6 +102,7 @@ namespace ArchipelegoXIV
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
         {
             DalamudApi.Echo(message.ToString());
+            //DalamudApi.ShowToast(message.ToString());
         }
 
         public void RefreshLocations(bool hard)

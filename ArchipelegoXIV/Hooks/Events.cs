@@ -1,8 +1,12 @@
 using ArchipelegoXIV.Rando;
+using Dalamud.Game.Addon.Lifecycle;
+using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Plugin.Services;
+using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Component.GUI;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
@@ -21,9 +25,18 @@ namespace ArchipelegoXIV.Hooks
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.CfPop += ClientState_CfPop;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "FateReward", OnFatePostSetup);
 
             if (DalamudApi.ClientState.IsLoggedIn)
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
+
+        }
+
+        private unsafe void OnFatePostSetup(AddonEvent type, AddonArgs args)
+        {
+            // TODO: Figure out how to get data out of this
+            var fateRewardAddon = (AddonFateReward*)args.Addon;
+            //fateRewardAddon->
         }
 
         private void ClientState_CfPop(ContentFinderCondition obj)

@@ -38,6 +38,7 @@ namespace ArchipelegoXIV
 
         public static void Initialize(DalamudPluginInterface pluginInterface) => pluginInterface.Create<DalamudApi>();
 
+        [PluginService][RequiredVersion("1.0")] public static IAddonLifecycle AddonLifecycle { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IAetheryteList AetheryteList { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IBuddyList BuddyList { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IChatGui ChatGui { get; private set; } = null;
@@ -77,8 +78,12 @@ namespace ArchipelegoXIV
 
         internal static void SetStatusBar(string text)
         {
-            logicBar ??= DtrBar.Get("archipelago");
+            logicBar ??= DtrBar.Get("Archipelago");
             logicBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
+        }
+        internal static void ShowToast(string text)
+        {
+            ToastGui.ShowQuest(text);
         }
     }
 }
