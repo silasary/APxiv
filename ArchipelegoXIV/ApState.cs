@@ -7,6 +7,7 @@ using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Archipelago.MultiClient.Net.MessageLog.Parts;
 
 namespace ArchipelegoXIV
 {
@@ -101,7 +102,8 @@ namespace ArchipelegoXIV
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
         {
             DalamudApi.Echo(message.ToString());
-            //DalamudApi.ShowToast(message.ToString());
+            if (message.Parts.Any(p => p.Type == MessagePartType.Player && p.Text == session.Players.GetPlayerAlias(slot)))
+                DalamudApi.ShowToast(message.ToString());
         }
 
         public void RefreshLocations(bool hard)
