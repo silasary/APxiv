@@ -1,6 +1,7 @@
 using ArchipelegoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using Lumina.Excel.GeneratedSheets;
 using System;
@@ -41,35 +42,23 @@ namespace ArchipelegoXIV.Hooks
         {
             // TODO: Figure out how to get data out of this
             var fateRewardAddon = (AtkUnitBase*)args.Addon;
-            var FateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
-            for (uint i = 0; i <= 14; i++)
+            var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
+            var failed = ((AddonFateReward*)fateRewardAddon)->AtkTextNode240->AtkResNode.IsVisible;
+
+            var locName = fateName + " (FATE)";
+            if (failed)
+                return;
+
+            var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name == locName);
+            loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #"));
+            if (loc == null)
             {
-                try
-                {
-
-                    if (fateRewardAddon->GetNodeById(i)->Type == NodeType.Text)
-                    {
-                        var text = fateRewardAddon->GetNodeById(i)->GetAsAtkTextNode()->NodeText.ToString();
-                        DalamudApi.Echo($"{i} -> {text}");
-                    }
-                    //else if (fateRewardAddon->GetNodeById(i)->Type == NodeType.Res)
-                    //{
-                    //}
-                    else
-                    {
-                        DalamudApi.Echo($"{i} -> {fateRewardAddon->GetNodeById(i)->Type}");
-
-                    }
-                }
-                catch (NullReferenceException)
-                {
-                    DalamudApi.Echo($"{i} -> null");
-
-                }
+                DalamudApi.Echo("Fate not available or already completed");
+                return;
             }
-            
 
-            //DalamudApi.Echo(name);
+            apState.session.Locations.CompleteLocationChecks(loc.ApId);
+
         }
 
         private void ClientState_CfPop(ContentFinderCondition obj)
