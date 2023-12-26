@@ -119,6 +119,13 @@ namespace ArchipelegoXIV.Hooks
                 DalamudApi.SetStatusBar("In Logic");
             else
                 DalamudApi.SetStatusBar("Out of Logic");
+
+            if (apState.territoryName == "The Waking Sands")
+            {
+                var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
+                if (PrayReturn != null)
+                    apState.session.Locations.CompleteLocationChecks(PrayReturn.ApId);
+            }
         }
     }
 }

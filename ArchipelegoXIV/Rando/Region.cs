@@ -41,6 +41,7 @@ namespace ArchipelegoXIV.Rando
             // Gold Saucer
             { "The Gold Saucer", "Southern Thanalan" },
             { "Chocobo Square", "Southern Thanalan"},
+            { "The Triple Triad Battlehall", "Southern Thanalan" },
             // Instanced Zone
             { "The Waking Sands", "Western Thanalan"},
             { "Fortemps Manor", "Ishgard"},
