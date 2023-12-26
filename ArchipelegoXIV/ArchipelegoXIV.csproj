@@ -30,6 +30,5 @@
 
     <ItemGroup>
         <PackageReference Include="Archipelago.MultiClient.Net" Version="5.0.6" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 </Project>
