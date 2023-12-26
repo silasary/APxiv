@@ -33,6 +33,20 @@ class UnreasonableFates(Toggle):
     display_name = "Include Unreasonable FATEs"
     default = True
 
+class DutyDifficulty(Choice):
+    """
+    Maximum difficulty of the duty content.
+    [normal] Dungeons, trials, normal raids, and alliance raids are included in the location pool.
+    [extreme] As above, but extreme trials are included in the location pool.
+    [savage] As above, but old savage raids are included in the location pool.
+    [endgame] As above, but the current savage tier is included in the location pool.
+    """
+    default = 2
+    display_name = "Duty Difficulty"
+    option_normal = 0
+    option_extreme = 1
+    option_savage = 2
+    option_endgame = 3
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
@@ -43,4 +57,5 @@ def after_options_defined(options: dict) -> dict:
     options["include_ocean_fishing"] = OceanFishing
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
+    options["difficulty"] = DutyDifficulty
     return options

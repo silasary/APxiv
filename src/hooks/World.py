@@ -39,10 +39,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(["He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)", "A Horse Outside (FATE)", "Foxy Lady (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)", "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)"])
 
+    duty_diff = get_option_value(multiworld, player, "difficulty") or 0
+    for location in location_table:
+        if "diff" in location:
+            if location["diff"] > duty_diff:
+                print(f"Removing {location['name']} from {player}'s pool")
+                locationNamesToRemove.append(location["name"])
+
     for region in multiworld.regions:
         if region.player == player:
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
+                    # print(f"Removing {location.name} from {player}'s pool")
                     region.locations.remove(location)
 
 # Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.

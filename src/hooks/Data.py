@@ -57,7 +57,7 @@ fate_zones = {
 
 def generate_duty_list():
     duty_list = []
-
+    difficulties = ["Normal", "Extreme", "Savage", "Endgame"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
 
     for row in dutyreader:
@@ -73,7 +73,7 @@ def generate_duty_list():
                     "requires": requires_str,
                     #"level" : row[3]
                     "party" : row[5],
-                    "diff" : row[6],
+                    "diff" : difficulties.index(row[6]),
                 }
             )
 
