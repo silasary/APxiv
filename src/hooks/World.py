@@ -68,15 +68,18 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
     melee = ["MNK","DRG","NIN","SAM","RPR"]
     caster = ["BLM","SMN","RDM",]
     ranged = ["BRD","MCH","DNC"]
+    doh = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 
     world.random.shuffle(tanks)
     world.random.shuffle(healers)
     world.random.shuffle(melee)
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
+    world.random.shuffle(doh)
     prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
     prog_fish = False
+    prog_doh = doh[0]
     for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
@@ -84,6 +87,9 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
             # Let's make one level of Fisher required
             item.classification = ItemClassification.progression
             prog_fish = True
+        if prog_doh and item.name == f'5 {prog_doh} Levels':
+            item.classification = ItemClassification.progression
+            prog_doh = None
     return item_pool
 
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs

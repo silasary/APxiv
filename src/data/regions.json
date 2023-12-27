@@ -206,7 +206,8 @@
 			"Coerthas Central Highlands",
 			"Coerthas Western Highlands",
 			"The Sea of Clouds",
-			"Azys Lla"
+			"Azys Lla",
+            "The Firmament"
 		]
 	},
 	"Coerthas Western Highlands":
@@ -449,6 +450,9 @@
         ]
     },
     "Ocean Fishing": {
+        "connects_to": []
+    },
+    "The Firmament": {
         "connects_to": []
     }
 }

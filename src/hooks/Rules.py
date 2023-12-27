@@ -18,3 +18,10 @@ def anyClassLevel(world: World, mw: MultiWorld, state: CollectionState, player: 
         if (state.count(job, player) * 5) >= int(level):
             return True
     return False
+
+def anyCrafterLevel(world: World, mw: MultiWorld, state: CollectionState, player: int, level: str):
+    """Has the player reached the given level in any class?"""
+    for job in world.item_name_groups["DOH"]:
+        if (state.count(job, player) * 5) >= int(level):
+            return True
+    return False

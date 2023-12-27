@@ -90,6 +90,19 @@ def generate_fate_list():
         row = [x.strip() for x in row]
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB","EW"]:
             name = row[0]
+            if row[2] == 'The Firmament':
+                name += " (FETE)"
+                fate_list.append(
+                    {
+                        "name": name,
+                        "region": row[2],
+                        "category": ["FATEsanity", row[2]],
+                        "requires": "|$anyCrafterLevel:" + str(int(row[1]) - 5) + "|",
+                        "level" : row[1]
+                    }
+                )
+                continue
+
             if "(FATE)" not in name:
                 name += " (FATE)"
             fate_list.append(
