@@ -64,7 +64,12 @@ namespace SamplePlugin
 
             this.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
             {
-                HelpMessage = "A useful message to display in /xlhelp"
+                HelpMessage = "Show Archipelago main window, and connect if we're not connected"
+            });
+
+            this.CommandManager.AddHandler("/apconfig", new CommandInfo(ShowConfig)
+            {
+                HelpMessage = "Archipelago Config"
             });
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
@@ -72,6 +77,11 @@ namespace SamplePlugin
             this.Hooks.Enable();
             this.Events.Enable();
             DalamudApi.SetStatusBar("AP Disconnected");
+        }
+
+        private void ShowConfig(string command, string arguments)
+        {
+            this.ConfigWindow.IsOpen = true;
         }
 
         public void Dispose()

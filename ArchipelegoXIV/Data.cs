@@ -92,7 +92,7 @@ namespace ArchipelegoXIV
         }
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {
-            var territory = Data.Territories.FirstOrDefault(row => row.RowId == territoryId);
+            var territory = Territories.FirstOrDefault(row => row.RowId == territoryId);
             return territory?.ContentFinderCondition?.Value;
         }
     }

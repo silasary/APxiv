@@ -68,6 +68,10 @@ namespace ArchipelegoXIV.Rando
                         else
                             DalamudApi.Echo($"Unknown stage {Name}");
                     }
+                    else if (Name.EndsWith(" (FATE)") || Name.EndsWith(" (GATE)"))
+                    {
+                        this.MeetsRequirements = Logic.Always();
+                    }
                     else
                     {
                         DalamudApi.Echo($"Unknown CF {Name}");
