@@ -1,6 +1,7 @@
 using ArchipelegoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using FFXIVClientStructs.FFXIV.Client.Game.Fate;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using Lumina.Excel.GeneratedSheets;
@@ -31,20 +32,19 @@ namespace ArchipelegoXIV.Hooks
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.CfPop += ClientState_CfPop;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "FateReward", OnFatePostSetup);
-
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
+            
             RefreshTerritory();
         }
 
-        private unsafe void OnFatePostSetup(AddonEvent type, AddonArgs args)
+        private unsafe void OnFatePreFinalize(AddonEvent type, AddonArgs args)
         {
             // TODO: Figure out how to get data out of this
             var fateRewardAddon = (AtkUnitBase*)args.Addon;
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
-            var failed = ((AddonFateReward*)fateRewardAddon)->AtkTextNode240->AtkResNode.IsVisible;
-
+            var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible;
             var locName = fateName + " (FATE)";
-            if (failed)
+            if (!success)
                 return;
 
             var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name == locName);  // FATEsanity check
@@ -68,7 +68,7 @@ namespace ArchipelegoXIV.Hooks
         public void Disable() {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostSetup, "FateReward", OnFatePostSetup);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostSetup, "FateReward", OnFatePreFinalize);
         }
 
         private void DutyState_DutyCompleted(object? sender, ushort e)
