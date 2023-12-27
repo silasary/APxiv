@@ -31,5 +31,9 @@ namespace ArchipelegoXIV.Rando
             return true;
 
         }
+
+        public abstract int MaxLevel();
+
+        public abstract int MaxLevel(string job);
     }
 }

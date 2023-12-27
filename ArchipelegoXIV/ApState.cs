@@ -36,7 +36,10 @@ namespace ArchipelegoXIV
         {
             get
             {
-                return $"{territory}\n{territoryName}\n{territoryRegion}\n\nMax Level: {Logic.MaxLevel(this)}";
+                var localPlayer = DalamudApi.ClientState.LocalPlayer;
+
+                var job = localPlayer.ClassJob.GameData.Abbreviation;
+                return $"{territory}\n{territoryName}\n{territoryRegion}\n\nMax Level: {Game.MaxLevel()}\nMax {job}: {Game.MaxLevel(job)}";
             }
         }
 
@@ -87,6 +90,9 @@ namespace ArchipelegoXIV
         private void Items_ItemReceived(ReceivedItemsHelper helper)
         {
             var item = helper.DequeueItem();
+            var name = session?.Items.GetItemName(item.Item);
+            var sender = session.Players.GetPlayerName(item.Player);
+            DalamudApi.Echo($"Recieved {name} from {sender}");
             RefreshRegions();
             this.RefreshLocations(false);
         }

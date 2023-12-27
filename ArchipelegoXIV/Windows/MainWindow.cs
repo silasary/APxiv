@@ -48,7 +48,14 @@ public class MainWindow : Window
             foreach (var location in state.MissingLocations)
             {
                 if (location.IsAccessible())
-                    ImGui.Text($"{location.Name}");
+                {
+                    var name = location.Name;
+                    if (name.EndsWith(" (FATE)"))
+                    {
+                        name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
+                    }
+                    ImGui.Text($"{name}");
+                }
             }
 
         ImGui.Unindent(55);

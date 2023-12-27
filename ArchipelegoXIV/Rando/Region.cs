@@ -62,6 +62,18 @@ namespace ArchipelegoXIV.Rando
 
         internal static bool CanReach(ApState apState, string name, ushort territoryId = 0)
         {
+            name = LocationToRegion(name, territoryId);
+            if (!APData.Regions.TryGetValue(name, out var value))
+            {
+                DalamudApi.SetStatusBar($"Unknown Location {name}");
+                DalamudApi.Echo($"Unknown Location {name}");
+                return false;
+            }
+            return CanReach(apState, value);
+        }
+
+        public static string LocationToRegion(string name, ushort territoryId = 0)
+        {
             if (APData.Aliases.TryGetValue(name, out var alias))
             {
                 name = alias;
@@ -79,13 +91,9 @@ namespace ArchipelegoXIV.Rando
                         name = alias;
                 }
             }
-            if (!APData.Regions.TryGetValue(name, out var value))
-            { 
-                DalamudApi.SetStatusBar($"Unknown Location {name}");
-                DalamudApi.Echo($"Unknown Location {name}");
-                return false;
-            }
-            return CanReach(apState, value);
+            if (name.StartsWith("Ocean Fishing:"))
+                name = "Ocean Fishing";
+            return name;
         }
     }
 

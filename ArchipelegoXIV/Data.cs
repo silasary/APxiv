@@ -68,7 +68,7 @@ namespace ArchipelegoXIV
         };
 
         public static Dictionary<string, string> DutyAliases = new()
-        {
+        { // Mostly typos in previous APWorlds
             { "Akademia Anyder", "Akadaemia Anyder" },
             { "Hell's Lid", "Hells' Lid" },
             { "Matoya’s Relict", "Matoya's Relict" },
@@ -76,6 +76,7 @@ namespace ArchipelegoXIV
             { "Dhon Mheg", "Dohn Mheg" },
             { "Malikah’s Well", "Malikah's Well" },
             { "The Heroes’ Gauntlet", "The Heroes' Gauntlet" },
+            { "Hero on the Halfshell", "Hero on the Half Shell" },
         };
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;

@@ -32,34 +32,17 @@ namespace ArchipelegoXIV.Rando
         {
             return (state) =>
             {
-                if (state.Game.Name == "Manual_FFXIVBMB_Pizzie")
-                {
-                    var gLevel = MaxLevel(state);
-                    return gLevel >= level;
-                }
-                throw new NotImplementedException();
-                return false;
+                var gLevel = state.Game.MaxLevel();
+                return gLevel >= level;
             };
         }
         internal static Func<ApState, bool>? Level(int level, string job)
         {
             return (state) =>
             {
-                if (state.Game.Name == "Manual_FFXIVBMB_Pizzie")
-                {
-                    var gLevel = MaxLevel(state);
-                    return gLevel >= level;
-                }
-
-                var glevel = state.Items.Count(i => i == $"5 {job} Levels") * 5;
-                return glevel >= level;
+                var gLevel = state.Game.MaxLevel(job);
+                return gLevel >= level;
             };
         }
-
-        public static int MaxLevel(ApState state)
-        {
-            return state.Items.Count(i => i == "10 Equip Levels") * 10;
-        }
-
     }
 }
