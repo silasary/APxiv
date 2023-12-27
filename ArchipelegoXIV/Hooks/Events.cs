@@ -33,9 +33,7 @@ namespace ArchipelegoXIV.Hooks
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "FateReward", OnFatePostSetup);
 
-            if (DalamudApi.ClientState.IsLoggedIn)
-                ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
-
+            RefreshTerritory();
         }
 
         private unsafe void OnFatePostSetup(AddonEvent type, AddonArgs args)
@@ -49,8 +47,8 @@ namespace ArchipelegoXIV.Hooks
             if (failed)
                 return;
 
-            var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name == locName);
-            loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #"));
+            var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name == locName);  // FATEsanity check
+            loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #"));  // FATE #N check
             if (loc == null)
             {
                 DalamudApi.Echo("Fate not available or already completed");
@@ -70,6 +68,7 @@ namespace ArchipelegoXIV.Hooks
         public void Disable() {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostSetup, "FateReward", OnFatePostSetup);
         }
 
         private void DutyState_DutyCompleted(object? sender, ushort e)
@@ -99,6 +98,15 @@ namespace ArchipelegoXIV.Hooks
             {
                 DalamudApi.Echo("You do not meet the requirements, not submitting check");
             }
+        }
+
+        /// <summary>
+        /// Rerun On-enter events.  Do this when we log in, or otherwise need to recalculate state
+        /// </summary>
+        public void RefreshTerritory()
+        {
+            if (DalamudApi.ClientState.IsLoggedIn)
+                ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
         }
 
         private void ClientState_TerritoryChanged(ushort e)

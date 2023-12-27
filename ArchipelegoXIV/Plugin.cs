@@ -81,6 +81,7 @@ namespace SamplePlugin
             WindowSystem.RemoveAllWindows();
             ConfigWindow.Dispose();
             Hooks.Dispose();
+            Events.Disable();
             CommandManager.RemoveHandler(CommandName);
         }
 
@@ -93,8 +94,11 @@ namespace SamplePlugin
                 this.ConfigWindow.IsOpen = true;
                 return;
             }
-            if (!this.apState.Connected)
-                this.apState.Connect(Configuration.Connection, Configuration.SlotName);
+            if (!apState.Connected)
+            {
+                apState.Connect(Configuration.Connection, Configuration.SlotName);
+                Events.RefreshTerritory();
+            }
         }
 
         private void DrawUI()
