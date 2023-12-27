@@ -17,7 +17,7 @@ namespace ArchipelegoXIV
 
         public ApState()
         {
-            Game = new BMBGame(this);
+            Game = new NGPlusGame(this);
             territory = Data.Territories[0];
         }
 
