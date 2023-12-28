@@ -12,19 +12,6 @@ namespace ArchipelegoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
-        public static unsafe AtkResNode* GetChildNodeByID(AtkResNode* node, uint nodeId) => GetChildNodeByID(node->GetComponent(), nodeId);
-        public static unsafe AtkResNode* GetChildNodeByID(AtkComponentBase* component, uint nodeId) => GetChildNodeByID(&component->UldManager, nodeId);
-        public static unsafe AtkResNode* GetChildNodeByID(AtkUldManager* uldManager, uint nodeId)
-        {
-            for (var i = 0; i < uldManager->NodeListCount; i++)
-            {
-                var n = uldManager->NodeList[i];
-                if (n->NodeID != nodeId) continue;
-                return n;
-            }
-            return null;
-        }
-
         private ContentFinderCondition last_pop;
 
         public void Enable()

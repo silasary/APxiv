@@ -28,7 +28,7 @@ namespace SamplePlugin
 
         internal UnlockHooks Hooks { get; }
         internal Events Events { get; }
-
+        internal UIHooks UiHooks { get; }
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("ArchipelegoXIV");
 
@@ -50,6 +50,7 @@ namespace SamplePlugin
 
             this.Hooks = new UnlockHooks(apState);
             this.Events = new Events(apState);
+            this.UiHooks = new UIHooks(apState);
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
@@ -76,6 +77,7 @@ namespace SamplePlugin
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.Hooks.Enable();
             this.Events.Enable();
+            UiHooks.Enable();
             DalamudApi.SetStatusBar("AP Disconnected");
         }
 
@@ -91,6 +93,7 @@ namespace SamplePlugin
             ConfigWindow.Dispose();
             Hooks.Dispose();
             Events.Disable();
+            UiHooks.Disable();
             CommandManager.RemoveHandler(CommandName);
         }
 

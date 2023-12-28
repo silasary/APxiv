@@ -69,7 +69,7 @@ namespace ArchipelegoXIV
         public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
-        public Location[] MissingLocations { get; private set; }
+        public Location[] MissingLocations { get; private set; } = [];
 
         internal void Disconnect()
         {
