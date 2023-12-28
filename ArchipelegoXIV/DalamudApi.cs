@@ -89,5 +89,9 @@ namespace ArchipelegoXIV
         {
             ToastGui.ShowQuest(text);
         }
+        internal static void ShowError(string text)
+        {
+            ToastGui.ShowError(text);
+        }
     }
 }

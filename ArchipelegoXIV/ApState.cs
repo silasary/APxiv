@@ -69,7 +69,7 @@ namespace ArchipelegoXIV
         public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
-        public IEnumerable<Location> MissingLocations { get; private set; }
+        public Location[] MissingLocations { get; private set; }
 
         internal void Disconnect()
         {
@@ -118,11 +118,25 @@ namespace ArchipelegoXIV
             slot = loginSuccessful.Slot;
 
             session.Items.ItemReceived += Items_ItemReceived;
+            session.Socket.ErrorReceived += Socket_ErrorReceived;
+            session.Socket.SocketClosed += Socket_SocketClosed;
 
             DalamudApi.SetStatusBar("Connected");
 
         }
 
+        private void Socket_SocketClosed(string reason)
+        {
+            this.Connected = false;
+            DalamudApi.Echo($"Lost connection to Archipelago: {reason}");
+            DalamudApi.SetStatusBar("Disconnected");
+
+        }
+
+        private void Socket_ErrorReceived(Exception e, string message)
+        {
+            DalamudApi.ShowError(message);
+        }
 
         private void Items_ItemReceived(ReceivedItemsHelper helper)
         {
@@ -151,7 +165,7 @@ namespace ArchipelegoXIV
         public void RefreshLocations(bool hard)
         {
             if (hard || MissingLocations == null || !MissingLocations.Any())
-                MissingLocations = session?.Locations.AllMissingLocations.Select(i => new Location(this, i)) ?? Array.Empty<Location>();
+                MissingLocations = session?.Locations.AllMissingLocations.Select(i => new Location(this, i)).ToArray() ?? Array.Empty<Location>();
             else
             {
                 foreach (var l in MissingLocations)
