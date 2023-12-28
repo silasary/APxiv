@@ -81,6 +81,10 @@ namespace ArchipelegoXIV
             logicBar ??= DtrBar.Get("Archipelago");
             logicBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
         }
+        internal static void SetStatusTooltop(string text)
+        {
+            logicBar.Tooltip = text;
+        }
         internal static void ShowToast(string text)
         {
             ToastGui.ShowQuest(text);

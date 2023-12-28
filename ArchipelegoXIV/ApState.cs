@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
+using Dalamud.Game.Text.SeStringHandling;
+using System.Text;
 
 namespace ArchipelegoXIV
 {
@@ -42,14 +44,44 @@ namespace ArchipelegoXIV
                 return $"{territory}\n{territoryName}\n{territoryRegion}\n\nMax Level: {Game.MaxLevel()}\nMax {job}: {Game.MaxLevel(job)}";
             }
         }
+        public string ToolTipText { get
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Job Levels:");
+                foreach (var job in Data.ClassJobs)
+                {
+                    if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31)
+                    {
+                        Game.Levels.TryGetValue(job, out int level);
+                        if (level > 0)
+                            sb.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
+                    }
+                }
+                sb.AppendLine("Zones:");
+                foreach (var zone in Items.Where(i=> i.EndsWith("Access")))
+                {
+                    sb.AppendLine(zone);
+                }
+                return sb.ToString();
+            }
+        }
 
         public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
         public IEnumerable<Location> MissingLocations { get; private set; }
 
+        internal void Disconnect()
+        {
+            if (Connected && (session?.Socket?.Connected ?? false))
+                session?.Socket?.DisconnectAsync()?.Wait();
+        }
         internal void Connect(string address, string? player = null)
         {
+            if (Connected)
+            {
+                Disconnect();
+            }
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.ClientState.LocalPlayer;
             if (localPlayer == null)
@@ -59,6 +91,10 @@ namespace ArchipelegoXIV
             {
                 DalamudApi.Echo("Blue Mage Bingo");
                 Game = new BMBGame(this);
+            }
+            else
+            {
+                Game = new NGPlusGame(this);
             }
 
             this.session = ArchipelagoSessionFactory.CreateSession(address);
@@ -74,6 +110,7 @@ namespace ArchipelegoXIV
             {
                 foreach (var e in ((LoginFailure)result).Errors)
                     DalamudApi.Echo(e);
+                DalamudApi.SetStatusBar("Connection Failed");
                 return;
             }
 
@@ -93,8 +130,10 @@ namespace ArchipelegoXIV
             var name = session?.Items.GetItemName(item.Item);
             var sender = session.Players.GetPlayerName(item.Player);
             DalamudApi.Echo($"Recieved {name} from {sender}");
+            Game.ProcessItem(item, itemName: name);
             RefreshRegions();
             this.RefreshLocations(false);
+            DalamudApi.SetStatusTooltop(ToolTipText);
         }
 
         private static void RefreshRegions()

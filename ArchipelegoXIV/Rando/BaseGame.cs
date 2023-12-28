@@ -1,3 +1,5 @@
+using Archipelago.MultiClient.Net.Models;
+using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +29,20 @@ namespace ArchipelegoXIV.Rando
             if (!RegionContainer.CanReach(apState, zone))
                 return false;
             
-            // TODO: Location-specific requirements.
             return true;
 
         }
 
+        public Dictionary<ClassJob, int> Levels = [];
+
         public abstract int MaxLevel();
 
         public abstract int MaxLevel(string job);
+        public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation);
+
+        internal virtual void ProcessItem(NetworkItem item, string itemName)
+        {
+            
+        }
     }
 }

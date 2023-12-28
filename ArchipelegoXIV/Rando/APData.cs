@@ -20,7 +20,7 @@ namespace ArchipelegoXIV.Rando
             { "Blue Sky", "Masked Carnivale" },
             { "Maelstrom Barracks", "Limsa Lominsa"},
             { "Twin Adder Barracks", "Gridania"},
-            { "Flame Barracks", "Uldah"},
+            { "Flame Barracks", "Ul'dah"},
             { "Foundation", "Ishgard"},
             { "The Pillars", "Ishgard"},
             { "Idyllshire", "The Dravnian Hinterlands"}, 
@@ -32,7 +32,7 @@ namespace ArchipelegoXIV.Rando
             { "Bokairo Inn", "Kugane"},
             { "Andron", "Old Sharlayan"}, 
             // Player Housing
-            { "The Goblet", "Uldah" },
+            { "The Goblet", "Ul'dah" },
             { "Mist", "Limsa Lominsa" },
             { "The Lavender Beds", "Gridania" },
             { "Shirogane", "Kugane" },
