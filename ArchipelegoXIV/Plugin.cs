@@ -61,8 +61,6 @@ namespace SamplePlugin
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
 
-            MainWindow.IsOpen = true;
-
             this.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
             {
                 HelpMessage = "Show Archipelago main window, and connect if we're not connected"

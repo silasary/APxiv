@@ -24,12 +24,17 @@ namespace ArchipelegoXIV.Rando
 
         public bool Accessible;
 
+        public bool Completed { get; private set; }
+
         internal bool stale = true;
 
         public Func<ApState, bool>? MeetsRequirements = null;
 
         public bool IsAccessible()
         {
+            if (Completed)
+                return false;
+
             if (stale)
             {
                 stale = false;
@@ -38,7 +43,7 @@ namespace ArchipelegoXIV.Rando
                     return Accessible = false;
                 if (!allMissingLocations.Contains(ApId))
                     return Accessible = false;
-                if (!apState.Game.MeetsRequirements(this))
+                if (!apState?.Game?.MeetsRequirements(this) ?? false)
                     return Accessible = false;
                 if (MeetsRequirements == null)
                 {
@@ -68,7 +73,7 @@ namespace ArchipelegoXIV.Rando
                         else
                             DalamudApi.Echo($"Unknown stage {Name}");
                     }
-                    else if (Name.EndsWith(" (FATE)") || Name.EndsWith(" (GATE)"))
+                    else if (Name.EndsWith(" (FATE)") || Name.EndsWith(" (GATE)") || Name.EndsWith(" (FETE)"))
                     {
                         this.MeetsRequirements = Logic.Always();
                     }
@@ -84,6 +89,13 @@ namespace ArchipelegoXIV.Rando
             }
 
             return Accessible;
+        }
+
+        public void Complete()
+        {
+            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).Start();
+            this.Accessible = false;
+            this.Completed = true;
         }
     }
 }

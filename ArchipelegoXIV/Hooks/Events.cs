@@ -1,6 +1,7 @@
 using ArchipelegoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Logging;
 using FFXIVClientStructs.FFXIV.Client.Game.Fate;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
@@ -12,12 +13,9 @@ namespace ArchipelegoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
-        private ContentFinderCondition last_pop;
-
         public void Enable()
         {
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
-            DalamudApi.ClientState.CfPop += ClientState_CfPop;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
             
@@ -26,7 +24,6 @@ namespace ArchipelegoXIV.Hooks
 
         private unsafe void OnFatePreFinalize(AddonEvent type, AddonArgs args)
         {
-            // TODO: Figure out how to get data out of this
             var fateRewardAddon = (AtkUnitBase*)args.Addon;
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
             var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible;
@@ -38,18 +35,12 @@ namespace ArchipelegoXIV.Hooks
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #"));  // FATE #N check
             if (loc == null)
             {
-                DalamudApi.Echo("Fate not available or already completed");
+                PluginLog.Information($"Fate {locName} not available or already completed");
                 return;
             }
 
-            apState.session.Locations.CompleteLocationChecks(loc.ApId);
+            loc.Complete();
 
-        }
-
-        private void ClientState_CfPop(ContentFinderCondition obj)
-        {
-            DalamudApi.Echo(obj.Name);
-            this.last_pop = obj;
         }
 
         public void Disable() {
@@ -77,8 +68,8 @@ namespace ArchipelegoXIV.Hooks
                     DalamudApi.Echo("Location already completed, nothing to do.");
                     return;
                 }
-                DalamudApi.Echo("Marking Check");
-                apState.session.Locations.CompleteLocationChecks(location.ApId);
+                PluginLog.Debug("Marking Check {1}", name);
+                location.Complete();
 
             }
             else
@@ -118,8 +109,7 @@ namespace ArchipelegoXIV.Hooks
             if (apState.territoryName == "The Waking Sands")
             {
                 var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
-                if (PrayReturn != null)
-                    apState.session.Locations.CompleteLocationChecks(PrayReturn.ApId);
+                PrayReturn?.Complete();
             }
         }
     }

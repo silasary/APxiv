@@ -10,6 +10,8 @@ using System.Linq;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
 using Dalamud.Game.Text.SeStringHandling;
 using System.Text;
+using Archipelago.MultiClient.Net.Models;
+using Dalamud.Logging;
 
 namespace ArchipelegoXIV
 {
@@ -52,7 +54,7 @@ namespace ArchipelegoXIV
                 {
                     if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31)
                     {
-                        Game.Levels.TryGetValue(job, out int level);
+                        Game.Levels.TryGetValue(job, out var level);
                         if (level > 0)
                             sb.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
                     }
@@ -76,6 +78,7 @@ namespace ArchipelegoXIV
             if (Connected && (session?.Socket?.Connected ?? false))
                 session?.Socket?.DisconnectAsync()?.Wait();
         }
+
         internal void Connect(string address, string? player = null)
         {
             if (Connected)
@@ -118,7 +121,6 @@ namespace ArchipelegoXIV
             slot = loginSuccessful.Slot;
 
             session.Items.ItemReceived += Items_ItemReceived;
-            session.Socket.ErrorReceived += Socket_ErrorReceived;
             session.Socket.SocketClosed += Socket_SocketClosed;
 
             DalamudApi.SetStatusBar("Connected");
@@ -128,14 +130,8 @@ namespace ArchipelegoXIV
         private void Socket_SocketClosed(string reason)
         {
             this.Connected = false;
-            DalamudApi.Echo($"Lost connection to Archipelago: {reason}");
+            PluginLog.Debug($"Lost connection to Archipelago: {reason}");
             DalamudApi.SetStatusBar("Disconnected");
-
-        }
-
-        private void Socket_ErrorReceived(Exception e, string message)
-        {
-            DalamudApi.ShowError(message);
         }
 
         private void Items_ItemReceived(ReceivedItemsHelper helper)
@@ -165,7 +161,7 @@ namespace ArchipelegoXIV
         public void RefreshLocations(bool hard)
         {
             if (hard || MissingLocations == null || !MissingLocations.Any())
-                MissingLocations = session?.Locations.AllMissingLocations.Select(i => new Location(this, i)).ToArray() ?? Array.Empty<Location>();
+                MissingLocations = session?.Locations.AllMissingLocations.Select(i => new Location(this, i)).ToArray() ?? [];
             else
             {
                 foreach (var l in MissingLocations)

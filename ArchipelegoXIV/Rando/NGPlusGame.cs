@@ -1,9 +1,12 @@
+using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Models;
+using Archipelago.MultiClient.Net.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ArchipelegoXIV.Rando
 {
@@ -25,6 +28,19 @@ namespace ArchipelegoXIV.Rando
                 var words = itemName.Split(' ');
                 var job = Data.ClassJobs.First(j => j.Abbreviation == words[1]);
                 Levels[job] = MaxLevel(job);
+            }
+            else if (itemName == "Memory of a Distant World")
+            {
+                if (apState.Items.Count(i => i == itemName) >= 100)
+                {
+                    var goal = apState.MissingLocations.FirstOrDefault(l => l.Name == "Goal");
+                    goal ??= apState.MissingLocations.FirstOrDefault(l => l.Name == "__Manual Game Complete__");
+                    goal?.Complete();
+
+                    var statusUpdatePacket = new StatusUpdatePacket();
+                    statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
+                    apState.session.Socket.SendPacket(statusUpdatePacket);
+                }
             }
         }
     }

@@ -107,7 +107,7 @@ namespace ArchipelegoXIV.Rando
         internal bool stale;
         internal bool Reachable;
 
-        public Region(string name, string[] connections, Func<ApState, bool> requirements = null)
+        public Region(string name, string[] connections, Func<ApState, bool>? requirements = null)
         {
             APData.Regions.Add(name, this);
             Name = name;
