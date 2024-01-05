@@ -42,8 +42,11 @@ namespace ArchipelegoXIV
             {
                 var localPlayer = DalamudApi.ClientState.LocalPlayer;
 
-                var job = localPlayer.ClassJob.GameData.Abbreviation;
-                return $"{territory}\n{territoryName}\n{territoryRegion}\n\nMax Level: {Game.MaxLevel()}\nMax {job}: {Game.MaxLevel(job)}";
+                var job = localPlayer?.ClassJob.GameData?.Abbreviation;
+                if (job == null)
+                    return "Not logged in";
+                /*{territory}\n{territoryName}\n{territoryRegion}\n\n*/
+                return $"Max Level: {Game.MaxLevel()}\nMax {job}: {Game.MaxLevel(job)}";
             }
         }
         public string ToolTipText { get
@@ -72,6 +75,7 @@ namespace ArchipelegoXIV
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
         public Location[] MissingLocations { get; private set; } = [];
+        public Hint[] Hints { get; private set; }
 
         internal void Disconnect()
         {
@@ -122,6 +126,7 @@ namespace ArchipelegoXIV
 
             session.Items.ItemReceived += Items_ItemReceived;
             session.Socket.SocketClosed += Socket_SocketClosed;
+            session.DataStorage.TrackHints(hints => this.Hints = hints, true);
 
             DalamudApi.SetStatusBar("Connected");
 

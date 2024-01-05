@@ -93,9 +93,9 @@ namespace ArchipelegoXIV.Rando
 
         public void Complete()
         {
-            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).Start();
             this.Accessible = false;
             this.Completed = true;
+            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(true)).Start();
         }
     }
 }
