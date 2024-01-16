@@ -59,6 +59,12 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
+    # goal_count = get_option_value(world, player, "mcguffins_needed")
+    # multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    # for region in multiworld.get_regions(player):
+    #     for location in region.locations:
+    #         if location.name == "__Manual Game Complete__":
+    #             location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
     pass
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
@@ -78,15 +84,15 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
     world.random.shuffle(doh)
     prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
-    prog_fish = False
+    prog_fish = 0
     prog_doh = doh[0]
     for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
-        if item.name == "5 FSH Levels" and not prog_fish:
+        if item.name == "5 FSH Levels" and prog_fish < 12:
             # Let's make one level of Fisher required
             item.classification = ItemClassification.progression
-            prog_fish = True
+            prog_fish += 1
         if prog_doh and item.name == f'5 {prog_doh} Levels':
             item.classification = ItemClassification.progression
             prog_doh = None
