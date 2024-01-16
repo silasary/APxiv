@@ -63,7 +63,7 @@ def generate_duty_list():
     for row in dutyreader:
         row = [x.strip() for x in row]
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB", "EW"]:
-            requires_str = "|$anyClassLevel:" + row[2] + "|"
+            requires_str = "{anyClassLevel(" + row[2] + ")}"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             duty_list.append(
                 {
@@ -90,6 +90,8 @@ def generate_fate_list():
         row = [x.strip() for x in row]
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB","EW"]:
             name = row[0]
+            level = int(row[1])
+
             if row[2] == 'The Firmament':
                 name += " (FETE)"
                 fate_list.append(
@@ -97,7 +99,7 @@ def generate_fate_list():
                         "name": name,
                         "region": row[2],
                         "category": ["FATEsanity", row[2]],
-                        "requires": "|$anyCrafterLevel:" + str(int(row[1]) - 5) + "|",
+                        "requires": "{anyCrafterLevel(" + str(level - 5) + ")}",
                         "level" : row[1]
                     }
                 )
@@ -105,15 +107,18 @@ def generate_fate_list():
 
             if "(FATE)" not in name:
                 name += " (FATE)"
-            fate_list.append(
-                {
+
+            location = {
                     "name": name,
                     "region": row[2],
                     "category": ["FATEsanity", row[2]],
-                    "requires": "|$anyClassLevel:" + str(int(row[1]) - 5) + "|",
+                    "requires": "",
                     "level" : row[1]
                 }
-            )
+            if level > 5:
+                location["requires"] = "{anyClassLevel(" + str(level - 5) + ")}"
+
+            fate_list.append(location)
             # remove generic FATEs from fate_zones if they exist
             if row[2] in missing_fatesanity_zones:
                 missing_fatesanity_zones.pop(row[2])
@@ -235,13 +240,16 @@ def after_load_location_file(location_table: list) -> list:
 def after_load_region_file(region_table: dict) -> dict:
     return region_table
 
-def create_FATE_location(number, key, lvl):
-    return {
+def create_FATE_location(number: int, key: str, lvl: int):
+    location = {
             "name": key + ": FATE #" + str(number),
             "region": key,
             "category": ["FATEs", key],
-            "requires": "|$anyClassLevel:" + str(lvl) + "|"
+            "requires": "",
         }
+    if lvl > 0:
+        location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
+    return location
 
 def ocean_fishing():
     indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
