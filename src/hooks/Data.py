@@ -195,14 +195,20 @@ def after_load_item_file(item_table: list) -> list:
         "FSH",
         ]
     max_level = 90
+    max_blu = 80
 
     for job in classes:
+        n = max_level / 5
+        if job == "BLU":
+            n = max_blu / 5
+
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
-            "count": max_level / 5,
+            "count": n,
             "useful": True,
         })
+
     for job in DOH:
         item_table.append({
             "name": f"5 {job} Levels",

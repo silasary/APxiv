@@ -348,6 +348,13 @@ class ManualWorld(World):
         with open(os.path.join(output_directory, filename), 'wb') as f:
             f.write(b64encode(bytes(json.dumps(data), 'utf-8')))
 
+    @classmethod
+    def stage_write_spoiler(cls, world, spoiler_handle):
+        players = world.get_game_players(cls.game)
+        spoiler_handle.write('\n\nFFXIV Classes:\n')
+        for player in players:
+            name = world.get_player_name(player)
+            spoiler_handle.write(f"\n{name}: {world.worlds[player].prog_classes}")
 
 def launch_client(*args):
     from .ManualClient import launch as Main

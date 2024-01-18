@@ -83,6 +83,7 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
     prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+    world.prog_classes = prog_classes
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
     prog_fish = 0
     prog_doh = doh[0]
