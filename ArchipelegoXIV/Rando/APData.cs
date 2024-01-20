@@ -23,14 +23,14 @@ namespace ArchipelegoXIV.Rando
             { "Flame Barracks", "Ul'dah"},
             { "Foundation", "Ishgard"},
             { "The Pillars", "Ishgard"},
-            { "Idyllshire", "The Dravnian Hinterlands"}, 
+            { "Idyllshire", "The Dravanian Forelands"},
             // Inns
             { "Location Mizzenmast Inn", "Limsa Lominsa"},
             { "The Roost", "Gridania"},
             { "The Hourglass", "Ul'dah"},
             { "Cloud Nine", "Ishgard"},
             { "Bokairo Inn", "Kugane"},
-            { "Andron", "Old Sharlayan"}, 
+            { "Andron", "Old Sharlayan"},
             // Player Housing
             { "The Goblet", "Ul'dah" },
             { "Mist", "Limsa Lominsa" },
@@ -40,7 +40,7 @@ namespace ArchipelegoXIV.Rando
             // Gold Saucer
             { "The Gold Saucer", "Southern Thanalan" },
             { "Chocobo Square", "Southern Thanalan" },
-            { "The Triple Triad Battlehall", "Southern Thanalan" },
+            { "The Battlehall", "Southern Thanalan" },
             // Instanced Zone
             { "The Waking Sands", "Western Thanalan" },
             { "Fortemps Manor", "Ishgard" },
@@ -50,6 +50,7 @@ namespace ArchipelegoXIV.Rando
             { "The Doman Enclave", "Yanxia" },
             { "The Omphalos", "Mor Dhona"  },
             { "Main Hall", "Old Sharlayan" },
+            { "Elysion", "Ultima Thule"},
             // AP Checks
             { "Return to the Waking Sands", "Western Thanalan" },
         };
@@ -74,7 +75,7 @@ namespace ArchipelegoXIV.Rando
         public static void LoadFatesCsv()
         {
             string[] headers = ["", "Name"];
-            
+
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;

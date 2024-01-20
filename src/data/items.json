@@ -53,6 +53,12 @@
 		"count":1,
 		"progression": true
 	},
+    {
+        "name": "Wolves' Den Pier Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
 	{
 		"name": "East Shroud Access",
 		"category": ["Location"],

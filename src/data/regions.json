@@ -31,7 +31,8 @@
 			"Limsa Lominsa",
 			"Middle La Noscea",
 			"Eastern La Noscea",
-			"Western La Noscea"
+			"Western La Noscea",
+            "Wolves' Den Pier"
 		]
 	},
 	"Eastern La Noscea":
@@ -69,6 +70,11 @@
 		"requires": "|Outer La Noscea Access:1|",
 		"connects_to": ["Upper La Noscea"]
 	},
+    "Wolves' Den Pier":
+    {
+        "requires": "|Wolves' Den Pier Access:1|",
+        "connects_to": ["Lower La Noscea"]
+    },
 	"Gridania": {
 		"requires": "|Gridania and Central Shroud Access:1|",
 		"connects_to": [
