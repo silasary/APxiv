@@ -38,6 +38,11 @@ namespace ArchipelegoXIV.Hooks
                 PluginLog.Information($"Fate {locName} not available or already completed");
                 return;
             }
+            if (!loc.CanClearAsCurrentClass())
+            {
+                DalamudApi.Echo("Cannot clear FATE as current class");
+                return;
+            }
 
             loc.Complete();
 
@@ -60,12 +65,12 @@ namespace ArchipelegoXIV.Hooks
             if (!apState.Connected)
                 return;
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
-            if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState))
+            if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
             {
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                 if (location == null)
                 {
-                    DalamudApi.Echo("Location already completed, nothing to do.");
+                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
                     return;
                 }
                 PluginLog.Debug("Marking Check {1}", name);

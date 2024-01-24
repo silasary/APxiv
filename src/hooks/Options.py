@@ -1,5 +1,5 @@
 # Object classes from AP that represent different types of options that you can create
-from Options import FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange
+from Options import FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
@@ -48,6 +48,23 @@ class DutyDifficulty(Choice):
     option_savage = 2
     option_endgame = 3
 
+class McGuffinsNeeded(Range):
+    """
+    Number of Distant Memories needed to win the game.
+    """
+    display_name = "McGuffins Needed"
+    default = 80
+    minimum = 1
+    maximum = 100
+
+class ForceClass(ItemSet):
+    """
+    Choose which classes are progression.
+
+    If none are selected, five (one tank, one healer, one melee, one phys range, one caster) are chosen at random.
+    """
+    display_name = "Force Progression Classes"
+
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
     return options
@@ -58,4 +75,6 @@ def after_options_defined(options: dict) -> dict:
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
     options["difficulty"] = DutyDifficulty
+    # options["mcguffins_needed"] = McGuffinsNeeded
+    # options["force_classes"] = ForceClass
     return options

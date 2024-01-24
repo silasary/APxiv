@@ -11,6 +11,7 @@ namespace ArchipelegoXIV
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
         public static ContentFinderCondition[] Content { get; private set; } = [];
+        public static DynamicEvent[] DynamicEvents { get; private set; } = [];
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -77,6 +78,11 @@ namespace ArchipelegoXIV
             { "Malikah’s Well", "Malikah's Well" },
             { "The Heroes’ Gauntlet", "The Heroes' Gauntlet" },
             { "Hero on the Halfshell", "Hero on the Half Shell" },
+            { "Satasha", "Sastasha" },
+            { "The Dying Gasp (Extreme)", "The Minstrel's Ballad: Hades's Elegy" },
+            { "A Relic Reborn: The Hydra", "A Relic Reborn: the Hydra" },
+            { "A Relic Reborn: The Chimera", "A Relic Reborn: the Chimera" },
+
         };
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;
@@ -89,6 +95,8 @@ namespace ArchipelegoXIV
             ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>()];
 
             Content = [.. dataManager.GetExcelSheet<ContentFinderCondition>()];
+
+            DynamicEvents = [.. dataManager.GetExcelSheet<DynamicEvent>()];
 
         }
 

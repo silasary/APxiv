@@ -1,12 +1,12 @@
 {
     "Author": "silasary",
-    "Name": "ArchipelegoXIV",
-    "Punchline": "A short one-liner that shows up in /xlplugins.",
+    "Name": "ArchipelagoXIV",
+    "Punchline": "Client for the Archipelago randomizer.",
     "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
-    "InternalName": "Archipelego",
+    "InternalName": "Archipelago",
     "ApplicableVersion": "any",
     "Tags": [
-        "Archipelego",
+        "Archipelago",
         "multiworld",
         "randomizer"
     ]

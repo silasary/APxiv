@@ -19,8 +19,6 @@ namespace SamplePlugin
 {
     public sealed class Plugin : IDalamudPlugin
     {
-        private const string CommandName = "/ap";
-
         private DalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
 
@@ -61,14 +59,20 @@ namespace SamplePlugin
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
 
-            this.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
+            this.CommandManager.AddHandler("/ap-connect", new CommandInfo(Connect)
             {
                 HelpMessage = "Show Archipelago main window, and connect if we're not connected"
             });
 
-            this.CommandManager.AddHandler("/apconfig", new CommandInfo(ShowConfig)
+
+            this.CommandManager.AddHandler("/ap-config", new CommandInfo(ShowConfig)
             {
                 HelpMessage = "Archipelago Config"
+            });
+
+            this.CommandManager.AddHandler("/ap-disconnect", new CommandInfo(Disconnect)
+            {
+                HelpMessage = "Disconnect from Archipelago"
             });
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
@@ -92,10 +96,13 @@ namespace SamplePlugin
             Hooks.Dispose();
             Events.Disable();
             UiHooks.Disable();
-            CommandManager.RemoveHandler(CommandName);
+            CommandManager.RemoveHandler("/ap");
+            CommandManager.RemoveHandler("/ap-connect");
+            CommandManager.RemoveHandler("/ap-config");
+            CommandManager.RemoveHandler("/ap-disconnect");
         }
 
-        private void OnCommand(string command, string args)
+        private void Connect(string command, string args)
         {
             // in response to the slash command, just display our main ui
             this.MainWindow.IsOpen = true;
@@ -109,6 +116,11 @@ namespace SamplePlugin
                 apState.Connect(Configuration.Connection, Configuration.SlotName);
                 Events.RefreshTerritory();
             }
+        }
+
+        private void Disconnect(string command, string args)
+        {
+            apState.Disconnect();
         }
 
         private void DrawUI()

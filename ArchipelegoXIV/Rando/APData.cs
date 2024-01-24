@@ -60,7 +60,7 @@ namespace ArchipelegoXIV.Rando
         public static void LoadDutiesCsv()
         {
             string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW"];
-            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.duties.csv");
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.duties.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
             while ((line = reader.ReadLine()) != null)
@@ -76,7 +76,7 @@ namespace ArchipelegoXIV.Rando
         {
             string[] headers = ["", "Name"];
 
-            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.fates.csv");
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
             while ((line = reader.ReadLine()) != null)
@@ -96,7 +96,7 @@ namespace ArchipelegoXIV.Rando
 
         public static void LoadJson()
         {
-            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelegoXIV.regions.json");
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.regions.json");
             using var reader = new StreamReader(stream);
             var regions = JObject.Parse(reader.ReadToEnd());
             foreach (var region in regions)

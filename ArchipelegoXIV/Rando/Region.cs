@@ -40,7 +40,7 @@ namespace ArchipelegoXIV.Rando
                     explored.Add(region);
                     if (region.stale)
                     {
-                        region.Reachable = region.MeetsRequirements(ap);
+                        region.Reachable = region.MeetsRequirements(ap, false);
                         region.stale = false;
                     }
                     if (region == target)
@@ -100,20 +100,20 @@ namespace ArchipelegoXIV.Rando
     internal class Region
     {
         public string Name;
-        public Func<ApState, bool> MeetsRequirements;
+        public Func<ApState, bool, bool> MeetsRequirements;
         public Region[]? Connections = null;
         public string[] _connections;
 
         internal bool stale;
         internal bool Reachable;
 
-        public Region(string name, string[] connections, Func<ApState, bool>? requirements = null)
+        public Region(string name, string[] connections, Func<ApState, bool, bool>? requirements = null)
         {
             APData.Regions.Add(name, this);
             Name = name;
             this.stale = true;
             this._connections = connections;
-            this.MeetsRequirements = requirements ?? ((ApState state) => true);
+            this.MeetsRequirements = requirements ?? Logic.Always();
         }
     }
 }
