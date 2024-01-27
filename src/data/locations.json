@@ -6,6 +6,7 @@
     },
     {
         "name": "Return to the Waking Sands",
-        "region": "Western Thanalan"
+        "region": "Western Thanalan",
+        "category": ["Western Thanalan"]
     }
 ]

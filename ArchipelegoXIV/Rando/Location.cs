@@ -57,7 +57,8 @@ namespace ArchipelegoXIV.Rando
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
                         // Note: Currently, these are all Bozja.  This may change with DT's Field Content
-                        MeetsRequirements = Logic.Level(80);
+                        if (de != null)
+                            MeetsRequirements = Logic.Level(80);
                     }
                     if (MeetsRequirements == null)
                         SetRequirements();

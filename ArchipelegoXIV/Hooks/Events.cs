@@ -38,6 +38,11 @@ namespace ArchipelegoXIV.Hooks
                 PluginLog.Information($"Fate {locName} not available or already completed");
                 return;
             }
+            if (!loc.IsAccessible())
+            {
+                DalamudApi.Echo("FATE currently out of logic.");
+                return;
+            }
             if (!loc.CanClearAsCurrentClass())
             {
                 DalamudApi.Echo("Cannot clear FATE as current class");
