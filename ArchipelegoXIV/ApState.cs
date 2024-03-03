@@ -12,6 +12,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using System.Text;
 using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
+using System.ComponentModel.Design;
 
 namespace ArchipelegoXIV
 {
@@ -28,6 +29,7 @@ namespace ArchipelegoXIV
         internal ArchipelagoSession? session = null;
 
         internal int slot;
+        internal bool territoryReachable;
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
@@ -36,20 +38,31 @@ namespace ArchipelegoXIV
         public bool CanTeleport { get; internal set; } = true;
         public bool CanReturn { get; internal set; } = true;
 
-        public string DebugText
+        public string JobText
         {
             get
             {
                 var localPlayer = DalamudApi.ClientState.LocalPlayer;
+                if (localPlayer == null)
+                    return null;
+                var job = localPlayer.ClassJob.GameData;
+                var sb = new StringBuilder();
 
-                var job = localPlayer?.ClassJob.GameData?.Abbreviation;
-                if (job == null)
-                    return "Not logged in";
-                /*{territory}\n{territoryName}\n{territoryRegion}\n\n*/
-                return $"Max Level: {Game.MaxLevel()}\nMax {job}: {Game.MaxLevel(job)}";
+                var joblvl = Game.MaxLevel(job);
+                sb.Append(job.Abbreviation).Append(": ");
+                if (localPlayer.Level < joblvl)
+                    sb.Append(localPlayer.Level).Append("/");
+                sb.Append(joblvl);
+
+                var maxlvl = Game.MaxLevel();
+                if (joblvl < maxlvl)
+                    sb.Append(" (Best ").Append(maxlvl).Append(")");
+                return sb.ToString();
             }
         }
-        public string ToolTipText { get
+        public string JobTooltip
+        {
+            get
             {
                 var sb = new StringBuilder();
                 sb.AppendLine("Job Levels:");
@@ -61,11 +74,6 @@ namespace ArchipelegoXIV
                         if (level > 0)
                             sb.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
                     }
-                }
-                sb.AppendLine("Zones:");
-                foreach (var zone in Items.Where(i=> i.EndsWith("Access")))
-                {
-                    sb.AppendLine(zone);
                 }
                 return sb.ToString();
             }
@@ -148,7 +156,40 @@ namespace ArchipelegoXIV
             Game.ProcessItem(item, itemName: name);
             RefreshRegions();
             this.RefreshLocations(false);
-            DalamudApi.SetStatusTooltop(ToolTipText);
+            UpdateBars();
+        }
+
+        public void UpdateBars()
+        {
+            var checks = 0;
+            var zoneTT = new StringBuilder();
+            APData.Regions.TryGetValue(RegionContainer.LocationToRegion(this.territoryName, (ushort)this.territory.RowId), out var region);
+            if (region != null)
+            {
+                zoneTT.AppendLine($"Available Checks in {region.Name}:");
+                foreach (var l in MissingLocations.Where(l => l.region == region))
+                {
+                    zoneTT.AppendLine(l.Name);
+                    checks++;
+                }
+            }
+            zoneTT.AppendLine();
+            zoneTT.AppendLine("Zones:");
+            foreach (var zone in Items.Where(i => i.EndsWith("Access")))
+            {
+                zoneTT.AppendLine(zone);
+            }
+
+            if (territoryReachable && checks > 0)
+                DalamudApi.SetStatusBar($"{checks} checks in {region.Name}");
+            else if (territoryReachable)
+                DalamudApi.SetStatusBar("In Logic");
+            else
+                DalamudApi.SetStatusBar("Out of Logic");
+            DalamudApi.SetStatusTooltop(zoneTT.ToString());
+
+            DalamudApi.SetJobStatusBar(JobText);
+            DalamudApi.SetJobTooltop(JobTooltip);
         }
 
         private static void RefreshRegions()

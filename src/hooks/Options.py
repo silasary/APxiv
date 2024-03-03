@@ -1,5 +1,8 @@
 # Object classes from AP that represent different types of options that you can create
-from Options import FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet
+from BaseClasses import PlandoOptions
+from Options import FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet, OptionSet
+from worlds.AutoWorld import World
+from Utils import get_fuzzy_results
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
@@ -57,13 +60,27 @@ class McGuffinsNeeded(Range):
     minimum = 1
     maximum = 100
 
-class ForceClass(ItemSet):
+class ForceJob(OptionSet):
     """
     Choose which classes are progression.
 
     If none are selected, five (one tank, one healer, one melee, one phys range, one caster) are chosen at random.
     """
-    display_name = "Force Progression Classes"
+    display_name = "Force Progression Jobs"
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH
+        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH
+        print(f"{repr(self.value)}/{repr(all)}")
+        for item_name in self.value:
+            if item_name not in all:
+                picks = get_fuzzy_results(item_name, all, limit=1)
+                raise Exception(f"Item {item_name} from option {self} "
+                                f"is not a valid job from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+
+        return super().verify(world, player_name, plando_options)
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
@@ -76,5 +93,5 @@ def after_options_defined(options: dict) -> dict:
     options["include_unreasonable_fates"] = UnreasonableFates
     options["difficulty"] = DutyDifficulty
     # options["mcguffins_needed"] = McGuffinsNeeded
-    # options["force_classes"] = ForceClass
+    options["force_jobs"] = ForceJob
     return options

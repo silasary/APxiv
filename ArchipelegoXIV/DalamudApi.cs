@@ -35,6 +35,7 @@ namespace ArchipelegoXIV
     public class DalamudApi
     {
         private static DtrBarEntry? logicBar = null;
+        private static DtrBarEntry? jobBar = null;
 
         public static void Initialize(DalamudPluginInterface pluginInterface) => pluginInterface.Create<DalamudApi>();
 
@@ -50,6 +51,7 @@ namespace ArchipelegoXIV
         [PluginService][RequiredVersion("1.0")] public static IDataManager DataManager { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IDtrBar DtrBar { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IDutyState DutyState { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IAddonEventManager EventManager { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IFateTable FateTable { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IFlyTextGui FlyTextGui { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IFramework Framework { get; private set; } = null;
@@ -84,6 +86,17 @@ namespace ArchipelegoXIV
         internal static void SetStatusTooltop(string text)
         {
             logicBar.Tooltip = text;
+        }
+        internal static void SetJobStatusBar(string text)
+        {
+            if (text == null)
+                return;
+            jobBar ??= DtrBar.Get("APJob");
+            jobBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
+        }
+        internal static void SetJobTooltop(string text)
+        {
+            jobBar.Tooltip = text;
         }
         internal static void ShowToast(string text)
         {

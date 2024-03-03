@@ -60,7 +60,7 @@ namespace ArchipelegoXIV.Rando
             return target.Reachable;
         }
 
-        internal static bool CanReach(ApState apState, string name, ushort territoryId = 0)
+        internal static bool CanReach(ApState apState, string name, ushort territoryId = 0, Location? location = null)
         {
             name = LocationToRegion(name, territoryId);
             if (!APData.Regions.TryGetValue(name, out var value))
@@ -69,6 +69,8 @@ namespace ArchipelegoXIV.Rando
                 DalamudApi.Echo($"Unknown Location {name}");
                 return false;
             }
+            if (location != null)
+                location.region = value;
             return CanReach(apState, value);
         }
 
@@ -97,7 +99,7 @@ namespace ArchipelegoXIV.Rando
         }
     }
 
-    internal class Region
+    public class Region
     {
         public string Name;
         public Func<ApState, bool, bool> MeetsRequirements;

@@ -1,6 +1,13 @@
 import csv
 import pkgutil
 
+TANKS = ["PLD","WAR","DRK","GNB"]
+HEALERS = ["WHM","SCH","AST","SGE"]
+MELEE = ["MNK","DRG","NIN","SAM","RPR"]
+CASTER = ["BLM","SMN","RDM",]
+RANGED = ["BRD","MCH","DNC"]
+DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
+
 fate_zones = {
     "Middle La Noscea": [3,3],
     "Lower La Noscea": [3,3],
@@ -65,8 +72,7 @@ def generate_duty_list():
         if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB", "EW"]:
             requires_str = "{anyClassLevel(" + row[2] + ")}"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
-            duty_list.append(
-                {
+            location = {
                     "name": row[0],
                     "region": row[4],
                     "category": [row[1], row[4]],
@@ -75,7 +81,9 @@ def generate_duty_list():
                     "party" : row[5],
                     "diff" : difficulties.index(row[6]),
                 }
-            )
+            if row[4] == "Gangos":
+                location["category"].append("Bozja")
+            duty_list.append(location)
 
     return duty_list
 
@@ -100,7 +108,8 @@ def generate_fate_list():
                         "region": row[2],
                         "category": ["FATEsanity", row[2]],
                         "requires": "{anyCrafterLevel(" + str(level - 5) + ")}",
-                        "level" : row[1]
+                        "level" : row[1],
+                        "filler": True,
                     }
                 )
                 continue
@@ -113,10 +122,12 @@ def generate_fate_list():
                     "region": row[2],
                     "category": ["FATEsanity", row[2]],
                     "requires": "",
-                    "level" : row[1]
+                    "level" : row[1],
                 }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(level - 5) + ")}"
+            # if level > 30:
+            #     location["filler"] = True
 
             fate_list.append(location)
             # remove generic FATEs from fate_zones if they exist
@@ -254,6 +265,8 @@ def create_FATE_location(number: int, key: str, lvl: int):
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
+    if lvl > 30 and number > 2:
+        location["filler"] = True
     return location
 
 def ocean_fishing():
@@ -284,4 +297,9 @@ def after_load_category_file(category_table: dict) -> dict:
 # called when an external tool (eg Univeral Tracker) ask for slot data to be read
 # use this if you want to restore more data
 def hook_interpret_slot_data(world, player: int, slot_data: dict[str, any]):
-    pass
+    prog_classes = slot_data.get("prog_classes", [])
+    if not prog_classes:
+        prog_classes = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + ["FSH"]
+
+    for job in prog_classes:
+        world.item_name_to_item["5 " + job + " Levels"]["progression"] = True

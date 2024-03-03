@@ -25,7 +25,7 @@ namespace ArchipelegoXIV.Rando
             { "The Pillars", "Ishgard"},
             { "Idyllshire", "The Dravanian Forelands"},
             // Inns
-            { "Location Mizzenmast Inn", "Limsa Lominsa"},
+            { "Mizzenmast Inn", "Limsa Lominsa"},
             { "The Roost", "Gridania"},
             { "The Hourglass", "Ul'dah"},
             { "Cloud Nine", "Ishgard"},

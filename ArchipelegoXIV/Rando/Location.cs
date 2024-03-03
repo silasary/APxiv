@@ -17,11 +17,14 @@ namespace ArchipelegoXIV.Rando
             Name = apState.session.Locations.GetLocationNameFromId(id);
             if (Data.DutyAliases.TryGetValue(Name, out var value))
                 Name = value;
+            Level = 0;
         }
 
         public string Name;
         private readonly ApState apState;
         public long ApId;
+        public int Level;
+        public Region region = null;
 
         public bool Accessible;
 
@@ -100,6 +103,14 @@ namespace ArchipelegoXIV.Rando
             {
                 this.MeetsRequirements = Logic.Always();
             }
+            else if (Name == "Return to the Waking Sands")
+            {
+                this.MeetsRequirements = Logic.Always();
+            }
+            else if (Level > 0)
+            {
+                this.MeetsRequirements = Logic.Level(Level);
+            }
             else
             {
                 DalamudApi.Echo($"Unknown CF {Name}");
@@ -114,7 +125,7 @@ namespace ArchipelegoXIV.Rando
             
             if (!MeetsRequirements(apState, true))
             {
-                return false;
+                DalamudApi.Echo("Warning:  Class check failed");
             }
             return true;
         }
@@ -123,7 +134,8 @@ namespace ArchipelegoXIV.Rando
         {
             this.Accessible = false;
             this.Completed = true;
-            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(true)).Start();
+            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(true));
+            apState.UpdateBars();
         }
     }
 }

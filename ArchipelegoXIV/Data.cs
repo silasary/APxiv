@@ -82,7 +82,18 @@ namespace ArchipelegoXIV
             { "The Dying Gasp (Extreme)", "The Minstrel's Ballad: Hades's Elegy" },
             { "A Relic Reborn: The Hydra", "A Relic Reborn: the Hydra" },
             { "A Relic Reborn: The Chimera", "A Relic Reborn: the Chimera" },
-
+            { "The Fist of the Father", "Alexander - The Fist of the Father" },
+            { "The Cuff of the Father", "Alexander - The Cuff of the Father" },
+            { "The Arm of the Father", "Alexander - The Arm of the Father" },
+            { "The Burden of the Father", "Alexander - The Burden of the Father" },
+            { "The Fist of the Son", "Alexander - The Fist of the Son" },
+            { "The Cuff of the Son", "Alexander - The Cuff of the Son" },
+            { "The Arm of the Son", "Alexander - The Arm of the Son" },
+            { "The Burden of the Son", "Alexander - The Burden of the Son" },
+            { "The Eyes of the Creator", "Alexander - The Eyes of the Creator" },
+            { "The Breath of the Creator", "Alexander - The Breath of the Creator" },
+            { "The Heart of the Creator", "Alexander - The Heart of the Creator" },
+            { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
         };
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;

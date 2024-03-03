@@ -17,6 +17,8 @@ namespace ArchipelegoXIV.Rando
 
         public virtual bool MeetsRequirements(Location location)
         {
+            if (location.region != null)
+                return RegionContainer.CanReach(apState, location.region);
             var zone = location.Name;
             if (zone.StartsWith("Masked Carnivale"))
                 zone = "Masked Carnivale";
@@ -26,7 +28,7 @@ namespace ArchipelegoXIV.Rando
             {
                 zone = match.Groups[1].Value;
             }
-            if (!RegionContainer.CanReach(apState, zone))
+            if (!RegionContainer.CanReach(apState, zone, 0, location))
                 return false;
             
             return true;

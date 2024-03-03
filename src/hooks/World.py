@@ -13,6 +13,7 @@ from ..Data import game_table, item_table, location_table, region_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
+from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH
 
 
 
@@ -134,12 +135,12 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
 def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
-    tanks = ["PLD","WAR","DRK","GNB"]
-    healers = ["WHM","SCH","AST","SGE"]
-    melee = ["MNK","DRG","NIN","SAM","RPR"]
-    caster = ["BLM","SMN","RDM",]
-    ranged = ["BRD","MCH","DNC"]
-    doh = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
+    tanks = TANKS.copy()
+    healers = HEALERS.copy()
+    melee = MELEE.copy()
+    caster = CASTER.copy()
+    ranged = RANGED.copy()
+    doh = DOH.copy()
 
     world.random.shuffle(tanks)
     world.random.shuffle(healers)
@@ -147,7 +148,11 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
-    prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+    force_jobs = get_option_value(multiworld, player, "force_jobs")
+    if force_jobs:
+        prog_classes = force_jobs
+    else:
+        prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
     world.prog_classes = prog_classes
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
     prog_fish = 0
@@ -194,6 +199,7 @@ def after_generate_basic(world: World, multiworld: MultiWorld, player: int):
 
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
+    slot_data["prog_classes"] = world.prog_classes
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it

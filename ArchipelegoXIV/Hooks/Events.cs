@@ -17,8 +17,7 @@ namespace ArchipelegoXIV.Hooks
         {
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
-            
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);            
             RefreshTerritory();
         }
 
@@ -66,6 +65,7 @@ namespace ArchipelegoXIV.Hooks
             string name = duty.Name;
             if (name.StartsWith("the"))
                 name = "The" + name[3..];
+            name = name.Replace("–", "-"); // The game data is inconsistent with which dash it uses in Tam-Tara's name
             DalamudApi.Echo($"{name} Completed");
             if (!apState.Connected)
                 return;
@@ -111,10 +111,9 @@ namespace ArchipelegoXIV.Hooks
             }
 
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
-            if (canReach)
-                DalamudApi.SetStatusBar("In Logic");
-            else
-                DalamudApi.SetStatusBar("Out of Logic");
+            apState.territoryReachable = canReach;
+            apState.UpdateBars();
+
 
             if (apState.territoryName == "The Waking Sands")
             {

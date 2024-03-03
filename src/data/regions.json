@@ -410,14 +410,14 @@
     "Old Sharlayan": {
         "requires": "|Old Sharlayan Access: 1|",
         "connects_to": [
-            "Labyrinthos"
+            "Labyrinthos",
+            "Thavnair"
         ]
     },
     "Labyrinthos": {
         "requires": "|Labyrinthos Access: 1|",
         "connects_to": [
-            "Ultima Thule",
-            "Thavnair"
+            "Ultima Thule"
         ]
     },
     "Ultima Thule": {
