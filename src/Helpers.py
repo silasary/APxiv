@@ -10,11 +10,11 @@ def is_option_enabled(world: MultiWorld, player: int, name: str) -> bool:
     return get_option_value(world, player, name) > 0
 
 def get_option_value(world: MultiWorld, player: int, name: str) -> Union[int, dict]:
-    option = getattr(world, name, None)
+    option = getattr(world.worlds[player].options, name, None)
     if option is None:
         return 0
 
-    return option[player].value
+    return option.value
 
 def clamp(value, min, max):
     """Returns value clamped to the inclusive range of min and max"""
@@ -34,7 +34,12 @@ def is_category_enabled(world: MultiWorld, player: int, category_name: str) -> b
     category_data = category_table.get(category_name, {})
     if "yaml_option" in category_data:
         for option_name in category_data["yaml_option"]:
-            if not is_option_enabled(world, player, option_name):
+            required = True
+            if option_name.startswith("!"):
+                option_name = option_name[1:]
+                required = False
+
+            if is_option_enabled(world, player, option_name) != required:
                 return False
     return True
 
