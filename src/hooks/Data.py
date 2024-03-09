@@ -1,4 +1,5 @@
 import csv
+import json
 import pkgutil
 
 TANKS = ["PLD","WAR","DRK","GNB"]
@@ -7,6 +8,8 @@ MELEE = ["MNK","DRG","NIN","SAM","RPR"]
 CASTER = ["BLM","SMN","RDM",]
 RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
+
+bonus_regions = {}
 
 fate_zones = {
     "Middle La Noscea": [3,3],
@@ -156,9 +159,46 @@ def generate_fate_list():
         fate_list.append(create_FATE_location(5,key,level))
 
     return fate_list
+
+def generate_fish_list() -> list[dict]:
+    fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
+    locations = []
+    for name, data in fish.items():
+        if len(data['zones']) > 1:
+            # cry
+            region = name
+            bonus_regions[name] = {
+                "entrance_rules": {k:v for k,v in data['zones'].items()}
+            }
+            pass
+        else:
+            region = next(iter(data['zones'].keys()))
+
+        locations.append({
+            "name": name,
+            "category": ['Bait', "fishsanity"],
+            "region": region
+        })
+    return locations
+
+
+def generate_bait_list() -> list[dict]:
+    bait = json.loads(pkgutil.get_data(__name__, "bait.json"))
+    items = []
+    for name, data in bait.items():
+        if data.get('mooch'):
+            continue
+        items.append({
+            "name": name,
+            "progression": True,
+            "category": ['Bait', "fishsanity"]
+        })
+    return items
+
 # called after the items.json file has been loaded, before any item loading or processing has occurred
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
 def after_load_item_file(item_table: list) -> list:
+    item_table.extend(generate_bait_list())
     classes = [
         # tanks
         "PLD",
@@ -248,12 +288,14 @@ def after_load_location_file(location_table: list) -> list:
     location_table.extend(generate_fate_list())
     location_table.extend(duty_locations)
     location_table.extend(ocean_fishing())
+    location_table.extend(generate_fish_list())
 
     return location_table
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_region_file(region_table: dict) -> dict:
+    region_table.update(bonus_regions)
     return region_table
 
 def create_FATE_location(number: int, key: str, lvl: int):

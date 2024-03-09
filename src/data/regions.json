@@ -32,7 +32,8 @@
 			"Middle La Noscea",
 			"Eastern La Noscea",
 			"Western La Noscea",
-            "Wolves' Den Pier"
+            "Wolves' Den Pier",
+            "Mist"
 		]
 	},
 	"Eastern La Noscea":
@@ -460,5 +461,9 @@
     },
     "The Firmament": {
         "connects_to": []
-    }
+    },
+    "Mist": {},
+    "The Lavender Beds": {},
+    "The Goblet": {},
+    "The Diadem": {}
 }
