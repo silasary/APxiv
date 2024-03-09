@@ -49,6 +49,8 @@ def scrape_bell():
     bait = json.loads(data[0][1])
     fish = json.loads(data[1][1])
     for f in fish:
+        if f['zone'] == 'Eulmore - The Buttress':
+            f['zone'] = 'Eulmore'
         name = f["name"]
         if name not in all_fish:
             all_fish[name] = {

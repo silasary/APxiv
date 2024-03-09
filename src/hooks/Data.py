@@ -296,6 +296,12 @@ def after_load_location_file(location_table: list) -> list:
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_region_file(region_table: dict) -> dict:
     region_table.update(bonus_regions)
+    for r in bonus_regions:
+        for e in bonus_regions[r]['entrance_rules']:
+            if 'connects_to' not in region_table[e]:
+                region_table[e]['connects_to'] = []
+                print(f'Warning: {e} missing connects_to')
+            region_table[e]['connects_to'].append(r)
     return region_table
 
 def create_FATE_location(number: int, key: str, lvl: int):

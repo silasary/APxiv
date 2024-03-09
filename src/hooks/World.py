@@ -84,57 +84,7 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
     # item_pool.remove(item_to_place)
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
-def after_create_items(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
-    return item_pool
-
-# The item pool before starting items are processed, in case you want to see the raw item pool at that stage
-def before_create_items_starting(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
-    return item_pool
-
-# The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage
-def before_create_items_filler(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
-    # Use this hook to remove items from the item pool
-    itemNamesToRemove = [] # List of item names
-
-    # Add your code here to calculate which items to remove.
-    #
-    # Because multiple copies of an item can exist, you need to add an item name
-    # to the list multiple times if you want to remove multiple copies of it.
-
-    for itemName in itemNamesToRemove:
-        item = next(i for i in item_pool if i.name == itemName)
-        item_pool.remove(item)
-
-    return item_pool
-
-    # Some other useful hook options:
-
-    ## Place an item at a specific location
-    # location = next(l for l in multiworld.get_unfilled_locations(player=player) if l.name == "Location Name")
-    # item_to_place = next(i for i in item_pool if i.name == "Item Name")
-    # location.place_locked_item(item_to_place)
-    # item_pool.remove(item_to_place)
-
-# The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
-def after_create_items(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
-    return item_pool
-
-# Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.
-def before_set_rules(world: World, multiworld: MultiWorld, player: int):
-    pass
-
-# Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
-def after_set_rules(world: World, multiworld: MultiWorld, player: int):
-    # goal_count = get_option_value(world, player, "mcguffins_needed")
-    # multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
-    # for region in multiworld.get_regions(player):
-    #     for location in region.locations:
-    #         if location.name == "__Manual Game Complete__":
-    #             location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
-    pass
-
-# The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
-def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
+def after_create_items(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
     tanks = TANKS.copy()
     healers = HEALERS.copy()
     melee = MELEE.copy()
@@ -169,6 +119,24 @@ def before_generate_basic(item_pool: list[ManualItem], world: World, multiworld:
             prog_doh = None
     return item_pool
 
+# Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.
+def before_set_rules(world: World, multiworld: MultiWorld, player: int):
+    pass
+
+# Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
+def after_set_rules(world: World, multiworld: MultiWorld, player: int):
+    # goal_count = get_option_value(world, player, "mcguffins_needed")
+    # multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    # for region in multiworld.get_regions(player):
+    #     for location in region.locations:
+    #         if location.name == "__Manual Game Complete__":
+    #             location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    pass
+
+# The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
+def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> list:
+    pass
+
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs
 def after_generate_basic(world: World, multiworld: MultiWorld, player: int):
     pass
@@ -188,14 +156,6 @@ def before_create_item(item_name: str, world: World, multiworld: MultiWorld, pla
 # The item that was created is provided after creation, in case you want to modify the item
 def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, player: int) -> ManualItem:
     return item
-
-# This method is run towards the end of pre-generation, before the place_item options have been handled and before AP generation occurs
-def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> list:
-    pass
-
-# This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs
-def after_generate_basic(world: World, multiworld: MultiWorld, player: int):
-    pass
 
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
