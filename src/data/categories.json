@@ -24,5 +24,8 @@
     },
     "Big Fishing": {
         "yaml_option": ["fishsanity", "fishsanity_big_fish"]
+    },
+    "Timed Fish": {
+        "yaml_option": ["fishsanity", "fishsanity_timed_fish"]
     }
 }

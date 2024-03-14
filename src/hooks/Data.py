@@ -176,7 +176,7 @@ def generate_fish_list() -> list[dict]:
 
         locations.append({
             "name": name,
-            "category": ['Fish', "fishsanity"] + list(data['zones'].keys()) + (["Big Fishing"] if data.get('bigfish') else []),
+            "category": ['Fish', "fishsanity"] + list(data['zones'].keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
             "region": region,
             "requires": f"|5 FSH Levels:{data['lvl'] // 5}|",
         })

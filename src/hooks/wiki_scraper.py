@@ -60,7 +60,8 @@ def scrape_bell():
                 'lvl': f['lvl'],
                 'category': f['category'],
                 'bigfish': f['rarity'] > 1,
-                'folklore': f.get('folklore')
+                'folklore': f.get('folklore'),
+                'timed': f.get('weather') or f.get('during'),
                 }
         all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
 
