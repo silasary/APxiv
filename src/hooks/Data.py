@@ -80,7 +80,7 @@ def generate_duty_list():
                     "region": row[4],
                     "category": [row[1], row[4]],
                     "requires": requires_str,
-                    #"level" : row[3]
+                    "level" : row[2],
                     "party" : row[5],
                     "diff" : difficulties.index(row[6]),
                 }
@@ -310,6 +310,7 @@ def create_FATE_location(number: int, key: str, lvl: int):
             "region": key,
             "category": ["FATEs", key],
             "requires": "",
+            "level" : lvl,
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
@@ -327,14 +328,16 @@ def ocean_fishing():
             "name": "Ocean Fishing: " + route,
             "region": "Ocean Fishing",
             "category": ["Ocean Fishing", "Indigo Route"],
-            "requires": "|5 FSH Levels:1|"
+            "requires": "|5 FSH Levels:1|",
+            "level": 1,
         })
     for route in ruby_route:
         locations.append({
             "name": "Ocean Fishing: " + route,
             "region": "Ocean Fishing",
             "category": ["Ocean Fishing", "Ruby Route"],
-            "requires": "|5 FSH Levels:12| and |Kugane Access:1|"  # Level 60, because why not
+            "requires": "|5 FSH Levels:12| and |Kugane Access:1|",  # Level 60, because why not
+            "level": 60,
         })
     return locations
 

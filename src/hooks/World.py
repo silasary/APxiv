@@ -41,12 +41,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(["He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)", "A Horse Outside (FATE)", "Foxy Lady (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)", "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)"])
 
+    level_cap = get_option_value(multiworld, player, "level_cap") or 90
+
     duty_diff = get_option_value(multiworld, player, "difficulty") or 0
     for location in location_table:
         if "diff" in location:
             if location["diff"] > duty_diff:
-                print(f"Removing {location['name']} from {player}'s pool")
+                print(f"Removing {location['name']} from {player}'s pool for difficulty")
                 locationNamesToRemove.append(location["name"])
+        elif "level" in location and int(location["level"]) > level_cap:
+            print(f"Removing {location['name']} from {player}'s pool for level cap")
+            locationNamesToRemove.append(location["name"])
+
 
     for region in multiworld.regions:
         if region.player == player:
@@ -125,12 +131,12 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
-    # goal_count = get_option_value(world, player, "mcguffins_needed")
-    # multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
-    # for region in multiworld.get_regions(player):
-    #     for location in region.locations:
-    #         if location.name == "__Manual Game Complete__":
-    #             location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    goal_count = get_option_value(multiworld, player, "mcguffins_needed")
+    multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    for region in multiworld.get_regions(player):
+        for location in region.locations:
+            if location.name == "__Manual Game Complete__":
+                location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
     pass
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it

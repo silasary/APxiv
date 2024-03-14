@@ -1,6 +1,6 @@
 # Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
-from Options import FreeText, NumericOption, Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet, OptionSet
+from Options import Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet, OptionSet
 from worlds.AutoWorld import World
 from Utils import get_fuzzy_results
 
@@ -15,7 +15,7 @@ class OceanFishing(Toggle):
     This option is absolutely not sync-viable.
     """
     display_name = "Enable Ocean Fishing"
-    default = True
+    default = False
 
 class Fatesanity(Toggle):
     """
@@ -24,7 +24,7 @@ class Fatesanity(Toggle):
     If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
     """
     display_name = "Fatesanity"
-    default = True
+    default = False
 
 class UnreasonableFates(Toggle):
     """
@@ -34,7 +34,7 @@ class UnreasonableFates(Toggle):
     If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
     """
     display_name = "Include Unreasonable FATEs"
-    default = True
+    default = False
 
 class DutyDifficulty(Choice):
     """
@@ -44,7 +44,7 @@ class DutyDifficulty(Choice):
     [savage] As above, but old savage raids are included in the location pool.
     [endgame] As above, but the current savage tier is included in the location pool.
     """
-    default = 2
+    default = 1
     display_name = "Duty Difficulty"
     option_normal = 0
     option_extreme = 1
@@ -57,8 +57,8 @@ class McGuffinsNeeded(Range):
     """
     display_name = "McGuffins Needed"
     default = 80
-    minimum = 1
-    maximum = 100
+    range_start = 1
+    range_end = 100
 
 class ForceJob(OptionSet):
     """
@@ -82,6 +82,15 @@ class ForceJob(OptionSet):
 
         return super().verify(world, player_name, plando_options)
 
+class LevelCap(Range):
+    """
+    Maximum level of the player.
+    """
+    display_name = "Level Cap"
+    default = 90
+    range_start = 10
+    range_end = 90
+
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
     return options
@@ -92,6 +101,7 @@ def after_options_defined(options: dict) -> dict:
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
     options["difficulty"] = DutyDifficulty
-    # options["mcguffins_needed"] = McGuffinsNeeded
+    options["mcguffins_needed"] = McGuffinsNeeded
     options["force_jobs"] = ForceJob
+    options["level_cap"] = LevelCap
     return options
