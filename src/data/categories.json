@@ -21,5 +21,8 @@
     "fishsanity": {
         "yaml_option": ["fishsanity"],
         "hidden": true
+    },
+    "Big Fishing": {
+        "yaml_option": ["fishsanity", "fishsanity_big_fish"]
     }
 }
