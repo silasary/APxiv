@@ -139,7 +139,7 @@ class DataValidation():
     @staticmethod
     def checkRegionNamesInLocations():
         for location in DataValidation.location_table:
-            if "region" not in location:
+            if "region" not in location or location["region"] in ["Menu", "Manual"]:
                 continue
 
             region_exists = len([name for name in DataValidation.region_table if name == location["region"]]) > 0
@@ -260,6 +260,61 @@ class DataValidation():
                         raise ValidationError("Item category %s is set as a starting item category, but is misspelled or is not defined on any items." % (category_name))
 
     @staticmethod
+    def checkStartingItemsForBadSyntax():
+        if not (starting_items := DataValidation.game_table.get("starting_items", False)):
+            return
+
+        for starting_block in starting_items:
+            if type(starting_block) is not dict or len(starting_block.keys()) == 0:
+                raise ValidationError("One of your starting item definitions is not a valid dictionary.\n   Each definition must be inside {}, as demonstrated in the Manual documentation.")
+
+            valid_keys = ["items", "item_categories", "random", "if_previous_item", "_comment"] # _comment is provided by schema
+            invalid_keys = [f'"{key}"' for key in starting_block.keys() if key not in valid_keys]
+
+            if len(invalid_keys) > 0:
+                raise ValidationError("One of your starting item definitions is invalid and may have unexpected results.\n   The invalid starting item definition specifies the following incorrect keys: {}".format(", ".join(invalid_keys)))
+
+    @staticmethod
+    def checkPlacedItemsAndCategoriesForBadSyntax():
+        for location in DataValidation.location_table:
+            if not (place_item := location.get("place_item", False)) and not (place_item_category := location.get("place_item_category", False)):
+                continue
+
+            if place_item and type(place_item) is not list:
+                raise ValidationError("One of your location has an incorrectly formatted place_item.\n   The items, even just one, must be inside [].")
+
+            if place_item_category and type(place_item_category) is not list:
+                raise ValidationError("One of your location has an incorrectly formatted place_item_category.\n   The categories, even just one, must be inside [].")
+
+    @staticmethod
+    def checkPlacedItemsForValidItems():
+        for location in DataValidation.location_table:
+            if not (place_item := location.get("place_item", False)):
+                continue
+
+            # don't bother checking for valid items if the syntax is wrong
+            if type(place_item) is not list:
+                continue
+
+            for item_name in place_item:
+                if not item_name in [item["name"] for item in DataValidation.item_table]:
+                    raise ValidationError("Item %s is placed (using place_item) on a location, but is misspelled or is not defined." % (item_name))
+
+    @staticmethod
+    def checkPlacedItemCategoriesForValidItemCategories():
+        for location in DataValidation.location_table:
+            if not (place_item_category := location.get("place_item_category", False)):
+                continue
+
+            # don't bother checking for valid item categories if the syntax is wrong
+            if type(place_item_category) is not list:
+                continue
+
+            for category_name in place_item_category:
+                if len([item for item in DataValidation.item_table if "category" in item and category_name in item["category"]]) == 0:
+                    raise ValidationError("Item category %s is placed (using place_item_category) on a location, but is misspelled or is not defined." % (category_name))
+
+    @staticmethod
     def checkForGameBeingInvalidJSON():
         if len(DataValidation.game_table) == 0:
             raise ValidationError("No settings were found in your game.json. This likely indicates that your JSON is incorrectly formatted. Use https://jsonlint.com/ to validate your JSON files.")
@@ -273,14 +328,6 @@ class DataValidation():
     def checkForLocationsBeingInvalidJSON():
         if len(DataValidation.location_table) == 0:
             raise ValidationError("No locations were found in your locations.json. This likely indicates that your JSON is incorrectly formatted. Use https://jsonlint.com/ to validate your JSON files.")
-
-    @staticmethod
-    def checkForGameFillerMatchingAnItemName():
-        filler_item = DataValidation.game_table["filler_item_name"] if "filler_item_name" in DataValidation.game_table else "Filler"
-        items_matching = [item for item in DataValidation.item_table if item["name"] == filler_item]
-
-        if len(items_matching) > 0:
-            raise ValidationError("Your game's filler item name ('%s') matches an item you defined in your items.json. Item names must be unique, including the default filler item." % (filler_item))
 
     @staticmethod
     def checkForNonStartingRegionsThatAreUnreachable():
@@ -297,3 +344,66 @@ class DataValidation():
             if len(regions_that_connect_to) == 0:
                 raise ValidationError("The region '%s' is set as a non-starting region, but has no regions that connect to it. It will be inaccessible." % nonstarter)
 
+
+
+# Called during stage_assert_generate
+def runGenerationDataValidation() -> None:
+    validation_errors = []
+
+    # check that requires have correct item names in locations and regions
+    try: DataValidation.checkItemNamesInLocationRequires()
+    except ValidationError as e: validation_errors.append(e)
+
+    try: DataValidation.checkItemNamesInRegionRequires()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that region names are correct in locations
+    try: DataValidation.checkRegionNamesInLocations()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that items that are required by locations and regions are also marked required
+    try: DataValidation.checkItemsThatShouldBeRequired()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that regions that are connected to are correct
+    try: DataValidation.checkRegionsConnectingToOtherRegions()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that the apworld creator didn't specify multiple victory conditions
+    try: DataValidation.checkForMultipleVictoryLocations()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check for duplicate names in items, locations, and regions
+    try: DataValidation.checkForDuplicateItemNames()
+    except ValidationError as e: validation_errors.append(e)
+
+    try: DataValidation.checkForDuplicateLocationNames()
+    except ValidationError as e: validation_errors.append(e)
+
+    try: DataValidation.checkForDuplicateRegionNames()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that starting items are actually valid starting item definitions
+    try: DataValidation.checkStartingItemsForBadSyntax()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that starting items and starting item categories actually exist in the items json
+    try: DataValidation.checkStartingItemsForValidItemsAndCategories()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check that placed items are actually valid place item definitions
+    try: DataValidation.checkPlacedItemsAndCategoriesForBadSyntax()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check placed item and item categories for valid options for each
+    try: DataValidation.checkPlacedItemsForValidItems()
+    except ValidationError as e: validation_errors.append(e)
+
+    try: DataValidation.checkPlacedItemCategoriesForValidItemCategories()
+    except ValidationError as e: validation_errors.append(e)
+
+    # check for regions that are set as non-starting regions and have no connectors to them (so are unreachable)
+    try: DataValidation.checkForNonStartingRegionsThatAreUnreachable()
+    except ValidationError as e: validation_errors.append(e)
+    if len(validation_errors) > 0:
+        raise Exception("\nValidationError(s): \n\n%s\n\n" % ("\n".join([' - ' + str(validation_error) for validation_error in validation_errors])))

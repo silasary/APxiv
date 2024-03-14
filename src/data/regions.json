@@ -32,7 +32,8 @@
 			"Middle La Noscea",
 			"Eastern La Noscea",
 			"Western La Noscea",
-            "Wolves' Den Pier"
+            "Wolves' Den Pier",
+            "Mist"
 		]
 	},
 	"Eastern La Noscea":
@@ -92,7 +93,8 @@
 			"Gridania",
 			"North Shroud",
 			"East Shroud",
-			"South Shroud"
+			"South Shroud",
+            "The Lavender Beds"
 		]
 	},
 	"East Shroud":
@@ -155,7 +157,8 @@
 		"connects_to": [
 			"Ul'dah",
 			"Central Thanalan",
-			"Limsa Lominsa"
+			"Limsa Lominsa",
+            "The Goblet"
 		]
 	},
 	"Eastern Thanalan":
@@ -213,7 +216,8 @@
 			"Coerthas Western Highlands",
 			"The Sea of Clouds",
 			"Azys Lla",
-            "The Firmament"
+            "The Firmament",
+            "The Diadem"
 		]
 	},
 	"Coerthas Western Highlands":
@@ -306,7 +310,8 @@
 		"requires": "|Kugane Access: 1|",
 		"connects_to": [
 			"Limsa Lominsa",
-			"The Ruby Sea"
+			"The Ruby Sea",
+            "Shirogane"
 		]
 	},
 	"The Ruby Sea":
@@ -459,6 +464,21 @@
         "connects_to": []
     },
     "The Firmament": {
+        "connects_to": []
+    },
+    "Mist": {
+        "connects_to": []
+    },
+    "The Lavender Beds": {
+        "connects_to": []
+    },
+    "The Goblet": {
+        "connects_to": []
+    },
+    "The Diadem": {
+        "connects_to": []
+    },
+    "Shirogane": {
         "connects_to": []
     }
 }

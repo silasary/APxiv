@@ -25,3 +25,5 @@ if len(game_table["game"]) > 3:
 
 for index in range(0, len(game_table["player"])):
     starting_index += (ord(game_table["player"][index:index+1]) * 1000)
+
+# game_name = "Final Fantasy XIV"

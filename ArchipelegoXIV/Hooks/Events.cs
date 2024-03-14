@@ -17,8 +17,23 @@ namespace ArchipelegoXIV.Hooks
         {
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);            
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
+            DalamudApi.GameInventory.ItemAdded += GameInventory_ItemAdded;
             RefreshTerritory();
+        }
+
+        private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
+        {
+            if (Data.Fish.TryGetValue(data.Item.ItemId, out var value))
+            {
+                var name = value.Name;
+                DalamudApi.Echo($"Caught a {name}!");
+                var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                if (loc != null)
+                {
+                    loc.Complete();
+                }
+            }
         }
 
         private unsafe void OnFatePreFinalize(AddonEvent type, AddonArgs args)

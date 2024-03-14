@@ -17,5 +17,15 @@
     "Bozja": {
         "yaml_option": ["include_bozja"],
         "hidden": true
+    },
+    "fishsanity": {
+        "yaml_option": ["fishsanity"],
+        "hidden": true
+    },
+    "Big Fishing": {
+        "yaml_option": ["fishsanity", "fishsanity_big_fish"]
+    },
+    "Timed Fish": {
+        "yaml_option": ["fishsanity", "fishsanity_timed_fish"]
     }
 }
