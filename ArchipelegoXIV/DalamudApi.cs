@@ -56,6 +56,7 @@ namespace ArchipelegoXIV
         [PluginService][RequiredVersion("1.0")] public static IFlyTextGui FlyTextGui { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IFramework Framework { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IGameGui GameGui { get; private set; } = null;
+        [PluginService][RequiredVersion("1.0")] public static IGameInventory GameInventory { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IGameNetwork GameNetwork { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IGamepadState GamePadState { get; private set; } = null;
         [PluginService][RequiredVersion("1.0")] public static IJobGauges JobGauges { get; private set; } = null;
