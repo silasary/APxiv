@@ -1,8 +1,8 @@
 {
     "Author": "silasary",
     "Name": "ArchipelagoXIV",
-    "Punchline": "Client for the Archipelago randomizer.",
-    "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
+    "Punchline": "Client for the Archipelago Multiworld Randomizer.",
+    "Description": "Complete dungeons to send items to your friends playing Pokemon and Zelda.",
     "InternalName": "Archipelago",
     "ApplicableVersion": "any",
     "Tags": [

@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="..\Data\goat.png">
+        <Content Include="..\images\icon.png">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
