@@ -46,19 +46,20 @@ class DutyDifficulty(Choice):
     """
     default = 1
     display_name = "Duty Difficulty"
-    option_normal = 0
-    option_extreme = 1
-    option_savage = 2
-    option_endgame = 3
+    option_no_duties = 0
+    option_normal = 1
+    option_extreme = 2
+    option_savage = 3
+    option_endgame = 4
 
 class McGuffinsNeeded(Range):
     """
     Number of Distant Memories needed to win the game.
     """
     display_name = "McGuffins Needed"
-    default = 80
+    default = 30
     range_start = 1
-    range_end = 100
+    range_end = 50
 
 class ForceJob(OptionSet):
     """
@@ -100,8 +101,8 @@ def after_options_defined(options: dict) -> dict:
     options["include_ocean_fishing"] = OceanFishing
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
-    options["difficulty"] = DutyDifficulty
+    options["duty_difficulty"] = DutyDifficulty
     options["mcguffins_needed"] = McGuffinsNeeded
     options["force_jobs"] = ForceJob
-    options["level_cap"] = LevelCap
+    # options["level_cap"] = LevelCap
     return options

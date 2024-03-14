@@ -67,7 +67,7 @@ fate_zones = {
 
 def generate_duty_list():
     duty_list = []
-    difficulties = ["Normal", "Extreme", "Savage", "Endgame"]
+    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
 
     for row in dutyreader:
@@ -110,7 +110,7 @@ def generate_fate_list():
                         "name": name,
                         "region": row[2],
                         "category": ["FATEsanity", row[2]],
-                        "requires": "{anyCrafterLevel(" + str(level - 5) + ")}",
+                        "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row[1],
                         "filler": True,
                     }
@@ -128,7 +128,7 @@ def generate_fate_list():
                     "level" : row[1],
                 }
             if level > 5:
-                location["requires"] = "{anyClassLevel(" + str(level - 5) + ")}"
+                location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
             # if level > 30:
             #     location["filler"] = True
 
@@ -176,8 +176,9 @@ def generate_fish_list() -> list[dict]:
 
         locations.append({
             "name": name,
-            "category": ['Bait', "fishsanity"],
-            "region": region
+            "category": ['Fish', "fishsanity"] + list(data['zones'].keys()),
+            "region": region,
+            "requires": f"|5 FSH Levels:{data['lvl'] // 5}|",
         })
     return locations
 
