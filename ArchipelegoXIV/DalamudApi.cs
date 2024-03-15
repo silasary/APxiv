@@ -79,6 +79,16 @@ namespace ArchipelegoXIV
             });
         }
 
+        internal static void PvPTeam(string Text, string sender)
+        {
+            ChatGui.Print(new XivChatEntry
+            {
+                Message = new SeStringBuilder().AddText(Text).Build(),
+                Type = XivChatType.PvPTeam,
+                Name = sender,
+            });
+        }
+
         internal static void SetStatusBar(string text)
         {
             logicBar ??= DtrBar.Get("Archipelago");

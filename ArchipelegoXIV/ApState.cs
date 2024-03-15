@@ -51,12 +51,12 @@ namespace ArchipelegoXIV
                 var joblvl = Game.MaxLevel(job);
                 sb.Append(job.Abbreviation).Append(": ");
                 if (localPlayer.Level < joblvl)
-                    sb.Append(localPlayer.Level).Append("/");
+                    sb.Append(localPlayer.Level).Append('/');
                 sb.Append(joblvl);
 
                 var maxlvl = Game.MaxLevel();
                 if (joblvl < maxlvl)
-                    sb.Append(" (Best ").Append(maxlvl).Append(")");
+                    sb.Append(" (Best ").Append(maxlvl).Append(')');
                 return sb.ToString();
             }
         }
@@ -169,8 +169,15 @@ namespace ArchipelegoXIV
                 zoneTT.AppendLine($"Available Checks in {region.Name}:");
                 foreach (var l in MissingLocations.Where(l => l.region == region))
                 {
-                    zoneTT.AppendLine(l.Name);
-                    checks++;
+                    if (l.IsAccessible())
+                    {
+                        zoneTT.AppendLine(l.Name);
+                        checks++;
+                    }
+                    else
+                    {
+                        zoneTT.AppendLine(l.Name + "(Unavailable)");
+                    }
                 }
             }
             zoneTT.AppendLine();
@@ -199,7 +206,7 @@ namespace ArchipelegoXIV
 
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
         {
-            DalamudApi.Echo(message.ToString());
+            DalamudApi.PvPTeam(message.ToString(), "AP");
             if (message.Parts.Any(p => p.Type == MessagePartType.Player && p.Text == session.Players.GetPlayerAlias(slot)))
                 DalamudApi.ShowToast(message.ToString());
         }

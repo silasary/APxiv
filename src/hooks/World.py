@@ -45,6 +45,10 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     level_cap = get_option_value(multiworld, player, "level_cap") or 90
 
     duty_diff = get_option_value(multiworld, player, "duty_difficulty") or 0
+
+    if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
+        locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
+
     for location in location_table:
         if "diff" in location:
             if location["diff"] > duty_diff:
@@ -70,7 +74,7 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
     return item_pool
 
 # The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage
-def before_create_items_filler(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
+def before_create_items_filler(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
     tanks = TANKS.copy()
     healers = HEALERS.copy()
     melee = MELEE.copy()
@@ -93,6 +97,8 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
     world.prog_classes = prog_classes
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
     prog_doh = doh[0]
+    start_class = world.random.choice(prog_levels)
+    start_inventory = {start_class: 3}
 
     seen_levels = {}
 
@@ -102,6 +108,9 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
         if "Levels" in item.name:
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
             if seen_levels[item.name] > level_cap:
+                item_pool.remove(item)
+                continue
+            if item.name == start_class and seen_levels[item.name] <= 3:
                 item_pool.remove(item)
                 continue
 
@@ -168,6 +177,7 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
+    slot_data["mcguffins_needed"] = get_option_value(multiworld, player, "mcguffins_needed") or 30
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it

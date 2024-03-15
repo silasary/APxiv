@@ -92,6 +92,12 @@ class LevelCap(Range):
     range_start = 10
     range_end = 90
 
+class AllowMainScenario(DefaultOnToggle):
+    """
+    Include Castrum Meridianum, Praetorium, and The Porta Decumana in the location pool.
+    These duties are long and contain unskippable cutscenes.
+    """
+
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
     return options
@@ -105,4 +111,5 @@ def after_options_defined(options: dict) -> dict:
     options["mcguffins_needed"] = McGuffinsNeeded
     options["force_jobs"] = ForceJob
     # options["level_cap"] = LevelCap
+    options["allow_main_scenario_duties"] = AllowMainScenario
     return options

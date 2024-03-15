@@ -8,19 +8,19 @@
 	{
 		"name": "Limsa Lominsa and Middle La Noscea Access",
 		"category": ["Starting", "Location"],
-		"count":1,
+		"count":0,
 		"progression": true
 	},
 	{
 		"name": "Gridania and Central Shroud Access",
 		"category": ["Starting", "Location"],
-		"count":1,
+		"count":0,
 		"progression": true
 	},
 	{
 		"name": "Ul'dah and Central Thanalan Access",
 		"category": ["Starting", "Location"],
-		"count":1,
+		"count":0,
 		"progression": true
 	},
 	{

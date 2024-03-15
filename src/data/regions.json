@@ -1,7 +1,7 @@
 
 {
 	"Limsa Lominsa": {
-		"requires": "|Limsa Lominsa and Middle La Noscea Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Lower La Noscea",
 			"Middle La Noscea",
@@ -16,7 +16,7 @@
 	},
 	"Middle La Noscea":
 	{
-		"requires": "|Limsa Lominsa and Middle La Noscea Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Limsa Lominsa",
 			"Lower La Noscea",
@@ -77,7 +77,7 @@
         "connects_to": ["Lower La Noscea"]
     },
 	"Gridania": {
-		"requires": "|Gridania and Central Shroud Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Central Shroud",
 			"North Shroud",
@@ -88,7 +88,7 @@
 	},
 	"Central Shroud":
 	{
-		"requires": "|Gridania and Central Shroud Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Gridania",
 			"North Shroud",
@@ -126,7 +126,7 @@
 		]
 	},
 	"Ul'dah": {
-		"requires": "|Ul'dah and Central Thanalan Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Central Thanalan",
 			"Western Thanalan",
@@ -137,7 +137,7 @@
 	},
 	"Central Thanalan":
 	{
-		"requires": "|Ul'dah and Central Thanalan Access:1|",
+		"requires": "",
 		"connects_to": [
 			"Northern Thanalan",
 			"Eastern Thanalan",

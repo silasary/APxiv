@@ -1,19 +1,12 @@
 using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using System.IO;
 using Dalamud.Interface.Windowing;
 using SamplePlugin.Windows;
-using Dalamud.Game.DutyState;
-using Dalamud.Game.ClientState;
 using ArchipelegoXIV;
-using System;
-using Dalamud.Data;
-using Lumina.Excel.GeneratedSheets;
-using System.Linq;
-using Dalamud.Game;
 using ArchipelegoXIV.Hooks;
 using Dalamud.Plugin.Services;
+using Archipelago.MultiClient.Net.Packets;
 
 namespace SamplePlugin
 {
@@ -75,12 +68,27 @@ namespace SamplePlugin
                 HelpMessage = "Disconnect from Archipelago"
             });
 
+            this.CommandManager.AddHandler("/ap", new CommandInfo(Chat)
+            {
+                HelpMessage = "Send chat messages to your multiworld"
+            });
+
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.Hooks.Enable();
             this.Events.Enable();
             UiHooks.Enable();
             DalamudApi.SetStatusBar("AP Disconnected");
+        }
+
+        private void Chat(string command, string arguments)
+        {
+            if (!apState.Connected)
+            {
+                DalamudApi.Echo("Connect with /ap-connect first");
+                return;
+            }
+            apState.session.Socket.SendPacket(new SayPacket() { Text = arguments });
         }
 
         private void ShowConfig(string command, string arguments)
