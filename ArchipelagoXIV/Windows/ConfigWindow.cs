@@ -1,6 +1,6 @@
 using System;
 using System.Numerics;
-using ArchipelegoXIV;
+using ArchipelagoXIV;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     internal class NGPlusGame(ApState apState) : BaseGame(apState)
     {

@@ -1,4 +1,4 @@
-using ArchipelegoXIV.Rando;
+using ArchipelagoXIV.Rando;
 using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Helpers;
 using Dalamud.Game.Gui.Dtr;
@@ -14,7 +14,7 @@ using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
 using System.ComponentModel.Design;
 
-namespace ArchipelegoXIV
+namespace ArchipelagoXIV
 {
     public class ApState
     {

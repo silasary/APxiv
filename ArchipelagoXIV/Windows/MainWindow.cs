@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
-using ArchipelegoXIV;
-using ArchipelegoXIV.Rando;
+using ArchipelagoXIV;
+using ArchipelagoXIV.Rando;
 using Dalamud.Game.DutyState;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;

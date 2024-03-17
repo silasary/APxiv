@@ -1,4 +1,4 @@
-using ArchipelegoXIV.Rando;
+using ArchipelagoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Logging;
@@ -9,7 +9,7 @@ using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Linq;
 
-namespace ArchipelegoXIV.Hooks
+namespace ArchipelagoXIV.Hooks
 {
     internal class Events(ApState apState)
     {

@@ -3,8 +3,8 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Interface.Windowing;
 using SamplePlugin.Windows;
-using ArchipelegoXIV;
-using ArchipelegoXIV.Hooks;
+using ArchipelagoXIV;
+using ArchipelagoXIV.Hooks;
 using Dalamud.Plugin.Services;
 using Archipelago.MultiClient.Net.Packets;
 
@@ -21,7 +21,7 @@ namespace SamplePlugin
         internal Events Events { get; }
         internal UIHooks UiHooks { get; }
         public Configuration Configuration { get; init; }
-        public WindowSystem WindowSystem = new("ArchipelegoXIV");
+        public WindowSystem WindowSystem = new("ArchipelagoXIV");
 
         private ConfigWindow ConfigWindow { get; init; }
         private MainWindow MainWindow { get; init; }

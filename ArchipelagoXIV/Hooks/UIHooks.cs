@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using static FFXIVClientStructs.FFXIV.Client.UI.AddonRelicNoteBook;
 using static Lumina.Data.Parsing.Uld.NodeData;
 
-namespace ArchipelegoXIV.Hooks
+namespace ArchipelagoXIV.Hooks
 {
     internal unsafe partial class UIHooks(ApState apState)
     {
@@ -70,7 +70,7 @@ namespace ArchipelegoXIV.Hooks
                     //if (hints.Contains(loc.ApId))
                     //    hollowsImageNode->GetAsAtkImageNode()->LoadIconTexture(60004, 0); // Hunt Target tonberry
                     //else
-                    //    hollowsImageNode->GetAsAtkImageNode()->LoadIconTexture(60849, 0); // 
+                    //    hollowsImageNode->GetAsAtkImageNode()->LoadIconTexture(60849, 0); //
 
                 }
             }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     internal static class APData
     {

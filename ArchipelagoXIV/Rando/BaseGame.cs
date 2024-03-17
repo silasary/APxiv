@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     public abstract class BaseGame(ApState apState)
     {
@@ -30,7 +30,7 @@ namespace ArchipelegoXIV.Rando
             }
             if (!RegionContainer.CanReach(apState, zone, 0, location))
                 return false;
-            
+
             return true;
 
         }
@@ -44,7 +44,7 @@ namespace ArchipelegoXIV.Rando
 
         internal virtual void ProcessItem(NetworkItem item, string itemName)
         {
-            
+
         }
     }
 }

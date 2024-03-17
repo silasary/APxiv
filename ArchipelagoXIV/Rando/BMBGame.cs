@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     internal partial class BMBGame(ApState apState) : BaseGame(apState)
     {

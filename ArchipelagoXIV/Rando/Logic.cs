@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     internal static partial class Logic
     {

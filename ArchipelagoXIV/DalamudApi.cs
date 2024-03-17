@@ -30,7 +30,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text;
 using Dalamud.Plugin.Services;
 
-namespace ArchipelegoXIV
+namespace ArchipelagoXIV
 {
     public class DalamudApi
     {

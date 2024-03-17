@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ArchipelegoXIV.Rando
+namespace ArchipelagoXIV.Rando
 {
     public class Location
     {
@@ -122,7 +122,7 @@ namespace ArchipelegoXIV.Rando
         {
             if (!IsAccessible())
                 return false;
-            
+
             if (!MeetsRequirements(apState, true))
             {
                 DalamudApi.Echo("Warning:  Class check failed");

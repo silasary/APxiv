@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using Lumina.Excel.GeneratedSheets;
 
-namespace ArchipelegoXIV
+namespace ArchipelagoXIV
 {
     internal static partial class Data
     {

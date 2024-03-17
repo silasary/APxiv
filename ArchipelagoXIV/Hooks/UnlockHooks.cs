@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArchipelegoXIV.Hooks
+namespace ArchipelagoXIV.Hooks
 {
     internal class UnlockHooks(ApState apState) : IDisposable
     {
