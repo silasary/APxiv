@@ -1,4 +1,4 @@
-name: Create Release - Unstable
+name: Create Release - APXIV
 
 on:
   workflow_dispatch:
