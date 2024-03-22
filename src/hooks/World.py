@@ -143,11 +143,11 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     goal_count = get_option_value(multiworld, player, "mcguffins_needed")
-    multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) > goal_count
+    multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) >= goal_count
     for region in multiworld.get_regions(player):
         for location in region.locations:
             if location.name == "__Manual Game Complete__":
-                location.access_rule = lambda state: state.count("Memory of a Distant World", player) > goal_count
+                location.access_rule = lambda state: state.count("Memory of a Distant World", player) >= goal_count
     pass
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
