@@ -98,18 +98,53 @@ class AllowMainScenario(DefaultOnToggle):
     These duties are long and contain unskippable cutscenes.
     """
 
+class Fishsanity(Toggle):
+    """
+    Include individual fish in the location pool.
+    """
+
+class FishsanityBigFish(Toggle):
+    """
+    Include big fish in the location pool.
+    """
+
+class FishsanityTimedFish(Toggle):
+    """
+    Include timed and weather-dependant fish in the location pool.
+    """
+
+class IncludePvP(Toggle):
+    """
+    Include PvP duties in the location pool.
+    """
+
+class IncludeBozja(Toggle):
+    """
+    Include Save the Queen content in the location pool.  This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    """
+
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
+    # Goal
+    options["mcguffins_needed"] = McGuffinsNeeded
+    # Duties
+    options["duty_difficulty"] = DutyDifficulty
+    options["allow_main_scenario_duties"] = AllowMainScenario
+    options["include_ocean_fishing"] = OceanFishing
+    options["include_pvp"] = IncludePvP
+
+    # Fates
+    options["fatesanity"] = Fatesanity
+    options["include_unreasonable_fates"] = UnreasonableFates
+    # Fish
+    options["fishsanity"] = Fishsanity
+    options["fishsanity_big_fish"] = FishsanityBigFish
+    options["fishsanity_timed_fish"] = FishsanityTimedFish
+    # Jobs
+    options["force_jobs"] = ForceJob
+    # options["level_cap"] = LevelCap
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
 def after_options_defined(options: dict) -> dict:
-    options["include_ocean_fishing"] = OceanFishing
-    options["fatesanity"] = Fatesanity
-    options["include_unreasonable_fates"] = UnreasonableFates
-    options["duty_difficulty"] = DutyDifficulty
-    options["mcguffins_needed"] = McGuffinsNeeded
-    options["force_jobs"] = ForceJob
-    # options["level_cap"] = LevelCap
-    options["allow_main_scenario_duties"] = AllowMainScenario
     return options

@@ -296,8 +296,8 @@ class ManualWorld(World):
         after_generate_basic(self, self.multiworld, self.player)
         # Uncomment these to generate a diagram of your manual.  Only works on 0.4.4+
 
-        from Utils import visualize_regions
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"{self.game}.puml")
+        # from Utils import visualize_regions
+        # visualize_regions(self.multiworld.get_region("Menu", self.player), f"{self.game}.puml")
 
     def fill_slot_data(self):
         slot_data = before_fill_slot_data({}, self, self.multiworld, self.player)
