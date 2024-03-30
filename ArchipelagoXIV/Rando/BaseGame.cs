@@ -46,5 +46,10 @@ namespace ArchipelagoXIV.Rando
         {
 
         }
+
+        internal virtual void HandleSlotData(Dictionary<string, object> slotData)
+        {
+            
+        }
     }
 }

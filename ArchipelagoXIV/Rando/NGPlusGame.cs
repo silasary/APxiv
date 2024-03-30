@@ -4,15 +4,18 @@ using Archipelago.MultiClient.Net.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace ArchipelagoXIV.Rando
 {
-    internal class NGPlusGame(ApState apState) : BaseGame(apState)
+    internal class NGPlusGame : BaseGame
     {
+        public NGPlusGame(ApState apState) : base(apState)
+        {
+            this.GoalCount = 50;
+        }
+
         private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
+        private long GoalCount;
 
         public override string Name => "Manual_FFXIV_Silasary";
 
@@ -31,7 +34,7 @@ namespace ArchipelagoXIV.Rando
             }
             else if (itemName == "Memory of a Distant World")
             {
-                if (apState.Items.Count(i => i == itemName) >= 100)
+                if (apState.Items.Count(i => i == itemName) >= GoalCount)
                 {
                     var goal = apState.MissingLocations.FirstOrDefault(l => l.Name == "Goal");
                     goal ??= apState.MissingLocations.FirstOrDefault(l => l.Name == "__Manual Game Complete__");
@@ -42,6 +45,13 @@ namespace ArchipelagoXIV.Rando
                     apState.session.Socket.SendPacket(statusUpdatePacket);
                 }
             }
+        }
+
+        internal override void HandleSlotData(Dictionary<string, object> slotData)
+        {
+            base.HandleSlotData(slotData);
+            this.GoalCount = (long)slotData["mcguffins_needed"];
+            DalamudApi.Echo($"Goal is {GoalCount} Memories.");
         }
     }
 }

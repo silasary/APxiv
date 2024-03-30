@@ -266,11 +266,10 @@
 	"Azys Lla":
 	{
 		"requires": "|Azys Lla Access:1|",
-		"connects_to:": [
+		"connects_to": [
 			"Ishgard"
 		]
 	},
-
 	"Rhalgr's Reach":
 	{
 		"requires": "|Rhalgr's Reach Access: 1|",

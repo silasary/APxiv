@@ -107,6 +107,7 @@ namespace ArchipelagoXIV
         }
         internal static void SetJobTooltop(string text)
         {
+            jobBar ??= DtrBar.Get("APJob");
             jobBar.Tooltip = text;
         }
         internal static void ShowToast(string text)

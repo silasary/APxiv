@@ -43,7 +43,7 @@ public class MainWindow : Window
             return;
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
         ImGui.Text($"Available Checks:");
-        ImGui.Indent(55);
+        //ImGui.Indent(55);
         if (state.MissingLocations != null)
             foreach (var location in state.MissingLocations)
             {
@@ -58,6 +58,6 @@ public class MainWindow : Window
                 }
             }
 
-        ImGui.Unindent(55);
+        //ImGui.Unindent(55);
     }
 }

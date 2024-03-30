@@ -131,6 +131,7 @@ namespace ArchipelagoXIV
 
             var loginSuccessful = (LoginSuccessful)result;
             slot = loginSuccessful.Slot;
+            this.Game.HandleSlotData(loginSuccessful.SlotData);
 
             session.Items.ItemReceived += Items_ItemReceived;
             session.Socket.SocketClosed += Socket_SocketClosed;

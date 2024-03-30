@@ -88,6 +88,11 @@ namespace SamplePlugin
                 DalamudApi.Echo("Connect with /ap-connect first");
                 return;
             }
+            if (string.IsNullOrEmpty(arguments))
+            {
+                MainWindow.IsOpen = true;
+                return;
+            }
             apState.session.Socket.SendPacket(new SayPacket() { Text = arguments });
         }
 
