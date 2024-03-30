@@ -52,6 +52,19 @@ class DutyDifficulty(Choice):
     option_savage = 3
     option_endgame = 4
 
+class MaxPartySize(Choice):
+    default = 1
+    display_name = "Max Party Size"
+    option_solo = 0
+    option_light_party = 1
+    option_full_party = 2
+    option_alliance = 3
+
+class IncludeDungeons(DefaultOnToggle):
+    """
+    Dungeons are generally longer than other locations. You may want to exclude them in a sync.
+    """
+
 class McGuffinsNeeded(Range):
     """
     Number of Distant Memories needed to win the game.
@@ -129,6 +142,8 @@ def before_options_defined(options: dict) -> dict:
     options["mcguffins_needed"] = McGuffinsNeeded
     # Duties
     options["duty_difficulty"] = DutyDifficulty
+    options["max_party_size"] = MaxPartySize
+    options["include_dungeons"] = IncludeDungeons
     options["allow_main_scenario_duties"] = AllowMainScenario
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP

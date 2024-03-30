@@ -68,6 +68,7 @@ fate_zones = {
 def generate_duty_list():
     duty_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
+    sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
 
     for row in dutyreader:
@@ -81,8 +82,9 @@ def generate_duty_list():
                     "category": [row[1], row[4]],
                     "requires": requires_str,
                     "level" : row[2],
-                    "party" : row[5],
+                    "party" : sizes.index(row[5]),
                     "diff" : difficulties.index(row[6]),
+                    "is_dungeon": "Dungeon" in row[1],
                 }
             if row[4] == "Gangos":
                 location["category"].append("Bozja")

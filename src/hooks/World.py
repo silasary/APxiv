@@ -44,7 +44,9 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     level_cap = get_option_value(multiworld, player, "level_cap") or 90
 
-    duty_diff = get_option_value(multiworld, player, "duty_difficulty") or 0
+    duty_diff = get_option_value(multiworld, player, "duty_difficulty")
+    duty_size = get_option_value(multiworld, player, "max_party_size")
+    include_dungeons = get_option_value(multiworld, player, "include_dungeons")
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
         locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
@@ -52,9 +54,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     for location in location_table:
         if "diff" in location:
             if location["diff"] > duty_diff:
+                # print(f"Removing {location['name']} from {player}'s world")
+                locationNamesToRemove.append(location["name"])
+                continue
+        if "size" in location:
+            if location["size"] > duty_size:
                 print(f"Removing {location['name']} from {player}'s world")
                 locationNamesToRemove.append(location["name"])
                 continue
+        if not include_dungeons and location.get("is_dungeon"):
+            print(f"Removing {location['name']} from {player}'s world")
+            locationNamesToRemove.append(location["name"])
+            continue
         if "level" in location and int(location["level"]) > level_cap:
             print(f"Excluding {location['name']} from {player}'s world")
             locationNamesToExclude.append(location["name"])
@@ -98,7 +109,6 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
     prog_levels = [f"5 {job} Levels" for job in prog_classes]
     prog_doh = doh[0]
     start_class = world.random.choice(prog_levels)
-    start_inventory = {start_class: 3}
 
     seen_levels = {}
 
@@ -111,6 +121,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
                 item_pool.remove(item)
                 continue
             if item.name == start_class and seen_levels[item.name] <= 3:
+                multiworld.precollected_items[player].append(item)
                 item_pool.remove(item)
                 continue
 
