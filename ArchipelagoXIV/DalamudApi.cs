@@ -34,8 +34,8 @@ namespace ArchipelagoXIV
 {
     public class DalamudApi
     {
-        private static DtrBarEntry? logicBar = null;
-        private static DtrBarEntry? jobBar = null;
+        internal static DtrBarEntry? logicBar = null;
+        internal static DtrBarEntry? jobBar = null;
 
         public static void Initialize(DalamudPluginInterface pluginInterface) => pluginInterface.Create<DalamudApi>();
 
@@ -74,7 +74,7 @@ namespace ArchipelagoXIV
         {
             ChatGui.Print(new XivChatEntry
             {
-                Message = new SeStringBuilder().AddText(Text).Build(),
+                Message = new SeStringBuilder().AddUiGlow("[AP]", 32).AddText(Text).Build(),
                 Type = XivChatType.Echo,
             });
         }

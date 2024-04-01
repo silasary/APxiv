@@ -35,6 +35,7 @@ namespace ArchipelagoXIV.Rando
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
         private ContentFinderCondition? content;
+        public long? HintedItem { get; set; } = null;
 
         public bool IsAccessible()
         {

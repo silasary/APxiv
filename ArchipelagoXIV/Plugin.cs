@@ -75,10 +75,27 @@ namespace SamplePlugin
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+            this.PluginInterface.UiBuilder.OpenMainUi += () => MainWindow.IsOpen = true;
             this.Hooks.Enable();
             this.Events.Enable();
             UiHooks.Enable();
-            DalamudApi.SetStatusBar("AP Disconnected");
+            DalamudApi.Framework.Update += Framework_Update;
+            DalamudApi.SetStatusBar("AP Ready");
+            DalamudApi.logicBar.OnClick += () => { MainWindow.IsOpen = !MainWindow.IsOpen; };
+        }
+
+        private void Framework_Update(IFramework framework)
+        {
+            if (!apState.Connected)
+                return;
+            var localPlayer = DalamudApi.ClientState.LocalPlayer;
+            if (localPlayer == null)
+                return;
+            var job = localPlayer.ClassJob.GameData;
+            if (apState.lastJob != job)
+                apState.UpdateBars();
+
+            Events.CheckAmnesty();
         }
 
         private void Chat(string command, string arguments)

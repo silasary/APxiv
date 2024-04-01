@@ -41,3 +41,5 @@ Note: Almost everything listed below can be disabled with yaml options, have a r
 * Raid Unlocks
   * Because hitting a given expansion's postgame unlocks so much to do at once, this attempts to slow down how many checks unlock at once.
 * Fishsanity: Permittted Baits
+* "Memories of a Distant Land"
+  * Collect these to finish the game.

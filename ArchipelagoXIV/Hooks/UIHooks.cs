@@ -50,6 +50,8 @@ namespace ArchipelagoXIV.Hooks
         {
             //var hints = apState.Hints.Select(h => h.LocationId).ToArray();
             var addon = (AddonContentsFinder*)args.Addon;
+            if (addon->DutyList == null)
+                return;
             foreach (var itemRenderer in addon->DutyList->Items.Span)
             {
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;

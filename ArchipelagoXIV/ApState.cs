@@ -1,18 +1,14 @@
 using ArchipelagoXIV.Rando;
 using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Helpers;
-using Dalamud.Game.Gui.Dtr;
-using Dalamud.Game.Text;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
-using Dalamud.Game.Text.SeStringHandling;
 using System.Text;
 using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
-using System.ComponentModel.Design;
 
 namespace ArchipelagoXIV
 {

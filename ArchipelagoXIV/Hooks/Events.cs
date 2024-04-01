@@ -2,10 +2,9 @@ using ArchipelagoXIV.Rando;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Logging;
-using FFXIVClientStructs.FFXIV.Client.Game.Fate;
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
-using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Linq;
 
@@ -13,6 +12,8 @@ namespace ArchipelagoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
+        private bool AmnestyTripped;
+
         public void Enable()
         {
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
@@ -134,6 +135,56 @@ namespace ArchipelagoXIV.Hooks
             {
                 var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
                 PrayReturn?.Complete();
+            }
+        }
+
+        public unsafe void CheckAmnesty()
+        {
+            var cf = ContentsFinder.Instance();
+            if (cf->QueueInfo.QueueState == ContentsFinderQueueInfo.QueueStates.Queued)
+            {
+                if (AmnestyTripped)
+                    return;
+                var diff = DateTime.UtcNow.Subtract(cf->QueueInfo.GetEnteredQueueDateTime());
+                if (diff.TotalMinutes > 20)
+                {
+                    this.AmnestyTripped = true;
+                    DalamudApi.Echo("Waiting: " + diff.TotalMinutes);
+
+                    Send(apState, cf->QueueInfo.QueuedContentFinderConditionId1);
+                    if (cf->QueueInfo.QueuedContentFinderConditionId2 > 0)
+                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId2);
+                    if (cf->QueueInfo.QueuedContentFinderConditionId3 > 0)
+                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId3);
+                    if (cf->QueueInfo.QueuedContentFinderConditionId4 > 0)
+                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId4);
+                    if (cf->QueueInfo.QueuedContentFinderConditionId5 > 0)
+                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId5);
+                }
+            }
+            else if (AmnestyTripped)
+                AmnestyTripped = false;
+
+            static unsafe void Send(ApState apState, byte queuedId)
+            {
+                var content = Data.Content.First(c => c.RowId == queuedId);
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == content.Name);
+
+                if (location == null)
+                    return;
+
+                if (location.IsAccessible())
+                {
+                    var message = $"Granted Queue Amnesty for {content.Name}";
+                    DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });
+                    DalamudApi.Echo(message);
+                    location.Complete();
+                    UIModule.PlayChatSoundEffect(6);
+                }
+                else
+                {
+                    DalamudApi.Echo($"Couldn't grant Queue Amnesty for {content.Name}, requirements not met.");
+                }
             }
         }
     }
