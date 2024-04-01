@@ -30,6 +30,7 @@ namespace ArchipelagoXIV
 
         internal int slot;
         internal bool territoryReachable;
+        internal ClassJob? lastJob;
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
@@ -46,6 +47,7 @@ namespace ArchipelagoXIV
                 if (localPlayer == null)
                     return null;
                 var job = localPlayer.ClassJob.GameData;
+                this.lastJob = job;
                 var sb = new StringBuilder();
 
                 var joblvl = Game.MaxLevel(job);
@@ -135,10 +137,23 @@ namespace ArchipelagoXIV
 
             session.Items.ItemReceived += Items_ItemReceived;
             session.Socket.SocketClosed += Socket_SocketClosed;
-            session.DataStorage.TrackHints(hints => this.Hints = hints, true);
+            session.DataStorage.TrackHints(HandleHints, true);
 
             DalamudApi.SetStatusBar("Connected");
 
+        }
+
+        private void HandleHints(Hint[] hints)
+        {
+            this.Hints = hints;
+            foreach (var hint in hints)
+            {
+                if (hint.Found)
+                    continue;
+                var location = MissingLocations.FirstOrDefault(l => l.ApId == hint.LocationId);
+                if (location != null)
+                    location.HintedItem = hint.ItemId;
+            }
         }
 
         private void Socket_SocketClosed(string reason)
@@ -163,6 +178,7 @@ namespace ArchipelagoXIV
         public void UpdateBars()
         {
             var checks = 0;
+            var fates = 0;
             var zoneTT = new StringBuilder();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(this.territoryName, (ushort)this.territory.RowId), out var region);
             if (region != null)
@@ -170,10 +186,15 @@ namespace ArchipelagoXIV
                 zoneTT.AppendLine($"Available Checks in {region.Name}:");
                 foreach (var l in MissingLocations.Where(l => l.region == region))
                 {
-                    if (l.IsAccessible())
+                    if (l.Completed) {
+                        continue;
+                    }
+                    else if (l.IsAccessible())
                     {
                         zoneTT.AppendLine(l.Name);
                         checks++;
+                        if (l.Name.Contains("FATE"))
+                            fates++;
                     }
                     else
                     {
@@ -185,11 +206,17 @@ namespace ArchipelagoXIV
             zoneTT.AppendLine("Zones:");
             foreach (var zone in Items.Where(i => i.EndsWith("Access")))
             {
-                zoneTT.AppendLine(zone);
+                if (RegionContainer.CanReach(this, zone.Replace(" Access", "")))
+                    zoneTT.AppendLine(zone);
             }
 
             if (territoryReachable && checks > 0)
-                DalamudApi.SetStatusBar($"{checks} checks in {region.Name}");
+            {
+                var text = $"{checks} checks in {region.Name}";
+                if (fates > 0)
+                    text += $" ({fates} FATEs)";
+                DalamudApi.SetStatusBar(text);
+            }
             else if (territoryReachable)
                 DalamudApi.SetStatusBar("In Logic");
             else

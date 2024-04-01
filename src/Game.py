@@ -27,4 +27,4 @@ for index in range(0, len(game_table["player"])):
     starting_index += (ord(game_table["player"][index:index+1]) * 1000)
 
 # game_name = "Final Fantasy XIV"
-# starting_index += 10000
+# starting_index += 10_000
