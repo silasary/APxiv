@@ -1,0 +1,142 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify your Archipelago settings are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game. Spaces will be replaced with underscores and there is a 16-character limit.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: FFXIV_Fishes
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Final Fantasy XIV Fishsanity
+
+game: Manual_FFXIV_Silasary
+requires:
+  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
+
+Manual_FFXIV_Silasary:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    # - Memory of a Distant World
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  include_ocean_fishing: true
+    # Ocean Fishing departs once every two real-world hours on a specified route.
+    # There are six total routes, four in Eorzea, two in the East.  They do not loop evenly, you may see duplicates before you see all six.
+    # This means it will take at least 12 hours to complete all the relevant checks.
+    # This option is absolutely not sync-viable.
+
+  include_pvp: false
+    # Should items/locations linked to this option be enabled?
+
+  include_bozja: false
+    # Should items/locations linked to this option be enabled?
+
+  fishsanity: true
+    # Should items/locations linked to this option be enabled?
+  fishsanity_big_fish: true
+    # Should items/locations linked to this option be enabled?
+  fishsanity_timed_fish: true
+    # Should items/locations linked to this option be enabled?
+
+  fatesanity: false
+    # Include individual FATEs in the location pool.
+    #
+    # If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
+
+  include_unreasonable_fates: false
+    # Include World Bosses and other FATEs that are not reasonable to complete.
+    #
+    # These fates often spawn once every 2-3 days, don't show up on the map, and can require a large number of players to defeat.
+    # If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
+
+  duty_difficulty:
+    # Maximum difficulty of the duty content.
+    # [normal] Dungeons, trials, normal raids, and alliance raids are included in the location pool.
+    # [extreme] As above, but extreme trials are included in the location pool.
+    # [savage] As above, but old savage raids are included in the location pool.
+    # [endgame] As above, but the current savage tier is included in the location pool.
+    no_duties: 50
+    normal: 0
+    extreme: 0
+    savage: 0
+    endgame: 0
+
+  force_jobs:
+    # Choose which classes are progression.
+    #
+    # If none are selected, five (one tank, one healer, one melee, one phys range, one caster) are chosen at random.
+    []
+
+  mcguffins_needed: 20
