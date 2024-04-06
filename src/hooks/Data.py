@@ -8,6 +8,7 @@ MELEE = ["MNK","DRG","NIN","SAM","RPR"]
 CASTER = ["BLM","SMN","RDM",]
 RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
+DOL = ["MIN", "BTN", "FSH"]
 
 bonus_regions = {}
 

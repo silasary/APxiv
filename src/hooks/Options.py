@@ -83,8 +83,8 @@ class ForceJob(OptionSet):
     display_name = "Force Progression Jobs"
 
     def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH
-        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH
+        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
+        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
         print(f"{repr(self.value)}/{repr(all)}")
         for item_name in self.value:
             if item_name not in all:
