@@ -167,21 +167,24 @@ def generate_fish_list() -> list[dict]:
     fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
     locations = []
     for name, data in fish.items():
-        if len(data['zones']) > 1:
+        requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
+
+        zones = data['zones']
+        if len(zones) > 1:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_rules": {k:v for k,v in data['zones'].items()}
+                "entrance_rules": {k:v for k,v in zones.items()}
             }
-            pass
         else:
-            region = next(iter(data['zones'].keys()))
+            region = next(iter(zones.keys()))
+            requires += f" and |{zones[region][0]}|"
 
         locations.append({
             "name": name,
-            "category": ['Fish', "fishsanity"] + list(data['zones'].keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
+            "category": ['Fish', "fishsanity"] + list(zones.keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
             "region": region,
-            "requires": f"|5 FSH Levels:{data['lvl'] // 5}|",
+            "requires": requires,
         })
     return locations
 
