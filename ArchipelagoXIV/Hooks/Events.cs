@@ -173,7 +173,7 @@ namespace ArchipelagoXIV.Hooks
                 if (location == null)
                     return;
 
-                if (location.IsAccessible())
+                if (location.CanClearAsAnyClass())
                 {
                     var message = $"Granted Queue Amnesty for {content.Name}";
                     DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });

@@ -131,6 +131,18 @@ namespace ArchipelagoXIV.Rando
             return true;
         }
 
+        public bool CanClearAsAnyClass()
+        {
+            if (!IsAccessible())
+                return false;
+
+            if (!MeetsRequirements(apState, false))
+            {
+                DalamudApi.Echo("Warning:  Class check failed");
+            }
+            return true;
+        }
+
         public void Complete()
         {
             this.Accessible = false;
