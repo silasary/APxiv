@@ -58,24 +58,6 @@ namespace ArchipelagoXIV
                 return sb.ToString();
             }
         }
-        public string JobTooltip
-        {
-            get
-            {
-                var sb = new StringBuilder();
-                sb.AppendLine("Job Levels:");
-                foreach (var job in Data.ClassJobs)
-                {
-                    if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31)
-                    {
-                        Game.Levels.TryGetValue(job, out var level);
-                        if (level > 0)
-                            sb.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
-                    }
-                }
-                return sb.ToString();
-            }
-        }
 
         public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
@@ -164,7 +146,7 @@ namespace ArchipelagoXIV
             var item = helper.DequeueItem();
             var name = session?.Items.GetItemName(item.Item);
             var sender = session.Players.GetPlayerName(item.Player);
-            DalamudApi.Echo($"Recieved {name} from {sender}");
+            //DalamudApi.Echo($"Recieved {name} from {sender}");
             Game.ProcessItem(item, itemName: name);
             RefreshRegions();
             this.RefreshLocations(false);
@@ -173,6 +155,7 @@ namespace ArchipelagoXIV
 
         public void UpdateBars()
         {
+            bool fish = false;
             var checks = 0;
             var fates = 0;
             var zoneTT = new StringBuilder();
@@ -196,6 +179,8 @@ namespace ArchipelagoXIV
                     {
                         zoneTT.AppendLine(l.Name + "(Unavailable)");
                     }
+                    if (!fish && l is Fish)
+                        fish = true;
                 }
             }
             zoneTT.AppendLine();
@@ -220,7 +205,20 @@ namespace ArchipelagoXIV
             DalamudApi.SetStatusTooltop(zoneTT.ToString());
 
             DalamudApi.SetJobStatusBar(JobText);
-            DalamudApi.SetJobTooltop(JobTooltip);
+
+            var jobtt = new StringBuilder();
+            jobtt.AppendLine("Job Levels:");
+            foreach (var job in Data.ClassJobs)
+            {
+                if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31 || (fish && job.RowId == 18))
+                {
+                    Game.Levels.TryGetValue(job, out var level);
+                    if (level > 0)
+                        jobtt.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
+                }
+            }
+
+            DalamudApi.SetJobTooltop(jobtt.ToString());
         }
 
         private static void RefreshRegions()
@@ -238,7 +236,7 @@ namespace ArchipelagoXIV
         public void RefreshLocations(bool hard)
         {
             if (hard || MissingLocations == null || !MissingLocations.Any())
-                MissingLocations = session?.Locations.AllMissingLocations.Select(i => new Location(this, i)).ToArray() ?? [];
+                MissingLocations = session?.Locations.AllMissingLocations.Select(i => Location.Create(this, i)).ToArray() ?? [];
             else
             {
                 foreach (var l in MissingLocations)

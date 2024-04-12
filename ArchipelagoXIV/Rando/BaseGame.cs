@@ -1,11 +1,7 @@
 using Archipelago.MultiClient.Net.Models;
+using Dalamud.Logging;
 using Lumina.Excel.GeneratedSheets;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ArchipelagoXIV.Rando
 {
@@ -14,6 +10,8 @@ namespace ArchipelagoXIV.Rando
         protected ApState apState = apState;
 
         public abstract string Name { get; }
+
+        public bool FishingMatters { get; set; }
 
         public virtual bool MeetsRequirements(Location location)
         {
@@ -49,7 +47,11 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
         {
-            
+            PluginLog.Information("Slot Data", slotData);
+            if (slotData.TryGetValue("fishsanity", out var fishsanity))
+            {
+                FishingMatters = (fishsanity as bool?) ?? false;
+            }
         }
     }
 }

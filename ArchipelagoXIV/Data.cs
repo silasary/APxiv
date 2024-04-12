@@ -14,6 +14,7 @@ namespace ArchipelagoXIV
         public static ContentFinderCondition[] Content { get; private set; } = [];
         public static DynamicEvent[] DynamicEvents { get; private set; } = [];
         public static ImmutableDictionary<uint, Item> Fish { get; private set; } = null;
+        public static ImmutableArray<string> FishNames { get; private set; }
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -113,6 +114,7 @@ namespace ArchipelagoXIV
             var ItemSearchCategories = dataManager.GetExcelSheet<ItemSearchCategory>();
 
             Fish = dataManager.GetExcelSheet<Item>().Where(i => i.ItemSearchCategory.Value.Name == "Seafood").ToImmutableDictionary(i => i.RowId);
+            FishNames = Fish.Values.Select(f => f.Name.RawString).ToImmutableArray();
         }
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {

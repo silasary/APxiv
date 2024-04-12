@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -55,7 +56,8 @@ namespace ArchipelagoXIV.Rando
             { "Return to the Waking Sands", "Western Thanalan" },
         };
 
-        public static Dictionary<string, Region> Regions = [];
+        public static readonly Dictionary<string, Region> Regions = [];
+        public static readonly Dictionary<string, FishData> FishData = [];
 
         public static void LoadDutiesCsv()
         {
@@ -109,6 +111,33 @@ namespace ArchipelagoXIV.Rando
                 if (requires != null)
                     rule = Logic.FromString(requires);
                 _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+            }
+        }
+
+        public static void LoadFish()
+        {
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fish.json");
+            using var reader = new StreamReader(stream);
+            var fishsanity = JObject.Parse(reader.ReadToEnd()).Values();
+            foreach (JObject fish in fishsanity)
+            {
+                var zones = fish.Value<JObject>("zones");
+                List<string> zoneNames = [];
+                List<string> baits = [];
+                foreach (var z in zones)
+                {
+                    zoneNames.Add(z.Key);
+                    baits.AddRange(z.Value.Values<string>());
+                }
+                baits = baits.Distinct().ToList();
+                var data = new FishData
+                {
+                    Level = fish.Value<int>("lvl"),
+                    Id = fish.Value<int>("id"),
+                    Baits = baits.ToArray(),
+                    Regions = zoneNames.Select(z => Regions[z]).ToArray(),
+                };
+                APData.FishData[fish.Value<string>("name")] = data;
             }
         }
     }

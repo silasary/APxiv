@@ -10,20 +10,27 @@ namespace ArchipelagoXIV.Rando
 {
     public class Location
     {
-        public Location(ApState apState, long id)
+        public static Location Create(ApState apState, long id)
+        {
+            var name = apState.session.Locations.GetLocationNameFromId(id);
+            if (APData.FishData.ContainsKey(name))
+                return new Fish(apState, id, name);
+            return new Location(apState, id, name);
+        }
+        public Location(ApState apState, long id, string name)
         {
             this.apState = apState;
             ApId = id;
-            Name = apState.session.Locations.GetLocationNameFromId(id);
+            Name = name;
             if (Data.DutyAliases.TryGetValue(Name, out var value))
                 Name = value;
             Level = 0;
         }
 
-        public string Name;
-        private readonly ApState apState;
-        public long ApId;
-        public int Level;
+        public readonly string Name;
+        protected readonly ApState apState;
+        public readonly long ApId;
+        public readonly int Level;
         public Region region = null;
 
         public bool Accessible;
@@ -37,7 +44,7 @@ namespace ArchipelagoXIV.Rando
         private ContentFinderCondition? content;
         public long? HintedItem { get; set; } = null;
 
-        public bool IsAccessible()
+        public virtual bool IsAccessible()
         {
             if (Completed)
                 return false;

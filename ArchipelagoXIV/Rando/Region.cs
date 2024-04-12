@@ -18,6 +18,7 @@ namespace ArchipelagoXIV.Rando
             APData.LoadJson();
             APData.LoadDutiesCsv();
             APData.LoadFatesCsv();
+            APData.LoadFish();
         }
 
         internal static void MarkStale()
@@ -65,7 +66,6 @@ namespace ArchipelagoXIV.Rando
             name = LocationToRegion(name, territoryId);
             if (!APData.Regions.TryGetValue(name, out var value))
             {
-                //DalamudApi.SetStatusBar($"Unknown Location {name}");
                 DalamudApi.Echo($"Unknown Location {name}");
                 return false;
             }
