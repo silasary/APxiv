@@ -34,14 +34,14 @@ namespace ArchipelagoXIV.Rando
             {
                 stale = false;
 
-                if (region == null)
-                    return Accessible = false;
                 var allMissingLocations = apState?.session?.Locations?.AllMissingLocations;
                 if (allMissingLocations == null)
                     return Accessible = false;
                 if (!allMissingLocations.Contains(ApId))
                     return Accessible = false;
-                if (!apState?.Game?.MeetsRequirements(this) ?? false)
+                if (!Data.Regions.Any(r => RegionContainer.CanReach(apState, r)))
+                    return Accessible = false;
+                if (!Data.Baits.Any(b => apState.Items.Contains(b)))
                     return Accessible = false;
 
                 return Accessible = true;

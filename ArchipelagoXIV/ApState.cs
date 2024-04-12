@@ -155,7 +155,7 @@ namespace ArchipelagoXIV
 
         public void UpdateBars()
         {
-            bool fish = false;
+            var fish = false;
             var checks = 0;
             var fates = 0;
             var zoneTT = new StringBuilder();
