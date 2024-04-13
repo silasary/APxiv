@@ -25,14 +25,17 @@ namespace ArchipelagoXIV.Hooks
 
         private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
         {
-            if (Data.Fish.TryGetValue(data.Item.ItemId, out var value))
+            if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
             {
                 var name = value.Name;
-                DalamudApi.Echo($"Caught a {name}!");
-                var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
-                if (loc != null)
+                if (APData.FishData.ContainsKey(name))
                 {
-                    loc.Complete();
+                    //DalamudApi.Echo($"Caught a {name}!");
+                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    if (loc != null && loc.IsAccessible())
+                    {
+                        loc.Complete();
+                    }
                 }
             }
         }

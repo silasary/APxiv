@@ -159,36 +159,51 @@ namespace ArchipelagoXIV
             var checks = 0;
             var fates = 0;
             var zoneTT = new StringBuilder();
+            var unavailable = new StringBuilder();
+            var zoneswithchecks = new HashSet<Region>();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(this.territoryName, (ushort)this.territory.RowId), out var region);
             if (region != null)
             {
                 zoneTT.AppendLine($"Available Checks in {region.Name}:");
-                foreach (var l in MissingLocations.Where(l => l.region == region))
+                foreach (var l in MissingLocations)
                 {
                     if (l.Completed) {
                         continue;
                     }
+                    if (l.region == region)
+                    {
+
+                        if (l.IsAccessible())
+                        {
+                            zoneTT.AppendLine(l.Name);
+                            checks++;
+                            if (l.Name.Contains("FATE"))
+                                fates++;
+                        }
+                        else
+                        {
+                            unavailable.AppendLine(l.Name + "(Unavailable)");
+                        }
+                    }
                     else if (l.IsAccessible())
                     {
-                        zoneTT.AppendLine(l.Name);
-                        checks++;
-                        if (l.Name.Contains("FATE"))
-                            fates++;
-                    }
-                    else
-                    {
-                        zoneTT.AppendLine(l.Name + "(Unavailable)");
+                        zoneswithchecks.Add(l.region);
                     }
                     if (!fish && l is Fish)
                         fish = true;
                 }
             }
+            zoneTT.Append(unavailable);
             zoneTT.AppendLine();
             zoneTT.AppendLine("Zones:");
-            foreach (var zone in Items.Where(i => i.EndsWith("Access")))
+            //foreach (var zone in Items.Where(i => i.EndsWith("Access")))
+            //{
+            //    if (RegionContainer.CanReach(this, zone.Replace(" Access", "")))
+            //        zoneTT.AppendLine(zone);
+            //}
+            foreach (var z in zoneswithchecks)
             {
-                if (RegionContainer.CanReach(this, zone.Replace(" Access", "")))
-                    zoneTT.AppendLine(zone);
+                zoneTT.AppendLine(z.Name);
             }
 
             if (territoryReachable && checks > 0)
