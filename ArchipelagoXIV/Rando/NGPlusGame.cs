@@ -36,10 +36,6 @@ namespace ArchipelagoXIV.Rando
             {
                 if (apState.Items.Count(i => i == itemName) >= GoalCount)
                 {
-                    var goal = apState.MissingLocations.FirstOrDefault(l => l.Name == "Goal");
-                    goal ??= apState.MissingLocations.FirstOrDefault(l => l.Name == "__Manual Game Complete__");
-                    goal?.Complete();
-
                     var statusUpdatePacket = new StatusUpdatePacket();
                     statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
                     apState.session.Socket.SendPacket(statusUpdatePacket);

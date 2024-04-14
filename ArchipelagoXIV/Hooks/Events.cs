@@ -79,6 +79,8 @@ namespace ArchipelagoXIV.Hooks
 
         private void DutyState_DutyCompleted(object? sender, ushort e)
         {
+            if (!apState.Connected)
+                return;
             var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == e);
             var duty = Data.GetDuty(e);
             string name = duty.Name;
@@ -86,8 +88,6 @@ namespace ArchipelagoXIV.Hooks
                 name = "The" + name[3..];
             name = name.Replace("–", "-"); // The game data is inconsistent with which dash it uses in Tam-Tara's name
             DalamudApi.Echo($"{name} Completed");
-            if (!apState.Connected)
-                return;
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
             if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
             {

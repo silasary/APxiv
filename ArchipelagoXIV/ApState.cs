@@ -203,7 +203,10 @@ namespace ArchipelagoXIV
             //}
             foreach (var z in zoneswithchecks)
             {
-                zoneTT.AppendLine(z.Name);
+                if (RegionContainer.CanReach(this, z))
+                    zoneTT.AppendLine(z.Name);
+                else
+                    zoneTT.AppendLine($"{z.Name} (Unreachable)");
             }
 
             if (territoryReachable && checks > 0)
