@@ -209,7 +209,7 @@ namespace ArchipelagoXIV
                     zoneTT.AppendLine($"{z.Name} (Unreachable)");
             }
 
-            if (territoryReachable && checks > 0)
+            if (checks > 0)
             {
                 var text = $"{checks} checks in {region.Name}";
                 if (fates > 0)
