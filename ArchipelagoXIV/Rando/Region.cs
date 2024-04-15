@@ -63,10 +63,13 @@ namespace ArchipelagoXIV.Rando
 
         internal static bool CanReach(ApState apState, string name, ushort territoryId = 0, Location? location = null)
         {
+            if (location?.region != null)
+                return CanReach(apState, location.region);
+
             name = LocationToRegion(name, territoryId);
             if (!APData.Regions.TryGetValue(name, out var value))
             {
-                DalamudApi.Echo($"Unknown Location {name}");
+                DalamudApi.Echo($"Unknown Location {name} ({territoryId})");
                 return false;
             }
             if (location != null)
