@@ -343,7 +343,7 @@ def ocean_fishing():
             "name": "Ocean Fishing: " + route,
             "region": "Ocean Fishing",
             "category": ["Ocean Fishing", "Ruby Route"],
-            "requires": "|5 FSH Levels:12| and |Kugane Access:1|",  # Level 60, because why not
+            "requires": "|5 FSH Levels:12| and |Kugane Access:1|",  # Level 60, because that's the minumum for the Ruby Route
             "level": 60,
         })
     return locations

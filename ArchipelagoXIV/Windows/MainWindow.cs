@@ -47,8 +47,8 @@ public class MainWindow : Window
             {
                 if (location.IsAccessible())
                 {
-                    var name = location.Name;
-                    if (name.EndsWith(" (FATE)"))
+                    var name = location.DisplayText;
+                    if (location.Name.EndsWith(" (FATE)"))
                     {
                         name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
                     }

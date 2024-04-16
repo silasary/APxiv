@@ -130,7 +130,7 @@ namespace ArchipelagoXIV
                     continue;
                 var location = MissingLocations.FirstOrDefault(l => l.ApId == hint.LocationId);
                 if (location != null)
-                    location.HintedItem = hint.ItemId;
+                    location.HintedItem = hint;
             }
         }
 
@@ -175,14 +175,14 @@ namespace ArchipelagoXIV
 
                         if (l.IsAccessible())
                         {
-                            zoneTT.AppendLine(l.Name);
+                            zoneTT.AppendLine(l.DisplayText);
                             checks++;
                             if (l.Name.Contains("FATE"))
                                 fates++;
                         }
                         else
                         {
-                            unavailable.AppendLine(l.Name + "(Unavailable)");
+                            unavailable.AppendLine(l.DisplayText + "(Unavailable)");
                         }
                     }
                     else if (l.IsAccessible())

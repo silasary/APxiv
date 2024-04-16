@@ -1,3 +1,4 @@
+using Archipelago.MultiClient.Net.Models;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace ArchipelagoXIV.Rando
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
         private ContentFinderCondition? content;
-        public long? HintedItem { get; set; } = null;
+        public Hint? HintedItem { get; set; } = null;
 
         public virtual bool IsAccessible()
         {
@@ -119,6 +120,13 @@ namespace ArchipelagoXIV.Rando
             {
                 this.MeetsRequirements = Logic.Level(Level);
             }
+            else if (Name.StartsWith("Ocean Fishing"))
+            {
+                if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River")
+                    this.MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
+                else
+                    this.MeetsRequirements = Logic.Level(5, "FSH");
+            }
             else
             {
                 DalamudApi.Echo($"Unknown CF {Name}");
@@ -152,10 +160,27 @@ namespace ArchipelagoXIV.Rando
 
         public void Complete()
         {
-            this.Accessible = false;
             this.Completed = true;
-            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(true));
+            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(false));
             apState.UpdateBars();
+        }
+
+        public string DisplayText
+        {
+            get => Name + HintText;
+        }
+
+        public string HintText { get
+            {
+                if (this.HintedItem != null)
+                {
+                    var p = this.HintedItem.ReceivingPlayerName(apState);
+                    var i = this.HintedItem.ItemName(apState);
+                    return $" (Contains {p}'s {i})";
+                }
+
+                return "";
+            }
         }
     }
 }

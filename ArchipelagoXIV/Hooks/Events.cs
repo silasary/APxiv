@@ -5,6 +5,7 @@ using Dalamud.Logging;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
+using Lumina.Excel.GeneratedSheets2;
 using System;
 using System.Linq;
 
@@ -83,11 +84,14 @@ namespace ArchipelagoXIV.Hooks
                 return;
             var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == e);
             var duty = Data.GetDuty(e);
-            string name = duty.Name;
-            if (name.StartsWith("the"))
-                name = "The" + name[3..];
-            name = name.Replace("–", "-"); // The game data is inconsistent with which dash it uses in Tam-Tara's name
+            if (!APData.ContentIDToLocationName.TryGetValue(duty.Content, out var name))
+            {
+                name = duty.Name;
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+            }
             DalamudApi.Echo($"{name} Completed");
+            PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
             if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
             {
