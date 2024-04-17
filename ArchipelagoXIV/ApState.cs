@@ -25,7 +25,6 @@ namespace ArchipelagoXIV
         internal ArchipelagoSession? session = null;
 
         internal int slot;
-        internal bool territoryReachable;
         internal ClassJob? lastJob;
 
         public TerritoryType territory { get; internal set; }
@@ -216,7 +215,7 @@ namespace ArchipelagoXIV
                     text += $" ({fates} FATEs)";
                 DalamudApi.SetStatusBar(text);
             }
-            else if (territoryReachable)
+            else if (RegionContainer.CanReach(this, region))
                 DalamudApi.SetStatusBar("In Logic");
             else
                 DalamudApi.SetStatusBar("Out of Logic");

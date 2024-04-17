@@ -133,8 +133,6 @@ namespace ArchipelagoXIV.Hooks
                 return;
             }
 
-            var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
-            apState.territoryReachable = canReach;
             apState.UpdateBars();
 
 
