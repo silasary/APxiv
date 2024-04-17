@@ -55,3 +55,14 @@ Note: Almost everything listed below can be disabled with yaml options, have a r
 	* For Example, If I want to check if I can currently participate in a FATE that is level 13, My current job level needs to be level 9 or higher.
 * Tacker
   * If you are not using the Dalamud plugin, it is STRONGLY suggested you install [Universal Tracker](https://discord.com/channels/1097532591650910289/1176939614985011200).  There is a lot of complex logic, and far too many checks.  Please do not try to figure it out by hand.
+
+## Fishsanity
+* Fishing data is sourced from [Garland Tools](https://www.garlandtools.org/ffxivfisher/).
+* You only have to catch each fish once, regardless of how many zones it appears in
+* FSH level requirements round down.  This means that a level 1 hole is avilable with zero levels. A level 8 hole with 5, etc.
+* A fish is in Logic if you have access to a zone, the primary bait for that zone, and FSH levels equal to the level of the fishing hole.
+* As an example, Merlthor Goby can be caught in most places with a Lugworm, but in Western La Noscea there's a fishing hole where it prefers Pill Bugs.  As such,  Merlthor Goby is in logic if:
+  * You have Lugworm and Limsa and FSH 0.
+  * You have Pill Bug and Western La Noscea and FSH 50.
+* Note that we're looking at the level of the fishing hole, not the level of the Fish.
+  * This means that Octomammoth, the Big Fish for Limsa Lower Docks, is considered Level 1 (And therefore needs 0 FSH Levels)
