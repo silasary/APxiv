@@ -1,13 +1,10 @@
 using System;
 using System.Numerics;
-using ArchipelagoXIV;
 using ArchipelagoXIV.Rando;
-using Dalamud.Game.DutyState;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
-using ImGuiScene;
 
-namespace SamplePlugin.Windows;
+namespace ArchipelagoXIV.Windows;
 
 public class MainWindow : Window
 {

@@ -2,13 +2,12 @@ using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Interface.Windowing;
-using SamplePlugin.Windows;
-using ArchipelagoXIV;
+using ArchipelagoXIV.Windows;
 using ArchipelagoXIV.Hooks;
 using Dalamud.Plugin.Services;
 using Archipelago.MultiClient.Net.Packets;
 
-namespace SamplePlugin
+namespace ArchipelagoXIV
 {
     public sealed class Plugin : IDalamudPlugin
     {
