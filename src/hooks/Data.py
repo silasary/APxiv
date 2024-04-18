@@ -337,6 +337,7 @@ def ocean_fishing():
             "category": ["Ocean Fishing", "Indigo Route"],
             "requires": "|5 FSH Levels:1|",
             "level": 1,
+            "prehint": True,
         })
     for route in ruby_route:
         locations.append({
@@ -345,6 +346,7 @@ def ocean_fishing():
             "category": ["Ocean Fishing", "Ruby Route"],
             "requires": "|5 FSH Levels:12| and |Kugane Access:1|",  # Level 60, because that's the minumum for the Ruby Route
             "level": 60,
+            "prehint": True,
         })
     return locations
 
