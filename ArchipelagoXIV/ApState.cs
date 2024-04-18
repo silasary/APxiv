@@ -154,6 +154,7 @@ namespace ArchipelagoXIV
 
         public void UpdateBars()
         {
+            var BK = true;
             var fish = false;
             var checks = 0;
             var fates = 0;
@@ -178,6 +179,7 @@ namespace ArchipelagoXIV
                             checks++;
                             if (l.Name.Contains("FATE"))
                                 fates++;
+                            BK = false;
                         }
                         else
                         {
@@ -187,6 +189,7 @@ namespace ArchipelagoXIV
                     else if (l.IsAccessible())
                     {
                         zoneswithchecks.Add(l.region);
+                        BK = false;
                     }
                     if (!fish && l is Fish)
                         fish = true;
@@ -194,7 +197,7 @@ namespace ArchipelagoXIV
             }
             zoneTT.Append(unavailable);
             zoneTT.AppendLine();
-            zoneTT.AppendLine("Zones:");
+            zoneTT.AppendLine("Zones with checks:");
             //foreach (var zone in Items.Where(i => i.EndsWith("Access")))
             //{
             //    if (RegionContainer.CanReach(this, zone.Replace(" Access", "")))
@@ -215,6 +218,12 @@ namespace ArchipelagoXIV
                     text += $" ({fates} FATEs)";
                 DalamudApi.SetStatusBar(text);
             }
+            else if (region == null)
+            {
+                DalamudApi.SetStatusBar($"??? ({this.territoryName})");
+            }
+            else if (BK)
+                DalamudApi.SetStatusBar("BK");
             else if (RegionContainer.CanReach(this, region))
                 DalamudApi.SetStatusBar("In Logic");
             else
