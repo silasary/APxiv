@@ -1,20 +1,10 @@
 using Dalamud.Game.Addon.Events;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
-using Dalamud.Interface.Internal;
-using Dalamud.Memory;
-using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.UI;
-using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static FFXIVClientStructs.FFXIV.Client.UI.AddonRelicNoteBook;
-using static Lumina.Data.Parsing.Uld.NodeData;
 
 namespace ArchipelagoXIV.Hooks
 {

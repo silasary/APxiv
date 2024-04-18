@@ -1,11 +1,7 @@
 using Archipelago.MultiClient.Net.Models;
 using Lumina.Excel.GeneratedSheets;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ArchipelagoXIV.Rando
 {
