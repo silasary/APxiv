@@ -13,6 +13,7 @@ namespace ArchipelagoXIV.Hooks
         public void Enable()
         {
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
             //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "ContentsFinder", OnContentsFinderPostSetup);
         }
 
@@ -66,6 +67,12 @@ namespace ArchipelagoXIV.Hooks
 
                 }
             }
+        }
+
+        private void OnOpenBaitList(AddonEvent type, AddonArgs args)
+        {
+            //AtkUnitBase* addon = (AddonContentsFinder*)args.Addon;
+            //addon->GetNodeById(13)->;
         }
 
 
