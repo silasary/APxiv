@@ -50,7 +50,7 @@ namespace ArchipelagoXIV.Hooks
                 return;
 
             var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name == locName);  // FATEsanity check
-            loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #"));  // FATE #N check
+            loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
             if (loc == null)
             {
                 PluginLog.Information($"Fate {locName} not available or already completed");
