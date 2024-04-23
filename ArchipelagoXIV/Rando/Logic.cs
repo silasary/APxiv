@@ -43,7 +43,7 @@ namespace ArchipelagoXIV.Rando
             // Class quests, BLU duties, etc
             return (state, asCurrentClass) =>
             {
-                if (CurrentClass().Abbreviation != job)
+                if (asCurrentClass && CurrentClass().Abbreviation != job)
                     return false;
                 var gLevel = state.Game.MaxLevel(job);
                 return gLevel >= level;

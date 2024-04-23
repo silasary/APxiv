@@ -10,7 +10,7 @@ namespace ArchipelagoXIV.Rando
         public int Id;
         public int Level;
         public Region[] Regions;
-        public Dictionary<string, string[]> Baits;
+        public string[] Baits;
     }
 
     internal class Fish : Location
@@ -39,11 +39,13 @@ namespace ArchipelagoXIV.Rando
                     return Accessible = false;
                 if (!Logic.Level(Data.Level, "FSH")(apState, false))
                     return Accessible = false;
-                var region = Data.Regions.FirstOrDefault(r => RegionContainer.CanReach(apState, r) && apState.Items.Any(i => Data.Baits[r.Name].Contains(i)));
+                var region = Data.Regions.FirstOrDefault(r => RegionContainer.CanReach(apState, r));
                 if (region == null)
                     return Accessible = false;
                 else
                     this.region = region;
+                if (!Data.Baits.Any(b => apState.Items.Contains(b)))
+                    return Accessible = false;
                 return Accessible = true;
             }
             return Accessible;

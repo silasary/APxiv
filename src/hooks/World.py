@@ -183,6 +183,9 @@ def before_create_item(item_name: str, world: World, multiworld: MultiWorld, pla
 
 # The item that was created is provided after creation, in case you want to modify the item
 def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, player: int) -> ManualItem:
+    if getattr(multiworld, 'generation_is_fake', False):
+        if "Levels" in item.name:
+            item.classification = ItemClassification.progression
     return item
 
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does

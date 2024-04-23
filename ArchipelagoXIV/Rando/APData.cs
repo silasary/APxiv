@@ -130,17 +130,18 @@ namespace ArchipelagoXIV.Rando
             {
                 var zones = fish.Value<JObject>("zones");
                 List<string> zoneNames = [];
-                Dictionary<string, string[]> baits = [];
+                List<string> baits = [];
                 foreach (var z in zones)
                 {
                     zoneNames.Add(z.Key);
-                    baits[z.Key] = z.Value.Values<string>().ToArray();
+                    baits.AddRange(z.Value.Values<string>());
                 }
+                baits = baits.Distinct().ToList();
                 var data = new FishData
                 {
                     Level = fish.Value<int>("lvl"),
                     Id = fish.Value<int>("id"),
-                    Baits = baits,
+                    Baits = baits.ToArray(),
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
                 };
                 APData.FishData[fish.Value<string>("name")] = data;
