@@ -49,5 +49,14 @@ namespace ArchipelagoXIV.Rando
                 return gLevel >= level;
             };
         }
+
+        internal static Func<ApState, bool, bool>? LevelDOHDOL(int level)
+        {
+            return (state, asCurrentClass) =>
+            {
+                var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevelDHL();
+                return gLevel >= level;
+            };
+        }
     }
 }

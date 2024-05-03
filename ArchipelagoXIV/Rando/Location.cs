@@ -108,7 +108,15 @@ namespace ArchipelagoXIV.Rando
                 else
                     DalamudApi.Echo($"Unknown stage {Name}");
             }
-            else if (Name.EndsWith(" (FATE)") || Name.EndsWith(" (GATE)") || Name.EndsWith(" (FETE)"))
+            else if (Name.EndsWith(" (FATE)"))
+            {
+                this.MeetsRequirements = Logic.Level(APData.FateData[Name]);
+            }
+            else if (Name.EndsWith(" (FETE)"))
+            {
+                this.MeetsRequirements = Logic.LevelDOHDOL(APData.FateData[Name]);
+            }
+            else if (Name.EndsWith(" (GATE)"))
             {
                 this.MeetsRequirements = Logic.Always();
             }

@@ -60,11 +60,12 @@ namespace ArchipelagoXIV.Rando
             { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
             { 2, "The Tam-Tara Deepcroft" },
             { 24, "The Tam-Tara Deepcroft (Hard)" },
-            { 63000, "Ocean Fishing: Rothlyt Sound" },
+            //{ 63000, "Ocean Fishing: Rothlyt Sound" },
         };
 
         public static readonly Dictionary<string, Region> Regions = [];
         public static readonly Dictionary<string, FishData> FishData = [];
+        public static readonly Dictionary<string, int> FateData = [];
 
         public static void LoadDutiesCsv()
         {
@@ -92,6 +93,7 @@ namespace ArchipelagoXIV.Rando
             {
                 var row = line.Split(',');
                 var name = row[0].Trim();
+                var level = row[1].Trim();
                 var zone = row[2];
                 if (headers.Contains(name))
                     continue;
@@ -100,6 +102,7 @@ namespace ArchipelagoXIV.Rando
                 else if (!name.EndsWith("(FATE)"))
                     name += " (FATE)";
                 Aliases[name] = zone.Trim();
+                FateData[name] = int.Parse(level);
             }
         }
 

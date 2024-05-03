@@ -1,13 +1,18 @@
 using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
 using Lumina.Excel.GeneratedSheets;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ArchipelagoXIV.Rando
 {
     public abstract class BaseGame(ApState apState)
     {
         protected ApState apState = apState;
+
+
+        private readonly string[] DHLJobs = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL", "MIN", "BTN", "FSH"];
 
         public abstract string Name { get; }
 
@@ -39,6 +44,7 @@ namespace ArchipelagoXIV.Rando
 
         public abstract int MaxLevel(string job);
         public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation);
+        internal int MaxLevelDHL() => DHLJobs.Max(MaxLevel);
 
         internal virtual void ProcessItem(NetworkItem item, string itemName)
         {
