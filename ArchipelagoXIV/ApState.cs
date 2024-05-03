@@ -195,7 +195,6 @@ namespace ArchipelagoXIV
                         fish = true;
                 }
             }
-            zoneTT.Append(unavailable);
             zoneTT.AppendLine();
             zoneTT.AppendLine("Zones with checks:");
             //foreach (var zone in Items.Where(i => i.EndsWith("Access")))
@@ -210,7 +209,11 @@ namespace ArchipelagoXIV
                 else
                     zoneTT.AppendLine($"{z.Name} (Unreachable)");
             }
-
+            if (unavailable.Length > 0)
+            {
+                zoneTT.AppendLine().AppendLine($"Unavailable checks in {region.Name}:");
+                zoneTT.Append(unavailable);
+            }
             if (checks > 0)
             {
                 var text = $"{checks} checks in {region.Name}";
