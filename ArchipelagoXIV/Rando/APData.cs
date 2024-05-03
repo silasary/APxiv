@@ -139,9 +139,9 @@ namespace ArchipelagoXIV.Rando
                 baits = baits.Distinct().ToList();
                 var data = new FishData
                 {
-                    Level = fish.Value<int>("lvl"),
+                    Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
                     Id = fish.Value<int>("id"),
-                    Baits = baits.ToArray(),
+                    Baits = [.. baits],
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
                 };
                 APData.FishData[fish.Value<string>("name")] = data;
