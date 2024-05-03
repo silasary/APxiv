@@ -29,34 +29,25 @@ namespace ArchipelagoXIV.Rando
             return Always();
         }
 
-        internal static Func<ApState, bool, bool> Level(int level)
+        internal static Func<ApState, bool, bool> Level(int level) => (state, asCurrentClass) =>
         {
-            return (state, asCurrentClass) =>
-            {
-                var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevel();
-                return gLevel >= level;
-            };
-        }
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevel();
+            return gLevel >= level;
+        };
 
-        internal static Func<ApState, bool, bool>? Level(int level, string job)
-        {
-            // Class quests, BLU duties, etc
-            return (state, asCurrentClass) =>
+        // Class quests, BLU duties, etc
+        internal static Func<ApState, bool, bool>? Level(int level, string job) => (state, asCurrentClass) =>
             {
                 if (asCurrentClass && CurrentClass().Abbreviation != job)
                     return false;
                 var gLevel = state.Game.MaxLevel(job);
                 return gLevel >= level;
             };
-        }
 
-        internal static Func<ApState, bool, bool>? LevelDOHDOL(int level)
+        internal static Func<ApState, bool, bool>? LevelDOHDOL(int level) => (state, asCurrentClass) =>
         {
-            return (state, asCurrentClass) =>
-            {
-                var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevelDHL();
-                return gLevel >= level;
-            };
-        }
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevelDHL();
+            return gLevel >= level;
+        };
     }
 }

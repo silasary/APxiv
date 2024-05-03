@@ -128,7 +128,7 @@ namespace ArchipelagoXIV.Hooks
             if (!apState.Connected)
             {
                 // Check if known location
-                RegionContainer.CanReach(apState, apState.territoryName);
+                //RegionContainer.CanReach(apState, apState.territoryName);
                 return;
             }
 
