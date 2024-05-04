@@ -51,6 +51,8 @@ def scrape_bell():
     for f in fish:
         if f['zone'] == 'Eulmore - The Buttress':
             f['zone'] = 'Eulmore'
+        if f['zone'] == 'The Diadem':
+            continue
         name = f["name"]
         if name not in all_fish:
             all_fish[name] = {
