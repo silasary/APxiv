@@ -36,6 +36,10 @@ namespace ArchipelagoXIV.Hooks
                     {
                         loc.Complete();
                     }
+                    else if (loc is Fish f && f.OutOfLogic())
+                    {
+                        loc.Complete();
+                    }
                 }
             }
         }

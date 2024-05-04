@@ -31,7 +31,7 @@ namespace ArchipelagoXIV.Rando
         public readonly string Name;
         protected readonly ApState apState;
         public readonly long ApId;
-        public readonly int Level;
+        public int Level;
         public Region region = null;
 
         public bool Accessible;
@@ -70,7 +70,10 @@ namespace ArchipelagoXIV.Rando
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
                         // Note: Currently, these are all Bozja.  This may change with DT's Field Content
                         if (de != null)
+                        {
+                            this.Level = 80;
                             MeetsRequirements = Logic.Level(80);
+                        }
                     }
                     if (MeetsRequirements == null)
                         SetRequirements();

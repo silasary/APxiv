@@ -1,3 +1,4 @@
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,32 @@ namespace ArchipelagoXIV.Rando
                 return Accessible = true;
             }
             return Accessible;
+        }
+
+        internal unsafe bool OutOfLogic()
+        {
+            var currentBait = PlayerState.Instance()->FishingBait;
+            var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name;
+            APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
+            //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
+            if (!apState.Items.Contains(currentBaitName))
+            {
+                DalamudApi.Echo($"{currentBaitName} is not in logic");
+                return false;
+            }
+            if (!Data.Regions.Contains(region))
+            {
+                // Retainer fish
+                return false;
+            }
+            if (!RegionContainer.CanReach(apState, region))
+            {
+                DalamudApi.Echo($"{region.Name} is not in logic");
+                return false;
+            }
+            
+            return true;
+
         }
     }
 }
