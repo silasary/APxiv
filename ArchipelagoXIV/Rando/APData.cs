@@ -93,16 +93,18 @@ namespace ArchipelagoXIV.Rando
             {
                 var row = line.Split(',');
                 var name = row[0].Trim();
-                var level = row[1].Trim();
-                var zone = row[2];
                 if (headers.Contains(name))
                     continue;
+
+                var level = int.Parse(row[1].Trim());
+                level = Math.Max(level - 5, (int)Math.Floor(level / 10.0) * 10);
+                var zone = row[2];
                 if (zone == "The Firmament")
                     name += " (FETE)";
                 else if (!name.EndsWith("(FATE)"))
                     name += " (FATE)";
                 Aliases[name] = zone.Trim();
-                FateData[name] = int.Parse(level);
+                FateData[name] = level;
             }
         }
 
