@@ -9,11 +9,18 @@ using Archipelago.MultiClient.Net.MessageLog.Parts;
 using System.Text;
 using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ArchipelagoXIV
 {
     public class ApState
     {
+        public class SaveFile
+        {
+            public HashSet<long> CompletedChecks = [];
+        }
+
         internal BaseGame Game { get; set; }
 
         public ApState()
@@ -63,6 +70,7 @@ namespace ArchipelagoXIV
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
         public Location[] MissingLocations { get; private set; } = [];
         public Hint[] Hints { get; private set; }
+        public SaveFile? localsave { get; private set; }
 
         internal void Disconnect()
         {
@@ -113,12 +121,44 @@ namespace ArchipelagoXIV
             this.Game.HandleSlotData(loginSuccessful.SlotData);
 
             session.Items.ItemReceived += Items_ItemReceived;
+            session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
             session.Socket.SocketClosed += Socket_SocketClosed;
             session.DataStorage.TrackHints(HandleHints, true);
+            LoadCache();
 
             DalamudApi.SetStatusBar("Connected");
 
         }
+
+        private void Locations_CheckedLocationsUpdated(System.Collections.ObjectModel.ReadOnlyCollection<long> newCheckedLocations)
+        {
+            RefreshLocations(false);
+            UpdateBars();
+        }
+
+        private void LoadCache()
+        {
+            var file = SaveFileName();
+            if (File.Exists(file))
+            {
+                this.localsave = JsonConvert.DeserializeObject<SaveFile>(File.ReadAllText(file));
+            }
+            else
+            {
+                this.localsave = new SaveFile();
+            }
+            this.session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
+        }
+
+        internal void SaveCache()
+        {
+            File.WriteAllText(SaveFileName(), JsonConvert.SerializeObject(this.localsave));
+        }
+
+        private string SaveFileName() => Path.Combine(
+            DalamudApi.PluginInterface.GetPluginConfigDirectory(),
+            $"{session!.ConnectionInfo.Slot}_{session.RoomState.Seed}_{session.Players.GetPlayerName(session.ConnectionInfo.Slot)}"
+        );
 
         private void HandleHints(Hint[] hints)
         {
@@ -264,7 +304,7 @@ namespace ArchipelagoXIV
 
         public void RefreshLocations(bool hard)
         {
-            if (hard || MissingLocations == null || !MissingLocations.Any())
+            if (hard || MissingLocations == null || MissingLocations.Length == 0)
                 MissingLocations = session?.Locations.AllMissingLocations.Select(i => Location.Create(this, i)).ToArray() ?? [];
             else
             {

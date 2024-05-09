@@ -1,4 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
+using Dalamud.Logging;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
@@ -172,8 +173,15 @@ namespace ArchipelagoXIV.Rando
         public void Complete()
         {
             this.Completed = true;
-            apState.session.Locations.CompleteLocationChecksAsync(this.ApId).ContinueWith((_) => apState.RefreshLocations(false));
+            apState.localsave!.CompletedChecks.Add(this.ApId);
+            Task.Factory.StartNew(CompleteAsync).Start();
             apState.UpdateBars();
+        }
+        private async void CompleteAsync()
+        {
+            PluginLog.Information($"Marking {Name} ({ApId}) as complete");
+            apState.SaveCache();
+            apState.session!.Locations.CompleteLocationChecks(this.ApId);
         }
 
         public string DisplayText
