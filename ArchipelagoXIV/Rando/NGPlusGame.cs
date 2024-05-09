@@ -16,6 +16,7 @@ namespace ArchipelagoXIV.Rando
 
         private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
         private long GoalCount;
+        private long McGuffinCount;
 
         public override string Name => "Manual_FFXIV_Silasary";
 
@@ -34,7 +35,7 @@ namespace ArchipelagoXIV.Rando
             }
             else if (itemName == "Memory of a Distant World")
             {
-                if (apState.Items.Count(i => i == itemName) >= GoalCount)
+                if ((McGuffinCount= apState.Items.Count(i => i == itemName)) >= GoalCount)
                 {
                     var statusUpdatePacket = new StatusUpdatePacket();
                     statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
@@ -48,6 +49,15 @@ namespace ArchipelagoXIV.Rando
             base.HandleSlotData(slotData);
             this.GoalCount = (long)slotData["mcguffins_needed"];
             DalamudApi.Echo($"Goal is {GoalCount} Memories.");
+        }
+
+        internal override string GoalString()
+        {
+            if (Goal == 0)
+            {
+                return $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered";
+            }
+            return "";
         }
     }
 }

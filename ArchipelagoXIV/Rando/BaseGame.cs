@@ -11,6 +11,8 @@ namespace ArchipelagoXIV.Rando
     {
         protected ApState apState = apState;
 
+        public int Goal { get; private set; }
+
 
         private readonly string[] DHLJobs = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL", "MIN", "BTN", "FSH"];
 
@@ -58,6 +60,15 @@ namespace ArchipelagoXIV.Rando
             {
                 FishingMatters = (fishsanity as bool?) ?? false;
             }
+            if (slotData.TryGetValue("goal", out var goal))
+            {
+                Goal = (int)goal;
+            }
+        }
+
+        internal virtual string GoalString()
+        {
+            return null;
         }
     }
 }

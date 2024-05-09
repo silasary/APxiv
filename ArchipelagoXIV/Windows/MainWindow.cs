@@ -41,6 +41,7 @@ public class MainWindow : Window
         if (state.territoryName == null)
             return;
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
+        ImGui.Text(state?.Game?.GoalString() ?? "");
         ImGui.Text($"Available Checks:");
         //ImGui.Indent(55);
         if (state.MissingLocations != null)
