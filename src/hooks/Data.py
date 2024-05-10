@@ -146,15 +146,15 @@ def generate_fate_list():
 
     if missing_fatesanity_zones:
         # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
-        key = list(missing_fatesanity_zones.keys())[0]
-        from . import wiki_scraper
-        import os
-        additional = wiki_scraper.find_fates(key)
-        fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
-        with open(fates_path, 'a', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            for line in additional:
-                writer.writerow(line.split(','))
+        for key in list(missing_fatesanity_zones.keys()):
+            from . import wiki_scraper
+            import os
+            additional = wiki_scraper.find_fates(key)
+            fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
+            with open(fates_path, 'a', newline='') as csvfile:
+                writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                for line in additional:
+                    writer.writerow(line.split(','))
 
     for key in list(fate_zones.keys()):
         level = fate_zones[key][0]
