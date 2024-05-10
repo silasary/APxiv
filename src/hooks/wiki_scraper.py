@@ -18,6 +18,9 @@ def find_fates(zone: str) -> list[str]:
             continue
         fates.append(line)
     print(f"Found {len(fates)} fates for zone {zone}")
+    offset = data.get('query-continue-offset')
+    if offset:
+        print("!!! More fates to fetch !!!")
     return fates
 
 def find_fishing_spots() -> None:
