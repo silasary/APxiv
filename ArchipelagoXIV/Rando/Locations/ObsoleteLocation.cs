@@ -24,7 +24,10 @@ namespace ArchipelagoXIV.Rando.Locations
         {
             var accessible =  base.IsAccessible();
             if (accessible)
-                this.Complete();
+            {
+                apState.localsave.CompletedChecks.Add(ApId);
+                this.Completed = true;
+            }
             return accessible;
         }
     }

@@ -40,7 +40,7 @@ namespace ArchipelagoXIV.Rando
 
         public bool Accessible;
 
-        public bool Completed { get; private set; }
+        public bool Completed { get; protected set; }
 
         internal bool stale = true;
 
