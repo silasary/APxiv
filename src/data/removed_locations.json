@@ -1,0 +1,42 @@
+{
+    "Goldsmith Crab": {
+        "name": "Goldsmith Crab",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:14| and |Bladed Steel Jig|"
+    },
+    "Crown Trout": {
+        "name": "Crown Trout",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:14| and |Stonefly Nymph|"
+    },
+    "Retribution Staff": {
+        "name": "Retribution Staff",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:14| and |Purse Web Spider|"
+    },
+    "Eurhinosaur": {
+        "name": "Eurhinosaur",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+    },
+    "Gem Marimo": {
+        "name": "Gem Marimo",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+    },
+    "Pterodactyl": {
+        "name": "Pterodactyl",
+        "region": "The Diadem",
+        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+    },
+    "Sprig Cleaning (FATE)": {
+        "name": "Sprig Cleaning (FATE)",
+        "region": "Central Shroud",
+        "level": "30"
+    },
+    "Spandy Balidet (FATE)": {
+        "name": "Spandy Balidet (FATE)",
+        "region": "Outer La Noscea",
+        "level": "40"
+    }
+}

@@ -1,3 +1,4 @@
+using ArchipelagoXIV.Rando.Locations;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,8 @@ namespace ArchipelagoXIV.Rando
         public static readonly Dictionary<string, FishData> FishData = [];
         public static readonly Dictionary<string, int> FateData = [];
 
+        public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; }
+
         public static void LoadDutiesCsv()
         {
             string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW"];
@@ -108,7 +111,7 @@ namespace ArchipelagoXIV.Rando
             }
         }
 
-        public static void LoadJson()
+        public static void LoadRegions()
         {
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.regions.json");
             using var reader = new StreamReader(stream);
@@ -125,6 +128,16 @@ namespace ArchipelagoXIV.Rando
                 _ = new Region(region.Key, connections.ToArray() ?? [], rule);
             }
         }
+
+        public static void LoadRemoved()
+        {
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.removed_locations.json");
+            using var reader = new StreamReader(stream!);
+            var locations = JObject.Parse(reader.ReadToEnd());
+            ObsoleteChecks = locations.ToObject<Dictionary<string, Dictionary<string, string>>>()!;
+        }
+
+
 
         public static void LoadFish()
         {

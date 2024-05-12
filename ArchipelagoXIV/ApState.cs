@@ -11,6 +11,7 @@ using Archipelago.MultiClient.Net.Models;
 using Dalamud.Logging;
 using Newtonsoft.Json;
 using System.IO;
+using ArchipelagoXIV.Rando.Locations;
 
 namespace ArchipelagoXIV
 {

@@ -1,4 +1,5 @@
 using ArchipelagoXIV.Rando;
+using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Logging;

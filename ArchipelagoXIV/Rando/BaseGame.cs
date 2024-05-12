@@ -1,4 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
+using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Logging;
 using Lumina.Excel.GeneratedSheets;
 using System;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ArchipelagoXIV.Rando.Locations;
 
 namespace ArchipelagoXIV.Rando
 {
@@ -11,10 +12,11 @@ namespace ArchipelagoXIV.Rando
         static RegionContainer()
         {
             Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah", "Ishgard"]);
-            APData.LoadJson();
+            APData.LoadRegions();
             APData.LoadDutiesCsv();
             APData.LoadFatesCsv();
             APData.LoadFish();
+            APData.LoadRemoved();
         }
 
         internal static void MarkStale()

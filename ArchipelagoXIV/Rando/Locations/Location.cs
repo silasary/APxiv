@@ -1,4 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
+using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Logging;
 using Lumina.Excel.GeneratedSheets;
 using System;
@@ -17,6 +18,8 @@ namespace ArchipelagoXIV.Rando
             var name = apState.session.Locations.GetLocationNameFromId(id);
             if (APData.FishData.ContainsKey(name))
                 return new Fish(apState, id, name);
+            if (APData.ObsoleteChecks.ContainsKey(name))
+                return new ObsoleteLocation(apState, id, name);
             return new Location(apState, id, name);
         }
         public Location(ApState apState, long id, string name)
