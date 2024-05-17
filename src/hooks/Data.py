@@ -168,7 +168,10 @@ def generate_fate_list():
     return fate_list
 
 def generate_fish_list() -> list[dict]:
+    from ..Data import load_data_file
     fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
+    removed_fish = load_data_file("removed_locations.json")
+
     locations = []
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
@@ -184,12 +187,23 @@ def generate_fish_list() -> list[dict]:
             region = next(iter(zones.keys()))
             requires += f" and |{zones[region][0]}|"
 
-        locations.append({
+        loc = {
             "name": name,
             "category": ['Fish', "fishsanity"] + list(zones.keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
             "region": region,
             "requires": requires,
-        })
+        }
+        if data.get('tribal'):
+            if name not in removed_fish:
+                del loc['category']
+                removed_fish[name] = loc
+                with open("removed_locations.json", "w") as f:
+                    json.dump(removed_fish, f, indent=2)
+            continue
+
+        locations.append(loc)
+
+
     return locations
 
 

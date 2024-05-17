@@ -16,10 +16,10 @@ namespace ArchipelagoXIV.Rando
         public static Location Create(ApState apState, long id)
         {
             var name = apState.session.Locations.GetLocationNameFromId(id);
-            if (APData.FishData.ContainsKey(name))
-                return new Fish(apState, id, name);
             if (APData.ObsoleteChecks.ContainsKey(name))
                 return new ObsoleteLocation(apState, id, name);
+            if (APData.FishData.ContainsKey(name))
+                return new Fish(apState, id, name);
             return new Location(apState, id, name);
         }
         public Location(ApState apState, long id, string name)

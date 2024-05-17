@@ -1,42 +1,166 @@
 {
     "Goldsmith Crab": {
-        "name": "Goldsmith Crab",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:14| and |Bladed Steel Jig|"
+      "name": "Goldsmith Crab",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:14| and |Bladed Steel Jig|"
     },
     "Crown Trout": {
-        "name": "Crown Trout",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:14| and |Stonefly Nymph|"
+      "name": "Crown Trout",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:14| and |Stonefly Nymph|"
     },
     "Retribution Staff": {
-        "name": "Retribution Staff",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:14| and |Purse Web Spider|"
+      "name": "Retribution Staff",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:14| and |Purse Web Spider|"
     },
     "Eurhinosaur": {
-        "name": "Eurhinosaur",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+      "name": "Eurhinosaur",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
     },
     "Gem Marimo": {
-        "name": "Gem Marimo",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+      "name": "Gem Marimo",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
     },
     "Pterodactyl": {
-        "name": "Pterodactyl",
-        "region": "The Diadem",
-        "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
+      "name": "Pterodactyl",
+      "region": "The Diadem",
+      "requires": "|5 FSH Levels:16| and |Giant Crane Fly|"
     },
     "Sprig Cleaning (FATE)": {
-        "name": "Sprig Cleaning (FATE)",
-        "region": "Central Shroud",
-        "level": "30"
+      "name": "Sprig Cleaning (FATE)",
+      "region": "Central Shroud",
+      "level": "30"
     },
     "Spandy Balidet (FATE)": {
-        "name": "Spandy Balidet (FATE)",
-        "region": "Outer La Noscea",
-        "level": "40"
+      "name": "Spandy Balidet (FATE)",
+      "region": "Outer La Noscea",
+      "level": "40"
+    },
+    "Deep Velodyna Carp": {
+      "name": "Deep Velodyna Carp",
+      "region": "The Fringes",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Gigas Catfish": {
+      "name": "Gigas Catfish",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942637
+    },
+    "Greasy Strangler": {
+      "name": "Greasy Strangler",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942638
+    },
+    "Spikefish": {
+      "name": "Spikefish",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942639
+    },
+    "Fish Offering": {
+      "name": "Fish Offering",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942644
+    },
+    "Zagas A'khaal": {
+      "name": "Zagas A'khaal",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942645
+    },
+    "Steppe Sweetfish": {
+      "name": "Steppe Sweetfish",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|",
+      "id": 12776942646
+    },
+    "Fatty Eel": {
+      "name": "Fatty Eel",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Moon Oyster": {
+      "name": "Moon Oyster",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Crimson Copperfish": {
+      "name": "Crimson Copperfish",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Dusk Scallop": {
+      "name": "Dusk Scallop",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Granite Hardscale": {
+      "name": "Granite Hardscale",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Harutsuge Sprag": {
+      "name": "Harutsuge Sprag",
+      "region": "The Ruby Sea",
+      "requires": "|5 FSH Levels:12| and |Live Shrimp|"
+    },
+    "Giant Plesiosaur": {
+      "name": "Giant Plesiosaur",
+      "region": "The Ruby Sea",
+      "requires": "|5 FSH Levels:12| and |Live Shrimp|"
+    },
+    "Sunshell": {
+      "name": "Sunshell",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Midge Larva|"
+    },
+    "Leatherscale": {
+      "name": "Leatherscale",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Appleseed": {
+      "name": "Appleseed",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Water Fan": {
+      "name": "Water Fan",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Fishy Fish": {
+      "name": "Fishy Fish",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Steppe Barramundi": {
+      "name": "Steppe Barramundi",
+
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Arrowhead Snail": {
+      "name": "Arrowhead Snail",
+
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Plump Trout": {
+      "name": "Plump Trout",
+
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Crawling Cog": {
+      "name": "Crawling Cog",
+      "region": "The Azim Steppe",
+      "requires": "|5 FSH Levels:12| and |Salmon Roe|"
     }
-}
+  }

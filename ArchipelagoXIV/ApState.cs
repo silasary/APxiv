@@ -72,6 +72,7 @@ namespace ArchipelagoXIV
         public Location[] MissingLocations { get; private set; } = [];
         public Hint[] Hints { get; private set; }
         public SaveFile? localsave { get; private set; }
+        public bool Syncing { get; internal set; }
 
         internal void Disconnect()
         {
@@ -289,6 +290,12 @@ namespace ArchipelagoXIV
             }
 
             DalamudApi.SetJobTooltop(jobtt.ToString());
+
+            if (Syncing)
+            {
+                Syncing = false;
+                this.session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]).Start();
+            }
         }
 
         private static void RefreshRegions()

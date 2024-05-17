@@ -27,6 +27,7 @@ namespace ArchipelagoXIV.Rando.Locations
             {
                 apState.localsave.CompletedChecks.Add(ApId);
                 this.Completed = true;
+                apState.Syncing = true;
             }
             return accessible;
         }
