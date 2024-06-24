@@ -68,7 +68,7 @@ namespace ArchipelagoXIV
 
         public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
-        public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => session.Items.GetItemName(i.Item)) ?? Array.Empty<string>();
+        public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => i.ItemDisplayName) ?? Array.Empty<string>();
         public Location[] MissingLocations { get; private set; } = [];
         public Hint[] Hints { get; private set; }
         public SaveFile? localsave { get; private set; }
@@ -185,7 +185,7 @@ namespace ArchipelagoXIV
         private void Items_ItemReceived(ReceivedItemsHelper helper)
         {
             var item = helper.DequeueItem();
-            var name = session?.Items.GetItemName(item.Item);
+            var name = item.ItemName;
             var sender = session.Players.GetPlayerName(item.Player);
             //DalamudApi.Echo($"Recieved {name} from {sender}");
             Game.ProcessItem(item, itemName: name);

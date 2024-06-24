@@ -21,7 +21,7 @@ namespace ArchipelagoXIV.Rando
             return 0;
         }
 
-        internal override void ProcessItem(NetworkItem item, string itemName)
+        internal override void ProcessItem(ItemInfo item, string itemName)
         {
             base.ProcessItem(item, itemName);
             if (itemName == EquipLevels)

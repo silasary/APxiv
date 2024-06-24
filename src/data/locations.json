@@ -1,6 +1,6 @@
 [
 	{
-        "name": "Goal",
+        "name": "Collect Memories",
         "requires": "|Memory of a Distant World:50|",
         "victory": true
     },
@@ -8,5 +8,11 @@
         "name": "Return to the Waking Sands",
         "region": "Western Thanalan",
         "category": ["Western Thanalan"]
+    },
+    {
+        "name": "Defeat Shinryu",
+        "region": "The Lochs",
+        "level": 70,
+        "victory": true
     }
 ]

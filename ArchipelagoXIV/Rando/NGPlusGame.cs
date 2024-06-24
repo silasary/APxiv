@@ -24,7 +24,7 @@ namespace ArchipelagoXIV.Rando
 
         public override int MaxLevel(string job) => apState.Items.Count(i => i == $"5 {job} Levels") * 5;
 
-        internal override void ProcessItem(NetworkItem item, string itemName)
+        internal override void ProcessItem(ItemInfo item, string itemName)
         {
             base.ProcessItem(item, itemName);
             if (itemName.EndsWith("Levels"))

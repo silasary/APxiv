@@ -49,9 +49,9 @@ namespace ArchipelagoXIV.Rando
         public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation);
         internal int MaxLevelDHL() => DHLJobs.Max(MaxLevel);
 
-        internal virtual void ProcessItem(NetworkItem item, string itemName)
+        internal virtual void ProcessItem(ItemInfo item, string itemName)
         {
-
+            
         }
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)

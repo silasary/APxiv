@@ -1,4 +1,5 @@
 {
+    "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.game.schema.json",
 	"game": "FFXIV",
 	"creator": "Silasary",
 	"filler_item_name": "/pet",
@@ -10,5 +11,6 @@
         {
             "item_categories": ["Starting"]
         }
-    ]
+    ],
+    "death_link": true
 }

@@ -1,6 +1,6 @@
 # Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
-from Options import Toggle, DefaultOnToggle, Choice, TextChoice, Range, SpecialRange, ItemSet, OptionSet
+from Options import Toggle, DefaultOnToggle, Choice, TextChoice, Range, ItemSet, OptionSet
 from worlds.AutoWorld import World
 from Utils import get_fuzzy_results
 

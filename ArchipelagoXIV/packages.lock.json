@@ -4,9 +4,9 @@
     "net8.0-windows8.0": {
       "Archipelago.MultiClient.Net": {
         "type": "Direct",
-        "requested": "[5.0.6, )",
-        "resolved": "5.0.6",
-        "contentHash": "d38F0oI3Iysz9dZBq9Ml1AgHZ/flL4elG5YaFGoX4JYpMxqvb2BKBn3ikFVUQu0/YSlTNZHFXfqvhPAqBN6gXA=="
+        "requested": "[6.0.1, )",
+        "resolved": "6.0.1",
+        "contentHash": "+NlB4dgp04ZBoXx78waCw2uRCdK4OUPwL7tsjZ1dJHkPw72eaFZf3aXVmRmXSyqaivwFwFuy+2HPAYHyKEJtfQ=="
       },
       "DalamudPackager": {
         "type": "Direct",
