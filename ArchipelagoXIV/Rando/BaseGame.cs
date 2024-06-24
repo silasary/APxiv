@@ -63,7 +63,7 @@ namespace ArchipelagoXIV.Rando
             }
             if (slotData.TryGetValue("goal", out var goal))
             {
-                Goal = (int)goal;
+                Goal = (int)(long)goal;
             }
         }
 

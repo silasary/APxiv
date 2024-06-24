@@ -312,8 +312,14 @@ namespace ArchipelagoXIV
 
         public void RefreshLocations(bool hard)
         {
+            if (session == null)
+            {
+                DalamudApi.Echo("Session is null?");
+                return;
+            }
+
             if (hard || MissingLocations == null || MissingLocations.Length == 0)
-                MissingLocations = session?.Locations.AllMissingLocations.Select(i => Location.Create(this, i)).ToArray() ?? [];
+                MissingLocations = session!.Locations.AllMissingLocations.Select(i => Location.Create(this, i)).ToArray();
             else
             {
                 foreach (var l in MissingLocations)
