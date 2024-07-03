@@ -8,19 +8,19 @@
 	{
 		"name": "Limsa Lominsa and Middle La Noscea Access",
 		"category": ["Starting", "Location"],
-		"count":0,
+		"count":1,
 		"progression": true
 	},
 	{
 		"name": "Gridania and Central Shroud Access",
 		"category": ["Starting", "Location"],
-		"count":0,
+		"count":1,
 		"progression": true
 	},
 	{
 		"name": "Ul'dah and Central Thanalan Access",
 		"category": ["Starting", "Location"],
-		"count":0,
+		"count":1,
 		"progression": true
 	},
 	{
@@ -401,6 +401,34 @@
     {
         "name": "Pandaemonium Key",
         "category": ["Raid Key"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Tuliyollal Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Urqopacha Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Kozama'uka Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Yak T'el Access",
+        "category": ["Location"],
         "count": 1,
         "progression": true,
         "level": 90

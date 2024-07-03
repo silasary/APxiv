@@ -56,7 +56,7 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
         {
-            PluginLog.Information("Slot Data", slotData);
+            DalamudApi.PluginLog.Information("Slot Data", slotData);
             if (slotData.TryGetValue("fishsanity", out var fishsanity))
             {
                 FishingMatters = (fishsanity as bool?) ?? false;

@@ -182,7 +182,7 @@ namespace ArchipelagoXIV.Rando
         }
         private async void CompleteAsync()
         {
-            PluginLog.Information($"Marking {Name} ({ApId}) as complete");
+            DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             apState.SaveCache();
             apState.session!.Locations.CompleteLocationChecks(this.ApId);
         }

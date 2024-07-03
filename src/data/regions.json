@@ -415,7 +415,8 @@
         "requires": "|Old Sharlayan Access: 1|",
         "connects_to": [
             "Labyrinthos",
-            "Thavnair"
+            "Thavnair",
+            "Tuliyollal"
         ]
     },
     "Labyrinthos": {
@@ -478,6 +479,25 @@
         "connects_to": []
     },
     "Shirogane": {
+        "connects_to": []
+    },
+    "Tuliyollal": {
+        "requires": "|Tuliyollal Access: 1|",
+        "connects_to": [
+            "Urqopacha",
+            "Kozama'uka"
+        ]
+    },
+    "Urqopacha": {
+        "requires": "|Urqopacha Access: 1|",
+        "connects_to": []
+    },
+    "Kozama'uka": {
+        "requires": "|Kozama'uka Access: 1|",
+        "connects_to": []
+    },
+    "Yak T'el": {
+        "requires": "|Yak T'el Access: 1|",
         "connects_to": []
     }
 }

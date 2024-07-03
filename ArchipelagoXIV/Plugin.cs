@@ -11,7 +11,7 @@ namespace ArchipelagoXIV
 {
     public sealed class Plugin : IDalamudPlugin
     {
-        private DalamudPluginInterface PluginInterface { get; init; }
+        private IDalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
 
         private ApState apState { get; init; }
@@ -26,8 +26,8 @@ namespace ArchipelagoXIV
         private MainWindow MainWindow { get; init; }
 
         public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] ICommandManager commandManager
+            IDalamudPluginInterface pluginInterface,
+            ICommandManager commandManager
         )
         {
             this.PluginInterface = pluginInterface;

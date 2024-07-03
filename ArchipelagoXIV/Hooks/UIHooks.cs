@@ -74,22 +74,5 @@ namespace ArchipelagoXIV.Hooks
             //AtkUnitBase* addon = (AddonContentsFinder*)args.Addon;
             //addon->GetNodeById(13)->;
         }
-
-
-        private void TooltipHandler(AddonEventType type, IntPtr addon, IntPtr node)
-        {
-            var addonId = ((AtkUnitBase*)addon)->ID;
-
-            switch (type)
-            {
-                case AddonEventType.MouseOver:
-                    AtkStage.GetSingleton()->TooltipManager.ShowTooltip(addonId, (AtkResNode*)node, "Archipelago check available");
-                    break;
-
-                case AddonEventType.MouseOut:
-                    AtkStage.GetSingleton()->TooltipManager.HideTooltip(addonId);
-                    break;
-            }
-        }
     }
 }

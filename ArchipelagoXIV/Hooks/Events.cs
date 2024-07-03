@@ -49,7 +49,7 @@ namespace ArchipelagoXIV.Hooks
         {
             var fateRewardAddon = (AtkUnitBase*)args.Addon;
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
-            var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible;
+            var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible() || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible();
             var locName = fateName + " (FATE)";
             if (!success)
                 return;
@@ -58,7 +58,7 @@ namespace ArchipelagoXIV.Hooks
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
             if (loc == null)
             {
-                PluginLog.Information($"Fate {locName} not available or already completed");
+                DalamudApi.PluginLog.Information($"Fate {locName} not available or already completed");
                 return;
             }
             if (!loc.IsAccessible())
@@ -95,7 +95,7 @@ namespace ArchipelagoXIV.Hooks
                     name = "The" + name[3..];
             }
             DalamudApi.Echo($"{name} Completed");
-            PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
             if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
             {
@@ -105,7 +105,7 @@ namespace ArchipelagoXIV.Hooks
                     DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
                     return;
                 }
-                PluginLog.Debug("Marking Check {1}", name);
+                DalamudApi.PluginLog.Debug("Marking Check {1}", name);
                 location.Complete();
 
             }

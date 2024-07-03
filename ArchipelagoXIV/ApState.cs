@@ -178,7 +178,7 @@ namespace ArchipelagoXIV
         private void Socket_SocketClosed(string reason)
         {
             this.Connected = false;
-            PluginLog.Debug($"Lost connection to Archipelago: {reason}");
+            DalamudApi.PluginLog.Debug($"Lost connection to Archipelago: {reason}");
             DalamudApi.SetStatusBar("Disconnected");
         }
 
