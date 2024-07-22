@@ -485,7 +485,9 @@
         "requires": "|Tuliyollal Access: 1|",
         "connects_to": [
             "Urqopacha",
-            "Kozama'uka"
+            "Kozama'uka",
+            "Yak T'el",
+            "Tuliyollal"
         ]
     },
     "Urqopacha": {
@@ -498,6 +500,20 @@
     },
     "Yak T'el": {
         "requires": "|Yak T'el Access: 1|",
+        "connects_to": []
+    },
+    "Shaaloani": {
+        "requires": "|Shaaloani Access: 1|",
+        "connects_to": [
+            "Heritage Found"
+        ]
+    },
+    "Heritage Found": {
+        "requires": "|Heritage Found Access: 1|",
+        "connects_to": []
+    },
+    "Living Memory": {
+        "requires": "|Living Memory Access: 1|",
         "connects_to": []
     }
 }

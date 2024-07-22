@@ -432,5 +432,26 @@
         "count": 1,
         "progression": true,
         "level": 90
+    },
+    {
+        "name": "Shaaloani Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Heritage Found Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Living Memory Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
     }
 ]
