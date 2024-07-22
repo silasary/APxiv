@@ -174,7 +174,7 @@ namespace ArchipelagoXIV.Hooks
             else if (AmnestyTripped)
                 AmnestyTripped = false;
 
-            static unsafe void Send(ApState apState, byte queuedId)
+            static unsafe void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == content.Name);
