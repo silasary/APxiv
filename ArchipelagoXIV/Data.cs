@@ -13,6 +13,7 @@ namespace ArchipelagoXIV
         public static ContentFinderCondition[] Content { get; private set; } = [];
         public static DynamicEvent[] DynamicEvents { get; private set; } = [];
         public static ImmutableDictionary<uint, Item> Items { get; private set; } = null;
+        public static IKDRoute[] IKDRoutes { get; private set; }
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -95,7 +96,9 @@ namespace ArchipelagoXIV
             { "The Breath of the Creator", "Alexander - The Breath of the Creator" },
             { "The Heart of the Creator", "Alexander - The Heart of the Creator" },
             { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
+            { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
         };
+
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;
             if (dataManager == null)
@@ -111,6 +114,8 @@ namespace ArchipelagoXIV
             DynamicEvents = [.. dataManager.GetExcelSheet<DynamicEvent>()];
 
             Items = dataManager.GetExcelSheet<Item>().ToImmutableDictionary(i => i.RowId);
+
+            IKDRoutes = [.. dataManager.GetExcelSheet<IKDRoute>()];
         }
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {

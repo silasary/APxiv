@@ -67,7 +67,7 @@ namespace ArchipelagoXIV.Rando
             name = LocationToRegion(name, territoryId);
             if (!APData.Regions.TryGetValue(name, out var value))
             {
-                DalamudApi.Echo($"Unknown Location {name} ({territoryId})");
+                //DalamudApi.Echo($"Unknown Location {name} ({territoryId})");
                 return false;
             }
             if (location != null)

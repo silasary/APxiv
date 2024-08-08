@@ -406,6 +406,13 @@
         "level": 90
     },
     {
+        "name": "Arcadion Key",
+        "category": ["Raid Key"],
+        "count": 1,
+        "progression": true,
+        "level": 100
+    },
+    {
         "name": "Tuliyollal Access",
         "category": ["Location"],
         "count": 1,
@@ -449,6 +456,13 @@
     },
     {
         "name": "Living Memory Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "level": 90
+    },
+    {
+        "name": "Solution Nine Access",
         "category": ["Location"],
         "count": 1,
         "progression": true,

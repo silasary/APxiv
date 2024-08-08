@@ -8,11 +8,20 @@ def after_load_game_file(game_table: dict) -> dict:
 
 TANKS = ["PLD","WAR","DRK","GNB"]
 HEALERS = ["WHM","SCH","AST","SGE"]
-MELEE = ["MNK","DRG","NIN","SAM","RPR"]
-CASTER = ["BLM","SMN","RDM",]
+MELEE = ["MNK","DRG","NIN","SAM","RPR", "VPR"]
+CASTER = ["BLM","SMN","RDM","PCT"]
 RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
+
+WORLD_BOSSES = [
+    "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
+    "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
+    "A Horse Outside (FATE)", "Foxy Lady (FATE)",
+    "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
+    "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
+    "The Serpentlord Seethes", "Mascot Murder",
+    ]
 
 bonus_regions = {}
 
@@ -68,6 +77,13 @@ fate_zones = {
     "Mare Lamentorum": [83],
     "Elpis": [86],
     "Ultima Thule": [88],
+
+    "Urqopacha": [90],
+    "Kozama'uka": [90],
+    "Yak T'el": [94],
+    "Shaaloani": [96],
+    "Heritage Found": [98],
+    "Living Memory": [99],
 }
 
 def generate_duty_list():
@@ -228,33 +244,7 @@ def after_load_game_file(game_table: dict) -> dict:
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
 def after_load_item_file(item_table: list) -> list:
     item_table.extend(generate_bait_list())
-    classes = [
-        # tanks
-        "PLD",
-        "WAR",
-        "DRK",
-        "GNB",
-        # healers
-        "WHM",
-        "SCH",
-        "AST",
-        "SGE",
-        # melee dps
-        "MNK",
-        "DRG",
-        "NIN",
-        "SAM",
-        "RPR",
-        # ranged dps
-        "BRD",
-        "MCH",
-        "DNC",
-        # caster dps
-        "BLM",
-        "SMN",
-        "RDM",
-        "BLU",
-    ]
+    classes = TANKS + HEALERS + MELEE + RANGED + CASTER + ["BLU"]
     # crafters
     DOH = [
         "CRP",
@@ -273,7 +263,7 @@ def after_load_item_file(item_table: list) -> list:
         "BTN",
         "FSH",
         ]
-    max_level = 90
+    max_level = 100
     max_blu = 80
 
     for job in classes:

@@ -154,9 +154,9 @@ def scrape_bell():
         all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
 
     with open(os.path.join(os.path.dirname(__file__), 'fish.json'), 'w', newline='') as h:
-        json.dump(all_fish, h)
+        json.dump(all_fish, h, indent=1)
     with open(os.path.join(os.path.dirname(__file__), 'bait.json'), 'w', newline='') as h:
-        json.dump(bait, h)
+        json.dump(bait, h, indent=1)
 
 # @dataclass
 # class FishingSpot:
@@ -199,4 +199,8 @@ def tribal_fish():
                     # print(name)
         offset = data.get('query-continue-offset')
     with open(os.path.join(os.path.dirname(__file__), 'fish.json'), 'w', newline='') as h:
-        json.dump(all_fish, h)
+        json.dump(all_fish, h, indent=1)
+
+if __name__ == "__main__":
+    scrape_bell()
+    tribal_fish()

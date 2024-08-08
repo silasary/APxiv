@@ -13,7 +13,7 @@ from ..Data import game_table, item_table, location_table, region_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
-from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH
+from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, WORLD_BOSSES
 
 
 
@@ -40,9 +40,9 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = []
     locationNamesToExclude = []
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
-        locationNamesToRemove.extend(["He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)", "A Horse Outside (FATE)", "Foxy Lady (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)", "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)"])
+        locationNamesToRemove.extend(WORLD_BOSSES)
 
-    level_cap = get_option_value(multiworld, player, "level_cap") or 90
+    level_cap = get_option_value(multiworld, player, "level_cap") or 100
 
     duty_diff = get_option_value(multiworld, player, "duty_difficulty")
     duty_size = get_option_value(multiworld, player, "max_party_size")
@@ -100,7 +100,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
     force_jobs = get_option_value(multiworld, player, "force_jobs")
-    level_cap = get_option_value(multiworld, player, "level_cap") or 90
+    level_cap = get_option_value(multiworld, player, "level_cap") or 100
     if force_jobs:
         prog_classes = force_jobs
     else:
@@ -130,8 +130,8 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
         if prog_doh and item.name == f'5 {prog_doh} Levels':
             item.classification = ItemClassification.progression
             prog_doh = None
-        if item_name_to_item[item.name].get("level", 0) > level_cap:
-            item_pool.remove(item)
+        # if item_name_to_item[item.name].get("level", 0) > level_cap:
+        #     item_pool.remove(item)
 
     return item_pool
 

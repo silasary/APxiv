@@ -129,6 +129,8 @@ namespace ArchipelagoXIV
             CommandManager.RemoveHandler("/ap-connect");
             CommandManager.RemoveHandler("/ap-config");
             CommandManager.RemoveHandler("/ap-disconnect");
+            DalamudApi.DtrBar.Remove("Archipelago");
+            DalamudApi.DtrBar.Remove("APJob");
         }
 
         private void Connect(string command, string args)

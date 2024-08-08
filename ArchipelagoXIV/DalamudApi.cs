@@ -18,6 +18,7 @@ namespace ArchipelagoXIV
 
         [PluginService] public static IAddonLifecycle AddonLifecycle { get; private set; } = null;
         [PluginService] public static IAetheryteList AetheryteList { get; private set; } = null;
+        [PluginService] public static IAddonEventManager EventManager { get; private set; } = null;
         [PluginService] public static IBuddyList BuddyList { get; private set; } = null;
         [PluginService] public static IChatGui ChatGui { get; private set; } = null;
         //[PluginService] public static ChatHandlers ChatHandlers { get; private set; } = null;
@@ -29,7 +30,6 @@ namespace ArchipelagoXIV
         [PluginService] public static IDataManager DataManager { get; private set; } = null;
         [PluginService] public static IDtrBar DtrBar { get; private set; } = null;
         [PluginService] public static IDutyState DutyState { get; private set; } = null;
-        [PluginService] public static IAddonEventManager EventManager { get; private set; } = null;
         [PluginService] public static IFateTable FateTable { get; private set; } = null;
         [PluginService] public static IFlyTextGui FlyTextGui { get; private set; } = null;
         [PluginService] public static IFramework Framework { get; private set; } = null;

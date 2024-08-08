@@ -94,6 +94,11 @@ namespace ArchipelagoXIV.Hooks
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
             }
+            if (name == "Ocean Fishing")
+            {
+                var route = Data.IKDRoutes.FirstOrDefault(r => r.ContentFinderCondition.Value.RowId == duty.RowId);
+                name = "Ocean Fishing: " + route.Name;
+            }
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);

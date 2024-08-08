@@ -500,7 +500,7 @@
     },
     "Yak T'el": {
         "requires": "|Yak T'el Access: 1|",
-        "connects_to": []
+        "connects_to": ["Living Memory"]
     },
     "Shaaloani": {
         "requires": "|Shaaloani Access: 1|",
@@ -510,6 +510,14 @@
     },
     "Heritage Found": {
         "requires": "|Heritage Found Access: 1|",
+        "connects_to": ["Solution Nine"]
+    },
+    "Solution Nine": {
+        "requires": "|Solution Nine Access: 1|",
+        "connects_to": ["The Arcadion"]
+    },
+    "The Arcadion": {
+        "requires": "|Arcadion Key: 1|",
         "connects_to": []
     },
     "Living Memory": {
