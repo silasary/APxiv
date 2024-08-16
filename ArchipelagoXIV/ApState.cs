@@ -223,7 +223,7 @@ namespace ArchipelagoXIV
                             checks++;
                             if (l.Name.Contains("FATE"))
                                 fates++;
-                            if (DalamudApi.FateTable.Any(f => f.Name.ToString() == l.Name.Replace(" (FATE)", "")))
+                            if (DalamudApi.FateTable.Any(f => f.Name.ToString().Equals(l.Name.Replace(" (FATE)", ""), StringComparison.InvariantCultureIgnoreCase)))
                                 upfates++;
                             BK = false;
                         }
