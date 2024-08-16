@@ -34,6 +34,7 @@ namespace ArchipelagoXIV
 
         internal int slot;
         internal ClassJob? lastJob;
+        internal int lastFateCount;
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
@@ -200,6 +201,7 @@ namespace ArchipelagoXIV
             var fish = false;
             var checks = 0;
             var fates = 0;
+            var upfates = 0;
             var zoneTT = new StringBuilder();
             var unavailable = new StringBuilder();
             var zoneswithchecks = new HashSet<Region>();
@@ -221,6 +223,8 @@ namespace ArchipelagoXIV
                             checks++;
                             if (l.Name.Contains("FATE"))
                                 fates++;
+                            if (DalamudApi.FateTable.Any(f => f.Name.ToString() == l.Name.Replace(" (FATE)", "")))
+                                upfates++;
                             BK = false;
                         }
                         else
@@ -259,7 +263,9 @@ namespace ArchipelagoXIV
             if (checks > 0)
             {
                 var text = $"{checks} checks in {region.Name}";
-                if (fates > 0)
+                if (upfates > 0)
+                    text += $" ({upfates} active FATEs)";
+                else if (fates > 0)
                     text += $" ({fates} FATEs)";
                 DalamudApi.SetStatusBar(text);
             }

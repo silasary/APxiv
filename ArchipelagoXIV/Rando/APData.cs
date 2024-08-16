@@ -61,7 +61,13 @@ namespace ArchipelagoXIV.Rando
             { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
             { 2, "The Tam-Tara Deepcroft" },
             { 24, "The Tam-Tara Deepcroft (Hard)" },
-            //{ 63000, "Ocean Fishing: Rothlyt Sound" },
+        };
+
+        public static Dictionary<string, ushort> CheckNameToContentID = new()
+        {
+            { "The Thousand Maws of Toto-Rak", 1 },
+            { "The Tam-Tara Deepcroft", 2 },
+            { "The Tam-Tara Deepcroft (Hard)", 24 },
         };
 
         public static readonly Dictionary<string, Region> Regions = [];

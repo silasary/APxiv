@@ -69,6 +69,10 @@ namespace ArchipelagoXIV.Rando
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
                     if (content == null && this.Name.StartsWith("The"))
                         content = Data.Content.FirstOrDefault(cf => cf.Name == ("the" + this.Name[3..]));
+                    if (content == null && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
+                    {
+                        content = Data.Content[id];
+                    }
                     if (content == null)
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
@@ -178,7 +182,7 @@ namespace ArchipelagoXIV.Rando
         {
             this.Completed = true;
             apState.localsave!.CompletedChecks.Add(this.ApId);
-            Task.Factory.StartNew(CompleteAsync).Start();
+            Task.Factory.StartNew(CompleteAsync);
             apState.UpdateBars();
         }
         private async void CompleteAsync()

@@ -6,6 +6,7 @@ using ArchipelagoXIV.Windows;
 using ArchipelagoXIV.Hooks;
 using Dalamud.Plugin.Services;
 using Archipelago.MultiClient.Net.Packets;
+using System.Linq;
 
 namespace ArchipelagoXIV
 {
@@ -90,8 +91,22 @@ namespace ArchipelagoXIV
             var localPlayer = DalamudApi.ClientState.LocalPlayer;
             if (localPlayer == null)
                 return;
+            var refresh = false;
             var job = localPlayer.ClassJob.GameData;
+            var fates = DalamudApi.FateTable.Length;
+
             if (apState.lastJob != job)
+            {
+                apState.lastJob = job;
+                refresh = true;
+            }
+
+            if (apState.lastFateCount != fates)
+            {
+                apState.lastFateCount = fates;
+                refresh = true;
+            }
+            if (refresh)
                 apState.UpdateBars();
 
             Events.CheckAmnesty();

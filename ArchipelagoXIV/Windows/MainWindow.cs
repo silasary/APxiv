@@ -45,6 +45,7 @@ public class MainWindow : Window
         ImGui.Text($"Available Checks:");
         //ImGui.Indent(55);
         if (state.MissingLocations != null)
+        {
             foreach (var location in state.MissingLocations)
             {
                 if (location.IsAccessible())
@@ -57,6 +58,7 @@ public class MainWindow : Window
                     ImGui.Text($"{name}");
                 }
             }
+        }
 
         //ImGui.Unindent(55);
     }

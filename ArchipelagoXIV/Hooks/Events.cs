@@ -58,7 +58,7 @@ namespace ArchipelagoXIV.Hooks
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
             if (loc == null)
             {
-                DalamudApi.PluginLog.Information($"Fate {locName} not available or already completed");
+                DalamudApi.PluginLog.Information($"Fate `{locName}` not in world or already completed");
                 return;
             }
             if (!loc.IsAccessible())
