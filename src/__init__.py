@@ -104,12 +104,6 @@ class ManualWorld(World):
         for name in configured_item_names.values():
             if name == "__Victory__": continue
             if name == filler_item_name: continue
-            if "level" in self.item_name_to_item[name].keys():
-                if self.item_name_to_item[name]["level"] > self.options.level_cap:
-                    continue
-            if len(self.options.restrict_jobs.value) > 0 and name.count(" ") == 2:
-                if name.split(" ")[1] not in self.options.restrict_jobs and name.split(" ")[2] == "Levels":
-                    continue
 
             item = self.item_name_to_item[name]
             item_count = int(item.get("count", 1))
@@ -179,9 +173,6 @@ class ManualWorld(World):
         # need to put all of the items in the pool so we can have a full state for placement
         # then will remove specific item placements below from the overall pool
         self.multiworld.itempool += pool
-        
-        print("Number of items in pool: " + str(len(pool)))
-        print("Number of locations: " + str(len(self.multiworld.get_unfilled_locations(player=self.player))))
 
     def create_item(self, name: str) -> Item:
         name = before_create_item(name, self, self.multiworld, self.player)

@@ -69,6 +69,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         if "level" in location and int(location["level"]) > level_cap:
             print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
+            continue
 
 
     for region in multiworld.regions:
@@ -82,6 +83,15 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
 # The item pool before starting items are processed, in case you want to see the raw item pool at that stage
 def before_create_items_starting(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
+    itemNamesToRemove = []
+    for item in item_pool:
+        name = item.name
+        if "level" in item_name_to_item[name].keys():
+            if item_name_to_item[name]["level"] > get_option_value(multiworld, player, "level_cap"):
+                itemNamesToRemove.append(name)
+    for item in item_pool[:]:
+        if item.name in itemNamesToRemove and item.player == player:
+            item_pool.remove(item)
     return item_pool
 
 # The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage

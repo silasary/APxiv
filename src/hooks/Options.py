@@ -136,29 +136,6 @@ class IncludeBozja(Toggle):
     Include Save the Queen content in the location pool.  This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
     """
 
-class RestrictJobs(OptionSet):
-    """
-    Choose which classes are in the item.
-
-    If none are selected, all are included.
-    """
-    display_name = "Restrict Jobs"
-
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
-        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
-        print(f"{repr(self.value)}/{repr(all)}")
-        for item_name in self.value:
-            if item_name not in all:
-                picks = get_fuzzy_results(item_name, all, limit=1)
-                raise Exception(f"Item {item_name} from option {self} "
-                                f"is not a valid job from {world.game}. "
-                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
-
-
-        return super().verify(world, player_name, plando_options)
-
-
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
     # Goal
@@ -181,7 +158,6 @@ def before_options_defined(options: dict) -> dict:
     # Jobs
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
-    options["restrict_jobs"] = RestrictJobs
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
