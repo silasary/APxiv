@@ -78,7 +78,7 @@ namespace ArchipelagoXIV.Rando
 
         public static void LoadDutiesCsv()
         {
-            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW"];
+            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"];
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.duties.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
