@@ -45,11 +45,11 @@ fate_zones = {
     "Northern Thanalan": [49,49],
 
     "Coerthas Central Highlands": [35,35],
-    "Coerthas Western Highlands": [50, 130],
+    "Coerthas Western Highlands": [51, 130],
 
     "Mor Dhona": [44,44],
 
-    "The Sea of Clouds": [50, 130],
+    "The Sea of Clouds": [51, 130],
     "Azys Lla": [59, 145],
 
     "The Dravanian Forelands": [52, 130],
@@ -175,6 +175,7 @@ def generate_fate_list():
     for key in list(fate_zones.keys()):
         level = fate_zones[key][0]
         #ilvl = fate_zones[key][1]
+        print("Creating FATE location for " + key)
         fate_list.append(create_FATE_location(1,key,level))
         fate_list.append(create_FATE_location(2,key,level))
         fate_list.append(create_FATE_location(3,key,level))
@@ -324,6 +325,7 @@ def after_load_region_file(region_table: dict) -> dict:
     return region_table
 
 def create_FATE_location(number: int, key: str, lvl: int):
+    print("Creating FATE Location " + str(key) + " #" + str(number) + " with required level " + str(lvl))
     location = {
             "name": key + ": FATE #" + str(number),
             "region": key,
@@ -333,7 +335,7 @@ def create_FATE_location(number: int, key: str, lvl: int):
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
-    if lvl > 30 and number > 2:
+    if lvl > 50 and number > 2:
         location["filler"] = True
     return location
 

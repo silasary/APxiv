@@ -83,6 +83,19 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
 # The item pool before starting items are processed, in case you want to see the raw item pool at that stage
 def before_create_items_starting(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
+    itemNamesToRemove = []
+    for item in item_pool:
+        name = item.name
+        if "level" in item_name_to_item[name].keys():
+            if item_name_to_item[name]["level"] > get_option_value(multiworld, player, "level_cap"):
+                itemNamesToRemove.append(name)
+        if name.endswith("Levels"):
+            if name.split(" ")[1] not in get_option_value(multiworld, player, "force_jobs") and len(get_option_value(multiworld, player, "force_jobs")) > 0:
+                itemNamesToRemove.append(name)
+    for item in item_pool[:]:
+        if item.name in itemNamesToRemove and item.player == player:
+            print(f"Removing {item.name} from {player}'s itempool")
+            item_pool.remove(item)
     return item_pool
 
 # The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage
@@ -122,8 +135,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
                 item_pool.remove(item)
                 continue
             if item.name == start_class and seen_levels[item.name] <= 3:
-                multiworld.precollected_items[player].append(item)
-                item_pool.remove(item)
+                multiworld.push_precollected(item)
                 continue
 
         if item.name == "5 FSH Levels":
@@ -131,9 +143,12 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
         if prog_doh and item.name == f'5 {prog_doh} Levels':
             item.classification = ItemClassification.progression
             prog_doh = None
-        # if item_name_to_item[item.name].get("level", 0) > level_cap:
-        #     item_pool.remove(item)
-
+        if item_name_to_item[item.name].get("level", 0) > level_cap:
+            item_pool.remove(item)
+    
+    for item in multiworld.precollected_items[player]:
+        print("Precollected item: " + str(item.name))
+    
     return item_pool
 
     # Some other useful hook options:
@@ -146,6 +161,9 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
 def after_create_items(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
+    for item in item_pool:
+        if item.player == player:
+            print(item.name)
     return item_pool
 
 # Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.
