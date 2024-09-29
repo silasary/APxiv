@@ -333,7 +333,7 @@ def create_FATE_location(number: int, key: str, lvl: int):
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
-    if lvl > 50 and number > 2:
+    if lvl > 30 and number > 2:
         location["filler"] = True
     return location
 
