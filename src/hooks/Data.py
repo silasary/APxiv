@@ -175,7 +175,6 @@ def generate_fate_list():
     for key in list(fate_zones.keys()):
         level = fate_zones[key][0]
         #ilvl = fate_zones[key][1]
-        print("Creating FATE location for " + key)
         fate_list.append(create_FATE_location(1,key,level))
         fate_list.append(create_FATE_location(2,key,level))
         fate_list.append(create_FATE_location(3,key,level))
@@ -324,8 +323,7 @@ def after_load_region_file(region_table: dict) -> dict:
             region_table[e]['connects_to'].append(r)
     return region_table
 
-def create_FATE_location(number: int, key: str, lvl: int):
-    print("Creating FATE Location " + str(key) + " #" + str(number) + " with required level " + str(lvl))
+def create_FATE_location(number: int, key: str, lvl: int):  
     location = {
             "name": key + ": FATE #" + str(number),
             "region": key,
