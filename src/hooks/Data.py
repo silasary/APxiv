@@ -323,7 +323,7 @@ def after_load_region_file(region_table: dict) -> dict:
             region_table[e]['connects_to'].append(r)
     return region_table
 
-def create_FATE_location(number: int, key: str, lvl: int):  
+def create_FATE_location(number: int, key: str, lvl: int):
     location = {
             "name": key + ": FATE #" + str(number),
             "region": key,

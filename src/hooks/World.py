@@ -133,7 +133,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
             prog_doh = None
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             item_pool.remove(item)
-    
+
     return item_pool
 
     # Some other useful hook options:
