@@ -31,6 +31,8 @@ namespace ArchipelagoXIV.Rando
 
         internal static Func<ApState, bool, bool> Level(int level) => (state, asCurrentClass) =>
         {
+            if (level < 5)
+                return true;
             var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevel();
             return gLevel >= level;
         };
@@ -40,6 +42,8 @@ namespace ArchipelagoXIV.Rando
             {
                 if (asCurrentClass && CurrentClass().Abbreviation != job)
                     return false;
+                if (level < 5)
+                    return true;
                 var gLevel = state.Game.MaxLevel(job);
                 return gLevel >= level;
             };

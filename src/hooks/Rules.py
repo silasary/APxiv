@@ -17,6 +17,8 @@ import re
 # You can also pass an argument to your function, like |$function_name:arg|
 def anyClassLevel(world: World, multiworld: MultiWorld, state: CollectionState, player: int, level: str):
     """Has the player reached the given level in any class?"""
+    if int(level) < 5:
+        return True
     for job in world.item_name_groups["DOW/DOM"]:
         if (state.count(job, player) * 5) >= int(level):
             return True
@@ -24,8 +26,9 @@ def anyClassLevel(world: World, multiworld: MultiWorld, state: CollectionState, 
 
 def anyCrafterLevel(world: World, mw: MultiWorld, state: CollectionState, player: int, level: str):
     """Has the player reached the given level in any class?"""
+    if int(level) < 5:
+        return True
     for job in world.item_name_groups["DOH"]:
         if (state.count(job, player) * 5) >= int(level):
             return True
     return False
-
