@@ -12,6 +12,7 @@ using Dalamud.Logging;
 using Newtonsoft.Json;
 using System.IO;
 using ArchipelagoXIV.Rando.Locations;
+using FFXIVClientStructs.FFXIV.Client.UI;
 
 namespace ArchipelagoXIV
 {
@@ -35,6 +36,7 @@ namespace ArchipelagoXIV
         internal int slot;
         internal ClassJob? lastJob;
         internal int lastFateCount;
+        private int lastUpFateCount;
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
@@ -43,14 +45,14 @@ namespace ArchipelagoXIV
         public bool CanTeleport { get; internal set; } = true;
         public bool CanReturn { get; internal set; } = true;
 
-        public string JobText
+        public string? JobText
         {
             get
             {
                 var localPlayer = DalamudApi.ClientState.LocalPlayer;
                 if (localPlayer == null)
                     return null;
-                var job = localPlayer.ClassJob.GameData;
+                var job = localPlayer.ClassJob.GameData!;
                 this.lastJob = job;
                 var sb = new StringBuilder();
 
@@ -202,6 +204,7 @@ namespace ArchipelagoXIV
             var checks = 0;
             var fates = 0;
             var upfates = 0;
+            var activeFates = new StringBuilder();
             var zoneTT = new StringBuilder();
             var unavailable = new StringBuilder();
             var zoneswithchecks = new HashSet<Region>();
@@ -223,8 +226,18 @@ namespace ArchipelagoXIV
                             checks++;
                             if (l.Name.Contains("FATE"))
                                 fates++;
-                            if (DalamudApi.FateTable.Any(f => f.Name.ToString().Equals(l.Name.Replace(" (FATE)", ""), StringComparison.InvariantCultureIgnoreCase)))
+                            if (DalamudApi.FateTable.Any(f => f.Name.ToString().Equals(l.Name.Replace(" (FATE)", ""), StringComparison.OrdinalIgnoreCase)))
+                            {
                                 upfates++;
+                                activeFates.AppendLine(l.Name);
+                                if (this.lastUpFateCount == 0)
+                                {
+                                    DalamudApi.ShowToast($"{l.Name} is up");
+                                    DalamudApi.Echo($"{l.Name} is up");
+                                    UIModule.PlayChatSoundEffect(3);
+                                }
+                            }
+
                             BK = false;
                         }
                         else
@@ -241,6 +254,11 @@ namespace ArchipelagoXIV
                         fish = true;
                 }
             }
+            if (upfates > 0)
+            {
+                zoneTT.Insert(0, "Active Fates:\n" + activeFates.ToString() + '\n');
+            }
+
             zoneTT.AppendLine();
             zoneTT.AppendLine("Zones with checks:");
             //foreach (var zone in Items.Where(i => i.EndsWith("Access")))
@@ -302,6 +320,7 @@ namespace ArchipelagoXIV
                 Syncing = false;
                 this.session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]).Start();
             }
+            this.lastUpFateCount = upfates;
         }
 
         private static void RefreshRegions()

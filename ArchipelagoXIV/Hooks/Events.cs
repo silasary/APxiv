@@ -54,7 +54,7 @@ namespace ArchipelagoXIV.Hooks
             if (!success)
                 return;
 
-            var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name.Equals(locName, StringComparison.InvariantCultureIgnoreCase));  // FATEsanity check
+            var loc = apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(locName, StringComparison.OrdinalIgnoreCase));  // FATEsanity check
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
             if (loc == null)
             {
