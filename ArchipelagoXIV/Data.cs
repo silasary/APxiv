@@ -68,6 +68,13 @@ namespace ArchipelagoXIV
             {"Mare Lamentorum", 83},
             {"Elpis", 86},
             {"Ultima Thule", 88},
+
+            {"Urqopacha", 90},
+            {"Kozama'uka", 90},
+            {"Yak T'el", 94},
+            {"Shaaloani", 95},
+            {"Heritage Found", 97},
+            {"Living Memory", 99},
         };
 
         public static Dictionary<string, string> DutyAliases = new()
