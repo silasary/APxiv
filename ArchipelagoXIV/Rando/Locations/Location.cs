@@ -100,9 +100,9 @@ namespace ArchipelagoXIV.Rando
             {
                 this.MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
             }
-            else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value))
+            else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
-                this.MeetsRequirements = Logic.Level(Data.FateLevels[m.Groups[1].Value]);
+                this.MeetsRequirements = Logic.Level(level);
             }
             else if (Name.StartsWith("Masked Carnivale #"))
             {
