@@ -1,18 +1,16 @@
 using ArchipelagoXIV.Rando;
 using Archipelago.MultiClient.Net;
 using Archipelago.MultiClient.Net.Helpers;
-using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
 using System.Text;
 using Archipelago.MultiClient.Net.Models;
-using Dalamud.Logging;
 using Newtonsoft.Json;
 using System.IO;
-using ArchipelagoXIV.Rando.Locations;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -52,7 +50,7 @@ namespace ArchipelagoXIV
                 var localPlayer = DalamudApi.ClientState.LocalPlayer;
                 if (localPlayer == null)
                     return null;
-                var job = localPlayer.ClassJob.GameData!;
+                var job = localPlayer.ClassJob.Value;
                 this.lastJob = job;
                 var sb = new StringBuilder();
 
@@ -92,10 +90,10 @@ namespace ArchipelagoXIV
             }
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.ClientState.LocalPlayer;
-            if (localPlayer == null)
+            if (localPlayer == null || !localPlayer.ClassJob.IsValid)
                 return;
 
-            if (localPlayer.ClassJob.Id == Data.ClassJobs.First(j => j.Abbreviation == "BLU").RowId)
+            if (localPlayer.ClassJob.Value.RowId == Data.ClassJobs.First(j => j.Abbreviation == "BLU").RowId)
             {
                 DalamudApi.Echo("Blue Mage Bingo");
                 Game = new BMBGame(this);
@@ -204,9 +202,11 @@ namespace ArchipelagoXIV
 
         public void UpdateBars()
         {
+            var current_class = DalamudApi.CurrentClass();
+
             var BK = true;
             var fish = false;
-            var fisher = DalamudApi.CurrentClass().Abbreviation == "FSH";
+            var fisher = current_class.HasValue && current_class.Value.Abbreviation == "FSH";
             var checks = 0;
             var fates = 0;
             var upfates = 0;
@@ -281,12 +281,12 @@ namespace ArchipelagoXIV
             }
             if (unavailable.Length > 0)
             {
-                zoneTT.AppendLine().AppendLine($"Unavailable checks in {region.Name}:");
+                zoneTT.AppendLine().AppendLine($"Unavailable checks in {region?.Name}:");
                 zoneTT.Append(unavailable);
             }
             if (checks > 0)
             {
-                var text = $"{checks} checks in {region.Name}";
+                var text = $"{checks} checks in {region?.Name}";
                 if (upfates > 0)
                     text += $" ({upfates} active FATEs)";
                 else if (fates > 0)

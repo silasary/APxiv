@@ -1,5 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using System;
 using System.Linq;
 

@@ -1,8 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
-using ArchipelagoXIV.Rando.Locations;
-using Dalamud.Logging;
-using Lumina.Excel.GeneratedSheets;
-using System;
+using Lumina.Excel.Sheets;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,7 +43,7 @@ namespace ArchipelagoXIV.Rando
         public abstract int MaxLevel();
 
         public abstract int MaxLevel(string job);
-        public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation);
+        public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation.ToString());
         internal int MaxLevelDHL() => DHLJobs.Max(MaxLevel);
 
         internal virtual void ProcessItem(ItemInfo item, string itemName)

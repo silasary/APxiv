@@ -1,11 +1,8 @@
 using Archipelago.MultiClient.Net.Models;
 using ArchipelagoXIV.Rando.Locations;
-using Dalamud.Logging;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -77,7 +74,7 @@ namespace ArchipelagoXIV.Rando
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
                         // Note: Currently, these are all Bozja.  This may change with DT's Field Content
-                        if (de != null)
+                        if (de.RowId > 0)
                         {
                             this.Level = 80;
                             MeetsRequirements = Logic.Level(80);
@@ -96,9 +93,9 @@ namespace ArchipelagoXIV.Rando
 
         private void SetRequirements()
         {
-            if (content != null)
+            if (content != null && content.HasValue)
             {
-                this.MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
+                this.MeetsRequirements = Logic.Level(content.Value.ClassJobLevelRequired);
             }
             else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {

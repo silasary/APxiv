@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -127,7 +127,7 @@ namespace ArchipelagoXIV
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {
             var territory = Territories.FirstOrDefault(row => row.RowId == territoryId);
-            return territory?.ContentFinderCondition?.Value;
+            return territory.ContentFinderCondition.Value;
         }
     }
 }

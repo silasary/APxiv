@@ -6,7 +6,7 @@ using Dalamud.Plugin;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text;
 using Dalamud.Plugin.Services;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -98,6 +98,6 @@ namespace ArchipelagoXIV
             ToastGui.ShowError(text);
         }
 
-        public static ClassJob? CurrentClass() => ClientState.LocalPlayer?.ClassJob.GameData;
+        public static ClassJob? CurrentClass() => ClientState.LocalPlayer?.ClassJob.Value;
     }
 }
