@@ -5,7 +5,7 @@
       "Description": "Client for the Archipelago multiworld randomizer.",
       "InternalName": "ArchipelagoXIV",
       "AssemblyVersion": "1.0.17.0",
-      "TestingAssemblyVersion": "1.0.17.0",
+      "TestingAssemblyVersion": "1.0.18.0",
       "RepoUrl": "https://github.com/silasary/ArchipelagoXIV",
       "ApplicableVersion": "any",
       "DalamudApiLevel": 10,
@@ -17,7 +17,7 @@
       "LoadRequiredState": 0,
       "LoadSync": true,
       "DownloadLinkInstall": "https://github.com/silasary/APxiv/releases/download/0.17/Plugin.zip",
-      "DownloadLinkTesting": "https://github.com/silasary/APxiv/releases/download/0.17/Plugin.zip",
+      "DownloadLinkTesting": "https://github.com/silasary/APxiv/releases/download/0.18/Plugin.zip",
       "DownloadLinkUpdate": "https://github.com/silasary/APxiv/releases/download/0.17/Plugin.zip",
       "IconUrl": "https://raw.githubusercontent.com/silasary/APxiv/master/images/icon.png"
     }
