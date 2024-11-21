@@ -28,7 +28,7 @@ namespace ArchipelagoXIV.Hooks
         {
             if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
             {
-                var name = value.Name;
+                var name = value.Name.ToString();
                 if (APData.FishData.ContainsKey(name))
                 {
                     //DalamudApi.Echo($"Caught a {name}!");
@@ -88,16 +88,16 @@ namespace ArchipelagoXIV.Hooks
                 return;
             var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == e);
             var duty = Data.GetDuty(e);
-            if (!APData.ContentIDToLocationName.TryGetValue(duty.Content, out var name))
+            if (!APData.ContentIDToLocationName.TryGetValue(duty.Content.RowId, out var name))
             {
-                name = duty.Name;
+                name = duty.Name.ToString();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
             }
             if (name == "Ocean Fishing")
             {
-                var route = Data.IKDRoutes.FirstOrDefault(r => r.ContentFinderCondition.Value.RowId == duty.RowId);
-                name = "Ocean Fishing: " + route.Name;
+                var route = Data.IKDRoutes.FirstOrDefault(r => r.Instance.Value.RowId == duty.RowId);
+                name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
@@ -132,8 +132,8 @@ namespace ArchipelagoXIV.Hooks
         private void ClientState_TerritoryChanged(ushort e)
         {
             var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
-            apState.territoryName = territory.PlaceName?.Value?.Name ?? "Unknown";
-            apState.territoryRegion = territory.PlaceNameRegion?.Value?.Name ?? "Unknown";
+            apState.territoryName = territory.PlaceName.Value.Name.ToString();
+            apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
 
             if (!apState.Connected)
             {
@@ -193,7 +193,7 @@ namespace ArchipelagoXIV.Hooks
                     DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });
                     DalamudApi.Echo(message);
                     location.Complete();
-                    UIModule.PlayChatSoundEffect(6);
+                    UIGlobals.PlayChatSoundEffect(6);
                 }
                 else
                 {

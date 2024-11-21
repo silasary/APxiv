@@ -55,7 +55,7 @@ namespace ArchipelagoXIV.Rando
         internal unsafe bool OutOfLogic()
         {
             var currentBait = PlayerState.Instance()->FishingBait;
-            var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name;
+            var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ToString();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
             //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
             if (!apState.Items.Contains(currentBaitName))

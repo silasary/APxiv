@@ -85,9 +85,9 @@ namespace ArchipelagoXIV.Rando
             if (!APData.Regions.ContainsKey(name) && territoryId > 0)
             {
                 var duty = Data.GetDuty(territoryId);
-                if (duty != null)
+                if (duty.RowId > 0)
                 {
-                    name = duty.Name;
+                    name = duty.Name.ToString();
                     if (name.StartsWith("the"))
                         name = "The" + name[3..];
                     if (APData.Aliases.TryGetValue(name, out alias))

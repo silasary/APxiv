@@ -92,10 +92,10 @@ namespace ArchipelagoXIV
             if (localPlayer == null)
                 return;
             var refresh = false;
-            var job = localPlayer.ClassJob.GameData;
+            var job = localPlayer.ClassJob.Value;
             var fates = DalamudApi.FateTable.Length;
 
-            if (apState.lastJob != job)
+            if (apState.lastJob.RowId != job.RowId)
             {
                 apState.lastJob = job;
                 refresh = true;

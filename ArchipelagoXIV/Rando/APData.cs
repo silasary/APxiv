@@ -56,7 +56,7 @@ namespace ArchipelagoXIV.Rando
             { "Return to the Waking Sands", "Western Thanalan" },
         };
 
-        public static Dictionary<ushort, string> ContentIDToLocationName = new()
+        public static Dictionary<uint, string> ContentIDToLocationName = new()
         {
             { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
             { 2, "The Tam-Tara Deepcroft" },

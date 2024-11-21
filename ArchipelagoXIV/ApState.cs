@@ -32,7 +32,7 @@ namespace ArchipelagoXIV
         internal ArchipelagoSession? session = null;
 
         internal int slot;
-        internal ClassJob? lastJob;
+        internal ClassJob lastJob;
         internal int lastFateCount;
         private int lastUpFateCount;
 

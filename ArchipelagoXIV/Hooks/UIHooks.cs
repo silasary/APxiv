@@ -43,7 +43,7 @@ namespace ArchipelagoXIV.Hooks
             var addon = (AddonContentsFinder*)args.Addon;
             if (addon->DutyList == null)
                 return;
-            foreach (var itemRenderer in addon->DutyList->Items.Span)
+            foreach (var itemRenderer in addon->DutyList->Items.AsSpan())
             {
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;
                 if (componentNode is null) continue;
