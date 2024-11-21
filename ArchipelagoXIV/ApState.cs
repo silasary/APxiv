@@ -76,6 +76,7 @@ namespace ArchipelagoXIV
         public Hint[] Hints { get; private set; }
         public SaveFile? localsave { get; private set; }
         public bool Syncing { get; internal set; }
+        public bool Loading { get; private set; }
 
         internal void Disconnect()
         {
@@ -120,6 +121,7 @@ namespace ArchipelagoXIV
                 DalamudApi.SetStatusBar("Connection Failed");
                 return;
             }
+            this.Loading = true;
 
             var loginSuccessful = (LoginSuccessful)result;
             slot = loginSuccessful.Slot;
@@ -192,6 +194,9 @@ namespace ArchipelagoXIV
             var sender = session.Players.GetPlayerName(item.Player);
             //DalamudApi.Echo($"Recieved {name} from {sender}");
             Game.ProcessItem(item, itemName: name);
+            if (Loading)
+                return;
+
             RefreshRegions();
             this.RefreshLocations(false);
             UpdateBars();
@@ -201,6 +206,7 @@ namespace ArchipelagoXIV
         {
             var BK = true;
             var fish = false;
+            var fisher = DalamudApi.CurrentClass().Abbreviation == "FSH";
             var checks = 0;
             var fates = 0;
             var upfates = 0;
@@ -234,7 +240,7 @@ namespace ArchipelagoXIV
                                 {
                                     DalamudApi.ShowToast($"{l.Name} is up");
                                     DalamudApi.Echo($"{l.Name} is up");
-                                    UIModule.PlayChatSoundEffect(3);
+                                    UIGlobals.PlayChatSoundEffect(3);
                                 }
                             }
 
@@ -312,7 +318,7 @@ namespace ArchipelagoXIV
                         jobtt.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
                 }
             }
-
+            
             DalamudApi.SetJobTooltop(jobtt.ToString());
 
             if (Syncing)
@@ -333,6 +339,14 @@ namespace ArchipelagoXIV
             DalamudApi.PvPTeam(message.ToString(), "AP");
             if (message.Parts.Any(p => p.Type == MessagePartType.Player && p.Text == session.Players.GetPlayerAlias(slot)))
                 DalamudApi.ShowToast(message.ToString());
+
+            if (Loading)
+            {
+                Loading = false;
+                RefreshRegions();
+                this.RefreshLocations(false);
+                UpdateBars();
+            }
         }
 
         public void RefreshLocations(bool hard)
