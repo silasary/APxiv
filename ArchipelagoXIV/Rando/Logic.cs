@@ -7,7 +7,6 @@ namespace ArchipelagoXIV.Rando
 {
     internal static partial class Logic
     {
-        private static ClassJob? CurrentClass() => DalamudApi.ClientState.LocalPlayer?.ClassJob.GameData;
         public static Func<ApState, bool, bool> Always() => (state, asCurrentClass) => true;
 
         public static Func<ApState, bool, bool> HasItem(string Item) => (state, asCurrentClass) =>
@@ -33,14 +32,14 @@ namespace ArchipelagoXIV.Rando
         {
             if (level < 5)
                 return true;
-            var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevel();
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(DalamudApi.CurrentClass()) : state.Game.MaxLevel();
             return gLevel >= level;
         };
 
         // Class quests, BLU duties, etc
         internal static Func<ApState, bool, bool>? Level(int level, string job) => (state, asCurrentClass) =>
             {
-                if (asCurrentClass && CurrentClass().Abbreviation != job)
+                if (asCurrentClass && DalamudApi.CurrentClass().Abbreviation != job)
                     return false;
                 if (level < 5)
                     return true;
@@ -50,7 +49,7 @@ namespace ArchipelagoXIV.Rando
 
         internal static Func<ApState, bool, bool>? LevelDOHDOL(int level) => (state, asCurrentClass) =>
         {
-            var gLevel = asCurrentClass ? state.Game.MaxLevel(CurrentClass()) : state.Game.MaxLevelDHL();
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(DalamudApi.CurrentClass()) : state.Game.MaxLevelDHL();
             return gLevel >= level;
         };
     }
