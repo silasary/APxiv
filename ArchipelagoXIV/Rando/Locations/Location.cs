@@ -43,7 +43,7 @@ namespace ArchipelagoXIV.Rando
 
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
-        private ContentFinderCondition? content;
+        private ContentFinderCondition content;
         public Hint? HintedItem { get; set; } = null;
 
         public virtual bool IsAccessible()
@@ -64,13 +64,13 @@ namespace ArchipelagoXIV.Rando
                 if (MeetsRequirements == null)
                 {
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
-                    if (content == null && this.Name.StartsWith("The"))
+                    if (content.RowId == 0 && this.Name.StartsWith("The"))
                         content = Data.Content.FirstOrDefault(cf => cf.Name == ("the" + this.Name[3..]));
-                    if (content == null && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
+                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
                     {
                         content = Data.Content[id];
                     }
-                    if (content == null)
+                    if (content.RowId == 0)
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
                         // Note: Currently, these are all Bozja.  This may change with DT's Field Content
@@ -93,9 +93,9 @@ namespace ArchipelagoXIV.Rando
 
         private void SetRequirements()
         {
-            if (content != null && content.HasValue)
+            if (content.RowId > 0)
             {
-                this.MeetsRequirements = Logic.Level(content.Value.ClassJobLevelRequired);
+                this.MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
             }
             else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
