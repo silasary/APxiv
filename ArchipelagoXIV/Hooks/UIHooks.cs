@@ -34,7 +34,8 @@ namespace ArchipelagoXIV.Hooks
 
         public void Disable()
         {
-            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostRefresh, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
         }
 
         private void OnContentsFinderRefresh(AddonEvent type, AddonArgs args)
