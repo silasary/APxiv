@@ -289,7 +289,7 @@ def after_load_item_file(item_table: list) -> list:
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
             "count": n,
-            "useful": True,
+            "filler": True,
         })
 
     for job in DOH:
