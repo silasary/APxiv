@@ -7,10 +7,6 @@ on:
         description: 'Version'
         required: true
         type: string
-      changelog:
-        description: 'Changelog'
-        required: true
-        type: string
 
 permissions:
   actions: read
@@ -23,7 +19,7 @@ jobs:
 
     steps:
       - name: Set expected file basename to env
-        run: echo "BASENAME=manual_ffxiv_silasary" >> "$GITHUB_ENV"
+        run: echo "BASENAME=ffxiv" >> "$GITHUB_ENV"
       - name: Format changelog input as multiline string and put into env
         run: |
           echo 'CHANGELOG<<EOF' >> "$GITHUB_ENV"
@@ -43,13 +39,10 @@ jobs:
           name: ${{ env.BASENAME }}.apworld
           path: ${{ env.BASENAME }}.apworld
           if-no-files-found: error
-      - name: Add Changelog text to a file for release body, to preserve newlines
-        run: echo -en "${{ env.CHANGELOG }}" > bodyFile.txt
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           name: ${{ github.event.inputs.version }}
-          bodyFile: bodyFile.txt
           tag: ${{ env.event.inputs.version }}
-          commit: main
+          commit: ${{ env.GITHUB_REF }}
           artifacts: "${{ env.BASENAME }}.apworld"
