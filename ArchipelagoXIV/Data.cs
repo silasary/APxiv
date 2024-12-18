@@ -104,6 +104,7 @@ namespace ArchipelagoXIV
             { "The Heart of the Creator", "Alexander - The Heart of the Creator" },
             { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
             { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
+            { "Harder Bigger Faster Stronger", "Harder, Bigger, Faster, Stronger"},
         };
 
         public static void Initialize() {

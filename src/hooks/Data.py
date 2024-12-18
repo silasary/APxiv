@@ -138,7 +138,7 @@ def generate_fate_list():
         _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
-    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 10_000
 
     for row in fatereader:
