@@ -43,6 +43,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           name: ${{ github.event.inputs.version }}
-          tag: ${{ env.event.inputs.version }}
+          tag: ${{ github.event.inputs.version }}
           commit: ${{ env.GITHUB_REF }}
           artifacts: "${{ env.BASENAME }}.apworld"
