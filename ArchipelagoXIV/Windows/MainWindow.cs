@@ -32,9 +32,14 @@ public class MainWindow : Window
         {
             plugin.DrawConfigUI();
         }
-        if (!state.Connected && ImGui.Button("Reconnect to last port"))
+        if (!state.Connected)
         {
-            state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
+
+            if (ImGui.Button("Reconnect to last port"))
+            {
+                state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
+            }
+            return;
         }
 
         ImGui.Spacing();

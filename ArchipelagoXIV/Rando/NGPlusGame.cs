@@ -55,11 +55,12 @@ namespace ArchipelagoXIV.Rando
 
         internal override string GoalString()
         {
-            if (Goal == 0)
+            return Goal switch
             {
-                return $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered";
-            }
-            return "";
+                0 => $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered",
+                1 => "Defeat Shinryu",
+                _ => "Unknown Goal",
+            };
         }
     }
 }
