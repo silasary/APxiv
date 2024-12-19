@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace ArchipelagoXIV.Rando
 {
@@ -100,7 +101,9 @@ namespace ArchipelagoXIV.Rando
             string? line = null;
             while ((line = reader.ReadLine()) != null)
             {
-                var row = line.Split(',');
+                Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+                var row = CSVParser.Split(line);
                 var name = row[0].Trim();
                 if (headers.Contains(name))
                     continue;

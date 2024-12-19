@@ -9,16 +9,18 @@ namespace ArchipelagoXIV.Rando
 {
     internal class NGPlusGame : BaseGame
     {
-        public NGPlusGame(ApState apState) : base(apState)
+        public NGPlusGame(ApState apState, bool IsManual) : base(apState)
         {
             this.GoalCount = 50;
+            isManual = IsManual;
         }
 
         private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
+        private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
 
-        public override string Name => "Manual_FFXIV_Silasary";
+        public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
 
         public override int MaxLevel() => Jobs.Max(MaxLevel);
 

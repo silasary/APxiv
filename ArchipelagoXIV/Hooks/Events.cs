@@ -79,7 +79,7 @@ namespace ArchipelagoXIV.Hooks
         public void Disable() {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostSetup, "FateReward", OnFatePreFinalize);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
         }
 
         private void DutyState_DutyCompleted(object? sender, ushort e)

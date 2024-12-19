@@ -37,14 +37,15 @@ namespace ArchipelagoXIV
             DalamudApi.Initialize(pluginInterface);
             Data.Initialize();
 
-            this.apState = new ApState();
+            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+            this.Configuration.Initialize(this.PluginInterface);
+
+            this.apState = new ApState(Configuration);
 
             this.Hooks = new UnlockHooks(apState);
             this.Events = new Events(apState);
             this.UiHooks = new UIHooks(apState);
 
-            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
-            this.Configuration.Initialize(this.PluginInterface);
 
             ConfigWindow = new ConfigWindow(this, this.apState);
             MainWindow = new MainWindow(this, this.apState);

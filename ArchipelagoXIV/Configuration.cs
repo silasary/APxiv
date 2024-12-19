@@ -14,6 +14,7 @@ namespace ArchipelagoXIV
         private IDalamudPluginInterface? pluginInterface;
         public string Connection { get; set; } = "";
         public string SlotName { get; set; } = "";
+        public string GameName { get; set; } = "";
 
         public void Initialize(IDalamudPluginInterface pluginInterface)
         {

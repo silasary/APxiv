@@ -23,10 +23,12 @@ namespace ArchipelagoXIV
 
         internal BaseGame Game { get; set; }
 
-        public ApState()
+        public ApState(Configuration config)
         {
-            Game = new NGPlusGame(this);
+            Game = new SpectatorGame(this);
+            LoadGame(config.GameName);
             territory = Data.Territories[0];
+            this.config = config;
         }
 
         internal ArchipelagoSession? session = null;
@@ -35,6 +37,7 @@ namespace ArchipelagoXIV
         internal ClassJob lastJob;
         internal int lastFateCount;
         private int lastUpFateCount;
+        private readonly Configuration config;
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
@@ -93,37 +96,55 @@ namespace ArchipelagoXIV
             if (localPlayer == null || !localPlayer.ClassJob.IsValid)
                 return;
 
-            if (localPlayer.ClassJob.Value.RowId == Data.ClassJobs.First(j => j.Abbreviation == "BLU").RowId)
-            {
-                DalamudApi.Echo("Blue Mage Bingo");
-                Game = new BMBGame(this);
-            }
-            else
-            {
-                Game = new NGPlusGame(this);
-            }
-
             this.session = ArchipelagoSessionFactory.CreateSession(address);
             this.session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             if (string.IsNullOrEmpty(player))
             {
                 player = localPlayer.Name.ToString();
             }
-            DalamudApi.Echo($"Connecting as {player} Playing {Game.Name}");
-            var result = this.session.TryConnectAndLogin(Game.Name, player, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems, tags: new string[] { "Dalamud" });
+            var tags = new string[] { "Dalamud" };
+            if (this.Game is SpectatorGame)
+                tags = ["TextOnly"];
+            else
+                DalamudApi.Echo($"Connecting as {player} Playing {Game.Name}");
+
+            var result = this.session.TryConnectAndLogin(Game.Name, player, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems, tags: tags);
             Connected = result.Successful;
             if (!result.Successful)
             {
-                foreach (var e in ((LoginFailure)result).Errors)
+                var failure = result as LoginFailure;
+                foreach (var e in failure.Errors)
                     DalamudApi.Echo(e);
+                if (failure.ErrorCodes.Length != 0 && failure.ErrorCodes.First() == Archipelago.MultiClient.Net.Enums.ConnectionRefusedError.InvalidGame)
+                {
+                    this.Game = new SpectatorGame(this);
+                    Connect(address, player);
+                    return;
+
+                }
                 DalamudApi.SetStatusBar("Connection Failed");
                 return;
             }
+
             this.Loading = true;
 
             var loginSuccessful = (LoginSuccessful)result;
             slot = loginSuccessful.Slot;
             this.Game.HandleSlotData(loginSuccessful.SlotData);
+
+            if (this.Game is SpectatorGame)
+            {
+                var game = session.ConnectionInfo.Game;
+                LoadGame(game);
+                if (this.Game is not SpectatorGame)
+                {
+                    Connect(address, player);
+                    return;
+                }
+                DalamudApi.Echo($"Spectating {game}");
+            }
+            config.GameName = this.Game.Name;
+            config.Save();
 
             session.Items.ItemReceived += Items_ItemReceived;
             session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
@@ -133,6 +154,24 @@ namespace ArchipelagoXIV
 
             DalamudApi.SetStatusBar("Connected");
 
+        }
+
+        private void LoadGame(string game)
+        {
+            switch (game)
+            {
+                case "Manual_FFXIVBMB_Pizzie":
+                    this.Game = new BMBGame(this);
+                    break;
+                case "Manual_FFXIV_Silasary":
+                    this.Game = new NGPlusGame(this, true);
+                    break;
+                case "Final Fantasy XIV":
+                    this.Game = new NGPlusGame(this, false);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void Locations_CheckedLocationsUpdated(System.Collections.ObjectModel.ReadOnlyCollection<long> newCheckedLocations)
