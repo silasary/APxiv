@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using System.IO;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using Lumina.Excel.Sheets;
+using Archipelago.MultiClient.Net.Enums;
+using Archipelago.MultiClient.Net.Packets;
 
 namespace ArchipelagoXIV
 {
@@ -172,6 +174,13 @@ namespace ArchipelagoXIV
                 default:
                     break;
             }
+        }
+
+        internal void CompleteGame()
+        {
+            var statusUpdatePacket = new StatusUpdatePacket();
+            statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
+            this.session.Socket.SendPacket(statusUpdatePacket);
         }
 
         private void Locations_CheckedLocationsUpdated(System.Collections.ObjectModel.ReadOnlyCollection<long> newCheckedLocations)

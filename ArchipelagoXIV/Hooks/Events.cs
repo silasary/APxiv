@@ -112,7 +112,10 @@ namespace ArchipelagoXIV.Hooks
                 }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
                 location.Complete();
-
+                if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
+                {
+                    apState.CompleteGame();
+                }
             }
             else
             {
