@@ -37,7 +37,7 @@ namespace ArchipelagoXIV.Rando
             }
             else if (itemName == "Memory of a Distant World")
             {
-                if ((McGuffinCount= apState.Items.Count(i => i == itemName)) >= GoalCount)
+                if ((McGuffinCount = apState.Items.Count(i => i == itemName)) >= GoalCount)
                 {
                     var statusUpdatePacket = new StatusUpdatePacket();
                     statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
@@ -58,9 +58,15 @@ namespace ArchipelagoXIV.Rando
             return Goal switch
             {
                 0 => $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered",
-                1 => "Defeat Shinryu",
-                _ => "Unknown Goal",
+                _ => base.GoalString(),
             };
         }
+
+        internal override VictoryType GoalType => Goal switch
+        {
+            0 => VictoryType.McGuffin,
+            1 => VictoryType.DefeatShinryu,
+            _ => VictoryType.McGuffin,
+        };
     }
 }

@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace ArchipelagoXIV.Rando
 {
+    public enum VictoryType { McGuffin, DefeatShinryu, MaskedCarnivale30, None };
+
     public abstract class BaseGame(ApState apState)
     {
         protected ApState apState = apState;
@@ -64,9 +66,14 @@ namespace ArchipelagoXIV.Rando
             }
         }
 
-        internal virtual string GoalString()
+        internal virtual string GoalString() => GoalType switch
         {
-            return null;
-        }
+            VictoryType.None => "No Goal set",
+            VictoryType.McGuffin => "McGuffin Hunt",
+            VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
+            VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
+            _ => "Unknown Goal",
+        };
+        internal abstract VictoryType GoalType { get; }
     }
 }

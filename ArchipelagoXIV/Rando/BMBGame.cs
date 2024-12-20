@@ -27,5 +27,7 @@ namespace ArchipelagoXIV.Rando
             if (itemName == EquipLevels)
                 Levels[BLU] = MaxLevel();
         }
+
+        internal override VictoryType GoalType => VictoryType.MaskedCarnivale30;
     }
 }
