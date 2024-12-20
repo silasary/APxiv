@@ -67,8 +67,9 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             locationNamesToRemove.append(location["name"])
             continue
         if "level" in location and int(location["level"]) > level_cap:
-            print(f"Excluding {location['name']} from {player}'s world")
-            locationNamesToExclude.append(location["name"])
+            print(f"Removing {location['name']} from {player}'s world")
+            locationNamesToRemove.append(location["name"])
+            continue
 
 
     for region in multiworld.regions:
@@ -130,8 +131,8 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
         if prog_doh and item.name == f'5 {prog_doh} Levels':
             item.classification = ItemClassification.progression
             prog_doh = None
-        # if item_name_to_item[item.name].get("level", 0) > level_cap:
-        #     item_pool.remove(item)
+        if item_name_to_item[item.name].get("level", 0) > level_cap:
+            item_pool.remove(item)
 
     return item_pool
 

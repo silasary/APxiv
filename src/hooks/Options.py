@@ -157,7 +157,7 @@ def before_options_defined(options: dict) -> dict:
     options["fishsanity_timed_fish"] = FishsanityTimedFish
     # Jobs
     options["force_jobs"] = ForceJob
-    # options["level_cap"] = LevelCap
+    options["level_cap"] = LevelCap
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
