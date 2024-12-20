@@ -39,6 +39,7 @@ public class MainWindow : Window
             {
                 state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
             }
+
             return;
         }
 
