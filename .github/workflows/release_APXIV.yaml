@@ -45,4 +45,5 @@ jobs:
           name: ${{ github.event.inputs.version }}
           tag: ${{ github.event.inputs.version }}
           commit: ${{ env.GITHUB_REF }}
+          prerelease: true
           artifacts: "${{ env.BASENAME }}.apworld"
