@@ -20,12 +20,15 @@ for key, _ in enumerate(location_table):
         if item_id >= count:
             count = item_id
         else:
-            raise ValueError(f"{location_table[key]['name']} has the invalid ID {item_id}. ID must be at least {count + 1}")
+            raise ValueError(f"{location_table[key]['name']} has an invalid ID. ID must be at least {count + 1}")
 
     location_table[key]["id"] = count
 
-    if not "region" in location_table[key]:
+    if "region" not in location_table[key]:
         location_table[key]["region"] = "Manual" # all locations are in the same region for Manual
+
+    if isinstance(location_table[key].get("category", []), str):
+        location_table[key]["category"] = [location_table[key]["category"]]
 
     count += 1
 

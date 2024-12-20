@@ -39,9 +39,7 @@ namespace ArchipelagoXIV.Rando
             {
                 if ((McGuffinCount = apState.Items.Count(i => i == itemName)) >= GoalCount)
                 {
-                    var statusUpdatePacket = new StatusUpdatePacket();
-                    statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
-                    apState.session.Socket.SendPacket(statusUpdatePacket);
+                    apState.CompleteGame();
                 }
             }
         }
