@@ -239,7 +239,14 @@ namespace ArchipelagoXIV
             var name = item.ItemName;
             var sender = session.Players.GetPlayerName(item.Player);
             //DalamudApi.Echo($"Recieved {name} from {sender}");
-            Game.ProcessItem(item, itemName: name);
+            try
+            {
+                Game.ProcessItem(item, itemName: name);
+            }
+            catch (Exception e)
+            {
+                DalamudApi.PluginLog.Error(e.ToString());
+            }
             if (Loading)
                 return;
 
@@ -361,7 +368,10 @@ namespace ArchipelagoXIV
             {
                 if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31 || (fish && job.RowId == 18))
                 {
-                    Game.Levels.TryGetValue(job, out var level);
+                    if (!Game.Levels.TryGetValue(job, out var level))
+                    {
+                        level = Game.MaxLevel(job);
+                    }
                     if (level > 0)
                         jobtt.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
                 }
