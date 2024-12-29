@@ -1,3 +1,6 @@
+"""
+Generates static data files from external sources
+"""
 import re
 import json
 import os
