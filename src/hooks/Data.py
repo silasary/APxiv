@@ -201,7 +201,7 @@ def generate_fate_list():
 def generate_fish_list() -> list[dict]:
     _id = 20_000
     from ..Helpers import load_data_file
-    fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
+    fish = load_data_file("fish.json")
     removed_fish = load_data_file("removed_locations.json")
 
     locations = []
@@ -242,7 +242,8 @@ def generate_fish_list() -> list[dict]:
 
 
 def generate_bait_list() -> list[dict]:
-    bait = json.loads(pkgutil.get_data(__name__, "bait.json"))
+    from ..Helpers import load_data_file
+    bait = load_data_file("bait.json")
     items = []
     for name, data in bait.items():
         if data.get('mooch'):
