@@ -5,6 +5,7 @@ import re
 import json
 import os
 import requests
+import functools
 
 NOT_IN_FISHING_GUIDE = [
     "Deep Velodyna Carp",
@@ -87,6 +88,11 @@ NOT_IN_FISHING_GUIDE = [
     "Zagas A'khaal",
 ]
 
+@functools.lru_cache
+def teamcraft_json(filename: str) -> dict | list:
+    print(f"Fetching {filename}.json from Teamcraft repo")
+    return requests.get(f"https://raw.githubusercontent.com/ffxiv-teamcraft/ffxiv-teamcraft/refs/heads/staging/libs/data/src/lib/json/{filename}.json").json()
+
 def find_fates(zone: str) -> list[str]:
     print('Finding fates for zone: ' + zone)
     url = f"https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fates]]%20[[Located%20in::{zone}]]%20[[Is%20event%20fate::false]]|?Has%20FATE%20level|?Is retired content|sort%3DHas FATE level,&format=json&api_version=3"
@@ -156,34 +162,68 @@ def scrape_bell():
                 }
         all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
 
-    with open(os.path.join(os.path.dirname(__file__), 'fish.json'), 'w', newline='') as h:
+    with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
     with open(os.path.join(os.path.dirname(__file__), 'bait.json'), 'w', newline='') as h:
         json.dump(bait, h, indent=1)
 
-# @dataclass
-# class FishingSpot:
+def lookup_item_name(id: int | str) -> str | bool:
+    items = teamcraft_json('items')
+    if str(id) not in items:
+        return False
+    return items[str(id)]['en']
 
+def lookup_rarity(item_id: int) -> int:
+    items = teamcraft_json('rarities')
+    return items.get(str(item_id), 0)
 
-# @dataclass
-# class Fish:
-#     ItemId: int
-#     Name: str
-#     FishingSpot: str
-#     IsInLog: bool
+def lookup_fish(id: int | str) -> dict:
+    params = teamcraft_json('fish-parameter')
+    fishdata = params[str(id)]
+    fish = {
+        'name': lookup_item_name(fishdata['itemId']),
+        'id': int(id),
+        'zones': {},
+        'lvl': fishdata['level'],
+    }
+    # if fishdata.get('recordType'):
+    #     fish['category'] = fishdata['recordType']  # I think this is the category
+    bigfish = lookup_rarity(fishdata['itemId']) > 1
+    if bigfish:
+        fish['bigfish'] = True
+    if fishdata.get('folklore'):
+        fish['folklore'] = fishdata['folklore']
+    timed = fishdata.get('timed') or fishdata.get('weathered') or fishdata.get('during')
+    if timed:
+        fish['timed'] = timed
+    if fishdata.get('stars'):
+        fishdata['stars'] = fishdata['stars']
+    return fish
 
-# def compile_fish() -> None:
-#     datamining = r"C:\Users\Clock\projects\ffxiv-datamining"
-#     if not os.path.exists(datamining):
-#         raise FileNotFoundError()
-#     with open(os.path.join(datamining, "FishingSpot.csv")) as f:
-#         FishingSpots = csv.reader(f.readlines(), delimiter=',', quotechar='"')
+def scrape_teamcraft():
+    all_fish = {}
+    for fish_id in teamcraft_json('fishes'):
+        fish = lookup_fish(fish_id)
+        name = fish['name']
+        if name in NOT_IN_FISHING_GUIDE or name is False:
+            continue
+        all_fish.setdefault(name, fish)
 
-#     with open(os.path.join(datamining, "FishParameter.csv")) as f:
-#         FishParameter = csv.reader(f.readlines(), delimiter=',', quotechar='"')
+    for hole in teamcraft_json('fishing-spots'):
+        for fish_id in hole['fishes']:
+            name = lookup_item_name(fish_id)
+            if name in NOT_IN_FISHING_GUIDE:
+                continue
+            fish = lookup_fish(fish_id)
+            all_fish.setdefault(name, fish)
+            fish.setdefault('zones', {})
+            # all_fish[name]['zones'][hole['placeName']] = [c['name'] for c in fish['bait']]  # TODO:  Determine bait
+    with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+
 
 def tribal_fish():
-    with open(os.path.join(os.path.dirname(__file__), 'fish.json'), 'r', newline='') as h:
+    with open(data_path('fish.json'), 'r', newline='') as h:
         all_fish = json.load(h)
     offset = 0
     url = "https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Seafood]]|?Has%20game%20description|offset={0}&format=json&api_version=3"
@@ -201,9 +241,13 @@ def tribal_fish():
                     all_fish[name]['tribal'] = True
                     # print(name)
         offset = data.get('query-continue-offset')
-    with open(os.path.join(os.path.dirname(__file__), 'fish.json'), 'w', newline='') as h:
+    with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
+def data_path(filename: str) -> str:
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
+
 if __name__ == "__main__":
-    scrape_bell()
+    # scrape_bell()
+    scrape_teamcraft()
     tribal_fish()
