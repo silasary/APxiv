@@ -1,6 +1,7 @@
 """
 Generates static data files from external sources
 """
+import csv
 import re
 import json
 import os
@@ -92,6 +93,23 @@ NOT_IN_FISHING_GUIDE = [
 def teamcraft_json(filename: str) -> dict | list:
     print(f"Fetching {filename}.json from Teamcraft repo")
     return requests.get(f"https://raw.githubusercontent.com/ffxiv-teamcraft/ffxiv-teamcraft/refs/heads/staging/libs/data/src/lib/json/{filename}.json").json()
+
+@functools.lru_cache
+def datamining_csv(filename: str) -> list:
+    print(f"Fetching {filename}.csv from datamining repo")
+    text = requests.get(f"https://raw.githubusercontent.com/xivapi/ffxiv-datamining/refs/heads/master/csv/{filename}.csv").content.decode('utf-8-sig')
+    lines = text.splitlines()
+    data = {}
+    names = []
+    for line in csv.DictReader(lines):
+        if line['key'] == '#':
+            names = {v: k for k, v in line.items()}
+            continue
+        data[line['key']] = line
+        for k, v in names.items():
+            if k:
+                data[line['key']][k] = line[v]
+    return data
 
 def find_fates(zone: str) -> list[str]:
     print('Finding fates for zone: ' + zone)
@@ -210,6 +228,8 @@ def scrape_teamcraft():
         all_fish.setdefault(name, fish)
 
     for hole in teamcraft_json('fishing-spots'):
+        zone = datamining_csv('PlaceName')[str(hole['placeId'])]
+        place_name = zone['Name']
         for fish_id in hole['fishes']:
             name = lookup_item_name(fish_id)
             if name in NOT_IN_FISHING_GUIDE:
@@ -217,7 +237,7 @@ def scrape_teamcraft():
             fish = lookup_fish(fish_id)
             all_fish.setdefault(name, fish)
             fish.setdefault('zones', {})
-            # all_fish[name]['zones'][hole['placeName']] = [c['name'] for c in fish['bait']]  # TODO:  Determine bait
+            all_fish[name]['zones'][place_name] = []  #  [c['name'] for c in fish['bait']]  # TODO:  Determine bait
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
