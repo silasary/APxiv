@@ -209,14 +209,20 @@ def generate_fish_list() -> list[dict]:
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
         zones = data['zones']
+        if not zones:
+            _id += 1
+            continue
         if len(zones) > 1:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_requires": {k:v for k,v in zones.items()}
+                "entrance_requires": {k:v for k,v in zones.items() if v}
             }
         else:
             region = next(iter(zones.keys()))
+            if not zones[region]:
+                _id += 1
+                continue
             requires += f" and |{zones[region][0]}|"
 
         loc = {
@@ -236,7 +242,6 @@ def generate_fish_list() -> list[dict]:
 
         locations.append(loc)
         _id += 1
-
 
     return locations
 

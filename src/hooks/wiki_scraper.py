@@ -8,6 +8,8 @@ import os
 import requests
 import functools
 
+import yaml
+
 NOT_IN_FISHING_GUIDE = [
     "Deep Velodyna Carp",
     "Appleseed",
@@ -152,8 +154,16 @@ def find_fates(zone: str) -> list[str]:
 #         offset = data.get('query-continue-offset')
 #     f.close()
 
+def load_bait_paths() -> dict[str, dict[str, list[str]]]:
+    path = data_path('fish_bait.yaml')
+    if os.path.exists(path):
+        with open(path, 'r') as f:
+            return yaml.safe_load(f)
+    return {}
+
 def scrape_bell():
     all_fish = {}
+    bait_paths = load_bait_paths()
     url = 'https://www.garlandtools.org/bell/fish.js'
     js = requests.get(url).text.replace('\n', ' ')
     data = re.findall(r'gt.bell.(\w+) = (.*?);', js)
@@ -179,11 +189,17 @@ def scrape_bell():
                 'timed': f.get('weather') or f.get('during'),
                 }
         all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
+        bait_paths.setdefault(name, {})
+        for c in f['baits']:
+            if c[0] not in bait_paths[name].setdefault(f['zone'], []):
+                bait_paths[name][f['zone']].append(c[0])
 
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
-    with open(os.path.join(os.path.dirname(__file__), 'bait.json'), 'w', newline='') as h:
+    with open(data_path('bait.json'), 'w', newline='') as h:
         json.dump(bait, h, indent=1)
+    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+        yaml.dump(bait_paths, h)
 
 def lookup_item_name(id: int | str) -> str | bool:
     items = teamcraft_json('items')
@@ -220,7 +236,9 @@ def lookup_fish(id: int | str) -> dict:
 
 def scrape_teamcraft():
     all_fish = {}
-    for fish_id in teamcraft_json('fishes'):
+    fish_ids: list[int] = teamcraft_json('fishes')
+    fish_ids.sort()
+    for fish_id in fish_ids:
         fish = lookup_fish(fish_id)
         name = fish['name']
         if name in NOT_IN_FISHING_GUIDE or name is False:
@@ -264,6 +282,40 @@ def tribal_fish():
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
+def combine_lists(a: list, b: list) -> list:
+    return list(set(a + b))
+
+def apply_bait() -> None:
+    with open(data_path('fish.json'), 'r', newline='') as h:
+        all_fish = json.load(h)
+    bait_paths = load_bait_paths()
+    for name, fish in all_fish.items():
+        if 'Limsa Lominsa Lower Decks' in fish['zones']:
+            fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
+            del fish['zones']['Limsa Lominsa Lower Decks']
+        if 'Limsa Lominsa Upper Decks' in fish['zones']:
+            fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
+            del fish['zones']['Limsa Lominsa Upper Decks']
+
+        for zone, baits in bait_paths.get(name, {}).items():
+            if len(baits) > 1 and 'Versatile Lure' in baits:
+                baits.remove('Versatile Lure')
+            if baits:
+                fish['zones'][zone] = baits
+            else:
+                print(f"No bait for {name} in {zone}")
+        if not fish['zones']:
+            # print(f"No zones for {name}")
+            continue
+        all_bait = []
+        for zone in fish['zones']:
+            all_bait += fish['zones'][zone]
+        if not all_bait:
+            print(f"No bait for {name}")
+
+    with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
 
@@ -271,3 +323,5 @@ if __name__ == "__main__":
     # scrape_bell()
     scrape_teamcraft()
     tribal_fish()
+    apply_bait()
+
