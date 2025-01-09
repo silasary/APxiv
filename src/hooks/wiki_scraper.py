@@ -9,6 +9,7 @@ import requests
 import functools
 
 import yaml
+import bs4
 
 NOT_IN_FISHING_GUIDE = [
     "Deep Velodyna Carp",
@@ -286,6 +287,10 @@ def combine_lists(a: list, b: list) -> list:
     return list(set(a + b))
 
 def apply_bait() -> None:
+    with open(data_path('bait.json'), 'r', newline='') as h:
+        bait_data = json.load(h)
+    zoneless = []
+    baitless = []
     with open(data_path('fish.json'), 'r', newline='') as h:
         all_fish = json.load(h)
     bait_paths = load_bait_paths()
@@ -304,17 +309,42 @@ def apply_bait() -> None:
                 fish['zones'][zone] = baits
             else:
                 print(f"No bait for {name} in {zone}")
+            for bait in baits:
+                if bait not in bait_data:
+                    bait_data[bait] = {}
         if not fish['zones']:
             # print(f"No zones for {name}")
+            zoneless.append(name)
             continue
         all_bait = []
         for zone in fish['zones']:
             all_bait += fish['zones'][zone]
         if not all_bait:
             print(f"No bait for {name}")
+            baitless.append(name)
 
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
+    with open(data_path('zoneless.yaml'), 'w', newline='') as h:
+        yaml.dump(zoneless, h, indent=1)
+    with open(data_path('baitless.yaml'), 'w', newline='') as h:
+        yaml.dump(baitless, h, indent=1)
+
+def fill_missing_bait() -> None:
+    with open(data_path('baitless.yaml'), 'r', newline='') as h:
+        baitless = yaml.safe_load(h)
+    updated = False
+    # TODO: Carby Plushy has data for Big Fish, but not the normal fish
+    # https://raw.githubusercontent.com/icykoneko/ff14-fish-tracker-app/refs/heads/master/private/fishData.yaml
+
+    # Cat Became Hungry has all fish, but it's HTML and will need to be scraped with bs4
+    # https://en.ff14angler.com/
+
+    # Console Games Wiki has everything, but it's inconsistent across pages and is only really useful if I want to hand-enter data
+
+    if updated:
+        apply_bait()
+
 
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
