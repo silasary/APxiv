@@ -1,9 +1,9 @@
 name: Create Release
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags-ignore:
+      - testing_*
 
 jobs:
   build:
