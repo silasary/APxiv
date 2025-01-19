@@ -50,9 +50,10 @@ namespace ArchipelagoXIV.Hooks
                 if (componentNode is null) continue;
 
                 var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(5);
-                var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(15);
-                var hollowsImageNode = componentNode->Component->GetImageNodeById(8);
-                if (levelNode is null || textNode is null) continue;
+                //var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(18);
+                var hollowsImageNode = componentNode->Component->GetImageNodeById(7);
+                if (textNode is null)
+                    continue;
 
                 var name = textNode->NodeText.ToString();
                 var loc = apState.MissingLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);

@@ -49,20 +49,21 @@ public class MainWindow : Window
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
         ImGui.Text(state?.Game?.GoalString() ?? "");
         ImGui.Text($"Available Checks:");
-        //ImGui.Indent(55);
-        if (state.MissingLocations != null)
+        if (state?.MissingLocations == null)
         {
-            foreach (var location in state.MissingLocations)
+            return;
+        }
+        //ImGui.Indent(55);
+        foreach (var location in state.MissingLocations)
+        {
+            if (location.IsAccessible())
             {
-                if (location.IsAccessible())
+                var name = location.DisplayText;
+                if (location.Name.EndsWith(" (FATE)"))
                 {
-                    var name = location.DisplayText;
-                    if (location.Name.EndsWith(" (FATE)"))
-                    {
-                        name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
-                    }
-                    ImGui.Text($"{name}");
+                    name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
                 }
+                ImGui.Text($"{name}");
             }
         }
 
