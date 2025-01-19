@@ -10,6 +10,7 @@ import functools
 
 import yaml
 import bs4
+import ratelimit
 
 NOT_IN_FISHING_GUIDE = [
     "Deep Velodyna Carp",
@@ -131,6 +132,11 @@ def find_fates(zone: str) -> list[str]:
     if offset:
         print("!!! More fates to fetch !!!")
     return fates
+
+def load_all_fish():
+    with open(data_path('fish.json'), 'r', newline='') as h:
+        all_fish = json.load(h)
+    return all_fish
 
 # def find_fishing_spots() -> None:
 #     baseurl = "https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fishing_log]]|?Gives resource|?Has fishing log level|?Located in|?Bait used|sort=Has fishing log level|offset={0}&format=json&api_version=3"
@@ -262,8 +268,7 @@ def scrape_teamcraft():
 
 
 def tribal_fish():
-    with open(data_path('fish.json'), 'r', newline='') as h:
-        all_fish = json.load(h)
+    all_fish = load_all_fish()
     offset = 0
     url = "https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Seafood]]|?Has%20game%20description|offset={0}&format=json&api_version=3"
     while offset is not None:
@@ -291,10 +296,13 @@ def apply_bait() -> None:
         bait_data = json.load(h)
     zoneless = []
     baitless = []
-    with open(data_path('fish.json'), 'r', newline='') as h:
-        all_fish = json.load(h)
+    all_fish = load_all_fish()
     bait_paths = load_bait_paths()
     for name, fish in all_fish.items():
+        if fish.get('tribal'):
+            continue
+        if 'The <Emphasis>Endeavor</Emphasis>' in fish['zones']:
+            continue
         if 'Limsa Lominsa Lower Decks' in fish['zones']:
             fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
             del fish['zones']['Limsa Lominsa Lower Decks']
@@ -339,12 +347,112 @@ def fill_missing_bait() -> None:
 
     # Cat Became Hungry has all fish, but it's HTML and will need to be scraped with bs4
     # https://en.ff14angler.com/
-
+    updated = scrape_cat(baitless) or updated
     # Console Games Wiki has everything, but it's inconsistent across pages and is only really useful if I want to hand-enter data
 
     if updated:
         apply_bait()
 
+def scrape_cat(baitless) -> bool:
+    if not baitless:
+        return False
+    updated = False
+    soup = cat_region_table(10000)
+    regions = [o['value'] for o in soup.find(id='select_region').children if isinstance(o, bs4.element.Tag)]
+
+    spots_in_zones, spot_to_id = cat_get_spots(regions)
+
+    all_fish = load_all_fish()
+    bait_paths = load_bait_paths()
+
+    for fish in baitless:
+        if fish not in all_fish:
+            print(f"Fish {fish} not found in fish.json")
+            continue
+        for zone in all_fish[fish]['zones']:
+            # We need to figure out which spots to check, or just check them all
+            if zone not in spots_in_zones:
+                print(f"Zone '{zone}' not found in Cat Became Hungry")
+                continue
+            for spot in spots_in_zones[zone]:
+                spot_id = spot_to_id[spot]
+                data: dict[str, dict[str, float]] = cat_spot_data(spot_id)
+                best = (None, 0)
+                for bait, stats in data.items():
+                    if fish in stats:
+                        percent = float(stats[fish])
+                        if percent > best[1]:
+                            best = (bait, percent)
+                if best[0]:
+                    name = best[0].title()
+                    if name in all_fish:
+                        name = all_fish[name]['zones'].get(zone, [])[0]
+                    baits = all_fish[fish]['zones'].setdefault(zone, [])
+                    if name not in baits:
+                        baits.append(name)
+                        print(f"Found bait for {fish} in {zone}: {name} ({best[1]}%)")
+                        bait_paths.setdefault(fish, {}).setdefault(zone, []).append(name)
+                        updated = True
+                        with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+                            yaml.dump(bait_paths, h)
+    with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+    return updated
+
+def cat_get_spots(regions):
+    spots_in_zones = {}
+    spot_to_id = {}
+    for region in regions:
+        soup = cat_region_table(region)
+        spots = soup.find('div', id='main_contents').find_all('table')[1]
+        for spot in spots.find_all('tr'):
+            if spot.find('a') is None:
+                area_name = spot.string
+                continue
+            spot_id = spot.find('a')['href'].split('/')[-1]
+            spot_name = spot.find('a').text
+            spots_in_zones.setdefault(area_name, []).append(spot_name)
+            spot_to_id[spot_name] = spot_id
+
+    return spots_in_zones, spot_to_id
+
+@functools.lru_cache(maxsize=None)
+@ratelimit.sleep_and_retry
+@ratelimit.limits(calls=2, period=5)
+def cat_spot_data(spot_id) -> dict[str, dict[str, float]]:
+    bait_data = {}
+    print(f"Fetching spot {spot_id} from Cat Became Hungry")
+    spot = requests.get(f'https://en.ff14angler.com/spot/{spot_id}')
+    soup = bs4.BeautifulSoup(spot.text, 'html.parser')
+    effective_bait = soup.find(id='effective_bait')
+    if effective_bait is None:
+        print(f"No effective bait found for spot {spot_id}")
+        return bait_data
+    rows = effective_bait.find_all('tr')
+    headers = [a['title'] for a in rows[0].find_all('a')]
+    for row in rows[1:]:
+        cells = row.find_all('td')
+        bait = (cells[0].find('a') or cells[0].find('span'))['title']  # Bait name
+        bait_data[bait] = {}
+        for i, cell in enumerate(cells[1:]):
+            div = cell.find('div')
+            if div is None:
+                continue
+            percent = float(div.find('canvas')['value'])
+            # print(div['title'])
+            # print(f"{bait}: {headers[i]} ({percent}%)")
+            bait_data[bait][headers[i]] = percent
+
+    return bait_data
+
+@functools.lru_cache
+@ratelimit.sleep_and_retry
+@ratelimit.limits(calls=2, period=5)
+def cat_region_table(spot_id):
+    print(f"Fetching spot {spot_id} from Cat Became Hungry")
+    spots = requests.get(f'https://en.ff14angler.com/?spot={spot_id}')
+    soup = bs4.BeautifulSoup(spots.text, 'html.parser')
+    return soup
 
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
@@ -354,4 +462,4 @@ if __name__ == "__main__":
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
-
+    fill_missing_bait()
