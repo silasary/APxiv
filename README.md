@@ -81,6 +81,7 @@ The Plugin does not:
 It will warn you if you do something it deems not in logic.
 
 ## Dalamud UIs
+(Note to self, add screenshots)
 ### Text Chat
 This is sent via the in-game chat in the "PvP Team" channel.
 
