@@ -5,7 +5,7 @@
     <PropertyGroup>
         <Authors></Authors>
         <Company></Company>
-        <Version>0.0.0.1</Version>
+        <Version>0.19.4.0</Version>
         <Description>A sample plugin.</Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/silasary/APxiv</PackageProjectUrl>
