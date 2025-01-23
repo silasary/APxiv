@@ -56,6 +56,9 @@ Aetherlouse:
 'Aetherochemical Compound #666':
   Azys Lla:
   - Fiend Worm
+Aetherolectric Guitarfish:
+  Old Sharlayan:
+  - Mackerel Strip
 Agelyss Carp:
   Eastern La Noscea:
   - Snurble Fly
@@ -120,6 +123,9 @@ Alnairan Salmon:
   Thavnair:
   - Leech
   - Versatile Lure
+Alright Alright Alright:
+  Urqopacha:
+  - Versatile Lure
 Alyketos:
   Ultima Thule:
   - Stardust
@@ -157,6 +163,9 @@ Animulus:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Ankledeep Catfish:
+  Yak T'el:
+  - Versatile Lure
 Anomalocaris:
   Coerthas Central Highlands:
   - Hoverworm
@@ -167,6 +176,9 @@ Antheia:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Antheian Dahlia:
+  Elpis:
+  - Mayfly
 Antlion Slug:
   Southern Thanalan:
   - Sand Gecko
@@ -179,12 +191,18 @@ Aoide:
 Aphotic Pirarucu:
   Azys Lla:
   - Purse Web Spider
+Apoda:
+  Yak T'el:
+  - Honeybee
 Aquamaton:
   Kholusia:
   - Short Bill Minnow
 Archerfish:
   Eastern La Noscea:
   - Snurble Fly
+Archmatron Angelfish:
+  Yak T'el:
+  - Honeybee
 Areng Dire:
   Amh Araeng:
   - Metal Spinner
@@ -193,6 +211,9 @@ Argonaut:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Argonauta argo:
+  Ultima Thule:
+  - Pot Of Stardust
 Argonautica:
   The Ruby Sea:
   - Live Shrimp
@@ -249,6 +270,9 @@ Autumn Leaf:
 Axelrod:
   Yanxia:
   - Stonefly Larva
+Azure Glider:
+  Shaaloani:
+  - Dragonfly
 Azure Sea Spider:
   The Tempest:
   - Squid Strip
@@ -272,6 +296,9 @@ Banana Eel:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Banded Candiru:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Banderole:
   The Azim Steppe:
   - Nightcrawler
@@ -279,6 +306,9 @@ Barreleye:
   Azys Lla:
   - Fiend Worm
 Basilosaurus:
+  Thavnair:
+  - Mackerel Strip
+Basilosaurus Rex:
   Thavnair:
   - Mackerel Strip
 Basking Shark:
@@ -307,6 +337,9 @@ Bicuda:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Bigcuda:
+  Thavnair:
+  - Sky Spoon Lure
 Bishopfish:
   Coerthas Western Highlands:
   - Brute Leech
@@ -355,6 +388,9 @@ Blade Skipper:
 Blank Oscar:
   Yanxia:
   - Midge Larva
+Blind Brotula:
+  Yak T'el:
+  - Versatile Lure
 Blind Manta:
   Coerthas Central Highlands:
   - Hoverworm
@@ -451,6 +487,9 @@ Blue Octopus:
 Blue Prismfish:
   Yanxia:
   - Suspending Minnow
+Blue Purse:
+  Tuliyollal:
+  - Versatile Lure
 Blue Widow:
   North Shroud:
   - Floating Minnow
@@ -535,6 +574,10 @@ Bonefish:
 Bonsai Fish:
   Shirogane:
   - Nightcrawler
+Bonytail Chub:
+  Shaaloani:
+  - Versatile Lure
+  - Popper Lure
 Bonytongue:
   Central Shroud:
   - Streamer
@@ -552,6 +595,10 @@ Bonytongue:
   - Streamer
   Upper La Noscea:
   - Streamer
+Bopo'u Sleeper:
+  Kozama'uka:
+  - Metal Spinner
+  - Popper Lure
 Bowfin:
   North Shroud:
   - Honey Worm
@@ -603,12 +650,19 @@ Bronze Pipira:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Bronze Pleco:
+  Kozama'uka:
+  - Versatile Lure
+  - Popper Lure
 Bronze Sole:
   Kholusia:
   - Marble Nymph
 Brown Bolo:
   The Churning Mists:
   - Red Balloon
+Browned Banana Eel:
+  Thavnair:
+  - Mayfly
 Bubble Angler:
   The Tempest:
   - Squid Strip
@@ -639,6 +693,9 @@ Butterfly Fry:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Butterfly Ray:
+  Living Memory:
+  - Versatile Lure
 Cadaver Carp:
   Mor Dhona:
   - Rainbow Spoon Lure
@@ -658,9 +715,18 @@ Calicia:
 Calico Trout:
   Il Mheg:
   - Fruit Worm
+Canal Bream:
+  Living Memory:
+  - Shucked Clam
+Canal Drum:
+  Living Memory:
+  - Shucked Clam
 Canavan:
   Mor Dhona:
   - Honey Worm
+Candiru:
+  Kozama'uka:
+  - Honeybee
 Capelin:
   Coerthas Western Highlands:
   - Brute Leech
@@ -682,6 +748,9 @@ Carp Diem:
 Castaway Chocobo Chick:
   Eastern La Noscea:
   - Lugworm
+Catastrophizer:
+  Old Sharlayan:
+  - Mayfly
 Caterwauler:
   Lower La Noscea:
   - Moth Pupa
@@ -694,9 +763,15 @@ Cave Cherax:
 Cave Killifish:
   The Fringes:
   - Suspending Minnow
+Cazuela Crab:
+  Kozama'uka:
+  - Basket Of Red Maggots
 Celestial:
   Il Mheg:
   - Baitbugs
+Cenote Oyster:
+  Yak T'el:
+  - Metal Spinner
 Cerule Core:
   Garlemald:
   - Gold Salmon Roe
@@ -711,8 +786,14 @@ Cerulean Loach:
 Ceti:
   Azys Lla:
   - Fiend Worm
+Chain Shark:
+  Yak T'el:
+  - Yak T'El Crab
 Chakrafish:
   The Fringes:
+  - Metal Spinner
+Chalky Coral:
+  Thavnair:
   - Metal Spinner
 Charibenet:
   Coerthas Western Highlands:
@@ -720,6 +801,9 @@ Charibenet:
 Charon's Lantern:
   Coerthas Central Highlands:
   - Glowworm
+Checkered Cichlid:
+  Yak T'el:
+  - Versatile Lure
 Cherry Herring:
   Il Mheg:
   - Marble Nymph
@@ -729,6 +813,12 @@ Cherry Trout:
 Chirurgeon:
   Central Shroud:
   - Moth Pupa
+Chirwagur Loach:
+  Urqopacha:
+  - Silkmoth Pupa
+Chlorophos Deathworm:
+  Mare Lamentorum:
+  - Grey Worm
 Chub:
   Lower La Noscea:
   - Moth Pupa
@@ -740,6 +830,9 @@ Cinder Surprise:
 Cindersmith:
   The Dravanian Forelands:
   - Magma Worm
+Circuit Tilapia:
+  Labyrinthos:
+  - Leech
 Cirrostratus:
   The Sea of Clouds:
   - Giant Crane Fly
@@ -748,6 +841,9 @@ Class Twenty-four:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Clavekeeper:
+  Kholusia:
+  - Select Bait Ball
 Clawbow:
   The Rak'tika Greatwood:
   - Fruit Worm
@@ -755,6 +851,9 @@ Clean Saucer:
   Lakeland:
   - Fruit Worm
   - Metal Spinner
+Cleyran Carp:
+  Living Memory:
+  - Basket Of Red Maggots
 Climbing Perch:
   East Shroud:
   - Bass Ball
@@ -775,11 +874,23 @@ Cloud Kelp:
 Cloud Rider:
   The Churning Mists:
   - Red Balloon
+Cloud Wasp:
+  Shaaloani:
+  - Dragonfly
+Cloud-eye Carp:
+  Yak T'el:
+  - Golden Stonefly Nymph
 Cloudfish:
   The Churning Mists:
   - Stonefly Nymph
   The Sea of Clouds:
   - Stonefly Nymph
+Cloudribbon:
+  Shaaloani:
+  - Cactuar Jig
+Cloudsail:
+  Shaaloani:
+  - Cactuar Jig
 Cloudweed:
   The Sea of Clouds:
   - Metal Spinner
@@ -857,6 +968,9 @@ Common Sculpin:
   - Spinnerbait
   Upper La Noscea:
   - Spinnerbait
+Copper Shark:
+  Living Memory:
+  - Ghost Nipper
 Copperfish:
   Central Shroud:
   - Butterworm
@@ -890,16 +1004,25 @@ Coral Butterfly:
 Coral Horse:
   The Ruby Sea:
   - Metal Spinner
+Corn Dace:
+  Kozama'uka:
+  - Versatile Lure
 Cornelia:
   North Shroud:
   - Rainbow Spoon Lure
 Corpse Chub:
   The Fringes:
   - Suspending Minnow
+Cosmic Haze:
+  Ultima Thule:
+  - Grey Worm
 Cosmic Noise:
   Ultima Thule:
   - Grey Worm
   - Chimera Worm
+  - Versatile Lure
+Crackling Flounder:
+  Heritage Found:
   - Versatile Lure
 Crayfish:
   Central Shroud:
@@ -915,6 +1038,9 @@ Crayfish:
 Creamy Oyster:
   Kholusia:
   - Moyebi Shrimp
+Crenicichla:
+  Kozama'uka:
+  - Honeybee
 Crimson Crayfish:
   Eastern La Noscea:
   - Crayfish Ball
@@ -954,6 +1080,9 @@ Curefish:
 Curtain Pleco:
   The Azim Steppe:
   - Suspending Minnow
+Custodian Carp:
+  Solution Nine:
+  - Golden Stonefly Nymph
 Cyan Sea Devil:
   The Tempest:
   - Short Bill Minnow
@@ -1026,6 +1155,9 @@ Darksteel Knifefish:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Datnioides:
+  Living Memory:
+  - Basket Of Red Maggots
 Dawn Crayfish:
   The Azim Steppe:
   - Nightcrawler
@@ -1033,6 +1165,9 @@ Dawn Crayfish:
 Dawn Maiden:
   Coerthas Central Highlands:
   - Wildfowl Fly
+Deadwood Shadow:
+  The Rak'tika Greatwood:
+  - Select Bait Ball
 Death Loach:
   The Fringes:
   - Salmon Roe
@@ -1066,6 +1201,9 @@ Desert Dustfish:
 Desert Saw:
   Amh Araeng:
   - Jerked Ovim
+Devotion Clam:
+  Living Memory:
+  - Shucked Clam
 Diamond Pipira:
   The Rak'tika Greatwood:
   - Robber Ball
@@ -1081,6 +1219,9 @@ Dinichthys:
 Dirty Herry:
   Western Thanalan:
   - Northern Krill
+Disappirarucu:
+  Mare Lamentorum:
+  - Mayfly
 Discobolus:
   Southern Thanalan:
   - Glowworm
@@ -1152,13 +1293,25 @@ Dream Goby:
 Drepanaspis:
   The Peaks:
   - Suspending Minnow
+Driftdowns Trout:
+  Heritage Found:
+  - Metal Spinner
+Driftwood Catfish:
+  Kozama'uka:
+  - Popper Lure
 Dry Steppe Skipper:
   The Azim Steppe:
   - Versatile Lure
   - Midge Larva
+Dumplingfish:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Dune Manta:
   Southern Thanalan:
   - Sand Leech
+Durdina Fish:
+  Thavnair:
+  - Shrimp Ball
 Dusk Crayfish:
   The Azim Steppe:
   - Salmon Roe
@@ -1186,6 +1339,9 @@ Dwarf Catfish:
   - Moth Pupa
   Middle La Noscea:
   - Moth Pupa
+E.B.E.-852738:
+  Ultima Thule:
+  - Pot Of Stardust
 E.B.E.-9318:
   Ultima Thule:
   - Panic Jig
@@ -1194,6 +1350,9 @@ E.B.E.-9318:
 Ealad Skaan:
   Il Mheg:
   - Baitbugs
+Earful:
+  Radz-at-Han:
+  - Mayfly
 Eastern Pike:
   The Peaks:
   - Suspending Minnow
@@ -1209,6 +1368,9 @@ Echinos:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Eehs Fan:
+  Ultima Thule:
+  - Chimera Worm
 Eehs Forhnesh:
   Ultima Thule:
   - Grey Worm
@@ -1223,6 +1385,10 @@ Elder Gourami:
 Electric Catfish:
   Rhalgr's Reach:
   - Nightcrawler
+Electrobetta:
+  Heritage Found:
+  - Popper Lure
+  - Basket Of Red Maggots
 Emperor Fish:
   Coerthas Central Highlands:
   - Moth Pupa
@@ -1258,6 +1424,9 @@ Eunuch Crayfish:
 Euphotic Pirarucu:
   Azys Lla:
   - Brute Leech
+Everkeep Yabby:
+  Solution Nine:
+  - Popper Lure
 Fae Rainbow:
   Il Mheg:
   - Marble Nymph
@@ -1348,6 +1517,9 @@ Five-ilm Pleco:
 Flarefish:
   Coerthas Western Highlands:
   - Metal Spinner
+Flawless Saucer:
+  Yak T'el:
+  - Versatile Lure
 Fleece Stingray:
   The Sea of Clouds:
   - Giant Crane Fly
@@ -1362,21 +1534,33 @@ Flintstrike:
 Floating Boulder:
   South Shroud:
   - Bass Ball
+Floating Fife:
+  Tuliyollal:
+  - Versatile Lure
 Flowerhorn:
   Thavnair:
   - Leech
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Forbiddingway:
+  Ultima Thule:
+  - Pot Of Stardust
 Forgeflame:
   Thavnair:
   - Leech
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Forgotten One:
+  Living Memory:
+  - Ghost Nipper
 Fossiltongue:
   The Dravanian Forelands:
   - Magma Worm
+Foun Ahlm:
+  Ultima Thule:
+  - Chimera Worm
 Foun Myhk:
   Ultima Thule:
   - Grey Worm
@@ -1396,6 +1580,9 @@ Fragrant Sweetfish:
 Frilled Shark:
   Western La Noscea:
   - Lugworm
+Frozen Regotoise:
+  Mare Lamentorum:
+  - Chimera Worm
 Fuchsia Bloom:
   Il Mheg:
   - Robber Ball
@@ -1410,6 +1597,9 @@ Fullmoon Sardine:
 Functional Proto-hropken:
   Azys Lla:
   - Fiend Worm
+Furcacauda:
+  Elpis:
+  - Sky Spoon Lure
 Garden Skipper:
   The Azim Steppe:
   - Midge Larva
@@ -1435,11 +1625,17 @@ Garpike:
   - Honey Worm
   Western Thanalan:
   - Honey Worm
+Gharlichthys:
+  Thavnair:
+  - Mackerel Strip
 Ghost Carp:
   Central Shroud:
   - Butterworm
 Ghost Faerie:
   Coerthas Western Highlands:
+  - Metal Spinner
+Ghostfish:
+  Tuliyollal:
   - Metal Spinner
 Giant Aetherlouse:
   Labyrinthos:
@@ -1475,6 +1671,9 @@ Giant Donko:
 Giant Plesiosaur:
   The Ruby Sea:
   - Live Shrimp
+Giant Snakehead:
+  Living Memory:
+  - Popper Lure
 Giant Squid:
   Eastern La Noscea:
   - Lugworm
@@ -1486,6 +1685,9 @@ Giant Taimen:
 Giant Takitaro:
   South Shroud:
   - Glowworm
+Giant Trahira:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Gigant Bass:
   The Peaks:
   - Midge Larva
@@ -1509,6 +1711,9 @@ Gigantshark:
 Gilfish:
   Rhalgr's Reach:
   - Nightcrawler
+Gilt Dermogenys:
+  Elpis:
+  - Sky Spoon Lure
 Glacier Core:
   Coerthas Western Highlands:
   - Red Balloon
@@ -1543,6 +1748,9 @@ Gliding Fish:
 Glimmerscale:
   Western Thanalan:
   - Butterworm
+Glittergill:
+  Yak T'el:
+  - Basket Of Red Maggots
 Gloaming Coral:
   The Churning Mists:
   - Red Balloon
@@ -1561,6 +1769,9 @@ Goblin Bass:
 Goblin Perch:
   South Shroud:
   - Honey Worm
+Gold Dustfish:
+  Amh Araeng:
+  - Select Bait Ball
 Gold Hammer:
   Il Mheg:
   - Baitbugs
@@ -1572,6 +1783,9 @@ Golden Barramundi:
 Golden Cichlid:
   Rhalgr's Reach:
   - Versatile Lure
+Golden Day:
+  Living Memory:
+  - Basket Of Red Maggots
 Golden Loach:
   Coerthas Central Highlands:
   - Topwater Frog
@@ -1597,6 +1811,9 @@ Golden Shiner:
 Goldenfin:
   Limsa Lominsa:
   - Pill Bug
+Goldfin Cavalli:
+  Tuliyollal:
+  - Versatile Lure
 Goldfish:
   Eastern La Noscea:
   - Honey Worm
@@ -1608,6 +1825,15 @@ Goldfish:
   - Honey Worm
   The Goblet:
   - Honey Worm
+Goldgrouper:
+  Heritage Found:
+  - Popper Lure
+Golding:
+  The Rak'tika Greatwood:
+  - Select Bait Ball
+Gonzalo's Grace:
+  The Tempest:
+  - Plump Worm
 Goosefish:
   Western La Noscea:
   - Lugworm
@@ -1630,6 +1856,9 @@ Great Gudgeon:
 Greater Serpent of Ronka:
   The Rak'tika Greatwood:
   - Robber Ball
+Greatsword Snook:
+  Old Sharlayan:
+  - Mayfly
 Green Prismfish:
   Yanxia:
   - Stonefly Larva
@@ -1773,6 +2002,9 @@ Hardhead Trout:
 Hardscale:
   The Azim Steppe:
   - Suspending Minnow
+Harlequin Lancer:
+  Living Memory:
+  - Versatile Lure
 Harutsuge:
   The Ruby Sea:
   - Blue Bobbit
@@ -1799,6 +2031,9 @@ Helicoprion:
 Heliobatis:
   Mor Dhona:
   - Caddisfly Larva
+Hellsnow Shark:
+  Shaaloani:
+  - Cactuar Jig
 Hellyfish:
   The Ruby Sea:
   - Live Shrimp
@@ -1819,6 +2054,10 @@ Henodus:
 Henodus Grandis:
   Kholusia:
   - Short Bill Minnow
+Heritage Loach:
+  Heritage Found:
+  - Honeybee
+  - Versatile Lure
 Hermit's End:
   Yanxia:
   - Stonefly Larva
@@ -1833,6 +2072,15 @@ Highland Perch:
   - Salmon Roe
 Hinterlands Perch:
   The Dravanian Hinterlands:
+  - Metal Spinner
+Hippo Frog:
+  Thavnair:
+  - Mayfly
+Holier-than Mogpom:
+  The Churning Mists:
+  - Metal Spinner
+Honeycomb Sponge:
+  Kozama'uka:
   - Metal Spinner
 Hoodwinker:
   The Tempest:
@@ -1851,6 +2099,9 @@ Horizon Event:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Horned Frog:
+  Yak T'el:
+  - Cloud-Eye Carp
 Hornhelm:
   Amh Araeng:
   - Jerked Ovim
@@ -1872,6 +2123,21 @@ Hundred Fin:
 Hundred-eyed Axolotl:
   Azys Lla:
   - Purse Web Spider
+Hunmu Ob:
+  Yak T'el:
+  - Versatile Lure
+Hunu Peacock Bass:
+  Kozama'uka:
+  - Versatile Lure
+Hwittayoanaan Cichlid:
+  Shaaloani:
+  - Basket Of Red Maggots
+Hydro Louvar:
+  Living Memory:
+  - Versatile Lure
+Hyphalosaurus:
+  Labyrinthos:
+  - Leech
 Ice Faerie:
   Coerthas Western Highlands:
   - Metal Spinner
@@ -1888,6 +2154,9 @@ Icepike:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Icuvlo's Barter:
+  Tuliyollal:
+  - Crimson Lugworm
 Idle Goby:
   The Peaks:
   - Metal Spinner
@@ -1908,6 +2177,9 @@ Ignus Snail:
   - Stem Borer
   Western Thanalan:
   - Stem Borer
+Il Lydha:
+  The Tempest:
+  - Metal Spinner
 Illuminati Mask:
   The Churning Mists:
   - Metal Spinner
@@ -1948,10 +2220,19 @@ Inkfish:
 Inkshell:
   The Dravanian Hinterlands:
   - Metal Spinner
+Inktopus:
+  Tuliyollal:
+  - Metal Spinner
 Invisible Crayfish:
   The Peaks:
   - Metal Spinner
   - Nightcrawler
+Iq Br'aax Sailfin:
+  Yak T'el:
+  - Honeybee
+Iq Rrax Leaffish:
+  Yak T'el:
+  - Golden Stonefly Nymph
 Iribainion:
   Elpis:
   - Gold Salmon Roe
@@ -1959,6 +2240,10 @@ Iribainion:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Iris Wrasse:
+  Living Memory:
+  - Ghost Nipper
+  - Shucked Clam
 Iron Noose:
   Southern Thanalan:
   - Spinner
@@ -1986,6 +2271,9 @@ Jade Sculpin:
 Jeweled Jellyfish:
   Azys Lla:
   - Fiend Worm
+Jhinga:
+  Thavnair:
+  - Mackerel Strip
 Joan of Trout:
   Upper La Noscea:
   - Crow Fly
@@ -1995,12 +2283,18 @@ Judgeray:
 Judgment Staff:
   South Shroud:
   - Caddisfly Larva
+Jumbo Snook:
+  Labyrinthos:
+  - Mayfly
 Jungle Catfish:
   Eastern La Noscea:
   - Honey Worm
 Junkmonger:
   Western La Noscea:
   - Lugworm
+Ka Puyhu:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Kadjaya's Castaway:
   Thavnair:
   - Gold Salmon Roe
@@ -2042,6 +2336,9 @@ Kissing Trout:
   Coerthas Central Highlands:
   - Moth Pupa
   - Honey Worm
+Kitty Herring:
+  Garlemald:
+  - Metal Spinner
 Knifefish:
   Eastern La Noscea:
   - Glowworm
@@ -2052,6 +2349,11 @@ Knifefish:
   - Glowworm
   Northern Thanalan:
   - Glowworm
+Knight Goby:
+  Living Memory:
+  - Basket Of Red Maggots
+  - Versatile Lure
+  - Popper Lure
 Kobold Puffer:
   Eastern La Noscea:
   - Spinnerbait
@@ -2063,6 +2365,10 @@ Kotsu Zetsu:
   - Suspending Minnow
   - Stonefly Larva
   - Metal Spinner
+Kozama'uka Skipper:
+  Kozama'uka:
+  - Honeybee
+  - Popper Lure
 Ksirapayin:
   Thavnair:
   - Leech
@@ -2072,6 +2378,9 @@ Ksirapayin:
 Ku'er:
   The Ruby Sea:
   - Blue Bobbit
+Ku'uxage Bitterling:
+  Kozama'uka:
+  - Popper Lure
 Kuno the Killer:
   Mor Dhona:
   - Honey Worm
@@ -2092,6 +2401,9 @@ Lake Urchin:
   Coerthas Western Highlands:
   - Brute Leech
   - Goblin Jig
+Lale Crab:
+  Thavnair:
+  - Shrimp Ball
 Lamp Marimo:
   Coerthas Central Highlands:
   - Chocobo Fly
@@ -2157,6 +2469,10 @@ Letter Puffer:
 Levinlight:
   Central Shroud:
   - Syrphid Basket
+Ligaka Guppy:
+  Kozama'uka:
+  - Popper Lure
+  - Honeybee
 Lily of the Veil:
   The Peaks:
   - Suspending Minnow
@@ -2166,6 +2482,9 @@ Liopleurodon:
 Listracanthus:
   Lakeland:
   - Baitbugs
+Little Bounty:
+  Il Mheg:
+  - Select Bait Ball
 Little Perykos:
   Eastern La Noscea:
   - Lugworm
@@ -2200,6 +2519,9 @@ Loose Pendant:
 Loosetongue:
   The Dravanian Hinterlands:
   - Brute Leech
+Lopoceras Elegans:
+  Mare Lamentorum:
+  - Chimera Worm
 Lordly Salmon:
   Yanxia:
   - Versatile Lure
@@ -2310,6 +2632,9 @@ Mangar:
 Marble Oscar:
   The Dravanian Forelands:
   - Metal Spinner
+Marbled Hatchetfish:
+  Urqopacha:
+  - Versatile Lure
 Marid Frog:
   Thavnair:
   - Gold Salmon Roe
@@ -2390,6 +2715,12 @@ Mirage Chub:
 Mirage Mahi:
   The Fringes:
   - Stonefly Larva
+Mirror Carp:
+  Yak T'el:
+  - Popper Lure
+Mirror Image:
+  Il Mheg:
+  - Select Bait Ball
 Mirrorscale:
   Eastern La Noscea:
   - Midge Basket
@@ -2463,6 +2794,12 @@ Monster Carrot:
 Moogle Spirit:
   The Sea of Clouds:
   - Giant Crane Fly
+Moon Croppie:
+  Heritage Found:
+  - Popper Lure
+Moongripper:
+  Urqopacha:
+  - White Worm
 Moonlight Guppy:
   Lakeland:
   - Baitbugs
@@ -2477,9 +2814,21 @@ Moraby Flounder:
 Morinabaligi:
   Mor Dhona:
   - Honey Worm
+Mosaic Loach:
+  Solution Nine:
+  - Basket Of Red Maggots
+Mosquito Fish:
+  Tuliyollal:
+  - Popper Lure
+Mossgill Salmon:
+  Labyrinthos:
+  - Sky Spoon Lure
 Mountain Kraken:
   Coerthas Western Highlands:
   - Brute Leech
+Moxutural Gar:
+  Yak T'el:
+  - Popper Lure
 Mucous Minnow:
   Azys Lla:
   - Fiend Worm
@@ -2508,6 +2857,11 @@ Mudcrab:
   - Honey Worm
   Western Thanalan:
   - Honey Worm
+Mudfish:
+  Yak T'el:
+  - Basket Of Red Maggots
+  - Honeybee
+  - Popper Lure
 Mudskipper:
   Central Shroud:
   - Midge Basket
@@ -2554,6 +2908,9 @@ Navigator's Dagger:
 Ndendecki:
   Western Thanalan:
   - Honey Worm
+Neo Arowana:
+  Living Memory:
+  - Versatile Lure
 Nepto Dragon:
   Eastern La Noscea:
   - Northern Krill
@@ -2566,6 +2923,10 @@ Nhaama's Treasure:
 Night's Bass:
   The Rak'tika Greatwood:
   - Robber Ball
+Niikwerepi Trout:
+  Shaaloani:
+  - Popper Lure
+  - Versatile Lure
 Ninja Betta:
   Mor Dhona:
   - Crow Fly
@@ -2630,9 +2991,18 @@ Ogre Barracuda:
 Ogre Horn Snail:
   Coerthas Western Highlands:
   - Stonefly Nymph
+Oho Hunu:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Oil Eel:
   Azys Lla:
   - Fiend Worm
+Oil Slick:
+  Kholusia:
+  - Plump Worm
+Oily Ropefish:
+  Kozama'uka:
+  - Metal Spinner
 Old Hollow Eyes:
   Southern Thanalan:
   - Butterworm
@@ -2648,12 +3018,18 @@ Oliphant's Trunk:
 Ondo Harpoon:
   The Tempest:
   - Squid Strip
+Ondo Kelp:
+  Kholusia:
+  - Metal Spinner
 Ondo Sigh:
   The Tempest:
   - Squid Strip
 Ondobane:
   The Tempest:
   - Squid Strip
+Onyx Knifefish:
+  Labyrinthos:
+  - Mayfly
 Opabinia:
   Azys Lla:
   - Fiend Worm
@@ -2666,6 +3042,9 @@ Orn Butterfly:
 Oschon's Print:
   Lower La Noscea:
   - Goby Ball
+Ossicula:
+  Mare Lamentorum:
+  - Metal Spinner
 Othardian Salmon:
   Yanxia:
   - Metal Spinner
@@ -2673,9 +3052,16 @@ Othardian Trout:
   The Azim Steppe:
   - Salmon Roe
   - Nightcrawler
+Outskirts Sniffer:
+  Heritage Found:
+  - Honeybee
+  - Versatile Lure
 Oven Catfish:
   The Dravanian Forelands:
   - Magma Worm
+Oxydoras:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Padjali Loach:
   The Fringes:
   - Stonefly Larva
@@ -2732,16 +3118,34 @@ Pecten:
 Peeping Pisces:
   The Peaks:
   - Midge Larva
+Pel Frog:
+  Tuliyollal:
+  - Golden Stonefly Nymph
+Pelubane:
+  Kozama'uka:
+  - Honeybee
+Permit:
+  Tuliyollal:
+  - Metal Spinner
 Petal Shell:
   Yanxia:
   - Signature Skyball
+Petticoat Tetra:
+  Tuliyollal:
+  - Honeybee
 Phallaina:
+  Ultima Thule:
+  - Panic Jig
+'Phallaina ':
   Ultima Thule:
   - Panic Jig
 Philosopher's Stone:
   The Dravanian Hinterlands:
   - Bladed Steel Jig
   - Goblin Jig
+Phyllinos:
+  Elpis:
+  - Mayfly
 Pickled Pom:
   Azys Lla:
   - Signature Skyball
@@ -2769,6 +3173,9 @@ Pirarucu:
 Pirate's Bane:
   Western Thanalan:
   - Lugworm
+Pixel Loach:
+  Solution Nine:
+  - Basket Of Red Maggots
 Pixie Fish:
   Il Mheg:
   - Marble Nymph
@@ -2782,15 +3189,30 @@ Plaice:
   - Yumizuno
   Western Thanalan:
   - Yumizuno
+Planetes:
+  Elpis:
+  - Gold Salmon Roe
 Platinum Fish:
   Azys Lla:
   - Fiend Worm
 Platinum Guppy:
   Lakeland:
   - Baitbugs
+Platinum Seahorse:
+  Lakeland:
+  - Select Bait Ball
+Plattershell:
+  Kozama'uka:
+  - Honeybee
+Pleated Matamata:
+  Kozama'uka:
+  - Popper Lure
 Plum Gazer:
   Yanxia:
   - Midge Larva
+Poison Dyefrog:
+  Kozama'uka:
+  - Popper Lure
 Pomegranate Trout:
   Yanxia:
   - Nightcrawler
@@ -2865,9 +3287,18 @@ Puff-paya:
   Thavnair:
   - Mackerel Strip
   - Versatile Lure
+Pumpkin Perch:
+  Heritage Found:
+  - Basket Of Red Maggots
 Purple Buckler:
   The Peaks:
   - Midge Larva
+Purpure Cod:
+  The Tempest:
+  - Metal Spinner
+Pyariyoanaan Cichlid:
+  Shaaloani:
+  - Basket Of Red Maggots
 Python Discus:
   Lakeland:
   - Fruit Worm
@@ -2936,6 +3367,10 @@ Razor Clam:
 Razorfish:
   Kholusia:
   - Short Bill Minnow
+Reasonscale Silverside:
+  Tuliyollal:
+  - Crimson Lugworm
+  - Shucked Clam
 Rebel:
   Il Mheg:
   - Marble Nymph
@@ -3000,6 +3435,9 @@ Rift Sailor:
 Rime Eater:
   Coerthas Western Highlands:
   - Red Balloon
+Rimepike:
+  Garlemald:
+  - Gold Salmon Roe
 Rising Dragon:
   Kugane:
   - Metal Spinner
@@ -3060,6 +3498,11 @@ Ropefish:
 Rose Shrimp:
   Kholusia:
   - Short Bill Minnow
+Rosebud Frog:
+  Living Memory:
+  - Popper Lure
+  - Versatile Lure
+  - Basket Of Red Maggots
 Rothlyt Oyster:
   Lower La Noscea:
   - Rat Tail
@@ -3100,6 +3543,9 @@ Sabertooth Cod:
 Sagolii Monkfish:
   Southern Thanalan:
   - Freshwater Boilie
+Saint Fathric's Face:
+  Il Mheg:
+  - Select Bait Ball
 Saltmill:
   The Lochs:
   - Silkworm
@@ -3125,6 +3571,9 @@ Sapphire Coral:
 Sapphire Fan:
   The Fringes:
   - Stonefly Larva
+Sarikuyruk:
+  Thavnair:
+  - Metal Spinner
 Saucerfish:
   Coerthas Central Highlands:
   - Hoverworm
@@ -3134,6 +3583,9 @@ Scaleripper:
 Scarlet Frog:
   The Fringes:
   - Metal Spinner
+Scarlet Queen:
+  Living Memory:
+  - Versatile Lure
 Scholar Sculpin:
   The Dravanian Hinterlands:
   - Goblin Jig
@@ -3147,6 +3599,9 @@ Scorpionfly:
 Sculptor:
   The Lochs:
   - Silkworm
+Sea Alpaca:
+  Urqopacha:
+  - Silkmoth Pupa
 Sea Bo:
   Eastern La Noscea:
   - Shrimp Cage Feeder
@@ -3176,6 +3631,9 @@ Seahag:
 Seatrap:
   The Tempest:
   - Squid Strip
+Seedtoad:
+  Thavnair:
+  - Metal Spinner
 Seema:
   Central Shroud:
   - Wildfowl Fly
@@ -3204,6 +3662,9 @@ Seraphim:
 Seven Stars:
   The Ruby Sea:
   - Blue Bobbit
+Shaaloani Salmon:
+  Shaaloani:
+  - Popper Lure
 Shadeshifter:
   Kholusia:
   - Squid Strip
@@ -3227,11 +3688,17 @@ Shadowhisker:
 Shadowstreak:
   North Shroud:
   - Topwater Frog
+Shadowtongue:
+  Yak T'el:
+  - Popper Lure
 Shall Shell:
   Eastern La Noscea:
   - Northern Krill
   Lower La Noscea:
   - Northern Krill
+Shallows Sot:
+  Tuliyollal:
+  - Metal Spinner
 Shapeshifter:
   Kholusia:
   - Moyebi Shrimp
@@ -3242,6 +3709,10 @@ Shellfracture Kelp:
   Kholusia:
   - Moyebi Shrimp
   - Metal Spinner
+Shimmering Shadow:
+  Yak T'el:
+  - Honeybee
+  - Metal Spinner
 Shipworm:
   The Dravanian Hinterlands:
   - Goblin Jig
@@ -3251,9 +3722,18 @@ Shirogane Clam:
 Shonisaurus:
   Coerthas Central Highlands:
   - Hoverworm
+Shooting Starscale:
+  Urqopacha:
+  - Versatile Lure
+Shovelnose Catfish:
+  Kozama'uka:
+  - Popper Lure
 Shrieker:
   The Ruby Sea:
   - Live Shrimp
+Sidereal Whale:
+  Ultima Thule:
+  - Panic Jig
 Silken Koi:
   Yanxia:
   - Stonefly Larva
@@ -3358,6 +3838,9 @@ Snakeskin Discus:
 Snowcaller:
   Coerthas Western Highlands:
   - Caddisfly Larva
+Snowy Parexus:
+  Garlemald:
+  - Mayfly
 Son of Levin:
   South Shroud:
   - Caddisfly Larva
@@ -3382,10 +3865,16 @@ Southern Pike:
   - Topwater Frog
   South Shroud:
   - Topwater Frog
+Sovereign Shadow:
+  Garlemald:
+  - Mayfly
 Space Bishop:
   Ultima Thule:
   - Panic Jig
   - Versatile Lure
+Spangled Pirarucu:
+  The Rak'tika Greatwood:
+  - Select Bait Ball
 Spearhead Squid:
   Kholusia:
   - Short Bill Minnow
@@ -3410,6 +3899,9 @@ Spotted Puffer:
   - Honey Worm
   Western Thanalan:
   - Honey Worm
+Spotted Stingray:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Spring Urchin:
   Coerthas Western Highlands:
   - Brute Leech
@@ -3434,12 +3926,33 @@ Starbright:
 Starchaser:
   The Tempest:
   - Squid Strip
+Stardust Shrimp:
+  Tuliyollal:
+  - Shucked Clam
+Stardust Sleeper:
+  Yak T'el:
+  - Yak T'El Crab
 Starflower:
   The Sea of Clouds:
   - Red Balloon
 Stargazer:
   The Tempest:
   - Squid Strip
+Stargilt Lobster:
+  Ultima Thule:
+  - Grey Worm
+Starglass Gibel:
+  Living Memory:
+  - Popper Lure
+Starscale Ephemeris:
+  Ultima Thule:
+  - Mayfly
+Starscryer:
+  Ultima Thule:
+  - Mayfly
+Starsnipper:
+  Urqopacha:
+  - Silkmoth Pupa
 Steel Fan:
   Kholusia:
   - Marble Nymph
@@ -3458,6 +3971,9 @@ Steppe Skipper:
 Stethacanthus:
   The Lochs:
   - Silkworm
+Stickleback:
+  Solution Nine:
+  - Golden Stonefly Nymph
 Stippled Eel:
   The Tempest:
   - Short Bill Minnow
@@ -3502,6 +4018,9 @@ Suiten Ippeki:
 Sun Bass:
   The Azim Steppe:
   - Suspending Minnow
+Sunbright Axolotl:
+  Yak T'el:
+  - Cloud-Eye Carp
 Sundisc:
   Eastern Thanalan:
   - Caddisfly Larva
@@ -3519,6 +4038,9 @@ Superstring:
   - Grey Worm
   - Chimera Worm
   - Versatile Lure
+Swampsucker Bowfin:
+  Labyrinthos:
+  - Sky Spoon Lure
 Sweatfish:
   The Azim Steppe:
   - Stonefly Larva
@@ -3601,6 +4123,9 @@ Thavnairian Caiman:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Thavnairian Calamari:
+  Thavnair:
+  - Mackerel Strip
 Thavnairian Goby:
   Thavnair:
   - Shrimp Ball
@@ -3627,6 +4152,9 @@ The Drowned Sniper:
 The Ewer King:
   The Dravanian Hinterlands:
   - Bladed Steel Jig
+The Fury's Aegis:
+  Labyrinthos:
+  - Leech
 The Gambler:
   Shirogane:
   - Blue Bobbit
@@ -3749,9 +4277,15 @@ Thunderbolt Sculpin:
 Thundergut:
   Outer La Noscea:
   - Stem Borer
+Thundering Redbelly:
+  Heritage Found:
+  - Basket Of Red Maggots
 Thunderscale:
   The Dravanian Forelands:
   - Stonefly Nymph
+Thunderswift Trout:
+  Heritage Found:
+  - Metal Spinner
 Tidal Dahlia:
   Old Sharlayan:
   - Gold Salmon Roe
@@ -3766,6 +4300,9 @@ Tiger Cod:
   - Rat Tail
   Western Thanalan:
   - Rat Tail
+Tiger Muskellunge:
+  Heritage Found:
+  - Versatile Lure
 Tigerfish:
   The Dravanian Hinterlands:
   - Bladed Steel Jig
@@ -3781,9 +4318,15 @@ Titanic Sawfish:
 Toadhead:
   Il Mheg:
   - Baitbugs
+Toari Sucker:
+  Shaaloani:
+  - Versatile Lure
 Toffee Snail:
   Kholusia:
   - Metal Spinner
+Tonguesnatcher:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Topminnow:
   Labyrinthos:
   - Gold Salmon Roe
@@ -3800,11 +4343,26 @@ Tornado Shark:
 Trader Eel:
   Eastern Thanalan:
   - Honey Worm
+Trahira:
+  Kozama'uka:
+  - Golden Stonefly Nymph
+Trailtrout:
+  Shaaloani:
+  - Basket Of Red Maggots
 Triaina:
   Ultima Thule:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Tricolored Carp:
+  Central Shroud:
+  - Crow Fly
+  East Shroud:
+  - Wildfowl Fly
+  North Shroud:
+  - Crow Fly
+  The Lavender Beds:
+  - Crow Fly
 Triplespine:
   The Ruby Sea:
   - Blue Bobbit
@@ -3815,9 +4373,21 @@ Trunkblessed:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Tsoly Mu:
+  Yak T'el:
+  - Golden Stonefly Nymph
 Tupuxuara:
   Azys Lla:
   - Red Balloon
+Turali Beaded Lizard:
+  Yak T'el:
+  - Versatile Lure
+Turali Paddlefish:
+  Shaaloani:
+  - Basket Of Red Maggots
+Twig Catfish:
+  Yak T'el:
+  - Basket Of Red Maggots
 Twin-tongued Carp:
   The Dravanian Forelands:
   - Brute Leech
@@ -3827,6 +4397,9 @@ Twitchbeard:
 Ukiki:
   The Ruby Sea:
   - Blue Bobbit
+Ultimoat Carp:
+  Living Memory:
+  - Versatile Lure
 Unbegotten:
   Ultima Thule:
   - Panic Jig
@@ -3838,13 +4411,28 @@ Unidentified Flying Biomass II:
   - Panic Jig
   - Stardust
   - Versatile Lure
+Urqotrout:
+  Urqopacha:
+  - Silkmoth Pupa
 Usuginu Octopus:
   The Ruby Sea:
   - Live Shrimp
+Ut'ohmu Dawnfish:
+  Yak T'el:
+  - Golden Stonefly Nymph
+Ut'ohmu Tiika:
+  Yak T'el:
+  - Shucked Clam
+Uyuy Xage:
+  Kozama'uka:
+  - Popper Lure
 Vacuum Shrimp:
   Ultima Thule:
   - Grey Worm
   - Chimera Worm
+  - Versatile Lure
+Vagrant Cascade:
+  Shaaloani:
   - Versatile Lure
 Vampire Lampern:
   Eastern La Noscea:
@@ -3857,6 +4445,9 @@ Vampiric Tapestry:
 Vanuhead:
   The Sea of Clouds:
   - Bladed Steel Jig
+Variatus:
+  Yak T'el:
+  - Basket Of Red Maggots
 Velodyna Carp:
   East Shroud:
   - Streamer
@@ -3875,6 +4466,9 @@ Vicejaw:
 Vidofnir:
   The Churning Mists:
   - Brute Leech
+Vidyutvat Wrasse:
+  Thavnair:
+  - Shrimp Ball
 Violet Prismfish:
   Yanxia:
   - Stonefly Larva
@@ -3897,6 +4491,9 @@ Wahoo:
   - Pill Bug
   Western Thanalan:
   - Lugworm
+Wakeful Warden:
+  Thavnair:
+  - Leech
 Wakeful Watcher:
   Thavnair:
   - Leech
@@ -3953,6 +4550,9 @@ Web-footed Sand Gecko:
 Weedy Seadragon:
   Kholusia:
   - Short Bill Minnow
+Welkin Catfish:
+  Yak T'el:
+  - Popper Lure
 Weston Bowfin:
   The Churning Mists:
   - Goblin Jig
@@ -3999,6 +4599,9 @@ Wild Red Betta:
 Wimple Carp:
   Il Mheg:
   - Baitbugs
+Windspath Eel:
+  Living Memory:
+  - Basket Of Red Maggots
 Winged Dame:
   Eulmore:
   - Squid Strip
@@ -4039,6 +4642,25 @@ Xenocypris:
   - Sky Spoon Lure
   - Mayfly
   - Versatile Lure
+Xobr'it Lobster:
+  Yak T'el:
+  - Honeybee
+Xty'iinbek Sleeper:
+  Yak T'el:
+  - Yak T'El Crab
+Yak Awak Core:
+  Yak T'el:
+  - Metal Spinner
+Yak T'el Caiman:
+  Yak T'el:
+  - Versatile Lure
+Yak T'el Catfish:
+  Yak T'el:
+  - Honeybee
+  - Basket Of Red Maggots
+Yak T'el Salamander:
+  Yak T'el:
+  - Popper Lure
 Yalm Lobster:
   Azys Lla:
   - Purse Web Spider
@@ -4058,6 +4680,9 @@ Yat Goby:
 Yat Khan:
   The Azim Steppe:
   - Stonefly Larva
+Yellow Peacock Bass:
+  Kozama'uka:
+  - Golden Stonefly Nymph
 Yellow Pipira:
   The Rak'tika Greatwood:
   - Fruit Worm
@@ -4067,6 +4692,9 @@ Yellow Prismfish:
 Yeti Crab:
   The Tempest:
   - Short Bill Minnow
+Yok Huy Stonecutter:
+  Urqopacha:
+  - White Worm
 "Ypup\xEEara":
   Ultima Thule:
   - Grey Worm
@@ -4079,6 +4707,9 @@ Yugr'am Salmon:
   - Bass Ball
   South Shroud:
   - Bass Ball
+Yyasulani Bowfin:
+  Heritage Found:
+  - Versatile Lure
 Zagas Khaal:
   The Azim Steppe:
   - Nightcrawler
@@ -4094,3 +4725,16 @@ Zekki Gator:
 Zekki Grouper:
   The Ruby Sea:
   - Blue Bobbit
+Zorgor Condor:
+  Shaaloani:
+  - Dragonfly
+Zorgor Core:
+  Shaaloani:
+  - Cactuar Jig
+  - Dragonfly
+Zorgor Scorpion:
+  Shaaloani:
+  - Versatile Lure
+Zorlortor:
+  Urqopacha:
+  - White Worm

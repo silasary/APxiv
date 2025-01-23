@@ -1406,10 +1406,18 @@
   "name": "Tricolored Carp",
   "id": 4951,
   "zones": {
-   "Central Shroud": [],
-   "East Shroud": [],
-   "North Shroud": [],
-   "The Lavender Beds": []
+   "Central Shroud": [
+    "Crow Fly"
+   ],
+   "East Shroud": [
+    "Wildfowl Fly"
+   ],
+   "North Shroud": [
+    "Crow Fly"
+   ],
+   "The Lavender Beds": [
+    "Crow Fly"
+   ]
   },
   "lvl": 21
  },
@@ -6473,22 +6481,14 @@
  "Harutsuge Sprag": {
   "name": "Harutsuge Sprag",
   "id": 17950,
-  "zones": {
-   "The Ruby Sea": [
-    "Live Shrimp"
-   ]
-  },
+  "zones": {},
   "lvl": 68,
   "tribal": true
  },
  "Giant Plesiosaur": {
   "name": "Giant Plesiosaur",
   "id": 17952,
-  "zones": {
-   "The Ruby Sea": [
-    "Live Shrimp"
-   ]
-  },
+  "zones": {},
   "lvl": 70,
   "tribal": true
  },
@@ -14251,7 +14251,9 @@
   "name": "Phallaina ",
   "id": 36521,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Panic Jig"
+   ]
   },
   "lvl": 90,
   "folklore": 36608,
@@ -14273,7 +14275,9 @@
   "name": "Seedtoad",
   "id": 36660,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 81
  },
@@ -14281,7 +14285,9 @@
   "name": "Holier-than Mogpom",
   "id": 36662,
   "zones": {
-   "The Churning Mists": []
+   "The Churning Mists": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 82
  },
@@ -14289,7 +14295,9 @@
   "name": "Chalky Coral",
   "id": 36663,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 83
  },
@@ -14297,7 +14305,9 @@
   "name": "Aetherolectric Guitarfish",
   "id": 36679,
   "zones": {
-   "Old Sharlayan": []
+   "Old Sharlayan": [
+    "Mackerel Strip"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14308,7 +14318,9 @@
   "name": "Jumbo Snook",
   "id": 36680,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14319,7 +14331,9 @@
   "name": "Earful",
   "id": 36681,
   "zones": {
-   "Radz-at-Han": []
+   "Radz-at-Han": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14330,7 +14344,9 @@
   "name": "Hippo Frog",
   "id": 36682,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14341,7 +14357,9 @@
   "name": "Rimepike",
   "id": 36683,
   "zones": {
-   "Garlemald": []
+   "Garlemald": [
+    "Gold Salmon Roe"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14352,7 +14370,9 @@
   "name": "Foun Ahlm",
   "id": 36684,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Chimera Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14363,7 +14383,9 @@
   "name": "Forbiddingway",
   "id": 36685,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Pot Of Stardust"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14374,7 +14396,9 @@
   "name": "Thavnairian Calamari",
   "id": 36686,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mackerel Strip"
+   ]
   },
   "lvl": 90,
   "folklore": 36606
@@ -14393,7 +14417,9 @@
   "name": "Greatsword Snook",
   "id": 37845,
   "zones": {
-   "Old Sharlayan": []
+   "Old Sharlayan": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14404,7 +14430,9 @@
   "name": "Swampsucker Bowfin",
   "id": 37846,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Sky Spoon Lure"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14415,7 +14443,9 @@
   "name": "Lale Crab",
   "id": 37847,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Shrimp Ball"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14426,7 +14456,9 @@
   "name": "Bigcuda",
   "id": 37848,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Sky Spoon Lure"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14437,7 +14469,9 @@
   "name": "Sovereign Shadow",
   "id": 37849,
   "zones": {
-   "Garlemald": []
+   "Garlemald": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14448,7 +14482,9 @@
   "name": "Disappirarucu",
   "id": 37850,
   "zones": {
-   "Mare Lamentorum": []
+   "Mare Lamentorum": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14459,7 +14495,9 @@
   "name": "Starscryer",
   "id": 37851,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14470,7 +14508,9 @@
   "name": "Argonauta argo",
   "id": 37852,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Pot Of Stardust"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14481,7 +14521,9 @@
   "name": "Planetes",
   "id": 37853,
   "zones": {
-   "Elpis": []
+   "Elpis": [
+    "Gold Salmon Roe"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14492,7 +14534,9 @@
   "name": "Platinum Seahorse",
   "id": 38792,
   "zones": {
-   "Lakeland": []
+   "Lakeland": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -14500,7 +14544,9 @@
   "name": "Clavekeeper",
   "id": 38793,
   "zones": {
-   "Kholusia": []
+   "Kholusia": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -14508,7 +14554,9 @@
   "name": "Mirror Image",
   "id": 38798,
   "zones": {
-   "Il Mheg": []
+   "Il Mheg": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -14516,7 +14564,9 @@
   "name": "Spangled Pirarucu",
   "id": 38799,
   "zones": {
-   "The Rak'tika Greatwood": []
+   "The Rak'tika Greatwood": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -14524,7 +14574,9 @@
   "name": "Ondo Kelp",
   "id": 38810,
   "zones": {
-   "Kholusia": []
+   "Kholusia": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 81
  },
@@ -14532,7 +14584,9 @@
   "name": "Purpure Cod",
   "id": 38812,
   "zones": {
-   "The Tempest": []
+   "The Tempest": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 83
  },
@@ -14540,7 +14594,9 @@
   "name": "Il Lydha",
   "id": 38814,
   "zones": {
-   "The Tempest": []
+   "The Tempest": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 85
  },
@@ -14548,7 +14604,9 @@
   "name": "Catastrophizer",
   "id": 38830,
   "zones": {
-   "Old Sharlayan": []
+   "Old Sharlayan": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14559,7 +14617,9 @@
   "name": "Mossgill Salmon",
   "id": 38831,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Sky Spoon Lure"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14570,7 +14630,9 @@
   "name": "Vidyutvat Wrasse",
   "id": 38832,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Shrimp Ball"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14581,7 +14643,9 @@
   "name": "Browned Banana Eel",
   "id": 38833,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14592,7 +14656,9 @@
   "name": "Frozen Regotoise",
   "id": 38834,
   "zones": {
-   "Mare Lamentorum": []
+   "Mare Lamentorum": [
+    "Chimera Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14603,7 +14669,9 @@
   "name": "Cosmic Haze",
   "id": 38835,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Grey Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14614,7 +14682,9 @@
   "name": "Antheian Dahlia",
   "id": 38836,
   "zones": {
-   "Elpis": []
+   "Elpis": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14625,7 +14695,9 @@
   "name": "Jhinga",
   "id": 38935,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mackerel Strip"
+   ]
   },
   "lvl": 90,
   "folklore": 36606
@@ -14634,7 +14706,9 @@
   "name": "Phyllinos",
   "id": 39240,
   "zones": {
-   "Elpis": []
+   "Elpis": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "folklore": 36609,
@@ -14650,7 +14724,9 @@
   "name": "Gold Dustfish",
   "id": 39809,
   "zones": {
-   "Amh Araeng": []
+   "Amh Araeng": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -14666,7 +14742,9 @@
   "name": "Oil Slick",
   "id": 39815,
   "zones": {
-   "Kholusia": []
+   "Kholusia": [
+    "Plump Worm"
+   ]
   },
   "lvl": 90
  },
@@ -14674,7 +14752,9 @@
   "name": "Gonzalo's Grace",
   "id": 39816,
   "zones": {
-   "The Tempest": []
+   "The Tempest": [
+    "Plump Worm"
+   ]
   },
   "lvl": 90
  },
@@ -14682,7 +14762,9 @@
   "name": "Onyx Knifefish",
   "id": 39879,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14693,7 +14775,9 @@
   "name": "Wakeful Warden",
   "id": 39880,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Leech"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14704,7 +14788,9 @@
   "name": "Basilosaurus Rex",
   "id": 39881,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mackerel Strip"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14715,7 +14801,9 @@
   "name": "Eehs Fan",
   "id": 39882,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Chimera Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14726,7 +14814,9 @@
   "name": "Gilt Dermogenys",
   "id": 39883,
   "zones": {
-   "Elpis": []
+   "Elpis": [
+    "Sky Spoon Lure"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -14737,7 +14827,9 @@
   "name": "The Fury's Aegis",
   "id": 39912,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Leech"
+   ]
   },
   "lvl": 90,
   "folklore": 36606,
@@ -15495,7 +15587,9 @@
   "name": "Ossicula",
   "id": 41058,
   "zones": {
-   "Mare Lamentorum": []
+   "Mare Lamentorum": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 81
  },
@@ -15503,7 +15597,9 @@
   "name": "Kitty Herring",
   "id": 41059,
   "zones": {
-   "Garlemald": []
+   "Garlemald": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 82
  },
@@ -15511,7 +15607,9 @@
   "name": "Sarikuyruk",
   "id": 41061,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 85
  },
@@ -15519,7 +15617,9 @@
   "name": "Deadwood Shadow",
   "id": 41298,
   "zones": {
-   "The Rak'tika Greatwood": []
+   "The Rak'tika Greatwood": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -15535,7 +15635,9 @@
   "name": "Little Bounty",
   "id": 41300,
   "zones": {
-   "Il Mheg": []
+   "Il Mheg": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -15543,7 +15645,9 @@
   "name": "Saint Fathric's Face",
   "id": 41301,
   "zones": {
-   "Il Mheg": []
+   "Il Mheg": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -15551,7 +15655,9 @@
   "name": "Golding",
   "id": 41302,
   "zones": {
-   "The Rak'tika Greatwood": []
+   "The Rak'tika Greatwood": [
+    "Select Bait Ball"
+   ]
   },
   "lvl": 90
  },
@@ -15559,7 +15665,9 @@
   "name": "Circuit Tilapia",
   "id": 41401,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Leech"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15570,7 +15678,9 @@
   "name": "Durdina Fish",
   "id": 41402,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Shrimp Ball"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15592,7 +15702,9 @@
   "name": "Chlorophos Deathworm",
   "id": 41404,
   "zones": {
-   "Mare Lamentorum": []
+   "Mare Lamentorum": [
+    "Grey Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15603,7 +15715,9 @@
   "name": "Starscale Ephemeris",
   "id": 41405,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15614,7 +15728,9 @@
   "name": "E.B.E.-852738",
   "id": 41406,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Pot Of Stardust"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15625,7 +15741,9 @@
   "name": "Hyphalosaurus",
   "id": 41407,
   "zones": {
-   "Labyrinthos": []
+   "Labyrinthos": [
+    "Leech"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15636,7 +15754,9 @@
   "name": "Gharlichthys",
   "id": 41408,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mackerel Strip"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15647,7 +15767,9 @@
   "name": "Snowy Parexus",
   "id": 41409,
   "zones": {
-   "Garlemald": []
+   "Garlemald": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15658,7 +15780,9 @@
   "name": "Furcacauda",
   "id": 41410,
   "zones": {
-   "Elpis": []
+   "Elpis": [
+    "Sky Spoon Lure"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15669,7 +15793,9 @@
   "name": "Lopoceras Elegans",
   "id": 41411,
   "zones": {
-   "Mare Lamentorum": []
+   "Mare Lamentorum": [
+    "Chimera Worm"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15680,7 +15806,9 @@
   "name": "Sidereal Whale",
   "id": 41412,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Panic Jig"
+   ]
   },
   "lvl": 90,
   "bigfish": true,
@@ -15691,7 +15819,9 @@
   "name": "Stargilt Lobster",
   "id": 41419,
   "zones": {
-   "Ultima Thule": []
+   "Ultima Thule": [
+    "Grey Worm"
+   ]
   },
   "lvl": 90,
   "folklore": 36608,
@@ -15707,7 +15837,9 @@
   "name": "Mosquito Fish",
   "id": 43664,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Popper Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15715,7 +15847,9 @@
   "name": "Pel Frog",
   "id": 43665,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 91
  },
@@ -15723,7 +15857,9 @@
   "name": "Petticoat Tetra",
   "id": 43666,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Honeybee"
+   ]
   },
   "lvl": 91
  },
@@ -15731,7 +15867,10 @@
   "name": "Reasonscale Silverside",
   "id": 43667,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Crimson Lugworm",
+    "Shucked Clam"
+   ]
   },
   "lvl": 91
  },
@@ -15739,7 +15878,9 @@
   "name": "Stardust Shrimp",
   "id": 43668,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Shucked Clam"
+   ]
   },
   "lvl": 91
  },
@@ -15747,7 +15888,9 @@
   "name": "Shallows Sot",
   "id": 43669,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 91
  },
@@ -15755,7 +15898,9 @@
   "name": "Ghostfish",
   "id": 43670,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 92
  },
@@ -15763,7 +15908,9 @@
   "name": "Permit",
   "id": 43671,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 92
  },
@@ -15771,7 +15918,9 @@
   "name": "Floating Fife",
   "id": 43672,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15779,7 +15928,9 @@
   "name": "Blue Purse",
   "id": 43673,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15787,7 +15938,9 @@
   "name": "Goldfin Cavalli",
   "id": 43674,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 92
  },
@@ -15795,7 +15948,9 @@
   "name": "Sea Alpaca",
   "id": 43675,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Silkmoth Pupa"
+   ]
   },
   "lvl": 91
  },
@@ -15803,7 +15958,9 @@
   "name": "Marbled Hatchetfish",
   "id": 43676,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15811,7 +15968,9 @@
   "name": "Starsnipper",
   "id": 43677,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Silkmoth Pupa"
+   ]
   },
   "lvl": 92
  },
@@ -15819,7 +15978,9 @@
   "name": "Urqotrout",
   "id": 43678,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Silkmoth Pupa"
+   ]
   },
   "lvl": 92
  },
@@ -15827,7 +15988,9 @@
   "name": "Yok Huy Stonecutter",
   "id": 43679,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "White Worm"
+   ]
   },
   "lvl": 92
  },
@@ -15835,7 +15998,9 @@
   "name": "Chirwagur Loach",
   "id": 43680,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Silkmoth Pupa"
+   ]
   },
   "lvl": 91
  },
@@ -15843,7 +16008,9 @@
   "name": "Alright Alright Alright",
   "id": 43681,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 93
  },
@@ -15851,7 +16018,9 @@
   "name": "Zorlortor",
   "id": 43682,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "White Worm"
+   ]
   },
   "lvl": 91
  },
@@ -15859,7 +16028,9 @@
   "name": "Shooting Starscale",
   "id": 43683,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 92
  },
@@ -15909,7 +16080,10 @@
   "name": "Kozama'uka Skipper",
   "id": 43689,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Honeybee",
+    "Popper Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15917,7 +16091,10 @@
   "name": "Bopo'u Sleeper",
   "id": 43690,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Metal Spinner",
+    "Popper Lure"
+   ]
   },
   "lvl": 91
  },
@@ -15925,7 +16102,9 @@
   "name": "Poison Dyefrog",
   "id": 43691,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 92
  },
@@ -15933,7 +16112,9 @@
   "name": "Pleated Matamata",
   "id": 43692,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 92
  },
@@ -15941,7 +16122,9 @@
   "name": "Uyuy Xage",
   "id": 43693,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 92
  },
@@ -15949,7 +16132,9 @@
   "name": "Plattershell",
   "id": 43694,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Honeybee"
+   ]
   },
   "lvl": 92
  },
@@ -15957,7 +16142,9 @@
   "name": "Candiru",
   "id": 43695,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Honeybee"
+   ]
   },
   "lvl": 92
  },
@@ -15965,7 +16152,9 @@
   "name": "Trahira",
   "id": 43696,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 93
  },
@@ -15973,7 +16162,9 @@
   "name": "Driftwood Catfish",
   "id": 43697,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 93
  },
@@ -15981,7 +16172,9 @@
   "name": "Oho Hunu",
   "id": 43698,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 93
  },
@@ -15989,7 +16182,9 @@
   "name": "Bronze Pleco",
   "id": 43699,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 93
  },
@@ -15997,7 +16192,9 @@
   "name": "Crenicichla",
   "id": 43700,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16005,7 +16202,9 @@
   "name": "Hunu Peacock Bass",
   "id": 43701,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 93
  },
@@ -16013,7 +16212,9 @@
   "name": "Pelubane",
   "id": 43702,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16021,7 +16222,9 @@
   "name": "Giant Trahira",
   "id": 43703,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16029,7 +16232,9 @@
   "name": "Ku'uxage Bitterling",
   "id": 43704,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 93
  },
@@ -16037,7 +16242,9 @@
   "name": "Tonguesnatcher",
   "id": 43705,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 93
  },
@@ -16045,7 +16252,9 @@
   "name": "Corn Dace",
   "id": 43706,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 94
  },
@@ -16053,7 +16262,9 @@
   "name": "Ka Puyhu",
   "id": 43707,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16061,7 +16272,10 @@
   "name": "Ligaka Guppy",
   "id": 43708,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure",
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16069,7 +16283,9 @@
   "name": "Dumplingfish",
   "id": 43709,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16077,7 +16293,9 @@
   "name": "Banded Candiru",
   "id": 43710,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16085,7 +16303,9 @@
   "name": "Oxydoras",
   "id": 43711,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 95
  },
@@ -16093,7 +16313,9 @@
   "name": "Spotted Stingray",
   "id": 43712,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 95
  },
@@ -16101,7 +16323,9 @@
   "name": "Yellow Peacock Bass",
   "id": 43713,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 100,
   "folklore": 43884,
@@ -16111,7 +16335,9 @@
   "name": "Shovelnose Catfish",
   "id": 43714,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16119,7 +16345,10 @@
   "name": "Shimmering Shadow",
   "id": 43715,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee",
+    "Metal Spinner"
+   ]
   },
   "lvl": 92
  },
@@ -16127,7 +16356,9 @@
   "name": "Ut'ohmu Dawnfish",
   "id": 43716,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 93
  },
@@ -16151,7 +16382,9 @@
   "name": "Iq Br'aax Sailfin",
   "id": 43719,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16159,7 +16392,9 @@
   "name": "Hunmu Ob",
   "id": 43720,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 94
  },
@@ -16167,7 +16402,9 @@
   "name": "Apoda",
   "id": 43721,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16175,7 +16412,9 @@
   "name": "Mirror Carp",
   "id": 43722,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Popper Lure"
+   ]
   },
   "lvl": 94
  },
@@ -16183,7 +16422,9 @@
   "name": "Tsoly Mu",
   "id": 43723,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16191,7 +16432,9 @@
   "name": "Iq Rrax Leaffish",
   "id": 43724,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16199,7 +16442,9 @@
   "name": "Archmatron Angelfish",
   "id": 43725,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee"
+   ]
   },
   "lvl": 95
  },
@@ -16207,7 +16452,9 @@
   "name": "Yak T'el Salamander",
   "id": 43726,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Popper Lure"
+   ]
   },
   "lvl": 95
  },
@@ -16215,7 +16462,9 @@
   "name": "Shadowtongue",
   "id": 43727,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Popper Lure"
+   ]
   },
   "lvl": 95
  },
@@ -16223,7 +16472,9 @@
   "name": "Cloud-eye Carp",
   "id": 43728,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 94
  },
@@ -16231,7 +16482,9 @@
   "name": "Xobr'it Lobster",
   "id": 43729,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee"
+   ]
   },
   "lvl": 94
  },
@@ -16239,7 +16492,9 @@
   "name": "Sunbright Axolotl",
   "id": 43730,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Cloud-Eye Carp"
+   ]
   },
   "lvl": 95
  },
@@ -16247,7 +16502,9 @@
   "name": "Horned Frog",
   "id": 43731,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Cloud-Eye Carp"
+   ]
   },
   "lvl": 96,
   "timed": 1
@@ -16256,7 +16513,11 @@
   "name": "Mudfish",
   "id": 43732,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Basket Of Red Maggots",
+    "Honeybee",
+    "Popper Lure"
+   ]
   },
   "lvl": 95
  },
@@ -16264,7 +16525,9 @@
   "name": "Turali Beaded Lizard",
   "id": 43733,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16272,7 +16535,10 @@
   "name": "Yak T'el Catfish",
   "id": 43734,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Honeybee",
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 96
  },
@@ -16280,7 +16546,9 @@
   "name": "Ankledeep Catfish",
   "id": 43735,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 97
  },
@@ -16288,7 +16556,9 @@
   "name": "Checkered Cichlid",
   "id": 43736,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16296,7 +16566,9 @@
   "name": "Moxutural Gar",
   "id": 43737,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Popper Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16304,7 +16576,9 @@
   "name": "Variatus",
   "id": 43738,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 96
  },
@@ -16312,7 +16586,9 @@
   "name": "Welkin Catfish",
   "id": 43739,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Popper Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16320,7 +16596,9 @@
   "name": "Flawless Saucer",
   "id": 43740,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 97
  },
@@ -16328,7 +16606,9 @@
   "name": "Glittergill",
   "id": 43741,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 96
  },
@@ -16336,7 +16616,9 @@
   "name": "Twig Catfish",
   "id": 43742,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 97
  },
@@ -16344,7 +16626,9 @@
   "name": "Blind Brotula",
   "id": 43743,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16352,7 +16636,9 @@
   "name": "Yak T'el Caiman",
   "id": 43744,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 97
  },
@@ -16360,7 +16646,9 @@
   "name": "Ut'ohmu Tiika",
   "id": 43745,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Shucked Clam"
+   ]
   },
   "lvl": 96
  },
@@ -16384,7 +16672,9 @@
   "name": "Xty'iinbek Sleeper",
   "id": 43748,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Yak T'El Crab"
+   ]
   },
   "lvl": 97
  },
@@ -16392,7 +16682,9 @@
   "name": "Chain Shark",
   "id": 43749,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Yak T'El Crab"
+   ]
   },
   "lvl": 100,
   "folklore": 43884,
@@ -16402,7 +16694,9 @@
   "name": "Bonytail Chub",
   "id": 43750,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Popper Lure"
+   ]
   },
   "lvl": 95
  },
@@ -16410,7 +16704,9 @@
   "name": "Niikwerepi Trout",
   "id": 43751,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Popper Lure"
+   ]
   },
   "lvl": 95
  },
@@ -16418,7 +16714,9 @@
   "name": "Pyariyoanaan Cichlid",
   "id": 43752,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 97
  },
@@ -16426,7 +16724,9 @@
   "name": "Shaaloani Salmon",
   "id": 43753,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Popper Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16434,7 +16734,9 @@
   "name": "Trailtrout",
   "id": 43754,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 97
  },
@@ -16442,7 +16744,9 @@
   "name": "Toari Sucker",
   "id": 43755,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 98
  },
@@ -16450,7 +16754,9 @@
   "name": "Turali Paddlefish",
   "id": 43756,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100
  },
@@ -16458,7 +16764,10 @@
   "name": "Zorgor Core",
   "id": 43757,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Cactuar Jig",
+    "Dragonfly"
+   ]
   },
   "lvl": 95
  },
@@ -16466,7 +16775,9 @@
   "name": "Cloudribbon",
   "id": 43758,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Cactuar Jig"
+   ]
   },
   "lvl": 96
  },
@@ -16474,7 +16785,9 @@
   "name": "Zorgor Scorpion",
   "id": 43759,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 96
  },
@@ -16482,7 +16795,9 @@
   "name": "Vagrant Cascade",
   "id": 43760,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 97
  },
@@ -16490,7 +16805,9 @@
   "name": "Zorgor Condor",
   "id": 43761,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Dragonfly"
+   ]
   },
   "lvl": 100
  },
@@ -16498,7 +16815,9 @@
   "name": "Cloud Wasp",
   "id": 43762,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Dragonfly"
+   ]
   },
   "lvl": 100,
   "folklore": 43885
@@ -16507,7 +16826,9 @@
   "name": "Azure Glider",
   "id": 43763,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Dragonfly"
+   ]
   },
   "lvl": 97
  },
@@ -16515,7 +16836,9 @@
   "name": "Hellsnow Shark",
   "id": 43764,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Cactuar Jig"
+   ]
   },
   "lvl": 97
  },
@@ -16523,7 +16846,9 @@
   "name": "Heritage Loach",
   "id": 43765,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Honeybee"
+   ]
   },
   "lvl": 97
  },
@@ -16531,7 +16856,9 @@
   "name": "Outskirts Sniffer",
   "id": 43766,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Honeybee"
+   ]
   },
   "lvl": 97
  },
@@ -16539,7 +16866,9 @@
   "name": "Pumpkin Perch",
   "id": 43767,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 97
  },
@@ -16547,7 +16876,9 @@
   "name": "Tiger Muskellunge",
   "id": 43768,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 98
  },
@@ -16555,7 +16886,9 @@
   "name": "Moon Croppie",
   "id": 43769,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Popper Lure"
+   ]
   },
   "lvl": 98
  },
@@ -16563,7 +16896,9 @@
   "name": "Driftdowns Trout",
   "id": 43770,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 98
  },
@@ -16571,7 +16906,10 @@
   "name": "Electrobetta",
   "id": 43771,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Popper Lure",
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 97
  },
@@ -16579,7 +16917,9 @@
   "name": "Thundering Redbelly",
   "id": 43772,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 98
  },
@@ -16587,7 +16927,9 @@
   "name": "Yyasulani Bowfin",
   "id": 43773,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 98
  },
@@ -16595,7 +16937,9 @@
   "name": "Crackling Flounder",
   "id": 43774,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 99
  },
@@ -16603,7 +16947,9 @@
   "name": "Goldgrouper",
   "id": 43775,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Popper Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16611,7 +16957,9 @@
   "name": "Everkeep Yabby",
   "id": 43776,
   "zones": {
-   "Solution Nine": []
+   "Solution Nine": [
+    "Popper Lure"
+   ]
   },
   "lvl": 98
  },
@@ -16619,7 +16967,9 @@
   "name": "Stickleback",
   "id": 43777,
   "zones": {
-   "Solution Nine": []
+   "Solution Nine": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 98
  },
@@ -16627,7 +16977,9 @@
   "name": "Custodian Carp",
   "id": 43778,
   "zones": {
-   "Solution Nine": []
+   "Solution Nine": [
+    "Golden Stonefly Nymph"
+   ]
   },
   "lvl": 98
  },
@@ -16635,7 +16987,9 @@
   "name": "Mosaic Loach",
   "id": 43779,
   "zones": {
-   "Solution Nine": []
+   "Solution Nine": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 98
  },
@@ -16643,7 +16997,10 @@
   "name": "Rosebud Frog",
   "id": 43780,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Popper Lure",
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 98
  },
@@ -16651,7 +17008,10 @@
   "name": "Knight Goby",
   "id": 43781,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Basket Of Red Maggots",
+    "Popper Lure"
+   ]
   },
   "lvl": 99
  },
@@ -16659,7 +17019,9 @@
   "name": "Windspath Eel",
   "id": 43782,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100
  },
@@ -16667,7 +17029,9 @@
   "name": "Harlequin Lancer",
   "id": 43783,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16675,7 +17039,9 @@
   "name": "Cleyran Carp",
   "id": 43784,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100
  },
@@ -16683,7 +17049,9 @@
   "name": "Giant Snakehead",
   "id": 43785,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Popper Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16691,7 +17059,9 @@
   "name": "Datnioides",
   "id": 43786,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 99
  },
@@ -16699,7 +17069,9 @@
   "name": "Neo Arowana",
   "id": 43787,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16707,7 +17079,9 @@
   "name": "Canal Bream",
   "id": 43788,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Shucked Clam"
+   ]
   },
   "lvl": 99
  },
@@ -16715,7 +17089,10 @@
   "name": "Iris Wrasse",
   "id": 43789,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Ghost Nipper",
+    "Shucked Clam"
+   ]
   },
   "lvl": 99
  },
@@ -16723,7 +17100,9 @@
   "name": "Canal Drum",
   "id": 43790,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Shucked Clam"
+   ]
   },
   "lvl": 100
  },
@@ -16731,7 +17110,9 @@
   "name": "Butterfly Ray",
   "id": 43791,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16739,7 +17120,9 @@
   "name": "Hydro Louvar",
   "id": 43792,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100,
   "folklore": 43886
@@ -16748,7 +17131,9 @@
   "name": "Devotion Clam",
   "id": 43793,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Shucked Clam"
+   ]
   },
   "lvl": 99
  },
@@ -16756,7 +17141,9 @@
   "name": "Forgotten One",
   "id": 43794,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
   },
   "lvl": 100
  },
@@ -16764,7 +17151,9 @@
   "name": "Copper Shark",
   "id": 43795,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
   },
   "lvl": 100,
   "folklore": 43886,
@@ -16774,7 +17163,9 @@
   "name": "Golden Day",
   "id": 43796,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 99
  },
@@ -16782,7 +17173,9 @@
   "name": "Starglass Gibel",
   "id": 43797,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Popper Lure"
+   ]
   },
   "lvl": 99
  },
@@ -16790,7 +17183,9 @@
   "name": "Scarlet Queen",
   "id": 43798,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16798,7 +17193,9 @@
   "name": "Ultimoat Carp",
   "id": 43799,
   "zones": {
-   "Living Memory": []
+   "Living Memory": [
+    "Versatile Lure"
+   ]
   },
   "lvl": 100
  },
@@ -16856,7 +17253,9 @@
   "name": "Oily Ropefish",
   "id": 44334,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 91
  },
@@ -16864,7 +17263,9 @@
   "name": "Yak Awak Core",
   "id": 44335,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 91
  },
@@ -16872,7 +17273,9 @@
   "name": "Inktopus",
   "id": 44336,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 92
  },
@@ -16880,7 +17283,9 @@
   "name": "Honeycomb Sponge",
   "id": 44337,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 92
  },
@@ -16888,7 +17293,9 @@
   "name": "Cenote Oyster",
   "id": 44338,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 93
  },
@@ -16896,7 +17303,9 @@
   "name": "Icuvlo's Barter",
   "id": 44339,
   "zones": {
-   "Tuliyollal": []
+   "Tuliyollal": [
+    "Crimson Lugworm"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16907,7 +17316,9 @@
   "name": "Moongripper",
   "id": 44340,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "White Worm"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16918,7 +17329,9 @@
   "name": "Cazuela Crab",
   "id": 44341,
   "zones": {
-   "Kozama'uka": []
+   "Kozama'uka": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16929,7 +17342,9 @@
   "name": "Stardust Sleeper",
   "id": 44342,
   "zones": {
-   "Yak T'el": []
+   "Yak T'el": [
+    "Yak T'El Crab"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16951,7 +17366,9 @@
   "name": "Pixel Loach",
   "id": 44344,
   "zones": {
-   "Solution Nine": []
+   "Solution Nine": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16962,7 +17379,9 @@
   "name": "Hwittayoanaan Cichlid",
   "id": 44345,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Basket Of Red Maggots"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16973,7 +17392,9 @@
   "name": "Thunderswift Trout",
   "id": 44346,
   "zones": {
-   "Heritage Found": []
+   "Heritage Found": [
+    "Metal Spinner"
+   ]
   },
   "lvl": 100,
   "bigfish": true,
@@ -16984,7 +17405,9 @@
   "name": "Cloudsail",
   "id": 44347,
   "zones": {
-   "Shaaloani": []
+   "Shaaloani": [
+    "Cactuar Jig"
+   ]
   },
   "lvl": 100,
   "folklore": 43885,

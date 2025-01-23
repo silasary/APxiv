@@ -386,7 +386,11 @@ def scrape_cat(baitless) -> bool:
                 if best[0]:
                     name = best[0].title()
                     if name in all_fish:
-                        name = all_fish[name]['zones'].get(zone, [])[0]
+                        mooch = all_fish[name]['zones'].get(zone, [])
+                        if not mooch:
+                            print(f"Found mooch for {fish} in {zone}: {name} but no mooch data")
+                            continue
+                        name = mooch[0]
                     baits = all_fish[fish]['zones'].setdefault(zone, [])
                     if name not in baits:
                         baits.append(name)
