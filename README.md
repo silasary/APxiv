@@ -72,7 +72,7 @@ Note: Almost everything listed below can be disabled with yaml options, have a r
 The plugin connects to the Archipelago Servers and does a few useful things:
 * Shows text chat and recieved items
 * Provides several in-game UI Elements to help you track what's in logic
-* Automatically sends checks (When they are in logic)
+* Automatically sends checks (only if they are in logic)
 
 The Plugin does not:
 * Prevent you from doing anything in-game
