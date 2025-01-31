@@ -28,6 +28,10 @@ namespace ArchipelagoXIV.Rando
                 Levels[BLU] = MaxLevel();
         }
 
+        internal override void Ready()
+        {
+        }
+
         internal override VictoryType GoalType => VictoryType.MaskedCarnivale30;
     }
 }

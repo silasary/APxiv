@@ -1,5 +1,6 @@
 using Archipelago.MultiClient.Net.Models;
 using Lumina.Excel.Sheets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,7 +56,8 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
         {
-            DalamudApi.PluginLog.Information("Slot Data", slotData);
+            //DalamudApi.PluginLog.Information($"Slot Data: {slotData}");
+            this.SlotData = slotData;
             if (slotData.TryGetValue("fishsanity", out var fishsanity))
             {
                 FishingMatters = (fishsanity as bool?) ?? false;
@@ -74,6 +76,10 @@ namespace ArchipelagoXIV.Rando
             VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
             _ => "Unknown Goal",
         };
+
+        internal abstract void Ready();
+
         internal abstract VictoryType GoalType { get; }
+        public Dictionary<string, object> SlotData { get; private set; }
     }
 }

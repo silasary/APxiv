@@ -35,12 +35,10 @@ namespace ArchipelagoXIV.Rando
                 var job = Data.ClassJobs.First(j => j.Abbreviation == words[1]);
                 Levels[job] = MaxLevel(job);
             }
-            else if (itemName == "Memory of a Distant World")
+            
+            if ((McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
             {
-                if ((McGuffinCount = apState.Items.Count(i => i == itemName)) >= GoalCount)
-                {
-                    apState.CompleteGame();
-                }
+                apState.CompleteGame();
             }
         }
 
@@ -66,5 +64,10 @@ namespace ArchipelagoXIV.Rando
             1 => VictoryType.DefeatShinryu,
             _ => VictoryType.McGuffin,
         };
+
+        internal override void Ready()
+        {
+            McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World");
+        }
     }
 }
