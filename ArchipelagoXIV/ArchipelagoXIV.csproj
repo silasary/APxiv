@@ -3,13 +3,12 @@
     <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
     <PropertyGroup>
-        <Authors></Authors>
+        <Authors>Silasary</Authors>
         <Company></Company>
-        <Version>0.19.4.0</Version>
-        <Description>A sample plugin.</Description>
-        <Copyright></Copyright>
+        <Version>0.19.5.0</Version>
+        <Description>Archipelago Client</Description>
+        <Copyright>Silasary 2025</Copyright>
         <PackageProjectUrl>https://github.com/silasary/APxiv</PackageProjectUrl>
-
 
     </PropertyGroup>
 
