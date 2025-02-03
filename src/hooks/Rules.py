@@ -24,7 +24,7 @@ def anyClassLevel(world: World, multiworld: MultiWorld, state: CollectionState, 
             return True
     return False
 
-def anyCrafterLevel(world: World, mw: MultiWorld, state: CollectionState, player: int, level: str):
+def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState, player: int, level: str):
     """Has the player reached the given level in any class?"""
     if int(level) < 5:
         return True

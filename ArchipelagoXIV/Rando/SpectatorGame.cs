@@ -27,6 +27,10 @@ namespace ArchipelagoXIV.Rando
             return 0;
         }
 
+        internal override void Ready()
+        {
+        }
+
         internal override VictoryType GoalType => VictoryType.None;
     }
 }

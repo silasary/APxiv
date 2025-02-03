@@ -13,6 +13,9 @@ using FFXIVClientStructs.FFXIV.Client.UI;
 using Lumina.Excel.Sheets;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Packets;
+using static FFXIVClientStructs.FFXIV.Client.Game.UI.MapMarkerData.Delegates;
+using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
+using Dalamud.Game.Text.SeStringHandling;
 
 namespace ArchipelagoXIV
 {
@@ -36,9 +39,11 @@ namespace ArchipelagoXIV
         internal ArchipelagoSession? session = null;
 
         internal int slot;
+        internal string slotName;
         internal ClassJob lastJob;
         internal int lastFateCount;
         private int lastUpFateCount;
+        public DeathLinkService DeathLink { get; private set; }
         private readonly Configuration config;
 
         public TerritoryType territory { get; internal set; }
@@ -80,6 +85,7 @@ namespace ArchipelagoXIV
         public SaveFile? localsave { get; private set; }
         public bool Syncing { get; internal set; }
         public bool Loading { get; private set; }
+        public bool DeathLinkEnabled { get; private set; }
 
         internal void Disconnect()
         {
@@ -104,7 +110,9 @@ namespace ArchipelagoXIV
             {
                 player = localPlayer.Name.ToString();
             }
+            DeathLinkEnabled = false;
             var tags = new string[] { "Dalamud" };
+            slotName = player;
             if (this.Game is SpectatorGame)
                 tags = ["TextOnly"];
             else
@@ -147,15 +155,34 @@ namespace ArchipelagoXIV
             }
             config.GameName = this.Game.Name;
             config.Save();
+            this.DeathLink = session.CreateDeathLinkService();
+            if (loginSuccessful.SlotData.TryGetValue("death_link", out var deathlink)) {
+                if ((long)deathlink == 1)
+                {
+                    DeathLinkEnabled = true;
+                    DalamudApi.Echo($"Enabling Deathlink");
+                    this.DeathLink.EnableDeathLink();
+                }
+            }
 
             session.Items.ItemReceived += Items_ItemReceived;
             session.Locations.CheckedLocationsUpdated += Locations_CheckedLocationsUpdated;
             session.Socket.SocketClosed += Socket_SocketClosed;
             session.DataStorage.TrackHints(HandleHints, true);
+            this.DeathLink.OnDeathLinkReceived += Deathlink_DeathLinkReceived;
             LoadCache();
 
             DalamudApi.SetStatusBar("Connected");
 
+        }
+
+        private void Deathlink_DeathLinkReceived(DeathLink death)
+        {
+            DalamudApi.PluginLog.Information($"{death}, {death.Source}, {death.Cause}");
+            if (string.IsNullOrEmpty(death.Cause))
+                DalamudApi.Echo($"{death.Source} has died.");
+            else
+                DalamudApi.Echo(death.Cause);
         }
 
         private void LoadGame(string game)
@@ -394,7 +421,16 @@ namespace ArchipelagoXIV
 
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
         {
-            DalamudApi.PvPTeam(message.ToString(), "AP");
+            var messagetext = new SeStringBuilder();
+            foreach (var part in message.Parts)
+            {
+                if (!part.Color.Equals(Color.White))
+                    messagetext.AddUiForeground(part.Text, part.Color.APColourToUIColour());
+                else
+                    messagetext.Append(part.Text);
+            }
+
+            DalamudApi.PvPTeam(messagetext.Build(), "AP");
             if (message.Parts.Any(p => p.Type == MessagePartType.Player && p.Text == session.Players.GetPlayerAlias(slot)))
                 DalamudApi.ShowToast(message.ToString());
 
@@ -403,6 +439,7 @@ namespace ArchipelagoXIV
                 Loading = false;
                 RefreshRegions();
                 this.RefreshLocations(false);
+                Game.Ready();
                 UpdateBars();
             }
         }

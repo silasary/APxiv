@@ -185,14 +185,22 @@ namespace ArchipelagoXIV.Hooks
             static unsafe void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == content.Name);
+                var name = content.Name.ToString();
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                
 
                 if (location == null)
+                {
+                    DalamudApi.PluginLog.Information("Couldn't grant Amnesty for {0}", name);
                     return;
+                }
 
                 if (location.CanClearAsAnyClass())
                 {
-                    var message = $"Granted Queue Amnesty for {content.Name}";
+                    var message = $"Granted Queue Amnesty for {name}";
                     DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });
                     DalamudApi.Echo(message);
                     location.Complete();
@@ -200,7 +208,7 @@ namespace ArchipelagoXIV.Hooks
                 }
                 else
                 {
-                    DalamudApi.Echo($"Couldn't grant Queue Amnesty for {content.Name}, requirements not met.");
+                    DalamudApi.Echo($"Couldn't grant Queue Amnesty for {name}, requirements not met.");
                 }
             }
         }
