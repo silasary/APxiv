@@ -238,6 +238,7 @@ def generate_fish_list() -> list[dict]:
                 removed_fish[name] = loc
                 with open("removed_locations.json", "w") as f:
                     json.dump(removed_fish, f, indent=2)
+            _id += 1
             continue
 
         locations.append(loc)

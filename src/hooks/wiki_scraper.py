@@ -91,6 +91,9 @@ NOT_IN_FISHING_GUIDE = [
     "Weird Fish",
     "Wildlife Sample",
     "Zagas A'khaal",
+    # Splendid tools
+    "Forgiven Melancholy",
+    "Ronkan Bullion",
 ]
 
 @functools.lru_cache
@@ -242,15 +245,17 @@ def lookup_fish(id: int | str) -> dict:
     return fish
 
 def scrape_teamcraft():
-    all_fish = {}
+    all_fish = load_all_fish()
     fish_ids: list[int] = teamcraft_json('fishes')
     fish_ids.sort()
     for fish_id in fish_ids:
         fish = lookup_fish(fish_id)
         name = fish['name']
-        if name in NOT_IN_FISHING_GUIDE or name is False:
+        if name is False:
             continue
         all_fish.setdefault(name, fish)
+        if name in NOT_IN_FISHING_GUIDE:
+            all_fish[name]['tribal'] = True
 
     for hole in teamcraft_json('fishing-spots'):
         zone = datamining_csv('PlaceName')[str(hole['placeId'])]
@@ -319,7 +324,9 @@ def apply_bait() -> None:
                 print(f"No bait for {name} in {zone}")
             for bait in baits:
                 if bait not in bait_data:
-                    bait_data[bait] = {}
+                    bait_data[bait] = {
+                        "name": bait,
+                    }
         if not fish['zones']:
             # print(f"No zones for {name}")
             zoneless.append(name)
@@ -337,6 +344,8 @@ def apply_bait() -> None:
         yaml.dump(zoneless, h, indent=1)
     with open(data_path('baitless.yaml'), 'w', newline='') as h:
         yaml.dump(baitless, h, indent=1)
+    with open(data_path('bait.json'), 'w', newline='') as h:
+        json.dump(bait_data, h, indent=1)
 
 def fill_missing_bait() -> None:
     with open(data_path('baitless.yaml'), 'r', newline='') as h:
@@ -461,9 +470,17 @@ def cat_region_table(spot_id):
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
 
+def sort_fish():
+    all_fish = load_all_fish()
+    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1]['id']))
+    with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(sorted_fish, h, indent=1)
+
+
 if __name__ == "__main__":
     # scrape_bell()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
     fill_missing_bait()
+    sort_fish()

@@ -6478,6 +6478,13 @@
   "zones": {},
   "lvl": 70
  },
+ "Deep Velodyna Carp": {
+  "name": "Deep Velodyna Carp",
+  "id": 17949,
+  "zones": {},
+  "lvl": 64,
+  "tribal": true
+ },
  "Harutsuge Sprag": {
   "name": "Harutsuge Sprag",
   "id": 17950,
@@ -8081,6 +8088,188 @@
   "folklore": 17843,
   "timed": 1
  },
+ "Sunshell": {
+  "name": "Sunshell",
+  "id": 22668,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Steppe Barramundi": {
+  "name": "Steppe Barramundi",
+  "id": 22669,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Water Fan": {
+  "name": "Water Fan",
+  "id": 22670,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Arrowhead Snail": {
+  "name": "Arrowhead Snail",
+  "id": 22671,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Invisible Catfish": {
+  "name": "Invisible Catfish",
+  "id": 22672,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Khaal Crab": {
+  "name": "Khaal Crab",
+  "id": 22673,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Fish Offering": {
+  "name": "Fish Offering",
+  "id": 22674,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Fatty Eel": {
+  "name": "Fatty Eel",
+  "id": 22675,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Crimson Copperfish": {
+  "name": "Crimson Copperfish",
+  "id": 22676,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Zagas A'khaal": {
+  "name": "Zagas A'khaal",
+  "id": 22677,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Gigas Catfish": {
+  "name": "Gigas Catfish",
+  "id": 22678,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Rainbow Killifish": {
+  "name": "Rainbow Killifish",
+  "id": 22679,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Steppe Sweetfish": {
+  "name": "Steppe Sweetfish",
+  "id": 22680,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Greasy Strangler": {
+  "name": "Greasy Strangler",
+  "id": 22681,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Grass Shrimp": {
+  "name": "Grass Shrimp",
+  "id": 22682,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Flagon Clam": {
+  "name": "Flagon Clam",
+  "id": 22683,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Moon Oyster": {
+  "name": "Moon Oyster",
+  "id": 22684,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Leatherscale": {
+  "name": "Leatherscale",
+  "id": 22685,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Dusk Scallop": {
+  "name": "Dusk Scallop",
+  "id": 22686,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Spikefish": {
+  "name": "Spikefish",
+  "id": 22687,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Nhaama's Claw": {
+  "name": "Nhaama's Claw",
+  "id": 22688,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Spearhead Snail": {
+  "name": "Spearhead Snail",
+  "id": 22689,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Granite Hardscale": {
+  "name": "Granite Hardscale",
+  "id": 22690,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Plump Trout": {
+  "name": "Plump Trout",
+  "id": 22691,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Appleseed": {
+  "name": "Appleseed",
+  "id": 22692,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
+ "Crawling Cog": {
+  "name": "Crawling Cog",
+  "id": 22693,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
+ },
  "Shrieker": {
   "name": "Shrieker",
   "id": 23054,
@@ -8345,6 +8534,13 @@
    ]
   },
   "lvl": 65
+ },
+ "Fishy Fish": {
+  "name": "Fishy Fish",
+  "id": 23171,
+  "zones": {},
+  "lvl": 60,
+  "tribal": true
  },
  "Indigo Prismfish": {
   "name": "Indigo Prismfish",
@@ -10307,6 +10503,146 @@
   },
   "lvl": 1,
   "timed": 1
+ },
+ "Glowfish": {
+  "name": "Glowfish",
+  "id": 29564,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Shimmershell": {
+  "name": "Shimmershell",
+  "id": 29565,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Dalan's Claw": {
+  "name": "Dalan's Claw",
+  "id": 29566,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Magma Eel": {
+  "name": "Magma Eel",
+  "id": 29567,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Mossy Tortoise": {
+  "name": "Mossy Tortoise",
+  "id": 29568,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Clawbow": {
+  "name": "Splendid Clawbow",
+  "id": 29569,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Trout": {
+  "name": "Splendid Trout",
+  "id": 29570,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Eryops": {
+  "name": "Splendid Eryops",
+  "id": 29571,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Robber Crab": {
+  "name": "Splendid Robber Crab",
+  "id": 29572,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Poison Catfish": {
+  "name": "Splendid Poison Catfish",
+  "id": 29575,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Pondfrond": {
+  "name": "Splendid Pondfrond",
+  "id": 29576,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Spiralshell": {
+  "name": "Splendid Spiralshell",
+  "id": 29577,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Silver Kitten": {
+  "name": "Splendid Silver Kitten",
+  "id": 29580,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Magmatongue": {
+  "name": "Splendid Magmatongue",
+  "id": 29582,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Treescale": {
+  "name": "Splendid Treescale",
+  "id": 29583,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Pipira": {
+  "name": "Splendid Pipira",
+  "id": 29584,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Shellfish": {
+  "name": "Splendid Shellfish",
+  "id": 29585,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Egg-bearing Trout": {
+  "name": "Splendid Egg-bearing Trout",
+  "id": 29586,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Diamondtongue": {
+  "name": "Splendid Diamondtongue",
+  "id": 29587,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
+ },
+ "Splendid Larva": {
+  "name": "Splendid Larva",
+  "id": 29588,
+  "zones": {},
+  "lvl": 70,
+  "tribal": true
  },
  "Thinker's Coral": {
   "name": "Thinker's Coral",
@@ -14407,7 +14743,9 @@
   "name": "Mayashell",
   "id": 37697,
   "zones": {
-   "Thavnair": []
+   "Thavnair": [
+    "Mayfly"
+   ]
   },
   "lvl": 90,
   "folklore": 36606,
@@ -14529,6 +14867,174 @@
   "bigfish": true,
   "folklore": 36609,
   "timed": 2
+ },
+ "Soggy Alien Kelp": {
+  "name": "Soggy Alien Kelp",
+  "id": 38324,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Stellar Herring": {
+  "name": "Stellar Herring",
+  "id": 38325,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Meteoric Bonito": {
+  "name": "Meteoric Bonito",
+  "id": 38326,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Copperscale": {
+  "name": "Copperscale",
+  "id": 38327,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Methane Puffer": {
+  "name": "Methane Puffer",
+  "id": 38328,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Chemically Rich Fish": {
+  "name": "Chemically Rich Fish",
+  "id": 38329,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Wildlife Sample": {
+  "name": "Wildlife Sample",
+  "id": 38330,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Nondescript Fish": {
+  "name": "Nondescript Fish",
+  "id": 38331,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Fresh Seaweed": {
+  "name": "Fresh Seaweed",
+  "id": 38332,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Elysian Nudibranch": {
+  "name": "Elysian Nudibranch",
+  "id": 38333,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Sticky Fingers": {
+  "name": "Sticky Fingers",
+  "id": 38334,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Elysian Stickleback": {
+  "name": "Elysian Stickleback",
+  "id": 38335,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Saltwater Fish": {
+  "name": "Saltwater Fish",
+  "id": 38336,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Seaweed Snapper": {
+  "name": "Seaweed Snapper",
+  "id": 38337,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Karellian Fishy Fish": {
+  "name": "Karellian Fishy Fish",
+  "id": 38338,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Paraichthyoid": {
+  "name": "Paraichthyoid",
+  "id": 38339,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Supremest Crustacean": {
+  "name": "Supremest Crustacean",
+  "id": 38340,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Babycray": {
+  "name": "Babycray",
+  "id": 38341,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Silky Cosmocoral": {
+  "name": "Silky Cosmocoral",
+  "id": 38342,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Chromatic Fish": {
+  "name": "Chromatic Fish",
+  "id": 38343,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Dragon's Delight": {
+  "name": "Dragon's Delight",
+  "id": 38344,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Astral Algae": {
+  "name": "Astral Algae",
+  "id": 38345,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Weird Fish": {
+  "name": "Weird Fish",
+  "id": 38346,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
+ },
+ "Cosmic Sponge": {
+  "name": "Cosmic Sponge",
+  "id": 38347,
+  "zones": {},
+  "lvl": 80,
+  "tribal": true
  },
  "Platinum Seahorse": {
   "name": "Platinum Seahorse",
@@ -14733,10 +15239,9 @@
  "Forgiven Melancholy": {
   "name": "Forgiven Melancholy",
   "id": 39810,
-  "zones": {
-   "Lakeland": []
-  },
-  "lvl": 90
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
  },
  "Oil Slick": {
   "name": "Oil Slick",
@@ -15626,10 +16131,9 @@
  "Ronkan Bullion": {
   "name": "Ronkan Bullion",
   "id": 41299,
-  "zones": {
-   "The Rak'tika Greatwood": []
-  },
-  "lvl": 90
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
  },
  "Little Bounty": {
   "name": "Little Bounty",
@@ -16038,7 +16542,9 @@
   "name": "First Feastfish",
   "id": 43684,
   "zones": {
-   "Urqopacha": []
+   "Urqopacha": [
+    "Honeybee"
+   ]
   },
   "lvl": 93
  },
