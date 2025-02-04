@@ -201,7 +201,7 @@ def generate_fate_list():
 def generate_fish_list() -> list[dict]:
     _id = 20_000
     from ..Helpers import load_data_file
-    fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
+    fish = load_data_file("fish.json")
     removed_fish = load_data_file("removed_locations.json")
 
     locations = []
@@ -209,14 +209,20 @@ def generate_fish_list() -> list[dict]:
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
         zones = data['zones']
+        if not zones:
+            _id += 1
+            continue
         if len(zones) > 1:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_requires": {k:v for k,v in zones.items()}
+                "entrance_requires": {k:v for k,v in zones.items() if v}
             }
         else:
             region = next(iter(zones.keys()))
+            if not zones[region]:
+                _id += 1
+                continue
             requires += f" and |{zones[region][0]}|"
 
         loc = {
@@ -232,17 +238,18 @@ def generate_fish_list() -> list[dict]:
                 removed_fish[name] = loc
                 with open("removed_locations.json", "w") as f:
                     json.dump(removed_fish, f, indent=2)
+            _id += 1
             continue
 
         locations.append(loc)
         _id += 1
 
-
     return locations
 
 
 def generate_bait_list() -> list[dict]:
-    bait = json.loads(pkgutil.get_data(__name__, "bait.json"))
+    from ..Helpers import load_data_file
+    bait = load_data_file("bait.json")
     items = []
     for name, data in bait.items():
         if data.get('mooch'):

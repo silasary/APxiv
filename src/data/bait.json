@@ -755,5 +755,53 @@
   "id": 36518,
   "icon": 28962,
   "mooch": 1
+ },
+ "Pot Of Stardust": {
+  "name": "Pot Of Stardust"
+ },
+ "Select Bait Ball": {
+  "name": "Select Bait Ball"
+ },
+ "Plump Worm": {
+  "name": "Plump Worm"
+ },
+ "Popper Lure": {
+  "name": "Popper Lure"
+ },
+ "Golden Stonefly Nymph": {
+  "name": "Golden Stonefly Nymph"
+ },
+ "Honeybee": {
+  "name": "Honeybee"
+ },
+ "Crimson Lugworm": {
+  "name": "Crimson Lugworm"
+ },
+ "Shucked Clam": {
+  "name": "Shucked Clam"
+ },
+ "Silkmoth Pupa": {
+  "name": "Silkmoth Pupa"
+ },
+ "White Worm": {
+  "name": "White Worm"
+ },
+ "Cloud-Eye Carp": {
+  "name": "Cloud-Eye Carp"
+ },
+ "Basket Of Red Maggots": {
+  "name": "Basket Of Red Maggots"
+ },
+ "Yak T'El Crab": {
+  "name": "Yak T'El Crab"
+ },
+ "Cactuar Jig": {
+  "name": "Cactuar Jig"
+ },
+ "Dragonfly": {
+  "name": "Dragonfly"
+ },
+ "Ghost Nipper": {
+  "name": "Ghost Nipper"
  }
 }

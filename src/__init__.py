@@ -473,10 +473,6 @@ def add_client_to_launcher() -> None:
 
     if "manual" not in icon_paths:
         icon_paths["manual"] = Utils.user_path('data', 'manual.png')
-        if not os.path.exists(icon_paths["manual"]):
-            icon_url = "https://manualforarchipelago.github.io/ManualBuilder/images/ap-manual-discord-logo-square-96x96.png"
-            with open(icon_paths["manual"], 'wb') as f:
-                f.write(requests.get(icon_url).content)
 
     discord_component = None
     for c in components:
@@ -494,8 +490,7 @@ def add_client_to_launcher() -> None:
     if not discord_component:
         components.append(Component("Manual Discord Server", "ManualDiscord", func=lambda: webbrowser.open("https://discord.gg/hm4rQnTzQ5"), icon="discord", component_type=Type.ADJUSTER))
 
-if 'Launcher' in sys.modules or sys.modules['__main__'].__spec__.name == "Launcher":
-    add_client_to_launcher()
+add_client_to_launcher()
 
 
 class NonManualWorld(ManualWorld):
