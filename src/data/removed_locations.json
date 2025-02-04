@@ -162,5 +162,10 @@
       "name": "Crawling Cog",
       "region": "The Azim Steppe",
       "requires": "|5 FSH Levels:12| and |Salmon Roe|"
+    },
+    "Timeworn Kumbhiraskin Map": {
+        "name": "Timeworn Kumbhiraskin Map",
+        "region": "Ultima Thule",
+        "requires": "|5 FSH Levels:17| and |Panic Jig|"
     }
   }
