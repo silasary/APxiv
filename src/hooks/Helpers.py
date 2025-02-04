@@ -13,6 +13,12 @@ def before_is_category_enabled(multiworld: MultiWorld, player: int, category_nam
         return Helpers.is_option_enabled(multiworld, player, "fatesanity")
     if category_name == "FATEs":
         return not Helpers.is_option_enabled(multiworld, player, "fatesanity")
+    if category_name == "fishsanity":
+        return Helpers.get_option_value(multiworld, player, "fishsanity") > 0
+    if category_name == "Timed Fish":
+        return Helpers.get_option_value(multiworld, player, "fishsanity") > 1
+    if category_name == "Big Fishing":
+        return Helpers.get_option_value(multiworld, player, "fishsanity") > 2
     return None
 
 # Use this if you want to override the default behavior of is_option_enabled

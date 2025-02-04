@@ -8,3 +8,4 @@ bin/
 /*.code-workspace
 /src/data/zoneless.yaml
 /src/data/baitless.yaml
+/data/

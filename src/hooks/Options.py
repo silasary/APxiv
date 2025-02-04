@@ -112,20 +112,18 @@ class AllowMainScenario(DefaultOnToggle):
     These duties are long and contain unskippable cutscenes.
     """
 
-class Fishsanity(Toggle):
+class Fishsanity(Choice):
     """
     Include individual fish in the location pool.
-    """
 
-class FishsanityBigFish(Toggle):
+    Each tier of fish includes the previous tiers.  For example, if you select "timed fish", you will also get "normal fish".
+    Big fish includes things like the "Ruby Dragon" and "Python Discus", which can be unavailable for weeks at a time.
     """
-    Include big fish in the location pool.
-    """
-
-class FishsanityTimedFish(Toggle):
-    """
-    Include timed and weather-dependant fish in the location pool.
-    """
+    option_disabled = 0
+    option_normal_fish = 1
+    option_timed_fish = 2
+    option_big_fish = 3
+    default = 0
 
 class IncludePvP(Toggle):
     """
@@ -154,8 +152,6 @@ def before_options_defined(options: dict) -> dict:
     options["include_unreasonable_fates"] = UnreasonableFates
     # Fish
     options["fishsanity"] = Fishsanity
-    options["fishsanity_big_fish"] = FishsanityBigFish
-    options["fishsanity_timed_fish"] = FishsanityTimedFish
     # Jobs
     options["force_jobs"] = ForceJob
     # options["level_cap"] = LevelCap
