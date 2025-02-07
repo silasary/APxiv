@@ -15,6 +15,8 @@ namespace ArchipelagoXIV
         public string Connection { get; set; } = "";
         public string SlotName { get; set; } = "";
         public string GameName { get; set; } = "";
+        public bool ForceDeathlink { get; set; } = false;
+        public bool IgnoreClassRestrictions { get; set; } = false;
 
         public void Initialize(IDalamudPluginInterface pluginInterface)
         {

@@ -23,7 +23,7 @@
             <Visible>false</Visible>
         </Content>
         <EmbeddedResource Include="..\src\data\removed_locations.json" Link="removed_locations.json" />
-        <EmbeddedResource Include="..\src\hooks\fish.json" Link="fish.json" />
+        <EmbeddedResource Include="..\src\data\fish.json" Link="fish.json" />
         <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
         <EmbeddedResource Include="..\src\hooks\duties.csv" Link="duties.csv" />
         <EmbeddedResource Include="..\src\hooks\fates.csv" Link="fates.csv" />

@@ -53,6 +53,8 @@ namespace ArchipelagoXIV
         public bool CanTeleport { get; internal set; } = true;
         public bool CanReturn { get; internal set; } = true;
 
+        public bool ApplyClassRestrictions { get => !config.IgnoreClassRestrictions; }
+
         public string? JobText
         {
             get
@@ -163,6 +165,12 @@ namespace ArchipelagoXIV
                     DalamudApi.Echo($"Enabling Deathlink");
                     this.DeathLink.EnableDeathLink();
                 }
+            }
+            if (!DeathLinkEnabled && config.ForceDeathlink)
+            {
+                DeathLinkEnabled = true;
+                DalamudApi.Echo($"Enabling Deathlink");
+                this.DeathLink.EnableDeathLink();
             }
 
             session.Items.ItemReceived += Items_ItemReceived;

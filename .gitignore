@@ -9,3 +9,6 @@ bin/
 /src/data/zoneless.yaml
 /src/data/baitless.yaml
 /data/
+
+/.env
+/.venv/

@@ -10,19 +10,23 @@ public class ConfigWindow : Window, IDisposable
     private readonly Configuration Configuration;
     private string slotName;
     private string connection;
+    private bool force_deathlink;
+    private bool ignore_class_restrictions;
 
     public ConfigWindow(Plugin plugin, ApState apState) : base(
         "AP Config",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 125);
+        this.Size = new Vector2(232, 175);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
         ApState = apState;
         this.slotName = Configuration.SlotName;
         this.connection = Configuration.Connection;
+        this.force_deathlink = Configuration.ForceDeathlink;
+        this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
     }
 
     public ApState ApState { get; }
@@ -33,6 +37,8 @@ public class ConfigWindow : Window, IDisposable
     {
         this.slotName = Configuration.SlotName;
         this.connection = Configuration.Connection;
+        this.force_deathlink = Configuration.ForceDeathlink;
+        this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
     }
 
     public override void Draw()
@@ -47,10 +53,14 @@ public class ConfigWindow : Window, IDisposable
         //}
         ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref slotName, 63);
         ImGui.InputTextWithHint("Address", "archipelago.gg:38281", ref connection, 64);
+        ImGui.Checkbox("Death Link always enabled", ref force_deathlink);
+        ImGui.Checkbox("Ignore Class Restrictions", ref ignore_class_restrictions);
         if (ImGui.Button("Save & Connect"))
         {
             Configuration.Connection = connection;
             Configuration.SlotName = slotName;
+            Configuration.ForceDeathlink = force_deathlink;
+            Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
             Configuration.Save();
             ApState.Connect(Configuration.Connection, Configuration.SlotName);
         }

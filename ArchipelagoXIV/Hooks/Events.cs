@@ -102,7 +102,8 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
-            if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
+            var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
+            if (canReach && atLevel)
             {
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                 if (location == null)
