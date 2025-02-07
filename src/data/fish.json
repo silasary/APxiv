@@ -592,8 +592,6 @@
   "name": "Raincaller",
   "id": 4905,
   "zones": {
-   "Old Gridania": [],
-   "New Gridania": [],
    "Gridania": [
     "Stem Borer"
    ]
@@ -839,8 +837,6 @@
    "Western Thanalan": [
     "Moth Pupa"
    ],
-   "Old Gridania": [],
-   "New Gridania": [],
    "Gridania": [
     "Moth Pupa"
    ]
@@ -968,8 +964,6 @@
    "East Shroud": [
     "Crayfish Ball"
    ],
-   "Old Gridania": [],
-   "New Gridania": [],
    "The Lavender Beds": [
     "Crayfish Ball"
    ],
@@ -1011,8 +1005,6 @@
    "Western Thanalan": [
     "Crayfish Ball"
    ],
-   "Old Gridania": [],
-   "New Gridania": [],
    "Gridania": [
     "Crayfish Ball"
    ]
@@ -1072,8 +1064,6 @@
    "Central Thanalan": [
     "Wildfowl Fly"
    ],
-   "Old Gridania": [],
-   "New Gridania": [],
    "Gridania": [
     "Wildfowl Fly"
    ]
@@ -1303,11 +1293,9 @@
    "Lower La Noscea": [
     "Crow Fly"
    ],
-   "Old Gridania": [],
    "Southern Thanalan": [
     "Crow Fly"
    ],
-   "New Gridania": [],
    "Gridania": [
     "Crow Fly"
    ]
@@ -3104,7 +3092,6 @@
   "name": "Bloody Brewer",
   "id": 7696,
   "zones": {
-   "New Gridania": [],
    "Gridania": [
     "Crayfish Ball"
    ]
@@ -3165,7 +3152,6 @@
   "name": "Carp Diem",
   "id": 7701,
   "zones": {
-   "Old Gridania": [],
    "Gridania": [
     "Crow Fly"
    ]
@@ -3250,7 +3236,6 @@
   "name": "Matron Carp",
   "id": 7708,
   "zones": {
-   "Old Gridania": [],
    "Gridania": [
     "Bloodworm"
    ]
@@ -3311,7 +3296,6 @@
   "name": "Stormdancer",
   "id": 7713,
   "zones": {
-   "New Gridania": [],
    "Gridania": [
     "Stem Borer"
    ]
@@ -7591,8 +7575,7 @@
     "Suspending Minnow",
     "Stonefly Larva",
     "Metal Spinner"
-   ],
-   "The Diadem": []
+   ]
   },
   "lvl": 69
  },
@@ -7640,8 +7623,7 @@
    ],
    "Shirogane": [
     "Metal Spinner"
-   ],
-   "The Diadem": []
+   ]
   },
   "lvl": 64
  },
@@ -10457,50 +10439,38 @@
  "Galadion Goby": {
   "name": "Galadion Goby",
   "id": 28937,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Galadion Chovy": {
   "name": "Galadion Chovy",
   "id": 28938,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Rosy Bream": {
   "name": "Rosy Bream",
   "id": 28939,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Tripod Fish": {
   "name": "Tripod Fish",
   "id": 28940,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Sunfly": {
   "name": "Sunfly",
   "id": 28941,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Tarnished Shark": {
   "name": "Tarnished Shark",
   "id": 28942,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
@@ -10667,227 +10637,173 @@
  "Tossed Dagger": {
   "name": "Tossed Dagger",
   "id": 29718,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Jasperhead": {
   "name": "Jasperhead",
   "id": 29719,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Merlthor Lobster": {
   "name": "Merlthor Lobster",
   "id": 29720,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Heavenswimmer": {
   "name": "Heavenswimmer",
   "id": 29721,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Ghoul Barracuda": {
   "name": "Ghoul Barracuda",
   "id": 29722,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Leopard Eel": {
   "name": "Leopard Eel",
   "id": 29723,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Marine Bomb": {
   "name": "Marine Bomb",
   "id": 29724,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Momora Mora": {
   "name": "Momora Mora",
   "id": 29725,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Merlthor Butterfly": {
   "name": "Merlthor Butterfly",
   "id": 29726,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Gladius": {
   "name": "Gladius",
   "id": 29727,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Rhotano Wahoo": {
   "name": "Rhotano Wahoo",
   "id": 29728,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Rhotano Sardine": {
   "name": "Rhotano Sardine",
   "id": 29729,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Deep Plaice": {
   "name": "Deep Plaice",
   "id": 29730,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Crimson Monkfish": {
   "name": "Crimson Monkfish",
   "id": 29731,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Lampfish": {
   "name": "Lampfish",
   "id": 29732,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Ogre Eel": {
   "name": "Ogre Eel",
   "id": 29733,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Cyan Octopus": {
   "name": "Cyan Octopus",
   "id": 29734,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Chrome Hammerhead": {
   "name": "Chrome Hammerhead",
   "id": 29735,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Floefish": {
   "name": "Floefish",
   "id": 29736,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Megasquid": {
   "name": "Megasquid",
   "id": 29737,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Oschon's Stone": {
   "name": "Oschon's Stone",
   "id": 29738,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "La Noscean Jelly": {
   "name": "La Noscean Jelly",
   "id": 29739,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Shaggy Seadragon": {
   "name": "Shaggy Seadragon",
   "id": 29740,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Net Crawler": {
   "name": "Net Crawler",
   "id": 29741,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Dark Nautilus": {
   "name": "Dark Nautilus",
   "id": 29742,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Elder Dinichthys": {
   "name": "Elder Dinichthys",
   "id": 29743,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Drunkfish": {
   "name": "Drunkfish",
   "id": 29744,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10895,9 +10811,7 @@
  "Little Leviathan": {
   "name": "Little Leviathan",
   "id": 29745,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10905,9 +10819,7 @@
  "Sabaton": {
   "name": "Sabaton",
   "id": 29746,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10915,9 +10827,7 @@
  "Shooting Star": {
   "name": "Shooting Star",
   "id": 29747,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10925,9 +10835,7 @@
  "Hammerclaw": {
   "name": "Hammerclaw",
   "id": 29748,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10935,9 +10843,7 @@
  "Heavenskey": {
   "name": "Heavenskey",
   "id": 29749,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10945,9 +10851,7 @@
  "Ghost Shark": {
   "name": "Ghost Shark",
   "id": 29750,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10955,9 +10859,7 @@
  "Quicksilver Blade": {
   "name": "Quicksilver Blade",
   "id": 29751,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10965,9 +10867,7 @@
  "Navigator's Print": {
   "name": "Navigator's Print",
   "id": 29752,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10975,9 +10875,7 @@
  "Casket Oyster": {
   "name": "Casket Oyster",
   "id": 29753,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10985,9 +10883,7 @@
  "Fishmonger": {
   "name": "Fishmonger",
   "id": 29754,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -10995,9 +10891,7 @@
  "Mythril Sovereign": {
   "name": "Mythril Sovereign",
   "id": 29755,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11005,9 +10899,7 @@
  "Nimble Dancer": {
   "name": "Nimble Dancer",
   "id": 29756,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11015,9 +10907,7 @@
  "Sea Nettle": {
   "name": "Sea Nettle",
   "id": 29757,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11025,9 +10915,7 @@
  "Great Grandmarlin": {
   "name": "Great Grandmarlin",
   "id": 29758,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11035,9 +10923,7 @@
  "Shipwreck's Sail": {
   "name": "Shipwreck's Sail",
   "id": 29759,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11045,9 +10931,7 @@
  "Azeyma's Sleeve": {
   "name": "Azeyma's Sleeve",
   "id": 29760,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11055,9 +10939,7 @@
  "Hi-aetherlouse": {
   "name": "Hi-aetherlouse",
   "id": 29761,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11065,9 +10947,7 @@
  "Floating Saucer": {
   "name": "Floating Saucer",
   "id": 29762,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11075,9 +10955,7 @@
  "Aetheric Seadragon": {
   "name": "Aetheric Seadragon",
   "id": 29763,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11085,9 +10963,7 @@
  "Coral Seadragon": {
   "name": "Coral Seadragon",
   "id": 29764,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11095,9 +10971,7 @@
  "Roguesaurus": {
   "name": "Roguesaurus",
   "id": 29765,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11105,9 +10979,7 @@
  "Merman's Mane": {
   "name": "Merman's Mane",
   "id": 29766,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11115,9 +10987,7 @@
  "Sweeper": {
   "name": "Sweeper",
   "id": 29767,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11125,9 +10995,7 @@
  "Silencer": {
   "name": "Silencer",
   "id": 29768,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11135,9 +11003,7 @@
  "Deep-sea Eel": {
   "name": "Deep-sea Eel",
   "id": 29769,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11145,9 +11011,7 @@
  "Executioner": {
   "name": "Executioner",
   "id": 29770,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11155,9 +11019,7 @@
  "Wild Urchin": {
   "name": "Wild Urchin",
   "id": 29771,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11165,9 +11027,7 @@
  "True Barramundi": {
   "name": "True Barramundi",
   "id": 29772,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11175,9 +11035,7 @@
  "Mopbeard": {
   "name": "Mopbeard",
   "id": 29773,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11185,9 +11043,7 @@
  "Slipsnail": {
   "name": "Slipsnail",
   "id": 29774,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11195,9 +11051,7 @@
  "Aronnax": {
   "name": "Aronnax",
   "id": 29775,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11205,9 +11059,7 @@
  "Coccosteus": {
   "name": "Coccosteus",
   "id": 29776,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11215,9 +11067,7 @@
  "Bartholomew the Chopper": {
   "name": "Bartholomew the Chopper",
   "id": 29777,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11225,9 +11075,7 @@
  "Prowler": {
   "name": "Prowler",
   "id": 29778,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11235,9 +11083,7 @@
  "Charlatan Survivor": {
   "name": "Charlatan Survivor",
   "id": 29779,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11245,9 +11091,7 @@
  "Prodigal Son": {
   "name": "Prodigal Son",
   "id": 29780,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11255,9 +11099,7 @@
  "Gugrusaurus": {
   "name": "Gugrusaurus",
   "id": 29781,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11265,9 +11107,7 @@
  "Funnel Shark": {
   "name": "Funnel Shark",
   "id": 29782,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11275,9 +11115,7 @@
  "The Fallen One": {
   "name": "The Fallen One",
   "id": 29783,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11285,9 +11123,7 @@
  "Spectral Megalodon": {
   "name": "Spectral Megalodon",
   "id": 29784,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11295,9 +11131,7 @@
  "Spectral Discus": {
   "name": "Spectral Discus",
   "id": 29785,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11305,9 +11139,7 @@
  "Spectral Sea Bo": {
   "name": "Spectral Sea Bo",
   "id": 29786,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11315,9 +11147,7 @@
  "Spectral Bass": {
   "name": "Spectral Bass",
   "id": 29787,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -11325,9 +11155,7 @@
  "Sothis": {
   "name": "Sothis",
   "id": 29788,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -11335,9 +11163,7 @@
  "Coral Manta": {
   "name": "Coral Manta",
   "id": 29789,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -11345,9 +11171,7 @@
  "Stonescale": {
   "name": "Stonescale",
   "id": 29790,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -11355,9 +11179,7 @@
  "Elasmosaurus": {
   "name": "Elasmosaurus",
   "id": 29791,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -11365,153 +11187,119 @@
  "Grade 2 Skybuilders' Cloudskipper": {
   "name": "Grade 2 Skybuilders' Cloudskipper",
   "id": 29994,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 1,
   "tribal": true
  },
  "Grade 2 Skybuilders' Meditator": {
   "name": "Grade 2 Skybuilders' Meditator",
   "id": 29995,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 1,
   "tribal": true
  },
  "Grade 2 Skybuilders' Coeurlfish": {
   "name": "Grade 2 Skybuilders' Coeurlfish",
   "id": 29996,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 1,
   "tribal": true
  },
  "Grade 2 Skybuilders' Garpike": {
   "name": "Grade 2 Skybuilders' Garpike",
   "id": 29997,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 1,
   "tribal": true
  },
  "Grade 2 Skybuilders' Pirarucu": {
   "name": "Grade 2 Skybuilders' Pirarucu",
   "id": 29998,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 2 Skybuilders' Brown Bolo": {
   "name": "Grade 2 Skybuilders' Brown Bolo",
   "id": 29999,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 2 Skybuilders' Bitterling": {
   "name": "Grade 2 Skybuilders' Bitterling",
   "id": 30000,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 70,
   "tribal": true
  },
  "Grade 2 Skybuilders' Caiman": {
   "name": "Grade 2 Skybuilders' Caiman",
   "id": 30001,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 70,
   "tribal": true
  },
  "Grade 2 Skybuilders' Cloud Cutter": {
   "name": "Grade 2 Skybuilders' Cloud Cutter",
   "id": 30002,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Skybuilders' Vampiric Tapestry": {
   "name": "Grade 2 Skybuilders' Vampiric Tapestry",
   "id": 30003,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Skybuilders' Tupuxuara": {
   "name": "Grade 2 Skybuilders' Tupuxuara",
   "id": 30004,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Skybuilders' Blind Manta": {
   "name": "Grade 2 Skybuilders' Blind Manta",
   "id": 30005,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Artisanal Skybuilders' Rhomaleosaurus": {
   "name": "Grade 2 Artisanal Skybuilders' Rhomaleosaurus",
   "id": 30006,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Artisanal Skybuilders' Gobbie Mask": {
   "name": "Grade 2 Artisanal Skybuilders' Gobbie Mask",
   "id": 30007,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Artisanal Skybuilders' Pterodactyl": {
   "name": "Grade 2 Artisanal Skybuilders' Pterodactyl",
   "id": 30008,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Artisanal Skybuilders' Skyfish": {
   "name": "Grade 2 Artisanal Skybuilders' Skyfish",
   "id": 30009,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 2 Artisanal Skybuilders' Cometfish": {
   "name": "Grade 2 Artisanal Skybuilders' Cometfish",
   "id": 30010,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11520,9 +11308,7 @@
  "Grade 2 Artisanal Skybuilders' Anomalocaris": {
   "name": "Grade 2 Artisanal Skybuilders' Anomalocaris",
   "id": 30011,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11531,9 +11317,7 @@
  "Grade 2 Artisanal Skybuilders' Rhamphorhynchus": {
   "name": "Grade 2 Artisanal Skybuilders' Rhamphorhynchus",
   "id": 30012,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11542,9 +11326,7 @@
  "Grade 2 Artisanal Skybuilders' Dragon's Soul": {
   "name": "Grade 2 Artisanal Skybuilders' Dragon's Soul",
   "id": 30013,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11748,207 +11530,161 @@
  "Grade 3 Skybuilders' Thunderbolt Sculpin": {
   "name": "Grade 3 Skybuilders' Thunderbolt Sculpin",
   "id": 31578,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 3 Skybuilders' Alligator Snapping Turtle": {
   "name": "Grade 3 Skybuilders' Alligator Snapping Turtle",
   "id": 31579,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 3 Skybuilders' Bonytongue": {
   "name": "Grade 3 Skybuilders' Bonytongue",
   "id": 31580,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 3 Skybuilders' Hermit Goby": {
   "name": "Grade 3 Skybuilders' Hermit Goby",
   "id": 31581,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 3 Skybuilders' Mudskipper": {
   "name": "Grade 3 Skybuilders' Mudskipper",
   "id": 31582,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Steppe Bullfrog": {
   "name": "Grade 3 Skybuilders' Steppe Bullfrog",
   "id": 31583,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Golden Loach": {
   "name": "Grade 3 Skybuilders' Golden Loach",
   "id": 31584,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Bass": {
   "name": "Grade 3 Skybuilders' Bass",
   "id": 31585,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Cherax": {
   "name": "Grade 3 Skybuilders' Cherax",
   "id": 31586,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Marimo": {
   "name": "Grade 3 Skybuilders' Marimo",
   "id": 31587,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Catfish": {
   "name": "Grade 3 Skybuilders' Catfish",
   "id": 31588,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Ricefish": {
   "name": "Grade 3 Skybuilders' Ricefish",
   "id": 31589,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 3 Skybuilders' Scorpionfly": {
   "name": "Grade 3 Skybuilders' Scorpionfly",
   "id": 31590,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Skybuilders' Whiteloom": {
   "name": "Grade 3 Skybuilders' Whiteloom",
   "id": 31591,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Skybuilders' Pteranodon": {
   "name": "Grade 3 Skybuilders' Pteranodon",
   "id": 31592,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Skybuilders' King's Mantle": {
   "name": "Grade 3 Skybuilders' King's Mantle",
   "id": 31593,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Skybuilders' Blue Medusa": {
   "name": "Grade 3 Skybuilders' Blue Medusa",
   "id": 31594,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Skybuilders' Gurnard": {
   "name": "Grade 3 Skybuilders' Gurnard",
   "id": 31595,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Artisanal Skybuilders' Oscar": {
   "name": "Grade 3 Artisanal Skybuilders' Oscar",
   "id": 31596,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Artisanal Skybuilders' Blind Manta": {
   "name": "Grade 3 Artisanal Skybuilders' Blind Manta",
   "id": 31597,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Artisanal Skybuilders' Mosasaur": {
   "name": "Grade 3 Artisanal Skybuilders' Mosasaur",
   "id": 31598,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Artisanal Skybuilders' Storm Chaser": {
   "name": "Grade 3 Artisanal Skybuilders' Storm Chaser",
   "id": 31599,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 3 Artisanal Skybuilders' Archaeopteryx": {
   "name": "Grade 3 Artisanal Skybuilders' Archaeopteryx",
   "id": 31600,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11957,9 +11693,7 @@
  "Grade 3 Artisanal Skybuilders' Wyvern": {
   "name": "Grade 3 Artisanal Skybuilders' Wyvern",
   "id": 31601,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11968,9 +11702,7 @@
  "Grade 3 Artisanal Skybuilders' Cloudshark": {
   "name": "Grade 3 Artisanal Skybuilders' Cloudshark",
   "id": 31602,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -11979,9 +11711,7 @@
  "Grade 3 Artisanal Skybuilders' Helicoprion": {
   "name": "Grade 3 Artisanal Skybuilders' Helicoprion",
   "id": 31603,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -12088,76 +11818,58 @@
  "Tortoiseshell Crab": {
   "name": "Tortoiseshell Crab",
   "id": 32055,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Lady's Cameo": {
   "name": "Lady's Cameo",
   "id": 32056,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Metallic Boxfish": {
   "name": "Metallic Boxfish",
   "id": 32057,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Goobbue Ray": {
   "name": "Goobbue Ray",
   "id": 32058,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Watermoura": {
   "name": "Watermoura",
   "id": 32059,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "King Cobrafish": {
   "name": "King Cobrafish",
   "id": 32060,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Mamahi-mahi": {
   "name": "Mamahi-mahi",
   "id": 32061,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Lavandin Remora": {
   "name": "Lavandin Remora",
   "id": 32062,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Butterfly": {
   "name": "Spectral Butterfly",
   "id": 32063,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12165,9 +11877,7 @@
  "Cieldalaes Geode": {
   "name": "Cieldalaes Geode",
   "id": 32064,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12175,9 +11885,7 @@
  "Titanshell Crab": {
   "name": "Titanshell Crab",
   "id": 32065,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12185,9 +11893,7 @@
  "Mythril Boxfish": {
   "name": "Mythril Boxfish",
   "id": 32066,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12195,9 +11901,7 @@
  "Mistbeard's Cup": {
   "name": "Mistbeard's Cup",
   "id": 32067,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12205,9 +11909,7 @@
  "Anomalocaris Saron": {
   "name": "Anomalocaris Saron",
   "id": 32068,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12215,9 +11917,7 @@
  "Flaming Eel": {
   "name": "Flaming Eel",
   "id": 32069,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12225,9 +11925,7 @@
  "Jetborne Manta": {
   "name": "Jetborne Manta",
   "id": 32070,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12235,9 +11933,7 @@
  "Devil's Sting": {
   "name": "Devil's Sting",
   "id": 32071,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12245,9 +11941,7 @@
  "Callichthyid": {
   "name": "Callichthyid",
   "id": 32072,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12255,9 +11949,7 @@
  "Meandering Mora": {
   "name": "Meandering Mora",
   "id": 32073,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12265,9 +11957,7 @@
  "Hafgufa": {
   "name": "Hafgufa",
   "id": 32074,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -12275,76 +11965,58 @@
  "Thaliak Crab": {
   "name": "Thaliak Crab",
   "id": 32075,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Star of the Destroyer": {
   "name": "Star of the Destroyer",
   "id": 32076,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "True Scad": {
   "name": "True Scad",
   "id": 32077,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Blooded Wrasse": {
   "name": "Blooded Wrasse",
   "id": 32078,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Bloodpolish Crab": {
   "name": "Bloodpolish Crab",
   "id": 32079,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Blue Stitcher": {
   "name": "Blue Stitcher",
   "id": 32080,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Bloodfresh Tuna": {
   "name": "Bloodfresh Tuna",
   "id": 32081,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Sunken Mask": {
   "name": "Sunken Mask",
   "id": 32082,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Eel": {
   "name": "Spectral Eel",
   "id": 32083,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12352,9 +12024,7 @@
  "Bareface": {
   "name": "Bareface",
   "id": 32084,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12362,9 +12032,7 @@
  "Oracular Crab": {
   "name": "Oracular Crab",
   "id": 32085,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12372,9 +12040,7 @@
  "Dravanian Bream": {
   "name": "Dravanian Bream",
   "id": 32086,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12382,9 +12048,7 @@
  "Skaldminni": {
   "name": "Skaldminni",
   "id": 32087,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12392,9 +12056,7 @@
  "Serrated Clam": {
   "name": "Serrated Clam",
   "id": 32088,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12402,9 +12064,7 @@
  "Beatific Vision": {
   "name": "Beatific Vision",
   "id": 32089,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12412,9 +12072,7 @@
  "Exterminator": {
   "name": "Exterminator",
   "id": 32090,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12422,9 +12080,7 @@
  "Gory Tuna": {
   "name": "Gory Tuna",
   "id": 32091,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12432,9 +12088,7 @@
  "Ticinepomis": {
   "name": "Ticinepomis",
   "id": 32092,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12442,9 +12096,7 @@
  "Quartz Hammerhead": {
   "name": "Quartz Hammerhead",
   "id": 32093,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12452,9 +12104,7 @@
  "Seafaring Toad": {
   "name": "Seafaring Toad",
   "id": 32094,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -12462,76 +12112,58 @@
  "Crow Puffer": {
   "name": "Crow Puffer",
   "id": 32095,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Rothlyt Kelp": {
   "name": "Rothlyt Kelp",
   "id": 32096,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Living Lantern": {
   "name": "Living Lantern",
   "id": 32097,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Honeycomb Fish": {
   "name": "Honeycomb Fish",
   "id": 32098,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Godsbed": {
   "name": "Godsbed",
   "id": 32099,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Lansquenet": {
   "name": "Lansquenet",
   "id": 32100,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Thavnairian Shark": {
   "name": "Thavnairian Shark",
   "id": 32101,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Nephrite Eel": {
   "name": "Nephrite Eel",
   "id": 32102,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectresaur": {
   "name": "Spectresaur",
   "id": 32103,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12539,9 +12171,7 @@
  "Ginkgo Fin": {
   "name": "Ginkgo Fin",
   "id": 32104,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12549,9 +12179,7 @@
  "Garum Jug": {
   "name": "Garum Jug",
   "id": 32105,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12559,9 +12187,7 @@
  "Smooth Jaguar": {
   "name": "Smooth Jaguar",
   "id": 32106,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12569,9 +12195,7 @@
  "Rothlyt Mussel": {
   "name": "Rothlyt Mussel",
   "id": 32107,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12579,9 +12203,7 @@
  "Levi Elver": {
   "name": "Levi Elver",
   "id": 32108,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12589,9 +12211,7 @@
  "Pearl Bombfish": {
   "name": "Pearl Bombfish",
   "id": 32109,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12599,9 +12219,7 @@
  "Trollfish": {
   "name": "Trollfish",
   "id": 32110,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12609,9 +12227,7 @@
  "Panoptes": {
   "name": "Panoptes",
   "id": 32111,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12619,9 +12235,7 @@
  "Crepe Sole": {
   "name": "Crepe Sole",
   "id": 32112,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12629,9 +12243,7 @@
  "Knifejaw": {
   "name": "Knifejaw",
   "id": 32113,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -12639,9 +12251,7 @@
  "Placodus": {
   "name": "Placodus",
   "id": 32114,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 2
@@ -12649,207 +12259,161 @@
  "Grade 4 Skybuilders' Zagas Khaal": {
   "name": "Grade 4 Skybuilders' Zagas Khaal",
   "id": 32882,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 4 Skybuilders' Goldsmith Crab": {
   "name": "Grade 4 Skybuilders' Goldsmith Crab",
   "id": 32883,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 4 Skybuilders' Common Bitterling": {
   "name": "Grade 4 Skybuilders' Common Bitterling",
   "id": 32884,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 4 Skybuilders' Skyloach": {
   "name": "Grade 4 Skybuilders' Skyloach",
   "id": 32885,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 10,
   "tribal": true
  },
  "Grade 4 Skybuilders' Glacier Core": {
   "name": "Grade 4 Skybuilders' Glacier Core",
   "id": 32886,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Kissing Fish": {
   "name": "Grade 4 Skybuilders' Kissing Fish",
   "id": 32887,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Cavalry Catfish": {
   "name": "Grade 4 Skybuilders' Cavalry Catfish",
   "id": 32888,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Manasail": {
   "name": "Grade 4 Skybuilders' Manasail",
   "id": 32889,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Starflower": {
   "name": "Grade 4 Skybuilders' Starflower",
   "id": 32890,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Cyan Crab": {
   "name": "Grade 4 Skybuilders' Cyan Crab",
   "id": 32891,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Fickle Krait": {
   "name": "Grade 4 Skybuilders' Fickle Krait",
   "id": 32892,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Proto-hropken": {
   "name": "Grade 4 Skybuilders' Proto-hropken",
   "id": 32893,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 60,
   "tribal": true
  },
  "Grade 4 Skybuilders' Ghost Faerie": {
   "name": "Grade 4 Skybuilders' Ghost Faerie",
   "id": 32894,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Skybuilders' Ashfish": {
   "name": "Grade 4 Skybuilders' Ashfish",
   "id": 32895,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Skybuilders' Whitehorse": {
   "name": "Grade 4 Skybuilders' Whitehorse",
   "id": 32896,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Skybuilders' Ocean Cloud": {
   "name": "Grade 4 Skybuilders' Ocean Cloud",
   "id": 32897,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Skybuilders' Black Fanfish": {
   "name": "Grade 4 Skybuilders' Black Fanfish",
   "id": 32898,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Skybuilders' Sunfish": {
   "name": "Grade 4 Skybuilders' Sunfish",
   "id": 32899,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Artisanal Skybuilders' Sweatfish": {
   "name": "Grade 4 Artisanal Skybuilders' Sweatfish",
   "id": 32900,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Artisanal Skybuilders' Sculptor": {
   "name": "Grade 4 Artisanal Skybuilders' Sculptor",
   "id": 32901,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Artisanal Skybuilders' Little Thalaos": {
   "name": "Grade 4 Artisanal Skybuilders' Little Thalaos",
   "id": 32902,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Artisanal Skybuilders' Lightning Chaser": {
   "name": "Grade 4 Artisanal Skybuilders' Lightning Chaser",
   "id": 32903,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "tribal": true
  },
  "Grade 4 Artisanal Skybuilders' Marrella": {
   "name": "Grade 4 Artisanal Skybuilders' Marrella",
   "id": 32904,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -12858,9 +12422,7 @@
  "Grade 4 Artisanal Skybuilders' Crimson Namitaro": {
   "name": "Grade 4 Artisanal Skybuilders' Crimson Namitaro",
   "id": 32905,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -12869,9 +12431,7 @@
  "Grade 4 Artisanal Skybuilders' Griffin": {
   "name": "Grade 4 Artisanal Skybuilders' Griffin",
   "id": 32906,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -12880,9 +12440,7 @@
  "Grade 4 Artisanal Skybuilders' Meganeura": {
   "name": "Grade 4 Artisanal Skybuilders' Meganeura",
   "id": 32907,
-  "zones": {
-   "The Diadem": []
-  },
+  "zones": {},
   "lvl": 80,
   "bigfish": true,
   "timed": 1,
@@ -14366,8 +13924,7 @@
     "Leech",
     "Sky Spoon Lure",
     "Mayfly"
-   ],
-   "Elysion": []
+   ]
   },
   "lvl": 90
  },
@@ -14379,8 +13936,7 @@
     "Leech",
     "Sky Spoon Lure",
     "Mayfly"
-   ],
-   "Elysion": []
+   ]
   },
   "lvl": 90
  },
@@ -14405,8 +13961,7 @@
     "Leech",
     "Sky Spoon Lure",
     "Mayfly"
-   ],
-   "Elysion": []
+   ]
   },
   "lvl": 90
  },
@@ -14418,8 +13973,7 @@
     "Leech",
     "Sky Spoon Lure",
     "Mayfly"
-   ],
-   "Elysion": []
+   ]
   },
   "lvl": 90
  },
@@ -15343,76 +14897,58 @@
  "Pink Shrimp": {
   "name": "Pink Shrimp",
   "id": 40521,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Sirensong Mussel": {
   "name": "Sirensong Mussel",
   "id": 40522,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Arrowhead": {
   "name": "Arrowhead",
   "id": 40523,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Deepshade Sardine": {
   "name": "Deepshade Sardine",
   "id": 40524,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Sirensong Mullet": {
   "name": "Sirensong Mullet",
   "id": 40525,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Selkie Puffer": {
   "name": "Selkie Puffer",
   "id": 40526,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Poet's Pipe": {
   "name": "Poet's Pipe",
   "id": 40527,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Marine Matanga": {
   "name": "Marine Matanga",
   "id": 40528,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Coelacanth": {
   "name": "Spectral Coelacanth",
   "id": 40529,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15420,9 +14956,7 @@
  "Dusk Shark": {
   "name": "Dusk Shark",
   "id": 40530,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15430,9 +14964,7 @@
  "Mermaid Scale": {
   "name": "Mermaid Scale",
   "id": 40531,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15440,9 +14972,7 @@
  "Broadhead": {
   "name": "Broadhead",
   "id": 40532,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15450,9 +14980,7 @@
  "Vivid Pink Shrimp": {
   "name": "Vivid Pink Shrimp",
   "id": 40533,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15460,9 +14988,7 @@
  "Sunken Coelacanth": {
   "name": "Sunken Coelacanth",
   "id": 40534,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15470,9 +14996,7 @@
  "Siren's Sigh": {
   "name": "Siren's Sigh",
   "id": 40535,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15480,9 +15004,7 @@
  "Black-jawed Helicoprion": {
   "name": "Black-jawed Helicoprion",
   "id": 40536,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15490,9 +15012,7 @@
  "Impostopus": {
   "name": "Impostopus",
   "id": 40537,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15500,9 +15020,7 @@
  "Jade Mantis Shrimp": {
   "name": "Jade Mantis Shrimp",
   "id": 40538,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15510,9 +15028,7 @@
  "Nymeia's Wheel": {
   "name": "Nymeia's Wheel",
   "id": 40539,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15520,9 +15036,7 @@
  "Taniwha": {
   "name": "Taniwha",
   "id": 40540,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 90,
   "bigfish": true,
   "timed": 2
@@ -15530,76 +15044,58 @@
  "Ruby Herring": {
   "name": "Ruby Herring",
   "id": 40541,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Whirlpool Turban": {
   "name": "Whirlpool Turban",
   "id": 40542,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Leopard Prawn": {
   "name": "Leopard Prawn",
   "id": 40543,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spear Squid": {
   "name": "Spear Squid",
   "id": 40544,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Floating Lantern": {
   "name": "Floating Lantern",
   "id": 40545,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Rubescent Tatsunoko": {
   "name": "Rubescent Tatsunoko",
   "id": 40546,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Hatatate": {
   "name": "Hatatate",
   "id": 40547,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Silent Shark": {
   "name": "Silent Shark",
   "id": 40548,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Wrasse": {
   "name": "Spectral Wrasse",
   "id": 40549,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15607,9 +15103,7 @@
  "Mizuhiki": {
   "name": "Mizuhiki",
   "id": 40550,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15617,9 +15111,7 @@
  "Snapping Koban": {
   "name": "Snapping Koban",
   "id": 40551,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15627,9 +15119,7 @@
  "Silkweft Prawn": {
   "name": "Silkweft Prawn",
   "id": 40552,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15637,9 +15127,7 @@
  "Stingfin Trevally": {
   "name": "Stingfin Trevally",
   "id": 40553,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15647,9 +15135,7 @@
  "Swordtip Squid": {
   "name": "Swordtip Squid",
   "id": 40554,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15657,9 +15143,7 @@
  "Mailfish": {
   "name": "Mailfish",
   "id": 40555,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15667,9 +15151,7 @@
  "Idaten's Bolt": {
   "name": "Idaten's Bolt",
   "id": 40556,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15677,9 +15159,7 @@
  "Maelstrom Turban": {
   "name": "Maelstrom Turban",
   "id": 40557,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15687,9 +15167,7 @@
  "Shoshitsuki": {
   "name": "Shoshitsuki",
   "id": 40558,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15697,9 +15175,7 @@
  "Spadefish": {
   "name": "Spadefish",
   "id": 40559,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15707,9 +15183,7 @@
  "Glass Dragon": {
   "name": "Glass Dragon",
   "id": 40560,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 90,
   "bigfish": true,
   "timed": 2
@@ -15717,76 +15191,58 @@
  "Crimson Kelp": {
   "name": "Crimson Kelp",
   "id": 40561,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Reef Squid": {
   "name": "Reef Squid",
   "id": 40562,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Pinebark Flounder": {
   "name": "Pinebark Flounder",
   "id": 40563,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Mantle Moray": {
   "name": "Mantle Moray",
   "id": 40564,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Shisui Goby": {
   "name": "Shisui Goby",
   "id": 40565,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Sanbaso": {
   "name": "Sanbaso",
   "id": 40566,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Barded Lobster": {
   "name": "Barded Lobster",
   "id": 40567,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Violet Sentry": {
   "name": "Violet Sentry",
   "id": 40568,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Snake Eel": {
   "name": "Spectral Snake Eel",
   "id": 40569,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15794,9 +15250,7 @@
  "Heavensent Shark": {
   "name": "Heavensent Shark",
   "id": 40570,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15804,9 +15258,7 @@
  "Fleeting Squid": {
   "name": "Fleeting Squid",
   "id": 40571,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15814,9 +15266,7 @@
  "Bowbarb Lobster": {
   "name": "Bowbarb Lobster",
   "id": 40572,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15824,9 +15274,7 @@
  "Pitch Pickle": {
   "name": "Pitch Pickle",
   "id": 40573,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15834,9 +15282,7 @@
  "Senbei Octopus": {
   "name": "Senbei Octopus",
   "id": 40574,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15844,9 +15290,7 @@
  "Tentacle Thresher": {
   "name": "Tentacle Thresher",
   "id": 40575,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15854,9 +15298,7 @@
  "Bekko Rockhugger": {
   "name": "Bekko Rockhugger",
   "id": 40576,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15864,9 +15306,7 @@
  "Yellow Iris": {
   "name": "Yellow Iris",
   "id": 40577,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15874,9 +15314,7 @@
  "Crimson Sentry": {
   "name": "Crimson Sentry",
   "id": 40578,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15884,9 +15322,7 @@
  "Flying Squid": {
   "name": "Flying Squid",
   "id": 40579,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15894,9 +15330,7 @@
  "Hells' Claw": {
   "name": "Hells' Claw",
   "id": 40580,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 90,
   "bigfish": true,
   "timed": 2
@@ -15904,76 +15338,58 @@
  "Catching Carp": {
   "name": "Catching Carp",
   "id": 40581,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Garlean Bluegill": {
   "name": "Garlean Bluegill",
   "id": 40582,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Yanxian Softshell": {
   "name": "Yanxian Softshell",
   "id": 40583,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Princess Salmon": {
   "name": "Princess Salmon",
   "id": 40584,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Calligraph": {
   "name": "Calligraph",
   "id": 40585,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "timed": 1
  },
  "Singular Shrimp": {
   "name": "Singular Shrimp",
   "id": 40586,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Brocade Carp": {
   "name": "Brocade Carp",
   "id": 40587,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Yanxian Sturgeon": {
   "name": "Yanxian Sturgeon",
   "id": 40588,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1
  },
  "Spectral Kotsu Zetsu": {
   "name": "Spectral Kotsu Zetsu",
   "id": 40589,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15981,9 +15397,7 @@
  "Fishy Shark": {
   "name": "Fishy Shark",
   "id": 40590,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -15991,9 +15405,7 @@
  "Gensui Shrimp": {
   "name": "Gensui Shrimp",
   "id": 40591,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16001,9 +15413,7 @@
  "Yato-no-kami": {
   "name": "Yato-no-kami",
   "id": 40592,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16011,9 +15421,7 @@
  "Heron's Eel": {
   "name": "Heron's Eel",
   "id": 40593,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16021,9 +15429,7 @@
  "Crowshadow Mussel": {
   "name": "Crowshadow Mussel",
   "id": 40594,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16031,9 +15437,7 @@
  "Yanxian Goby": {
   "name": "Yanxian Goby",
   "id": 40595,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16041,9 +15445,7 @@
  "Iridescent Trout": {
   "name": "Iridescent Trout",
   "id": 40596,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16051,9 +15453,7 @@
  "Un-Namazu": {
   "name": "Un-Namazu",
   "id": 40597,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16061,9 +15461,7 @@
  "Gakugyo": {
   "name": "Gakugyo",
   "id": 40598,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16071,9 +15469,7 @@
  "Ginrin Goshiki": {
   "name": "Ginrin Goshiki",
   "id": 40599,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 1,
   "bigfish": true,
   "timed": 2
@@ -16081,9 +15477,7 @@
  "Jewel of Plum Spring": {
   "name": "Jewel of Plum Spring",
   "id": 40600,
-  "zones": {
-   "The <Emphasis>Endeavor</Emphasis>": []
-  },
+  "zones": {},
   "lvl": 90,
   "bigfish": true,
   "timed": 2
@@ -16194,9 +15588,7 @@
  "Mayaman": {
   "name": "Mayaman",
   "id": 41403,
-  "zones": {
-   "Thavnair": []
-  },
+  "zones": {},
   "lvl": 90,
   "bigfish": true,
   "folklore": 36606,
@@ -16551,9 +15943,7 @@
  "Urqofrog": {
   "name": "Urqofrog",
   "id": 43685,
-  "zones": {
-   "Urqopacha": []
-  },
+  "zones": {},
   "lvl": 100,
   "folklore": 43884,
   "timed": 1
@@ -16561,25 +15951,19 @@
  "Zeh Tortoh": {
   "name": "Zeh Tortoh",
   "id": 43686,
-  "zones": {
-   "Urqopacha": []
-  },
+  "zones": {},
   "lvl": 93
  },
  "Morsel Trout": {
   "name": "Morsel Trout",
   "id": 43687,
-  "zones": {
-   "Urqopacha": []
-  },
+  "zones": {},
   "lvl": 93
  },
  "Deepwarden": {
   "name": "Deepwarden",
   "id": 43688,
-  "zones": {
-   "Urqopacha": []
-  },
+  "zones": {},
   "lvl": 94
  },
  "Kozama'uka Skipper": {
@@ -16871,17 +16255,13 @@
  "Belonesox": {
   "name": "Belonesox",
   "id": 43717,
-  "zones": {
-   "Yak T'el": []
-  },
+  "zones": {},
   "lvl": 93
  },
  "Xd'aa Talat Cichlid": {
   "name": "Xd'aa Talat Cichlid",
   "id": 43718,
-  "zones": {
-   "Yak T'el": []
-  },
+  "zones": {},
   "lvl": 94
  },
  "Iq Br'aax Sailfin": {
@@ -17161,17 +16541,13 @@
  "Sharknose Goby": {
   "name": "Sharknose Goby",
   "id": 43746,
-  "zones": {
-   "Yak T'el": []
-  },
+  "zones": {},
   "lvl": 97
  },
  "Yak T'el Crab": {
   "name": "Yak T'el Crab",
   "id": 43747,
-  "zones": {
-   "Yak T'el": []
-  },
+  "zones": {},
   "lvl": 96
  },
  "Xty'iinbek Sleeper": {
@@ -17708,36 +17084,28 @@
  "King Puffer": {
   "name": "King Puffer",
   "id": 43903,
-  "zones": {
-   "Tuliyollal": []
-  },
+  "zones": {},
   "lvl": 90,
   "tribal": true
  },
  "Yok Huy Pleco": {
   "name": "Yok Huy Pleco",
   "id": 43904,
-  "zones": {
-   "Kozama'uka": []
-  },
+  "zones": {},
   "lvl": 93,
   "tribal": true
  },
  "Qor Pirarucu": {
   "name": "Qor Pirarucu",
   "id": 43905,
-  "zones": {
-   "Urqopacha": []
-  },
+  "zones": {},
   "lvl": 95,
   "tribal": true
  },
  "Raging Hanuhead": {
   "name": "Raging Hanuhead",
   "id": 43906,
-  "zones": {
-   "Shaaloani": []
-  },
+  "zones": {},
   "lvl": 98,
   "tribal": true
  },
@@ -17860,9 +17228,7 @@
  "Ilyon Asoh Cichlid": {
   "name": "Ilyon Asoh Cichlid",
   "id": 44343,
-  "zones": {
-   "Yak T'el": []
-  },
+  "zones": {},
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,

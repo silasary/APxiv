@@ -470,6 +470,19 @@ def cat_region_table(spot_id):
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
 
+def clean_fish():
+    all_fish = load_all_fish()
+    for fish in all_fish.values():
+        to_remove = []
+        for zone, baits in fish['zones'].items():
+            if not baits:
+                # print(f"Removing {zone} from {fish['name']}")
+                to_remove.append(zone)
+        for zone in to_remove:
+            del fish['zones'][zone]
+    with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+
 def sort_fish():
     all_fish = load_all_fish()
     sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1]['id']))
@@ -478,9 +491,10 @@ def sort_fish():
 
 
 if __name__ == "__main__":
-    # scrape_bell()
+    scrape_bell()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
     fill_missing_bait()
+    clean_fish()
     sort_fish()

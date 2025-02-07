@@ -160,8 +160,11 @@ namespace ArchipelagoXIV.Rando
                 List<string> baits = [];
                 foreach (var z in zones)
                 {
+                    var zbaits = z.Value.Values<string>().ToArray();
+                    if (zbaits.Length == 0)
+                        continue;
                     zoneNames.Add(z.Key);
-                    baits.AddRange(z.Value.Values<string>());
+                    baits.AddRange(zbaits);
                 }
                 baits = baits.Distinct().ToList();
                 var data = new FishData
