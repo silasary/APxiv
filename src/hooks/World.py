@@ -3,7 +3,7 @@ from worlds.AutoWorld import World
 from BaseClasses import MultiWorld, ItemClassification, LocationProgressType
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
-from ..Items import ManualItem
+from ..Items import ManualItem, item_name_to_item
 from ..Locations import ManualLocation
 
 # Raw JSON data from the Manual apworld, respectively:

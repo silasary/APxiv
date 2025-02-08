@@ -22,8 +22,6 @@ def anyClassLevel(world: World, multiworld: MultiWorld, state: CollectionState, 
     for job in world.item_name_groups["DOW/DOM"]:
         if (state.count(job, player) * 5) >= int(level):
             return True
-        if int(level) < 5:
-            return True
     return False
 
 def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState, player: int, level: str):

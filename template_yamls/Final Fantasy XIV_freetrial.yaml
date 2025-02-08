@@ -1,0 +1,157 @@
+﻿name: FFXIV_Stormblood
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Free Trial Final Fantasy XIV
+
+game: Manual_FFXIV_Silasary
+requires:
+  version: 0.5.1 # Version of Archipelago required for this yaml to work as expected.
+
+Manual_FFXIV_Silasary:
+  # Game Options
+  progression_balancing: normal
+
+  level_cap: 70
+
+  mcguffins_needed:
+    # Number of Distant Memories needed to win the game.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 50
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  duty_difficulty:
+    # Maximum difficulty of the duty content.
+    # [normal] Dungeons, trials, normal raids, and alliance raids are included in the location pool.
+    # [extreme] As above, but extreme trials are included in the location pool.
+    # [savage] As above, but old savage raids are included in the location pool.
+    # [endgame] As above, but the current savage tier is included in the location pool.
+    no_duties: 0
+    normal: 50
+    extreme: 0
+    savage: 0
+    endgame: 0
+
+  max_party_size:
+    solo: 0
+    light_party: 50
+    full_party: 0
+    alliance: 0
+
+  include_dungeons:
+    # Dungeons are generally longer than other locations. You may want to exclude them in a sync.
+    'false': 0
+    'true': 50
+
+  allow_main_scenario_duties:
+    # Include Castrum Meridianum, Praetorium, and The Porta Decumana in the location pool.
+    # These duties are long and contain unskippable cutscenes.
+    'false': 50
+    'true': 0
+
+  include_ocean_fishing:
+    # Ocean Fishing departs once every two real-world hours on a specified route.
+    # There are six total routes, four in Eorzea, two in the East.  They do not loop evenly, you may see duplicates before you see all six.
+    # This means it will take at least 12 hours to complete all the relevant checks.
+    # This option is absolutely not sync-viable.
+    'false': 50
+    'true': 0
+
+  include_pvp:
+    # Include PvP duties in the location pool.
+    'false': 50
+    'true': 0
+
+  fatesanity:
+    # Include individual FATEs in the location pool.
+    #
+    # If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
+    'false': 50
+    'true': 0
+
+  include_unreasonable_fates:
+    # Include World Bosses and other FATEs that are not reasonable to complete.
+    #
+    # These fates often spawn once every 2-3 days, don't show up on the map, and can require a large number of players to defeat.
+    # If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
+    'false': 50
+    'true': 0
+
+  fishsanity:
+    # Include individual fish in the location pool.
+    #
+    # Each tier of fish includes the previous tiers.  For example, if you select "timed fish", you will also get "normal fish".
+    # Big fish includes things like the "Ruby Dragon" and "Python Discus", which can be unavailable for weeks at a time.
+    disabled: 50
+    normal_fish: 0
+    timed_fish: 0
+    big_fish: 0
+
+  force_jobs:
+    # Choose which classes are progression.
+    #
+    # If none are selected, five (one tank, one healer, one melee, one phys range, one caster) are chosen at random.
+    []
+
+  goal:
+    # Choose your victory condition.
+    collect memories: 0
+    defeat shinryu: 50
+
+  death_link:
+    # When you die, everyone who enabled death link dies. Of course, the reverse is true too.
+    'false': 50
+    'true': 0
+
+  include_guildhests:
+    # Should items/locations linked to this option be enabled?
+    'false': 50
+    'true': 0
+
+  include_bozja:
+    # Should items/locations linked to this option be enabled?
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  start_inventory_from_pool:
+    # Start with these items and don't place them in the world.
+    #
+    # The game decides what the replacement items will be.
+    {}
