@@ -3,13 +3,12 @@
     <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
     <PropertyGroup>
-        <Authors></Authors>
+        <Authors>Silasary</Authors>
         <Company></Company>
-        <Version>0.0.0.1</Version>
-        <Description>A sample plugin.</Description>
-        <Copyright></Copyright>
+        <Version>0.19.5.0</Version>
+        <Description>Archipelago Client</Description>
+        <Copyright>Silasary 2025</Copyright>
         <PackageProjectUrl>https://github.com/silasary/APxiv</PackageProjectUrl>
-
 
     </PropertyGroup>
 
@@ -24,13 +23,13 @@
             <Visible>false</Visible>
         </Content>
         <EmbeddedResource Include="..\src\data\removed_locations.json" Link="removed_locations.json" />
-        <EmbeddedResource Include="..\src\hooks\fish.json" Link="fish.json" />
+        <EmbeddedResource Include="..\src\data\fish.json" Link="fish.json" />
         <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
         <EmbeddedResource Include="..\src\hooks\duties.csv" Link="duties.csv" />
         <EmbeddedResource Include="..\src\hooks\fates.csv" Link="fates.csv" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Archipelago.MultiClient.Net" Version="6.0.1" />
+        <PackageReference Include="Archipelago.MultiClient.Net" Version="6.5.0" />
     </ItemGroup>
 </Project>

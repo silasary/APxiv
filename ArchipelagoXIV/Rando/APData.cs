@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace ArchipelagoXIV.Rando
 {
@@ -56,7 +57,7 @@ namespace ArchipelagoXIV.Rando
             { "Return to the Waking Sands", "Western Thanalan" },
         };
 
-        public static Dictionary<ushort, string> ContentIDToLocationName = new()
+        public static Dictionary<uint, string> ContentIDToLocationName = new()
         {
             { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
             { 2, "The Tam-Tara Deepcroft" },
@@ -78,7 +79,7 @@ namespace ArchipelagoXIV.Rando
 
         public static void LoadDutiesCsv()
         {
-            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW"];
+            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"];
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.duties.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
@@ -100,7 +101,9 @@ namespace ArchipelagoXIV.Rando
             string? line = null;
             while ((line = reader.ReadLine()) != null)
             {
-                var row = line.Split(',');
+                Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+                var row = CSVParser.Split(line);
                 var name = row[0].Trim();
                 if (headers.Contains(name))
                     continue;
@@ -157,8 +160,11 @@ namespace ArchipelagoXIV.Rando
                 List<string> baits = [];
                 foreach (var z in zones)
                 {
+                    var zbaits = z.Value.Values<string>().ToArray();
+                    if (zbaits.Length == 0)
+                        continue;
                     zoneNames.Add(z.Key);
-                    baits.AddRange(z.Value.Values<string>());
+                    baits.AddRange(zbaits);
                 }
                 baits = baits.Distinct().ToList();
                 var data = new FishData

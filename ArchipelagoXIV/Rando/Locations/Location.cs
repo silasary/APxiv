@@ -1,11 +1,8 @@
 using Archipelago.MultiClient.Net.Models;
 using ArchipelagoXIV.Rando.Locations;
-using Dalamud.Logging;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -46,7 +43,7 @@ namespace ArchipelagoXIV.Rando
 
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
-        private ContentFinderCondition? content;
+        private ContentFinderCondition content;
         public Hint? HintedItem { get; set; } = null;
 
         public virtual bool IsAccessible()
@@ -67,17 +64,17 @@ namespace ArchipelagoXIV.Rando
                 if (MeetsRequirements == null)
                 {
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
-                    if (content == null && this.Name.StartsWith("The"))
+                    if (content.RowId == 0 && this.Name.StartsWith("The"))
                         content = Data.Content.FirstOrDefault(cf => cf.Name == ("the" + this.Name[3..]));
-                    if (content == null && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
+                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
                     {
                         content = Data.Content[id];
                     }
-                    if (content == null)
+                    if (content.RowId == 0)
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
                         // Note: Currently, these are all Bozja.  This may change with DT's Field Content
-                        if (de != null)
+                        if (de.RowId > 0)
                         {
                             this.Level = 80;
                             MeetsRequirements = Logic.Level(80);
@@ -96,13 +93,13 @@ namespace ArchipelagoXIV.Rando
 
         private void SetRequirements()
         {
-            if (content != null)
+            if (content.RowId > 0)
             {
                 this.MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
             }
-            else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value))
+            else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
-                this.MeetsRequirements = Logic.Level(Data.FateLevels[m.Groups[1].Value]);
+                this.MeetsRequirements = Logic.Level(level);
             }
             else if (Name.StartsWith("Masked Carnivale #"))
             {
@@ -158,7 +155,7 @@ namespace ArchipelagoXIV.Rando
             if (!IsAccessible())
                 return false;
 
-            if (!MeetsRequirements(apState, true))
+            if (!MeetsRequirements(apState, apState.ApplyClassRestrictions))
             {
                 return false;
                 DalamudApi.Echo("Warning:  Class check failed");

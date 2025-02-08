@@ -354,10 +354,10 @@ Abyssos: The Fifth Circle (Savage),Savage Raid (EW),90,,Elpis,Full Party,Savage,
 Abyssos: The Sixth Circle (Savage),Savage Raid (EW),90,,Elpis,Full Party,Savage,Pandaemonium Key
 Abyssos: The Seventh Circle (Savage),Savage Raid (EW),90,,Elpis,Full Party,Savage,Pandaemonium Key
 Abyssos: The Eighth Circle (Savage),Savage Raid (EW),90,,Elpis,Full Party,Savage,Pandaemonium Key
-Anabaseios: The Ninth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Endgame,Pandaemonium Key
-Anabaseios: The Tenth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Endgame,Pandaemonium Key
-Anabaseios: The Eleventh Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Endgame,Pandaemonium Key
-Anabaseios: The Twelfth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Endgame,Pandaemonium Key
+Anabaseios: The Ninth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Savage,Pandaemonium Key
+Anabaseios: The Tenth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Savage,Pandaemonium Key
+Anabaseios: The Eleventh Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Savage,Pandaemonium Key
+Anabaseios: The Twelfth Circle (Savage),Savage Raid (EW),90,,Labyrinthos,Full Party,Savage,Pandaemonium Key
 ,,,,,,,
 Aglaia,Alliance Raid (EW),90,,Mor Dhona,Alliance,Normal,
 Euphrosyne,Alliance Raid (EW),90,,Mor Dhona,Alliance,Normal,
@@ -371,22 +371,24 @@ Origenics,Dungeon (DT),99,,Heritage Found,Light Party,Normal,
 Alexandria,Dungeon (DT),100,,Living Memory,Light Party,Normal,
 Tender Valley,Dungeon (DT),100,,Shaaloani,Light Party,Normal,
 The Strayborough Deadwalk,Dungeon (DT),100,,Living Memory,Light Party,Normal,
+Yuweyawata Field Station,Dungeon (DT),100,,Heritage Found,Light Party,Normal,
 ,,,,,,,
 Worqor Lar Dor,Trial (DT),93,,Urqopacha,Full Party,Normal,
 Everkeep,Trial (DT),99,,Heritage Found,Full Party,Normal,
 The Interphos,Trial (DT),100,,Living Memory,Full Party,Normal,
 ,,,,,,,
-Worqor Lar Dor (Extreme),Trial (DT),100,,Urqopacha,Full Party,Savage,
-Everkeep (Extreme),Trial (DT),100,,Heritage Found,Full Party,Savage,
-The Interphos (Extreme),Trial (DT),100,,Living Memory,Full Party,Savage,
+Worqor Lar Dor (Extreme),Trial (DT),100,,Urqopacha,Full Party,Endgame,
+Everkeep (Extreme),Trial (DT),100,,Heritage Found,Full Party,Endgame,
+The Minstrel’s Ballad: Sphene's Burden,Trial (DT),100,,Living Memory,Full Party,Endgame,
 ,,,,,,,
 AAC Light-heavyweight M1,Normal Raid (DT),100,,The Arcadion,Full Party,Normal,
 AAC Light-heavyweight M2,Normal Raid (DT),100,,The Arcadion,Full Party,Normal,
 AAC Light-heavyweight M3,Normal Raid (DT),100,,The Arcadion,Full Party,Normal,
 AAC Light-heavyweight M4,Normal Raid (DT),100,,The Arcadion,Full Party,Normal,
 ,,,,,,,
-AAC Light-heavyweight M1 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Savage,
-AAC Light-heavyweight M2 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Savage,
-AAC Light-heavyweight M3 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Savage,
-AAC Light-heavyweight M4 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Savage,
+AAC Light-heavyweight M1 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Endgame,
+AAC Light-heavyweight M2 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Endgame,
+AAC Light-heavyweight M3 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Endgame,
+AAC Light-heavyweight M4 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Endgame,
 ,,,,,,,
+Jeuno: The First Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,

@@ -20,6 +20,7 @@ namespace ArchipelagoXIV
         internal UnlockHooks Hooks { get; }
         internal Events Events { get; }
         internal UIHooks UiHooks { get; }
+        internal DeathLinkHooks DLHooks { get; }
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("ArchipelagoXIV");
 
@@ -37,14 +38,16 @@ namespace ArchipelagoXIV
             DalamudApi.Initialize(pluginInterface);
             Data.Initialize();
 
-            this.apState = new ApState();
+            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+            this.Configuration.Initialize(this.PluginInterface);
+
+            this.apState = new ApState(Configuration);
 
             this.Hooks = new UnlockHooks(apState);
             this.Events = new Events(apState);
             this.UiHooks = new UIHooks(apState);
+            this.DLHooks = new DeathLinkHooks(apState);
 
-            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
-            this.Configuration.Initialize(this.PluginInterface);
 
             ConfigWindow = new ConfigWindow(this, this.apState);
             MainWindow = new MainWindow(this, this.apState);
@@ -79,6 +82,7 @@ namespace ArchipelagoXIV
             this.Hooks.Enable();
             this.Events.Enable();
             UiHooks.Enable();
+            DLHooks.Enable();
             DalamudApi.Framework.Update += Framework_Update;
             DalamudApi.SetStatusBar("AP Ready");
             DalamudApi.logicBar.OnClick += () => { MainWindow.IsOpen = !MainWindow.IsOpen; };
@@ -92,10 +96,10 @@ namespace ArchipelagoXIV
             if (localPlayer == null)
                 return;
             var refresh = false;
-            var job = localPlayer.ClassJob.GameData;
+            var job = localPlayer.ClassJob.Value;
             var fates = DalamudApi.FateTable.Length;
 
-            if (apState.lastJob != job)
+            if (apState.lastJob.RowId != job.RowId)
             {
                 apState.lastJob = job;
                 refresh = true;
@@ -140,6 +144,7 @@ namespace ArchipelagoXIV
             Hooks.Dispose();
             Events.Disable();
             UiHooks.Disable();
+            DLHooks.Dispose();
             CommandManager.RemoveHandler("/ap");
             CommandManager.RemoveHandler("/ap-connect");
             CommandManager.RemoveHandler("/ap-config");

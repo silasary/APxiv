@@ -8,9 +8,13 @@ class FatesanityTest(WorldTestBase):
 class FishsanityTest(WorldTestBase):
     game = "Manual_FFXIV_Silasary"
 
-    fishsanity = True
-    fishsanity_big_fish = True
-    fishsanity_timed_fish = True
+    fishsanity = 1
+
+class BigFishsanityTest(WorldTestBase):
+    game = "Manual_FFXIV_Silasary"
+
+    fishsanity = 3
+
 
 class ShortTest(WorldTestBase):
     game = "Manual_FFXIV_Silasary"

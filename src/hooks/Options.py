@@ -1,8 +1,9 @@
 # Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
-from Options import Toggle, DefaultOnToggle, Choice, TextChoice, Range, ItemSet, OptionSet
+from Options import Toggle, DefaultOnToggle, Choice, Range, OptionSet, PerGameCommonOptions, Option, OptionGroup
 from worlds.AutoWorld import World
 from Utils import get_fuzzy_results
+from typing import Type
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
@@ -111,20 +112,18 @@ class AllowMainScenario(DefaultOnToggle):
     These duties are long and contain unskippable cutscenes.
     """
 
-class Fishsanity(Toggle):
+class Fishsanity(Choice):
     """
     Include individual fish in the location pool.
-    """
 
-class FishsanityBigFish(Toggle):
+    Each tier of fish includes the previous tiers.  For example, if you select "timed fish", you will also get "normal fish".
+    Big fish includes things like the "Ruby Dragon" and "Python Discus", which can be unavailable for weeks at a time.
     """
-    Include big fish in the location pool.
-    """
-
-class FishsanityTimedFish(Toggle):
-    """
-    Include timed and weather-dependant fish in the location pool.
-    """
+    option_disabled = 0
+    option_normal_fish = 1
+    option_timed_fish = 2
+    option_big_fish = 3
+    default = 0
 
 class IncludePvP(Toggle):
     """
@@ -153,13 +152,27 @@ def before_options_defined(options: dict) -> dict:
     options["include_unreasonable_fates"] = UnreasonableFates
     # Fish
     options["fishsanity"] = Fishsanity
-    options["fishsanity_big_fish"] = FishsanityBigFish
-    options["fishsanity_timed_fish"] = FishsanityTimedFish
     # Jobs
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
-def after_options_defined(options: dict) -> dict:
-    return options
+def after_options_defined(options: Type[PerGameCommonOptions]) -> None:
+    # To access a modifiable version of options check the dict in options.type_hints
+    # For example if you want to change DLC_enabled's display name you would do:
+    # options.type_hints["DLC_enabled"].display_name = "New Display Name"
+
+    #  Here's an example on how to add your aliases to the generated goal
+    # options.type_hints['goal'].aliases.update({"example": 0, "second_alias": 1})
+    # options.type_hints['goal'].options.update({"example": 0, "second_alias": 1})  #for an alias to be valid it must also be in options
+
+    pass
+
+# Use this Hook if you want to add your Option to an Option group (existing or not)
+def before_option_groups_created(groups: dict[str, list[Option]]) -> dict[str, list[Option]]:
+    # Uses the format groups['GroupName'] = [TotalCharactersToWinWith]
+    return groups
+
+def after_option_groups_created(groups: list[OptionGroup]) -> list[OptionGroup]:
+    return groups

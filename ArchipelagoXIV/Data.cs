@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -68,6 +68,13 @@ namespace ArchipelagoXIV
             {"Mare Lamentorum", 83},
             {"Elpis", 86},
             {"Ultima Thule", 88},
+
+            {"Urqopacha", 90},
+            {"Kozama'uka", 90},
+            {"Yak T'el", 94},
+            {"Shaaloani", 95},
+            {"Heritage Found", 97},
+            {"Living Memory", 99},
         };
 
         public static Dictionary<string, string> DutyAliases = new()
@@ -97,6 +104,7 @@ namespace ArchipelagoXIV
             { "The Heart of the Creator", "Alexander - The Heart of the Creator" },
             { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
             { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
+            { "Harder Bigger Faster Stronger", "Harder, Bigger, Faster, Stronger"},
         };
 
         public static void Initialize() {
@@ -120,7 +128,7 @@ namespace ArchipelagoXIV
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {
             var territory = Territories.FirstOrDefault(row => row.RowId == territoryId);
-            return territory?.ContentFinderCondition?.Value;
+            return territory.ContentFinderCondition.Value;
         }
     }
 }

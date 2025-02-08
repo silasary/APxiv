@@ -9,16 +9,18 @@ namespace ArchipelagoXIV.Rando
 {
     internal class NGPlusGame : BaseGame
     {
-        public NGPlusGame(ApState apState) : base(apState)
+        public NGPlusGame(ApState apState, bool IsManual) : base(apState)
         {
             this.GoalCount = 50;
+            isManual = IsManual;
         }
 
         private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
+        private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
 
-        public override string Name => "Manual_FFXIV_Silasary";
+        public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
 
         public override int MaxLevel() => Jobs.Max(MaxLevel);
 
@@ -33,14 +35,10 @@ namespace ArchipelagoXIV.Rando
                 var job = Data.ClassJobs.First(j => j.Abbreviation == words[1]);
                 Levels[job] = MaxLevel(job);
             }
-            else if (itemName == "Memory of a Distant World")
+            
+            if ((McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
             {
-                if ((McGuffinCount= apState.Items.Count(i => i == itemName)) >= GoalCount)
-                {
-                    var statusUpdatePacket = new StatusUpdatePacket();
-                    statusUpdatePacket.Status = ArchipelagoClientState.ClientGoal;
-                    apState.session.Socket.SendPacket(statusUpdatePacket);
-                }
+                apState.CompleteGame();
             }
         }
 
@@ -53,11 +51,23 @@ namespace ArchipelagoXIV.Rando
 
         internal override string GoalString()
         {
-            if (Goal == 0)
+            return Goal switch
             {
-                return $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered";
-            }
-            return "";
+                0 => $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered",
+                _ => base.GoalString(),
+            };
+        }
+
+        internal override VictoryType GoalType => Goal switch
+        {
+            0 => VictoryType.McGuffin,
+            1 => VictoryType.DefeatShinryu,
+            _ => VictoryType.McGuffin,
+        };
+
+        internal override void Ready()
+        {
+            McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World");
         }
     }
 }

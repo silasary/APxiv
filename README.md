@@ -66,3 +66,31 @@ Note: Almost everything listed below can be disabled with yaml options, have a r
   * You have Pill Bug and Western La Noscea and FSH 50.
 * Note that we're looking at the level of the fishing hole, not the level of the Fish.
   * This means that Octomammoth, the Big Fish for Limsa Lower Docks, is considered Level 1 (And therefore needs 0 FSH Levels)
+
+## Dalamud Plugin
+
+The plugin connects to the Archipelago Servers and does a few useful things:
+* Shows text chat and recieved items
+* Provides several in-game UI Elements to help you track what's in logic
+* Automatically sends checks (only if they are in logic)
+
+The Plugin does not:
+* Prevent you from doing anything in-game
+* Physically restrict access to zones or classes
+
+It will warn you if you do something it deems not in logic.
+
+## Dalamud UIs
+(Note to self, add screenshots)
+### Text Chat
+This is sent via the in-game chat in the "PvP Team" channel.
+
+### Recieving Items
+This uses the Quest Notification popup
+
+### In-Logic Checks
+This is available in the "Server Info Bar" (Generally top right of your HUD), and in the ImGui window
+In-Logic Dungeons are also shown with the "Bonus Rewards" icon in Duty Finder.
+
+### Available Class Levels
+Also in the Server Info bar.  Mouse over the Class info for a full list.

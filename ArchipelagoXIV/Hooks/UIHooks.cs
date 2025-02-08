@@ -34,7 +34,8 @@ namespace ArchipelagoXIV.Hooks
 
         public void Disable()
         {
-            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostRefresh, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
         }
 
         private void OnContentsFinderRefresh(AddonEvent type, AddonArgs args)
@@ -43,15 +44,16 @@ namespace ArchipelagoXIV.Hooks
             var addon = (AddonContentsFinder*)args.Addon;
             if (addon->DutyList == null)
                 return;
-            foreach (var itemRenderer in addon->DutyList->Items.Span)
+            foreach (var itemRenderer in addon->DutyList->Items.AsSpan())
             {
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;
                 if (componentNode is null) continue;
 
                 var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(5);
-                var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(15);
-                var hollowsImageNode = componentNode->Component->GetImageNodeById(8);
-                if (levelNode is null || textNode is null) continue;
+                //var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(18);
+                var hollowsImageNode = componentNode->Component->GetImageNodeById(7);
+                if (textNode is null)
+                    continue;
 
                 var name = textNode->NodeText.ToString();
                 var loc = apState.MissingLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);

@@ -22,13 +22,13 @@
         "hidden": true
     },
     "fishsanity": {
-        "yaml_option": ["fishsanity"],
+        "yaml_option": [],
         "hidden": true
     },
     "Big Fishing": {
-        "yaml_option": ["fishsanity", "fishsanity_big_fish"]
+        "yaml_option": []
     },
     "Timed Fish": {
-        "yaml_option": ["fishsanity", "fishsanity_timed_fish"]
+        "yaml_option": []
     }
 }

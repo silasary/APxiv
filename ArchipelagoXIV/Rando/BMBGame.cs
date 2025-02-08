@@ -1,5 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using System;
 using System.Linq;
 
@@ -27,5 +27,11 @@ namespace ArchipelagoXIV.Rando
             if (itemName == EquipLevels)
                 Levels[BLU] = MaxLevel();
         }
+
+        internal override void Ready()
+        {
+        }
+
+        internal override VictoryType GoalType => VictoryType.MaskedCarnivale30;
     }
 }

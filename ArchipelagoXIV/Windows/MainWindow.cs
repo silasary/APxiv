@@ -26,15 +26,30 @@ public class MainWindow : Window
 
     public override void Draw()
     {
-        ImGui.Text($"The AP server is at {plugin.Configuration.Connection} (Connected: {state.Connected})");
-
+        //ImGui.Text($"The AP server is at {plugin.Configuration.Connection} (Connected: {state.Connected})");
         if (ImGui.Button("Show Settings"))
         {
             plugin.DrawConfigUI();
         }
-        if (!state.Connected && ImGui.Button("Reconnect to last port"))
+        if (!state.Connected)
         {
-            state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
+
+            if (ImGui.Button($"Reconnect to {plugin.Configuration.Connection}"))
+            {
+                state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
+            }
+
+            if (ImGui.Button("View setup guide"))
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo("https://github.com/silasary/APxiv/wiki/Getting-Started")
+                {
+                    UseShellExecute = true,
+                    Verb = "open"
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+
+            return;
         }
 
         ImGui.Spacing();
@@ -43,20 +58,21 @@ public class MainWindow : Window
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
         ImGui.Text(state?.Game?.GoalString() ?? "");
         ImGui.Text($"Available Checks:");
-        //ImGui.Indent(55);
-        if (state.MissingLocations != null)
+        if (state?.MissingLocations == null)
         {
-            foreach (var location in state.MissingLocations)
+            return;
+        }
+        //ImGui.Indent(55);
+        foreach (var location in state.MissingLocations)
+        {
+            if (location.IsAccessible())
             {
-                if (location.IsAccessible())
+                var name = location.DisplayText;
+                if (location.Name.EndsWith(" (FATE)"))
                 {
-                    var name = location.DisplayText;
-                    if (location.Name.EndsWith(" (FATE)"))
-                    {
-                        name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
-                    }
-                    ImGui.Text($"{name}");
+                    name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
                 }
+                ImGui.Text($"{name}");
             }
         }
 

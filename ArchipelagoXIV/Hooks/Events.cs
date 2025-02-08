@@ -28,7 +28,7 @@ namespace ArchipelagoXIV.Hooks
         {
             if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
             {
-                var name = value.Name;
+                var name = value.Name.ToString();
                 if (APData.FishData.ContainsKey(name))
                 {
                     //DalamudApi.Echo($"Caught a {name}!");
@@ -54,7 +54,7 @@ namespace ArchipelagoXIV.Hooks
             if (!success)
                 return;
 
-            var loc = apState.MissingLocations.FirstOrDefault(f=> f.Name.Equals(locName, StringComparison.InvariantCultureIgnoreCase));  // FATEsanity check
+            var loc = apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(locName, StringComparison.OrdinalIgnoreCase));  // FATEsanity check
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
             if (loc == null)
             {
@@ -79,7 +79,7 @@ namespace ArchipelagoXIV.Hooks
         public void Disable() {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
-            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PostSetup, "FateReward", OnFatePreFinalize);
+            DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
         }
 
         private void DutyState_DutyCompleted(object? sender, ushort e)
@@ -88,21 +88,22 @@ namespace ArchipelagoXIV.Hooks
                 return;
             var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == e);
             var duty = Data.GetDuty(e);
-            if (!APData.ContentIDToLocationName.TryGetValue(duty.Content, out var name))
+            if (!APData.ContentIDToLocationName.TryGetValue(duty.Content.RowId, out var name))
             {
-                name = duty.Name;
+                name = duty.Name.ToString();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
             }
             if (name == "Ocean Fishing")
             {
-                var route = Data.IKDRoutes.FirstOrDefault(r => r.ContentFinderCondition.Value.RowId == duty.RowId);
-                name = "Ocean Fishing: " + route.Name;
+                var route = Data.IKDRoutes.FirstOrDefault(r => r.Instance.Value.RowId == duty.RowId);
+                name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
-            if (canReach && Logic.Level(duty.ClassJobLevelRequired)(apState, true))
+            var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
+            if (canReach && atLevel)
             {
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                 if (location == null)
@@ -112,7 +113,10 @@ namespace ArchipelagoXIV.Hooks
                 }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
                 location.Complete();
-
+                if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
+                {
+                    apState.CompleteGame();
+                }
             }
             else
             {
@@ -132,8 +136,8 @@ namespace ArchipelagoXIV.Hooks
         private void ClientState_TerritoryChanged(ushort e)
         {
             var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
-            apState.territoryName = territory.PlaceName?.Value?.Name ?? "Unknown";
-            apState.territoryRegion = territory.PlaceNameRegion?.Value?.Name ?? "Unknown";
+            apState.territoryName = territory.PlaceName.Value.Name.ToString();
+            apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
 
             if (!apState.Connected)
             {
@@ -182,22 +186,30 @@ namespace ArchipelagoXIV.Hooks
             static unsafe void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == content.Name);
+                var name = content.Name.ToString();
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                
 
                 if (location == null)
+                {
+                    DalamudApi.PluginLog.Information("Couldn't grant Amnesty for {0}", name);
                     return;
+                }
 
                 if (location.CanClearAsAnyClass())
                 {
-                    var message = $"Granted Queue Amnesty for {content.Name}";
+                    var message = $"Granted Queue Amnesty for {name}";
                     DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });
                     DalamudApi.Echo(message);
                     location.Complete();
-                    UIModule.PlayChatSoundEffect(6);
+                    UIGlobals.PlayChatSoundEffect(6);
                 }
                 else
                 {
-                    DalamudApi.Echo($"Couldn't grant Queue Amnesty for {content.Name}, requirements not met.");
+                    DalamudApi.Echo($"Couldn't grant Queue Amnesty for {name}, requirements not met.");
                 }
             }
         }

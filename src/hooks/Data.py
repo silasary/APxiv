@@ -6,6 +6,8 @@ import pkgutil
 def after_load_game_file(game_table: dict) -> dict:
     return game_table
 
+HEADER_VALUES = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"]
+
 TANKS = ["PLD","WAR","DRK","GNB"]
 HEALERS = ["WHM","SCH","AST","SGE"]
 MELEE = ["MNK","DRG","NIN","SAM","RPR", "VPR"]
@@ -91,10 +93,12 @@ def generate_duty_list():
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    _id = 0
+    prev_category = "Dungeon (ARR)"
 
     for row in dutyreader:
         row = [x.strip() for x in row]
-        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB", "EW"]:
+        if row[0] not in HEADER_VALUES:
             requires_str = "{anyClassLevel(" + row[2] + ")}"
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             location = {
@@ -107,6 +111,10 @@ def generate_duty_list():
                     "diff" : difficulties.index(row[6]),
                     "is_dungeon": "Dungeon" in row[1],
                 }
+            if row[1] != prev_category:
+                _id += 50
+                prev_category = row[1]
+                location["id"] = _id
             if row[4] == "Gangos":
                 location["category"].append("Bozja")
             duty_list.append(location)
@@ -117,12 +125,26 @@ duty_locations = generate_duty_list()
 
 def generate_fate_list():
     fate_list = []
+
+    _id = 8000
+    for key in list(fate_zones.keys()):
+        level = fate_zones[key][0]
+        #ilvl = fate_zones[key][1]
+        fate_list.append(create_FATE_location(1,key,level, _id))
+        fate_list.append(create_FATE_location(2,key,level))
+        fate_list.append(create_FATE_location(3,key,level))
+        fate_list.append(create_FATE_location(4,key,level))
+        fate_list.append(create_FATE_location(5,key,level))
+        _id += 10
+
     missing_fatesanity_zones = fate_zones.copy()
-    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
+    _id = 10_000
 
     for row in fatereader:
+        _id += 1
         row = [x.strip() for x in row]
-        if row[0] not in ["", "Name", "ARR", "HW", "STB", "SHB","EW"]:
+        if row[0] not in HEADER_VALUES:
             name = row[0]
             level = int(row[1])
 
@@ -136,6 +158,7 @@ def generate_fate_list():
                         "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row[1],
                         "filler": True,
+                        "id": _id
                     }
                 )
                 continue
@@ -149,6 +172,7 @@ def generate_fate_list():
                     "category": ["FATEsanity", row[2]],
                     "requires": "",
                     "level" : row[1],
+                    "id": _id
                 }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
@@ -172,20 +196,12 @@ def generate_fate_list():
                 for line in additional:
                     writer.writerow(line.split(','))
 
-    for key in list(fate_zones.keys()):
-        level = fate_zones[key][0]
-        #ilvl = fate_zones[key][1]
-        fate_list.append(create_FATE_location(1,key,level))
-        fate_list.append(create_FATE_location(2,key,level))
-        fate_list.append(create_FATE_location(3,key,level))
-        fate_list.append(create_FATE_location(4,key,level))
-        fate_list.append(create_FATE_location(5,key,level))
-
     return fate_list
 
 def generate_fish_list() -> list[dict]:
-    from ..Data import load_data_file
-    fish = json.loads(pkgutil.get_data(__name__, "fish.json"))
+    _id = 20_000
+    from ..Helpers import load_data_file
+    fish = load_data_file("fish.json")
     removed_fish = load_data_file("removed_locations.json")
 
     locations = []
@@ -193,14 +209,20 @@ def generate_fish_list() -> list[dict]:
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
         zones = data['zones']
+        if not zones:
+            _id += 1
+            continue
         if len(zones) > 1:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_rules": {k:v for k,v in zones.items()}
+                "entrance_requires": {k:v for k,v in zones.items() if v}
             }
         else:
             region = next(iter(zones.keys()))
+            if not zones[region]:
+                _id += 1
+                continue
             requires += f" and |{zones[region][0]}|"
 
         loc = {
@@ -208,6 +230,7 @@ def generate_fish_list() -> list[dict]:
             "category": ['Fish', "fishsanity"] + list(zones.keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
             "region": region,
             "requires": requires,
+            "id": _id,
         }
         if data.get('tribal'):
             if name not in removed_fish:
@@ -215,16 +238,18 @@ def generate_fish_list() -> list[dict]:
                 removed_fish[name] = loc
                 with open("removed_locations.json", "w") as f:
                     json.dump(removed_fish, f, indent=2)
+            _id += 1
             continue
 
         locations.append(loc)
-
+        _id += 1
 
     return locations
 
 
 def generate_bait_list() -> list[dict]:
-    bait = json.loads(pkgutil.get_data(__name__, "bait.json"))
+    from ..Helpers import load_data_file
+    bait = load_data_file("bait.json")
     items = []
     for name, data in bait.items():
         if data.get('mooch'):
@@ -235,10 +260,6 @@ def generate_bait_list() -> list[dict]:
             "category": ['Bait', "fishsanity"]
         })
     return items
-
-# called after the game.json file has been loaded
-def after_load_game_file(game_table: dict) -> dict:
-    return game_table
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
@@ -275,7 +296,7 @@ def after_load_item_file(item_table: list) -> list:
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
             "count": n,
-            "useful": True,
+            "filler": True,
         })
 
     for job in DOH:
@@ -304,8 +325,8 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
-    location_table.extend(generate_fate_list())
     location_table.extend(duty_locations)
+    location_table.extend(generate_fate_list())
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
 
@@ -316,14 +337,14 @@ def after_load_location_file(location_table: list) -> list:
 def after_load_region_file(region_table: dict) -> dict:
     region_table.update(bonus_regions)
     for r in bonus_regions:
-        for e in bonus_regions[r]['entrance_rules']:
+        for e in bonus_regions[r]['entrance_requires']:
             if 'connects_to' not in region_table[e]:
                 region_table[e]['connects_to'] = []
                 print(f'Warning: {e} missing connects_to')
             region_table[e]['connects_to'].append(r)
     return region_table
 
-def create_FATE_location(number: int, key: str, lvl: int):
+def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
     location = {
             "name": key + ": FATE #" + str(number),
             "region": key,
@@ -335,6 +356,8 @@ def create_FATE_location(number: int, key: str, lvl: int):
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
+    if _id:
+        location["id"] = _id
     return location
 
 def ocean_fishing():
@@ -365,6 +388,12 @@ def ocean_fishing():
 # called after the categories.json file has been loaded
 def after_load_category_file(category_table: dict) -> dict:
     return category_table
+
+# called after the categories.json file has been loaded
+def after_load_option_file(option_table: dict) -> dict:
+    # option_table["core"] is the dictionary of modification of existing options
+    # option_table["user"] is the dictionary of custom options
+    return option_table
 
 # called after the meta.json file has been loaded and just before the properties of the apworld are defined. You can use this hook to change what is displayed on the webhost
 # for more info check https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/world%20api.md#webworld-class

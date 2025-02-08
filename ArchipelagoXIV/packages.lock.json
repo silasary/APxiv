@@ -4,15 +4,15 @@
     "net8.0-windows8.0": {
       "Archipelago.MultiClient.Net": {
         "type": "Direct",
-        "requested": "[6.0.1, )",
-        "resolved": "6.0.1",
-        "contentHash": "+NlB4dgp04ZBoXx78waCw2uRCdK4OUPwL7tsjZ1dJHkPw72eaFZf3aXVmRmXSyqaivwFwFuy+2HPAYHyKEJtfQ=="
+        "requested": "[6.5.0, )",
+        "resolved": "6.5.0",
+        "contentHash": "cWz5UDo7/oIA0OVmOPN70UcwzTteQ2V0/v5n2LgMk0AW+HIYFACL7t4OlLBts/lp6LzNHMyOFxc7Fn7C45di4w=="
       },
       "DalamudPackager": {
         "type": "Direct",
-        "requested": "[2.1.13, )",
-        "resolved": "2.1.13",
-        "contentHash": "rMN1omGe8536f4xLMvx9NwfvpAc9YFFfeXJ1t4P4PE6Gu8WCIoFliR1sh07hM+bfODmesk/dvMbji7vNI+B/pQ=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "bjT7XUlhIJSmsE/O76b7weUX+evvGQctbQB8aKXt94o+oPWxHpCepxAGMs7Thow3AzCyqWs7cOpp9/2wcgRRQA=="
       }
     }
   }

@@ -1,13 +1,13 @@
 using Archipelago.MultiClient.Net.Models;
-using ArchipelagoXIV.Rando.Locations;
-using Dalamud.Logging;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ArchipelagoXIV.Rando
 {
+    public enum VictoryType { McGuffin, DefeatShinryu, MaskedCarnivale30, None };
+
     public abstract class BaseGame(ApState apState)
     {
         protected ApState apState = apState;
@@ -46,7 +46,7 @@ namespace ArchipelagoXIV.Rando
         public abstract int MaxLevel();
 
         public abstract int MaxLevel(string job);
-        public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation);
+        public int MaxLevel(ClassJob job) => MaxLevel(job.Abbreviation.ToString());
         internal int MaxLevelDHL() => DHLJobs.Max(MaxLevel);
 
         internal virtual void ProcessItem(ItemInfo item, string itemName)
@@ -56,7 +56,8 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
         {
-            DalamudApi.PluginLog.Information("Slot Data", slotData);
+            //DalamudApi.PluginLog.Information($"Slot Data: {slotData}");
+            this.SlotData = slotData;
             if (slotData.TryGetValue("fishsanity", out var fishsanity))
             {
                 FishingMatters = (fishsanity as bool?) ?? false;
@@ -67,9 +68,18 @@ namespace ArchipelagoXIV.Rando
             }
         }
 
-        internal virtual string GoalString()
+        internal virtual string GoalString() => GoalType switch
         {
-            return null;
-        }
+            VictoryType.None => "No Goal set",
+            VictoryType.McGuffin => "McGuffin Hunt",
+            VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
+            VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
+            _ => "Unknown Goal",
+        };
+
+        internal abstract void Ready();
+
+        internal abstract VictoryType GoalType { get; }
+        public Dictionary<string, object> SlotData { get; private set; }
     }
 }
