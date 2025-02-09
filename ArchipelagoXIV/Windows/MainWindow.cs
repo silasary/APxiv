@@ -57,6 +57,10 @@ public class MainWindow : Window
             return;
         ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
         ImGui.Text(state?.Game?.GoalString() ?? "");
+        if (state.DeathLinkEnabled)
+        {
+            ImGui.Text($"Death Link is enabled.");
+        }
         ImGui.Text($"Available Checks:");
         if (state?.MissingLocations == null)
         {

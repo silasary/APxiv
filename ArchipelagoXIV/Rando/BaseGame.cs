@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ArchipelagoXIV.Rando
 {
-    public enum VictoryType { McGuffin, DefeatShinryu, MaskedCarnivale30, None };
+    public enum VictoryType { McGuffin, DefeatShinryu, MaskedCarnivale30, None, PotDFloor50 };
 
     public abstract class BaseGame(ApState apState)
     {
@@ -74,6 +74,7 @@ namespace ArchipelagoXIV.Rando
             VictoryType.McGuffin => "McGuffin Hunt",
             VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
             VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
+            VictoryType.PotDFloor50 => "Clear Floor 50 of Palace of the Dead",
             _ => "Unknown Goal",
         };
 
