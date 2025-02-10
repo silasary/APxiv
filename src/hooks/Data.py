@@ -47,11 +47,11 @@ fate_zones = {
     "Northern Thanalan": [49,49],
 
     "Coerthas Central Highlands": [35,35],
-    "Coerthas Western Highlands": [50, 130],
+    "Coerthas Western Highlands": [51, 130],
 
     "Mor Dhona": [44,44],
 
-    "The Sea of Clouds": [50, 130],
+    "The Sea of Clouds": [51, 130],
     "Azys Lla": [59, 145],
 
     "The Dravanian Forelands": [52, 130],

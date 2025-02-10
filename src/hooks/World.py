@@ -3,7 +3,7 @@ from worlds.AutoWorld import World
 from BaseClasses import MultiWorld, ItemClassification, LocationProgressType
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
-from ..Items import ManualItem
+from ..Items import ManualItem, item_name_to_item
 from ..Locations import ManualLocation
 
 # Raw JSON data from the Manual apworld, respectively:
@@ -14,6 +14,7 @@ from ..Data import game_table, item_table, location_table, region_table
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
 from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, WORLD_BOSSES
+from .Options import LevelCap
 
 
 # calling logging.info("message") anywhere below in this file will output the message to both console and log file
@@ -49,7 +50,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(WORLD_BOSSES)
 
-    level_cap = get_option_value(multiworld, player, "level_cap") or 100
+    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     duty_diff = get_option_value(multiworld, player, "duty_difficulty")
     duty_size = get_option_value(multiworld, player, "max_party_size")
@@ -66,16 +67,17 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 continue
         if "size" in location:
             if location["size"] > duty_size:
-                print(f"Removing {location['name']} from {player}'s world")
+                # print(f"Removing {location['name']} from {player}'s world")
                 locationNamesToRemove.append(location["name"])
                 continue
         if not include_dungeons and location.get("is_dungeon"):
-            print(f"Removing {location['name']} from {player}'s world")
+            # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
         if "level" in location and int(location["level"]) > level_cap:
-            print(f"Excluding {location['name']} from {player}'s world")
-            locationNamesToExclude.append(location["name"])
+            # print(f"Removing {location['name']} from {player}'s world")
+            locationNamesToRemove.append(location["name"])
+            continue
 
 
     for region in multiworld.regions:
@@ -145,8 +147,8 @@ def before_create_items_filler(
         if prog_doh and item.name == f"5 {prog_doh} Levels":
             item.classification = ItemClassification.progression
             prog_doh = None
-        # if item_name_to_item[item.name].get("level", 0) > level_cap:
-        #     item_pool.remove(item)
+        if item_name_to_item[item.name].get("level", 0) > level_cap:
+            item_pool.remove(item)
 
     return item_pool
 

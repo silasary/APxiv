@@ -105,6 +105,8 @@ namespace ArchipelagoXIV
             { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
             { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
             { "Harder Bigger Faster Stronger", "Harder, Bigger, Faster, Stronger"},
+            { "A Mad Mad Mad Sergeant", "A Mad, Mad, Mad Sergeant" },
+            { "Hello Work", "Hello, Work"}
         };
 
         public static void Initialize() {

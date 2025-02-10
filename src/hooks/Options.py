@@ -104,7 +104,7 @@ class LevelCap(Range):
     display_name = "Level Cap"
     default = 90
     range_start = 10
-    range_end = 90
+    range_end = 100
 
 class AllowMainScenario(DefaultOnToggle):
     """
@@ -154,7 +154,7 @@ def before_options_defined(options: dict) -> dict:
     options["fishsanity"] = Fishsanity
     # Jobs
     options["force_jobs"] = ForceJob
-    # options["level_cap"] = LevelCap
+    options["level_cap"] = LevelCap
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
