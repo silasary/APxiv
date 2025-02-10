@@ -93,8 +93,11 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 def before_create_items_starting(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
     return item_pool
 
+
 # The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage
-def before_create_items_filler(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
+def before_create_items_filler(
+    item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int
+) -> list:
     tanks = TANKS.copy()
     healers = HEALERS.copy()
     melee = MELEE.copy()
@@ -108,9 +111,12 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
-    force_jobs = get_option_value(multiworld, player, "force_jobs")
+    force_jobs = list(get_option_value(multiworld, player, "force_jobs"))
     level_cap = get_option_value(multiworld, player, "level_cap") or 100
     if force_jobs:
+        if len(force_jobs) > 5:
+            world.random.shuffle(force_jobs)
+            force_jobs = force_jobs[:5]
         prog_classes = force_jobs
     else:
         prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
@@ -136,7 +142,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
 
         if item.name == "5 FSH Levels":
             item.classification = ItemClassification.progression
-        if prog_doh and item.name == f'5 {prog_doh} Levels':
+        if prog_doh and item.name == f"5 {prog_doh} Levels":
             item.classification = ItemClassification.progression
             prog_doh = None
         # if item_name_to_item[item.name].get("level", 0) > level_cap:
@@ -151,6 +157,7 @@ def before_create_items_filler(item_pool: list[ManualItem], world: World, multiw
     # item_to_place = next(i for i in item_pool if i.name == "Item Name")
     # location.place_locked_item(item_to_place)
     # item_pool.remove(item_to_place)
+
 
 # The complete item pool prior to being set for generation is provided here, in case you want to make changes to it
 def after_create_items(item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int) -> list:
