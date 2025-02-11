@@ -132,6 +132,12 @@ def before_create_items_filler(
     for item in item_pool.copy():
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
+        if item.name == "5 FSH Levels":
+            item.classification = ItemClassification.progression
+        if prog_doh and item.name == f"5 {prog_doh} Levels":
+            item.classification = ItemClassification.progression
+            prog_doh = None
+
         if "Levels" in item.name:
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
             if seen_levels[item.name] > level_cap:
@@ -141,12 +147,6 @@ def before_create_items_filler(
                 multiworld.precollected_items[player].append(item)
                 item_pool.remove(item)
                 continue
-
-        if item.name == "5 FSH Levels":
-            item.classification = ItemClassification.progression
-        if prog_doh and item.name == f"5 {prog_doh} Levels":
-            item.classification = ItemClassification.progression
-            prog_doh = None
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             item_pool.remove(item)
 

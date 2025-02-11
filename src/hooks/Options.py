@@ -54,6 +54,11 @@ class DutyDifficulty(Choice):
     option_endgame = 4
 
 class MaxPartySize(Choice):
+    """
+    Maximum party size for duty content.
+
+    This does not stop you from entering undersized, but simply prevents duties that would expect more players from being in the location pool.
+    """
     default = 1
     display_name = "Max Party Size"
     option_solo = 0
