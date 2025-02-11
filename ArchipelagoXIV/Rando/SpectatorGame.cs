@@ -32,5 +32,7 @@ namespace ArchipelagoXIV.Rando
         }
 
         internal override VictoryType GoalType => VictoryType.None;
+
+        public override bool HasMapItems => false;
     }
 }

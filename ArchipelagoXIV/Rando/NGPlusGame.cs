@@ -65,6 +65,8 @@ namespace ArchipelagoXIV.Rando
             _ => VictoryType.McGuffin,
         };
 
+        public override bool HasMapItems => true;
+
         internal override void Ready()
         {
             McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World");

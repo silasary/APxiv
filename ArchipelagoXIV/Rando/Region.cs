@@ -28,6 +28,9 @@ namespace ArchipelagoXIV.Rando
 
         public static bool CanReach(ApState ap, Region target)
         {
+            if (!ap.Game.HasMapItems)
+                return true;
+
             if (target.stale)
             {
                 var explored = new List<Region>();

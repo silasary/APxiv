@@ -33,5 +33,7 @@ namespace ArchipelagoXIV.Rando
         }
 
         internal override VictoryType GoalType => VictoryType.MaskedCarnivale30;
+
+        public override bool HasMapItems => true;
     }
 }

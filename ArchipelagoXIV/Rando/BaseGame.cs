@@ -13,7 +13,7 @@ namespace ArchipelagoXIV.Rando
         protected ApState apState = apState;
 
         public int Goal { get; private set; }
-
+        public abstract bool HasMapItems { get; }
 
         private readonly string[] DHLJobs = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL", "MIN", "BTN", "FSH"];
 
