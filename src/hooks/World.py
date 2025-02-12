@@ -155,11 +155,11 @@ def before_create_items_filler(
         if "Levels" in item.name:
             # Add the levels from this item, always 5 currently.
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
-            if seen_levels > level_cap:
+            if seen_levels[item.name] > level_cap:
                 # Do not add the item to the item pool if the total seen levels is now above the level cap.
                 continue
             # If it is the first levels for the starting class, add the item to starting inventory.
-            if item.name == start_class and seen_levels <= 10:
+            if item.name == start_class and seen_levels[item.name] <= 10:
                 # Added to starting inventory instead of the item pool.
                 multiworld.precollected_items[player].append(item)
                 continue
