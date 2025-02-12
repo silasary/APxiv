@@ -79,9 +79,22 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             locationNamesToRemove.append(location["name"])
             continue
 
+    # Find all region access items.
+    access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
 
     for region in multiworld.regions:
-        if region.player == player:
+        # Get the item required to access the region to determine the level requirement of the region.
+        access_item_name = region.name + " Access"
+        access_item = access_items.get(access_item_name)
+        # If there is an item for this region and the level requirement is above the level cap, remove all the locations
+        # in the region.
+        if access_item is not None and access_item.get("level", 0) > level_cap:
+            # print(f"Removing all locations in region {region.name} from {player}'s world")
+            for location in list(region.locations):
+                # print(f"  Removing {location.name}")
+                region.locations.remove(location)
+        # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
+        elif region.player == player:
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
@@ -129,7 +142,8 @@ def before_create_items_filler(
 
     seen_levels = {}
 
-    for item in item_pool.copy():
+    reduced_item_pool = []
+    for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
         if item.name == "5 FSH Levels":
@@ -139,18 +153,26 @@ def before_create_items_filler(
             prog_doh = None
 
         if "Levels" in item.name:
-            seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
-            if seen_levels[item.name] > level_cap:
-                item_pool.remove(item)
+            # Get the current total of seen levels for this item.
+            current_seen_levels = seen_levels.get(item.name, 0)
+            # Add the levels from this item, always 5 currently.
+            updated_seen_levels = current_seen_levels + 5
+            seen_levels[item.name] = updated_seen_levels
+            if updated_seen_levels > level_cap:
+                # Do not add the item to the item pool if the total seen levels is now above the level cap.
                 continue
-            if item.name == start_class and seen_levels[item.name] <= 3:
+            # If it is the first levels for the starting class, add the item to starting inventory.
+            if item.name == start_class and current_seen_levels <= 3:
+                # Added to starting inventory instead of the item pool.
                 multiworld.precollected_items[player].append(item)
-                item_pool.remove(item)
                 continue
         if item_name_to_item[item.name].get("level", 0) > level_cap:
-            item_pool.remove(item)
+            # Do not add the item to the item pool if the level requirement is above the level cap.
+            continue
 
-    return item_pool
+        reduced_item_pool.append(item)
+
+    return reduced_item_pool
 
     # Some other useful hook options:
 
