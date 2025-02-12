@@ -129,17 +129,18 @@ def before_create_items_filler(
 
     seen_levels = {}
 
-    for item in item_pool.copy():
+    reduced_item_pool = []
+    for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
         if "Levels" in item.name:
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
             if seen_levels[item.name] > level_cap:
-                item_pool.remove(item)
+                # Do not add the item to the item pool if the total seen levels is now above the level cap.
                 continue
             if item.name == start_class and seen_levels[item.name] <= 3:
+                # Added to starting inventory instead of the item pool.
                 multiworld.precollected_items[player].append(item)
-                item_pool.remove(item)
                 continue
 
         if item.name == "5 FSH Levels":
@@ -148,9 +149,12 @@ def before_create_items_filler(
             item.classification = ItemClassification.progression
             prog_doh = None
         if item_name_to_item[item.name].get("level", 0) > level_cap:
-            item_pool.remove(item)
+            # Do not add the item to the item pool if the level requirement is above the level cap.
+            continue
 
-    return item_pool
+        reduced_item_pool.append(item)
+
+    return reduced_item_pool
 
     # Some other useful hook options:
 
