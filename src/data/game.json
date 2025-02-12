@@ -5,10 +5,6 @@
 	"filler_item_name": "/pet",
 	"starting_items":[
         {
-            "item_categories": ["DOW/DOM"],
-            "random": 1
-        },
-        {
             "item_categories": ["Starting"]
         }
     ],
