@@ -127,7 +127,7 @@ def before_create_items_filler(
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
     force_jobs = list(get_option_value(multiworld, player, "force_jobs"))
-    level_cap = get_option_value(multiworld, player, "level_cap") or 100
+    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
@@ -162,7 +162,7 @@ def before_create_items_filler(
                 # Do not add the item to the item pool if the total seen levels is now above the level cap.
                 continue
             # If it is the first levels for the starting class, add the item to starting inventory.
-            if item.name == start_class and current_seen_levels <= 3:
+            if item.name == start_class and current_seen_levels <= 15:
                 # Added to starting inventory instead of the item pool.
                 multiworld.precollected_items[player].append(item)
                 continue
