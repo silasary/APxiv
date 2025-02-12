@@ -79,9 +79,22 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             locationNamesToRemove.append(location["name"])
             continue
 
+    # Find all region access items.
+    access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
 
     for region in multiworld.regions:
-        if region.player == player:
+        # Get the item required to access the region to determine the level requirement of the region.
+        access_item_name = region.name + " Access"
+        access_item = access_items.get(access_item_name)
+        # If there is an item for this region and the level requirement is above the level cap, remove all the locations
+        # in the region.
+        if access_item is not None and access_item.get("level", 0) > level_cap:
+            # print(f"Removing all locations in region {region.name} from {player}'s world")
+            for location in list(region.locations):
+                # print(f"  Removing {location.name}")
+                region.locations.remove(location)
+        # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
+        elif region.player == player:
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
