@@ -231,6 +231,7 @@ def generate_fish_list() -> list[dict]:
             "region": region,
             "requires": requires,
             "id": _id,
+            "level": data['lvl'],
         }
         if data.get('tribal'):
             if name not in removed_fish:
