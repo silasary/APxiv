@@ -112,6 +112,9 @@ namespace ArchipelagoXIV
             { "Blood Augur Hex Magicks (FATE)", "Blood, Augur, Hex, Magicks (FATE)"},
             { "Tempered Tempered (FATE)", "Tempered, Tempered (FATE)"},
             { "Go Go Gorgimera (FATE)", "Go, Go, Gorgimera (FATE)"},
+            { "Another Day Another Demon (FATE)", "Another Day, Another Demon (FATE)"},
+            { "Long Hands Long Fingers (FATE)", "Long Hands, Long Fingers (FATE)"},
+            { "This Is a Da This Is a Peng (FATE)", "This Is a Da, This Is a Peng (FATE)"},
         };
 
         public static void Initialize() {
