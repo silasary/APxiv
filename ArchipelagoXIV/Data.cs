@@ -104,12 +104,14 @@ namespace ArchipelagoXIV
             { "The Heart of the Creator", "Alexander - The Heart of the Creator" },
             { "The Soul of the Creator", "Alexander - The Soul of the Creator" },
             { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
-            { "Harder Bigger Faster Stronger", "Harder, Bigger, Faster, Stronger"},
-            { "A Mad Mad Mad Sergeant", "A Mad, Mad, Mad Sergeant" },
-            { "Hello Work", "Hello, Work"},
-            { "Please Hammers Don't Hurt Them", "Please Hammers, Don't Hurt Them"},
-            { "Spring Forward Fall Back", "Spring Forward, Fall Back"},
-            { "Blood Augur Hex Magicks", "Blood, Augur, Hex, Magicks"},
+            { "Harder Bigger Faster Stronger (FATE)", "Harder, Bigger, Faster, Stronger (FATE)"},
+            { "A Mad Mad Mad Sergeant (FATE)", "A Mad, Mad, Mad Sergeant (FATE)" },
+            { "Hello Work (FATE)", "Hello, Work (FATE)"},
+            { "Please Hammers Don't Hurt Them (FATE)", "Please Hammers, Don't Hurt Them (FATE)"},
+            { "Spring Forward Fall Back (FATE)", "Spring Forward, Fall Back (FATE)"},
+            { "Blood Augur Hex Magicks (FATE)", "Blood, Augur, Hex, Magicks (FATE)"},
+            { "Tempered Tempered (FATE)", "Tempered, Tempered (FATE)"},
+            { "Go Go Gorgimera (FATE)", "Go, Go, Gorgimera (FATE)"},
         };
 
         public static void Initialize() {
