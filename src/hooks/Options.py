@@ -107,7 +107,7 @@ class LevelCap(Range):
     Maximum level of the player.
     """
     display_name = "Level Cap"
-    default = 90
+    default = 100
     range_start = 10
     range_end = 100
 
