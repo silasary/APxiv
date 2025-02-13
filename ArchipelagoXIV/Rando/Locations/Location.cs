@@ -170,6 +170,7 @@ namespace ArchipelagoXIV.Rando
 
             if (!MeetsRequirements(apState, false))
             {
+                return false;
                 DalamudApi.Echo("Warning:  Class check failed");
             }
             return true;
