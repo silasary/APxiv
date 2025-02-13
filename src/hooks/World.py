@@ -126,7 +126,7 @@ def before_create_items_filler(
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
-    force_jobs = list(get_option_value(multiworld, player, "force_jobs"))
+    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
     if force_jobs:
         if len(force_jobs) > 5:
