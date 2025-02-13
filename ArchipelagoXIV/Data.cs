@@ -106,7 +106,10 @@ namespace ArchipelagoXIV
             { "Castrum Lacus Litore", "The Battle of Castrum Lacus Litore" },
             { "Harder Bigger Faster Stronger", "Harder, Bigger, Faster, Stronger"},
             { "A Mad Mad Mad Sergeant", "A Mad, Mad, Mad Sergeant" },
-            { "Hello Work", "Hello, Work"}
+            { "Hello Work", "Hello, Work"},
+            { "Please Hammers Don't Hurt Them", "Please Hammers, Don't Hurt Them"},
+            { "Spring Forward Fall Back", "Spring Forward, Fall Back"},
+            { "Blood Augur Hex Magicks", "Blood, Augur, Hex, Magicks"},
         };
 
         public static void Initialize() {
