@@ -123,7 +123,8 @@ namespace ArchipelagoXIV
             { "OK Golem (FATE)", "OK, Golem (FATE)"}, 
             { "Dude Where's My Karya (FATE)", "Dude, Where's My Karya (FATE)"}, 
             { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"}, 
-            { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"}, 
+            { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"},
+            { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"}, 
         };
 
         public static void Initialize() {
