@@ -115,6 +115,7 @@ namespace ArchipelagoXIV
             { "Another Day Another Demon (FATE)", "Another Day, Another Demon (FATE)"},
             { "Long Hands Long Fingers (FATE)", "Long Hands, Long Fingers (FATE)"},
             { "This Is a Da This Is a Peng (FATE)", "This Is a Da, This Is a Peng (FATE)"},
+            { "Run Riders Run (FATE)", "Run, Riders, Run (FATE)"},
         };
 
         public static void Initialize() {
