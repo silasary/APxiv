@@ -120,6 +120,10 @@ namespace ArchipelagoXIV
             { "Sugar Sugar (FATE)", "Sugar, Sugar (FATE)"},
             { "One Whiskey One Goat One Spear (FATE)", "One Whiskey, One Goat, One Spear (FATE)"},
             { "Run Riders Run (FATE)", "Run, Riders, Run (FATE)"},
+            { "OK Golem (FATE)", "OK, Golem (FATE)"}, 
+            { "Dude Where's My Karya (FATE)", "Dude, Where's My Karya (FATE)"}, 
+            { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"}, 
+            { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"}, 
         };
 
         public static void Initialize() {
