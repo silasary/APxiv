@@ -125,6 +125,7 @@ namespace ArchipelagoXIV
             { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"}, 
             { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"},
             { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"}, 
+            { "Feed Me See More (FATE)", "Feed Me, See More (FATE)"},
         };
 
         public static void Initialize() {
