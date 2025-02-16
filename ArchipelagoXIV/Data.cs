@@ -115,7 +115,17 @@ namespace ArchipelagoXIV
             { "Another Day Another Demon (FATE)", "Another Day, Another Demon (FATE)"},
             { "Long Hands Long Fingers (FATE)", "Long Hands, Long Fingers (FATE)"},
             { "This Is a Da This Is a Peng (FATE)", "This Is a Da, This Is a Peng (FATE)"},
+            { "A Tisket A Tasket (FATE)", "A Tisket, A Tasket (FATE)"},
+            { "No Ifs Ands or Butts (FATE)", "No Ifs, Ands, or Butts (FATE)"},
+            { "Sugar Sugar (FATE)", "Sugar, Sugar (FATE)"},
+            { "One Whiskey One Goat One Spear (FATE)", "One Whiskey, One Goat, One Spear (FATE)"},
             { "Run Riders Run (FATE)", "Run, Riders, Run (FATE)"},
+            { "OK Golem (FATE)", "OK, Golem (FATE)"}, 
+            { "Dude Where's My Karya (FATE)", "Dude, Where's My Karya (FATE)"}, 
+            { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"}, 
+            { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"},
+            { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"}, 
+            { "Feed Me See More (FATE)", "Feed Me, See More (FATE)"},
         };
 
         public static void Initialize() {
