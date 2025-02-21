@@ -71,6 +71,21 @@ Manual_FFXIV_Silasary:
     'false': 50
     'true': 0
 
+  fates_per_zone:
+    # Number of FATEs required per zone.
+    #
+    # If fatesanity is disabled, this is the number of FATEs you need to complete in each zone.
+    1: 0
+    2: 0
+    3: 50
+    4: 0
+    5: 0
+    6: 0
+    7: 0
+    8: 0
+    9: 0
+    10: 0
+
   include_unreasonable_fates:
     # Include World Bosses and other FATEs that are not reasonable to complete.
     #

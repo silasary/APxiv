@@ -140,6 +140,16 @@ class IncludeBozja(Toggle):
     Include Save the Queen content in the location pool.  This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
     """
 
+class FatesPerZone(Range):
+    """
+    Number of FATEs required per zone.  Does not apply if Fatesanity is enabled.
+    """
+    display_name = "FATEs Per Zone"
+    default = 5
+    range_start = 0
+    range_end = 10
+
+
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
     # Goal
@@ -155,6 +165,7 @@ def before_options_defined(options: dict) -> dict:
     # Fates
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
+    options["fates_per_zone"] = FatesPerZone
     # Fish
     options["fishsanity"] = Fishsanity
     # Jobs
