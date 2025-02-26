@@ -93,6 +93,7 @@ namespace ArchipelagoXIV.Hooks
                 name = duty.Name.ToString();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
+                name = name.Replace("<italic(1)>", "").Replace("<italic(0)>", "");
             }
             if (name == "Ocean Fishing")
             {
