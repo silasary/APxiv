@@ -78,6 +78,10 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
+        if "fate_number" in location and location["fate_number"] > get_option_value(multiworld, player, "fates_per_zone"):
+            # print(f"Removing {location['name']} from {player}'s world")
+            locationNamesToRemove.append(location["name"])
+            continue
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}

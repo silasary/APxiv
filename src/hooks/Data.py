@@ -135,6 +135,11 @@ def generate_fate_list():
         fate_list.append(create_FATE_location(3,key,level))
         fate_list.append(create_FATE_location(4,key,level))
         fate_list.append(create_FATE_location(5,key,level))
+        fate_list.append(create_FATE_location(6,key,level))
+        fate_list.append(create_FATE_location(7,key,level))
+        fate_list.append(create_FATE_location(8,key,level))
+        fate_list.append(create_FATE_location(9,key,level))
+        fate_list.append(create_FATE_location(10,key,level))
         _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
@@ -352,6 +357,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
             "category": ["FATEs", key],
             "requires": "",
             "level" : lvl,
+            "fate_number": number,
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"

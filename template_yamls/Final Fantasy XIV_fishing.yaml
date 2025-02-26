@@ -79,6 +79,12 @@ Manual_FFXIV_Silasary:
     'false': 50
     'true': 0
 
+  fates_per_zone:
+    # Number of FATEs required per zone.
+    #
+    # If fatesanity is disabled, this is the number of FATEs you need to complete in each zone.
+    0: 50
+
   fishsanity:
     # Include individual fish in the location pool.
     #
