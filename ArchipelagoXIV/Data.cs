@@ -120,12 +120,16 @@ namespace ArchipelagoXIV
             { "Sugar Sugar (FATE)", "Sugar, Sugar (FATE)"},
             { "One Whiskey One Goat One Spear (FATE)", "One Whiskey, One Goat, One Spear (FATE)"},
             { "Run Riders Run (FATE)", "Run, Riders, Run (FATE)"},
-            { "OK Golem (FATE)", "OK, Golem (FATE)"}, 
-            { "Dude Where's My Karya (FATE)", "Dude, Where's My Karya (FATE)"}, 
-            { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"}, 
+            { "OK Golem (FATE)", "OK, Golem (FATE)"},
+            { "Dude Where's My Karya (FATE)", "Dude, Where's My Karya (FATE)"},
+            { "Love Me Tindalos (FATE)", "Love Me, Tindalos (FATE)"},
             { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"},
-            { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"}, 
+            { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"},
             { "Feed Me See More (FATE)", "Feed Me, See More (FATE)"},
+            {"The Second Coil of Bahamut - Turn 1 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 1"},
+            {"The Second Coil of Bahamut - Turn 2 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 2"},
+            {"The Second Coil of Bahamut - Turn 3 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 3"},
+            {"The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
         };
 
         public static void Initialize() {
