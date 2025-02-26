@@ -29,7 +29,7 @@ jobs:
       - name: write version into jsons
         run: |
           $ver = '${{ github.ref_name }}'
-          $path = './ArchipelagoXIV/bin/Release/ArchipelagoXIV.json'
+          $path = './ArchipelagoXIV/bin/x64/Release/ArchipelagoXIV.json'
           $json = Get-Content -Raw $path | ConvertFrom-Json
           $json.AssemblyVersion = $ver
           $content = $json | ConvertTo-Json
@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: |
-            ./ArchipelagoXIV/bin/Release/*
+            ./ArchipelagoXIV/bin/x64/Release/*
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
