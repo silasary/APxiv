@@ -167,5 +167,10 @@
         "name": "Timeworn Kumbhiraskin Map",
         "region": "Ultima Thule",
         "requires": "|5 FSH Levels:17| and |Panic Jig|"
+    },
+    "Poor Maid's Misadventure (FATE)": {
+        "name": "Poor Maid's Misadventure (FATE)",
+        "region": "Upper La Noscea",
+        "level": "20"
     }
   }
