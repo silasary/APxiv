@@ -18,9 +18,9 @@ DOL = ["MIN", "BTN", "FSH"]
 
 WORLD_BOSSES = [
     "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
-    "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
+    " Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
     "A Horse Outside (FATE)", "Foxy Lady (FATE)",
-    "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
+    "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
     "The Serpentlord Seethes", "Mascot Murder",
     ]
