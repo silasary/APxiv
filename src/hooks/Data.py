@@ -153,6 +153,9 @@ def generate_fate_list():
             name = row[0]
             level = int(row[1])
 
+            if '(Removed)' in name:
+                continue
+
             if row[2] == 'The Firmament':
                 name += " (FETE)"
                 fate_list.append(

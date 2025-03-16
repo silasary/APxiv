@@ -171,6 +171,13 @@
     "Poor Maid's Misadventure (FATE)": {
         "name": "Poor Maid's Misadventure (FATE)",
         "region": "Upper La Noscea",
-        "level": "20"
+        "level": "20",
+        "id": 10074
+    },
+    "Bad Breath in Paradise (FATE)": {
+        "name": "Bad Breath in Paradise (FATE)",
+        "region": "Elpis",
+        "level": "82",
+        "id": 10862
     }
-  }
+}
