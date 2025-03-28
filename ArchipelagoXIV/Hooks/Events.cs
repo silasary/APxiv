@@ -170,15 +170,12 @@ namespace ArchipelagoXIV.Hooks
                     this.AmnestyTripped = true;
                     DalamudApi.Echo("Waiting: " + diff.TotalMinutes);
 
-                    Send(apState, cf->QueueInfo.QueuedContentFinderConditionId1);
-                    if (cf->QueueInfo.QueuedContentFinderConditionId2 > 0)
-                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId2);
-                    if (cf->QueueInfo.QueuedContentFinderConditionId3 > 0)
-                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId3);
-                    if (cf->QueueInfo.QueuedContentFinderConditionId4 > 0)
-                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId4);
-                    if (cf->QueueInfo.QueuedContentFinderConditionId5 > 0)
-                        Send(apState, cf->QueueInfo.QueuedContentFinderConditionId5);
+                    for (var i = 0; i < cf->QueueInfo.QueuedEntries.Length; i++)
+                    {
+                        if (cf->QueueInfo.QueuedEntries[i].ConditionId == 0)
+                            continue;
+                        Send(apState, cf->QueueInfo.QueuedEntries[i].ConditionId);
+                    }
                 }
             }
             else if (AmnestyTripped)

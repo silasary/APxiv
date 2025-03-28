@@ -17,7 +17,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 this.Level = int.Parse(level);
             if (data.TryGetValue("requires", out var requires))
                 this.MeetsRequirements = Logic.FromString(requires);
-            DalamudApi.Echo($"Your world contains the impossible check {name}");
+            DalamudApi.Echo($"Warning:  Your world contains the impossible check {name}. It will be automatically sent once it's in logic.");
         }
 
         public override bool IsAccessible()
