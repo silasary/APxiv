@@ -181,7 +181,7 @@ namespace ArchipelagoXIV.Rando
             this.Completed = true;
             apState.localsave!.CompletedChecks.Add(this.ApId);
             Task.Factory.StartNew(CompleteAsync);
-            apState.UpdateBars();
+            apState.RefreshBars = true;
         }
         private async void CompleteAsync()
         {

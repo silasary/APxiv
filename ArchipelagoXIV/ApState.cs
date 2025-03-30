@@ -44,6 +44,7 @@ namespace ArchipelagoXIV
         internal int lastFateCount;
         private int lastUpFateCount;
         private bool saving;
+        internal bool RefreshBars;
 
         public DeathLinkService DeathLink { get; private set; }
         private readonly Configuration config;
@@ -223,7 +224,7 @@ namespace ArchipelagoXIV
         private void Locations_CheckedLocationsUpdated(System.Collections.ObjectModel.ReadOnlyCollection<long> newCheckedLocations)
         {
             RefreshLocations(false);
-            UpdateBars();
+            RefreshBars = true;
         }
 
         private void LoadCache()
@@ -293,16 +294,14 @@ namespace ArchipelagoXIV
 
             RefreshRegions();
             this.RefreshLocations(false);
-            UpdateBars();
+            RefreshBars = true;
         }
 
         public void UpdateBars()
         {
-            var current_class = DalamudApi.CurrentClass();
-
             var BK = true;
             var fish = false;
-            var fisher = current_class.HasValue && current_class.Value.Abbreviation == "FSH";
+            var fisher = this.lastJob.Abbreviation == "FSH";
             var checks = 0;
             var fates = 0;
             var upfates = 0;
@@ -454,7 +453,7 @@ namespace ArchipelagoXIV
                 RefreshRegions();
                 this.RefreshLocations(false);
                 Game.Ready();
-                UpdateBars();
+                RefreshBars = true;
             }
         }
 

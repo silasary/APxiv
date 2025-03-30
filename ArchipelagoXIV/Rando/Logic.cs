@@ -31,14 +31,14 @@ namespace ArchipelagoXIV.Rando
         {
             if (level < 5)
                 return true;
-            var gLevel = asCurrentClass ? state.Game.MaxLevel(DalamudApi.CurrentClass()!.Value) : state.Game.MaxLevel();
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(state.lastJob) : state.Game.MaxLevel();
             return gLevel >= level;
         };
 
         // Class quests, BLU duties, etc
         internal static Func<ApState, bool, bool>? Level(int level, string job) => (state, asCurrentClass) =>
             {
-                if (asCurrentClass && DalamudApi.CurrentClass()!.Value.Abbreviation != job)
+                if (asCurrentClass && state.lastJob.Abbreviation != job)
                     return false;
                 if (level < 5)
                     return true;
@@ -48,7 +48,7 @@ namespace ArchipelagoXIV.Rando
 
         internal static Func<ApState, bool, bool>? LevelDOHDOL(int level) => (state, asCurrentClass) =>
         {
-            var gLevel = asCurrentClass ? state.Game.MaxLevel(DalamudApi.CurrentClass()!.Value) : state.Game.MaxLevelDHL();
+            var gLevel = asCurrentClass ? state.Game.MaxLevel(state.lastJob) : state.Game.MaxLevelDHL();
             return gLevel >= level;
         };
     }

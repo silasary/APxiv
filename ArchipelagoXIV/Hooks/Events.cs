@@ -147,7 +147,7 @@ namespace ArchipelagoXIV.Hooks
                 return;
             }
 
-            apState.UpdateBars();
+            apState.RefreshBars = true;
 
 
             if (apState.territoryName == "The Waking Sands")

@@ -110,6 +110,11 @@ namespace ArchipelagoXIV
                 apState.lastFateCount = fates;
                 refresh = true;
             }
+            if (apState.RefreshBars)
+            {
+                apState.RefreshBars = false;
+                refresh = true;
+            }
             if (refresh)
                 apState.UpdateBars();
 

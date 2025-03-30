@@ -103,7 +103,5 @@ namespace ArchipelagoXIV
         {
             ToastGui.ShowError(text);
         }
-
-        public static ClassJob? CurrentClass() => ClientState.LocalPlayer?.ClassJob.Value;
     }
 }

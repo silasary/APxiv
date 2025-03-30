@@ -53,6 +53,7 @@ namespace ArchipelagoXIV.Rando
             { "The Omphalos", "Mor Dhona"  },
             { "Main Hall", "Old Sharlayan" },
             { "Elysion", "Ultima Thule"},
+            { "The Backroom", "Solution Nine" },
             // AP Checks
             { "Return to the Waking Sands", "Western Thanalan" },
         };
