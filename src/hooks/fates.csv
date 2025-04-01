@@ -34,11 +34,11 @@ Cliff Hanger                                     ,        32 ,Eastern La Noscea
 Finding Wine                                     ,        32 ,Eastern La Noscea
 It's Not Lupus                                   ,        32 ,Eastern La Noscea
 Jewels of the Isle                               ,        32 ,Eastern La Noscea
-Return of the King                               ,        32 ,Eastern La Noscea
+Return of the King (Removed)                     ,        32 ,Eastern La Noscea
 Say My Name                                      ,        32 ,Eastern La Noscea
 The Pelican Briefing                             ,        32 ,Eastern La Noscea
 The Thirst                                       ,        32 ,Eastern La Noscea
-Consigned Sealed and Undelivered                 ,        33 ,Eastern La Noscea
+"Consigned, Sealed, and Undelivered"             ,        33 ,Eastern La Noscea
 Follow the Light                                 ,        33 ,Eastern La Noscea
 Ho Ho Ho                                         ,        33 ,Eastern La Noscea
 Long Way Home                                    ,        33 ,Eastern La Noscea
@@ -967,7 +967,7 @@ Domo Arigato                                     ,        98 ,Heritage Found
 Mi Casa Es Mi Casa                               ,        98 ,Heritage Found
 Mr. Roboto                                       ,        98 ,Heritage Found
 Old Stampeding Grounds                           ,        98 ,Heritage Found
-Print('I hate snakes')                           ,        98 ,Heritage Found
+print('I hate snakes')                           ,        98 ,Heritage Found
 Pulling the Wool                                 ,        98 ,Heritage Found
 To Each His Drone                                ,        98 ,Heritage Found
 When It's So Salvage                             ,        98 ,Heritage Found

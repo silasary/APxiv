@@ -179,5 +179,10 @@
         "region": "Elpis",
         "level": "82",
         "id": 10862
+    },
+    "Return of the King (FATE)": {
+        "name": "Return of the King (FATE)",
+        "region": "Eastern La Noscea",
+        "level": "32"
     }
 }

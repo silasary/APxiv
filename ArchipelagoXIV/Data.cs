@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace ArchipelagoXIV
         public static DynamicEvent[] DynamicEvents { get; private set; } = [];
         public static ImmutableDictionary<uint, Item> Items { get; private set; } = null;
         public static IKDRoute[] IKDRoutes { get; private set; }
+
+        public static FrozenDictionary<string, Fate> FateTable { get; private set; } = null;
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -126,10 +129,11 @@ namespace ArchipelagoXIV
             { "Wham Bam Thank You Mammoth (FATE)", "Wham, Bam, Thank You, Mammoth (FATE)"},
             { "Yes This Is Dogs (FATE)", "Yes, This Is Dogs (FATE)"},
             { "Feed Me See More (FATE)", "Feed Me, See More (FATE)"},
-            {"The Second Coil of Bahamut - Turn 1 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 1"},
-            {"The Second Coil of Bahamut - Turn 2 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 2"},
-            {"The Second Coil of Bahamut - Turn 3 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 3"},
-            {"The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
+            { "The Second Coil of Bahamut - Turn 1 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 1"},
+            { "The Second Coil of Bahamut - Turn 2 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 2"},
+            { "The Second Coil of Bahamut - Turn 3 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 3"},
+            { "The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
+            { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
         };
 
         public static void Initialize() {
@@ -149,6 +153,8 @@ namespace ArchipelagoXIV
             Items = dataManager.GetExcelSheet<Item>().ToImmutableDictionary(i => i.RowId);
 
             IKDRoutes = [.. dataManager.GetExcelSheet<IKDRoute>()];
+
+            FateTable = DalamudApi.DataManager.GetExcelSheet<Fate>().DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
         }
 
         public static ContentFinderCondition GetDuty(ushort territoryId) {

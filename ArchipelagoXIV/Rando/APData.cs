@@ -1,6 +1,8 @@
 using ArchipelagoXIV.Rando.Locations;
+using Lumina.Excel.Sheets;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -100,6 +102,7 @@ namespace ArchipelagoXIV.Rando
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
+            
             while ((line = reader.ReadLine()) != null)
             {
                 Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
@@ -108,6 +111,16 @@ namespace ArchipelagoXIV.Rando
                 var name = row[0].Trim();
                 if (headers.Contains(name))
                     continue;
+                if (name.Contains("Removed"))
+                    continue;
+
+                if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+                {
+                    name = fate.Name.ToString().Trim();
+                    // Yes, the trim is necessary. I am not respecting the whitespace in "Butterfly Kisses of Death ".
+                }
+                else
+                    DalamudApi.Echo($"Missing Fate: {name}");
 
                 var level = int.Parse(row[1].Trim());
                 level = Math.Max(level - 5, (int)Math.Floor(level / 10.0) * 10);
