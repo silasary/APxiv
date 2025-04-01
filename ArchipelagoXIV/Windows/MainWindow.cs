@@ -36,7 +36,7 @@ public class MainWindow : Window
 
             if (ImGui.Button($"Reconnect to {plugin.Configuration.Connection}"))
             {
-                state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName);
+                state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName, plugin.Configuration.Password);
             }
 
             if (ImGui.Button("View setup guide"))

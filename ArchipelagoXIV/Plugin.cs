@@ -169,7 +169,7 @@ namespace ArchipelagoXIV
             }
             if (!apState.Connected)
             {
-                apState.Connect(Configuration.Connection, Configuration.SlotName);
+                apState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
                 Events.RefreshTerritory();
             }
         }

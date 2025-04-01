@@ -10,6 +10,7 @@ public class ConfigWindow : Window, IDisposable
     private readonly Configuration Configuration;
     private string slotName;
     private string connection;
+    private string password;
     private bool force_deathlink;
     private bool ignore_class_restrictions;
 
@@ -18,7 +19,7 @@ public class ConfigWindow : Window, IDisposable
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 175);
+        this.Size = new Vector2(232, 195);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
@@ -37,6 +38,7 @@ public class ConfigWindow : Window, IDisposable
     {
         this.slotName = Configuration.SlotName;
         this.connection = Configuration.Connection;
+        this.password = Configuration.Password;
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
     }
@@ -53,6 +55,7 @@ public class ConfigWindow : Window, IDisposable
         //}
         ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref slotName, 63);
         ImGui.InputTextWithHint("Address", "archipelago.gg:38281", ref connection, 64);
+        ImGui.InputText("Password", ref password, 64, ImGuiInputTextFlags.Password);
         ImGui.Checkbox("Death Link always enabled", ref force_deathlink);
         ImGui.Checkbox("Ignore Class Restrictions", ref ignore_class_restrictions);
         if (ImGui.Button("Save & Connect"))
@@ -61,8 +64,9 @@ public class ConfigWindow : Window, IDisposable
             Configuration.SlotName = slotName;
             Configuration.ForceDeathlink = force_deathlink;
             Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
+            Configuration.Password = password;
             Configuration.Save();
-            ApState.Connect(Configuration.Connection, Configuration.SlotName);
+            ApState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
         }
     }
 }
