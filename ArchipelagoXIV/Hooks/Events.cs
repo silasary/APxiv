@@ -50,7 +50,12 @@ namespace ArchipelagoXIV.Hooks
             var fateRewardAddon = (AtkUnitBase*)args.Addon;
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
             var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible() || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible();
-            var locName = fateName + " (FATE)";
+            string locName;
+            if (apState.territoryName == "The Firmament")
+                locName = fateName + " (FETE)";
+            else
+                locName = fateName + " (FATE)";
+
             if (!success)
                 return;
 
