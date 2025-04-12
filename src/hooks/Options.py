@@ -134,6 +134,7 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
+    visibility = False
 
 class IncludeBozja(Toggle):
     """

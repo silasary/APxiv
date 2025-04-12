@@ -387,7 +387,6 @@ class ManualWorld(World):
                 extra_item = self.create_item(self.get_filler_item_name())
                 item_pool.append(extra_item)
         elif extras < 0:
-            logging.warning(f"{self.game} has more items than locations. {abs(extras)} non-progression items will be removed at random.")
             # Filler is only assigned if the item doesn't have any other tags, so it only has to be covered by itself.
             # Skip Balancing is also not covered due to how it's only supported when paired with Progression.
             # As a result, these cover every possible combination can be removed.
@@ -403,6 +402,8 @@ class ManualWorld(World):
             self.random.shuffle(traps)
             self.random.shuffle(useful)
             self.random.shuffle(useful_traps)
+            if abs(extras) > len(fillers):
+                logging.warning(f"{self.game} has more items than locations. {abs(extras)} non-progression items will be removed at random.")
             for _ in range(0, abs(extras)):
                 popped = None
                 if fillers:
