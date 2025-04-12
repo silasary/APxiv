@@ -3,6 +3,7 @@ using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Logging;
+using FFXIVClientStructs.FFXIV.Client.Game.Event;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
@@ -87,7 +88,7 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
         }
 
-        private void DutyState_DutyCompleted(object? sender, ushort e)
+        private unsafe void DutyState_DutyCompleted(object? sender, ushort e)
         {
             if (!apState.Connected)
                 return;
@@ -102,7 +103,8 @@ namespace ArchipelagoXIV.Hooks
             }
             if (name == "Ocean Fishing")
             {
-                var route = Data.IKDRoutes.FirstOrDefault(r => r.Instance.Value.RowId == duty.RowId);
+                var oceanfishing = EventFramework.Instance()->GetInstanceContentOceanFishing();
+                var route = Data.IKDRoutes.FirstOrDefault(r => r.RowId == oceanfishing->CurrentRoute);
                 name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
