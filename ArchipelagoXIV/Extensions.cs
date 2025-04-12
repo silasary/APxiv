@@ -11,7 +11,7 @@ namespace ArchipelagoXIV
 
         public static string ItemName(this Hint hint, ApState state)
         {
-            return state.session.Items.GetItemName(hint.ItemId);
+            return state.session.Items.GetItemName(hint.ItemId, state.session.Players.GetPlayerInfo(hint.ReceivingPlayer).Game);
         }
 
         public static ushort APColourToUIColour(this Color color)
