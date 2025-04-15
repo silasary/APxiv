@@ -454,7 +454,7 @@ namespace ArchipelagoXIV
             {
                 Loading = false;
                 RefreshRegions();
-                this.RefreshLocations(false);
+                this.RefreshLocations(true);
                 Game.Ready();
                 RefreshBars = true;
             }

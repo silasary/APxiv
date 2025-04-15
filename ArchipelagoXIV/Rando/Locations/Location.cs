@@ -65,7 +65,7 @@ namespace ArchipelagoXIV.Rando
                 {
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
                     if (content.RowId == 0 && this.Name.StartsWith("The"))
-                        content = Data.Content.FirstOrDefault(cf => cf.Name == ("the" + this.Name[3..]));
+                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == ("the" + this.Name[3..]));
                     if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
                     {
                         content = Data.Content[id];
@@ -145,7 +145,7 @@ namespace ArchipelagoXIV.Rando
             }
             else
             {
-                DalamudApi.Echo($"Unknown CF {Name}");
+                DalamudApi.Echo($"Could not identify the check `{Name}`");
                 this.MeetsRequirements = Logic.Always();
             }
         }
