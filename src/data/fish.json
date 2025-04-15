@@ -11515,7 +11515,8 @@
     "Signature Skyball"
    ]
   },
-  "lvl": 80
+  "lvl": 80,
+  "tribal": true
  },
  "Allagan Hunter": {
   "name": "Allagan Hunter",
@@ -11525,7 +11526,8 @@
     "Signature Skyball"
    ]
   },
-  "lvl": 80
+  "lvl": 80,
+  "tribal": true
  },
  "Grade 3 Skybuilders' Thunderbolt Sculpin": {
   "name": "Grade 3 Skybuilders' Thunderbolt Sculpin",
@@ -11725,7 +11727,8 @@
     "Signature Skyball"
    ]
   },
-  "lvl": 80
+  "lvl": 80,
+  "tribal": true
  },
  "Pickled Pom": {
   "name": "Pickled Pom",
@@ -11735,7 +11738,8 @@
     "Signature Skyball"
    ]
   },
-  "lvl": 80
+  "lvl": 80,
+  "tribal": true
  },
  "Moonlight Guppy": {
   "name": "Moonlight Guppy",
@@ -14159,7 +14163,8 @@
   "name": "Timeworn Kumbhiraskin Map",
   "id": 36612,
   "zones": {},
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Seedtoad": {
   "name": "Seedtoad",
@@ -14598,7 +14603,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Clavekeeper": {
   "name": "Clavekeeper",
@@ -14608,7 +14614,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Mirror Image": {
   "name": "Mirror Image",
@@ -14618,7 +14625,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Spangled Pirarucu": {
   "name": "Spangled Pirarucu",
@@ -14628,7 +14636,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Ondo Kelp": {
   "name": "Ondo Kelp",
@@ -14788,7 +14797,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Forgiven Melancholy": {
   "name": "Forgiven Melancholy",
@@ -14805,7 +14815,8 @@
     "Plump Worm"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Gonzalo's Grace": {
   "name": "Gonzalo's Grace",
@@ -14815,7 +14826,8 @@
     "Plump Worm"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Onyx Knifefish": {
   "name": "Onyx Knifefish",
@@ -15520,7 +15532,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Ronkan Bullion": {
   "name": "Ronkan Bullion",
@@ -15537,7 +15550,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Saint Fathric's Face": {
   "name": "Saint Fathric's Face",
@@ -15547,7 +15561,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Golding": {
   "name": "Golding",
@@ -15557,7 +15572,8 @@
     "Select Bait Ball"
    ]
   },
-  "lvl": 90
+  "lvl": 90,
+  "tribal": true
  },
  "Circuit Tilapia": {
   "name": "Circuit Tilapia",
@@ -17283,6 +17299,78 @@
   },
   "lvl": 100,
   "folklore": 43885,
+  "timed": 2
+ },
+ "Cabinkeep Permit": {
+  "name": "Cabinkeep Permit",
+  "id": 47988,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Muttering Matamata": {
+  "name": "Muttering Matamata",
+  "id": 47989,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Riverlong Candiru": {
+  "name": "Riverlong Candiru",
+  "id": 47990,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Deep Canopy": {
+  "name": "Deep Canopy",
+  "id": 47991,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Awaksbane Apoda": {
+  "name": "Awaksbane Apoda",
+  "id": 47992,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Ttokatoa": {
+  "name": "Ttokatoa",
+  "id": 47993,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43885,
+  "timed": 2
+ },
+ "Thunderous Flounder": {
+  "name": "Thunderous Flounder",
+  "id": 47994,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Harlequin Queen": {
+  "name": "Harlequin Queen",
+  "id": 47995,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
   "timed": 2
  }
 }

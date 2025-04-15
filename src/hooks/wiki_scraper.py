@@ -94,6 +94,26 @@ NOT_IN_FISHING_GUIDE = [
     # Splendid tools
     "Forgiven Melancholy",
     "Ronkan Bullion",
+    "Allagan Hunter",
+    "Petal Shell",
+    "Flintstrike",
+    "Pickled Pom",
+    "Platinum Seahorse",
+    "Clavekeeper",
+    "Mirror Image",
+    "Spangled Pirarucu",
+    "Gold Dustfish",
+    "Forgiven Melancholy",
+    "Oil Slick",
+    "Gonzalo's Grace",
+    "Deadwood Shadow",
+    "Golding",
+    "Ronkan Bullion",
+    "Little Bounty",
+    "Saint Fathric's Face",
+
+    # Treasure maps
+    "Timeworn Kumbhiraskin Map",
 ]
 
 @functools.lru_cache
@@ -177,7 +197,10 @@ def scrape_bell():
     url = 'https://www.garlandtools.org/bell/fish.js'
     js = requests.get(url).text.replace('\n', ' ')
     data = re.findall(r'gt.bell.(\w+) = (.*?);', js)
-    bait = json.loads(data[0][1])
+    with open(data_path('bait.json'), 'r', newline='') as h:
+        bait = json.load(h)
+
+    bait.update(json.loads(data[0][1]))
     fish = json.loads(data[1][1])
     for f in fish:
         if f['zone'] == 'Eulmore - The Buttress':
@@ -198,6 +221,8 @@ def scrape_bell():
                 'folklore': f.get('folklore'),
                 'timed': f.get('weather') or f.get('during'),
                 }
+        else:
+            all_fish[name]['lvl'] = min(all_fish[name]['lvl'], f['lvl'])
         all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
         bait_paths.setdefault(name, {})
         for c in f['baits']:
@@ -262,12 +287,12 @@ def scrape_teamcraft():
         place_name = zone['Name']
         for fish_id in hole['fishes']:
             name = lookup_item_name(fish_id)
-            if name in NOT_IN_FISHING_GUIDE:
-                continue
+            # if name in NOT_IN_FISHING_GUIDE:
+            #     continue
             fish = lookup_fish(fish_id)
             all_fish.setdefault(name, fish)
             fish.setdefault('zones', {})
-            all_fish[name]['zones'][place_name] = []  #  [c['name'] for c in fish['bait']]  # TODO:  Determine bait
+            all_fish[name]['zones'].setdefault(place_name, [])
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
@@ -491,7 +516,7 @@ def sort_fish():
 
 
 if __name__ == "__main__":
-    scrape_bell()
+    # scrape_bell()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
