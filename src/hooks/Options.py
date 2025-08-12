@@ -1,6 +1,6 @@
 # Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
-from Options import Toggle, DefaultOnToggle, Choice, Range, OptionSet, PerGameCommonOptions, Option, OptionGroup
+from Options import Toggle, DefaultOnToggle, Choice, Range, OptionSet, PerGameCommonOptions, Option, OptionGroup, Visibility
 from worlds.AutoWorld import World
 from Utils import get_fuzzy_results
 from typing import Type
@@ -134,7 +134,7 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
-    visibility = False
+    visibility = Visibility.none
 
 class IncludeBozja(Toggle):
     """
