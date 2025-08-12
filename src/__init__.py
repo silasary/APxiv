@@ -68,7 +68,7 @@ class ManualWorld(World):
     victory_names = victory_names
 
     # UT (the universal-est of trackers) can now generate without a YAML
-    ut_can_gen_without_yaml = True
+    # ut_can_gen_without_yaml = True
 
     def get_filler_item_name(self) -> str:
         return hook_get_filler_item_name(self, self.multiworld, self.player) or self.filler_item_name
