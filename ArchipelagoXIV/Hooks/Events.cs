@@ -14,7 +14,7 @@ namespace ArchipelagoXIV.Hooks
 {
     internal class Events(ApState apState)
     {
-        private bool AmnestyTripped;
+        private bool amnestyTripped;
 
         public void Enable()
         {
@@ -48,7 +48,7 @@ namespace ArchipelagoXIV.Hooks
 
         private unsafe void OnFatePreFinalize(AddonEvent type, AddonArgs args)
         {
-            var fateRewardAddon = (AtkUnitBase*)args.Addon;
+            var fateRewardAddon = (AtkUnitBase*)args.Addon.Address;
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
             var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible() || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible();
             string locName;
@@ -169,12 +169,12 @@ namespace ArchipelagoXIV.Hooks
             var cf = ContentsFinder.Instance();
             if (cf->QueueInfo.QueueState == ContentsFinderQueueInfo.QueueStates.Queued)
             {
-                if (AmnestyTripped)
+                if (amnestyTripped)
                     return;
                 var diff = DateTime.UtcNow.Subtract(cf->QueueInfo.GetEnteredQueueDateTime());
                 if (diff.TotalMinutes > 20)
                 {
-                    this.AmnestyTripped = true;
+                    this.amnestyTripped = true;
                     DalamudApi.Echo("Waiting: " + diff.TotalMinutes);
 
                     for (var i = 0; i < cf->QueueInfo.QueuedEntries.Length; i++)
@@ -185,8 +185,8 @@ namespace ArchipelagoXIV.Hooks
                     }
                 }
             }
-            else if (AmnestyTripped)
-                AmnestyTripped = false;
+            else if (amnestyTripped)
+                amnestyTripped = false;
 
             static unsafe void Send(ApState apState, uint queuedId)
             {

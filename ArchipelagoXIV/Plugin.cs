@@ -85,7 +85,7 @@ namespace ArchipelagoXIV
             DLHooks.Enable();
             DalamudApi.Framework.Update += Framework_Update;
             DalamudApi.SetStatusBar("AP Ready");
-            DalamudApi.logicBar.OnClick += () => { MainWindow.IsOpen = !MainWindow.IsOpen; };
+            DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
         }
 
         private void Framework_Update(IFramework framework)
@@ -133,7 +133,7 @@ namespace ArchipelagoXIV
                 MainWindow.IsOpen = true;
                 return;
             }
-            apState.session.Socket.SendPacket(new SayPacket() { Text = arguments });
+            apState.session!.Socket.SendPacket(new SayPacket() { Text = arguments });
         }
 
         private void ShowConfig(string command, string arguments)

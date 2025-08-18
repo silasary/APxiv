@@ -2,7 +2,7 @@ using System;
 using System.Numerics;
 using ArchipelagoXIV.Rando;
 using Dalamud.Interface.Windowing;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 
 namespace ArchipelagoXIV.Windows;
 

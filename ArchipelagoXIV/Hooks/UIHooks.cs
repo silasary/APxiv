@@ -41,7 +41,7 @@ namespace ArchipelagoXIV.Hooks
         private void OnContentsFinderRefresh(AddonEvent type, AddonArgs args)
         {
             //var hints = apState.Hints.Select(h => h.LocationId).ToArray();
-            var addon = (AddonContentsFinder*)args.Addon;
+            var addon = (AddonContentsFinder*)args.Addon.Address;
             if (addon->DutyList == null)
                 return;
             foreach (var itemRenderer in addon->DutyList->Items.AsSpan())
