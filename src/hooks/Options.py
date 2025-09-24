@@ -66,10 +66,24 @@ class MaxPartySize(Choice):
     option_full_party = 2
     option_alliance = 3
 
+    visibility = Visibility.none  # Currently broken
+
 class IncludeDungeons(DefaultOnToggle):
     """
     Dungeons are generally longer than other locations. You may want to exclude them in a sync.
     """
+
+class ExtraDungeonChecks(Range):
+    """
+    Number of checks per dungeon to include in the location pool.
+
+    Each dungeon has a base of 1 check.  This option adds additional checks to each dungeon.
+    """
+    display_name = "Extra Dungeons"
+    default = 0
+    range_start = 0
+    range_end = 10
+
 
 class DungeonCount(Range):
     """
@@ -250,6 +264,7 @@ def before_options_defined(options: dict) -> dict:
     options["max_party_size"] = MaxPartySize
     options["include_dungeons"] = IncludeDungeons
     options["allow_main_scenario_duties"] = AllowMainScenario
+    options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
     # options["include_bozja"] = IncludeBozja

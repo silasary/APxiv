@@ -103,10 +103,12 @@ def get_duty_expansion(row):
 
 def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
+    extra_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
     _id = 0
+    _xid = 30_000
     prev_category = "Dungeon (ARR)"
 
     for row in dutyreader:
@@ -134,10 +136,22 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
             if row[4] == "Gangos":
                 location["category"].append("Bozja")
             duty_list.append(location)
+            if "Dungeon" in row[1]:
+                for i in range(1, 10):
+                    extra_list.append({
+                        "id": _xid,
+                        "name": f"{row[0]} {i + 1}",
+                        "region": row[4],
+                        "category": [row[1], row[4]],
+                        "requires": requires_str,
+                        "level" : row[2],
+                        "party" : sizes.index(row[5]),
+                        "diff" : difficulties.index(row[6]),
+                        "is_dungeon": True,
+                    })
+                    _xid += 1
 
-    return duty_list
-
-duty_locations = generate_duty_list()
+    return duty_list, extra_list
 
 def generate_fate_list():
     fate_list = []
@@ -350,10 +364,13 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
+    duty_locations, extra_duty_locations = generate_duty_list()
+
     location_table.extend(duty_locations)
     location_table.extend(generate_fate_list())
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
+    location_table.extend(extra_duty_locations)
 
     return location_table
 
