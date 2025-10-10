@@ -71,6 +71,96 @@ class IncludeDungeons(DefaultOnToggle):
     Dungeons are generally longer than other locations. You may want to exclude them in a sync.
     """
 
+class DungeonCount(Range):
+    """
+    Number of Normal Raids per expansion to include in the location pool
+    """
+    display_name = "Dungeon Count"
+    default = 0
+    range_start = 0
+    range_end = 31
+
+class VariantDungeonCount(Range):
+    """
+    Number of Variant Dungeons per expansion to include in the location pool
+    """
+    display_name = "Dungeon Count"
+    default = 0
+    range_start = 0
+    range_end = 3
+
+class TrialCount(Range):
+    """
+    Number of Trials per expansion to include in the location pool
+    """
+    display_name = "Trial Count"
+    default = 0
+    range_start = 0
+    range_end = 18
+
+class ExtremeTrialCount(Range):
+    """
+    Number of Extreme Trials per expansion to include in the location pool
+    """
+    display_name = "Extreme Trial Count"
+    default = 0
+    range_start = 0
+    range_end = 8
+
+class EndgameTrialCount(Range):
+    """
+    Number of Current Extreme Trials to include in the location pool
+    """
+    display_name = "Extreme Trial Count"
+    default = 0
+    range_start = 0
+    range_end = 8
+
+class AllianceRaidCount(Range):
+    """
+    Number of Alliance Raids per expansion to include in the location pool
+    """
+    display_name = "Alliance Raid Count"
+    default = 0
+    range_start = 0
+    range_end = 3
+
+class NormalRaidCount(Range):
+    """
+    Number of Normal Raids per expansion to include in the location pool
+    """
+    display_name = "Normal Raid Count"
+    default = 0
+    range_start = 0
+    range_end = 12
+
+class SavageRaidCount(Range):
+    """
+    Number of Savage Raids per expansion to include in the location pool
+    """
+    display_name = "Savage Raid Count"
+    default = 0
+    range_start = 0
+    range_end = 17
+
+class EndgameRaidCount(Range):
+    """
+    Number of Endgame Savage Raids to include in the location pool
+    """
+    display_name = "Savage Raid Count"
+    default = 0
+    range_start = 0
+    range_end = 12
+
+class UltimateCount(Range):
+    """
+    Number of Ultimate Raids to include in the location pool
+    """
+    display_name = "Ultimate Raid Count"
+    default = 0
+    range_start = 0
+    range_end = 10
+
 class McGuffinsNeeded(Range):
     """
     Number of Distant Memories needed to win the game.
@@ -162,6 +252,19 @@ def before_options_defined(options: dict) -> dict:
     options["allow_main_scenario_duties"] = AllowMainScenario
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
+    # options["include_bozja"] = IncludeBozja
+
+    # Duty Counts
+    options["dungeon_count"] = DungeonCount
+    options["variant_dungeon_count"] = VariantDungeonCount
+    options["trial_count"] = TrialCount
+    options["extreme_trial_count"] = ExtremeTrialCount
+    options["endgame_trial_count"] = EndgameTrialCount
+    options["alliance_raid_count"] = AllianceRaidCount
+    options["normal_raid_count"] = NormalRaidCount
+    options["savage_raid_count"] = SavageRaidCount
+    options["endgame_raid_count"] = EndgameRaidCount
+    options["ultimate_count"] = UltimateCount
 
     # Fates
     options["fatesanity"] = Fatesanity
