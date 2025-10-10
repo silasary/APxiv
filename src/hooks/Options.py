@@ -73,7 +73,7 @@ class IncludeDungeons(DefaultOnToggle):
 
 class DungeonCount(Range):
     """
-    Number of Normal Raids per expansion to include in the location pool
+    Number of Dungeons per expansion to include in the location pool
     """
     display_name = "Dungeon Count"
     default = 0

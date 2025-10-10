@@ -21,7 +21,6 @@ from .Options import LevelCap
 import logging
 
 import re
-import random
 
 ########################################################################################
 ## Order of method calls when the world generates:
@@ -36,7 +35,7 @@ import random
 ########################################################################################
 
 
-duty_type_regex = re.compile("(.+)\\([^\\)]+\\)$")
+duty_type_regex = re.compile(r"(.+)\([^\)]+\)$")
 
 def get_duty_type(location):
     category = location["category"][0]
@@ -155,7 +154,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 if count is None:
                     continue
                 count = max(0, len(locationNames) - count)
-                locationNamesToRemove.extend(random.sample(locationNames, count))
+                locationNamesToRemove.extend(world.random.sample(locationNames, count))
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}

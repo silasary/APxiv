@@ -89,7 +89,7 @@ fate_zones = {
     "Living Memory": [99],
 }
 
-expansion_regex = re.compile("\\(([^\\)]+)\\)$")
+expansion_regex = re.compile(r"\(([^\)]+)\)$")
 
 def get_duty_expansion(row):
     category = row[1]
