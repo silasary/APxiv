@@ -8,7 +8,7 @@ namespace ArchipelagoXIV.Rando
         [GeneratedRegex("([A-Za-z ']+): FATE #(\\d+)")]
         private static partial Regex FateRegex();
 
-        [GeneratedRegex("\\|([\\w ']+):(\\d)\\|")]
+        [GeneratedRegex("\\|([\\w ']+):\\s*(\\d)\\|")]
         private static partial Regex ItemRegex();
 
         [GeneratedRegex("^Masked Carnivale #(\\d+)$")]
