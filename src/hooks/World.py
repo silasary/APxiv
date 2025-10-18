@@ -20,6 +20,8 @@ from .Options import LevelCap
 # calling logging.info("message") anywhere below in this file will output the message to both console and log file
 import logging
 
+import re
+
 ########################################################################################
 ## Order of method calls when the world generates:
 ##    1. create_regions - Creates regions and locations
@@ -33,6 +35,45 @@ import logging
 ########################################################################################
 
 
+duty_type_regex = re.compile(r"(.+)\([^\)]+\)$")
+
+def get_duty_type(location):
+    category = location["category"][0]
+    if category == "PvP":
+        return "PvP"
+
+    duty_type_match = duty_type_regex.search(category)
+
+    if duty_type_match:
+        duty_type = duty_type_match.group(1).strip()
+        if duty_type in ("Normal Raid", "Savage Raid"):
+            duty_type = "Raid"
+        return duty_type
+    raise ValueError
+
+def get_duty_count(duty_type, duty_diff, multiworld, player):
+    if duty_type == "Dungeon":
+        return get_option_value(multiworld, player, "dungeon_count")
+    elif duty_type == "Variant Dungeon":
+        return get_option_value(multiworld, player, "variant_dungeon_count")
+    elif duty_type == "Trial":
+        if duty_diff == 1:  # Normal
+            return get_option_value(multiworld, player, "trial_count")
+        elif duty_diff == 2:  # Extreme
+            return get_option_value(multiworld, player, "extreme_trial_count")
+        elif duty_diff == 4:  # Endgame
+            return get_option_value(multiworld, player, "endgame_trial_count")
+    elif duty_type == "Raid":
+        if duty_diff == 1:  # Normal
+            return get_option_value(multiworld, player, "normal_raid_count")
+        elif duty_diff == 3:  # Savage
+            return get_option_value(multiworld, player, "savage_raid_count")
+        elif duty_diff == 4:  # Endgame
+            return get_option_value(multiworld, player, "endgame_raid_count")
+    elif duty_type == "Alliance Raid":
+        return get_option_value(multiworld, player, "alliance_raid_count")
+    elif duty_type == "Ultimate":
+        return get_option_value(multiworld, player, "ultimate_count")
 
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
@@ -82,6 +123,38 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
+        
+    categorizedLocationNames = {}
+    for location in location_table:
+        if location["name"] in locationNamesToRemove:
+            continue
+        
+        if "expansion" in location:
+            dutyTypeName = get_duty_type(location)
+            if dutyTypeName == "Ultimate":
+                pass
+            elif dutyTypeName == "Chaotic":
+                pass
+            else:
+                expansion = categorizedLocationNames.get(location["expansion"], {})
+                categorizedLocationNames[location["expansion"]] = expansion
+
+                dutyType = expansion.get(dutyTypeName, {})
+                expansion[dutyTypeName] = dutyType
+                
+                dutyDifficulty = dutyType.get(location["diff"], [])
+                dutyType[location["diff"]] = dutyDifficulty
+
+                dutyDifficulty.append(location["name"])
+    
+    for expansion, dutyTypes in categorizedLocationNames.items():
+        for dutyType, dutyDifficulties in dutyTypes.items():
+            for dutyDifficulty, locationNames in dutyDifficulties.items():
+                count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
+                if count is None:
+                    continue
+                count = max(0, len(locationNames) - count)
+                locationNamesToRemove.extend(world.random.sample(locationNames, count))
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}

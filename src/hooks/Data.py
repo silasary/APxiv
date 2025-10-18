@@ -1,6 +1,7 @@
 import csv
 import json
 import pkgutil
+import re
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -88,7 +89,19 @@ fate_zones = {
     "Living Memory": [99],
 }
 
-def generate_duty_list():
+expansion_regex = re.compile(r"\(([^\)]+)\)$")
+
+def get_duty_expansion(row):
+    category = row[1]
+    if category == "PvP":
+        return None
+
+    expansion_match = expansion_regex.search(category)
+    if expansion_match:
+        return expansion_match.group(1)
+    raise ValueError
+
+def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
@@ -111,6 +124,9 @@ def generate_duty_list():
                     "diff" : difficulties.index(row[6]),
                     "is_dungeon": "Dungeon" in row[1],
                 }
+            expansion = get_duty_expansion(row)
+            if expansion is not None:
+                location["expansion"] = expansion
             if row[1] != prev_category:
                 _id += 50
                 prev_category = row[1]
