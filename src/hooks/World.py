@@ -4,7 +4,7 @@ from BaseClasses import MultiWorld, ItemClassification, LocationProgressType, Co
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
-from ..Locations import ManualLocation
+from ..Locations import ManualLocation, location_name_to_location
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -13,7 +13,8 @@ from ..Data import game_table, item_table, location_table, region_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import is_option_enabled, get_option_value
-from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, WORLD_BOSSES
+from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, WORLD_BOSSES, categorizedLocationNames
+from .Helpers import get_int_value
 from .Options import LevelCap
 
 
@@ -35,45 +36,34 @@ import re
 ########################################################################################
 
 
-duty_type_regex = re.compile(r"(.+)\([^\)]+\)$")
-
-def get_duty_type(location):
-    category = location["category"][0]
-    if category == "PvP":
-        return "PvP"
-
-    duty_type_match = duty_type_regex.search(category)
-
-    if duty_type_match:
-        duty_type = duty_type_match.group(1).strip()
-        if duty_type in ("Normal Raid", "Savage Raid"):
-            duty_type = "Raid"
-        return duty_type
-    raise ValueError
-
-def get_duty_count(duty_type, duty_diff, multiworld, player):
+def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
     if duty_type == "Dungeon":
-        return get_option_value(multiworld, player, "dungeon_count")
+        return get_int_value(multiworld, player, "dungeon_count")
     elif duty_type == "Variant Dungeon":
-        return get_option_value(multiworld, player, "variant_dungeon_count")
+        return get_int_value(multiworld, player, "variant_dungeon_count")
     elif duty_type == "Trial":
         if duty_diff == 1:  # Normal
-            return get_option_value(multiworld, player, "trial_count")
+            return get_int_value(multiworld, player, "trial_count")
         elif duty_diff == 2:  # Extreme
-            return get_option_value(multiworld, player, "extreme_trial_count")
+            return get_int_value(multiworld, player, "extreme_trial_count")
         elif duty_diff == 4:  # Endgame
-            return get_option_value(multiworld, player, "endgame_trial_count")
-    elif duty_type == "Raid":
+            return get_int_value(multiworld, player, "endgame_trial_count")
+    elif duty_type in ["Raid", "Normal Raid", "Savage Raid", "Endgame Raid"]:
         if duty_diff == 1:  # Normal
-            return get_option_value(multiworld, player, "normal_raid_count")
+            return get_int_value(multiworld, player, "normal_raid_count")
         elif duty_diff == 3:  # Savage
-            return get_option_value(multiworld, player, "savage_raid_count")
+            return get_int_value(multiworld, player, "savage_raid_count")
         elif duty_diff == 4:  # Endgame
-            return get_option_value(multiworld, player, "endgame_raid_count")
+            return get_int_value(multiworld, player, "endgame_raid_count")
     elif duty_type == "Alliance Raid":
-        return get_option_value(multiworld, player, "alliance_raid_count")
+        return get_int_value(multiworld, player, "alliance_raid_count")
     elif duty_type == "Ultimate":
-        return get_option_value(multiworld, player, "ultimate_count")
+        return get_int_value(multiworld, player, "ultimate_count")
+    elif duty_type == "Guildhest":
+        return None
+    elif duty_type == "PvP":
+        return None
+    raise ValueError(f"Unknown duty type {duty_type}")
 
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
@@ -82,7 +72,18 @@ def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int)
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
-    pass
+    world.skipped_duties: set[str] = set()
+    for category, names in categorizedLocationNames.items():
+        dutyType, dutyExpansion, dutyDifficulty = category
+        count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
+        if count is None:
+            continue
+        count = min(len(names), count)
+        used_names = world.random.sample(names, count)
+        for name in names:
+            if name not in used_names:
+                world.skipped_duties.add(name)
+
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -91,70 +92,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(WORLD_BOSSES)
 
-    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
-    duty_diff = get_option_value(multiworld, player, "duty_difficulty")
-    duty_size = get_option_value(multiworld, player, "max_party_size")
     include_dungeons = get_option_value(multiworld, player, "include_dungeons")
+    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
         locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
 
     for location in location_table:
-        if "diff" in location:
-            if location["diff"] > duty_diff:
-                # print(f"Removing {location['name']} from {player}'s world")
-                locationNamesToRemove.append(location["name"])
-                continue
-        if "size" in location:
-            if location["size"] > duty_size:
-                # print(f"Removing {location['name']} from {player}'s world")
-                locationNamesToRemove.append(location["name"])
-                continue
         if not include_dungeons and location.get("is_dungeon"):
             # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
-        if "level" in location and int(location["level"]) > level_cap:
-            # print(f"Removing {location['name']} from {player}'s world")
-            locationNamesToRemove.append(location["name"])
-            continue
-        if "fate_number" in location and location["fate_number"] > get_option_value(multiworld, player, "fates_per_zone"):
-            # print(f"Removing {location['name']} from {player}'s world")
-            locationNamesToRemove.append(location["name"])
-            continue
-        
-    categorizedLocationNames = {}
-    for location in location_table:
-        if location["name"] in locationNamesToRemove:
-            continue
-        
-        if "expansion" in location:
-            dutyTypeName = get_duty_type(location)
-            if dutyTypeName == "Ultimate":
-                pass
-            elif dutyTypeName == "Chaotic":
-                pass
-            else:
-                expansion = categorizedLocationNames.get(location["expansion"], {})
-                categorizedLocationNames[location["expansion"]] = expansion
-
-                dutyType = expansion.get(dutyTypeName, {})
-                expansion[dutyTypeName] = dutyType
-                
-                dutyDifficulty = dutyType.get(location["diff"], [])
-                dutyType[location["diff"]] = dutyDifficulty
-
-                dutyDifficulty.append(location["name"])
-    
-    for expansion, dutyTypes in categorizedLocationNames.items():
-        for dutyType, dutyDifficulties in dutyTypes.items():
-            for dutyDifficulty, locationNames in dutyDifficulties.items():
-                count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
-                if count is None:
-                    continue
-                count = max(0, len(locationNames) - count)
-                locationNamesToRemove.extend(world.random.sample(locationNames, count))
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
@@ -238,7 +187,7 @@ def before_create_items_filler(
             item.classification = ItemClassification.progression
         if prog_doh and item.name == f"5 {prog_doh} Levels":
             item.classification = ItemClassification.progression
-            prog_doh = None
+            prog_doh = ""
 
         if "Levels" in item.name:
             # Add the levels from this item, always 5 currently.
@@ -306,7 +255,7 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
     return item
 
 # This method is run towards the end of pre-generation, before the place_item options have been handled and before AP generation occurs
-def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> list:
+def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> None:
     pass
 
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs
@@ -333,6 +282,7 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
     slot_data["mcguffins_needed"] = get_option_value(multiworld, player, "mcguffins_needed") or 30
+    slot_data["skipped_duties"] = list(world.skipped_duties)
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it

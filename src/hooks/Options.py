@@ -78,6 +78,8 @@ class ExtraDungeonChecks(Range):
     Number of checks per dungeon to include in the location pool.
 
     Each dungeon has a base of 1 check.  This option adds additional checks to each dungeon.
+
+    These can be sent when you open chests, defeat minibosses, or just all at the end.
     """
     display_name = "Extra Dungeons"
     default = 0
