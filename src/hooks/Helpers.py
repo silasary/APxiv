@@ -42,7 +42,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False
-    if "size" in location and location["size"] > get_int_value(multiworld, player, "max_party_size"):
+    if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
     if "level" in location and int(location["level"]) > get_int_value(multiworld, player, "level_cap"):
         return False

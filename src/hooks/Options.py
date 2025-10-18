@@ -59,14 +59,12 @@ class MaxPartySize(Choice):
 
     This does not stop you from entering undersized, but simply prevents duties that would expect more players from being in the location pool.
     """
-    default = 1
+    default = 2
     display_name = "Max Party Size"
     option_solo = 0
     option_light_party = 1
     option_full_party = 2
     option_alliance = 3
-
-    visibility = Visibility.none  # Currently broken
 
 class IncludeDungeons(DefaultOnToggle):
     """
