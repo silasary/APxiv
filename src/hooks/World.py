@@ -73,6 +73,8 @@ def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int)
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
+    if getattr(multiworld, 'generation_is_fake', False):
+        return
     for category, names in categorizedLocationNames.items():
         dutyType, dutyExpansion, dutyDifficulty = category
         count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
