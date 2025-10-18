@@ -152,6 +152,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                         "party" : sizes.index(row[5]),
                         "diff" : difficulties.index(row[6]),
                         "is_dungeon": True,
+                        "extra_number": i,
                     })
                     _xid += 1
 

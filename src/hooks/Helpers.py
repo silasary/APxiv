@@ -48,4 +48,6 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
+    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
+        return False
     return None
