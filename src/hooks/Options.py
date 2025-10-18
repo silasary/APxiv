@@ -76,7 +76,7 @@ class DungeonCount(Range):
     Number of Dungeons per expansion to include in the location pool
     """
     display_name = "Dungeon Count"
-    default = 0
+    default = 31
     range_start = 0
     range_end = 31
 
@@ -85,7 +85,7 @@ class VariantDungeonCount(Range):
     Number of Variant Dungeons per expansion to include in the location pool
     """
     display_name = "Dungeon Count"
-    default = 0
+    default = 3
     range_start = 0
     range_end = 3
 
@@ -94,7 +94,7 @@ class TrialCount(Range):
     Number of Trials per expansion to include in the location pool
     """
     display_name = "Trial Count"
-    default = 0
+    default = 18
     range_start = 0
     range_end = 18
 
@@ -103,7 +103,7 @@ class ExtremeTrialCount(Range):
     Number of Extreme Trials per expansion to include in the location pool
     """
     display_name = "Extreme Trial Count"
-    default = 0
+    default = 8
     range_start = 0
     range_end = 8
 
@@ -112,7 +112,7 @@ class EndgameTrialCount(Range):
     Number of Current Extreme Trials to include in the location pool
     """
     display_name = "Extreme Trial Count"
-    default = 0
+    default = 8
     range_start = 0
     range_end = 8
 
@@ -121,7 +121,7 @@ class AllianceRaidCount(Range):
     Number of Alliance Raids per expansion to include in the location pool
     """
     display_name = "Alliance Raid Count"
-    default = 0
+    default = 3
     range_start = 0
     range_end = 3
 
@@ -130,7 +130,7 @@ class NormalRaidCount(Range):
     Number of Normal Raids per expansion to include in the location pool
     """
     display_name = "Normal Raid Count"
-    default = 0
+    default = 12
     range_start = 0
     range_end = 12
 
@@ -139,7 +139,7 @@ class SavageRaidCount(Range):
     Number of Savage Raids per expansion to include in the location pool
     """
     display_name = "Savage Raid Count"
-    default = 0
+    default = 17
     range_start = 0
     range_end = 17
 
@@ -148,7 +148,7 @@ class EndgameRaidCount(Range):
     Number of Endgame Savage Raids to include in the location pool
     """
     display_name = "Savage Raid Count"
-    default = 0
+    default = 12
     range_start = 0
     range_end = 12
 
@@ -157,7 +157,7 @@ class UltimateCount(Range):
     Number of Ultimate Raids to include in the location pool
     """
     display_name = "Ultimate Raid Count"
-    default = 0
+    default = 10
     range_start = 0
     range_end = 10
 
