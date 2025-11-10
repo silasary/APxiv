@@ -66,6 +66,13 @@ namespace ArchipelagoXIV.Rando
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
                     if (content.RowId == 0 && this.Name.StartsWith("The"))
                         content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == ("the" + this.Name[3..]));
+                    Regex rgextraDuty = new Regex(@".+ \d+");
+                    Regex rgextraDutyTrim = new Regex(@" \d+");
+                    if (content.RowId == 0 && rgextraDuty.IsMatch(this.Name))
+                    {
+                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == (rgextraDutyTrim.Split(this.Name)[0]));
+                        DalamudApi.Echo(content.Name.ToString());
+                    }
                     if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
                     {
                         content = Data.Content[id];

@@ -1,3 +1,4 @@
+using Archipelago.MultiClient.Net;
 using ArchipelagoXIV.Rando;
 using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Game.Addon.Lifecycle;
@@ -118,6 +119,21 @@ namespace ArchipelagoXIV.Hooks
                 {
                     DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
                     return;
+                }
+
+                if (apState.Game is NGPlusGame)
+                {
+                    var state = (NGPlusGame)apState.Game;
+                    DalamudApi.Echo($"Marking Extra Checks {name}");
+                    for (var i = 2; i < state.ExtraDungeonChecks; i++)
+                    {
+                        DalamudApi.Echo($"looking for {name} {i}");
+                        Location extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
+                        if (extraLocation != null)
+                        {
+                            extraLocation.Complete();
+                        }
+                    }
                 }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
                 location.Complete();

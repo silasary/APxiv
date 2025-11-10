@@ -19,6 +19,7 @@ namespace ArchipelagoXIV.Rando
         private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
+        public long ExtraDungeonChecks;
 
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
 
@@ -46,6 +47,7 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
             this.GoalCount = (long)slotData["mcguffins_needed"];
+            this.ExtraDungeonChecks = (long)slotData["extra_dungeon_checks"];
             DalamudApi.Echo($"Goal is {GoalCount} Memories.");
         }
 
