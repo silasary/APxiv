@@ -1,48 +1,71 @@
 name: Create Release - APXIV
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version'
-        required: true
-        type: string
+    workflow_dispatch:
 
 permissions:
-  actions: read
-  contents: write
+    actions: read
+    contents: write
 
 jobs:
-  create-release:
-    name: Release FFXIV apworld
-    runs-on: ubuntu-latest
+    create-release:
+        name: Release FFXIV apworld
+        runs-on: ubuntu-latest
+        env:
+            world: ffxiv
 
-    steps:
-      - name: Set expected file basename to env
-        run: echo "BASENAME=ffxiv" >> "$GITHUB_ENV"
-      - name: Format changelog input as multiline string and put into env
-        run: |
-          echo 'CHANGELOG<<EOF' >> "$GITHUB_ENV"
-          echo "${{ github.event.inputs.changelog }}" >> "$GITHUB_ENV"
-          echo 'EOF' >> "$GITHUB_ENV"
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Create apworld file
-        # rename src folder, zip it, change extension
-        run: |
-          mv src ${{ env.BASENAME }}
-          zip -r ${{ env.BASENAME }}.zip ${{ env.BASENAME }}/*
-          mv ${{ env.BASENAME }}.zip ${{ env.BASENAME }}.apworld
-      - name: Upload apworld as an artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.BASENAME }}.apworld
-          path: ${{ env.BASENAME }}.apworld
-          if-no-files-found: error
-      - name: Create release
-        uses: ncipollo/release-action@v1
-        with:
-          name: ${{ github.event.inputs.version }}
-          tag: ${{ github.event.inputs.version }}
-          commit: ${{ env.GITHUB_REF }}
-          artifacts: "${{ env.BASENAME }}.apworld"
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+            - name: Checkout Archipelago
+              uses: actions/checkout@v3
+              with:
+                  repository: ArchipelagoMW/Archipelago
+                  path: Archipelago
+                  fetch-depth: 1
+            - name: Set up venv and install dependencies
+              run: |
+                  ln -s ${{ github.workspace }}/src/ Archipelago/worlds/${{ env.world }}
+                  python -m venv venv
+                  source venv/bin/activate
+                  pip install --upgrade pip
+                  pip install -r Archipelago/requirements.txt
+                  python Archipelago/ModuleUpdate.py --yes --force
+                  ls -la Archipelago/worlds/
+
+            - name: Create apworld file
+              run: |
+                  source venv/bin/activate
+                  cd Archipelago
+                  python Launcher.py "Build APWorlds"
+
+            - name: Upload apworld as an artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ env.world }}.apworld
+                  path: Archipelago/build/apworlds/${{ env.world }}.apworld
+                  if-no-files-found: error
+            - name: Get Version Number
+              id: get_version
+              uses: mikefarah/yq@v4.45.1
+              with:
+                  cmd: yq .world_version worlds/${{ env.world }}/archipelago.json --unwrapScalar=true
+            - name: Get Name
+              id: get_name
+              uses: mikefarah/yq@v4.45.1
+              with:
+                  cmd: yq .game worlds/${{ env.world }}/archipelago.json --unwrapScalar=true
+            - name: Get Changelog
+              id: get_changelog
+              uses: mikefarah/yq@v4.45.1
+              with:
+                  cmd: yq '.changelog | join("\n")' worlds/${{ env.world }}/archipelago.json --unwrapScalar=true
+
+            - name: Create release
+              uses: ncipollo/release-action@v1
+              with:
+                  name: AP XIV v${{ steps.get_version.outputs.result }}
+                  tag: ${{ steps.get_version.outputs.result }}
+                  commit: ${{ env.GITHUB_REF }}
+                  artifacts: "${{ env.world }}.apworld"
+                  body: ${{ steps.get_changelog.outputs.result }}
