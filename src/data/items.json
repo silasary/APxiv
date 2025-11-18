@@ -55,7 +55,7 @@
 	},
     {
         "name": "Wolves' Den Pier Access",
-        "category": ["Location", "PvP"],
+        "category": ["Location"],
         "count": 1,
         "progression": true
     },
