@@ -37,7 +37,7 @@ jobs:
               run: |
                   source venv/bin/activate
                   cd Archipelago
-                  python Launcher.py "Build APWorlds"
+                  python Launcher.py "Build APWorlds" -- "Final Fantasy XIV"
 
             - name: Upload apworld as an artifact
               uses: actions/upload-artifact@v4

@@ -579,3 +579,20 @@ def add_client_to_launcher() -> None:
         components.append(Component("Manual Discord Server", "ManualDiscord", func=lambda: webbrowser.open("https://discord.gg/hm4rQnTzQ5"), icon="discord", component_type=Type.ADJUSTER))
 
 add_client_to_launcher()
+
+class NonManualWorld(ManualWorld):
+    game = "Final Fantasy XIV"
+    options_dataclass = manual_options_data
+
+    item_id_to_name = item_id_to_name
+    item_name_to_id = item_name_to_id
+    item_name_to_item = item_name_to_item
+    item_name_groups = item_name_groups
+
+    item_counts = {}
+    start_inventory = {}
+
+    location_id_to_name = location_id_to_name
+    location_name_to_id = location_name_to_id
+    location_name_to_location = location_name_to_location
+    location_name_groups = location_name_groups
