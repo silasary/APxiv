@@ -82,7 +82,31 @@ def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int)
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
-    pass
+    tanks = TANKS.copy()
+    healers = HEALERS.copy()
+    melee = MELEE.copy()
+    caster = CASTER.copy()
+    ranged = RANGED.copy()
+    doh = DOH.copy()
+
+    world.random.shuffle(tanks)
+    world.random.shuffle(healers)
+    world.random.shuffle(melee)
+    world.random.shuffle(caster)
+    world.random.shuffle(ranged)
+    world.random.shuffle(doh)
+    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
+    if force_jobs:
+        if len(force_jobs) > 5:
+            world.random.shuffle(force_jobs)
+            force_jobs = force_jobs[:5]
+        prog_classes = force_jobs
+    else:
+        prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+    world.prog_classes = prog_classes
+    world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
+    world.prog_doh = doh[0]
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -201,32 +225,10 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
 def before_create_items_filler(
     item_pool: list[ManualItem], world: World, multiworld: MultiWorld, player: int
 ) -> list:
-    tanks = TANKS.copy()
-    healers = HEALERS.copy()
-    melee = MELEE.copy()
-    caster = CASTER.copy()
-    ranged = RANGED.copy()
-    doh = DOH.copy()
-
-    world.random.shuffle(tanks)
-    world.random.shuffle(healers)
-    world.random.shuffle(melee)
-    world.random.shuffle(caster)
-    world.random.shuffle(ranged)
-    world.random.shuffle(doh)
-    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
-    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-    if force_jobs:
-        if len(force_jobs) > 5:
-            world.random.shuffle(force_jobs)
-            force_jobs = force_jobs[:5]
-        prog_classes = force_jobs
-    else:
-        prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
-    world.prog_classes = prog_classes
-    prog_levels = [f"5 {job} Levels" for job in prog_classes]
-    prog_doh = doh[0]
+    prog_levels = world.prog_levels
     start_class = world.random.choice(prog_levels)
+    prog_doh = f"5 {world.prog_doh} Levels"
+    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     seen_levels = {}
 
@@ -234,9 +236,7 @@ def before_create_items_filler(
     for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
-        if item.name in ["5 FSH Levels", "5 BLU Levels"]:
-            item.classification = ItemClassification.progression
-        if prog_doh and item.name == f"5 {prog_doh} Levels":
+        if prog_doh and item.name == prog_doh:
             item.classification = ItemClassification.progression
             prog_doh = None
 
@@ -249,7 +249,7 @@ def before_create_items_filler(
             # If it is the first levels for the starting class, add the item to starting inventory.
             if item.name == start_class and seen_levels[item.name] <= 10:
                 # Added to starting inventory instead of the item pool.
-                multiworld.precollected_items[player].append(item)
+                multiworld.push_precollected(item)
                 continue
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
@@ -278,12 +278,6 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
-    goal_count = get_option_value(multiworld, player, "mcguffins_needed")
-    multiworld.completion_condition[player] = lambda state: state.count("Memory of a Distant World", player) >= goal_count
-    for region in multiworld.get_regions(player):
-        for location in region.locations:
-            if location.name == "__Manual Game Complete__":
-                location.access_rule = lambda state: state.count("Memory of a Distant World", player) >= goal_count
     pass
 
 # This method is called before the victory location has the victory event placed and locked
@@ -303,10 +297,12 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
     if getattr(multiworld, 'generation_is_fake', False):
         if "Levels" in item.name:
             item.classification = ItemClassification.progression
+    elif item.name in world.prog_levels or item.name in ["5 FSH Levels", "5 BLU Levels"]:
+        item.classification = ItemClassification.progression
     return item
 
 # This method is run towards the end of pre-generation, before the place_item options have been handled and before AP generation occurs
-def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> list:
+def before_generate_basic(world: World, multiworld: MultiWorld, player: int) -> None:
     pass
 
 # This method is run at the very end of pre-generation, once the place_item options have been handled and before AP generation occurs

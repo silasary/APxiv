@@ -1,7 +1,7 @@
 [
 	{
         "name": "Collect Memories",
-        "requires": "|Memory of a Distant World:50|",
+        "requires": "{EnoughMemories()}",
         "victory": true
     },
     {
