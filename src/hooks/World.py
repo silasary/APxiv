@@ -297,7 +297,7 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
     if getattr(multiworld, 'generation_is_fake', False):
         if "Levels" in item.name:
             item.classification = ItemClassification.progression
-    elif item.name in world.prog_levels or item.name in ["5 FSH Levels", "5 BLU Levels"]:
+    elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
         item.classification = ItemClassification.progression
     return item
 
