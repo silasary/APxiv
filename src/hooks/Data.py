@@ -89,24 +89,27 @@ fate_zones = {
     "Living Memory": [99],
 }
 
-expansion_regex = re.compile(r"\(([^\)]+)\)$")
+expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 
-def get_duty_expansion(row):
-    category = row[1]
+def get_duty_expansion(category: str) -> tuple[str, str]:
     if category == "PvP":
-        return None
+        return "PvP", "ARR"
 
     expansion_match = expansion_regex.search(category)
     if expansion_match:
-        return expansion_match.group(1)
+        return expansion_match.group(1), expansion_match.group(2)
     raise ValueError
+
+categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
 
 def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
+    extra_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
     _id = 0
+    _xid = 30_000
     prev_category = "Dungeon (ARR)"
 
     for row in dutyreader:
@@ -116,6 +119,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
             requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
             location = {
                     "name": row[0],
+                    "duty_name": row[0],
                     "region": row[4],
                     "category": [row[1], row[4]],
                     "requires": requires_str,
@@ -124,7 +128,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                     "diff" : difficulties.index(row[6]),
                     "is_dungeon": "Dungeon" in row[1],
                 }
-            expansion = get_duty_expansion(row)
+            content_type, expansion = get_duty_expansion(row[1])
             if expansion is not None:
                 location["expansion"] = expansion
             if row[1] != prev_category:
@@ -134,10 +138,25 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
             if row[4] == "Gangos":
                 location["category"].append("Bozja")
             duty_list.append(location)
+            categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row[0])
+            if "Dungeon" in row[1]:
+                for i in range(1, 10):
+                    extra_list.append({
+                        "id": _xid,
+                        "name": f"{row[0]} {i + 1}",
+                        "duty_name": row[0],
+                        "region": row[4],
+                        "category": [row[1], row[4]],
+                        "requires": requires_str,
+                        "level" : row[2],
+                        "party" : sizes.index(row[5]),
+                        "diff" : difficulties.index(row[6]),
+                        "is_dungeon": True,
+                        "extra_number": i,
+                    })
+                    _xid += 1
 
-    return duty_list
-
-duty_locations = generate_duty_list()
+    return duty_list, extra_list
 
 def generate_fate_list():
     fate_list = []
@@ -350,10 +369,13 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
+    duty_locations, extra_duty_locations = generate_duty_list()
+
     location_table.extend(duty_locations)
     location_table.extend(generate_fate_list())
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
+    location_table.extend(extra_duty_locations)
 
     return location_table
 

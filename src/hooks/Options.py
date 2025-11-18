@@ -59,7 +59,7 @@ class MaxPartySize(Choice):
 
     This does not stop you from entering undersized, but simply prevents duties that would expect more players from being in the location pool.
     """
-    default = 1
+    default = 2
     display_name = "Max Party Size"
     option_solo = 0
     option_light_party = 1
@@ -70,6 +70,20 @@ class IncludeDungeons(DefaultOnToggle):
     """
     Dungeons are generally longer than other locations. You may want to exclude them in a sync.
     """
+
+class ExtraDungeonChecks(Range):
+    """
+    Number of checks per dungeon to include in the location pool.
+
+    Each dungeon has a base of 1 check.  This option adds additional checks to each dungeon.
+
+    These can be sent when you open chests, defeat minibosses, or just all at the end.
+    """
+    display_name = "Extra Dungeons"
+    default = 0
+    range_start = 0
+    range_end = 10
+
 
 class DungeonCount(Range):
     """
@@ -250,6 +264,7 @@ def before_options_defined(options: dict) -> dict:
     options["max_party_size"] = MaxPartySize
     options["include_dungeons"] = IncludeDungeons
     options["allow_main_scenario_duties"] = AllowMainScenario
+    options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
     # options["include_bozja"] = IncludeBozja
