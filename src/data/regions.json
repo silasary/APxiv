@@ -148,7 +148,7 @@
 	},
 	"Masked Carnivale":
 	{
-		"requires": "|Ul'dah and Central Thanalan Access:1| and |5 BLU Levels:10|",
+		"requires": "|5 BLU Levels:10|",
 		"connects_to": ["Ul'dah"]
 	},
 	"Western Thanalan":

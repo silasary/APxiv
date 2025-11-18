@@ -123,12 +123,12 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
-        
+
     categorizedLocationNames = {}
     for location in location_table:
         if location["name"] in locationNamesToRemove:
             continue
-        
+
         if "expansion" in location:
             dutyTypeName = get_duty_type(location)
             if dutyTypeName == "Ultimate":
@@ -141,12 +141,12 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
                 dutyType = expansion.get(dutyTypeName, {})
                 expansion[dutyTypeName] = dutyType
-                
+
                 dutyDifficulty = dutyType.get(location["diff"], [])
                 dutyType[location["diff"]] = dutyDifficulty
 
                 dutyDifficulty.append(location["name"])
-    
+
     for expansion, dutyTypes in categorizedLocationNames.items():
         for dutyType, dutyDifficulties in dutyTypes.items():
             for dutyDifficulty, locationNames in dutyDifficulties.items():
@@ -234,7 +234,7 @@ def before_create_items_filler(
     for item in item_pool:
         if item.name in prog_levels:
             item.classification = ItemClassification.progression
-        if item.name == "5 FSH Levels":
+        if item.name in ["5 FSH Levels", "5 BLU Levels"]:
             item.classification = ItemClassification.progression
         if prog_doh and item.name == f"5 {prog_doh} Levels":
             item.classification = ItemClassification.progression
