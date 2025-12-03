@@ -68,6 +68,7 @@ namespace ArchipelagoXIV.Rando
                         content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == ("the" + this.Name[3..]));
                     if (content.RowId == 0)
                     {
+                        // Bonus checks come in the form "Sastasha 2"
                         var match = Regexes.ExtraCheckName.Match(this.Name);
                         if (match.Success && match.Groups.Count > 1)
                             content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
@@ -79,11 +80,13 @@ namespace ArchipelagoXIV.Rando
                     if (content.RowId == 0)
                     {
                         var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
-                        // Note: Currently, these are all Bozja.  This may change with DT's Field Content
-                        if (de.RowId > 0)
+                        if (de.RowId > 32)
+                        {
+                            this.Level = 100;
+                        }
+                        else if (de.RowId > 0)
                         {
                             this.Level = 80;
-                            MeetsRequirements = Logic.Level(80);
                         }
                     }
                     if (MeetsRequirements == null)
