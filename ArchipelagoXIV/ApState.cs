@@ -13,9 +13,9 @@ using FFXIVClientStructs.FFXIV.Client.UI;
 using Lumina.Excel.Sheets;
 using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Packets;
-using static FFXIVClientStructs.FFXIV.Client.Game.UI.MapMarkerData.Delegates;
 using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Dalamud.Game.Text.SeStringHandling;
+using ArchipelagoXIV.Rando.Locations;
 
 namespace ArchipelagoXIV
 {

@@ -1,8 +1,6 @@
 using ArchipelagoXIV.Rando.Locations;
-using Lumina.Excel.Sheets;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

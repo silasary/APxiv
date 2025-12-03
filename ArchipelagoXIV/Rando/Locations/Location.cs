@@ -1,12 +1,11 @@
 using Archipelago.MultiClient.Net.Models;
-using ArchipelagoXIV.Rando.Locations;
 using Lumina.Excel.Sheets;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ArchipelagoXIV.Rando
+namespace ArchipelagoXIV.Rando.Locations
 {
     public class Location
     {
@@ -63,30 +62,30 @@ namespace ArchipelagoXIV.Rando
                     return Accessible = false;
                 if (MeetsRequirements == null)
                 {
-                    content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
-                    if (content.RowId == 0 && this.Name.StartsWith("The"))
-                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == ("the" + this.Name[3..]));
+                    content = Data.Content.FirstOrDefault(cf => cf.Name == Name);
+                    if (content.RowId == 0 && Name.StartsWith("The"))
+                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == "the" + Name[3..]);
                     if (content.RowId == 0)
                     {
                         // Bonus checks come in the form "Sastasha 2"
-                        var match = Regexes.ExtraCheckName.Match(this.Name);
+                        var match = Regexes.ExtraCheckName.Match(Name);
                         if (match.Success && match.Groups.Count > 1)
                             content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
                     }
-                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
+                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(Name, out var id))
                     {
                         content = Data.Content[id];
                     }
                     if (content.RowId == 0)
                     {
-                        var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == this.Name);
+                        var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == Name);
                         if (de.RowId > 32)
                         {
-                            this.Level = 100;
+                            Level = 100;
                         }
                         else if (de.RowId > 0)
                         {
-                            this.Level = 80;
+                            Level = 80;
                         }
                     }
                     if (MeetsRequirements == null)
@@ -104,15 +103,15 @@ namespace ArchipelagoXIV.Rando
         {
             if (content.RowId > 0)
             {
-                this.MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
+                MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
             }
-            else if (Regexes.FATE.Match(this.Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
+            else if (Regexes.FATE.Match(Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
-                this.MeetsRequirements = Logic.Level(level);
+                MeetsRequirements = Logic.Level(level);
             }
             else if (Name.StartsWith("Masked Carnivale #"))
             {
-                m = Regexes.Carnivale.Match(this.Name);
+                m = Regexes.Carnivale.Match(Name);
                 var stage = int.Parse(m.Groups[1].Value);
                 if (stage <= 25)
                     MeetsRequirements = Logic.Level(50, "BLU");
@@ -127,35 +126,35 @@ namespace ArchipelagoXIV.Rando
             }
             else if (Name.EndsWith(" (FATE)"))
             {
-                this.MeetsRequirements = Logic.Level(APData.FateData[Name]);
+                MeetsRequirements = Logic.Level(APData.FateData[Name]);
             }
             else if (Name.EndsWith(" (FETE)"))
             {
-                this.MeetsRequirements = Logic.LevelDOHDOL(APData.FateData[Name]);
+                MeetsRequirements = Logic.LevelDOHDOL(APData.FateData[Name]);
             }
             else if (Name.EndsWith(" (GATE)"))
             {
-                this.MeetsRequirements = Logic.Always();
+                MeetsRequirements = Logic.Always();
             }
             else if (Name == "Return to the Waking Sands")
             {
-                this.MeetsRequirements = Logic.Always();
+                MeetsRequirements = Logic.Always();
             }
             else if (Level > 0)
             {
-                this.MeetsRequirements = Logic.Level(Level);
+                MeetsRequirements = Logic.Level(Level);
             }
             else if (Name.StartsWith("Ocean Fishing"))
             {
                 if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River")
-                    this.MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
+                    MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
                 else
-                    this.MeetsRequirements = Logic.Level(5, "FSH");
+                    MeetsRequirements = Logic.Level(5, "FSH");
             }
             else
             {
                 DalamudApi.Echo($"Could not identify the check `{Name}`");
-                this.MeetsRequirements = Logic.Always();
+                MeetsRequirements = Logic.Always();
             }
         }
 
@@ -183,18 +182,19 @@ namespace ArchipelagoXIV.Rando
             return true;
         }
 
-        public void Complete()
+        public void Complete(bool sendNow = true)
         {
-            this.Completed = true;
-            apState.localsave!.CompletedChecks.Add(this.ApId);
-            Task.Factory.StartNew(CompleteAsync);
+            Completed = true;
+            apState.localsave!.CompletedChecks.Add(ApId);
+            if (sendNow)
+                Task.Factory.StartNew(CompleteAsync);
             apState.RefreshBars = true;
         }
         private async void CompleteAsync()
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             apState.SaveCache();
-            apState.session!.Locations.CompleteLocationChecks(this.ApId);
+            apState.session!.Locations.CompleteLocationChecks(ApId);
         }
 
         public string DisplayText
@@ -204,10 +204,10 @@ namespace ArchipelagoXIV.Rando
 
         public string HintText { get
             {
-                if (this.HintedItem != null)
+                if (HintedItem != null)
                 {
-                    var p = this.HintedItem.ReceivingPlayerName(apState);
-                    var i = this.HintedItem.ItemName(apState);
+                    var p = HintedItem.ReceivingPlayerName(apState);
+                    var i = HintedItem.ItemName(apState);
                     return $" (Contains {p}'s {i})";
                 }
 
