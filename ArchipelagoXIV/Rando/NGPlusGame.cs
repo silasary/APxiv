@@ -22,7 +22,7 @@ namespace ArchipelagoXIV.Rando
 
 
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
-        public long ExtraDungeonChecks { get; private set; }
+        public long ExtraDungeonChecks { get; private set; } = 0;
 
         public override int MaxLevel() => Jobs.Max(MaxLevel);
 
@@ -48,7 +48,8 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
             this.GoalCount = (long)slotData["mcguffins_needed"];
-            this.ExtraDungeonChecks = (long)slotData["extra_dungeon_checks"];
+            if (SlotData.TryGetValue("extra_dungeon_checks", out var extra_dungeon_checks))
+                this.ExtraDungeonChecks = (long)extra_dungeon_checks;
             DalamudApi.Echo($"Goal is {GoalCount} Memories.");
         }
 

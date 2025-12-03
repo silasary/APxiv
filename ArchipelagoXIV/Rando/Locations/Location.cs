@@ -66,12 +66,11 @@ namespace ArchipelagoXIV.Rando
                     content = Data.Content.FirstOrDefault(cf => cf.Name == this.Name);
                     if (content.RowId == 0 && this.Name.StartsWith("The"))
                         content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == ("the" + this.Name[3..]));
-                    Regex rgextraDuty = new Regex(@".+ \d+");
-                    Regex rgextraDutyTrim = new Regex(@" \d+");
-                    if (content.RowId == 0 && rgextraDuty.IsMatch(this.Name))
+                    if (content.RowId == 0)
                     {
-                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == (rgextraDutyTrim.Split(this.Name)[0]));
-                        DalamudApi.Echo(content.Name.ToString());
+                        var match = Regexes.ExtraCheckName.Match(this.Name);
+                        if (match.Success && match.Groups.Count > 1)
+                            content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
                     }
                     if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(this.Name, out var id))
                     {
@@ -165,7 +164,6 @@ namespace ArchipelagoXIV.Rando
             if (!MeetsRequirements(apState, apState.ApplyClassRestrictions))
             {
                 return false;
-                DalamudApi.Echo("Warning:  Class check failed");
             }
             return true;
         }
@@ -178,7 +176,6 @@ namespace ArchipelagoXIV.Rando
             if (!MeetsRequirements(apState, false))
             {
                 return false;
-                DalamudApi.Echo("Warning:  Class check failed");
             }
             return true;
         }
