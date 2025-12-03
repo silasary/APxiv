@@ -43,7 +43,7 @@ namespace ArchipelagoXIV
         internal ClassJob lastJob;
         internal int lastFateCount;
         private int lastUpFateCount;
-        private bool saving;
+        private bool savingCache;
         internal bool RefreshBars;
 
         public DeathLinkService DeathLink { get; private set; }
@@ -246,11 +246,11 @@ namespace ArchipelagoXIV
 
         internal void SaveCache()
         {
-            if (saving)
+            if (savingCache)
                 return;
-            saving = true;
+            savingCache = true;
             File.WriteAllText(SaveFileName(), JsonConvert.SerializeObject(this.localsave));
-            saving = false;
+            savingCache = false;
         }
 
         private string SaveFileName() => Path.Combine(

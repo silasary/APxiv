@@ -19,9 +19,10 @@ namespace ArchipelagoXIV.Rando
         private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
-        public long ExtraDungeonChecks;
+
 
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
+        public long ExtraDungeonChecks { get; private set; }
 
         public override int MaxLevel() => Jobs.Max(MaxLevel);
 

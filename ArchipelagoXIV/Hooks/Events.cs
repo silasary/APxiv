@@ -128,11 +128,8 @@ namespace ArchipelagoXIV.Hooks
                     for (var i = 2; i < state.ExtraDungeonChecks; i++)
                     {
                         DalamudApi.Echo($"looking for {name} {i}");
-                        Location extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
-                        if (extraLocation != null)
-                        {
-                            extraLocation.Complete();
-                        }
+                        var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
+                        extraLocation?.Complete();
                     }
                 }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
