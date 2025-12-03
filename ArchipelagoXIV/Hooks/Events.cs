@@ -129,11 +129,12 @@ namespace ArchipelagoXIV.Hooks
                     {
                         DalamudApi.Echo($"looking for {name} {i}");
                         var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
-                        extraLocation?.Complete();
+                        extraLocation?.Complete(false);
                     }
                 }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
-                location.Complete();
+                location.Complete(false);
+                apState.Syncing = true;
                 if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
                 {
                     apState.CompleteGame();
