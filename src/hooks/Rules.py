@@ -1,6 +1,6 @@
 from typing import Optional
 from worlds.AutoWorld import World
-from ..Helpers import clamp
+from ..Helpers import clamp, get_option_value
 from BaseClasses import MultiWorld, CollectionState
 
 import re
@@ -32,3 +32,9 @@ def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState
         if (state.count(job, player) * 5) >= int(level):
             return True
     return False
+
+def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState, player: int):
+    """Has the player collected enough Memories to complete the game?"""
+    goal_count = get_option_value(multiworld, player, "mcguffins_needed")
+    assert isinstance(goal_count, int)
+    return state.count("Memory of a Distant World", player) >= goal_count

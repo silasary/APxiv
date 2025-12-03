@@ -12,7 +12,7 @@ public class MainWindow : Window
     private readonly Plugin plugin;
 
     public MainWindow(Plugin plugin, ApState state) : base(
-        "Archipelego", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
+        "Archipelago", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         this.SizeConstraints = new WindowSizeConstraints
         {
