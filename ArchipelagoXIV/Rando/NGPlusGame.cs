@@ -38,7 +38,7 @@ namespace ArchipelagoXIV.Rando
                 Levels[job] = MaxLevel(job);
             }
             
-            if ((McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
+            if (GoalType == VictoryType.McGuffin && (McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
             {
                 apState.CompleteGame();
             }
