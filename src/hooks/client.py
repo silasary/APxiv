@@ -8,6 +8,7 @@ import urllib.parse
 
 from CommonClient import get_base_parser, server_loop
 from kvui import GameManager
+from worlds import AutoWorldRegister, network_data_package
 from ..ManualClient import read_apmanual_file, ManualContext, tracker_loaded, gui_enabled, game_watcher_manual
 from ..Game import game_name
 
@@ -27,6 +28,7 @@ class XivContext(ManualContext):
         class XivUi(ManualUi):
             def build(self) -> Layout:
                 layout = super().build()
+                self.game_bar_text.text = "Manual_FFXIV_Silasary"
                 self.manual_game_layout.parent.remove_widget(self.manual_game_layout)
                 return layout
             pass
@@ -36,6 +38,35 @@ class XivContext(ManualContext):
         # add a custom tab to the client named "Deck Builder"
         # self.ui.manual_game_layout.remove_widget(self.game_bar_label)
         self.ui.base_title = client_name # set a custom title for the custom client window
+
+    async def server_auth(self, password_requested: bool = False):
+        if password_requested and not self.password:
+            await super(ManualContext, self).server_auth(password_requested)
+
+        world = AutoWorldRegister.world_types.get(self.game)
+        if not self.location_table and not self.item_table and world is None:
+            raise Exception(f"Cannot load {self.game}, please add the apworld to lib/worlds/")
+
+        data_package = network_data_package["games"].get(self.game, {})
+
+        self.update_ids(data_package)
+
+        if world is not None and hasattr(world, "victory_names"):
+            self.victory_names = world.victory_names
+            self.goal_location = self.get_location_by_name(world.victory_names[0])
+        else:
+            self.victory_names = ["__Manual Game Complete__"]
+            self.goal_location = self.get_location_by_name("__Manual Game Complete__")
+
+        await self.get_username()
+        await self.send_connect()
+
+    def event_invalid_game(self):
+        if self.game == "Manual_FFXIV_Silasary":
+            self.game = "Final Fantasy XIV"
+            self.disconnected_intentionally = False
+            raise Exception
+        super().event_invalid_game()
 
     def on_package(self, cmd: str, args: dict):
         super().on_package(cmd, args)
