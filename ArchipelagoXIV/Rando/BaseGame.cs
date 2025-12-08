@@ -1,4 +1,5 @@
 using Archipelago.MultiClient.Net.Models;
+using ArchipelagoXIV.Rando.Locations;
 using Lumina.Excel.Sheets;
 using System;
 using System.Collections.Generic;

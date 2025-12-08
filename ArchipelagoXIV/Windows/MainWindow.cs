@@ -12,7 +12,7 @@ public class MainWindow : Window
     private readonly Plugin plugin;
 
     public MainWindow(Plugin plugin, ApState state) : base(
-        "Archipelego", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
+        "Archipelago", ImGuiWindowFlags.None)
     {
         this.SizeConstraints = new WindowSizeConstraints
         {
@@ -42,6 +42,16 @@ public class MainWindow : Window
             if (ImGui.Button("View setup guide"))
             {
                 var psi = new System.Diagnostics.ProcessStartInfo("https://github.com/silasary/APxiv/wiki/Getting-Started")
+                {
+                    UseShellExecute = true,
+                    Verb = "open"
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+
+            if (ImGui.Button("Join Discord"))
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo("https://discord.gg/TT4cZRHJ6F")
                 {
                     UseShellExecute = true,
                     Verb = "open"

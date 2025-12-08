@@ -20,7 +20,9 @@ namespace ArchipelagoXIV.Rando
         private long GoalCount;
         private long McGuffinCount;
 
+
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
+        public long ExtraDungeonChecks { get; private set; } = 0;
 
         public override int MaxLevel() => Jobs.Max(MaxLevel);
 
@@ -36,7 +38,7 @@ namespace ArchipelagoXIV.Rando
                 Levels[job] = MaxLevel(job);
             }
             
-            if ((McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
+            if (GoalType == VictoryType.McGuffin && (McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
             {
                 apState.CompleteGame();
             }
@@ -46,6 +48,8 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
             this.GoalCount = (long)slotData["mcguffins_needed"];
+            if (SlotData.TryGetValue("extra_dungeon_checks", out var extra_dungeon_checks))
+                this.ExtraDungeonChecks = (long)extra_dungeon_checks;
             DalamudApi.Echo($"Goal is {GoalCount} Memories.");
         }
 

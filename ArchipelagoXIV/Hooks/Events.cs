@@ -1,3 +1,4 @@
+using Archipelago.MultiClient.Net;
 using ArchipelagoXIV.Rando;
 using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Game.Addon.Lifecycle;
@@ -119,8 +120,21 @@ namespace ArchipelagoXIV.Hooks
                     DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
                     return;
                 }
+
+                if (apState.Game is NGPlusGame)
+                {
+                    var state = (NGPlusGame)apState.Game;
+                    DalamudApi.Echo($"Marking Extra Checks {name}");
+                    for (var i = 2; i < state.ExtraDungeonChecks; i++)
+                    {
+                        DalamudApi.Echo($"looking for {name} {i}");
+                        var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
+                        extraLocation?.Complete(false);
+                    }
+                }
                 DalamudApi.PluginLog.Debug("Marking Check {1}", name);
-                location.Complete();
+                location.Complete(false);
+                apState.Syncing = true;
                 if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
                 {
                     apState.CompleteGame();
