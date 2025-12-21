@@ -238,7 +238,6 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
-    visibility = Visibility.none
 
 class IncludeBozja(Toggle):
     """

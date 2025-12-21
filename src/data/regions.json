@@ -522,6 +522,11 @@
     },
     "Living Memory": {
         "requires": "|Living Memory Access: 1|",
+        "connects_to": ["Mist Continent"]
+    },
+    "Mist Continent": {
+        "requires": "",
         "connects_to": []
     }
+
 }
