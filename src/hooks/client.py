@@ -11,6 +11,7 @@ from kvui import GameManager
 from worlds import AutoWorldRegister, network_data_package
 from ..ManualClient import read_apmanual_file, ManualContext, tracker_loaded, gui_enabled, game_watcher_manual
 from ..Game import game_name
+from .. import Data, Locations, Items
 
 
 client_name = "Final Fantasy XIV Manual Client"
@@ -20,7 +21,7 @@ def get_context(args, config_file):
     return XivContext(args.connect, args.password, config_file.get("game"), config_file.get("player_name"))
 
 class XivContext(ManualContext):
-    game = game_name # set the game name to change the Manual Game ID field
+    game = ""
 
     def make_gui(self) -> type[GameManager]:
         from kivy.uix.layout import Layout
@@ -45,18 +46,25 @@ class XivContext(ManualContext):
 
         world = AutoWorldRegister.world_types.get(self.game)
         if not self.location_table and not self.item_table and world is None:
-            raise Exception(f"Cannot load {self.game}, please add the apworld to lib/worlds/")
+            self.location_table = Locations.location_name_to_location
+            self.item_table = Items.item_name_to_item
 
         data_package = network_data_package["games"].get(self.game, {})
 
-        self.update_ids(data_package)
+        if data_package:
+            self.update_ids(data_package)
 
         if world is not None and hasattr(world, "victory_names"):
             self.victory_names = world.victory_names
             self.goal_location = self.get_location_by_name(world.victory_names[0])
         else:
-            self.victory_names = ["__Manual Game Complete__"]
-            self.goal_location = self.get_location_by_name("__Manual Game Complete__")
+            self.victory_names = Locations.victory_names
+            self.goal_location = self.get_location_by_name(Locations.victory_names[0])
+
+        if not self.game:
+            self.tags = {"AP", "Tracker"}
+        else:
+            self.tags = {"AP"}
 
         await self.get_username()
         await self.send_connect()
@@ -70,8 +78,12 @@ class XivContext(ManualContext):
 
     def on_package(self, cmd: str, args: dict):
         super().on_package(cmd, args)
-
+        if cmd == "RoomInfo":
+            pass
         if cmd in {"Connected"}:
+            if not self.game:
+                slot_info = args['slot_info'][str(args['slot'])]
+                self.game = slot_info.get('game', self.game)
             for key in ['prog_classes']:
                 if key in args.get('slot_data', {}):
                     setattr(self, key, args['slot_data'][key])
