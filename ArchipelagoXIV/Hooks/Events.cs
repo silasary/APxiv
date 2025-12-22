@@ -121,10 +121,8 @@ namespace ArchipelagoXIV.Hooks
                     return;
                 }
 
-                if (apState.Game is NGPlusGame)
+                if (apState.Game is NGPlusGame state)
                 {
-                    var state = (NGPlusGame)apState.Game;
-                    DalamudApi.Echo($"Marking Extra Checks {name}");
                     for (var i = 2; i < state.ExtraDungeonChecks; i++)
                     {
                         DalamudApi.Echo($"looking for {name} {i}");

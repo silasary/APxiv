@@ -41,6 +41,7 @@ namespace ArchipelagoXIV
         [PluginService] public static IJobGauges JobGauges { get; private set; } = null!;
         [PluginService] public static IObjectTable ObjectTable { get; private set; } = null!;
         //[PluginService] public static IPartyList PartyList { get; private set; } = null!;
+        [PluginService] public static IPlayerState PlayerState { get; private set; } = null!;
         [PluginService] public static IPluginLog PluginLog { get; private set; } = null!;
         [PluginService] public static IToastGui ToastGui { get; private set; } = null!;
 
