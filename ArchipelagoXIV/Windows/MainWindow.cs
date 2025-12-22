@@ -49,7 +49,7 @@ public class MainWindow : Window
                 System.Diagnostics.Process.Start(psi);
             }
 
-            if (ImGui.Button("Join Discord"))
+            if (ImGui.Button("Support Discord"))
             {
                 var psi = new System.Diagnostics.ProcessStartInfo("https://discord.gg/TT4cZRHJ6F")
                 {
