@@ -187,7 +187,7 @@ namespace ArchipelagoXIV.Rando.Locations
             Completed = true;
             apState.localsave!.CompletedChecks.Add(ApId);
             if (sendNow)
-                Task.Factory.StartNew(CompleteAsync);
+                Task.Run(CompleteAsync);
             apState.RefreshBars = true;
         }
         private async void CompleteAsync()

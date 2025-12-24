@@ -1,3 +1,5 @@
+from typing import Any
+from Options import FreeText, NumericOption, TextChoice, NamedRange
 # Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
 from Options import Toggle, DefaultOnToggle, Choice, Range, OptionSet, PerGameCommonOptions, Option, OptionGroup, Visibility

@@ -16,6 +16,7 @@ using Archipelago.MultiClient.Net.Packets;
 using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Dalamud.Game.Text.SeStringHandling;
 using ArchipelagoXIV.Rando.Locations;
+using System.Threading.Tasks;
 
 namespace ArchipelagoXIV
 {
@@ -46,7 +47,7 @@ namespace ArchipelagoXIV
         private bool savingCache;
         internal bool RefreshBars;
 
-        public DeathLinkService DeathLink { get; private set; }
+        public DeathLinkService? DeathLink { get; private set; }
         private readonly Configuration config;
 
         public TerritoryType territory { get; internal set; }
@@ -105,7 +106,7 @@ namespace ArchipelagoXIV
                 Disconnect();
             }
             DalamudApi.SetStatusBar("Connecting...");
-            var localPlayer = DalamudApi.ClientState.LocalPlayer;
+            var localPlayer = DalamudApi.PlayerState;
             if (localPlayer == null || !localPlayer.ClassJob.IsValid)
                 return;
 
@@ -113,7 +114,7 @@ namespace ArchipelagoXIV
             this.session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             if (string.IsNullOrEmpty(player))
             {
-                player = localPlayer.Name.ToString();
+                player = localPlayer.CharacterName.ToString();
             }
             DeathLinkEnabled = false;
             var tags = new string[] { "Dalamud" };
@@ -425,7 +426,7 @@ namespace ArchipelagoXIV
             if (Syncing)
             {
                 Syncing = false;
-                this.session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]).Start();
+                Task.Run(async () => await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]));
             }
             this.lastUpFateCount = upfates;
         }

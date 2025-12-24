@@ -18,7 +18,9 @@ namespace ArchipelagoXIV.Hooks
         [Signature("E8 ?? ?? ?? ?? 0F B7 0B 83 E9 64", DetourName = nameof(ProcessPacketActorControlDetour))]
         private readonly Hook<ProcessPacketActorControlDelegate> processPacketActorControlHook = null!;
 
-        private delegate void ProcessPacketActorControlDelegate(uint entityId, uint type, uint statusId, uint amount, uint a5, uint source, uint a7, uint a8, ulong a9, byte flag);
+        private delegate void ProcessPacketActorControlDelegate(
+            uint category, uint eventId, uint param1, uint param2, uint param3, uint param4, uint param5, uint param6, uint param7, uint param8, ulong targetId,
+            byte param9);
 
 
         public void Enable()
@@ -33,22 +35,23 @@ namespace ArchipelagoXIV.Hooks
         }
 
         private void ProcessPacketActorControlDetour(
-    uint entityId, uint type, uint statusId, uint amount, uint a5, uint source, uint a7, uint a8, ulong a9, byte flag)
+            uint category, uint eventId, uint param1, uint param2, uint param3, uint param4, uint param5, uint param6, uint param7, uint param8, ulong targetId,
+            byte param9)
         {
-            processPacketActorControlHook.Original(entityId, type, statusId, amount, a5, source, a7, a8, a9, flag);
-            if (entityId != DalamudApi.ObjectTable[0]?.GameObjectId)
+            processPacketActorControlHook.Original(category, eventId, param1, param2, param3, param4, param5, param6, param7, param8, targetId, param9);
+            if (targetId != DalamudApi.ObjectTable.LocalPlayer?.GameObjectId)
                 return; // Only process our own deaths
             if (apState.DeathLinkEnabled == false)
                 return;
 
             try
             {
-                if (type == 0x6)
+                if (category == 0x6)
                 {
                     // Death
-                    var cause = $"{DalamudApi.ObjectTable[0].Name} died in {apState.territoryName}";
+                    var cause = $"{DalamudApi.PlayerState.CharacterName} died in {apState.territoryName}";
                     DalamudApi.ShowError("Death sent :)");
-                    apState.DeathLink.SendDeathLink(new Archipelago.MultiClient.Net.BounceFeatures.DeathLink.DeathLink(apState.slotName, cause));
+                    apState.DeathLink?.SendDeathLink(new Archipelago.MultiClient.Net.BounceFeatures.DeathLink.DeathLink(apState.slotName, cause));
                 }
             }
             catch (Exception e)
