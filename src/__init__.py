@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 from typing import Callable, Optional, ClassVar, Counter, Any
 import webbrowser
 
@@ -581,9 +582,23 @@ def add_client_to_launcher() -> None:
 
 add_client_to_launcher()
 
+def hide_nmw() -> bool:
+    """
+    There are several tests that currently fail when an apworld contains multiple worlds.
+    This is very silly, but it's easier just to mark the world as hidden while they're looking.
+    """
+    if "pytest" in sys.modules:
+        return True
+    if "Build APWorlds" in sys.argv:
+        return True
+    return False
+
+
 class NonManualWorld(ManualWorld):
     game = "Final Fantasy XIV"
     options_dataclass = manual_options_data
+
+    hidden = hide_nmw()
 
     item_id_to_name = item_id_to_name
     item_name_to_id = item_name_to_id

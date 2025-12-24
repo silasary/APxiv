@@ -1,17 +1,13 @@
 import asyncio
 import os
-import re
-import json
 
-from typing import Type
 import urllib.parse
 
 from CommonClient import get_base_parser, server_loop
 from kvui import GameManager
 from worlds import AutoWorldRegister, network_data_package
 from ..ManualClient import read_apmanual_file, ManualContext, tracker_loaded, gui_enabled, game_watcher_manual
-from ..Game import game_name
-from .. import Data, Locations, Items
+from .. import Locations, Items
 
 
 client_name = "Final Fantasy XIV Manual Client"
@@ -49,7 +45,7 @@ class XivContext(ManualContext):
             self.location_table = Locations.location_name_to_location
             self.item_table = Items.item_name_to_item
 
-        data_package = network_data_package["games"].get(self.game, {})
+        data_package = network_data_package["games"].get(self.game, {}) or network_data_package["games"].get("Final Fantasy XIV", {})
 
         if data_package:
             self.update_ids(data_package)
@@ -83,7 +79,12 @@ class XivContext(ManualContext):
         if cmd in {"Connected"}:
             if not self.game:
                 slot_info = args['slot_info'][str(args['slot'])]
-                self.game = slot_info.get('game', self.game)
+                game = slot_info.get('game', self.game)
+                if game not in {"Manual_FFXIV_Silasary", "Final Fantasy XIV"}:
+                    super().event_invalid_game()
+                self.game = game
+
+
             for key in ['prog_classes']:
                 if key in args.get('slot_data', {}):
                     setattr(self, key, args['slot_data'][key])
@@ -91,6 +92,7 @@ class XivContext(ManualContext):
             self.update_custom_ui()
         elif cmd in {"DataPackage", "ReceivedItems", "RoomUpdate"}:
             self.update_custom_ui()
+
 
     def update_custom_ui(self):
         from kivy.uix.modalview import ModalView
@@ -109,7 +111,12 @@ class XivContext(ManualContext):
 ########### End of *ManualContext class ###############
 #######################################################
 
-
+async def game_watcher_xiv(ctx: ManualContext):
+    while not ctx.exit_event.is_set():
+        if "Tracker" in ctx.tags and ctx.game:
+            ctx.tags.remove("Tracker")
+            await ctx.send_msgs([{"cmd": "ConnectUpdate", "tags": ctx.tags}])
+        await asyncio.sleep(1)
 
 
 #################################################################
@@ -151,11 +158,16 @@ async def main(args):
 
     progression_watcher = asyncio.create_task(
         game_watcher_manual(ctx), name="ManualProgressionWatcher")
+    extra_watcher = asyncio.create_task(
+        game_watcher_xiv(ctx), name="XivProgressionWatcher")
+
+
 
     await ctx.exit_event.wait()
     ctx.server_address = None
 
     await progression_watcher
+    await extra_watcher
 
     await ctx.shutdown()
 
