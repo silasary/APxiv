@@ -1,11 +1,9 @@
-# Object classes from AP core, to represent an entire MultiWorld and this individual World that's part of it
+import logging
+import re
 from typing import Any
-from worlds.AutoWorld import World
-from BaseClasses import MultiWorld, ItemClassification, LocationProgressType, CollectionState, Item
 
-# Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
-from ..Items import ManualItem, item_name_to_item
-from ..Locations import ManualLocation, location_name_to_location
+from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
+from worlds.AutoWorld import World
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -13,16 +11,14 @@ from ..Locations import ManualLocation, location_name_to_location
 from ..Data import game_table, item_table, location_table, region_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from ..Helpers import is_option_enabled, get_option_value
-from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, WORLD_BOSSES, categorizedLocationNames
+from ..Helpers import get_option_value, is_option_enabled
+
+# Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
+from ..Items import ManualItem, item_name_to_item
+from ..Locations import ManualLocation, location_name_to_location
+from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
 from .Helpers import get_int_value
 from .Options import LevelCap
-
-
-# calling logging.info("message") anywhere below in this file will output the message to both console and log file
-import logging
-
-import re
 
 ########################################################################################
 ## Order of method calls when the world generates:
@@ -40,29 +36,29 @@ import re
 def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
     if duty_type == "Dungeon":
         return get_int_value(multiworld, player, "dungeon_count")
-    elif duty_type == "Variant Dungeon":
+    if duty_type == "Variant Dungeon":
         return get_int_value(multiworld, player, "variant_dungeon_count")
-    elif duty_type == "Trial":
+    if duty_type == "Trial":
         if duty_diff == 1:  # Normal
             return get_int_value(multiworld, player, "trial_count")
-        elif duty_diff == 2:  # Extreme
+        if duty_diff == 2:  # Extreme
             return get_int_value(multiworld, player, "extreme_trial_count")
-        elif duty_diff == 4:  # Endgame
+        if duty_diff == 4:  # Endgame
             return get_int_value(multiworld, player, "endgame_trial_count")
-    elif duty_type in ["Raid", "Normal Raid", "Savage Raid", "Endgame Raid"]:
+    if duty_type in ["Raid", "Normal Raid", "Savage Raid", "Endgame Raid"]:
         if duty_diff == 1:  # Normal
             return get_int_value(multiworld, player, "normal_raid_count")
-        elif duty_diff == 3:  # Savage
+        if duty_diff == 3:  # Savage
             return get_int_value(multiworld, player, "savage_raid_count")
-        elif duty_diff == 4:  # Endgame
+        if duty_diff == 4:  # Endgame
             return get_int_value(multiworld, player, "endgame_raid_count")
-    elif duty_type == "Alliance Raid":
+    if duty_type == "Alliance Raid":
         return get_int_value(multiworld, player, "alliance_raid_count")
-    elif duty_type == "Ultimate":
+    if duty_type == "Ultimate":
         return get_int_value(multiworld, player, "ultimate_count")
-    elif duty_type == "Guildhest":
+    if duty_type == "Guildhest":
         return None
-    elif duty_type == "PvP":
+    if duty_type == "PvP":
         return None
     raise ValueError(f"Unknown duty type {duty_type}")
 

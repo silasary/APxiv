@@ -1,12 +1,8 @@
-from typing import Any
-import re
-from typing import Optional, TYPE_CHECKING
-from BaseClasses import MultiWorld, Item, Location
-from .. import Helpers
+from typing import Any, Optional
 
-if TYPE_CHECKING:
-    from ..Items import ManualItem
-    from ..Locations import ManualLocation
+from BaseClasses import MultiWorld
+
+from .. import Helpers
 
 def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     from ..Helpers import get_option_value

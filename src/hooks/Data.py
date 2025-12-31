@@ -2,6 +2,7 @@ import csv
 import json
 import pkgutil
 import re
+from typing import Any
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -451,7 +452,7 @@ def after_load_meta_file(meta_table: dict) -> dict:
 # called when an external tool (eg Univeral Tracker) ask for slot data to be read
 # use this if you want to restore more data
 # return True if you want to trigger a regeneration if you changed anything
-def hook_interpret_slot_data(world, player: int, slot_data: dict[str, any]) -> bool:
+def hook_interpret_slot_data(world, player: int, slot_data: dict[str, Any]) -> bool:
     prog_classes = slot_data.get("prog_classes", [])
     if not prog_classes:
         prog_classes = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + ["FSH"]

@@ -2,15 +2,15 @@
 Generates static data files from external sources
 """
 import csv
-import re
+import functools
 import json
 import os
-import requests
-import functools
+import re
 
-import yaml
 import bs4
 import ratelimit
+import requests
+import yaml
 
 NOT_IN_FISHING_GUIDE = [
     "Deep Velodyna Carp",
