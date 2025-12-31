@@ -1,9 +1,8 @@
-from typing import Optional
-from worlds.AutoWorld import World
-from ..Helpers import clamp, get_option_value
-from BaseClasses import MultiWorld, CollectionState
 
-import re
+from BaseClasses import CollectionState, MultiWorld
+from worlds.AutoWorld import World
+
+from ..Helpers import get_option_value
 
 # Sometimes you have a requirement that is just too messy or repetitive to write out with boolean logic.
 # Define a function here, and you can use it in a requires string with (function_name()}.

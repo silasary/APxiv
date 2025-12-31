@@ -1,14 +1,25 @@
-from typing import Any
-from Options import FreeText, NumericOption, TextChoice, NamedRange
-# Object classes from AP that represent different types of options that you can create
 from BaseClasses import PlandoOptions
-from Options import Toggle, DefaultOnToggle, Choice, Range, OptionSet, PerGameCommonOptions, Option, OptionGroup, Visibility
-from worlds.AutoWorld import World
+from Options import (
+    Choice,
+    DefaultOnToggle,
+    FreeText,
+    NamedRange,
+    NumericOption,
+    Option,
+    OptionGroup,
+    OptionSet,
+    PerGameCommonOptions,
+    Range,
+    TextChoice,
+    Toggle,
+    Visibility,
+)
 from Utils import get_fuzzy_results
-from typing import Type
+from worlds.AutoWorld import World
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from ..Helpers import is_option_enabled, get_option_value
+from ..Helpers import get_option_value, is_option_enabled
+
 
 class OceanFishing(Toggle):
     """
@@ -294,7 +305,7 @@ def before_options_defined(options: dict) -> dict:
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
-def after_options_defined(options: Type[PerGameCommonOptions]) -> None:
+def after_options_defined(options: type[PerGameCommonOptions]) -> None:
     # To access a modifiable version of options check the dict in options.type_hints
     # For example if you want to change DLC_enabled's display name you would do:
     # options.type_hints["DLC_enabled"].display_name = "New Display Name"

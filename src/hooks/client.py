@@ -65,13 +65,6 @@ class XivContext(ManualContext):
         await self.get_username()
         await self.send_connect()
 
-    def event_invalid_game(self):
-        if self.game == "Manual_FFXIV_Silasary":
-            self.game = "Final Fantasy XIV"
-            self.disconnected_intentionally = False
-            raise Exception
-        super().event_invalid_game()
-
     def on_package(self, cmd: str, args: dict):
         super().on_package(cmd, args)
         if cmd == "RoomInfo":
