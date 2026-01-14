@@ -3,6 +3,7 @@ import re
 from typing import Any
 
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
+from Options import OptionError
 from worlds.AutoWorld import World
 
 # Raw JSON data from the Manual apworld, respectively:
@@ -15,7 +16,7 @@ from ..Helpers import get_option_value, is_option_enabled
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
-from ..Locations import ManualLocation, location_name_to_location
+from ..Locations import ManualLocation, location_name_to_location, victory_names
 from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
 from .Helpers import get_int_value
 from .Options import LevelCap
@@ -313,6 +314,15 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     This is the earliest hook called during generation, before anything else is done.
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
+
+    goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
+    goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
+    level_cap = get_option_value(multiworld, player, 'level_cap')
+    goal_level = goal_location.get('level', 0)
+
+    if goal_level and goal_level < level_cap:
+        raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
+
     pass
 
 
