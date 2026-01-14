@@ -1,13 +1,7 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.26.0",
+    "world_version": "0.26.1",
     "changelog": [
-        "Added the 7.35 trial Windward Wilds",
-        "Added the 7.4 MSQ dungeon and trial",
-        "Added new setting to only select a random subset of all duties from an expansion (ie, only a handful of ARR dungeons instead of all of them)",
-        "Added new setting to add extra checks for completing dungeons",
-        "Fixed bug with `max_party_size` setting not being applied correctly",
-        "Fixed Universal Tracker compatibility"
-
+        "Fixed a handful of generation errors related to lower level caps"
     ]
 }

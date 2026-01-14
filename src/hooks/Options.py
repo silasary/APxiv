@@ -225,7 +225,7 @@ class LevelCap(Range):
     """
     display_name = "Level Cap"
     default = 100
-    range_start = 10
+    range_start = 30
     range_end = 100
 
 class AllowMainScenario(DefaultOnToggle):
