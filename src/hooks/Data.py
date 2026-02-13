@@ -460,3 +460,7 @@ def hook_interpret_slot_data(world, player: int, slot_data: dict[str, Any]) -> b
     for job in prog_classes:
         world.item_name_to_item["5 " + job + " Levels"]["progression"] = True
     return False
+
+
+def after_load_event_file(event_table: list) -> list:
+    return event_table

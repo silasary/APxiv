@@ -1,6 +1,5 @@
 import logging
 import os
-import sys
 from typing import Callable, Optional, ClassVar, Counter, Any
 import webbrowser
 
@@ -8,18 +7,18 @@ import Utils
 from worlds.generic.Rules import forbid_items_for_player
 from worlds.LauncherComponents import Component, SuffixIdentifier, components, Type, launch_subprocess, icon_paths
 
-from .Data import item_table, location_table, category_table
+from .Data import item_table, location_table, event_table, region_table, category_table
 from .Game import game_name, filler_item_name, starting_items
-from .Meta import world_description, world_webworld, enable_region_diagram
-from .Locations import location_id_to_name, location_name_to_id, location_name_to_location, location_name_groups, victory_names
+from .Meta import world_description, world_webworld
+from .Locations import location_id_to_name, location_name_to_id, location_name_to_location, location_name_groups, victory_names, event_name_to_event
 from .Items import item_id_to_name, item_name_to_id, item_name_to_item, item_name_groups
 from .DataValidation import runGenerationDataValidation, runPreFillDataValidation
 
-from .Regions import create_regions
+from .Regions import create_regions, create_events
 from .Items import ManualItem
 from .Rules import set_rules
 from .Options import manual_options_data
-from .Helpers import is_item_enabled, get_option_value, remove_specific_item, resolve_yaml_option, format_state_prog_items_key, ProgItemsCat
+from .Helpers import is_item_enabled, get_option_value, remove_specific_item, resolve_yaml_option, format_state_prog_items_key, convert_string_to_itemclassification, ProgItemsCat
 from .container import APManualFile
 
 from BaseClasses import CollectionState, ItemClassification, Item
@@ -48,6 +47,7 @@ class ManualWorld(World):
     # These properties are set from the imports of the same name above.
     item_table = item_table
     location_table = location_table # this is likely imported from Data instead of Locations because the Game Complete location should not be in here, but is used for lookups
+    event_table = event_table
     category_table = category_table
 
     item_id_to_name = item_id_to_name
@@ -67,8 +67,12 @@ class ManualWorld(World):
     location_name_groups = location_name_groups
     victory_names = victory_names
 
+    event_name_to_event = event_name_to_event
+
     # UT (the universal-est of trackers) can now generate without a YAML
     ut_can_gen_without_yaml = True
+
+    origin_region_name = "Manual"
 
     def get_filler_item_name(self) -> str:
         return hook_get_filler_item_name(self, self.multiworld, self.player) or self.filler_item_name
@@ -98,6 +102,8 @@ class ManualWorld(World):
         before_create_regions(self, self.multiworld, self.player)
 
         create_regions(self, self.multiworld, self.player)
+
+        create_events(self, self.multiworld, self.player)
 
         location_game_complete = self.multiworld.get_location(victory_names[get_option_value(self.multiworld, self.player, 'goal')], self.player)
         location_game_complete.address = None
@@ -156,22 +162,7 @@ class ManualWorld(World):
                             if isinstance(cat, int):
                                 true_class = ItemClassification(cat)
                             else:
-                                def stringCheck(string: str) ->  ItemClassification:
-                                    if string.isdigit():
-                                        true_class = ItemClassification(int(string))
-                                    elif string.startswith('0b'):
-                                        true_class = ItemClassification(int(string, base=0))
-                                    else:
-                                        true_class = ItemClassification[string]
-                                    return true_class
-
-                                if "+" in cat:
-                                    true_class = ItemClassification.filler
-                                    for substring in cat.split("+"):
-                                        true_class |= stringCheck(substring.strip())
-
-                                else:
-                                    true_class = stringCheck(cat)
+                                true_class = convert_string_to_itemclassification(cat)
                         except Exception as ex:
                             raise Exception(f"Item override '{cat}' for {name} improperly defined\n\n{type(ex).__name__}:{ex}")
 
@@ -277,20 +268,36 @@ class ManualWorld(World):
         name = before_create_item(name, self, self.multiworld, self.player)
 
         item = self.item_name_to_item[name]
+        classification: ItemClassification = ItemClassification.filler
         if class_override is not None:
             classification = class_override
-        else:
-            classification = ItemClassification.filler
 
-            if "trap" in item and item["trap"]:
+        elif item.get("classification_count"):
+            # This should only be run if create_item is called outside of create_items
+            not_prog_classes: list[ItemClassification] = []
+            progression_classes: list[ItemClassification] = []
+            for cat, count in item["classification_count"].items():
+                if count:
+                    true_class = convert_string_to_itemclassification(cat)
+                    if ItemClassification.progression in true_class:
+                        progression_classes.append(true_class)
+                    else:
+                        not_prog_classes.append(true_class)
+            if progression_classes:
+                classification |= self.random.choice(progression_classes)
+            elif not_prog_classes:
+                classification |= not_prog_classes[0]
+
+        else:
+            if item.get("trap"):
                 classification |= ItemClassification.trap
 
-            if "useful" in item and item["useful"]:
+            if item.get("useful"):
                 classification |= ItemClassification.useful
 
-            if "progression_skip_balancing" in item and item["progression_skip_balancing"]:
+            if item.get("progression_skip_balancing"):
                 classification |= ItemClassification.progression_skip_balancing
-            elif "progression" in item and item["progression"]:
+            elif item.get("progression"):
                 classification |= ItemClassification.progression
 
         item_object = ManualItem(name, classification,
@@ -397,9 +404,9 @@ class ManualWorld(World):
         after_generate_basic(self, self.multiworld, self.player)
 
         # Enable this in Meta.json to generate a diagram of your manual.  Only works on 0.4.4+
-        if enable_region_diagram:
+        if get_option_value(self.multiworld, self.player, "generate_region_diagram"):
             from Utils import visualize_regions
-            visualize_regions(self.multiworld.get_region("Menu", self.player), f"{self.game}_{self.player}.puml")
+            visualize_regions(self.multiworld.get_region("Manual", self.player), f"{self.game}_{self.player}.puml")
 
     def pre_fill(self):
         # DataValidation after all the hooks are done but before fill
@@ -415,6 +422,15 @@ class ManualWorld(World):
                 continue
             slot_data[option_key] = get_option_value(self.multiworld, self.player, option_key)
 
+        slot_data["visible_events"] = {}
+        for _, event in self.event_name_to_event.items():
+            event_name = event["name"]
+            if event["visible"] and event_name not in slot_data["visible_events"]:
+                slot_data["visible_events"][event_name] = event.get("category", [])
+            elif event_name in slot_data["visible_events"]:
+                temp_list = event.get("category", []) + slot_data["visible_events"][event_name]
+                slot_data["visible_events"][event_name] = list(set(temp_list))
+
         slot_data = after_fill_slot_data(slot_data, self, self.multiworld, self.player)
 
         return slot_data
@@ -425,6 +441,10 @@ class ManualWorld(World):
 
         apmanual = APManualFile(zf_path, player=self.player, player_name=self.player_name)
         apmanual.write()
+
+        if get_option_value(self.multiworld, self.player, "generate_region_diagram"):
+            from Utils import visualize_regions
+            visualize_regions(self.multiworld.get_region("Manual", self.player), f"{self.game}_{self.player}_spoiler.puml")
 
 
     def write_spoiler(self, spoiler_handle):
@@ -558,7 +578,7 @@ class VersionedComponent(Component):
         self.version = version
 
 def add_client_to_launcher() -> None:
-    version = 2025_11_30 # YYYYMMDD
+    version = 2026_01_02 # YYYYMMDD
     found = False
 
     if "manual" not in icon_paths:
@@ -587,6 +607,7 @@ def hide_nmw() -> bool:
     There are several tests that currently fail when an apworld contains multiple worlds.
     This is very silly, but it's easier just to mark the world as hidden while they're looking.
     """
+    import sys
     if "pytest" in sys.modules:
         return True
     if "Build APWorlds" in sys.argv:

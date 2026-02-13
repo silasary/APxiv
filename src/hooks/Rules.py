@@ -1,8 +1,17 @@
 
+import dataclasses
+from typing import TYPE_CHECKING
 from BaseClasses import CollectionState, MultiWorld
 from worlds.AutoWorld import World
+from Utils import version_tuple
 
 from ..Helpers import get_option_value
+from ..Game import game_name
+
+if TYPE_CHECKING:
+    from .. import ManualWorld
+
+use_rulebuilder = version_tuple >= (0, 6, 7)
 
 # Sometimes you have a requirement that is just too messy or repetitive to write out with boolean logic.
 # Define a function here, and you can use it in a requires string with (function_name()}.
@@ -37,3 +46,27 @@ def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState,
     goal_count = get_option_value(multiworld, player, "mcguffins_needed")
     assert isinstance(goal_count, int)
     return state.count("Memory of a Distant World", player) >= goal_count
+
+if use_rulebuilder:
+    from rule_builder.rules import Rule, Has, True_, False_, HasAnyCount
+
+    @dataclasses.dataclass()
+    class anyClassLevelRule(Rule["ManualWorld"], game=game_name):
+        level: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.level) // 5
+            counts = {job: expected_count for job in world.item_name_groups["DOW/DOM"]}
+            return HasAnyCount(counts).resolve(world)
+
+    @dataclasses.dataclass()
+    class anyCrafterLevelRule(Rule["ManualWorld"], game=game_name):
+        level: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.level) // 5
+            counts = {job: expected_count for job in world.item_name_groups["DOH"]}
+            return HasAnyCount(counts).resolve(world)
+
+    @dataclasses.dataclass()
+    class EnoughMemoriesRule(Rule["ManualWorld"], game=game_name):
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            return Has("Memory of a Distant World", world.options.mcguffins_needed.value).resolve(world)

@@ -1,5 +1,3 @@
-import logging
-import re
 from typing import Any
 
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
@@ -9,14 +7,14 @@ from worlds.AutoWorld import World
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
 #
-from ..Data import game_table, item_table, location_table, region_table
+from ..Data import item_table, location_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import get_option_value, is_option_enabled
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
-from ..Locations import ManualLocation, location_name_to_location, victory_names
+from ..Locations import victory_names
 from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
 from .Helpers import get_int_value
 from .Options import LevelCap
@@ -320,7 +318,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     level_cap = get_option_value(multiworld, player, 'level_cap')
     goal_level = goal_location.get('level', 0)
 
-    if goal_level and goal_level < level_cap:
+    if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
 
     if not get_option_value(multiworld, player, 'fatesanity') and is_option_enabled(multiworld, player, 'fates_per_zone') == 0 \
