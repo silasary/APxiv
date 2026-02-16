@@ -24,6 +24,7 @@ from .container import APManualFile
 from BaseClasses import CollectionState, ItemClassification, Item
 from Options import PerGameCommonOptions
 from worlds.AutoWorld import World
+from .hooks.Helpers import is_fishsanity_only
 
 from .hooks.World import \
     hook_get_filler_item_name, before_create_regions, after_create_regions, \
@@ -238,6 +239,26 @@ class ManualWorld(World):
                     items_started.append(starting_item)
                     self.multiworld.push_precollected(starting_item)
                     remove_specific_item(pool, starting_item)
+
+        if is_fishsanity_only(self.multiworld, self.player):
+            starting_baits = [
+                "Bloodworm",
+                "Crayfish Ball",
+                "Floating Minnow",
+                "Lugworm",
+                "Moth Pupa",
+                "Pill Bug",
+                "Wildfowl Fly"
+            ]
+            try:
+                # there has to be a better way to write this and I just don't know it
+                next(filter(lambda i: i.name in starting_baits, items_started))
+            except StopIteration:
+                starting_bait = self.multiworld.random.choice(starting_baits)
+                item = next(filter(lambda i: i.name == starting_bait, pool))
+                items_started.append(item)
+                self.multiworld.push_precollected(item)
+                remove_specific_item(pool, item)
 
         self.start_inventory = {i.name: items_started.count(i) for i in items_started}
 
