@@ -18,7 +18,8 @@ from .Regions import create_regions, create_events
 from .Items import ManualItem
 from .Rules import set_rules
 from .Options import manual_options_data
-from .Helpers import is_item_enabled, get_option_value, remove_specific_item, resolve_yaml_option, format_state_prog_items_key, convert_string_to_itemclassification, ProgItemsCat
+from .Helpers import is_item_enabled, get_option_value, remove_specific_item, resolve_yaml_option, \
+    format_state_prog_items_key, convert_string_to_itemclassification, ProgItemsCat, is_option_enabled
 from .container import APManualFile
 
 from BaseClasses import CollectionState, ItemClassification, Item
@@ -240,7 +241,7 @@ class ManualWorld(World):
                     self.multiworld.push_precollected(starting_item)
                     remove_specific_item(pool, starting_item)
 
-        if is_fishsanity_only(self.multiworld, self.player):
+        if is_fishsanity_only(self.multiworld, self.player) and not is_option_enabled(self.multiworld, self.player, "fishsanity_disable_starting_bait"):
             starting_baits = [
                 "Bloodworm",
                 "Crayfish Ball",

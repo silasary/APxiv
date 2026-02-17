@@ -247,6 +247,14 @@ class Fishsanity(Choice):
     option_big_fish = 3
     default = 0
 
+class FishsanityDisableStartingBait(Toggle):
+    """
+    If Fishsanity is the only option enabled for locations, you will start with a random bait to not be immediately BK'd.
+    Turning this option on will disable that starting bait.
+
+    This option may cause generation to fail.
+    """
+
 class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
@@ -299,6 +307,7 @@ def before_options_defined(options: dict) -> dict:
     options["fates_per_zone"] = FatesPerZone
     # Fish
     options["fishsanity"] = Fishsanity
+    options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
     # Jobs
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
