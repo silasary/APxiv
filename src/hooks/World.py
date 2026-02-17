@@ -325,6 +325,23 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
         raise OptionError("You can't disable everything.")
 
+    # Check that
+    # 1. Each range of 5 levels has enough space to unlock 2 checks (most conservatively a region and another 5 levels)
+    #    This is 1.5 checks if fishsanity is enabled
+    #    (5 fish levels + 5 combat levels ⇒ 1 region, 5 combat levels, 5 fish levels)
+    # 2. Once this has been checked for everything up to the level cap, if the goal is mcguffins, make sure there's
+    #    enough empty space for the mcguffins
+    #
+    # This requires
+    # 1. Creating a priority queue of combat locations ordered by level and fishing locations ordered by level
+    #    This list needs to be filtered by settings further (include the lowest X dungeons, etc)
+    # 2. Depending on settings:
+    #    Fishsanity + Duties: Poll 0 combat locations and 3 fishing locations, falling back to 1/2, to 2/1, then to 3/0
+    #    Fishsanity only: 2 fishing locations
+    #    Duties only: 2 combat locations
+    # 3. If we can do this (goal_level / 5) times with minimal reachability, or (level_cap / 5) times with full,
+    #    check that the total count of remaining items is greater than the (level_cap * (jobs - 1)) + mcguffin count
+
 
 def hook_interpret_slot_data(world: World, player: int, slot_data: dict[str, Any]) -> dict[str, Any]:
     """
