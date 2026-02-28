@@ -1,6 +1,6 @@
 import dataclasses
 import inspect
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any, Callable, Optional
 from enum import IntEnum
 from operator import eq, ge, le
 
@@ -10,7 +10,7 @@ from .Helpers import clamp, is_item_enabled, is_option_enabled, get_option_value
     format_to_valid_identifier, format_state_prog_items_key, ProgItemsCat
 from .Game import game_name
 
-from BaseClasses import MultiWorld, CollectionState
+from BaseClasses import MultiWorld, CollectionState, Entrance
 from worlds.AutoWorld import World
 from worlds.generic.Rules import set_rule, add_rule
 from Options import Choice, Toggle, Range, NamedRange, NumericOption
@@ -18,19 +18,19 @@ from Utils import version_tuple
 
 import re
 import math
-import inspect
 import logging
 
 if TYPE_CHECKING:
     from . import ManualWorld
 
+# At some point in the future, we should depreciate the non-RB codepath.  But that's not until at least 0.7.X
 use_rulebuilder = version_tuple >= (0, 6, 7)
 
 if TYPE_CHECKING and use_rulebuilder:
     import rule_builder.rules
 
 FUNCTION_REGEX = re.compile(r'\{(\w+)\((.*?)\)\}')
-ITEM_REGEX = re.compile(r'\|(@?)([^|]+?)(\:[^|]+)?\|')
+ITEM_REGEX = re.compile(r'\|(@?)([^|]+?)(\:[^:|]+)?\|')
 AND_REGEX = re.compile(r'\s?\bAND\b\s?', re.IGNORECASE)
 OR_REGEX = re.compile(r'\s?\bOR\b\s?', flags=re.IGNORECASE)
 
@@ -165,8 +165,6 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                 else:
                     count = evaluate_nonnumeric_count(item_name, item_count, is_category, area)
 
-
-
                 if is_category:
                     rule = rule_builder.rules.HasGroup(item_name, count)
                 else:
@@ -174,6 +172,10 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                 remaining = partial[len(match.group(0)):]
             elif match := FUNCTION_REGEX.match(partial):
                 func_name = match.group(1)
+                func_args = match.group(2).split(",")
+                if func_args == ['']:
+                    func_args.pop()
+
                 rule_class = None
                 search = [
                     (rule_builder.rules.DEFAULT_RULES, func_name),
@@ -192,15 +194,19 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                         rule_class = func
                         break
 
-                if not rule_class:
-                    print(f'Warning: Could not find Rule implmenentation of {func_name}.')
-                    return None
+                    if func and inspect.signature(func).return_annotation is str:
+                        # I'm assuming that functions that return strings don't need states.
+                        convert_req_function_args(None, func, func_args, area['name'], world)
+                        rule = recursively_tokenize_manual_rule(func(*func_args))
+                        break
 
-                func_args = match.group(2).split(",")
-                if func_args == ['']:
-                    func_args.pop()
-                rule = rule_class(*func_args)
-                pass
+                if rule is None:
+                    if not rule_class:
+                        print(f'Warning: Could not find Rule implmenentation of {func_name}.')
+                        # By returning None, we're saying "This entire requires string can't be done with a Rule.  Fall back to the pre-rb lambdas"
+                        return None
+
+                    rule = rule_class(*func_args)
             elif partial[0] == "(":
                 inner = ''
                 queue = list(partial[1:])
@@ -247,9 +253,6 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
     def checkRequireStringForArea(state: CollectionState, area: dict):
         requires_list = area["requires"]
 
-        # Get the "real" item counts of item in the pool/placed/starting_items
-        items_counts = world.get_item_counts(player, only_progression=True)
-
         # Preparing some variables for exception messages
         area_type = "region" if area.get("is_region",False) else "location"
         area_name = area.get("name", f"unknown with these parameters: {area}")
@@ -279,7 +282,7 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                         if not callable(func):
                             raise ValueError(f'Invalid function "{func_name}" in {area_type} "{area_name}".')
 
-                        convert_req_function_args(state, func, func_args, area_name)
+                        convert_req_function_args(state, func, func_args, area_name, world)
                         try:
                             result = func(*func_args)
                         except Exception as ex:
@@ -298,26 +301,22 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
         requires_list = findAndRecursivelyExecuteFunctions(requires_list)
 
         # parse user written statement into list of each item
-        for item in re.findall(r'\|[^|]+\|', requires_list):
+        for match in ITEM_REGEX.finditer(requires_list):
+            item_base = match.group(0)
+            is_category = match.group(1)
+            item_name = match.group(2)
+            item_count = match.group(3)
             require_type = 'item'
-            if item not in requires_list:
+            if item_base not in requires_list:
                 # previous instance of this item was already processed
                 continue
 
-            if '|@' in item:
+            if is_category:
                 require_type = 'category'
 
-            item_base = item
-            item = item.lstrip('|@$').rstrip('|')
-
-            item_parts = item.split(":")  # type: list[str]
-            item_name = item
-            item_count = "1"
-
-
-            if len(item_parts) > 1:
-                item_name = item_parts[0].strip()
-                item_count = item_parts[1].strip()
+            if not item_count:
+                item_count = "1"
+            item_count = item_count.lstrip(':')
 
             total = 0
 
@@ -423,16 +422,31 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
                     return fullLocationOrRegionCheck(state, region)
 
                 add_rule(world.get_entrance(exitRegion.name), fullRegionCheck)
+
+        def add_exit_rule(exit: Entrance, area: dict) -> None:
+            if use_rulebuilder:
+                from rule_builder.rules import Rule
+                rb_rule = construct_rule_from_string(area)
+                if (isinstance(exit.access_rule, Rule)):
+                    if rb_rule is None:
+                        raise ValueError(f'Unable to combine Rule and functions for {exit.name}.')
+                    world.set_rule(exit, exit.access_rule & rb_rule)
+                    return
+                elif exit.access_rule is Entrance.access_rule and rb_rule is not None:
+                    world.set_rule(exit, rb_rule)
+                    return
+            add_rule(exit, lambda state, rule=area: fullLocationOrRegionCheck(state, rule))
         entrance_rules = regionMap[region].get("entrance_requires", {})
         for e in entrance_rules:
             entrance = world.get_entrance(f'{e}To{region}')
             area = {"requires": entrance_rules[e]}
-            add_rule(entrance, lambda state, rule=area: fullLocationOrRegionCheck(state, rule))
+            add_exit_rule(entrance, area)
+
         exit_rules = regionMap[region].get("exit_requires", {})
         for e in exit_rules:
             exit = world.get_entrance(f'{region}To{e}')
             area = {"requires": exit_rules[e]}
-            add_rule(exit, lambda state, rule=area: fullLocationOrRegionCheck(state, rule))
+            add_exit_rule(exit, area)
 
     # Location access rules
     for location in (world.location_table + world.event_table):
@@ -467,51 +481,53 @@ def set_rules(world: "ManualWorld", multiworld: MultiWorld, player: int):
     # Victory requirement
     multiworld.completion_condition[player] = lambda state: state.has("__Victory__", player)
 
-    def convert_req_function_args(state: CollectionState, func, args: list[str | Any], areaName: str) -> None:
-        parameters = inspect.signature(func).parameters
-        knownParameters = [World, 'ManualWorld', MultiWorld, CollectionState]
-        index = -1
-        for parameter in parameters.values():
-            target_type = parameter.annotation
-            index += 1
-            if target_type in knownParameters:
-                if target_type in [World, 'ManualWorld']:
-                    args.insert(index, world)
-                elif target_type == MultiWorld:
-                    args.insert(index, multiworld)
-                elif target_type == CollectionState:
-                    args.insert(index, state)
-                continue
-            if parameter.name.lower() == "player":
-                args.insert(index, player)
-                continue
+def convert_req_function_args(state: CollectionState | None, func, args: list[str | Any], areaName: str, world: World) -> None:
+    parameters = inspect.signature(func).parameters
+    knownParameters = [World, 'ManualWorld', MultiWorld, CollectionState]
+    index = -1
+    for parameter in parameters.values():
+        target_type = parameter.annotation
+        index += 1
+        if target_type in knownParameters:
+            if target_type in [World, 'ManualWorld']:
+                args.insert(index, world)
+            elif target_type == MultiWorld:
+                args.insert(index, world.multiworld)
+            elif target_type == CollectionState and state is None:
+                raise ValueError('Function needs a state but none was available')
+            elif target_type == CollectionState:
+                args.insert(index, state)
+            continue
+        if parameter.name.lower() == "player":
+            args.insert(index, world.player)
+            continue
 
-            if index < len(args) and args[index] != "":
-                value = args[index].strip()
-            else:
-                if parameter.default is not inspect.Parameter.empty:
-                    if index < len(args):
-                        args[index] = parameter.default
-                    else:
-                        args.insert(index, parameter.default)
-                    continue
+        if index < len(args) and args[index] != "":
+            value = args[index].strip()
+        else:
+            if parameter.default is not inspect.Parameter.empty:
+                if index < len(args):
+                    args[index] = parameter.default
                 else:
-                    if parameter.annotation is inspect.Parameter.empty:
-                        raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value for its argument \"{parameter.name}\" but it's missing.")
-                    else:
-                        raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type} for its argument \"{parameter.name}\" but it's missing.")
-
-            if target_type == str or parameter.annotation is inspect.Parameter.empty: #Don't convert since its already a string or if we don't know the type to convert to
-                args[index] = value
+                    args.insert(index, parameter.default)
                 continue
+            else:
+                if parameter.annotation is inspect.Parameter.empty:
+                    raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value for its argument \"{parameter.name}\" but it's missing.")
+                else:
+                    raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type} for its argument \"{parameter.name}\" but it's missing.")
 
-            try:
-                value = convert_string_to_type(value, target_type)
-
-            except Exception as e:
-                raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type}\nfor its argument \"{parameter.name}\" but its value \"{value}\" cannot be converted to {target_type} \nOriginal Error:'{e}'")
-
+        if target_type == str or parameter.annotation is inspect.Parameter.empty: #Don't convert since its already a string or if we don't know the type to convert to
             args[index] = value
+            continue
+
+        try:
+            value = convert_string_to_type(value, target_type)
+
+        except Exception as e:
+            raise Exception(f"A call of the \"{func.__name__}\" function in \"{areaName}\"'s requirement, asks for a value of type {target_type}\nfor its argument \"{parameter.name}\" but its value \"{value}\" cannot be converted to {target_type} \nOriginal Error:'{e}'")
+
+        args[index] = value
 
 
 def ItemValue(state: CollectionState, player: int, valueCount: str):
@@ -626,7 +642,7 @@ def YamlDisabled(multiworld: MultiWorld, player: int, param: str) -> bool:
     """Is a yaml option disabled?"""
     return not is_option_enabled(multiworld, player, param)
 
-def YamlCompare(world: "ManualWorld", multiworld: MultiWorld, state: CollectionState, player: int, args: str, skipCache: bool = False) -> bool:
+def YamlCompare(world: "ManualWorld", args: str, skipCache: bool = False) -> bool:
     """Is a yaml option's value compared using {comparator} to the requested value
     \nFormat it like {YamlCompare(OptionName==value)}
     \nWhere == can be any of the following: ==, !=, >=, <=, <, >
@@ -767,3 +783,44 @@ if use_rulebuilder:
                 return False_().resolve(world)
             else:
                 return True_().resolve(world)
+
+    @dataclasses.dataclass()
+    class YamlCompareRule(Rule["ManualWorld"], game=game_name):
+        yaml_comparison: str
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            if YamlCompare(world, self.yaml_comparison):
+                return True_().resolve(world)
+            else:
+                return False_().resolve(world)
+
+
+
+    # # This was an attempt to make a universal lambda caller rule.  It's messy, complicated, and probably not worth it.
+    # # As you can see above, you are much better off implementing optimized Rules rather than trying to execute check-time access rules this way.
+    # # This code is left here both as a warning and also a starting point.
+    # # But as things currently stand, you're better off either letting the whole rule fall back to lambdas or writing a proper custom Rule.
+    # # This middleground is not a good idea.
+    # @dataclasses.dataclass()
+    # class FallbackLambdaRule(Rule["ManualWorld"], game=game_name):
+    #     access_rule: Callable
+    #     args: list[str | Any]
+
+    #     def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+    #         return self.Resolved(self.access_rule, self.args, world)
+
+    #     class Resolved(Rule.Resolved):
+    #         access_rule: Callable
+    #         args: list[str | Any]
+    #         world: World
+
+    #         @override
+    #         def _evaluate(self, state: CollectionState) -> bool:
+    #             args = self.args.copy()
+    #             convert_req_function_args(state, self.access_rule, args, "", self.world)
+    #             value = self.access_rule(*args)
+    #             if isinstance(value, bool):
+    #                 return value
+    #             name = self.access_rule.__name__
+    #             raise ValueError(f'Unexpected return value {value} from {name}')
+
+
