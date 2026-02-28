@@ -1,3 +1,4 @@
+from heapq import heappush
 from typing import Any
 
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
@@ -10,7 +11,7 @@ from worlds.AutoWorld import World
 from ..Data import item_table, location_table
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from ..Helpers import get_option_value, is_option_enabled
+from ..Helpers import get_option_value, is_option_enabled, is_location_enabled
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
@@ -325,6 +326,47 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
         raise OptionError("You can't disable everything.")
 
+    # Check that
+    # 1. Each range of 5 levels has enough space to unlock 2 checks (most conservatively a region and another 5 levels)
+    #    This is 1.5 checks if fishsanity is enabled
+    #    (5 fish levels + 5 combat levels ⇒ 1 region, 5 combat levels, 5 fish levels)
+    # 2. Once this has been checked for everything up to the level cap, if the goal is mcguffins, make sure there's
+    #    enough empty space for the mcguffins
+    #
+    # This requires
+    # 1. Creating a priority queue of combat locations ordered by level and fishing locations ordered by level
+    #    This list needs to be filtered by settings further (include the lowest X dungeons, etc)
+    # 2. Depending on settings:
+    #    Fishsanity + Duties: Poll 0 combat locations and 3 fishing locations, falling back to 1/2, to 2/1, then to 3/0
+    #    Fishsanity only: 2 fishing locations
+    #    Duties only: 2 combat locations
+    # 3. If we can do this (goal_level / 5) times with minimal reachability, or (level_cap / 5) times with full,
+    #    check that the total count of remaining items is greater than the (level_cap * (jobs - 1)) + mcguffin count
+    locations_by_level = []
+    combat_locations_by_level = []
+    fishing_locations_by_level = []
+
+    location_level = lambda l: int(location["level"]) if "level" in l else 0
+
+    dungeons_remaining = 0 # TODO
+    for location in sorted(location_table, key=location_level):
+        # TODO: generate_early is before generate_regions so skipped_duties might be None?
+        # we skip victory locations because we can't place checks there
+        if is_location_enabled(multiworld, player, location) and location.get("victory") != True:
+            # TODO check location type and _remaining variable
+            # TODO append to the proper list (combat vs fishing)
+            locations_by_level.append(location)
+
+    locations_consumed = 0
+    current_combat_level = 5
+    current_fishing_level = 5
+    while locations_consumed < len(locations_by_level):
+        # The priority of consuming locations should be
+        # Below combat lv60, or raids disabled: fishing > combat > other
+        # Above combat lv60+ and raids enabled: combat > fishing > other
+        next_region = location_level(locations_by_level[locations_consumed])
+        next_combat_level = location_level(locations_by_level[locations_consumed])
+        next_fishing_level = location_level(locations_by_level[locations_consumed])
 
 def hook_interpret_slot_data(world: World, player: int, slot_data: dict[str, Any]) -> dict[str, Any]:
     """
