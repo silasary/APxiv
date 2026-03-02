@@ -148,7 +148,7 @@
 	},
 	"Masked Carnivale":
 	{
-		"requires": "|5 BLU Levels:10|",
+		"_requires": "|5 BLU Levels:10|",
 		"connects_to": ["Ul'dah"]
 	},
 	"Western Thanalan":
