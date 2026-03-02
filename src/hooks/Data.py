@@ -333,14 +333,15 @@ def after_load_item_file(item_table: list) -> list:
     max_blu = 80
 
     for job in classes:
-        n = max_level / 5
+        n = int(max_level / 5)
         if job == "BLU":
-            n = max_blu / 5
+            n = int(max_blu / 5)
 
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
-            "count": n,
+            "count": 0,
+            "max_count": n,
             "filler": True,
         })
 
@@ -348,14 +349,16 @@ def after_load_item_file(item_table: list) -> list:
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOH"],
-            "count": max_level / 5,
+            "count": 0,
+            "max_count": int(max_level / 5),
             "filler": True,
         })
     for job in DOL:
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOL"],
-            "count": max_level / 5,
+            "count": 0,
+            "max_count": int(max_level / 5),
             "filler": True,
         })
 

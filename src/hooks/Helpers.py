@@ -12,10 +12,14 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
 
 def is_fishsanity_only(multiworld: MultiWorld, player: int) -> bool:
     from ..Helpers import is_option_enabled
-    is_fishsanity = is_option_enabled(multiworld, player, "fishsanity")
+    is_fishsanity = is_fishsanity_enabled(multiworld, player)
     has_fates = is_option_enabled(multiworld, player, "fatesanity") or is_option_enabled(multiworld, player, "fates_per_zone")
     has_duties = get_int_value(multiworld, player, "duty_difficulty") > 0
     return is_fishsanity and not (has_fates or has_duties)
+
+def is_fishsanity_enabled(multiworld, player):
+    from ..Helpers import is_option_enabled
+    return is_option_enabled(multiworld, player, "fishsanity")
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the category, False to disable it, or None to use the default behavior

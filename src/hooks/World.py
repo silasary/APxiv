@@ -1,3 +1,4 @@
+import math
 from typing import Any
 
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
@@ -16,7 +17,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names
 from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
-from .Helpers import get_int_value
+from .Helpers import get_int_value, is_fishsanity_enabled
 from .Options import LevelCap
 
 ########################################################################################
@@ -161,6 +162,33 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
+    item_count = sum(item_config.values())
+    location_count = len(world.get_locations())
+    level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
+    capped_count = math.ceil(level_cap / 5)
+    prog_levels = world.prog_levels
+
+    if is_fishsanity_enabled(multiworld, player):
+        prog_levels = ['5 FSH Levels'] + prog_levels
+
+    for name in prog_levels:
+        remaining = location_count - item_count
+        if remaining < capped_count:
+            break
+        item_config[name] = capped_count
+        item_count += item_config[name]
+
+    remaining = location_count - item_count
+    if remaining > 0:
+        filler_levels = [f"5 {job} Levels" for job in TANKS + HEALERS + MELEE + CASTER + RANGED + DOH]
+        world.random.shuffle(filler_levels)
+        for name in filler_levels:
+            item_config[name] = min(remaining, capped_count)
+            item_count += item_config[name]
+            remaining = location_count - item_count
+            if remaining < capped_count:
+                break
+
     return item_config
 
 # The item pool before starting items are processed, in case you want to see the raw item pool at that stage
