@@ -78,7 +78,11 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     level_cap = get_option_value(multiworld, player, 'level_cap')
     goal_level = goal_location.get('level', 0)
 
-    world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
+    if hasattr(multiworld, "re_gen_passthrough"):
+        slot_data = multiworld.re_gen_passthrough.get(world.game, {})
+        world.mcguffins_needed = slot_data['mcguffins_needed']
+    else:
+        world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
