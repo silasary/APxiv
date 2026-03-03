@@ -17,7 +17,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names
 from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
-from .Helpers import get_int_value, is_fishsanity_enabled
+from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
 ########################################################################################
@@ -198,7 +198,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     item_count += item_config['Memory of a Distant World']
     world.mcguffins_needed = item_config['Memory of a Distant World'] // world.mcguffins_needed
 
-    if is_fishsanity_enabled(multiworld, player):
+    if is_fishing_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels
 
     for name in prog_levels:
