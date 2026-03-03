@@ -199,7 +199,7 @@ def generate_fate_list():
                         "name": name,
                         "region": row[2],
                         "category": ["FATEsanity", row[2]],
-                        "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
+                        # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row[1],
                         "filler": True,
                         "id": _id

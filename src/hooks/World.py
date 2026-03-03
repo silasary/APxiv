@@ -67,6 +67,26 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
     return False
 
+def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
+    """
+    This is the earliest hook called during generation, before anything else is done.
+    Use it to check or modify incompatible options, or to set up variables for later use.
+    """
+
+    goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
+    goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
+    level_cap = get_option_value(multiworld, player, 'level_cap')
+    goal_level = goal_location.get('level', 0)
+
+    world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
+
+    if goal_level and goal_level > level_cap:
+        raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
+
+    if not get_option_value(multiworld, player, 'fatesanity') and is_option_enabled(multiworld, player, 'fates_per_zone') == 0 \
+        and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
+        raise OptionError("You can't disable everything.")
+
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
@@ -167,6 +187,12 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     capped_count = math.ceil(level_cap / 5)
     prog_levels = world.prog_levels
+
+    remaining = location_count - item_count + capped_count
+
+    item_config['Memory of a Distant World'] = remaining // 4
+    item_count += item_config['Memory of a Distant World']
+    world.mcguffins_needed = remaining // 4 // world.mcguffins_needed
 
     if is_fishsanity_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels
@@ -300,12 +326,13 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
-    slot_data["mcguffins_needed"] = get_option_value(multiworld, player, "mcguffins_needed") or 30
     slot_data["skipped_duties"] = list(world.skipped_duties)
+    slot_data.setdefault("world_version", world.world_version)
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
+    slot_data["mcguffins_needed"] = world.mcguffins_needed
     return slot_data
 
 # This is called right at the end, in case you want to write stuff to the spoiler log
@@ -330,25 +357,6 @@ def before_extend_hint_information(hint_data: dict[int, dict[int, str]], world: 
 
 def after_extend_hint_information(hint_data: dict[int, dict[int, str]], world: World, multiworld: MultiWorld, player: int) -> None:
     pass
-
-
-def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
-    """
-    This is the earliest hook called during generation, before anything else is done.
-    Use it to check or modify incompatible options, or to set up variables for later use.
-    """
-
-    goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
-    goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
-    level_cap = get_option_value(multiworld, player, 'level_cap')
-    goal_level = goal_location.get('level', 0)
-
-    if goal_level and goal_level > level_cap:
-        raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
-
-    if not get_option_value(multiworld, player, 'fatesanity') and is_option_enabled(multiworld, player, 'fates_per_zone') == 0 \
-        and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
-        raise OptionError("You can't disable everything.")
 
 
 def hook_interpret_slot_data(world: World, player: int, slot_data: dict[str, Any]) -> dict[str, Any]:

@@ -190,12 +190,12 @@ class UltimateCount(Range):
 
 class McGuffinsNeeded(Range):
     """
-    Number of Distant Memories needed to win the game.
+    Percentage of Distant Memories needed to win the game.
     """
     display_name = "McGuffins Needed"
     default = 30
     range_start = 1
-    range_end = 50
+    range_end = 100
 
 class ForceJob(OptionSet):
     """
