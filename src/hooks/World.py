@@ -194,9 +194,9 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count + capped_count
 
-    item_config['Memory of a Distant World'] = remaining // 4
+    item_config['Memory of a Distant World'] = min(remaining // 4, 50)
     item_count += item_config['Memory of a Distant World']
-    world.mcguffins_needed = remaining // 4 // world.mcguffins_needed
+    world.mcguffins_needed = item_config['Memory of a Distant World'] // world.mcguffins_needed
 
     if is_fishsanity_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels

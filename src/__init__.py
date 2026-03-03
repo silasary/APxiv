@@ -37,10 +37,29 @@ from .hooks.World import \
     before_extend_hint_information, after_extend_hint_information, \
     after_collect_item, after_remove_item, before_generate_early, hook_interpret_slot_data
 
+def hide_manual_world():
+    """
+    There are several tests that currently fail when an apworld contains multiple worlds.
+    This is very silly, but it's easier just to mark the world as hidden while they're looking.
+    """
+    import sys
+    if "pytest" in sys.modules:
+        # Tests do not like multiworld apworlds.
+        return True
+    if "Build APWorlds" in sys.argv:
+        # Build APWorlds button also fails hard with multiples.
+        return True
+    if "flask" in sys.modules:
+        # Manuals look ugly on the webhost.  Just show the one with the real name.
+        import flask
+        return flask.current_app is not None
+    return False
+
 class ManualWorld(World):
     __doc__ = world_description
     game: ClassVar[str] = game_name
     web = world_webworld
+    hidden = hide_manual_world()
 
     options_dataclass = manual_options_data
     data_version = 2
@@ -624,24 +643,11 @@ def add_client_to_launcher() -> None:
 
 add_client_to_launcher()
 
-def hide_nmw() -> bool:
-    """
-    There are several tests that currently fail when an apworld contains multiple worlds.
-    This is very silly, but it's easier just to mark the world as hidden while they're looking.
-    """
-    import sys
-    if "pytest" in sys.modules:
-        return True
-    if "Build APWorlds" in sys.argv:
-        return True
-    return False
-
-
 class NonManualWorld(ManualWorld):
     game = "Final Fantasy XIV"
     options_dataclass = manual_options_data
 
-    hidden = hide_nmw()
+    hidden = False
 
     item_id_to_name = item_id_to_name
     item_name_to_id = item_name_to_id
