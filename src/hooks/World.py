@@ -1,7 +1,7 @@
 import math
 from typing import Any
 
-from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, DEFAULT_COLLECTION_RULE
+from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
 
@@ -15,7 +15,7 @@ from ..Helpers import get_option_value, is_option_enabled
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
-from ..Locations import victory_names
+from ..Locations import victory_names, location_name_to_location
 from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
@@ -87,8 +87,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
 
-    if not get_option_value(multiworld, player, 'fatesanity') and is_option_enabled(multiworld, player, 'fates_per_zone') == 0 \
-        and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
+    has_fates = get_option_value(multiworld, player, 'fatesanity') or is_option_enabled(multiworld, player, 'fates_per_zone') > 0
+    has_dungeons = is_option_enabled(multiworld, player, 'include_dungeons') and get_option_value(multiworld, player, 'max_party_size') > 0
+    if not has_fates and not has_dungeons and not is_option_enabled(multiworld, player, 'fishsanity'):
         raise OptionError("You can't disable everything.")
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
@@ -202,7 +203,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             culled_regions.add(region)
             for entrance in region.entrances:
                 entrance.hide_path = True
-                world.set_rule(entrance, DEFAULT_COLLECTION_RULE)
+                world.set_rule(entrance, Entrance.access_rule)
 
         pass
 
@@ -226,7 +227,8 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
-    capped_count = math.ceil(level_cap / 5)
+    actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
+    capped_count = math.ceil(min(level_cap, actual_level_cap) / 5)
     prog_levels = world.prog_levels
 
     remaining = location_count - item_count - capped_count
