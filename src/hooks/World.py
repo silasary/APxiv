@@ -1,7 +1,7 @@
 import math
 from typing import Any
 
-from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
+from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, DEFAULT_COLLECTION_RULE
 from Options import OptionError
 from worlds.AutoWorld import World
 
@@ -136,6 +136,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = []
     locationNamesToExclude = []
+    empty_regions = []
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(WORLD_BOSSES)
 
@@ -154,8 +155,21 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
+    regions = {multiworld.get_region("Manual", player)}
+    checked_regions = set()
+    distance = 0
 
-    for region in multiworld.regions:
+    while regions:
+        next_regions = set()
+        for region in regions:
+            if not getattr(region, "distance", None):
+                region.distance = distance
+            next_regions.update({e.connected_region for e in region.exits if e.connected_region not in checked_regions})
+        checked_regions.update(regions)
+        regions = next_regions
+        distance += 1
+
+    for region in checked_regions:
         # Get the item required to access the region to determine the level requirement of the region.
         access_item_name = region.name + " Access"
         access_item = access_items.get(access_item_name)
@@ -167,15 +181,34 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 # print(f"  Removing {location.name}")
                 region.locations.remove(location)
         # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
-        elif region.player == player:
+        else:
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
                     region.locations.remove(location)
                 elif location.name in locationNamesToExclude:
                     location.progress_type = LocationProgressType.EXCLUDED
+        if not region.locations:
+            empty_regions.append(region)
+    empty_regions = sorted(empty_regions, key=lambda r: r.distance, reverse=True)
+    culled_regions = set()
+    culled_access_items = set()
+    for region in empty_regions:
+        connected = {e.connected_region for e in region.exits if e.connected_region.distance > region.distance}
+        cullable = all(c in culled_regions for c in connected)
+        if cullable:
+            access_item_name = region.name + " Access"
+            culled_access_items.add(access_item_name)
+            culled_regions.add(region)
+            for entrance in region.entrances:
+                entrance.hide_path = True
+                world.set_rule(entrance, DEFAULT_COLLECTION_RULE)
+
+        pass
+
     if hasattr(multiworld, "clear_location_cache"):
         multiworld.clear_location_cache()
+    world.culled_access_items = culled_access_items
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -186,13 +219,17 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
+    for name in world.culled_access_items:
+        if name in item_config:
+            item_config[name] = 0
+
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     capped_count = math.ceil(level_cap / 5)
     prog_levels = world.prog_levels
 
-    remaining = location_count - item_count + capped_count
+    remaining = location_count - item_count - capped_count
 
     item_config['Memory of a Distant World'] = min(remaining // 4, 50)
     item_count += item_config['Memory of a Distant World']

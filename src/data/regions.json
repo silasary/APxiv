@@ -347,7 +347,6 @@
 	{
 		"requires": "|The Crystarium Access: 1|",
 		"connects_to": [
-			"Mor Dhona",
 			"Lakeland",
 			"Amh Araeng",
 			"Kholusia",
@@ -370,45 +369,37 @@
 		"requires": "|Kholusia Access: 1|",
 		"connects_to": [
 			"The Tempest",
-			"Eulmore",
-			"The Crystarium"
+			"Eulmore"
 		]
 	},
 	"Amh Araeng":
 	{
 		"requires": "|Amh Araeng Access: 1|",
 		"connects_to": [
-			"Lakeland",
-			"The Crystarium"
 		]
 	},
 	"Il Mheg":
 	{
 		"requires": "|Il Mheg Access: 1|",
 		"connects_to": [
-			"Lakeland"
 		]
 	},
 	"The Rak'tika Greatwood":
 	{
 		"requires": "|The Rak'tika Greatwood Access: 1|",
 		"connects_to": [
-			"Lakeland"
 		]
 	},
 	"Eulmore":
 	{
 		"requires": "|Eulmore Access: 1|",
 		"connects_to": [
-			"Kholusia",
-			"The Crystarium"
 		]
 	},
 	"The Tempest":
 	{
 		"requires": "|The Tempest Access: 1|",
 		"connects_to": [
-			"Kholusia"
 		]
 	},
     "Old Sharlayan": {
@@ -428,7 +419,6 @@
     "Ultima Thule": {
         "requires": "|Ultima Thule Access: 1|",
         "connects_to": [
-            "Old Sharlayan"
         ]
     },
     "Thavnair": {
