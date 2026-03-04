@@ -226,15 +226,13 @@
 		"connects_to": [
 			"The Sea of Clouds",
 			"The Dravanian Forelands",
-			"The Dravanian Hinterlands",
-			"Ishgard"
+			"The Dravanian Hinterlands"
 		]
 	},
 	"The Sea of Clouds":
 	{
 		"requires": "|The Sea of Clouds Access:1|",
 		"connects_to": [
-			"Ishgard",
 			"Coerthas Western Highlands"
 		]
 	},
@@ -243,8 +241,7 @@
 		"requires": "|The Dravanian Forelands Access:1|",
 		"connects_to": [
 			"The Churning Mists",
-			"The Dravanian Hinterlands",
-			"Coerthas Western Highlands"
+			"The Dravanian Hinterlands"
 		]
 	},
 	"The Churning Mists":
@@ -259,10 +256,13 @@
 	{
 		"requires": "|The Dravanian Hinterlands and Idyllshire Access:1|",
 		"connects_to": [
-			"The Dravanian Forelands",
-			"Coerthas Western Highlands"
+            "Alexander"
 		]
 	},
+    "Alexander":
+    {
+        "requires": "|Alexander Key| or |Alexander Access|"
+    },
 	"Azys Lla":
 	{
 		"requires": "|Azys Lla Access:1|",

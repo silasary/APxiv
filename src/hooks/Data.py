@@ -3,6 +3,7 @@ import json
 import pkgutil
 import re
 from typing import Any
+from itertools import chain
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -89,6 +90,8 @@ fate_zones = {
     "Heritage Found": [98],
     "Living Memory": [99],
 }
+
+bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 
@@ -268,6 +271,9 @@ def generate_fish_list() -> list[dict]:
                 _id += 1
                 continue
             requires += f" and |{zones[region][0]}|"
+
+        for bait in chain.from_iterable(zones.values()):
+             bait_to_fish.setdefault(bait, set()).add(name)
 
         loc = {
             "name": name,

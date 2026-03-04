@@ -380,7 +380,7 @@
 	{
 		"name": "Alexander Key",
 		"category": ["Raid Key"],
-		"count":1,
+		"count": 0,
 		"progression": true,
         "level": 60
 	},
@@ -467,5 +467,12 @@
         "count": 1,
         "progression": true,
         "level": 90
+    },
+    {
+		"name": "Alexander Access",
+		"category": ["Raid Key"],
+		"count":1,
+		"progression": true,
+        "level": 60
     }
 ]

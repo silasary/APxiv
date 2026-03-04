@@ -17,7 +17,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
+from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -155,9 +155,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             locationNamesToRemove.append(location["name"])
             continue
 
-    # It's possible to make a seed where the only check in Western Thanalan is Return to the Waking Sands.
-    allow_self_locking_items(world.get_location("Return to the Waking Sands"), "Western Thanalan Access")
-
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
     regions = {multiworld.get_region("Manual", player)}
@@ -227,6 +224,11 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     for name in world.culled_access_items:
         if name in item_config:
             item_config[name] = 0
+
+    all_location_names = {l.name for l in world.get_locations()}
+    for bait, fish in bait_to_fish.items():
+        if not fish & all_location_names:
+            item_config[bait] = 0
 
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
