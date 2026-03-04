@@ -203,7 +203,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             culled_regions.add(region)
             for entrance in region.entrances:
                 entrance.hide_path = True
-                world.set_rule(entrance, Entrance.access_rule)
+                entrance.access_rule = Entrance.access_rule
 
         pass
 
