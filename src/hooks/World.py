@@ -89,7 +89,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
 
     has_fates = get_option_value(multiworld, player, 'fatesanity') or is_option_enabled(multiworld, player, 'fates_per_zone') > 0
-    has_dungeons = is_option_enabled(multiworld, player, 'include_dungeons') and get_option_value(multiworld, player, 'max_party_size') > 0
+    has_dungeons = is_option_enabled(multiworld, player, 'include_dungeons') and get_option_value(multiworld, player, 'max_party_size') > 0 and get_option_value(multiworld, player, 'duty_difficulty') > 0
     if not has_fates and not has_dungeons and not is_option_enabled(multiworld, player, 'fishsanity'):
         raise OptionError("You can't disable everything.")
 
