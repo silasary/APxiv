@@ -4,6 +4,7 @@ from typing import Any
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
+from worlds.generic.Rules import allow_self_locking_items
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -153,6 +154,9 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             # print(f"Removing {location['name']} from {player}'s world")
             locationNamesToRemove.append(location["name"])
             continue
+
+    # It's possible to make a seed where the only check in Western Thanalan is Return to the Waking Sands.
+    allow_self_locking_items(world.get_location("Return to the Waking Sands"), "Western Thanalan Access")
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
