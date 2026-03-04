@@ -122,7 +122,6 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
     force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
-    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
@@ -199,18 +198,17 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         connected = {e.connected_region for e in region.exits if e.connected_region.distance > region.distance}
         cullable = all(c in culled_regions for c in connected)
         if cullable:
+            # print(f'Culling unused {region.name}')
             access_item_name = region.name + " Access"
             culled_access_items.add(access_item_name)
             culled_regions.add(region)
-            for entrance in region.entrances:
-                entrance.hide_path = True
-                entrance.access_rule = Entrance.access_rule
 
         pass
 
     if hasattr(multiworld, "clear_location_cache"):
         multiworld.clear_location_cache()
     world.culled_access_items = culled_access_items
+    world.culled_regions = culled_regions
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -325,7 +323,10 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
-    pass
+    for region in world.culled_regions:
+        for entrance in region.entrances:
+            entrance.hide_path = True
+            entrance.access_rule = Entrance.access_rule
 
 # This method is called before the victory location has the victory event placed and locked
 def before_pre_fill(world: World, multiworld: MultiWorld, player: int):

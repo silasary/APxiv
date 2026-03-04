@@ -776,7 +776,7 @@ if use_rulebuilder:
                 return False_().resolve(world)
 
     @dataclasses.dataclass()
-    class YamlDisbledRule(Rule["ManualWorld"], game=game_name):
+    class YamlDisabledRule(Rule["ManualWorld"], game=game_name):
         yaml_option: str
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
             if getattr(world.options, self.yaml_option).value:
