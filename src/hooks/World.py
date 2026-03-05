@@ -256,12 +256,19 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     if is_fishing_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels
 
+    remaining = location_count - item_count
+    if remaining < 50:
+        prog_levels = prog_levels[:2]
+
+    if remaining < 100:
+        prog_levels = prog_levels[:3]
+
     for name in prog_levels:
         remaining = location_count - item_count
         if remaining < capped_count:
             break
-        item_config[name] = capped_count
-        item_count += item_config[name]
+        item_config[name] = {"progression": capped_count}
+        item_count += capped_count
 
     remaining = location_count - item_count
     if remaining > 0:
@@ -376,8 +383,8 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
     if getattr(multiworld, 'generation_is_fake', False):
         if "Levels" in item.name:
             item.classification = ItemClassification.progression
-    elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
-        item.classification = ItemClassification.progression
+    # elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
+    #     item.classification = ItemClassification.progression
     return item
 
 # This method is run towards the end of pre-generation, before the place_item options have been handled and before AP generation occurs
