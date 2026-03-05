@@ -79,6 +79,8 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
     level_cap = get_option_value(multiworld, player, 'level_cap')
     goal_level = goal_location.get('level', 0)
+    if not get_option_value(multiworld, player,"include_dungeons"):
+        world.options.dungeon_count.value = 0
 
     if hasattr(multiworld, "re_gen_passthrough"):
         slot_data = multiworld.re_gen_passthrough.get(world.game, {})
@@ -89,10 +91,17 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
 
-    has_fates = get_option_value(multiworld, player, 'fatesanity') or is_option_enabled(multiworld, player, 'fates_per_zone') > 0
-    has_dungeons = is_option_enabled(multiworld, player, 'include_dungeons') and get_option_value(multiworld, player, 'max_party_size') > 0 and get_option_value(multiworld, player, 'duty_difficulty') > 0
-    if not has_fates and not has_dungeons and not is_option_enabled(multiworld, player, 'fishsanity'):
+    has_fates = get_option_value(multiworld, player, 'fatesanity') or get_int_value(multiworld, player, 'fates_per_zone') > 0
+    has_duties = get_int_value(multiworld, player, 'max_party_size') > 0 and get_int_value(multiworld, player, 'duty_difficulty') > 0
+    has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
+    has_fish = is_option_enabled(multiworld, player, 'fishsanity')
+
+    if not has_fates and not has_dungeons and not has_fish:
         raise OptionError("You can't disable everything.")
+
+    if not has_dungeons and not has_fish and not get_option_value(multiworld, player, 'fatesanity') and get_int_value(multiworld, player, 'fates_per_zone') < 3:
+        world.options.fates_per_zone.value = 3
+
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -283,9 +292,20 @@ def before_create_items_filler(
 
     seen_levels = {}
     locations_per_depth = defaultdict(list)
+    locations_per_level = defaultdict(list)
+    cummulative_locations_per_depth = {}
     for location in world.get_locations():
         depth = (location.level // 5) + location.parent_region.distance
         locations_per_depth[depth].append(location)
+        locations_per_level[location.level].append(location)
+
+    for depth in range(max(locations_per_depth.keys()) + 1):
+        locations = locations_per_depth[depth]
+        cummulative_locations_per_depth[depth] = cummulative_locations_per_depth.get(depth - 1, 0) + len(locations)
+
+    starting_level = 10
+    if cummulative_locations_per_depth[3] < 10:
+        starting_level += 5
 
     reduced_item_pool = []
     for item in item_pool:
@@ -299,7 +319,7 @@ def before_create_items_filler(
             # Add the levels from this item, always 5 currently.
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
             # If it is the first levels for the starting class, add the item to starting inventory.
-            if item.name == start_class and seen_levels[item.name] <= 10:
+            if item.name == start_class and seen_levels[item.name] <= starting_level:
                 # Added to starting inventory instead of the item pool.
                 multiworld.push_precollected(item)
                 continue

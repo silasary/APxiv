@@ -83,6 +83,7 @@ class IncludeDungeons(DefaultOnToggle):
     """
     Dungeons are generally longer than other locations. You may want to exclude them in a sync.
     """
+    visibility = Visibility.none
 
 class ExtraDungeonChecks(Range):
     """
@@ -262,12 +263,16 @@ class IncludePvP(Toggle):
 
 class IncludeBozja(Toggle):
     """
-    Include Save the Queen content in the location pool.  This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    Include Save the Queen content in the location pool.
+
+    This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
     """
 
 class FatesPerZone(Range):
     """
-    Number of FATEs required per zone.  Does not apply if Fatesanity is enabled.
+    Number of FATEs required per zone.
+
+    Does not apply if Fatesanity is enabled.
     """
     display_name = "FATEs Per Zone"
     default = 5
@@ -287,7 +292,7 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
-    # options["include_bozja"] = IncludeBozja
+    options["include_bozja"] = IncludeBozja
 
     # Duty Counts
     options["dungeon_count"] = DungeonCount

@@ -118,7 +118,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -126,7 +125,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -134,7 +132,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -142,7 +139,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -150,7 +146,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -158,7 +153,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -166,7 +160,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 51,
         "expansion": "Heavensward"
 	},
 	{
@@ -174,7 +167,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 61,
         "expansion": "Stormblood"
 	},
 	{
@@ -182,7 +174,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 60,
         "expansion": "Stormblood"
 	},
 	{
@@ -190,7 +181,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 61,
         "expansion": "Stormblood"
 	},
 	{
@@ -198,7 +188,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 61,
         "expansion": "Stormblood"
 	},
 	{
@@ -206,7 +195,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 60,
         "expansion": "Stormblood"
 	},
 	{
@@ -214,7 +202,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 63,
         "expansion": "Stormblood"
 	},
 	{
@@ -222,7 +209,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 63,
         "expansion": "Stormblood"
 	},
 	{
@@ -230,7 +216,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 63,
         "expansion": "Stormblood"
 	},
 	{
@@ -238,7 +223,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 71,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -246,7 +230,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 71,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -254,7 +237,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 71,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -262,7 +244,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 71,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -270,7 +251,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 71,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -278,7 +258,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 73,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -286,7 +265,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 73,
         "expansion": "Shadowbringers"
 	},
 	{
@@ -294,7 +272,6 @@
 		"category": ["Location"],
 		"count":1,
 		"progression": true,
-        "level": 78,
         "expansion": "Shadowbringers"
 	},
     {
@@ -302,7 +279,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -310,7 +286,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -318,7 +293,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -326,7 +300,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -334,7 +307,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -342,7 +314,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
 
     },
@@ -351,7 +322,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
     {
@@ -359,7 +329,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 80,
         "expansion": "Shadowbringers"
     },
     {
@@ -367,7 +336,6 @@
         "category": ["Location"],
         "count": 1,
         "progression": true,
-        "level": 81,
         "expansion": "Endwalker"
     },
 	{
@@ -416,63 +384,54 @@
         "name": "Tuliyollal Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Urqopacha Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Kozama'uka Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Yak T'el Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Shaaloani Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Heritage Found Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Living Memory Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
         "name": "Solution Nine Access",
         "category": ["Location"],
         "count": 1,
-        "progression": true,
-        "level": 90
+        "progression": true
     },
     {
 		"name": "Alexander Access",
 		"category": ["Raid Key"],
 		"count":1,
-		"progression": true,
-        "level": 60
+		"progression": true
     }
 ]
