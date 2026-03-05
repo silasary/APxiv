@@ -1,3 +1,4 @@
+from collections import defaultdict
 import math
 from typing import Any
 
@@ -166,6 +167,8 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             if not getattr(region, "distance", None):
                 region.distance = distance
             next_regions.update({e.connected_region for e in region.exits if e.connected_region not in checked_regions})
+            for location in region.locations:
+                location.level = int(location_name_to_location[location.name].get("level", 0))
         checked_regions.update(regions)
         regions = next_regions
         distance += 1
@@ -279,6 +282,10 @@ def before_create_items_filler(
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     seen_levels = {}
+    locations_per_depth = defaultdict(list)
+    for location in world.get_locations():
+        depth = (location.level // 5) + location.parent_region.distance
+        locations_per_depth[depth].append(location)
 
     reduced_item_pool = []
     for item in item_pool:
@@ -296,6 +303,10 @@ def before_create_items_filler(
                 # Added to starting inventory instead of the item pool.
                 multiworld.push_precollected(item)
                 continue
+            if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
+                multiworld.push_precollected(item)
+                continue
+
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
             continue
