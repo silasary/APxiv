@@ -67,5 +67,5 @@ jobs:
                   name: AP XIV v${{ steps.get_version.outputs.result }}
                   tag: ${{ steps.get_version.outputs.result }}
                   commit: ${{ env.GITHUB_REF }}
-                  artifacts: "${{ env.world }}.apworld"
+                  artifacts: Archipelago/build/apworlds/${{ env.world }}.apworld
                   body: ${{ steps.get_changelog.outputs.result }}
