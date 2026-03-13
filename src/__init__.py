@@ -7,7 +7,7 @@ import Utils
 from worlds.generic.Rules import forbid_items_for_player
 from worlds.LauncherComponents import Component, SuffixIdentifier, components, Type, launch_subprocess, icon_paths
 
-from .Data import item_table, location_table, event_table, region_table, category_table
+from .Data import item_table, location_table, event_table, category_table
 from .Game import game_name, filler_item_name, starting_items
 from .Meta import world_description, world_webworld
 from .Locations import location_id_to_name, location_name_to_id, location_name_to_location, location_name_groups, victory_names, event_name_to_event
@@ -22,7 +22,7 @@ from .Helpers import is_item_enabled, get_option_value, remove_specific_item, re
     format_state_prog_items_key, convert_string_to_itemclassification, ProgItemsCat, is_option_enabled
 from .container import APManualFile
 
-from BaseClasses import CollectionState, ItemClassification, Item
+from BaseClasses import CollectionState, Entrance, ItemClassification, Item, Location
 from Options import PerGameCommonOptions
 from worlds.AutoWorld import World
 from .hooks.Helpers import is_fishsanity_only
@@ -37,10 +37,32 @@ from .hooks.World import \
     before_extend_hint_information, after_extend_hint_information, \
     after_collect_item, after_remove_item, before_generate_early, hook_interpret_slot_data
 
+if Utils.version_tuple >= (0, 6, 7):
+    from rule_builder.rules import Rule
+
+def hide_manual_world():
+    """
+    There are several tests that currently fail when an apworld contains multiple worlds.
+    This is very silly, but it's easier just to mark the world as hidden while they're looking.
+    """
+    import sys
+    if "pytest" in sys.modules:
+        # Tests do not like multiworld apworlds.
+        return True
+    if "Build APWorlds" in sys.argv:
+        # Build APWorlds button also fails hard with multiples.
+        return True
+    if "flask" in sys.modules:
+        # Manuals look ugly on the webhost.  Just show the one with the real name.
+        import flask
+        return flask.current_app is not None
+    return False
+
 class ManualWorld(World):
     __doc__ = world_description
     game: ClassVar[str] = game_name
     web = world_webworld
+    hidden = hide_manual_world()
 
     options_dataclass = manual_options_data
     data_version = 2
@@ -75,6 +97,8 @@ class ManualWorld(World):
     ut_can_gen_without_yaml = True
 
     origin_region_name = "Manual"
+
+    _rule_data: dict[str, Any] = {}
 
     def get_filler_item_name(self) -> str:
         return hook_get_filler_item_name(self, self.multiworld, self.player) or self.filler_item_name
@@ -485,6 +509,14 @@ class ManualWorld(World):
 
         after_extend_hint_information(hint_data, self, self.multiworld, self.player)
 
+    if Utils.version_tuple >= (0, 6, 7):
+        def set_rule(self, spot: Location | Entrance, rule: Callable[[CollectionState], bool] | Rule[Any]) -> None:
+            if isinstance(spot, Location) and isinstance(rule, Rule):
+                self._rule_data['locations'][spot.name] = rule.to_dict()
+            elif isinstance(spot, Entrance) and isinstance(rule, Rule):
+                self._rule_data['entrances'][spot.name] = rule.to_dict()
+            return super().set_rule(spot, rule)
+
     ###
     # Non-standard AP world methods
     ###
@@ -624,24 +656,11 @@ def add_client_to_launcher() -> None:
 
 add_client_to_launcher()
 
-def hide_nmw() -> bool:
-    """
-    There are several tests that currently fail when an apworld contains multiple worlds.
-    This is very silly, but it's easier just to mark the world as hidden while they're looking.
-    """
-    import sys
-    if "pytest" in sys.modules:
-        return True
-    if "Build APWorlds" in sys.argv:
-        return True
-    return False
-
-
 class NonManualWorld(ManualWorld):
     game = "Final Fantasy XIV"
     options_dataclass = manual_options_data
 
-    hidden = hide_nmw()
+    hidden = False
 
     item_id_to_name = item_id_to_name
     item_name_to_id = item_name_to_id

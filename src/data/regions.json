@@ -148,7 +148,7 @@
 	},
 	"Masked Carnivale":
 	{
-		"requires": "|5 BLU Levels:10|",
+		"_requires": "|5 BLU Levels:10|",
 		"connects_to": ["Ul'dah"]
 	},
 	"Western Thanalan":
@@ -226,15 +226,13 @@
 		"connects_to": [
 			"The Sea of Clouds",
 			"The Dravanian Forelands",
-			"The Dravanian Hinterlands",
-			"Ishgard"
+			"The Dravanian Hinterlands"
 		]
 	},
 	"The Sea of Clouds":
 	{
 		"requires": "|The Sea of Clouds Access:1|",
 		"connects_to": [
-			"Ishgard",
 			"Coerthas Western Highlands"
 		]
 	},
@@ -243,8 +241,7 @@
 		"requires": "|The Dravanian Forelands Access:1|",
 		"connects_to": [
 			"The Churning Mists",
-			"The Dravanian Hinterlands",
-			"Coerthas Western Highlands"
+			"The Dravanian Hinterlands"
 		]
 	},
 	"The Churning Mists":
@@ -259,10 +256,13 @@
 	{
 		"requires": "|The Dravanian Hinterlands and Idyllshire Access:1|",
 		"connects_to": [
-			"The Dravanian Forelands",
-			"Coerthas Western Highlands"
+            "Alexander"
 		]
 	},
+    "Alexander":
+    {
+        "requires": "|Alexander Key| or |Alexander Access|"
+    },
 	"Azys Lla":
 	{
 		"requires": "|Azys Lla Access:1|",
@@ -347,7 +347,6 @@
 	{
 		"requires": "|The Crystarium Access: 1|",
 		"connects_to": [
-			"Mor Dhona",
 			"Lakeland",
 			"Amh Araeng",
 			"Kholusia",
@@ -370,45 +369,37 @@
 		"requires": "|Kholusia Access: 1|",
 		"connects_to": [
 			"The Tempest",
-			"Eulmore",
-			"The Crystarium"
+			"Eulmore"
 		]
 	},
 	"Amh Araeng":
 	{
 		"requires": "|Amh Araeng Access: 1|",
 		"connects_to": [
-			"Lakeland",
-			"The Crystarium"
 		]
 	},
 	"Il Mheg":
 	{
 		"requires": "|Il Mheg Access: 1|",
 		"connects_to": [
-			"Lakeland"
 		]
 	},
 	"The Rak'tika Greatwood":
 	{
 		"requires": "|The Rak'tika Greatwood Access: 1|",
 		"connects_to": [
-			"Lakeland"
 		]
 	},
 	"Eulmore":
 	{
 		"requires": "|Eulmore Access: 1|",
 		"connects_to": [
-			"Kholusia",
-			"The Crystarium"
 		]
 	},
 	"The Tempest":
 	{
 		"requires": "|The Tempest Access: 1|",
 		"connects_to": [
-			"Kholusia"
 		]
 	},
     "Old Sharlayan": {
@@ -428,7 +419,6 @@
     "Ultima Thule": {
         "requires": "|Ultima Thule Access: 1|",
         "connects_to": [
-            "Old Sharlayan"
         ]
     },
     "Thavnair": {

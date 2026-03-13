@@ -43,7 +43,7 @@ def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState
 
 def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState, player: int):
     """Has the player collected enough Memories to complete the game?"""
-    goal_count = get_option_value(multiworld, player, "mcguffins_needed")
+    goal_count = world.mcguffins_needed
     assert isinstance(goal_count, int)
     return state.count("Memory of a Distant World", player) >= goal_count
 
@@ -69,4 +69,4 @@ if use_rulebuilder:
     @dataclasses.dataclass()
     class EnoughMemoriesRule(Rule["ManualWorld"], game=game_name):
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
-            return Has("Memory of a Distant World", world.options.mcguffins_needed.value).resolve(world)
+            return Has("Memory of a Distant World", world.mcguffins_needed).resolve(world)

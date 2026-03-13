@@ -3,6 +3,7 @@ import json
 import pkgutil
 import re
 from typing import Any
+from itertools import chain
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -89,6 +90,8 @@ fate_zones = {
     "Heritage Found": [98],
     "Living Memory": [99],
 }
+
+bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 
@@ -199,7 +202,7 @@ def generate_fate_list():
                         "name": name,
                         "region": row[2],
                         "category": ["FATEsanity", row[2]],
-                        "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
+                        # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row[1],
                         "filler": True,
                         "id": _id
@@ -260,7 +263,7 @@ def generate_fish_list() -> list[dict]:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_requires": {k: '|' + '| OR |'.join(v) + '| OR {YamlDisabled(fishsanity)}' for k, v in zones.items() if v}
+                "entrance_requires": {k: '|' + '| OR |'.join(v) + '|' for k, v in zones.items() if v}
             }
         else:
             region = next(iter(zones.keys()))
@@ -268,6 +271,9 @@ def generate_fish_list() -> list[dict]:
                 _id += 1
                 continue
             requires += f" and |{zones[region][0]}|"
+
+        for bait in chain.from_iterable(zones.values()):
+             bait_to_fish.setdefault(bait, set()).add(name)
 
         loc = {
             "name": name,
@@ -333,14 +339,15 @@ def after_load_item_file(item_table: list) -> list:
     max_blu = 80
 
     for job in classes:
-        n = max_level / 5
+        n = int(max_level / 5)
         if job == "BLU":
-            n = max_blu / 5
+            n = int(max_blu / 5)
 
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
-            "count": n,
+            "count": 0,
+            "max_count": n,
             "filler": True,
         })
 
@@ -348,14 +355,16 @@ def after_load_item_file(item_table: list) -> list:
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOH"],
-            "count": max_level / 5,
+            "count": 0,
+            "max_count": int(max_level / 5),
             "filler": True,
         })
     for job in DOL:
         item_table.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOL"],
-            "count": max_level / 5,
+            "count": 0,
+            "max_count": int(max_level / 5),
             "filler": True,
         })
 
@@ -410,6 +419,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
     return location
 
 def ocean_fishing():
+    _id = 19_000
     indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
     ruby_route = ["Ruby Sea", "One River"]
 
@@ -423,15 +433,17 @@ def ocean_fishing():
             "level": 1,
             "prehint": True,
         })
+
     for route in ruby_route:
         locations.append({
             "name": "Ocean Fishing: " + route,
-            "region": "Ocean Fishing",
+            "region": "Kugane",
             "category": ["Ocean Fishing", "Ruby Route"],
-            "requires": "|5 FSH Levels:12| and |Kugane Access:1|",  # Level 60, because that's the minumum for the Ruby Route
+            "requires": "|5 FSH Levels:12|",  # Level 60, because that's the minumum for the Ruby Route
             "level": 60,
             "prehint": True,
         })
+    locations[0]['id'] = _id
     return locations
 
 # called after the categories.json file has been loaded

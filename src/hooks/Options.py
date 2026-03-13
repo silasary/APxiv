@@ -72,17 +72,19 @@ class MaxPartySize(Choice):
 
     This does not stop you from entering undersized, but simply prevents duties that would expect more players from being in the location pool.
     """
-    default = 2
+    default = 3
     display_name = "Max Party Size"
     option_solo = 0
     option_light_party = 1
     option_full_party = 2
     option_alliance = 3
+    visibility = Visibility.none
 
 class IncludeDungeons(DefaultOnToggle):
     """
     Dungeons are generally longer than other locations. You may want to exclude them in a sync.
     """
+    visibility = Visibility.none
 
 class ExtraDungeonChecks(Range):
     """
@@ -190,12 +192,12 @@ class UltimateCount(Range):
 
 class McGuffinsNeeded(Range):
     """
-    Number of Distant Memories needed to win the game.
+    Percentage of Distant Memories needed to win the game.
     """
     display_name = "McGuffins Needed"
     default = 30
     range_start = 1
-    range_end = 50
+    range_end = 100
 
 class ForceJob(OptionSet):
     """
@@ -262,12 +264,16 @@ class IncludePvP(Toggle):
 
 class IncludeBozja(Toggle):
     """
-    Include Save the Queen content in the location pool.  This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    Include Save the Queen content in the location pool.
+
+    This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
     """
 
 class FatesPerZone(Range):
     """
-    Number of FATEs required per zone.  Does not apply if Fatesanity is enabled.
+    Number of FATEs required per zone.
+
+    Does not apply if Fatesanity is enabled.
     """
     display_name = "FATEs Per Zone"
     default = 5
@@ -287,7 +293,7 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
-    # options["include_bozja"] = IncludeBozja
+    options["include_bozja"] = IncludeBozja
 
     # Duty Counts
     options["dungeon_count"] = DungeonCount

@@ -1,8 +1,14 @@
+from collections import defaultdict
+import json
+import math
+import os
 from typing import Any
 
-from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld
+import Utils
+from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
+from worlds.generic.Rules import allow_self_locking_items
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -14,9 +20,9 @@ from ..Helpers import get_option_value, is_option_enabled
 
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
-from ..Locations import victory_names
-from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames
-from .Helpers import get_int_value
+from ..Locations import victory_names, location_name_to_location
+from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish
+from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
 ########################################################################################
@@ -66,6 +72,40 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
     return False
 
+def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
+    """
+    This is the earliest hook called during generation, before anything else is done.
+    Use it to check or modify incompatible options, or to set up variables for later use.
+    """
+
+    goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
+    goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
+    level_cap = get_option_value(multiworld, player, 'level_cap')
+    goal_level = goal_location.get('level', 0)
+    if not get_option_value(multiworld, player,"include_dungeons"):
+        world.options.dungeon_count.value = 0
+
+    if hasattr(multiworld, "re_gen_passthrough"):
+        slot_data = multiworld.re_gen_passthrough.get(world.game, {})
+        world.mcguffins_needed = slot_data['mcguffins_needed']
+    else:
+        world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
+
+    if goal_level and goal_level > level_cap:
+        raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
+
+    has_fates = get_option_value(multiworld, player, 'fatesanity') or get_int_value(multiworld, player, 'fates_per_zone') > 0
+    has_duties = get_int_value(multiworld, player, 'max_party_size') > 0 and get_int_value(multiworld, player, 'duty_difficulty') > 0
+    has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
+    has_fish = is_option_enabled(multiworld, player, 'fishsanity')
+
+    if not has_fates and not has_dungeons and not has_fish:
+        raise OptionError("You can't disable everything.")
+
+    if not has_dungeons and not has_fish and not get_option_value(multiworld, player, 'fatesanity') and get_int_value(multiworld, player, 'fates_per_zone') < 3:
+        world.options.fates_per_zone.value = 3
+
+
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
@@ -95,7 +135,6 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
     force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
-    level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
@@ -111,6 +150,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = []
     locationNamesToExclude = []
+    empty_regions = []
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(WORLD_BOSSES)
 
@@ -129,8 +169,23 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
+    regions = {multiworld.get_region("Manual", player)}
+    checked_regions = set()
+    distance = 0
 
-    for region in multiworld.regions:
+    while regions:
+        next_regions = set()
+        for region in regions:
+            if not getattr(region, "distance", None):
+                region.distance = distance
+            next_regions.update({e.connected_region for e in region.exits if e.connected_region not in checked_regions})
+            for location in region.locations:
+                location.level = int(location_name_to_location[location.name].get("level", 0))
+        checked_regions.update(regions)
+        regions = next_regions
+        distance += 1
+
+    for region in checked_regions:
         # Get the item required to access the region to determine the level requirement of the region.
         access_item_name = region.name + " Access"
         access_item = access_items.get(access_item_name)
@@ -142,15 +197,33 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 # print(f"  Removing {location.name}")
                 region.locations.remove(location)
         # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
-        elif region.player == player:
+        else:
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
                     region.locations.remove(location)
                 elif location.name in locationNamesToExclude:
                     location.progress_type = LocationProgressType.EXCLUDED
+        if not region.locations:
+            empty_regions.append(region)
+    empty_regions = sorted(empty_regions, key=lambda r: r.distance, reverse=True)
+    culled_regions = set()
+    culled_access_items = set()
+    for region in empty_regions:
+        connected = {e.connected_region for e in region.exits if e.connected_region.distance > region.distance}
+        cullable = all(c in culled_regions for c in connected)
+        if cullable:
+            # print(f'Culling unused {region.name}')
+            access_item_name = region.name + " Access"
+            culled_access_items.add(access_item_name)
+            culled_regions.add(region)
+
+        pass
+
     if hasattr(multiworld, "clear_location_cache"):
         multiworld.clear_location_cache()
+    world.culled_access_items = culled_access_items
+    world.culled_regions = culled_regions
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -161,6 +234,56 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
+    for name in world.culled_access_items:
+        if name in item_config:
+            item_config[name] = 0
+
+    all_location_names = {l.name for l in world.get_locations()}
+    for bait, fish in bait_to_fish.items():
+        if not fish & all_location_names:
+            item_config[bait] = 0
+
+    item_count = sum(item_config.values())
+    location_count = len(world.get_locations())
+    level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
+    actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
+    capped_count = math.ceil(min(level_cap, actual_level_cap) / 5)
+    prog_levels = world.prog_levels
+
+    remaining = location_count - item_count - capped_count
+
+    item_config['Memory of a Distant World'] = min(remaining // 4, 50)
+    item_count += item_config['Memory of a Distant World']
+    world.mcguffins_needed = item_config['Memory of a Distant World'] // world.mcguffins_needed
+
+    if is_fishing_enabled(multiworld, player):
+        prog_levels = ['5 FSH Levels'] + prog_levels
+
+    remaining = location_count - item_count
+    if remaining < 50:
+        prog_levels = prog_levels[:2]
+
+    if remaining < 100:
+        prog_levels = prog_levels[:3]
+
+    for name in prog_levels:
+        remaining = location_count - item_count
+        if remaining < capped_count:
+            break
+        item_config[name] = {"progression": capped_count}
+        item_count += capped_count
+
+    remaining = location_count - item_count
+    if remaining > 0:
+        filler_levels = [f"5 {job} Levels" for job in TANKS + HEALERS + MELEE + CASTER + RANGED + DOH]
+        world.random.shuffle(filler_levels)
+        for name in filler_levels:
+            item_config[name] = min(remaining, capped_count)
+            item_count += item_config[name]
+            remaining = location_count - item_count
+            if remaining < capped_count:
+                break
+
     return item_config
 
 # The item pool before starting items are processed, in case you want to see the raw item pool at that stage
@@ -178,6 +301,21 @@ def before_create_items_filler(
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     seen_levels = {}
+    locations_per_depth = defaultdict(list)
+    locations_per_level = defaultdict(list)
+    cummulative_locations_per_depth = {}
+    for location in world.get_locations():
+        depth = (location.level // 5) + location.parent_region.distance
+        locations_per_depth[depth].append(location)
+        locations_per_level[location.level].append(location)
+
+    for depth in range(max(locations_per_depth.keys()) + 1):
+        locations = locations_per_depth[depth]
+        cummulative_locations_per_depth[depth] = cummulative_locations_per_depth.get(depth - 1, 0) + len(locations)
+
+    starting_level = 10
+    if cummulative_locations_per_depth[3] < 10:
+        starting_level += 5
 
     reduced_item_pool = []
     for item in item_pool:
@@ -190,14 +328,15 @@ def before_create_items_filler(
         if "Levels" in item.name:
             # Add the levels from this item, always 5 currently.
             seen_levels[item.name] = seen_levels.get(item.name, 0) + 5
-            if seen_levels[item.name] > level_cap:
-                # Do not add the item to the item pool if the total seen levels is now above the level cap.
-                continue
             # If it is the first levels for the starting class, add the item to starting inventory.
-            if item.name == start_class and seen_levels[item.name] <= 10:
+            if item.name == start_class and seen_levels[item.name] <= starting_level:
                 # Added to starting inventory instead of the item pool.
                 multiworld.push_precollected(item)
                 continue
+            if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
+                multiworld.push_precollected(item)
+                continue
+
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
             continue
@@ -221,11 +360,26 @@ def after_create_items(item_pool: list[ManualItem], world: World, multiworld: Mu
 
 # Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.
 def before_set_rules(world: World, multiworld: MultiWorld, player: int):
-    pass
+    world._rule_data = {}
+    file = Utils.user_path('data', 'ffxiv_rule_data.json')
+    if os.path.exists(file):
+        with open(file, "r") as f:
+            world._rule_data = json.load(f)
+    world._rule_data.setdefault("locations", {})
+    world._rule_data.setdefault("entrances", {})
+
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
-    pass
+    if not Utils.is_frozen():
+        file = Utils.user_path('data', 'ffxiv_rule_data.json')
+        with open(file, "w") as f:
+            json.dump(world._rule_data, f, indent=1)
+
+    for region in world.culled_regions:
+        for entrance in region.entrances:
+            entrance.hide_path = True
+            entrance.access_rule = Entrance.access_rule
 
 # This method is called before the victory location has the victory event placed and locked
 def before_pre_fill(world: World, multiworld: MultiWorld, player: int):
@@ -244,8 +398,8 @@ def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, pl
     if getattr(multiworld, 'generation_is_fake', False):
         if "Levels" in item.name:
             item.classification = ItemClassification.progression
-    elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
-        item.classification = ItemClassification.progression
+    # elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
+    #     item.classification = ItemClassification.progression
     return item
 
 # This method is run towards the end of pre-generation, before the place_item options have been handled and before AP generation occurs
@@ -275,12 +429,13 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
-    slot_data["mcguffins_needed"] = get_option_value(multiworld, player, "mcguffins_needed") or 30
     slot_data["skipped_duties"] = list(world.skipped_duties)
+    slot_data.setdefault("world_version", world.world_version)
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
+    slot_data["mcguffins_needed"] = world.mcguffins_needed
     return slot_data
 
 # This is called right at the end, in case you want to write stuff to the spoiler log
@@ -305,25 +460,6 @@ def before_extend_hint_information(hint_data: dict[int, dict[int, str]], world: 
 
 def after_extend_hint_information(hint_data: dict[int, dict[int, str]], world: World, multiworld: MultiWorld, player: int) -> None:
     pass
-
-
-def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
-    """
-    This is the earliest hook called during generation, before anything else is done.
-    Use it to check or modify incompatible options, or to set up variables for later use.
-    """
-
-    goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
-    goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
-    level_cap = get_option_value(multiworld, player, 'level_cap')
-    goal_level = goal_location.get('level', 0)
-
-    if goal_level and goal_level > level_cap:
-        raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
-
-    if not get_option_value(multiworld, player, 'fatesanity') and is_option_enabled(multiworld, player, 'fates_per_zone') == 0 \
-        and not is_option_enabled(multiworld, player, 'include_dungeons') and not is_option_enabled(multiworld, player, 'fishsanity'):
-        raise OptionError("You can't disable everything.")
 
 
 def hook_interpret_slot_data(world: World, player: int, slot_data: dict[str, Any]) -> dict[str, Any]:
