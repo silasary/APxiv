@@ -211,7 +211,7 @@ class ManualContext(SuperContext):
 
     def get_item_by_name(self, name):
         item = self.item_table.get(name)
-        if not item:
+        if not item and self.game in AutoWorldRegister.world_types:
             item = AutoWorldRegister.world_types[self.game].item_name_to_item.get(name, {"name": name})
         return item
 

@@ -29,6 +29,12 @@ class XivContext(ManualContext):
                 self.manual_game_layout.parent.remove_widget(self.manual_game_layout)
                 return layout
             pass
+
+            def build_tracker_and_locations_table(self):
+                if self.ctx.game == "":
+                    return
+                super().build_tracker_and_locations_table()
+
         return XivUi
 
     def after_run_gui(self):
