@@ -1,7 +1,10 @@
 from collections import defaultdict
+import json
 import math
+import os
 from typing import Any
 
+import Utils
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
@@ -357,10 +360,22 @@ def after_create_items(item_pool: list[ManualItem], world: World, multiworld: Mu
 
 # Called before rules for accessing regions and locations are created. Not clear why you'd want this, but it's here.
 def before_set_rules(world: World, multiworld: MultiWorld, player: int):
-    pass
+    world._rule_data = {}
+    file = Utils.user_path('data', 'ffxiv_rule_data.json')
+    if os.path.exists(file):
+        with open(file, "r") as f:
+            world._rule_data = json.load(f)
+    world._rule_data.setdefault("locations", {})
+    world._rule_data.setdefault("entrances", {})
+
 
 # Called after rules for accessing regions and locations are created, in case you want to see or modify that information.
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
+    if not Utils.is_frozen():
+        file = Utils.user_path('data', 'ffxiv_rule_data.json')
+        with open(file, "w") as f:
+            json.dump(world._rule_data, f, indent=1)
+
     for region in world.culled_regions:
         for entrance in region.entrances:
             entrance.hide_path = True
