@@ -263,7 +263,7 @@ def generate_fish_list() -> list[dict]:
             # cry
             region = name
             bonus_regions[name] = {
-                "entrance_requires": {k: '|' + '| OR |'.join(v) + '| OR {YamlDisabled(fishsanity)}' for k, v in zones.items() if v}
+                "entrance_requires": {k: '|' + '| OR |'.join(v) + '|' for k, v in zones.items() if v}
             }
         else:
             region = next(iter(zones.keys()))
