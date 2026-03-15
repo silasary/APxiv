@@ -12,7 +12,7 @@ Both of them probably need more love.
 Checks: Duties and overworld activities
 Items: Zone access and Progressive Level Caps
 
-What you need: A character that's up to date on the MSQ, and has everything unlocked.
+What you need: A character that has everything unlocked (up to your specified `level_cap`)
 
 
 ## Locations
