@@ -330,9 +330,9 @@ Mount Ordeals (Extreme),Trial (EW),90,,Thavnair,Full Party,Extreme,
 The Voidcast Dais (Extreme),Trial (EW),90,,Mare Lamentorum,Full Party,Extreme,
 The Abyssal Fracture (Extreme),Trial (EW),90,,Mare Lamentorum,Full Party,Extreme,
 ,,,,,,,
-The Sil'dihn Subterrane,Variant Dungeon (EW),90,,Central Thanalan,Full Party,Normal,
-Mount Rokkon,Variant Dungeon (EW),90,,Kugane,Full Party,Normal,
-Aloalo Island,Variant Dungeon (EW),90,,Thavnair,Full Party,Normal,
+The Sil'dihn Subterrane,Variant Dungeon (EW),90,,Central Thanalan,Solo,Normal,
+Mount Rokkon,Variant Dungeon (EW),90,,Kugane,Solo,Normal,
+Aloalo Island,Variant Dungeon (EW),90,,Thavnair,Solo,Normal,
 ,,,,,,,
 Asphodelos: The First Circle,Normal Raid (EW),90,,Elpis,Full Party,Normal,Pandaemonium Key
 Asphodelos: The Second Circle,Normal Raid (EW),90,,Elpis,Full Party,Normal,Pandaemonium Key
@@ -421,3 +421,5 @@ AAC Heavyweight M4 (Savage),Savage Raid (DT),100,,The Arcadion,Full Party,Endgam
 ,,,,,,,
 Jeuno: The First Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,
 San d'Oria: The Second Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,
+,,,,,,,
+The Merchant's Tale,Variant Dungeon (DT),90,,Old Sharlayan,Solo,Normal,
