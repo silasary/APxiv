@@ -310,6 +310,7 @@ def generate_bait_list() -> list[dict]:
             "progression": True,
             "category": ['Bait', "fishsanity"]
         })
+    items[0]['id'] = 1_000
     return items
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred
@@ -338,12 +339,13 @@ def after_load_item_file(item_table: list) -> list:
     max_level = 100
     max_blu = 80
 
+    level_items = []
     for job in classes:
         n = int(max_level / 5)
         if job == "BLU":
             n = int(max_blu / 5)
 
-        item_table.append({
+        level_items.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOW/DOM"],
             "count": 0,
@@ -352,7 +354,7 @@ def after_load_item_file(item_table: list) -> list:
         })
 
     for job in DOH:
-        item_table.append({
+        level_items.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOH"],
             "count": 0,
@@ -360,13 +362,15 @@ def after_load_item_file(item_table: list) -> list:
             "filler": True,
         })
     for job in DOL:
-        item_table.append({
+        level_items.append({
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOL"],
             "count": 0,
             "max_count": int(max_level / 5),
             "filler": True,
         })
+    level_items[0]['id'] = 5_000
+    item_table.extend(level_items)
 
     return item_table
 
