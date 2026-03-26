@@ -1,18 +1,23 @@
-[
-	{
-        "name": "Collect Memories",
-        "requires": "{EnoughMemories()}",
-        "victory": true
-    },
-    {
-        "name": "Return to the Waking Sands",
-        "region": "Western Thanalan",
-        "category": ["Western Thanalan"]
-    },
-    {
-        "name": "Defeat Shinryu",
-        "region": "The Lochs",
-        "level": 70,
-        "victory": true
-    }
-]
+{
+    "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.locations.schema.json",
+    "data": [
+        {
+            "name": "Collect Memories",
+            "requires": "{EnoughMemories()}",
+            "victory": true
+        },
+        {
+            "name": "Return to the Waking Sands",
+            "region": "Western Thanalan",
+            "category": [
+                "Western Thanalan"
+            ]
+        },
+        {
+            "name": "Defeat Shinryu",
+            "region": "The Lochs",
+            "level": 70,
+            "victory": true
+        }
+    ]
+}
