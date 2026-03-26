@@ -248,8 +248,6 @@
 	{
 		"requires": "|The Churning Mists Access:1|",
 		"connects_to": [
-			"The Dravanian Forelands",
-			"The Dravanian Hinterlands"
 		]
 	},
 	"The Dravanian Hinterlands":
