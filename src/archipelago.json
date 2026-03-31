@@ -1,16 +1,8 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.27.0",
+    "world_version": "0.27.1",
     "changelog": [
-        "* Added The Merchant's Tale",
-        "* Changed mcguffin count to be dynamic.  The yaml setting is now a percentage.",
-        "* Changed Dzemael Darkhold and The Howling Eye to be Level 44 instead of 46 (The minimum level to enter, rather than the level you get synced down to).  This puts them in the lvl45 bracket instead of the already crowded lvl50 bracket.",
-        "",
-        "* A whole lot of optimizations",
-        "* Removed some redundant yaml settings",
-        "* Updated to use RuleBuilder if you're on 0.6.7 or later (This is very good for generation speed)",
-        "* If you generate a particularly small world, you might get less than 5 jobs.  This reduces the number of restrictive starts.",
-        "* Better error messages when you make a yaml that is physically unplayable (The fuzzer figured out that you can submit a yaml where your first check is in Bozja)",
+        "* Fixed some Fishsanity bugs",
         ""
     ]
 }
