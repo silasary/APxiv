@@ -16395,7 +16395,7 @@
   "id": 43730,
   "zones": {
    "Yak T'el": [
-    "Cloud-Eye Carp"
+    "Golden Stonefly Nymph"
    ]
   },
   "lvl": 95
@@ -16405,7 +16405,7 @@
   "id": 43731,
   "zones": {
    "Yak T'el": [
-    "Cloud-Eye Carp"
+    "Golden Stonefly Nymph"
    ]
   },
   "lvl": 96,
@@ -16557,13 +16557,21 @@
  "Sharknose Goby": {
   "name": "Sharknose Goby",
   "id": 43746,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 97
  },
  "Yak T'el Crab": {
   "name": "Yak T'el Crab",
   "id": 43747,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 96
  },
  "Xty'iinbek Sleeper": {
@@ -16571,7 +16579,7 @@
   "id": 43748,
   "zones": {
    "Yak T'el": [
-    "Yak T'El Crab"
+    "Ghost Nipper"
    ]
   },
   "lvl": 97
@@ -16581,7 +16589,7 @@
   "id": 43749,
   "zones": {
    "Yak T'el": [
-    "Yak T'El Crab"
+    "Ghost Nipper"
    ]
   },
   "lvl": 100,
@@ -17301,6 +17309,1990 @@
   "folklore": 43885,
   "timed": 2
  },
+ "Astacus Lamentorum": {
+  "name": "Astacus Lamentorum",
+  "id": 45693,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Tilapia": {
+  "name": "Lunar Tilapia",
+  "id": 45694,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Blue Guppy": {
+  "name": "Lunar Blue Guppy",
+  "id": 45695,
+  "zones": {},
+  "lvl": 10
+ },
+ "Melancholia": {
+  "name": "Melancholia",
+  "id": 45696,
+  "zones": {},
+  "lvl": 10
+ },
+ "Hop-shrimp": {
+  "name": "Hop-shrimp",
+  "id": 45697,
+  "zones": {},
+  "lvl": 10
+ },
+ "Blue Cichlid": {
+  "name": "Blue Cichlid",
+  "id": 45698,
+  "zones": {},
+  "lvl": 10
+ },
+ "Bluemoon Loach": {
+  "name": "Bluemoon Loach",
+  "id": 45699,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Raiamas": {
+  "name": "Lunar Raiamas",
+  "id": 45700,
+  "zones": {},
+  "lvl": 10
+ },
+ "Cobalt Eel": {
+  "name": "Cobalt Eel",
+  "id": 45701,
+  "zones": {},
+  "lvl": 10
+ },
+ "Star Pleco": {
+  "name": "Star Pleco",
+  "id": 45702,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Axolotl": {
+  "name": "Lunar Axolotl",
+  "id": 45703,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Catfish": {
+  "name": "Lunar Catfish",
+  "id": 45704,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Peacock Bass": {
+  "name": "Lunar Peacock Bass",
+  "id": 45706,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Hemiodus": {
+  "name": "Lunar Hemiodus",
+  "id": 45707,
+  "zones": {},
+  "lvl": 10
+ },
+ "High Noontide Oscar": {
+  "name": "High Noontide Oscar",
+  "id": 45709,
+  "zones": {},
+  "lvl": 10
+ },
+ "Hopping Fish": {
+  "name": "Hopping Fish",
+  "id": 45710,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunar Grass Carp": {
+  "name": "Lunar Grass Carp",
+  "id": 45712,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lover's Staff": {
+  "name": "Lover's Staff",
+  "id": 45713,
+  "zones": {},
+  "lvl": 50
+ },
+ "Nightscale": {
+  "name": "Nightscale",
+  "id": 45714,
+  "zones": {},
+  "lvl": 50
+ },
+ "Starcrier": {
+  "name": "Starcrier",
+  "id": 45716,
+  "zones": {},
+  "lvl": 50
+ },
+ "Weepingeye": {
+  "name": "Weepingeye",
+  "id": 45717,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lunar Eel": {
+  "name": "Lunar Eel",
+  "id": 45718,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lunar Salmon": {
+  "name": "Lunar Salmon",
+  "id": 45721,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lunar Aetherlouse": {
+  "name": "Lunar Aetherlouse",
+  "id": 45722,
+  "zones": {},
+  "lvl": 50
+ },
+ "Pinkmoon Cichlid": {
+  "name": "Pinkmoon Cichlid",
+  "id": 45724,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lunar Sole": {
+  "name": "Lunar Sole",
+  "id": 45725,
+  "zones": {},
+  "lvl": 50
+ },
+ "Silver Sturgeon": {
+  "name": "Silver Sturgeon",
+  "id": 45726,
+  "zones": {},
+  "lvl": 50
+ },
+ "Weeping Cichlid": {
+  "name": "Weeping Cichlid",
+  "id": 45729,
+  "zones": {},
+  "lvl": 50
+ },
+ "Yellowcheek": {
+  "name": "Yellowcheek",
+  "id": 45730,
+  "zones": {},
+  "lvl": 50
+ },
+ "Hopping Star": {
+  "name": "Hopping Star",
+  "id": 45733,
+  "zones": {},
+  "lvl": 50
+ },
+ "Blue-peppered Platy": {
+  "name": "Blue-peppered Platy",
+  "id": 45734,
+  "zones": {},
+  "lvl": 50
+ },
+ "Hopped-on Leaffish": {
+  "name": "Hopped-on Leaffish",
+  "id": 45736,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lunar Discus": {
+  "name": "Lunar Discus",
+  "id": 45737,
+  "zones": {},
+  "lvl": 50
+ },
+ "Solar Flarefish": {
+  "name": "Solar Flarefish",
+  "id": 45738,
+  "zones": {},
+  "lvl": 50
+ },
+ "Moonrock Candy": {
+  "name": "Moonrock Candy",
+  "id": 45739,
+  "zones": {},
+  "lvl": 90
+ },
+ "Moongill": {
+  "name": "Moongill",
+  "id": 45740,
+  "zones": {},
+  "lvl": 90
+ },
+ "Crowntail Betta": {
+  "name": "Crowntail Betta",
+  "id": 45741,
+  "zones": {},
+  "lvl": 90
+ },
+ "Speckled Pike": {
+  "name": "Speckled Pike",
+  "id": 45742,
+  "zones": {},
+  "lvl": 90
+ },
+ "Prismatic Fish": {
+  "name": "Prismatic Fish",
+  "id": 45743,
+  "zones": {},
+  "lvl": 90
+ },
+ "Rainbow Tear": {
+  "name": "Rainbow Tear",
+  "id": 45746,
+  "zones": {},
+  "lvl": 90
+ },
+ "Ammoonite": {
+  "name": "Ammoonite",
+  "id": 45747,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Coelacanth": {
+  "name": "Lunar Coelacanth",
+  "id": 45748,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Cabomba": {
+  "name": "Lunar Cabomba",
+  "id": 45751,
+  "zones": {},
+  "lvl": 90
+ },
+ "Opal Eel": {
+  "name": "Opal Eel",
+  "id": 45752,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Pirarucu": {
+  "name": "Lunar Pirarucu",
+  "id": 45753,
+  "zones": {},
+  "lvl": 90
+ },
+ "Mooncrystal Perch": {
+  "name": "Mooncrystal Perch",
+  "id": 45755,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Prismfish": {
+  "name": "Lunar Prismfish",
+  "id": 45756,
+  "zones": {},
+  "lvl": 90
+ },
+ "Gold Hopping Fish": {
+  "name": "Gold Hopping Fish",
+  "id": 45757,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Bichir": {
+  "name": "Lunar Bichir",
+  "id": 45758,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Scorpion": {
+  "name": "Lunar Scorpion",
+  "id": 45759,
+  "zones": {},
+  "lvl": 90
+ },
+ "Moonwhip": {
+  "name": "Moonwhip",
+  "id": 45760,
+  "zones": {},
+  "lvl": 90
+ },
+ "Polypus Arsenici": {
+  "name": "Polypus Arsenici",
+  "id": 45761,
+  "zones": {},
+  "lvl": 90
+ },
+ "Eolactoria": {
+  "name": "Eolactoria",
+  "id": 45762,
+  "zones": {},
+  "lvl": 90
+ },
+ "Raw Lunar Tourmaline": {
+  "name": "Raw Lunar Tourmaline",
+  "id": 45763,
+  "zones": {},
+  "lvl": 90
+ },
+ "Leaping Loach": {
+  "name": "Leaping Loach",
+  "id": 45765,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Bronze Pleco": {
+  "name": "Lunar Bronze Pleco",
+  "id": 45766,
+  "zones": {},
+  "lvl": 90
+ },
+ "Starry Stingray": {
+  "name": "Starry Stingray",
+  "id": 45767,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lunar Lungfish": {
+  "name": "Lunar Lungfish",
+  "id": 45768,
+  "zones": {},
+  "lvl": 90
+ },
+ "Macrobrachium Lunaris": {
+  "name": "Macrobrachium Lunaris",
+  "id": 45771,
+  "zones": {},
+  "lvl": 90
+ },
+ "Ataxite": {
+  "name": "Ataxite",
+  "id": 45772,
+  "zones": {},
+  "lvl": 90
+ },
+ "Wiwaxia": {
+  "name": "Wiwaxia",
+  "id": 45776,
+  "zones": {},
+  "lvl": 90
+ },
+ "Atopodentatus": {
+  "name": "Atopodentatus",
+  "id": 45777,
+  "zones": {},
+  "lvl": 90
+ },
+ "Hopping Goby": {
+  "name": "Hopping Goby",
+  "id": 45781,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Wolffish": {
+  "name": "Lunar Wolffish",
+  "id": 45782,
+  "zones": {},
+  "lvl": 100
+ },
+ "Platinum Bichir": {
+  "name": "Platinum Bichir",
+  "id": 45783,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Preceptor Betta": {
+  "name": "Preceptor Betta",
+  "id": 45786,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Academician": {
+  "name": "Lunar Academician",
+  "id": 45787,
+  "zones": {},
+  "lvl": 100
+ },
+ "Skipping Star": {
+  "name": "Skipping Star",
+  "id": 45788,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Darkside Bass": {
+  "name": "Darkside Bass",
+  "id": 45791,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Sisterscale": {
+  "name": "Lunar Sisterscale",
+  "id": 45792,
+  "zones": {},
+  "lvl": 100
+ },
+ "Grand Crowntail Betta": {
+  "name": "Grand Crowntail Betta",
+  "id": 45793,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Broodingway": {
+  "name": "Broodingway",
+  "id": 45797,
+  "zones": {},
+  "lvl": 100
+ },
+ "Galactic Haze": {
+  "name": "Galactic Haze",
+  "id": 45798,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lunar Turtle": {
+  "name": "Lunar Turtle",
+  "id": 45802,
+  "zones": {},
+  "lvl": 100
+ },
+ "Dark Crowntail Betta": {
+  "name": "Dark Crowntail Betta",
+  "id": 45803,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lunar Anemone": {
+  "name": "Lunar Anemone",
+  "id": 45806,
+  "zones": {},
+  "lvl": 100
+ },
+ "Culter Arsenici": {
+  "name": "Culter Arsenici",
+  "id": 45807,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lamentorum Regotoise": {
+  "name": "Lamentorum Regotoise",
+  "id": 45808,
+  "zones": {},
+  "lvl": 100
+ },
+ "Polypus Sulfuris": {
+  "name": "Polypus Sulfuris",
+  "id": 45809,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Starcrystal Knife": {
+  "name": "Starcrystal Knife",
+  "id": 45813,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bright Cobalt Eel": {
+  "name": "Bright Cobalt Eel",
+  "id": 45814,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lunar Tadpole": {
+  "name": "Lunar Tadpole",
+  "id": 45818,
+  "zones": {},
+  "lvl": 100
+ },
+ "Grand Atopodentatus": {
+  "name": "Grand Atopodentatus",
+  "id": 45819,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Moonlit Snakehead": {
+  "name": "Moonlit Snakehead",
+  "id": 45822,
+  "zones": {},
+  "lvl": 100
+ },
+ "Southeastern Pike": {
+  "name": "Southeastern Pike",
+  "id": 45823,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunarsword Snook": {
+  "name": "Lunarsword Snook",
+  "id": 45824,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lamentorum Garpike": {
+  "name": "Lamentorum Garpike",
+  "id": 45825,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Dark Carp": {
+  "name": "Dark Carp",
+  "id": 45829,
+  "zones": {},
+  "lvl": 100
+ },
+ "Goldcheek": {
+  "name": "Goldcheek",
+  "id": 45830,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Ctenophora Lunaris": {
+  "name": "Ctenophora Lunaris",
+  "id": 45831,
+  "zones": {},
+  "lvl": 100
+ },
+ "Protomyke #721": {
+  "name": "Protomyke #721",
+  "id": 45832,
+  "zones": {},
+  "lvl": 100
+ },
+ "Argonauta Lunaris": {
+  "name": "Argonauta Lunaris",
+  "id": 45833,
+  "zones": {},
+  "lvl": 100
+ },
+ "Nadirichthys": {
+  "name": "Nadirichthys",
+  "id": 45834,
+  "zones": {},
+  "lvl": 100
+ },
+ "Atolla Jellyfish": {
+  "name": "Atolla Jellyfish",
+  "id": 45835,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Arsenic Axolotl": {
+  "name": "Arsenic Axolotl",
+  "id": 45836,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sunny Jellyfish": {
+  "name": "Sunny Jellyfish",
+  "id": 45837,
+  "zones": {},
+  "lvl": 100
+ },
+ "Universal Darkfin": {
+  "name": "Universal Darkfin",
+  "id": 45838,
+  "zones": {},
+  "lvl": 100
+ },
+ "Etheirys Croppie": {
+  "name": "Etheirys Croppie",
+  "id": 45839,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moon Mora": {
+  "name": "Moon Mora",
+  "id": 45840,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Moonbeam": {
+  "name": "Moonbeam",
+  "id": 45844,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moongate Cod": {
+  "name": "Moongate Cod",
+  "id": 45845,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Sturgeon": {
+  "name": "Lunar Sturgeon",
+  "id": 45846,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Teardrop Knifefish": {
+  "name": "Teardrop Knifefish",
+  "id": 45848,
+  "zones": {},
+  "lvl": 100
+ },
+ "Weeping Crab": {
+  "name": "Weeping Crab",
+  "id": 45849,
+  "zones": {},
+  "lvl": 100
+ },
+ "Silvermoon Tilapia": {
+  "name": "Silvermoon Tilapia",
+  "id": 45850,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Weeping Minnow": {
+  "name": "Weeping Minnow",
+  "id": 45851,
+  "zones": {},
+  "lvl": 100
+ },
+ "Hopping Flounder": {
+  "name": "Hopping Flounder",
+  "id": 45855,
+  "zones": {},
+  "lvl": 100
+ },
+ "Galactic Flarefish": {
+  "name": "Galactic Flarefish",
+  "id": 45856,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Cobalt Fish": {
+  "name": "Cobalt Fish",
+  "id": 45858,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Goldfish": {
+  "name": "Lunar Goldfish",
+  "id": 45859,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Minnow": {
+  "name": "Lunar Minnow",
+  "id": 45860,
+  "zones": {},
+  "lvl": 100
+ },
+ "Gleamingray": {
+  "name": "Gleamingray",
+  "id": 45861,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Butterfly": {
+  "name": "Lunar Butterfly",
+  "id": 45862,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Seagrapes": {
+  "name": "Lunar Seagrapes",
+  "id": 45863,
+  "zones": {},
+  "lvl": 100
+ },
+ "Fishingway": {
+  "name": "Fishingway",
+  "id": 45864,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Arsenic Flower": {
+  "name": "Arsenic Flower",
+  "id": 45868,
+  "zones": {},
+  "lvl": 100
+ },
+ "Arsenic Salamander": {
+  "name": "Arsenic Salamander",
+  "id": 45869,
+  "zones": {},
+  "lvl": 100
+ },
+ "Eyeballingway": {
+  "name": "Eyeballingway",
+  "id": 45870,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lunar Platyfish": {
+  "name": "Lunar Platyfish",
+  "id": 45872,
+  "zones": {},
+  "lvl": 100
+ },
+ "Crenicichla Lunaris": {
+  "name": "Crenicichla Lunaris",
+  "id": 45873,
+  "zones": {},
+  "lvl": 100
+ },
+ "Fullmoon Ray": {
+  "name": "Fullmoon Ray",
+  "id": 45874,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Yellowfin": {
+  "name": "Lunar Yellowfin",
+  "id": 45875,
+  "zones": {},
+  "lvl": 100
+ },
+ "Wayeater": {
+  "name": "Wayeater",
+  "id": 45876,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Opal Guppy": {
+  "name": "Opal Guppy",
+  "id": 45880,
+  "zones": {},
+  "lvl": 100
+ },
+ "Harbor Fang": {
+  "name": "Harbor Fang",
+  "id": 45881,
+  "zones": {},
+  "lvl": 100
+ },
+ "Deepmoon Cabomba": {
+  "name": "Deepmoon Cabomba",
+  "id": 45882,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Glimmerfish": {
+  "name": "Glimmerfish",
+  "id": 45886,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lepopredator": {
+  "name": "Lepopredator",
+  "id": 45887,
+  "zones": {},
+  "lvl": 100
+ },
+ "Soliclymenia": {
+  "name": "Soliclymenia",
+  "id": 45888,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Aetherial Sword": {
+  "name": "Aetherial Sword",
+  "id": 45892,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moon Manta": {
+  "name": "Moon Manta",
+  "id": 45893,
+  "zones": {},
+  "lvl": 100
+ },
+ "Nadir Ambulocetus": {
+  "name": "Nadir Ambulocetus",
+  "id": 45894,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Arsenical Proto-hropken": {
+  "name": "Arsenical Proto-hropken",
+  "id": 45896,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Oil Eel": {
+  "name": "Lunar Oil Eel",
+  "id": 45897,
+  "zones": {},
+  "lvl": 100
+ },
+ "Galactic Noise": {
+  "name": "Galactic Noise",
+  "id": 45898,
+  "zones": {},
+  "lvl": 100
+ },
+ "Onychodictyon": {
+  "name": "Onychodictyon",
+  "id": 45899,
+  "zones": {},
+  "lvl": 100
+ },
+ "Eolactoria Arsenici": {
+  "name": "Eolactoria Arsenici",
+  "id": 45900,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lunar Glassfish": {
+  "name": "Lunar Glassfish",
+  "id": 45903,
+  "zones": {},
+  "lvl": 100
+ },
+ "Gleaming Deathworm": {
+  "name": "Gleaming Deathworm",
+  "id": 45904,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Leanchoilia": {
+  "name": "Leanchoilia",
+  "id": 45905,
+  "zones": {},
+  "lvl": 100
+ },
+ "Harpagofututor": {
+  "name": "Harpagofututor",
+  "id": 45906,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Macropinna": {
+  "name": "Macropinna",
+  "id": 45911,
+  "zones": {},
+  "lvl": 100
+ },
+ "Deepmoon Seadragon": {
+  "name": "Deepmoon Seadragon",
+  "id": 45912,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Full Moon Catfish": {
+  "name": "Full Moon Catfish",
+  "id": 45915,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lunar Longhair": {
+  "name": "Lunar Longhair",
+  "id": 45916,
+  "zones": {},
+  "lvl": 100
+ },
+ "Heavy Ataxite ": {
+  "name": "Heavy Ataxite ",
+  "id": 45917,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Moonlit Carp": {
+  "name": "Moonlit Carp",
+  "id": 45921,
+  "zones": {},
+  "lvl": 100
+ },
+ "Hopping Lungfish": {
+  "name": "Hopping Lungfish",
+  "id": 45922,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Darkside Shrimp": {
+  "name": "Darkside Shrimp",
+  "id": 45926,
+  "zones": {},
+  "lvl": 100
+ },
+ "Stardust Octopus": {
+  "name": "Stardust Octopus",
+  "id": 45927,
+  "zones": {},
+  "lvl": 100
+ },
+ "Raw Moonbright Tourmaline": {
+  "name": "Raw Moonbright Tourmaline",
+  "id": 45928,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Waxscale": {
+  "name": "Waxscale",
+  "id": 45931,
+  "zones": {},
+  "lvl": 100
+ },
+ "Corydoras Lunaris": {
+  "name": "Corydoras Lunaris",
+  "id": 45932,
+  "zones": {},
+  "lvl": 100
+ },
+ "Inanity Eel": {
+  "name": "Inanity Eel",
+  "id": 45933,
+  "zones": {},
+  "lvl": 100
+ },
+ "Hollow Eel": {
+  "name": "Hollow Eel",
+  "id": 45934,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Lamentorum Geayi": {
+  "name": "Lamentorum Geayi",
+  "id": 45936,
+  "zones": {},
+  "lvl": 10
+ },
+ "Moon Bluetail": {
+  "name": "Moon Bluetail",
+  "id": 45937,
+  "zones": {},
+  "lvl": 10
+ },
+ "Sunken Drone": {
+  "name": "Sunken Drone",
+  "id": 45939,
+  "zones": {},
+  "lvl": 10
+ },
+ "Moonlight Pleco": {
+  "name": "Moonlight Pleco",
+  "id": 45945,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lunastone Pleco": {
+  "name": "Lunastone Pleco",
+  "id": 45946,
+  "zones": {},
+  "lvl": 10
+ },
+ "Timeworn Gargantuaskin Map": {
+  "name": "Timeworn Gargantuaskin Map",
+  "id": 46185,
+  "zones": {},
+  "lvl": 100
+ },
+ "Goldentail": {
+  "name": "Goldentail",
+  "id": 46188,
+  "zones": {},
+  "lvl": 100,
+  "folklore": 43886
+ },
+ "Prime Adjudicator": {
+  "name": "Prime Adjudicator",
+  "id": 46189,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Crenicichla Miyaka": {
+  "name": "Crenicichla Miyaka",
+  "id": 46190,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Iron Shadowtongue": {
+  "name": "Iron Shadowtongue",
+  "id": 46191,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Lotl-in-waiting": {
+  "name": "Lotl-in-waiting",
+  "id": 46192,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Azure Diver": {
+  "name": "Azure Diver",
+  "id": 46193,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43885,
+  "timed": 2
+ },
+ "Sprouting Perch": {
+  "name": "Sprouting Perch",
+  "id": 46194,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Gigagiant Snakehead": {
+  "name": "Gigagiant Snakehead",
+  "id": 46195,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Gondola Louvar": {
+  "name": "Gondola Louvar",
+  "id": 46196,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Purple Palate": {
+  "name": "Purple Palate",
+  "id": 46249,
+  "zones": {},
+  "lvl": 100,
+  "folklore": 43884
+ },
+ "Sunray Ray": {
+  "name": "Sunray Ray",
+  "id": 46779,
+  "zones": {},
+  "lvl": 100
+ },
+ "Macrobrachium Phaennense": {
+  "name": "Macrobrachium Phaennense",
+  "id": 47422,
+  "zones": {},
+  "lvl": 10
+ },
+ "Eelsplorer": {
+  "name": "Eelsplorer",
+  "id": 47423,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lehr Brotula": {
+  "name": "Lehr Brotula",
+  "id": 47424,
+  "zones": {},
+  "lvl": 10
+ },
+ "Glass Stitcher": {
+  "name": "Glass Stitcher",
+  "id": 47425,
+  "zones": {},
+  "lvl": 10
+ },
+ "Glass Discus": {
+  "name": "Glass Discus",
+  "id": 47426,
+  "zones": {},
+  "lvl": 10
+ },
+ "Opal Ammonite": {
+  "name": "Opal Ammonite",
+  "id": 47427,
+  "zones": {},
+  "lvl": 10
+ },
+ "Pearl Shell": {
+  "name": "Pearl Shell",
+  "id": 47428,
+  "zones": {},
+  "lvl": 10
+ },
+ "Cobalt Bijou": {
+  "name": "Cobalt Bijou",
+  "id": 47429,
+  "zones": {},
+  "lvl": 10
+ },
+ "Untitled Work No. 33": {
+  "name": "Untitled Work No. 33",
+  "id": 47430,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lehr Salamander": {
+  "name": "Lehr Salamander",
+  "id": 47433,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lampwork Cucumber": {
+  "name": "Lampwork Cucumber",
+  "id": 47436,
+  "zones": {},
+  "lvl": 10
+ },
+ "Biodome": {
+  "name": "Biodome",
+  "id": 47438,
+  "zones": {},
+  "lvl": 10
+ },
+ "Roseveil Bijou": {
+  "name": "Roseveil Bijou",
+  "id": 47439,
+  "zones": {},
+  "lvl": 10
+ },
+ "Dark Expanse Catfish": {
+  "name": "Dark Expanse Catfish",
+  "id": 47442,
+  "zones": {},
+  "lvl": 50
+ },
+ "Light Expanse Catfish": {
+  "name": "Light Expanse Catfish",
+  "id": 47443,
+  "zones": {},
+  "lvl": 50
+ },
+ "Glass Jellyfish": {
+  "name": "Glass Jellyfish",
+  "id": 47445,
+  "zones": {},
+  "lvl": 50
+ },
+ "Untitled Work No. 11": {
+  "name": "Untitled Work No. 11",
+  "id": 47446,
+  "zones": {},
+  "lvl": 50
+ },
+ "Glass Ribbon-arm": {
+  "name": "Glass Ribbon-arm",
+  "id": 47447,
+  "zones": {},
+  "lvl": 50
+ },
+ "Cosmocaecilian": {
+  "name": "Cosmocaecilian",
+  "id": 47450,
+  "zones": {},
+  "lvl": 50
+ },
+ "Lehr Carp": {
+  "name": "Lehr Carp",
+  "id": 47451,
+  "zones": {},
+  "lvl": 50
+ },
+ "Phaenna's Arrow": {
+  "name": "Phaenna's Arrow",
+  "id": 47454,
+  "zones": {},
+  "lvl": 50
+ },
+ "Boro Bead": {
+  "name": "Boro Bead",
+  "id": 47455,
+  "zones": {},
+  "lvl": 50
+ },
+ "Gymnarchus": {
+  "name": "Gymnarchus",
+  "id": 47458,
+  "zones": {},
+  "lvl": 50
+ },
+ "Inlay Ray": {
+  "name": "Inlay Ray",
+  "id": 47459,
+  "zones": {},
+  "lvl": 50
+ },
+ "Bony Wraithfish": {
+  "name": "Bony Wraithfish",
+  "id": 47462,
+  "zones": {},
+  "lvl": 50
+ },
+ "Emeraldback": {
+  "name": "Emeraldback",
+  "id": 47463,
+  "zones": {},
+  "lvl": 50
+ },
+ "Sandblaster": {
+  "name": "Sandblaster",
+  "id": 47466,
+  "zones": {},
+  "lvl": 50
+ },
+ "Opal Shell": {
+  "name": "Opal Shell",
+  "id": 47467,
+  "zones": {},
+  "lvl": 50
+ },
+ "Frosted Shell": {
+  "name": "Frosted Shell",
+  "id": 47480,
+  "zones": {},
+  "lvl": 90
+ },
+ "Untitled Work No. 98": {
+  "name": "Untitled Work No. 98",
+  "id": 47481,
+  "zones": {},
+  "lvl": 90
+ },
+ "Pendantfish": {
+  "name": "Pendantfish",
+  "id": 47482,
+  "zones": {},
+  "lvl": 90
+ },
+ "Hammerhead Antiblaster": {
+  "name": "Hammerhead Antiblaster",
+  "id": 47483,
+  "zones": {},
+  "lvl": 90
+ },
+ "Isosceles Cobalt": {
+  "name": "Isosceles Cobalt",
+  "id": 47484,
+  "zones": {},
+  "lvl": 90
+ },
+ "Glass Dahlia": {
+  "name": "Glass Dahlia",
+  "id": 47485,
+  "zones": {},
+  "lvl": 90
+ },
+ "Fishy Jellyfish": {
+  "name": "Fishy Jellyfish",
+  "id": 47486,
+  "zones": {},
+  "lvl": 90
+ },
+ "Glass Skeleton": {
+  "name": "Glass Skeleton",
+  "id": 47487,
+  "zones": {},
+  "lvl": 90
+ },
+ "Blue Pane": {
+  "name": "Blue Pane",
+  "id": 47488,
+  "zones": {},
+  "lvl": 90
+ },
+ "Crystallized Throwstone": {
+  "name": "Crystallized Throwstone",
+  "id": 47489,
+  "zones": {},
+  "lvl": 90
+ },
+ "White Starburst": {
+  "name": "White Starburst",
+  "id": 47490,
+  "zones": {},
+  "lvl": 90
+ },
+ "Skippingway": {
+  "name": "Skippingway",
+  "id": 47491,
+  "zones": {},
+  "lvl": 90
+ },
+ "Glass Coral": {
+  "name": "Glass Coral",
+  "id": 47492,
+  "zones": {},
+  "lvl": 90
+ },
+ "Sun-purpled Tapestry": {
+  "name": "Sun-purpled Tapestry",
+  "id": 47493,
+  "zones": {},
+  "lvl": 90
+ },
+ "Lime Impesctor": {
+  "name": "Lime Impesctor",
+  "id": 47494,
+  "zones": {},
+  "lvl": 90
+ },
+ "Kissing Counterfeit": {
+  "name": "Kissing Counterfeit",
+  "id": 47495,
+  "zones": {},
+  "lvl": 90
+ },
+ "Float Cloud": {
+  "name": "Float Cloud",
+  "id": 47496,
+  "zones": {},
+  "lvl": 90
+ },
+ "Navy Coelacanth": {
+  "name": "Navy Coelacanth",
+  "id": 47497,
+  "zones": {},
+  "lvl": 90
+ },
+ "Iceglass Gar": {
+  "name": "Iceglass Gar",
+  "id": 47498,
+  "zones": {},
+  "lvl": 90
+ },
+ "Moonstone Mora": {
+  "name": "Moonstone Mora",
+  "id": 47499,
+  "zones": {},
+  "lvl": 90
+ },
+ "Untitled Work No. 288": {
+  "name": "Untitled Work No. 288",
+  "id": 47500,
+  "zones": {},
+  "lvl": 90
+ },
+ "Desertingway": {
+  "name": "Desertingway",
+  "id": 47501,
+  "zones": {},
+  "lvl": 90
+ },
+ "Goldflake Sandfish": {
+  "name": "Goldflake Sandfish",
+  "id": 47502,
+  "zones": {},
+  "lvl": 90
+ },
+ "Sandglass Glob": {
+  "name": "Sandglass Glob",
+  "id": 47503,
+  "zones": {},
+  "lvl": 90
+ },
+ "Prismatic Moraine": {
+  "name": "Prismatic Moraine",
+  "id": 47504,
+  "zones": {},
+  "lvl": 90
+ },
+ "Isosceles Amethyst": {
+  "name": "Isosceles Amethyst",
+  "id": 47507,
+  "zones": {},
+  "lvl": 90
+ },
+ "Iceglass Floe": {
+  "name": "Iceglass Floe",
+  "id": 47508,
+  "zones": {},
+  "lvl": 90
+ },
+ "Super Starburst": {
+  "name": "Super Starburst",
+  "id": 47509,
+  "zones": {},
+  "lvl": 90
+ },
+ "Kintsugi Chip": {
+  "name": "Kintsugi Chip",
+  "id": 47512,
+  "zones": {},
+  "lvl": 90
+ },
+ "Opalescent Stingship": {
+  "name": "Opalescent Stingship",
+  "id": 47513,
+  "zones": {},
+  "lvl": 90
+ },
+ "Ammochronologist": {
+  "name": "Ammochronologist",
+  "id": 47516,
+  "zones": {},
+  "lvl": 90
+ },
+ "Polarized Eel": {
+  "name": "Polarized Eel",
+  "id": 47517,
+  "zones": {},
+  "lvl": 90
+ },
+ "Quicksand Mantaroid": {
+  "name": "Quicksand Mantaroid",
+  "id": 47518,
+  "zones": {},
+  "lvl": 90
+ },
+ "Stellar Skink": {
+  "name": "Stellar Skink",
+  "id": 47520,
+  "zones": {},
+  "lvl": 100
+ },
+ "Star Crabtain": {
+  "name": "Star Crabtain",
+  "id": 47521,
+  "zones": {},
+  "lvl": 100
+ },
+ "Lehr Killifish": {
+  "name": "Lehr Killifish",
+  "id": 47522,
+  "zones": {},
+  "lvl": 100
+ },
+ "Doomed Voyager": {
+  "name": "Doomed Voyager",
+  "id": 47523,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bottom-layer": {
+  "name": "Bottom-layer",
+  "id": 47524,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Potash Guppish": {
+  "name": "Potash Guppish",
+  "id": 47525,
+  "zones": {},
+  "lvl": 100
+ },
+ "Aurora Shell": {
+  "name": "Aurora Shell",
+  "id": 47526,
+  "zones": {},
+  "lvl": 100
+ },
+ "Untitled Work No. 66": {
+  "name": "Untitled Work No. 66",
+  "id": 47527,
+  "zones": {},
+  "lvl": 100
+ },
+ "Imitation Engraver": {
+  "name": "Imitation Engraver",
+  "id": 47528,
+  "zones": {},
+  "lvl": 100
+ },
+ "Isosceles Pearl": {
+  "name": "Isosceles Pearl",
+  "id": 47529,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Selenium Herring": {
+  "name": "Selenium Herring",
+  "id": 47532,
+  "zones": {},
+  "lvl": 100
+ },
+ "Codmonaut": {
+  "name": "Codmonaut",
+  "id": 47533,
+  "zones": {},
+  "lvl": 100
+ },
+ "Opalite Impesctor": {
+  "name": "Opalite Impesctor",
+  "id": 47534,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Gold Broochback": {
+  "name": "Gold Broochback",
+  "id": 47537,
+  "zones": {},
+  "lvl": 100
+ },
+ "Nitric Chelid": {
+  "name": "Nitric Chelid",
+  "id": 47538,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sunken Kite": {
+  "name": "Sunken Kite",
+  "id": 47539,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Suspect Skeletonfish": {
+  "name": "Suspect Skeletonfish",
+  "id": 47542,
+  "zones": {},
+  "lvl": 100
+ },
+ "Cobalt Glass Eel": {
+  "name": "Cobalt Glass Eel",
+  "id": 47543,
+  "zones": {},
+  "lvl": 100
+ },
+ "Cast Flowers": {
+  "name": "Cast Flowers",
+  "id": 47544,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Untitled Work No. 432": {
+  "name": "Untitled Work No. 432",
+  "id": 47548,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sodiment Licker": {
+  "name": "Sodiment Licker",
+  "id": 47549,
+  "zones": {},
+  "lvl": 100
+ },
+ "Soda-lime Streamer": {
+  "name": "Soda-lime Streamer",
+  "id": 47550,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Limingway": {
+  "name": "Limingway",
+  "id": 47553,
+  "zones": {},
+  "lvl": 100
+ },
+ "Gold Ruby Pansyfin": {
+  "name": "Gold Ruby Pansyfin",
+  "id": 47554,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sinking Crystascute": {
+  "name": "Sinking Crystascute",
+  "id": 47555,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Blown Bubble": {
+  "name": "Blown Bubble",
+  "id": 47559,
+  "zones": {},
+  "lvl": 100
+ },
+ "Cobalt Horn": {
+  "name": "Cobalt Horn",
+  "id": 47560,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Obsidian Mussel": {
+  "name": "Obsidian Mussel",
+  "id": 47564,
+  "zones": {},
+  "lvl": 100
+ },
+ "Glass Sculptor": {
+  "name": "Glass Sculptor",
+  "id": 47565,
+  "zones": {},
+  "lvl": 100
+ },
+ "Prismatic Cluster": {
+  "name": "Prismatic Cluster",
+  "id": 47566,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Decorative Disc": {
+  "name": "Decorative Disc",
+  "id": 47569,
+  "zones": {},
+  "lvl": 100
+ },
+ "Milky Irisfish": {
+  "name": "Milky Irisfish",
+  "id": 47570,
+  "zones": {},
+  "lvl": 100
+ },
+ "Applebrow": {
+  "name": "Applebrow",
+  "id": 47571,
+  "zones": {},
+  "lvl": 100
+ },
+ "Untitled Work No. 765": {
+  "name": "Untitled Work No. 765",
+  "id": 47572,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Shallnot Shell": {
+  "name": "Shallnot Shell",
+  "id": 47576,
+  "zones": {},
+  "lvl": 100
+ },
+ "Full-blown Bubble": {
+  "name": "Full-blown Bubble",
+  "id": 47577,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Untitled Work No. 345": {
+  "name": "Untitled Work No. 345",
+  "id": 47582,
+  "zones": {},
+  "lvl": 100
+ },
+ "Royal Comet Tail": {
+  "name": "Royal Comet Tail",
+  "id": 47583,
+  "zones": {},
+  "lvl": 100
+ },
+ "Grim Impesctor": {
+  "name": "Grim Impesctor",
+  "id": 47584,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Glass Guppish": {
+  "name": "Glass Guppish",
+  "id": 47609,
+  "zones": {},
+  "lvl": 100
+ },
+ "Nyctichthys": {
+  "name": "Nyctichthys",
+  "id": 47610,
+  "zones": {},
+  "lvl": 100
+ },
+ "Five-star Bijou": {
+  "name": "Five-star Bijou",
+  "id": 47611,
+  "zones": {},
+  "lvl": 100
+ },
+ "Capsule Castoff": {
+  "name": "Capsule Castoff",
+  "id": 47612,
+  "zones": {},
+  "lvl": 100
+ },
+ "Capsule Amber": {
+  "name": "Capsule Amber",
+  "id": 47613,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Soda-lime Sunrise": {
+  "name": "Soda-lime Sunrise",
+  "id": 47615,
+  "zones": {},
+  "lvl": 100
+ },
+ "Navy Coelacanths": {
+  "name": "Navy Coelacanths",
+  "id": 47616,
+  "zones": {},
+  "lvl": 100
+ },
+ "Filigree Floret": {
+  "name": "Filigree Floret",
+  "id": 47617,
+  "zones": {},
+  "lvl": 100
+ },
+ "Soda Mocktail": {
+  "name": "Soda Mocktail",
+  "id": 47618,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bubbling Impesctor": {
+  "name": "Bubbling Impesctor",
+  "id": 47619,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Bursting Anemone": {
+  "name": "Bursting Anemone",
+  "id": 47626,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bubble Eater": {
+  "name": "Bubble Eater",
+  "id": 47627,
+  "zones": {},
+  "lvl": 100
+ },
+ "Phainofly Fish": {
+  "name": "Phainofly Fish",
+  "id": 47628,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bubblegazer": {
+  "name": "Bubblegazer",
+  "id": 47629,
+  "zones": {},
+  "lvl": 100
+ },
+ "Chthonic Tapestry": {
+  "name": "Chthonic Tapestry",
+  "id": 47630,
+  "zones": {},
+  "lvl": 100
+ },
+ "Chasm Avatar": {
+  "name": "Chasm Avatar",
+  "id": 47631,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Sandglass Helm": {
+  "name": "Sandglass Helm",
+  "id": 47634,
+  "zones": {},
+  "lvl": 100
+ },
+ "Reluctant Paperweight": {
+  "name": "Reluctant Paperweight",
+  "id": 47635,
+  "zones": {},
+  "lvl": 100
+ },
+ "Glass Vajrajaw": {
+  "name": "Glass Vajrajaw",
+  "id": 47636,
+  "zones": {},
+  "lvl": 100
+ },
+ "Saltpeter Rose": {
+  "name": "Saltpeter Rose",
+  "id": 47637,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Amethyst Bijou": {
+  "name": "Amethyst Bijou",
+  "id": 47641,
+  "zones": {},
+  "lvl": 100
+ },
+ "Frothfish": {
+  "name": "Frothfish",
+  "id": 47642,
+  "zones": {},
+  "lvl": 100
+ },
+ "Soda-blue Impesctor": {
+  "name": "Soda-blue Impesctor",
+  "id": 47643,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Shearclaw": {
+  "name": "Shearclaw",
+  "id": 47650,
+  "zones": {},
+  "lvl": 100
+ },
+ "Bellows Crab": {
+  "name": "Bellows Crab",
+  "id": 47651,
+  "zones": {},
+  "lvl": 100
+ },
+ "Crimplouse": {
+  "name": "Crimplouse",
+  "id": 47652,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pipetongue": {
+  "name": "Pipetongue",
+  "id": 47653,
+  "zones": {},
+  "lvl": 100
+ },
+ "Garnet Seahorse": {
+  "name": "Garnet Seahorse",
+  "id": 47654,
+  "zones": {},
+  "lvl": 100
+ },
+ "Vent Impesctor": {
+  "name": "Vent Impesctor",
+  "id": 47655,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "False Tetraform": {
+  "name": "False Tetraform",
+  "id": 47658,
+  "zones": {},
+  "lvl": 100
+ },
+ "Capsulette": {
+  "name": "Capsulette",
+  "id": 47659,
+  "zones": {},
+  "lvl": 100
+ },
+ "Glass Nib": {
+  "name": "Glass Nib",
+  "id": 47660,
+  "zones": {},
+  "lvl": 100
+ },
+ "Encapsulated Impesctor": {
+  "name": "Encapsulated Impesctor",
+  "id": 47661,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Confusing Catfusion": {
+  "name": "Confusing Catfusion",
+  "id": 47665,
+  "zones": {},
+  "lvl": 100
+ },
+ "Specious Shark": {
+  "name": "Specious Shark",
+  "id": 47666,
+  "zones": {},
+  "lvl": 100
+ },
+ "Fused Animus": {
+  "name": "Fused Animus",
+  "id": 47667,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Mosaic Bricklayer": {
+  "name": "Mosaic Bricklayer",
+  "id": 47670,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sandglass Slasher": {
+  "name": "Sandglass Slasher",
+  "id": 47671,
+  "zones": {},
+  "lvl": 100
+ },
+ "Garbled Gar": {
+  "name": "Garbled Gar",
+  "id": 47672,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sandwyrm": {
+  "name": "Sandwyrm",
+  "id": 47673,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Starfaring Goby": {
+  "name": "Starfaring Goby",
+  "id": 47674,
+  "zones": {},
+  "lvl": 10
+ },
+ "Initiative Trout": {
+  "name": "Initiative Trout",
+  "id": 47675,
+  "zones": {},
+  "lvl": 10
+ },
+ "Faux Cloudfish": {
+  "name": "Faux Cloudfish",
+  "id": 47676,
+  "zones": {},
+  "lvl": 10
+ },
+ "Trailing Snailfish": {
+  "name": "Trailing Snailfish",
+  "id": 47677,
+  "zones": {},
+  "lvl": 10
+ },
+ "Midnight Impression": {
+  "name": "Midnight Impression",
+  "id": 47679,
+  "zones": {},
+  "lvl": 10
+ },
+ "Blue Starburst": {
+  "name": "Blue Starburst",
+  "id": 47680,
+  "zones": {},
+  "lvl": 10
+ },
  "Cabinkeep Permit": {
   "name": "Cabinkeep Permit",
   "id": 47988,
@@ -17372,5 +19364,854 @@
   "bigfish": true,
   "folklore": 43886,
   "timed": 2
+ },
+ "Cindershell": {
+  "name": "Cindershell",
+  "id": 48011,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Glowing Waterweed": {
+  "name": "Glowing Waterweed",
+  "id": 48014,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Anklefish": {
+  "name": "Anklefish",
+  "id": 48017,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Meteorfish": {
+  "name": "Meteorfish",
+  "id": 48020,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Xbr'aal Loach": {
+  "name": "Xbr'aal Loach",
+  "id": 48023,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Freakish Fish": {
+  "name": "Freakish Fish",
+  "id": 48026,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Aether-infused Algae": {
+  "name": "Aether-infused Algae",
+  "id": 48029,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Freshwater Mudfish": {
+  "name": "Freshwater Mudfish",
+  "id": 48032,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Tsoly Sponge": {
+  "name": "Tsoly Sponge",
+  "id": 48035,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Iq Rrax Whelk": {
+  "name": "Iq Rrax Whelk",
+  "id": 48038,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Waterweed Fish": {
+  "name": "Waterweed Fish",
+  "id": 48041,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Odorous Waterweed": {
+  "name": "Odorous Waterweed",
+  "id": 48044,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Shellfish of Living Light": {
+  "name": "Shellfish of Living Light",
+  "id": 48047,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Ut'ohmu Trout": {
+  "name": "Ut'ohmu Trout",
+  "id": 48050,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Moss Sample": {
+  "name": "Moss Sample",
+  "id": 48053,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Promising Shellfish": {
+  "name": "Promising Shellfish",
+  "id": 48056,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Smokeshell": {
+  "name": "Smokeshell",
+  "id": 48059,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Cexudross Fish": {
+  "name": "Cexudross Fish",
+  "id": 48062,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Tsoly Sweetfish": {
+  "name": "Tsoly Sweetfish",
+  "id": 48065,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Thick-boned Fish": {
+  "name": "Thick-boned Fish",
+  "id": 48068,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Desiccant Mollusk": {
+  "name": "Desiccant Mollusk",
+  "id": 48071,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Crystalfish": {
+  "name": "Crystalfish",
+  "id": 48074,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Freshwater Algae": {
+  "name": "Freshwater Algae",
+  "id": 48077,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Tsoly Tea Grass": {
+  "name": "Tsoly Tea Grass",
+  "id": 48083,
+  "zones": {},
+  "lvl": 90,
+  "tribal": true
+ },
+ "Purse of Riches": {
+  "name": "Purse of Riches",
+  "id": 49794,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Punutiy Pain": {
+  "name": "Punutiy Pain",
+  "id": 49795,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Shuckfin Dace": {
+  "name": "Shuckfin Dace",
+  "id": 49796,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Shin Snuffler": {
+  "name": "Shin Snuffler",
+  "id": 49797,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Moxutural Greatgar": {
+  "name": "Moxutural Greatgar",
+  "id": 49798,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Heirloom Goldgrouper": {
+  "name": "Heirloom Goldgrouper",
+  "id": 49799,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Datnioides Aeroplanos": {
+  "name": "Datnioides Aeroplanos",
+  "id": 49800,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Esperance Carp": {
+  "name": "Esperance Carp",
+  "id": 49801,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
+ },
+ "Voyaging Loach": {
+  "name": "Voyaging Loach",
+  "id": 50090,
+  "zones": {},
+  "lvl": 10
+ },
+ "Inverted Trout": {
+  "name": "Inverted Trout",
+  "id": 50091,
+  "zones": {},
+  "lvl": 10
+ },
+ "Inverted Whitefish": {
+  "name": "Inverted Whitefish",
+  "id": 50092,
+  "zones": {},
+  "lvl": 10
+ },
+ "Inverted Skipper": {
+  "name": "Inverted Skipper",
+  "id": 50093,
+  "zones": {},
+  "lvl": 10
+ },
+ "Site Sleeper": {
+  "name": "Site Sleeper",
+  "id": 50094,
+  "zones": {},
+  "lvl": 10
+ },
+ "Lithic Megaloach": {
+  "name": "Lithic Megaloach",
+  "id": 50095,
+  "zones": {},
+  "lvl": 10
+ },
+ "Oizytrout": {
+  "name": "Oizytrout",
+  "id": 50098,
+  "zones": {},
+  "lvl": 10
+ },
+ "Inverse-eye": {
+  "name": "Inverse-eye",
+  "id": 50101,
+  "zones": {},
+  "lvl": 10
+ },
+ "Oizys Catfish": {
+  "name": "Oizys Catfish",
+  "id": 50104,
+  "zones": {},
+  "lvl": 50
+ },
+ "Foregone Sturgeon": {
+  "name": "Foregone Sturgeon",
+  "id": 50105,
+  "zones": {},
+  "lvl": 50
+ },
+ "Inverted Aoide": {
+  "name": "Inverted Aoide",
+  "id": 50108,
+  "zones": {},
+  "lvl": 50
+ },
+ "Megalith Axolotl": {
+  "name": "Megalith Axolotl",
+  "id": 50109,
+  "zones": {},
+  "lvl": 50
+ },
+ "Foregone Goby": {
+  "name": "Foregone Goby",
+  "id": 50112,
+  "zones": {},
+  "lvl": 50
+ },
+ "Temporal Staff": {
+  "name": "Temporal Staff",
+  "id": 50113,
+  "zones": {},
+  "lvl": 50
+ },
+ "Megalith Lithoshell": {
+  "name": "Megalith Lithoshell",
+  "id": 50116,
+  "zones": {},
+  "lvl": 50
+ },
+ "Megalith Bichir": {
+  "name": "Megalith Bichir",
+  "id": 50117,
+  "zones": {},
+  "lvl": 50
+ },
+ "Inverted Anchovy": {
+  "name": "Inverted Anchovy",
+  "id": 50118,
+  "zones": {},
+  "lvl": 90
+ },
+ "Inverted Barracuda": {
+  "name": "Inverted Barracuda",
+  "id": 50119,
+  "zones": {},
+  "lvl": 90
+ },
+ "Geras Crab": {
+  "name": "Geras Crab",
+  "id": 50120,
+  "zones": {},
+  "lvl": 90
+ },
+ "Pole Shifter": {
+  "name": "Pole Shifter",
+  "id": 50121,
+  "zones": {},
+  "lvl": 90
+ },
+ "Iron Longnose": {
+  "name": "Iron Longnose",
+  "id": 50122,
+  "zones": {},
+  "lvl": 90
+ },
+ "Upside-down Squeaker": {
+  "name": "Upside-down Squeaker",
+  "id": 50123,
+  "zones": {},
+  "lvl": 90
+ },
+ "Inverted Lungfish": {
+  "name": "Inverted Lungfish",
+  "id": 50124,
+  "zones": {},
+  "lvl": 90
+ },
+ "Frayed Wirefish": {
+  "name": "Frayed Wirefish",
+  "id": 50125,
+  "zones": {},
+  "lvl": 90
+ },
+ "Captivating Cap": {
+  "name": "Captivating Cap",
+  "id": 50126,
+  "zones": {},
+  "lvl": 90
+ },
+ "Cameroceras": {
+  "name": "Cameroceras",
+  "id": 50127,
+  "zones": {},
+  "lvl": 90
+ },
+ "Magnetic Clam": {
+  "name": "Magnetic Clam",
+  "id": 50129,
+  "zones": {},
+  "lvl": 90
+ },
+ "Calciferous Squid": {
+  "name": "Calciferous Squid",
+  "id": 50130,
+  "zones": {},
+  "lvl": 90
+ },
+ "Geras Nautilus": {
+  "name": "Geras Nautilus",
+  "id": 50131,
+  "zones": {},
+  "lvl": 90
+ },
+ "Pseudoshark": {
+  "name": "Pseudoshark",
+  "id": 50132,
+  "zones": {},
+  "lvl": 90
+ },
+ "Upside-down Minnow": {
+  "name": "Upside-down Minnow",
+  "id": 50134,
+  "zones": {},
+  "lvl": 90
+ },
+ "Inverted Tilapia": {
+  "name": "Inverted Tilapia",
+  "id": 50135,
+  "zones": {},
+  "lvl": 90
+ },
+ "Oizyshrimp": {
+  "name": "Oizyshrimp",
+  "id": 50136,
+  "zones": {},
+  "lvl": 90
+ },
+ "Oizys Bullion": {
+  "name": "Oizys Bullion",
+  "id": 50137,
+  "zones": {},
+  "lvl": 90
+ },
+ "Geras Seahorse": {
+  "name": "Geras Seahorse",
+  "id": 50140,
+  "zones": {},
+  "lvl": 90
+ },
+ "Rocky Sunfish": {
+  "name": "Rocky Sunfish",
+  "id": 50141,
+  "zones": {},
+  "lvl": 90
+ },
+ "Wronghair Catfish": {
+  "name": "Wronghair Catfish",
+  "id": 50144,
+  "zones": {},
+  "lvl": 100
+ },
+ "Gravity Core": {
+  "name": "Gravity Core",
+  "id": 50145,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudomander": {
+  "name": "Pseudomander",
+  "id": 50146,
+  "zones": {},
+  "lvl": 100
+ },
+ "Collapsed Sucker": {
+  "name": "Collapsed Sucker",
+  "id": 50147,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Magnetic Shell": {
+  "name": "Magnetic Shell",
+  "id": 50150,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudogar": {
+  "name": "Pseudogar",
+  "id": 50151,
+  "zones": {},
+  "lvl": 100
+ },
+ "Magnetite Skink": {
+  "name": "Magnetite Skink",
+  "id": 50152,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Vacuum Worm": {
+  "name": "Vacuum Worm",
+  "id": 50155,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudocrab": {
+  "name": "Pseudocrab",
+  "id": 50156,
+  "zones": {},
+  "lvl": 100
+ },
+ "Ancient Oizys Fossil": {
+  "name": "Ancient Oizys Fossil",
+  "id": 50157,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Moros Scorpion": {
+  "name": "Moros Scorpion",
+  "id": 50158,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moros Crab": {
+  "name": "Moros Crab",
+  "id": 50159,
+  "zones": {},
+  "lvl": 100
+ },
+ "Sky Sniffer": {
+  "name": "Sky Sniffer",
+  "id": 50160,
+  "zones": {},
+  "lvl": 100
+ },
+ "Unmoored Submariner": {
+  "name": "Unmoored Submariner",
+  "id": 50161,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moros Horned Viper": {
+  "name": "Moros Horned Viper",
+  "id": 50162,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Oizylouse": {
+  "name": "Oizylouse",
+  "id": 50165,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudoguitar": {
+  "name": "Pseudoguitar",
+  "id": 50166,
+  "zones": {},
+  "lvl": 100
+ },
+ "Steel Longnose": {
+  "name": "Steel Longnose",
+  "id": 50167,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Geras Trap": {
+  "name": "Geras Trap",
+  "id": 50170,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudolumpsucker": {
+  "name": "Pseudolumpsucker",
+  "id": 50171,
+  "zones": {},
+  "lvl": 100
+ },
+ "Inverted Brindlebass": {
+  "name": "Inverted Brindlebass",
+  "id": 50172,
+  "zones": {},
+  "lvl": 100
+ },
+ "Craggy Sunfish": {
+  "name": "Craggy Sunfish",
+  "id": 50173,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Pseudosaucer": {
+  "name": "Pseudosaucer",
+  "id": 50176,
+  "zones": {},
+  "lvl": 100
+ },
+ "Iron Thornytooth": {
+  "name": "Iron Thornytooth",
+  "id": 50177,
+  "zones": {},
+  "lvl": 100
+ },
+ "Elongated Cameroceras": {
+  "name": "Elongated Cameroceras",
+  "id": 50178,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Inverted Hornhelm": {
+  "name": "Inverted Hornhelm",
+  "id": 50181,
+  "zones": {},
+  "lvl": 100
+ },
+ "Stygian Pseudomander": {
+  "name": "Stygian Pseudomander",
+  "id": 50182,
+  "zones": {},
+  "lvl": 100
+ },
+ "Ironsand Lizard": {
+  "name": "Ironsand Lizard",
+  "id": 50183,
+  "zones": {},
+  "lvl": 100
+ },
+ "Oddweight Ironsand Lizard": {
+  "name": "Oddweight Ironsand Lizard",
+  "id": 50184,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Burrow Shrimp": {
+  "name": "Burrow Shrimp",
+  "id": 50185,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudoturtle": {
+  "name": "Pseudoturtle",
+  "id": 50186,
+  "zones": {},
+  "lvl": 100
+ },
+ "Burrow Clam": {
+  "name": "Burrow Clam",
+  "id": 50187,
+  "zones": {},
+  "lvl": 100
+ },
+ "Inverted Bass": {
+  "name": "Inverted Bass",
+  "id": 50188,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudosnake": {
+  "name": "Pseudosnake",
+  "id": 50189,
+  "zones": {},
+  "lvl": 100
+ },
+ "Ruined Relic": {
+  "name": "Ruined Relic",
+  "id": 50190,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Oizykelp": {
+  "name": "Oizykelp",
+  "id": 50191,
+  "zones": {},
+  "lvl": 100
+ },
+ "Geras Cloud": {
+  "name": "Geras Cloud",
+  "id": 50192,
+  "zones": {},
+  "lvl": 100
+ },
+ "Magnetic Needler": {
+  "name": "Magnetic Needler",
+  "id": 50193,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudonautilus": {
+  "name": "Pseudonautilus",
+  "id": 50194,
+  "zones": {},
+  "lvl": 100
+ },
+ "Marine Magnet": {
+  "name": "Marine Magnet",
+  "id": 50195,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Moros Egg": {
+  "name": "Moros Egg",
+  "id": 50198,
+  "zones": {},
+  "lvl": 100
+ },
+ "Desert Expanse Catfish": {
+  "name": "Desert Expanse Catfish",
+  "id": 50199,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moros Saw": {
+  "name": "Moros Saw",
+  "id": 50200,
+  "zones": {},
+  "lvl": 100
+ },
+ "Moros Sandworm": {
+  "name": "Moros Sandworm",
+  "id": 50201,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Captivating Clam": {
+  "name": "Captivating Clam",
+  "id": 50204,
+  "zones": {},
+  "lvl": 100
+ },
+ "Geras Eel": {
+  "name": "Geras Eel",
+  "id": 50205,
+  "zones": {},
+  "lvl": 100
+ },
+ "Mirrorshark": {
+  "name": "Mirrorshark",
+  "id": 50206,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudosaurus": {
+  "name": "Pseudosaurus",
+  "id": 50207,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Platinum Coral": {
+  "name": "Platinum Coral",
+  "id": 50210,
+  "zones": {},
+  "lvl": 100
+ },
+ "Reliqued Bangle": {
+  "name": "Reliqued Bangle",
+  "id": 50211,
+  "zones": {},
+  "lvl": 100
+ },
+ "Reliqued Ring": {
+  "name": "Reliqued Ring",
+  "id": 50212,
+  "zones": {},
+  "lvl": 100
+ },
+ "Reliqued Coin": {
+  "name": "Reliqued Coin",
+  "id": 50213,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Pseudomonkfish": {
+  "name": "Pseudomonkfish",
+  "id": 50215,
+  "zones": {},
+  "lvl": 100
+ },
+ "Pseudogecko": {
+  "name": "Pseudogecko",
+  "id": 50216,
+  "zones": {},
+  "lvl": 100
+ },
+ "Molten Lamprey": {
+  "name": "Molten Lamprey",
+  "id": 50217,
+  "zones": {},
+  "lvl": 100
+ },
+ "Oizyhelix": {
+  "name": "Oizyhelix",
+  "id": 50218,
+  "zones": {},
+  "lvl": 100
+ },
+ "Reliqued Vessel": {
+  "name": "Reliqued Vessel",
+  "id": 50219,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Upside-down Aether Eye": {
+  "name": "Upside-down Aether Eye",
+  "id": 50222,
+  "zones": {},
+  "lvl": 100
+ },
+ "Inverted Carp": {
+  "name": "Inverted Carp",
+  "id": 50223,
+  "zones": {},
+  "lvl": 100
+ },
+ "Burrow Bolo": {
+  "name": "Burrow Bolo",
+  "id": 50224,
+  "zones": {},
+  "lvl": 100
+ },
+ "Euhedroturtle": {
+  "name": "Euhedroturtle",
+  "id": 50225,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true
+ },
+ "Iron Coral": {
+  "name": "Iron Coral",
+  "id": 50227,
+  "zones": {},
+  "lvl": 10
+ },
+ "Oizys Rock": {
+  "name": "Oizys Rock",
+  "id": 50229,
+  "zones": {},
+  "lvl": 10
  }
 }

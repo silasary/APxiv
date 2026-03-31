@@ -241,7 +241,14 @@ def lookup_item_by_name(name: str) -> dict | None:
     for item in items.values():
         if item['Name'] == name:
             return item
+        elif item['Singular'].lower() == name.lower():
+            return item
     return None
+
+def lookup_item_ui_category(cat_id: int | str) -> str | None:
+    categories = datamining_csv('ItemUICategory')
+    return categories.get(str(cat_id), {}).get('Name')
+
 
 def lookup_rarity(item_id: int) -> int:
     items = teamcraft_json('rarities')
@@ -348,7 +355,7 @@ def apply_bait() -> None:
                 fish['zones'][zone] = baits
             else:
                 print(f"No bait for {name} in {zone}")
-            for bait in baits:
+            for bait in baits.copy():
                 if bait not in bait_data:
                     bait_data[bait] = {
                         "name": bait,
@@ -359,6 +366,31 @@ def apply_bait() -> None:
                         bait_data[bait]['id'] = int(item['#'])
                     else:
                         print(f"Could not find item ID for bait: {bait}")
+                        continue
+                    category = lookup_item_ui_category(item["ItemUICategory"])
+                    if category == "Fishing Tackle":
+                        pass
+                    elif category == "Seafood":
+                        bait_data[bait]['mooch'] = True
+                    else:
+                        print(f"!!! Bait {bait} has unexpected category {category} !!!")
+                        bait_data[bait]['category'] = category
+                if bait_data[bait].get('mooch'):
+                    found = False
+                    mooch = ''
+                    for mooch in bait_paths.keys():
+                        if mooch.lower() == bait.lower():
+                            found = True
+                            break
+                    if not found:
+                        print(f"!!! {name} mooches {bait} but cannot find corresponding fish !!!")
+                        continue
+                    mooch_path = bait_paths.setdefault(mooch, {}).setdefault(zone, [])
+                    if mooch_path:
+                        baits.remove(bait)
+                        baits += mooch_path
+
+
         if not fish['zones']:
             # print(f"No zones for {name}")
             zoneless.append(name)
@@ -378,6 +410,8 @@ def apply_bait() -> None:
         yaml.dump(baitless, h, indent=1)
     with open(data_path('bait.json'), 'w', newline='') as h:
         json.dump(bait_data, h, indent=1)
+    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+        yaml.dump(bait_paths, h, indent=1)
 
 def fill_missing_bait() -> None:
     with open(data_path('baitless.yaml'), 'r', newline='') as h:

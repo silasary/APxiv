@@ -794,13 +794,18 @@
   "id": 43854
  },
  "Cloud-Eye Carp": {
-  "name": "Cloud-Eye Carp"
+  "name": "Cloud-Eye Carp",
+  "id": 43728,
+  "mooch": true
  },
  "Basket Of Red Maggots": {
-  "name": "Basket Of Red Maggots"
+  "name": "Basket Of Red Maggots",
+  "id": 43858
  },
  "Yak T'El Crab": {
-  "name": "Yak T'El Crab"
+  "name": "Yak T'El Crab",
+  "id": 43747,
+  "mooch": true
  },
  "Cactuar Jig": {
   "name": "Cactuar Jig",
