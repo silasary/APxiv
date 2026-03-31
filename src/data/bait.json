@@ -766,25 +766,32 @@
   "name": "Plump Worm"
  },
  "Popper Lure": {
-  "name": "Popper Lure"
+  "name": "Popper Lure",
+  "id": 43855
  },
  "Golden Stonefly Nymph": {
-  "name": "Golden Stonefly Nymph"
+  "name": "Golden Stonefly Nymph",
+  "id": 43849
  },
  "Honeybee": {
-  "name": "Honeybee"
+  "name": "Honeybee",
+  "id": 43852
  },
  "Crimson Lugworm": {
-  "name": "Crimson Lugworm"
+  "name": "Crimson Lugworm",
+  "id": 43850
  },
  "Shucked Clam": {
-  "name": "Shucked Clam"
+  "name": "Shucked Clam",
+  "id": 43856
  },
  "Silkmoth Pupa": {
-  "name": "Silkmoth Pupa"
+  "name": "Silkmoth Pupa",
+  "id": 43851
  },
  "White Worm": {
-  "name": "White Worm"
+  "name": "White Worm",
+  "id": 43854
  },
  "Cloud-Eye Carp": {
   "name": "Cloud-Eye Carp"
@@ -796,12 +803,15 @@
   "name": "Yak T'El Crab"
  },
  "Cactuar Jig": {
-  "name": "Cactuar Jig"
+  "name": "Cactuar Jig",
+  "id": 43853
  },
  "Dragonfly": {
-  "name": "Dragonfly"
+  "name": "Dragonfly",
+  "id": 43857
  },
  "Ghost Nipper": {
-  "name": "Ghost Nipper"
+  "name": "Ghost Nipper",
+  "id": 43859
  }
 }

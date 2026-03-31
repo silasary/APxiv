@@ -122,20 +122,13 @@ def teamcraft_json(filename: str) -> dict | list:
     return requests.get(f"https://raw.githubusercontent.com/ffxiv-teamcraft/ffxiv-teamcraft/refs/heads/staging/libs/data/src/lib/json/{filename}.json").json()
 
 @functools.lru_cache
-def datamining_csv(filename: str) -> list:
+def datamining_csv(filename: str) -> dict[str, dict[str, str]]:
     print(f"Fetching {filename}.csv from datamining repo")
-    text = requests.get(f"https://raw.githubusercontent.com/xivapi/ffxiv-datamining/refs/heads/master/csv/{filename}.csv").content.decode('utf-8-sig')
+    text = requests.get(f"https://raw.githubusercontent.com/xivapi/ffxiv-datamining/refs/heads/master/csv/en/{filename}.csv").content.decode('utf-8-sig')
     lines = text.splitlines()
-    data = {}
-    names = []
+    data: dict[str, dict[str, str]] = {}
     for line in csv.DictReader(lines):
-        if line['key'] == '#':
-            names = {v: k for k, v in line.items()}
-            continue
-        data[line['key']] = line
-        for k, v in names.items():
-            if k:
-                data[line['key']][k] = line[v]
+        data[line['#']] = line
     return data
 
 def find_fates(zone: str) -> list[str]:
@@ -241,6 +234,14 @@ def lookup_item_name(id: int | str) -> str | bool:
     if str(id) not in items:
         return False
     return items[str(id)]['en']
+
+@functools.lru_cache
+def lookup_item_by_name(name: str) -> dict | None:
+    items = datamining_csv('Item')
+    for item in items.values():
+        if item['Name'] == name:
+            return item
+    return None
 
 def lookup_rarity(item_id: int) -> int:
     items = teamcraft_json('rarities')
@@ -352,6 +353,12 @@ def apply_bait() -> None:
                     bait_data[bait] = {
                         "name": bait,
                     }
+                if 'id' not in bait_data[bait]:
+                    item = lookup_item_by_name(bait)
+                    if item:
+                        bait_data[bait]['id'] = int(item['#'])
+                    else:
+                        print(f"Could not find item ID for bait: {bait}")
         if not fish['zones']:
             # print(f"No zones for {name}")
             zoneless.append(name)
