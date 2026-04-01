@@ -1,8 +1,8 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.27.1",
+    "world_version": "0.27.2",
     "changelog": [
-        "* Fixed some Fishsanity bugs",
+        "* Fixed bug with new McGuffin calculation method.",
         ""
     ]
 }
