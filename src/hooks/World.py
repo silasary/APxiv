@@ -254,7 +254,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     item_config['Memory of a Distant World'] = min(remaining // 4, 50)
     item_count += item_config['Memory of a Distant World']
-    world.mcguffins_needed = item_config['Memory of a Distant World'] // world.mcguffins_needed
+    world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
 
     if is_fishing_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels

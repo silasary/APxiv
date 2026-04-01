@@ -18,6 +18,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new Fish(apState, id, name);
             return new Location(apState, id, name);
         }
+
         public Location(ApState apState, long id, string name)
         {
             this.apState = apState;
@@ -126,7 +127,13 @@ namespace ArchipelagoXIV.Rando.Locations
             }
             else if (Name.EndsWith(" (FATE)"))
             {
-                MeetsRequirements = Logic.Level(APData.FateData[Name]);
+                if (APData.FateData.TryGetValue(Name, out var fateLevel))
+                    MeetsRequirements = Logic.Level(fateLevel);
+                else
+                {
+                    DalamudApi.Echo($"Could not find fate level for {Name}");
+                    MeetsRequirements = Logic.Always();
+                }
             }
             else if (Name.EndsWith(" (FETE)"))
             {
