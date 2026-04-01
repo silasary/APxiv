@@ -122,13 +122,13 @@ def teamcraft_json(filename: str) -> dict | list:
     return requests.get(f"https://raw.githubusercontent.com/ffxiv-teamcraft/ffxiv-teamcraft/refs/heads/staging/libs/data/src/lib/json/{filename}.json").json()
 
 @functools.lru_cache
-def datamining_csv(filename: str) -> dict[str, dict[str, str]]:
+def datamining_csv(filename: str, key = "#") -> dict[str, dict[str, str]]:
     print(f"Fetching {filename}.csv from datamining repo")
     text = requests.get(f"https://raw.githubusercontent.com/xivapi/ffxiv-datamining/refs/heads/master/csv/en/{filename}.csv").content.decode('utf-8-sig')
     lines = text.splitlines()
     data: dict[str, dict[str, str]] = {}
     for line in csv.DictReader(lines):
-        data[line['#']] = line
+        data[line[key]] = line
     return data
 
 def find_fates(zone: str) -> list[str]:
@@ -356,26 +356,29 @@ def apply_bait() -> None:
             else:
                 print(f"No bait for {name} in {zone}")
             for bait in baits.copy():
-                if bait not in bait_data:
-                    bait_data[bait] = {
-                        "name": bait,
-                    }
-                if 'id' not in bait_data[bait]:
+                if isinstance(bait, list):
+                    baits.remove(bait)
+                    baits.append(bait[0])
+                    bait = bait[0]
+                info = bait_data.get(bait, {"name": bait})
+
+                if 'id' not in info:
                     item = lookup_item_by_name(bait)
                     if item:
-                        bait_data[bait]['id'] = int(item['#'])
+                        info['id'] = int(item['#'])
                     else:
                         print(f"Could not find item ID for bait: {bait}")
+                        bait_data[bait] = info
                         continue
                     category = lookup_item_ui_category(item["ItemUICategory"])
                     if category == "Fishing Tackle":
                         pass
                     elif category == "Seafood":
-                        bait_data[bait]['mooch'] = True
+                        info['mooch'] = True
                     else:
                         print(f"!!! Bait {bait} has unexpected category {category} !!!")
-                        bait_data[bait]['category'] = category
-                if bait_data[bait].get('mooch'):
+                        info['category'] = category
+                if info.get('mooch'):
                     found = False
                     mooch = ''
                     for mooch in bait_paths.keys():
@@ -384,11 +387,19 @@ def apply_bait() -> None:
                             break
                     if not found:
                         print(f"!!! {name} mooches {bait} but cannot find corresponding fish !!!")
+                        bait_data[bait] = info
                         continue
                     mooch_path = bait_paths.setdefault(mooch, {}).setdefault(zone, [])
                     if mooch_path:
                         baits.remove(bait)
-                        baits += mooch_path
+                        new_bait = mooch_path[0]
+                        add = new_bait not in baits
+                        if new_bait == "Versatile Lure" and baits:
+                            add = False
+                        if add:
+                            baits.append(new_bait)
+                if bait not in bait_data and not info.get('mooch'):
+                    bait_data[bait] = info
 
 
         if not fish['zones']:
@@ -418,7 +429,7 @@ def fill_missing_bait() -> None:
         baitless = yaml.safe_load(h)
     updated = False
     # TODO: Carby Plushy has data for Big Fish, but not the normal fish
-    # https://raw.githubusercontent.com/icykoneko/ff14-fish-tracker-app/refs/heads/master/private/fishData.yaml
+    updated = scrape_carby(baitless) or updated
 
     # Cat Became Hungry has all fish, but it's HTML and will need to be scraped with bs4
     # https://en.ff14angler.com/
@@ -427,6 +438,43 @@ def fill_missing_bait() -> None:
 
     if updated:
         apply_bait()
+
+def scrape_carby(baitless) -> bool:
+    if not baitless:
+        return False
+
+    updated = False
+
+    all_fish = load_all_fish()
+    bait_paths = load_bait_paths()
+
+    fish_parameters = datamining_csv('FishParameter', "Item")
+    spots = {spot['id']: spot for spot in teamcraft_json('fishing-spots')}
+
+    carby_text = requests.get('https://raw.githubusercontent.com/icykoneko/ff14-fish-tracker-app/refs/heads/master/private/fishData.yaml').text
+    carby_data = yaml.safe_load(carby_text)
+    big_fish = {f['name']: f for f in carby_data}
+
+    for fish in baitless:
+        if fish not in big_fish:
+            continue
+        cdata = big_fish[fish]
+        item = lookup_item_by_name(fish)
+        parameter = fish_parameters.get(item['#'])
+        spot = spots.get(int(parameter['FishingSpot']))
+        zone = datamining_csv('PlaceName')[str(spot['placeId'])]
+        place_name = zone['Name']
+        bait_paths.setdefault(fish, {}).setdefault(place_name, []).extend(cdata['bestCatchPath'])
+        baitless.remove(fish)
+        updated = True
+        pass
+
+    if updated:
+        with open(data_path('fish.json'), 'w', newline='') as h:
+            json.dump(all_fish, h, indent=1)
+        with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+            yaml.dump(bait_paths, h, indent=1)
+    return updated
 
 def scrape_cat(baitless) -> bool:
     if not baitless:
