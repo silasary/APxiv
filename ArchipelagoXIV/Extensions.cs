@@ -6,12 +6,17 @@ namespace ArchipelagoXIV
     {
         public static string ReceivingPlayerName(this Hint hint, ApState state)
         {
-            return state.session.Players.GetPlayerAliasAndName(hint.ReceivingPlayer);
+            return state.session!.Players.GetPlayerAliasAndName(hint.ReceivingPlayer);
         }
 
         public static string ItemName(this Hint hint, ApState state)
         {
-            return state.session.Items.GetItemName(hint.ItemId, state.session.Players.GetPlayerInfo(hint.ReceivingPlayer).Game);
+            if (state.session == null)
+                return $"Unknown Item {hint.ItemId}";
+            var playerInfo = state.session.Players.GetPlayerInfo(hint.ReceivingPlayer);
+            if (playerInfo == null)
+                return $"Unknown Item {hint.ItemId}";
+            return state.session.Items.GetItemName(hint.ItemId, playerInfo.Game);
         }
 
         public static ushort APColourToUIColour(this Color color)
