@@ -15604,7 +15604,11 @@
  "Mayaman": {
   "name": "Mayaman",
   "id": 41403,
-  "zones": {},
+  "zones": {
+   "Thavnair": [
+    "Mayfly"
+   ]
+  },
   "lvl": 90,
   "bigfish": true,
   "folklore": 36606,
@@ -15959,7 +15963,11 @@
  "Urqofrog": {
   "name": "Urqofrog",
   "id": 43685,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "folklore": 43884,
   "timed": 1
@@ -15967,7 +15975,11 @@
  "Zeh Tortoh": {
   "name": "Zeh Tortoh",
   "id": 43686,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 93
  },
  "Morsel Trout": {
@@ -15979,7 +15991,11 @@
  "Deepwarden": {
   "name": "Deepwarden",
   "id": 43688,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 94
  },
  "Kozama'uka Skipper": {
@@ -16271,13 +16287,21 @@
  "Belonesox": {
   "name": "Belonesox",
   "id": 43717,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 93
  },
  "Xd'aa Talat Cichlid": {
   "name": "Xd'aa Talat Cichlid",
   "id": 43718,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 94
  },
  "Iq Br'aax Sailfin": {
@@ -18307,14 +18331,22 @@
  "Goldentail": {
   "name": "Goldentail",
   "id": 46188,
-  "zones": {},
+  "zones": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "folklore": 43886
  },
  "Prime Adjudicator": {
   "name": "Prime Adjudicator",
   "id": 46189,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -18323,7 +18355,11 @@
  "Crenicichla Miyaka": {
   "name": "Crenicichla Miyaka",
   "id": 46190,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -18341,7 +18377,11 @@
  "Lotl-in-waiting": {
   "name": "Lotl-in-waiting",
   "id": 46192,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -18350,7 +18390,11 @@
  "Azure Diver": {
   "name": "Azure Diver",
   "id": 46193,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Dragonfly"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43885,
@@ -18359,7 +18403,11 @@
  "Sprouting Perch": {
   "name": "Sprouting Perch",
   "id": 46194,
-  "zones": {},
+  "zones": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
@@ -18377,7 +18425,11 @@
  "Gondola Louvar": {
   "name": "Gondola Louvar",
   "id": 46196,
-  "zones": {},
+  "zones": {
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
@@ -18386,14 +18438,22 @@
  "Purple Palate": {
   "name": "Purple Palate",
   "id": 46249,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "folklore": 43884
  },
  "Sunray Ray": {
   "name": "Sunray Ray",
   "id": 46779,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Dragonfly"
+   ]
+  },
   "lvl": 100
  },
  "Macrobrachium Phaennense": {
@@ -19296,7 +19356,11 @@
  "Cabinkeep Permit": {
   "name": "Cabinkeep Permit",
   "id": 47988,
-  "zones": {},
+  "zones": {
+   "Tuliyollal": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19305,7 +19369,12 @@
  "Muttering Matamata": {
   "name": "Muttering Matamata",
   "id": 47989,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Honeybee",
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19314,7 +19383,11 @@
  "Riverlong Candiru": {
   "name": "Riverlong Candiru",
   "id": 47990,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19332,7 +19405,11 @@
  "Awaksbane Apoda": {
   "name": "Awaksbane Apoda",
   "id": 47992,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19341,7 +19418,11 @@
  "Ttokatoa": {
   "name": "Ttokatoa",
   "id": 47993,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43885,
@@ -19350,7 +19431,11 @@
  "Thunderous Flounder": {
   "name": "Thunderous Flounder",
   "id": 47994,
-  "zones": {},
+  "zones": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
@@ -19536,7 +19621,11 @@
  "Purse of Riches": {
   "name": "Purse of Riches",
   "id": 49794,
-  "zones": {},
+  "zones": {
+   "Tuliyollal": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19545,7 +19634,11 @@
  "Punutiy Pain": {
   "name": "Punutiy Pain",
   "id": 49795,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19554,7 +19647,11 @@
  "Shuckfin Dace": {
   "name": "Shuckfin Dace",
   "id": 49796,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19572,7 +19669,11 @@
  "Moxutural Greatgar": {
   "name": "Moxutural Greatgar",
   "id": 49798,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19581,7 +19682,11 @@
  "Heirloom Goldgrouper": {
   "name": "Heirloom Goldgrouper",
   "id": 49799,
-  "zones": {},
+  "zones": {
+   "Heritage Found": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
@@ -19590,7 +19695,11 @@
  "Datnioides Aeroplanos": {
   "name": "Datnioides Aeroplanos",
   "id": 49800,
-  "zones": {},
+  "zones": {
+   "Living Memory": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
