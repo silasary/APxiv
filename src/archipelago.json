@@ -1,8 +1,9 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.27.2",
+    "world_version": "0.27.3",
     "changelog": [
-        "* Fixed bug with new McGuffin calculation method.",
+        "* Fixed bug with Shadowbringers Alliance Raids.",
+        "* Fixed rare generation bug when genning on source.",
         ""
     ]
 }
