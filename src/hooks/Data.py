@@ -302,15 +302,18 @@ def generate_bait_list() -> list[dict]:
     from ..Helpers import load_data_file
     bait = load_data_file("bait.json")
     items = []
+    _id = 1_000
     for name, data in bait.items():
         if data.get('mooch'):
+            _id += 1
             continue
         items.append({
             "name": name,
             "progression": True,
-            "category": ['Bait', "fishsanity"]
+            "category": ['Bait', "fishsanity"],
+            "id": _id,
         })
-    items[0]['id'] = 1_000
+        _id += 1
     return items
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred

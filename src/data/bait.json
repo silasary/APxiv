@@ -14,24 +14,6 @@
   "id": 2611,
   "icon": 27051
  },
- "Merlthor Goby": {
-  "name": "Merlthor Goby",
-  "id": 4869,
-  "icon": 29003,
-  "mooch": 1
- },
- "Ocean Cloud": {
-  "name": "Ocean Cloud",
-  "id": 4872,
-  "icon": 29005,
-  "mooch": 1
- },
- "Harbor Herring": {
-  "name": "Harbor Herring",
-  "id": 4874,
-  "icon": 29044,
-  "mooch": 1
- },
  "Goby Ball": {
   "name": "Goby Ball",
   "id": 2589,
@@ -86,24 +68,6 @@
   "name": "Midge Basket",
   "id": 2592,
   "icon": 27002
- },
- "Copperfish": {
-  "name": "Copperfish",
-  "id": 4948,
-  "icon": 29314,
-  "mooch": 1
- },
- "Striped Goby": {
-  "name": "Striped Goby",
-  "id": 4927,
-  "icon": 29230,
-  "mooch": 1
- },
- "Ala Mhigan Fighting Fish": {
-  "name": "Ala Mhigan Fighting Fish",
-  "id": 4942,
-  "icon": 29216,
-  "mooch": 1
  },
  "Chocobo Fly": {
   "name": "Chocobo Fly",
@@ -160,24 +124,6 @@
   "id": 2619,
   "icon": 27065
  },
- "Fullmoon Sardine": {
-  "name": "Fullmoon Sardine",
-  "id": 4898,
-  "icon": 29055,
-  "mooch": 1
- },
- "Ogre Barracuda": {
-  "name": "Ogre Barracuda",
-  "id": 4888,
-  "icon": 29035,
-  "mooch": 1
- },
- "Wahoo": {
-  "name": "Wahoo",
-  "id": 4904,
-  "icon": 29025,
-  "mooch": 1
- },
  "Honey Worm": {
   "name": "Honey Worm",
   "id": 2599,
@@ -203,34 +149,10 @@
   "id": 2620,
   "icon": 27062
  },
- "Silverfish": {
-  "name": "Silverfish",
-  "id": 4978,
-  "icon": 29312,
-  "mooch": 1
- },
- "Goldfish": {
-  "name": "Goldfish",
-  "id": 5011,
-  "icon": 29311,
-  "mooch": 1
- },
  "Krill Cage Feeder": {
   "name": "Krill Cage Feeder",
   "id": 2621,
   "icon": 27053
- },
- "Giant Squid": {
-  "name": "Giant Squid",
-  "id": 4919,
-  "icon": 29027,
-  "mooch": 1
- },
- "Common Sculpin": {
-  "name": "Common Sculpin",
-  "id": 4995,
-  "icon": 29250,
-  "mooch": 1
  },
  "Streamer": {
   "name": "Streamer",
@@ -256,12 +178,6 @@
   "name": "Rainbow Spoon Lure",
   "id": 2625,
   "icon": 27061
- },
- "Assassin Betta": {
-  "name": "Assassin Betta",
-  "id": 5002,
-  "icon": 29238,
-  "mooch": 1
  },
  "Silver Spoon Lure": {
   "name": "Silver Spoon Lure",
@@ -293,24 +209,6 @@
   "id": 2602,
   "icon": 27012
  },
- "Storm Rider": {
-  "name": "Storm Rider",
-  "id": 5035,
-  "icon": 29606,
-  "mooch": 1
- },
- "Sandfish": {
-  "name": "Sandfish",
-  "id": 4977,
-  "icon": 29234,
-  "mooch": 1
- },
- "Abalathian Smelt": {
-  "name": "Abalathian Smelt",
-  "id": 4937,
-  "icon": 29310,
-  "mooch": 1
- },
  "Balloon Bug": {
   "name": "Balloon Bug",
   "id": 2609,
@@ -320,24 +218,6 @@
   "name": "Hoverworm",
   "id": 2605,
   "icon": 27022
- },
- "Cloud Cutter": {
-  "name": "Cloud Cutter",
-  "id": 5040,
-  "icon": 29655,
-  "mooch": 1
- },
- "Saucerfish": {
-  "name": "Saucerfish",
-  "id": 5044,
-  "icon": 29656,
-  "mooch": 1
- },
- "Mahar": {
-  "name": "Mahar",
-  "id": 8771,
-  "icon": 29660,
-  "mooch": 1
  },
  "Metal Spinner": {
   "name": "Metal Spinner",
@@ -364,28 +244,10 @@
   "id": 12708,
   "icon": 27025
  },
- "Skyworm": {
-  "name": "Skyworm",
-  "id": 12716,
-  "icon": 29722,
-  "mooch": 1
- },
- "Glacier Core": {
-  "name": "Glacier Core",
-  "id": 12724,
-  "icon": 29706,
-  "mooch": 1
- },
  "Goblin Jig": {
   "name": "Goblin Jig",
   "id": 12706,
   "icon": 27069
- },
- "Ice Faerie": {
-  "name": "Ice Faerie",
-  "id": 12715,
-  "icon": 29803,
-  "mooch": 1
  },
  "Bladed Steel Jig": {
   "name": "Bladed Steel Jig",
@@ -397,46 +259,10 @@
   "id": 30136,
   "icon": 27007
  },
- "Bullfrog": {
-  "name": "Bullfrog",
-  "id": 12730,
-  "icon": 29233,
-  "mooch": 1
- },
- "Blueclaw Shrimp": {
-  "name": "Blueclaw Shrimp",
-  "id": 12722,
-  "icon": 29404,
-  "mooch": 1
- },
- "Aether Eye": {
-  "name": "Aether Eye",
-  "id": 12777,
-  "icon": 29214,
-  "mooch": 1
- },
- "Sky Faerie": {
-  "name": "Sky Faerie",
-  "id": 12753,
-  "icon": 29716,
-  "mooch": 1
- },
  "Fiend Worm": {
   "name": "Fiend Worm",
   "id": 12710,
   "icon": 27027
- },
- "Platinum Fish": {
-  "name": "Platinum Fish",
-  "id": 12776,
-  "icon": 29312,
-  "mooch": 1
- },
- "Rudderfish": {
-  "name": "Rudderfish",
-  "id": 12805,
-  "icon": 29717,
-  "mooch": 1
  },
  "Versatile Lure": {
   "name": "Versatile Lure",
@@ -447,24 +273,6 @@
   "name": "Magma Worm",
   "id": 12709,
   "icon": 27026
- },
- "Granite Crab": {
-  "name": "Granite Crab",
-  "id": 12754,
-  "icon": 29854,
-  "mooch": 1
- },
- "Hedgemole Cricket": {
-  "name": "Hedgemole Cricket",
-  "id": 12757,
-  "icon": 29801,
-  "mooch": 1
- },
- "Sweetfish": {
-  "name": "Sweetfish",
-  "id": 12780,
-  "icon": 29395,
-  "mooch": 1
  },
  "Nightcrawler": {
   "name": "Nightcrawler",
@@ -481,18 +289,6 @@
   "id": 20615,
   "icon": 27033
  },
- "Gyr Abanian Trout": {
-  "name": "Gyr Abanian Trout",
-  "id": 20056,
-  "icon": 29204,
-  "mooch": 1
- },
- "Balloon Frog": {
-  "name": "Balloon Frog",
-  "id": 20064,
-  "icon": 29233,
-  "mooch": 1
- },
  "Stonefly Larva": {
   "name": "Stonefly Larva",
   "id": 20675,
@@ -503,22 +299,10 @@
   "id": 20619,
   "icon": 27072
  },
- "Hardhead Trout": {
-  "name": "Hardhead Trout",
-  "id": 24207,
-  "icon": 29535,
-  "mooch": 1
- },
  "Silkworm": {
   "name": "Silkworm",
   "id": 20616,
   "icon": 27034
- },
- "Rock Saltfish": {
-  "name": "Rock Saltfish",
-  "id": 20025,
-  "icon": 29901,
-  "mooch": 1
  },
  "Live Shrimp": {
   "name": "Live Shrimp",
@@ -534,36 +318,6 @@
   "name": "Blue Bobbit",
   "id": 20676,
   "icon": 27004
- },
- "Ku'er": {
-  "name": "Ku'er",
-  "id": 24214,
-  "icon": 29159,
-  "mooch": 1
- },
- "Ruby Shrimp": {
-  "name": "Ruby Shrimp",
-  "id": 20112,
-  "icon": 29008,
-  "mooch": 1
- },
- "Red Prismfish": {
-  "name": "Red Prismfish",
-  "id": 22397,
-  "icon": 29521,
-  "mooch": 1
- },
- "Violet Prismfish": {
-  "name": "Violet Prismfish",
-  "id": 21177,
-  "icon": 29517,
-  "mooch": 1
- },
- "Zagas Khaal": {
-  "name": "Zagas Khaal",
-  "id": 20127,
-  "icon": 29310,
-  "mooch": 1
  },
  "Marble Nymph": {
   "name": "Marble Nymph",
@@ -595,22 +349,10 @@
   "id": 27590,
   "icon": 27041
  },
- "The Jaws of Undeath": {
-  "name": "The Jaws of Undeath",
-  "id": 28925,
-  "icon": 28475,
-  "mooch": 1
- },
  "Short Bill Minnow": {
   "name": "Short Bill Minnow",
   "id": 27588,
   "icon": 27074
- },
- "Spearhead Squid": {
-  "name": "Spearhead Squid",
-  "id": 27457,
-  "icon": 29177,
-  "mooch": 1
  },
  "Desert Dessert Frog": {
   "name": "Desert Dessert Frog",
@@ -621,54 +363,6 @@
   "name": "Jerked Ovim",
   "id": 27586,
   "icon": 27039
- },
- "Hornhelm": {
-  "name": "Hornhelm",
-  "id": 27460,
-  "icon": 29615,
-  "mooch": 1
- },
- "Desert Saw": {
-  "name": "Desert Saw",
-  "id": 27464,
-  "icon": 29618,
-  "mooch": 1
- },
- "Web-footed Sand Gecko": {
-  "name": "Web-footed Sand Gecko",
-  "id": 27461,
-  "icon": 29616,
-  "mooch": 1
- },
- "Clown Tetra": {
-  "name": "Clown Tetra",
-  "id": 27490,
-  "icon": 29592,
-  "mooch": 1
- },
- "Eryops": {
-  "name": "Eryops",
-  "id": 27491,
-  "icon": 29593,
-  "mooch": 1
- },
- "Priest of Yx'Lokwa": {
-  "name": "Priest of Yx'Lokwa",
-  "id": 28071,
-  "icon": 28474,
-  "mooch": 1
- },
- "Diamond Pipira": {
-  "name": "Diamond Pipira",
-  "id": 27492,
-  "icon": 29594,
-  "mooch": 1
- },
- "Ancient Shrimp": {
-  "name": "Ancient Shrimp",
-  "id": 27506,
-  "icon": 29186,
-  "mooch": 1
  },
  "Shrimp Ball": {
   "name": "Shrimp Ball",
@@ -700,24 +394,6 @@
   "id": 36591,
   "icon": 27046
  },
- "Astacus Aetherius": {
-  "name": "Astacus Aetherius",
-  "id": 36412,
-  "icon": 28417,
-  "mooch": 1
- },
- "Shadowdart Sardine": {
-  "name": "Shadowdart Sardine",
-  "id": 36426,
-  "icon": 28046,
-  "mooch": 1
- },
- "Puff-paya": {
-  "name": "Puff-paya",
-  "id": 36451,
-  "icon": 29582,
-  "mooch": 1
- },
  "Grey Worm": {
   "name": "Grey Worm",
   "id": 36594,
@@ -728,18 +404,6 @@
   "id": 36595,
   "icon": 27100
  },
- "Calicia": {
-  "name": "Calicia",
-  "id": 36470,
-  "icon": 29763,
-  "mooch": 1
- },
- "Albino Loach": {
-  "name": "Albino Loach",
-  "id": 36478,
-  "icon": 28521,
-  "mooch": 1
- },
  "Panic Jig": {
   "name": "Panic Jig",
   "id": 36596,
@@ -749,12 +413,6 @@
   "name": "Stardust",
   "id": 36597,
   "icon": 27101
- },
- "Horizon Event": {
-  "name": "Horizon Event",
-  "id": 36518,
-  "icon": 28962,
-  "mooch": 1
  },
  "Pot Of Stardust": {
   "name": "Pot Of Stardust"
@@ -793,19 +451,9 @@
   "name": "White Worm",
   "id": 43854
  },
- "Cloud-Eye Carp": {
-  "name": "Cloud-Eye Carp",
-  "id": 43728,
-  "mooch": true
- },
  "Red Maggots": {
   "name": "Red Maggots",
   "id": 43858
- },
- "Yak T'El Crab": {
-  "name": "Yak T'El Crab",
-  "id": 43747,
-  "mooch": true
  },
  "Cactuar Jig": {
   "name": "Cactuar Jig",
