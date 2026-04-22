@@ -65,6 +65,8 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
         return None
     if duty_type == "PvP":
         return None
+    if duty_type == "Field Operation":
+        return None
     raise ValueError(f"Unknown duty type {duty_type}")
 
 # Use this function to change the valid filler items to be created to replace item links or starting items.
