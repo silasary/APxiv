@@ -362,9 +362,12 @@ def after_create_items(item_pool: list[ManualItem], world: World, multiworld: Mu
 def before_set_rules(world: World, multiworld: MultiWorld, player: int):
     world._rule_data = {}
     file = Utils.user_path('data', 'ffxiv_rule_data.json')
-    if os.path.exists(file):
-        with open(file, "r") as f:
-            world._rule_data = json.load(f)
+    try:
+        if os.path.exists(file):
+            with open(file, "r") as f:
+                world._rule_data = json.load(f)
+    except Exception as e:
+        print(f"Error loading rule data cache: {e}")
     world._rule_data.setdefault("locations", {})
     world._rule_data.setdefault("entrances", {})
 
