@@ -1,9 +1,8 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.27.3",
+    "world_version": "0.28.0",
     "changelog": [
-        "* Fixed bug with Shadowbringers Alliance Raids.",
-        "* Fixed rare generation bug when genning on source.",
+        "* Added patch 7.5 duties, The Unmaking and Windurst: The Third Walk.",
         ""
     ]
 }
