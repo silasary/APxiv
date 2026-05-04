@@ -62,7 +62,7 @@ namespace ArchipelagoXIV.Rando
             return target.Reachable;
         }
 
-        internal static bool CanReach(ApState apState, string name, ushort territoryId = 0, Location? location = null)
+        internal static bool CanReach(ApState apState, string name, uint territoryId = 0, Location? location = null)
         {
             if (location?.region != null)
                 return CanReach(apState, location.region);
@@ -78,7 +78,7 @@ namespace ArchipelagoXIV.Rando
             return CanReach(apState, value);
         }
 
-        public static string LocationToRegion(string name, ushort territoryId = 0)
+        public static string LocationToRegion(string name, uint territoryId = 0)
         {
             if (APData.Aliases.TryGetValue(name, out var alias))
             {

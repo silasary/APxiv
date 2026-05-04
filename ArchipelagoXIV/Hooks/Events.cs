@@ -3,7 +3,9 @@ using ArchipelagoXIV.Rando;
 using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Game.DutyState;
 using Dalamud.Logging;
+using FFXIVClientStructs.FFXIV.Client.Enums;
 using FFXIVClientStructs.FFXIV.Client.Game.Event;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using FFXIVClientStructs.FFXIV.Client.UI;
@@ -89,12 +91,13 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
         }
 
-        private unsafe void DutyState_DutyCompleted(object? sender, ushort e)
+        private unsafe void DutyState_DutyCompleted(IDutyStateEventArgs args)
         {
+            var territoryType = args.TerritoryType;
             if (!apState.Connected)
                 return;
-            var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == e);
-            var duty = Data.GetDuty(e);
+            var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == territoryType.RowId);
+            var duty = args.ContentFinderCondition.Value;
             if (!APData.ContentIDToLocationName.TryGetValue(duty.Content.RowId, out var name))
             {
                 name = duty.Name.ToString();
@@ -109,8 +112,8 @@ namespace ArchipelagoXIV.Hooks
                 name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, e);
-            var canReach = RegionContainer.CanReach(apState, apState.territoryName, e);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
+            var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
             if (canReach && atLevel)
             {
@@ -123,7 +126,7 @@ namespace ArchipelagoXIV.Hooks
 
                 if (apState.Game is NGPlusGame state)
                 {
-                    for (var i = 2; i < state.ExtraDungeonChecks; i++)
+                    for (var i = 0; i < state.ExtraDungeonChecks + 2; i++)
                     {
                         DalamudApi.Echo($"looking for {name} {i}");
                         var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
@@ -153,7 +156,7 @@ namespace ArchipelagoXIV.Hooks
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
         }
 
-        private void ClientState_TerritoryChanged(ushort e)
+        private void ClientState_TerritoryChanged(uint e)
         {
             var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
             apState.territoryName = territory.PlaceName.Value.Name.ToString();
@@ -179,7 +182,7 @@ namespace ArchipelagoXIV.Hooks
         public unsafe void CheckAmnesty()
         {
             var cf = ContentsFinder.Instance();
-            if (cf->QueueInfo.QueueState == ContentsFinderQueueInfo.QueueStates.Queued)
+            if (cf->QueueInfo.QueueState == ContentsFinderQueueState.Queued)
             {
                 if (amnestyTripped)
                     return;
@@ -191,16 +194,16 @@ namespace ArchipelagoXIV.Hooks
 
                     for (var i = 0; i < cf->QueueInfo.QueuedEntries.Length; i++)
                     {
-                        if (cf->QueueInfo.QueuedEntries[i].ConditionId == 0)
+                        if (cf->QueueInfo.QueuedEntries[i].Id == 0)
                             continue;
-                        Send(apState, cf->QueueInfo.QueuedEntries[i].ConditionId);
+                        Send(apState, cf->QueueInfo.QueuedEntries[i].Id);
                     }
                 }
             }
             else if (amnestyTripped)
                 amnestyTripped = false;
 
-            static unsafe void Send(ApState apState, uint queuedId)
+            static void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
                 var name = content.Name.ToString();

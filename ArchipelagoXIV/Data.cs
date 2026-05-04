@@ -157,7 +157,7 @@ namespace ArchipelagoXIV
             FateTable = DalamudApi.DataManager.GetExcelSheet<Fate>().DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
         }
 
-        public static ContentFinderCondition GetDuty(ushort territoryId) {
+        public static ContentFinderCondition GetDuty(uint territoryId) {
             var territory = Territories.FirstOrDefault(row => row.RowId == territoryId);
             return territory.ContentFinderCondition.Value;
         }

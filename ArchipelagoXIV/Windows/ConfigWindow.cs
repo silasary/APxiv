@@ -53,7 +53,7 @@ public class ConfigWindow : Window, IDisposable
         //    // can save immediately on change, if you don't want to provide a "Save and Close" button
         //    this.Configuration.Save();
         //}
-        ImGui.InputTextWithHint("Slot Name", DalamudApi.ClientState.LocalPlayer?.Name.ToString() ?? "", ref slotName, 63);
+        ImGui.InputTextWithHint("Slot Name", DalamudApi.PlayerState?.CharacterName.ToString() ?? "", ref slotName, 63);
         ImGui.InputTextWithHint("Address", "archipelago.gg:38281", ref connection, 64);
         ImGui.InputText("Password", ref password, 64, ImGuiInputTextFlags.Password);
         ImGui.Checkbox("Death Link always enabled", ref force_deathlink);

@@ -63,8 +63,8 @@ namespace ArchipelagoXIV
         {
             get
             {
-                var localPlayer = DalamudApi.ClientState.LocalPlayer;
-                if (localPlayer == null)
+                var localPlayer = DalamudApi.PlayerState;
+                if (!localPlayer.IsLoaded)
                     return null;
                 var job = localPlayer.ClassJob.Value;
                 this.lastJob = job;
