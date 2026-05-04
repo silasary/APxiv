@@ -92,8 +92,8 @@ namespace ArchipelagoXIV
         {
             if (!apState.Connected)
                 return;
-            var localPlayer = DalamudApi.ClientState.LocalPlayer;
-            if (localPlayer == null)
+            var localPlayer = DalamudApi.PlayerState;
+            if (!localPlayer.IsLoaded)
                 return;
             var refresh = false;
             var job = localPlayer.ClassJob.Value;
