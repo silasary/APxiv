@@ -182,28 +182,28 @@ def generate_fate_list():
         _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
-    fatereader = csv.reader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
+    fatereader = csv.DictReader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 10_000
 
     for row in fatereader:
         _id += 1
-        row = [x.strip() for x in row]
-        if row[0] not in HEADER_VALUES:
-            name = row[0]
-            level = int(row[1])
+        row = {k.strip(): v.strip() for k, v in row.items()}
+        if row['Name'] not in HEADER_VALUES:
+            name = row['Name']
+            level = int(row['Level Sync'])
 
             if '(Removed)' in name:
                 continue
 
-            if row[2] == 'The Firmament':
+            if row['Location'] == 'The Firmament':
                 name += " (FETE)"
                 fate_list.append(
                     {
                         "name": name,
-                        "region": row[2],
-                        "category": ["FATEsanity", row[2]],
+                        "region": row['Location'],
+                        "category": ["FATEsanity", row['Location']],
                         # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
-                        "level" : row[1],
+                        "level" : row['Level Sync'],
                         "filler": True,
                         "id": _id
                     }
@@ -215,10 +215,10 @@ def generate_fate_list():
 
             location = {
                     "name": name,
-                    "region": row[2],
-                    "category": ["FATEsanity", row[2]],
+                    "region": row['Location'],
+                    "category": ["FATEsanity", row['Location']],
                     "requires": "",
-                    "level" : row[1],
+                    "level" : row['Level Sync'],
                     "id": _id
                 }
             if level > 5:
@@ -228,8 +228,8 @@ def generate_fate_list():
 
             fate_list.append(location)
             # remove generic FATEs from fate_zones if they exist
-            if row[2] in missing_fatesanity_zones:
-                missing_fatesanity_zones.pop(row[2])
+            if row['Location'] in missing_fatesanity_zones:
+                missing_fatesanity_zones.pop(row['Location'])
 
     if missing_fatesanity_zones:
         # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
