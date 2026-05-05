@@ -282,9 +282,14 @@
 		"connects_to": [
 			"East Shroud",
 			"Rhalgr's Reach",
-			"The Peaks"
+			"The Peaks",
+            "Interdimensional Rift"
 		]
 	},
+    "Interdimensional Rift": {
+        "requires": "|Interdimensional Rift Access| or |Omega Key|",
+        "connects_to": []
+    },
 	"The Peaks":
 	{
 		"requires": "|The Peaks Access: 1|",
@@ -374,8 +379,13 @@
 	{
 		"requires": "|Amh Araeng Access: 1|",
 		"connects_to": [
+            "The Empty"
 		]
 	},
+    "The Empty": {
+        "requires": "|The Empty Access: 1| or |Eden Key|",
+        "connects_to": []
+    },
 	"Il Mheg":
 	{
 		"requires": "|Il Mheg Access: 1|",
@@ -505,7 +515,7 @@
         "connects_to": ["The Arcadion"]
     },
     "The Arcadion": {
-        "requires": "|Arcadion Key: 1|",
+        "requires": "|Arcadion Key| or |Arcadion Access|",
         "connects_to": []
     },
     "Living Memory": {

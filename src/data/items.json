@@ -355,14 +355,14 @@
 	{
 		"name": "Omega Key",
 		"category": ["Raid Key"],
-		"count":1,
+		"count":0,
 		"progression": true,
         "level": 70
 	},
 	{
 		"name": "Eden Key",
 		"category": ["Raid Key"],
-		"count":1,
+		"count":0,
 		"progression": true,
         "level": 80
 	},
@@ -376,7 +376,7 @@
     {
         "name": "Arcadion Key",
         "category": ["Raid Key"],
-        "count": 1,
+        "count": 0,
         "progression": true,
         "level": 100
     },
@@ -433,5 +433,35 @@
 		"category": ["Raid Key"],
 		"count":1,
 		"progression": true
+    },
+    {
+        "name": "Dalamud Fragment Access",
+        "category": ["Raid Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Interdimensional Rift Access",
+        "category": ["Raid Key"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "The Empty Access",
+        "category": ["Raid Key"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Pandaemonium Access",
+        "category": ["Raid Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Arcadion Access",
+        "category": ["Raid Key"],
+        "count": 1,
+        "progression": true
     }
 ]
