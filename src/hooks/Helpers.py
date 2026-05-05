@@ -64,3 +64,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
     if location['region'] == "The Firmament" and level_cap < 51:
         return False
     return None
+
+
+def before_is_event_enabled(multiworld: MultiWorld, player: int, event: dict[str, Any]) -> Optional[bool]:
+    return None
