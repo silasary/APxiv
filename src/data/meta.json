@@ -7,10 +7,9 @@
             "https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/world%20api.md#webworld-class"
         ],
         "apworld_description": [
-            "Manual games allow you to set custom check locations and custom item names that will be rolled into a multiworld.",
-            "This allows any variety of game -- PC, console, board games, Microsoft Word memes... really anything -- to be part of a multiworld randomizer.",
-            "The key component to including these games is some level of manual restriction. Since the items are not actually withheld from the player,",
-            "the player must manually refrain from using these gathered items until the tracker shows that they have been acquired or sent."
+            "Final Fantasy XIV is a massively multiplayer online role-playing game (MMORPG) developed and published by Square Enix.",
+            "Explore the world of Eorzea, complete dungeons, trials, and FATEs to find multiworld items.",
+            "Items in FFXIV are: access to zones, increases to your soft level cap, and fishing tackle."
         ],
         "web": {
             "_comment": "for more info check github https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/world%20api.md#webworld-class",
@@ -19,22 +18,27 @@
             "tutorials": [
                 {
                     "name": "Multiworld Setup Guide",
-                    "description": "A guide to setting up manual game integration for Archipelago multiworld games.",
+                    "description": "A guide to setting up Final Fantasy XIV for Archipelago multiworld games.",
                     "language": "English",
                     "file_name": "setup_en.md",
                     "link": "setup/en",
-                    "_authors": ["Fuzzy"],
+                    "_authors": ["Silasary"],
                     "_comment": "if you dont include the authors it will use creator from game.json"
                 }
             ],
             "_options_presets": {
-                "Easy":{
-                    "Option1": true,
-                    "Option2": "potato"
+                "Fishsanity":{
+                    "include_ocean_fishing": true,
+                    "fishsanity": "big_fish",
+                    "fates_per_zone": 0,
+                    "dungeon_count": 0,
+                    "trial_count": 0,
+                    "alliance_raid_count": 0,
+                    "normal_raid_count": 0,
+                    "savage_raid_count": 0,
+                    "variant_dungeon_count": 0
                 }
             }
         }
-    },
-    "_comment_":"Enable the generation of puml diagram of your apworld region and locations for debug purposes",
-    "enable_region_diagram": false
+    }
 }
