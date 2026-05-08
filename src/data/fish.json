@@ -15985,7 +15985,11 @@
  "Morsel Trout": {
   "name": "Morsel Trout",
   "id": 43687,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 93
  },
  "Deepwarden": {
@@ -18368,7 +18372,11 @@
  "Iron Shadowtongue": {
   "name": "Iron Shadowtongue",
   "id": 46191,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19396,7 +19404,11 @@
  "Deep Canopy": {
   "name": "Deep Canopy",
   "id": 47991,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -19660,7 +19672,11 @@
  "Shin Snuffler": {
   "name": "Shin Snuffler",
   "id": 49797,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
@@ -20322,5 +20338,364 @@
   "id": 50229,
   "zones": {},
   "lvl": 10
+ },
+ "First Mate's Finger": {
+  "name": "First Mate's Finger",
+  "id": 51209,
+  "zones": {},
+  "lvl": 1
+ },
+ "Specterfish": {
+  "name": "Specterfish",
+  "id": 51210,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Rhotano Permit": {
+  "name": "Rhotano Permit",
+  "id": 51211,
+  "zones": {},
+  "lvl": 1
+ },
+ "Rhotano Dahlia": {
+  "name": "Rhotano Dahlia",
+  "id": 51212,
+  "zones": {},
+  "lvl": 1
+ },
+ "Lodesmate's Pen": {
+  "name": "Lodesmate's Pen",
+  "id": 51213,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Rhotano Roosterfish": {
+  "name": "Rhotano Roosterfish",
+  "id": 51214,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Rhotanosaurus": {
+  "name": "Rhotanosaurus",
+  "id": 51215,
+  "zones": {},
+  "lvl": 1
+ },
+ "Royal Handmaiden": {
+  "name": "Royal Handmaiden",
+  "id": 51216,
+  "zones": {},
+  "lvl": 1
+ },
+ "Spectral Starfish": {
+  "name": "Spectral Starfish",
+  "id": 51217,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Frolicsome Fish": {
+  "name": "Frolicsome Fish",
+  "id": 51218,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Captain's Finger": {
+  "name": "Captain's Finger",
+  "id": 51219,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Bright Red Coral": {
+  "name": "Bright Red Coral",
+  "id": 51220,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Royal Favorite": {
+  "name": "Royal Favorite",
+  "id": 51221,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Pirate's Purse": {
+  "name": "Pirate's Purse",
+  "id": 51222,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Captain's Pen": {
+  "name": "Captain's Pen",
+  "id": 51223,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Tylosaurus": {
+  "name": "Tylosaurus",
+  "id": 51224,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Cieldalaes Roosterfish": {
+  "name": "Cieldalaes Roosterfish",
+  "id": 51225,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Renegade Rhotanosaurus": {
+  "name": "Renegade Rhotanosaurus",
+  "id": 51226,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Red Boarfish": {
+  "name": "Red Boarfish",
+  "id": 51227,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Akupara": {
+  "name": "Akupara",
+  "id": 51228,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Red Mantis": {
+  "name": "Red Mantis",
+  "id": 51229,
+  "zones": {},
+  "lvl": 1
+ },
+ "Datli Gwl": {
+  "name": "Datli Gwl",
+  "id": 51230,
+  "zones": {},
+  "lvl": 1
+ },
+ "Agama's Strand": {
+  "name": "Agama's Strand",
+  "id": 51231,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Palaka's Blade": {
+  "name": "Palaka's Blade",
+  "id": 51232,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Parjanya Wrasse": {
+  "name": "Parjanya Wrasse",
+  "id": 51233,
+  "zones": {},
+  "lvl": 1,
+  "timed": 1
+ },
+ "Simolestes": {
+  "name": "Simolestes",
+  "id": 51234,
+  "zones": {},
+  "lvl": 1
+ },
+ "Thavnasaurus": {
+  "name": "Thavnasaurus",
+  "id": 51235,
+  "zones": {},
+  "lvl": 1
+ },
+ "Spectral Grouper": {
+  "name": "Spectral Grouper",
+  "id": 51237,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Silkfin": {
+  "name": "Silkfin",
+  "id": 51238,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Great Red Mantis": {
+  "name": "Great Red Mantis",
+  "id": 51239,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Guzel Gwl": {
+  "name": "Guzel Gwl",
+  "id": 51240,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Darpana": {
+  "name": "Darpana",
+  "id": 51241,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Silverdart": {
+  "name": "Silverdart",
+  "id": 51242,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Satrapsaurus": {
+  "name": "Satrapsaurus",
+  "id": 51243,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Tiger Mantis": {
+  "name": "Tiger Mantis",
+  "id": 51244,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Mehi-mahi": {
+  "name": "Mehi-mahi",
+  "id": 51245,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Pliosaurus": {
+  "name": "Pliosaurus",
+  "id": 51246,
+  "zones": {},
+  "lvl": 1,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Manasvin": {
+  "name": "Manasvin",
+  "id": 51247,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "timed": 2
+ },
+ "Junior Jinbei": {
+  "name": "Junior Jinbei",
+  "id": 51687,
+  "zones": {},
+  "lvl": 1,
+  "timed": 2
+ },
+ "Ole Ole Ole": {
+  "name": "Ole Ole Ole",
+  "id": 51999,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Iron Oxydoras": {
+  "name": "Iron Oxydoras",
+  "id": 52000,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Excavator Catfish": {
+  "name": "Excavator Catfish",
+  "id": 52001,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Moonmarking Saucer": {
+  "name": "Moonmarking Saucer",
+  "id": 52002,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Autarch's Supper": {
+  "name": "Autarch's Supper",
+  "id": 52003,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Bitterbark Caiman ": {
+  "name": "Bitterbark Caiman ",
+  "id": 52004,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43884,
+  "timed": 2
+ },
+ "Vagrant Keeper": {
+  "name": "Vagrant Keeper",
+  "id": 52005,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43885,
+  "timed": 2
+ },
+ "Shined Copper Shark": {
+  "name": "Shined Copper Shark",
+  "id": 52006,
+  "zones": {},
+  "lvl": 100,
+  "bigfish": true,
+  "folklore": 43886,
+  "timed": 2
  }
 }

@@ -256,7 +256,11 @@ def lookup_rarity(item_id: int) -> int:
 
 def lookup_fish(id: int | str) -> dict:
     params = teamcraft_json('fish-parameter')
-    fishdata = params[str(id)]
+    fishdata = params.get(str(id))
+    if not fishdata:
+        print(f"Fish with ID {id} not found in Teamcraft data")
+        return {}
+
     fish = {
         'name': lookup_item_name(fishdata['itemId']),
         'id': int(id),
@@ -298,6 +302,8 @@ def scrape_teamcraft():
             # if name in NOT_IN_FISHING_GUIDE:
             #     continue
             fish = lookup_fish(fish_id)
+            if not fish:
+                continue
             all_fish.setdefault(name, fish)
             fish.setdefault('zones', {})
             all_fish[name]['zones'].setdefault(place_name, [])
@@ -464,6 +470,10 @@ def scrape_carby(baitless) -> bool:
         spot = spots.get(int(parameter['FishingSpot']))
         zone = datamining_csv('PlaceName')[str(spot['placeId'])]
         place_name = zone['Name']
+        if cdata.get('dataMissing', False):
+            print(f"Carby is still missing data for {fish}")
+            bait_paths.setdefault(fish, {}).setdefault(place_name, [])
+            continue
         bait_paths.setdefault(fish, {}).setdefault(place_name, []).extend(cdata['bestCatchPath'])
         baitless.remove(fish)
         updated = True
