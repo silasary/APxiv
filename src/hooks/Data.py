@@ -150,7 +150,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                 category = category.replace("Variant Dungeon", "Dungeon")
             if category != prev_category:
                 _id += 50
-                prev_category = row["Category"]
+                prev_category = category
                 location["id"] = _id
             if row["Location"] == "Gangos":
                 location["category"].append("Bozja")
@@ -196,7 +196,7 @@ def generate_fate_list():
 
     missing_fatesanity_zones = fate_zones.copy()
     fatereader = csv.DictReader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
-    _id = 10_000
+    _id = 10_001
 
     for row in fatereader:
         _id += 1
