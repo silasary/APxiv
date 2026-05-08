@@ -280,7 +280,6 @@
 	{
 		"requires": "|The Fringes Access: 1|",
 		"connects_to": [
-			"East Shroud",
 			"Rhalgr's Reach",
 			"The Peaks",
             "Interdimensional Rift"
@@ -303,7 +302,6 @@
 	{
 		"requires": "|The Lochs Access: 1|",
 		"connects_to": [
-			"The Peaks",
             "Garlemald"
 		]
 	},
@@ -311,7 +309,6 @@
 	{
 		"requires": "|Kugane Access: 1|",
 		"connects_to": [
-			"Limsa Lominsa",
 			"The Ruby Sea",
             "Shirogane"
 		]
@@ -320,7 +317,6 @@
 	{
 		"requires": "|The Ruby Sea Access: 1|",
 		"connects_to": [
-			"Kugane",
 			"Yanxia",
 			"The Azim Steppe"
 		]
@@ -329,8 +325,6 @@
 	{
 		"requires": "|Yanxia Access: 1|",
 		"connects_to": [
-			"The Ruby Sea",
-			"The Azim Steppe",
             "Gangos"
 		]
 	},
@@ -342,8 +336,6 @@
 	{
 		"requires": "|The Azim Steppe Access: 1|",
 		"connects_to": [
-			"The Ruby Sea",
-			"Yanxia"
 		]
 	},
 	"The Crystarium":
@@ -449,9 +441,7 @@
     },
     "Mare Lamentorum": {
         "requires": "|Mare Lamentorum Access: 1|",
-        "connects_to": [
-            "Garlemald"
-        ]
+        "connects_to": []
     },
     "Elpis": {
         "requires": "|Elpis Access: 1|",
