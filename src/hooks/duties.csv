@@ -266,30 +266,30 @@ The Seat of Sacrifice (Extreme),Trial (ShB),80,,The Crystarium,Full Party,Extrem
 Castrum Marinum (Extreme),Trial (ShB),80,,Western Thanalan,Full Party,Extreme,
 The Cloud Deck (Extreme),Trial (ShB),80,,The Lochs,Full Party,Extreme,
 ,,,,,,,
-Eden's Gate: Resurrection,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Gate: Descent,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Gate: Inundation,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Gate: Sepulture,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Verse: Fulmination,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Verse: Furor,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Verse: Iconoclasm,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Verse: Refulgence,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Promise: Umbra,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Promise: Litany,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Promise: Anamorphosis,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Promise: Eternity,Normal Raid (ShB),80,,Amh Araeng,Full Party,Normal,Eden Key
-Eden's Gate: Resurrection (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Gate: Descent (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Gate: Inundation (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Gate: Sepulture (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Verse: Fulmination (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Verse: Furor (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Verse: Iconoclasm (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Verse: Refulgence (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Promise: Umbra (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Promise: Litany (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Promise: Anamorphosis (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
-Eden's Promise: Eternity (Savage),Savage Raid (ShB),80,,Amh Araeng,Full Party,Savage,Eden Key
+Eden's Gate: Resurrection,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Gate: Descent,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Gate: Inundation,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Gate: Sepulture,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Verse: Fulmination,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Verse: Furor,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Verse: Iconoclasm,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Verse: Refulgence,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Promise: Umbra,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Promise: Litany,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Promise: Anamorphosis,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Promise: Eternity,Normal Raid (ShB),80,,The Empty,Full Party,Normal,
+Eden's Gate: Resurrection (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Gate: Descent (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Gate: Inundation (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Gate: Sepulture (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Verse: Fulmination (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Verse: Furor (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Verse: Iconoclasm (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Verse: Refulgence (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Promise: Umbra (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Promise: Litany (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Promise: Anamorphosis (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
+Eden's Promise: Eternity (Savage),Savage Raid (ShB),80,,The Empty,Full Party,Savage,
 ,,,,,,,
 The Copied Factory,Alliance Raid (Shb),80,,Kholusia,Alliance,Normal,
 The Puppets' Bunker,Alliance Raid (Shb),80,,Kholusia,Alliance,Normal,
@@ -376,6 +376,7 @@ Yuweyawata Field Station,Dungeon (DT),100,,Heritage Found,Light Party,Normal,
 The Underkeep,Dungeon (DT),100,,Solution Nine,Light Party,Normal,
 The Meso Terminal,Dungeon (DT),100,,Living Memory,Light Party,Normal,
 Mistwake,Dungeon (DT),100,,Mist Continent,Light Party,Normal,
+The Merchant's Tale,Variant Dungeon (DT),90,,Old Sharlayan,Solo,Normal,
 The Clyteum,Dungeon (DT),100,,Garlemald,Light Party,Normal,
 ,,,,,,,
 Worqor Lar Dor,Trial (DT),93,,Urqopacha,Full Party,Normal,
@@ -384,7 +385,7 @@ The Interphos,Trial (DT),100,,Living Memory,Full Party,Normal,
 Recollection,Trial (DT),100,,Solution Nine,Full Party,Normal,
 The Ageless Necropolis,Trial (DT),100,,Living Memory,Full Party,Normal,
 The Windward Wilds,Trial (DT),100,,Shaaloani,Full Party,Normal,
-Hell on Rails,Trial (DT),100,,Heritage Found,Full Party,Normal,
+Hell on Rails,Trial (DT),100,,Mist Continent,Full Party,Normal,
 The Unmaking,Trial (DT),100,,Mare Lamentorum,Full Party,Normal,
 ,,,,,,,
 Worqor Lar Dor (Extreme),Trial (DT),100,,Urqopacha,Full Party,Endgame,
@@ -393,7 +394,7 @@ The Minstrel's Ballad: Sphene's Burden,Trial (DT),100,,Living Memory,Full Party,
 Recollection (Extreme),Trial (DT),100,,Solution Nine,Full Party,Endgame,
 The Minstrel's Ballad: Necron's Embrace,Trial (DT),100,,Living Memory,Full Party,Endgame,
 The Windward Wilds (Extreme),Trial (DT),100,,Shaaloani,Full Party,Endgame,
-Hell on Rails (Extreme),Trial (DT),100,,Heritage Found,Full Party,Endgame,
+Hell on Rails (Extreme),Trial (DT),100,,Mist Continent,Full Party,Endgame,
 The Unmaking (Extreme),Trial (DT),100,,Mare Lamentorum,Full Party,Endgame,
 ,,,,,,,
 AAC Light-heavyweight M1,Normal Raid (DT),100,,The Arcadion,Full Party,Normal,
@@ -426,5 +427,4 @@ Jeuno: The First Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,
 San d'Oria: The Second Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,
 Windurst: The Third Walk,Alliance Raid (DT),100,,Yak T'el,Alliance,Normal,
 ,,,,,,,
-The Merchant's Tale,Variant Dungeon (DT),90,,Old Sharlayan,Solo,Normal,
-,,,,,,,
+

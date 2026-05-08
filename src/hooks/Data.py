@@ -5,6 +5,16 @@ import re
 from typing import Any
 from itertools import chain
 
+# Location ID Starts
+# 1-7999: Duties
+# 8000-9999: FATEs (Generic)
+# 10,000-18,999: FATEs (Fatesanity)
+# 19,000-19,999: Ocean Fishing
+# 20,000-29,999: Fish
+# 30,000-39,999: Extra Dungeon checks
+# 40,000-
+
+
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
     return game_table
@@ -111,50 +121,53 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
     extra_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
-    dutyreader = csv.reader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
     _id = 0
     _xid = 30_000
     prev_category = "Dungeon (ARR)"
 
     for row in dutyreader:
-        row = [x.strip() for x in row]
-        if row[0] not in HEADER_VALUES:
-            requires_str = "{anyClassLevel(" + row[2] + ")}"
-            requires_str += (" and |" + row[7] + "|") if  (row[7] != "") else ""
+        row = {k.strip(): v.strip() if v else "" for k, v in row.items()}
+        if row["Name"] not in HEADER_VALUES:
+            requires_str = "{anyClassLevel(" + row["Level Sync"] + ")}"
+            requires_str += (" and |" + row["Req Spells"] + "|") if  (row["Req Spells"] != "") else ""
             location = {
-                    "name": row[0],
-                    "duty_name": row[0],
-                    "region": row[4],
-                    "category": [row[1], row[4]],
+                    "name": row["Name"],
+                    "duty_name": row["Name"],
+                    "region": row["Location"],
+                    "category": [row["Category"], row["Location"]],
                     "requires": requires_str,
-                    "level" : row[2],
-                    "party" : sizes.index(row[5]),
-                    "diff" : difficulties.index(row[6]),
-                    "is_dungeon": "Dungeon" in row[1],
+                    "level" : row["Level Sync"],
+                    "party" : sizes.index(row["Req Size"]),
+                    "diff" : difficulties.index(row["Difficulty"]),
+                    "is_dungeon": "Dungeon" in row["Category"],
                 }
-            content_type, expansion = get_duty_expansion(row[1])
+            content_type, expansion = get_duty_expansion(row["Category"])
             if expansion is not None:
                 location["expansion"] = expansion
-            if row[1] != prev_category:
+            category = row["Category"]
+            if category.startswith("Variant Dungeon"):
+                category = category.replace("Variant Dungeon", "Dungeon")
+            if category != prev_category:
                 _id += 50
-                prev_category = row[1]
+                prev_category = row["Category"]
                 location["id"] = _id
-            if row[4] == "Gangos":
+            if row["Location"] == "Gangos":
                 location["category"].append("Bozja")
             duty_list.append(location)
-            categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row[0])
-            if "Dungeon" in row[1]:
+            categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
+            if "Dungeon" in row["Category"]:
                 for i in range(1, 10):
                     extra_list.append({
                         "id": _xid,
-                        "name": f"{row[0]} {i + 1}",
-                        "duty_name": row[0],
-                        "region": row[4],
-                        "category": [row[1], row[4]],
+                        "name": f"{row["Name"]} {i + 1}",
+                        "duty_name": row["Name"],
+                        "region": row["Location"],
+                        "category": [row["Category"], row["Location"]],
                         "requires": requires_str,
-                        "level" : row[2],
-                        "party" : sizes.index(row[5]),
-                        "diff" : difficulties.index(row[6]),
+                        "level" : row["Level Sync"],
+                        "party" : sizes.index(row["Req Size"]),
+                        "diff" : difficulties.index(row["Difficulty"]),
                         "is_dungeon": True,
                         "extra_number": i,
                     })
