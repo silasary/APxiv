@@ -155,18 +155,11 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
         locationNamesToRemove.extend(WORLD_BOSSES)
 
-
-    include_dungeons = get_option_value(multiworld, player, "include_dungeons")
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
         locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
 
-    for location in location_table:
-        if not include_dungeons and location.get("is_dungeon"):
-            # print(f"Removing {location['name']} from {player}'s world")
-            locationNamesToRemove.append(location["name"])
-            continue
 
     # Find all region access items.
     access_items = {item['name']: item for item in item_table if item['name'].endswith(" Access")}
