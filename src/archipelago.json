@@ -1,9 +1,10 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.28.0",
+    "world_version": "0.28.1",
     "minimum_ap_version": "0.6.2",
     "changelog": [
-        "* Added patch 7.5 duties, The Unmaking and Windurst: The Third Walk.",
+        "* Added the Clyteum.",
+        "* More code cleanup.",
         ""
     ]
 }
