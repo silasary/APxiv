@@ -404,6 +404,17 @@ def after_load_item_file(item_table: list) -> list:
     level_items[0]['id'] = 5_000
     item_table.extend(level_items)
 
+    # Add clear items related to the boss goal locations. Prerequisites for victory button
+    _cleared_id = 90_000
+    for base_name in BOSS_GOAL_KEY_LOCATIONS.values():
+        item_table.append({
+            "name": f"{base_name} Cleared",
+            "progression": True,
+            "count": 0,
+            "id": _cleared_id,
+        })
+        _cleared_id += 1
+
     filler_items = []
     for emote in FILLER_EMOTES:
         filler_items.append({

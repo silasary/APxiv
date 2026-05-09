@@ -270,6 +270,12 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         if name in item_config:
             item_config[name] = 0
 
+    # Remove the goal trial cleared item from random generation
+    if goal_base_area_name:
+        cleared_name = f"{goal_base_area_name} Cleared"
+        if cleared_name in item_config:
+            item_config[cleared_name] = 0
+
     all_location_names = {l.name for l in world.get_locations()}
     for bait, fish in bait_to_fish.items():
         if not fish & all_location_names:
@@ -441,9 +447,11 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
     if base_name and goal_trial:
         event_name = f"{base_name} Cleared"
-        trial_event = Item(event_name, ItemClassification.progression, None, player)
         trial_location = multiworld.get_location(goal_trial, player)
-        trial_location.address = None
+
+        # Put goal's "Cleared" item into it's trial location and require it for goal
+        item_id = world.item_name_to_id.get(event_name)
+        trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
         trial_location.place_locked_item(trial_event)
 
         def has_cleared_goal_trial(state: CollectionState) -> bool:
