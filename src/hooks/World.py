@@ -8,6 +8,7 @@ import Utils
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
+from worlds.generic.Rules import add_rule
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -20,7 +21,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_KEY_ITEMS, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -228,6 +229,30 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
+    # Remove all auto generated key items so we can add only the variant we need (key vs key piece)
+    for base_name in BOSS_GOAL_KEY_ITEMS.values():
+        for variant in (f"{base_name} Key", f"{base_name} Key Piece"):
+            if variant in item_config:
+                item_config[variant] = 0
+
+    boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
+
+    if boss_key_pieces > 0:
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        base_name = BOSS_GOAL_KEY_ITEMS.get(goal_name)
+
+        if base_name:
+            key_item = f"{base_name} Key" if boss_key_pieces == 1 else f"{base_name} Key Piece"
+            item_config[key_item] = boss_key_pieces
+            world._boss_key_item = key_item
+            world._boss_key_pieces = boss_key_pieces
+        else:
+            world._boss_key_item = ""
+            world._boss_key_pieces = 0
+    else:
+        world._boss_key_item = ""
+        world._boss_key_pieces = 0
+
     for name in world.culled_access_items:
         if name in item_config:
             item_config[name] = 0
@@ -378,6 +403,18 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             entrance.hide_path = True
             entrance.access_rule = Entrance.access_rule
 
+    key_item = getattr(world, "_boss_key_item", "")
+    key_count = getattr(world, "_boss_key_pieces", 0)
+
+    if key_item and key_count > 0:
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        goal_location = multiworld.get_location(goal_name, player)
+
+        def has_enough_key_pieces(state: CollectionState) -> bool:
+            return state.count(key_item, player) >= key_count
+
+        add_rule(goal_location, has_enough_key_pieces)
+
 # This method is called before the victory location has the victory event placed and locked
 def before_pre_fill(world: World, multiworld: MultiWorld, player: int):
     pass
@@ -428,11 +465,15 @@ def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld,
     slot_data["prog_classes"] = world.prog_classes
     slot_data["skipped_duties"] = list(world.skipped_duties)
     slot_data.setdefault("world_version", world.world_version)
+
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["mcguffins_needed"] = world.mcguffins_needed
+    slot_data["boss_key_pieces"] = getattr(world, "_boss_key_pieces", 0)
+    slot_data["boss_key_item"] = getattr(world, "_boss_key_item", "")
+
     return slot_data
 
 # This is called right at the end, in case you want to write stuff to the spoiler log

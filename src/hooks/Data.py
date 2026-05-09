@@ -29,6 +29,20 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
+BOSS_GOAL_KEY_ITEMS: dict[str, str] = {
+    "Defeat the Ultima Weapon":    "Porta Decumana",
+    "Defeat King Thordan":         "Singularity Reactor",
+    "Defeat Nidhogg":              "Final Steps of Faith",
+    "Defeat Shinryu":              "Royal Menagerie",
+    "Defeat Tsukuyomi":            "Jade Stoa",
+    "Defeat Hades":                "Dying Gasp",
+    "Defeat the Warrior of Light": "Seat of Sacrifice",
+    "Defeat the Endsinger":        "Final Day",
+    "Defeat Zeromus":              "Abyssal Fracture",
+    "Defeat Sphene":               "Interphos",
+    "Defeat Necron":               "Everkeep",
+}
+
 WORLD_BOSSES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
