@@ -111,7 +111,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
-    
+
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, _dutyExpansion, dutyDifficulty = category
@@ -244,19 +244,18 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
     # Remove all auto generated key items so we can add only the variant we need (key vs key piece)
-    for base_name in BOSS_GOAL_KEY_LOCATIONS.values():
-        for variant in (f"{base_name} Key", f"{base_name} Key Piece"):
+    for goal_base_area_name in BOSS_GOAL_KEY_LOCATIONS.values():
+        for variant in (f"{goal_base_area_name} Key", f"{goal_base_area_name} Key Piece"):
             if variant in item_config:
                 item_config[variant] = 0
 
+    goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+    goal_base_area_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
 
     if boss_key_pieces > 0:
-        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        base_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
-
-        if base_name:
-            key_item = f"{base_name} Key" if boss_key_pieces == 1 else f"{base_name} Key Piece"
+        if goal_base_area_name:
+            key_item = f"{goal_base_area_name} Key" if boss_key_pieces == 1 else f"{goal_base_area_name} Key Piece"
             item_config[key_item] = boss_key_pieces
             world._boss_key_item = key_item
             world._boss_key_pieces = boss_key_pieces
@@ -285,9 +284,14 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count - capped_count
 
-    item_config['Memory of a Distant World'] = min(remaining // 4, 50)
+    if goal_base_area_name:
+        # Boss goal: no McGuffins needed
+        item_config['Memory of a Distant World'] = 0
+        world.mcguffins_needed = 0
+    else:
+        item_config['Memory of a Distant World'] = min(remaining // 4, 50)
+        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
     item_count += item_config['Memory of a Distant World']
-    world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
 
     if is_fishing_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels
