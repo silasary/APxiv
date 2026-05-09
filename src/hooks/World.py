@@ -21,7 +21,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_KEY_ITEMS, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_KEY_LOCATIONS, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -111,14 +111,28 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
+    
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, _dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
+
             if count is None:
                 continue
+
             count = min(len(names), count)
             used_names = world.random.sample(names, count)
+
+            goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+            base_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
+
+            # Force the goal's required trial into the location pool if it belongs to this category
+            if dutyType == "Trial" and base_name:
+                goal_trial = next((n for n in names if n == f"The {base_name}" or n == base_name), None)
+
+                if goal_trial and goal_trial not in used_names:
+                    used_names.append(goal_trial)
+
             for name in names:
                 if name not in used_names:
                     world.skipped_duties.add(name)
@@ -230,7 +244,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
     # Remove all auto generated key items so we can add only the variant we need (key vs key piece)
-    for base_name in BOSS_GOAL_KEY_ITEMS.values():
+    for base_name in BOSS_GOAL_KEY_LOCATIONS.values():
         for variant in (f"{base_name} Key", f"{base_name} Key Piece"):
             if variant in item_config:
                 item_config[variant] = 0
@@ -239,7 +253,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     if boss_key_pieces > 0:
         goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        base_name = BOSS_GOAL_KEY_ITEMS.get(goal_name)
+        base_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
 
         if base_name:
             key_item = f"{base_name} Key" if boss_key_pieces == 1 else f"{base_name} Key Piece"

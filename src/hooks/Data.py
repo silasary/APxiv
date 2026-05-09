@@ -29,7 +29,7 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
-BOSS_GOAL_KEY_ITEMS: dict[str, str] = {
+BOSS_GOAL_KEY_LOCATIONS: dict[str, str] = {
     "Defeat the Ultima Weapon":    "Porta Decumana",
     "Defeat King Thordan":         "Singularity Reactor",
     "Defeat Nidhogg":              "Final Steps of Faith",
