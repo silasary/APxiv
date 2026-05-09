@@ -277,6 +277,19 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
+
+    # If there's a boss goal, its trial location will host a "cleared" event
+    world._goal_trial = None
+    if goal_base_area_name:
+        for (duty_type, _, _), names in categorizedLocationNames.items():
+            if duty_type == "Trial":
+                goal_trial = next((n for n in names if n == f"The {goal_base_area_name}" or n == goal_base_area_name), None)
+
+                if goal_trial and goal_trial in all_location_names:
+                    world._goal_trial = goal_trial
+                    location_count -= 1
+                    break
+
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
     capped_count = math.ceil(min(level_cap, actual_level_cap) / 5)
@@ -421,17 +434,31 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             entrance.hide_path = True
             entrance.access_rule = Entrance.access_rule
 
-    key_item = getattr(world, "_boss_key_item", "")
-    key_count = getattr(world, "_boss_key_pieces", 0)
+    goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+    base_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
+    goal_location = multiworld.get_location(goal_name, player)
+    goal_trial = getattr(world, '_goal_trial', None)
 
-    if key_item and key_count > 0:
-        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        goal_location = multiworld.get_location(goal_name, player)
+    if base_name and goal_trial:
+        event_name = f"{base_name} Cleared"
+        trial_event = Item(event_name, ItemClassification.progression, None, player)
+        trial_location = multiworld.get_location(goal_trial, player)
+        trial_location.address = None
+        trial_location.place_locked_item(trial_event)
 
-        def has_enough_key_pieces(state: CollectionState) -> bool:
-            return state.count(key_item, player) >= key_count
+        def has_cleared_goal_trial(state: CollectionState) -> bool:
+            return state.has(event_name, player)
 
-        add_rule(goal_location, has_enough_key_pieces)
+        add_rule(goal_location, has_cleared_goal_trial)
+
+        key_item = getattr(world, "_boss_key_item", "")
+        key_count = getattr(world, "_boss_key_pieces", 0)
+
+        if key_item and key_count > 0:
+            def has_enough_key_pieces(state: CollectionState) -> bool:
+                return state.count(key_item, player) >= key_count
+
+            add_rule(trial_location, has_enough_key_pieces)
 
 # This method is called before the victory location has the victory event placed and locked
 def before_pre_fill(world: World, multiworld: MultiWorld, player: int):
