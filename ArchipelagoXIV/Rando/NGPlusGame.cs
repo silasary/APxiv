@@ -97,7 +97,7 @@ namespace ArchipelagoXIV.Rando
             VictoryType.DefeatEndsinger => "The Final Day",
             VictoryType.DefeatZeromus => "The Abyssal Fracture",
             VictoryType.DefeatSphene => "The Interphos",
-            VictoryType.DefeatNecron => "Everkeep",
+            VictoryType.DefeatNecron => "The Ageless Necropolis",
             _ => "",
         };
 

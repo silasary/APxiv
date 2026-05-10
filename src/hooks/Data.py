@@ -40,7 +40,7 @@ BOSS_GOAL_KEY_LOCATIONS: dict[str, str] = {
     "Defeat the Endsinger":        "Final Day",
     "Defeat Zeromus":              "Abyssal Fracture",
     "Defeat Sphene":               "Interphos",
-    "Defeat Necron":               "Everkeep",
+    "Defeat Necron":               "Ageless Necropolis",
 }
 
 WORLD_BOSSES = [

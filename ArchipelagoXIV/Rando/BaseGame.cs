@@ -69,7 +69,7 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void ProcessItem(ItemInfo item, string itemName)
         {
-            
+
         }
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
@@ -94,13 +94,13 @@ namespace ArchipelagoXIV.Rando
             VictoryType.DefeatThordan => "Defeat King Thordan at the Singularity Reactor",
             VictoryType.DefeatNidhogg => "Defeat Nidhogg at the Final Steps of Faith",
             VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
-            VictoryType.DefeatTsukuyomi => "Defeat Tsukuyomi at The Jade Stoa",
+            VictoryType.DefeatTsukuyomi => "Defeat Tsukuyomi at Castrum Fluminis",
             VictoryType.DefeatHades => "Defeat Hades at The Dying Gasp",
             VictoryType.DefeatWarriorOfLight => "Defeat the Warrior of Light at The Seat of Sacrifice",
             VictoryType.DefeatEndsinger => "Defeat the Endsinger at The Final Day",
             VictoryType.DefeatZeromus => "Defeat Zeromus at The Abyssal Fracture",
             VictoryType.DefeatSphene => "Defeat Sphene at The Interphos",
-            VictoryType.DefeatNecron => "Defeat Necron at Everkeep",
+            VictoryType.DefeatNecron => "Defeat Necron at The Ageless Necropolis",
             VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
             VictoryType.PotDFloor50 => "Clear Floor 50 of Palace of the Dead",
             _ => "Unknown Goal",
