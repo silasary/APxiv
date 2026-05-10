@@ -65,13 +65,23 @@ public class MainWindow : Window
         ImGui.Spacing();
         if (state.territoryName == null)
             return;
-        ImGui.Text($"Current location in logic: {RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId)}");
-        ImGui.Text(state?.Game?.GoalString() ?? "");
+
+        var canReach = RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId);
+
+        ImGui.TextColored(canReach ? new Vector4(0.4f, 1f, 0.4f, 1f) : new Vector4(1f, 0.4f, 0.4f, 1f),
+            $"Current location in logic: {canReach}");
+
+        ImGui.TextColored(new Vector4(1f, 0.85f, 0.2f, 1f), state?.Game?.GoalString() ?? "");
+
         if (state.DeathLinkEnabled)
         {
-            ImGui.Text($"Death Link is enabled.");
+            ImGui.TextColored(new Vector4(1f, 0.3f, 0.3f, 1f), "Death Link is enabled.");
         }
-        ImGui.Text($"Available Checks:");
+
+        ImGui.Spacing();
+        ImGui.TextColored(new Vector4(0.6f, 0.9f, 1f, 1f), "Available Checks:");
+        ImGui.Separator();
+
         if (state?.MissingLocations == null)
         {
             return;
