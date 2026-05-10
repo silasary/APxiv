@@ -173,7 +173,14 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
-        locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        goal_base_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
+        locations_to_remove = ["Castrum Meridianum", "The Praetorium"]
+
+        if goal_base_name != "Porta Decumana":
+            locations_to_remove.append("The Porta Decumana")
+
+        locationNamesToRemove.extend(locations_to_remove)
 
 
     # Find all region access items.

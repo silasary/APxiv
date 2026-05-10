@@ -90,9 +90,9 @@ namespace ArchipelagoXIV.Rando
         {
             VictoryType.None => "No Goal set",
             VictoryType.McGuffin => "McGuffin Hunt",
-            VictoryType.DefeatUltimaWeapon => "Defeat the Ultima Weapon at the Porta Decumana",
-            VictoryType.DefeatThordan => "Defeat King Thordan at the Singularity Reactor",
-            VictoryType.DefeatNidhogg => "Defeat Nidhogg at the Final Steps of Faith",
+            VictoryType.DefeatUltimaWeapon => "Defeat the Ultima Weapon at The Porta Decumana",
+            VictoryType.DefeatThordan => "Defeat King Thordan at The Singularity Reactor",
+            VictoryType.DefeatNidhogg => "Defeat Nidhogg at The Final Steps of Faith",
             VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
             VictoryType.DefeatTsukuyomi => "Defeat Tsukuyomi at Castrum Fluminis",
             VictoryType.DefeatHades => "Defeat Hades at The Dying Gasp",
