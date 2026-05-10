@@ -4,6 +4,7 @@ Generates static data files from external sources
 import csv
 import functools
 import json
+import math
 import os
 import re
 
@@ -609,7 +610,7 @@ def clean_fish():
 
 def sort_fish():
     all_fish = load_all_fish()
-    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1]['id']))
+    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1].get('id', math.inf)))
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(sorted_fish, h, indent=1)
 

@@ -1,0 +1,18 @@
+name: Ensure datapackage IDs have not moved
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: silasary/datapackage_validator@main
+        with:
+          datapackage-file: datapackage_export.json
+          game-name: Final Fantasy XIV
+          apworld-path: src
+          apworld-name: ffxiv
+          ap-version: latest
+          python-version: '3.13'
