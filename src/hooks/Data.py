@@ -266,9 +266,9 @@ def generate_fish_list() -> list[dict]:
 
     locations = []
     for name, data in fish.items():
-        requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
+        requires = "{fishingLevel(" + str(data['lvl']) + ")}"
 
-        zones = data['zones']
+        zones = data['logical_bait'] if 'logical_bait' in data else {}
         if not zones:
             _id += 1
             continue

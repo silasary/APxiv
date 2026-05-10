@@ -1,5 +1,6 @@
 
 import dataclasses
+import math
 from typing import TYPE_CHECKING
 from BaseClasses import CollectionState, MultiWorld
 from worlds.AutoWorld import World
@@ -41,6 +42,12 @@ def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState
             return True
     return False
 
+def fishingLevel(world: World, multiworld: MultiWorld, state: CollectionState, player: int, level: str):
+    """Has the player reached the given fishing level?"""
+    if int(level) < 5:
+        return True
+    return (state.count("5 FSH Levels", player) * 5) >= int(level)
+
 def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState, player: int):
     """Has the player collected enough Memories to complete the game?"""
     goal_count = world.mcguffins_needed
@@ -54,7 +61,7 @@ if use_rulebuilder:
     class anyClassLevelRule(Rule["ManualWorld"], game=game_name):
         level: int
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
-            expected_count = int(self.level) // 5
+            expected_count = math.ceil(int(self.level) / 5)
             counts = {job: expected_count for job in world.item_name_groups["DOW/DOM"]}
             return HasAnyCount(counts).resolve(world)
 
@@ -62,9 +69,16 @@ if use_rulebuilder:
     class anyCrafterLevelRule(Rule["ManualWorld"], game=game_name):
         level: int
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
-            expected_count = int(self.level) // 5
+            expected_count = math.ceil(int(self.level) / 5)
             counts = {job: expected_count for job in world.item_name_groups["DOH"]}
             return HasAnyCount(counts).resolve(world)
+
+    @dataclasses.dataclass()
+    class fishingLevelRule(Rule["ManualWorld"], game=game_name):
+        level: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = math.ceil(int(self.level) / 5)
+            return Has("5 FSH Levels", expected_count).resolve(world)
 
     @dataclasses.dataclass()
     class EnoughMemoriesRule(Rule["ManualWorld"], game=game_name):

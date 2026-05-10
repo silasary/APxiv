@@ -2,11 +2,13 @@
 Generates static data files from external sources
 """
 import csv
+import dataclasses
 import functools
 import json
 import math
 import os
 import re
+from typing import Literal
 
 import bs4
 import ratelimit
@@ -178,6 +180,31 @@ def load_all_fish():
 #         offset = data.get('query-continue-offset')
 #     f.close()
 
+@dataclasses.dataclass
+class BaitInfo:
+    itemId: int
+    spot: int
+    baitId: int
+    aLure: int
+    mLure: int
+    occurences: int
+
+    @property
+    def bait_name(self) -> str:
+        return lookup_item_name(self.baitId) or f"Unknown bait {self.baitId}"
+
+    @property
+    def spot_info(self) -> dict | None:
+        spots = load_fishing_spots()
+        spot = next((s for s in spots if s['id'] == self.spot), None)
+        return spot
+
+    @property
+    def fish_name(self) -> str:
+        return lookup_item_name(self.itemId) or f"Unknown fish {self.itemId}"
+
+
+
 def load_bait_paths() -> dict[str, dict[str, list[str]]]:
     path = data_path('fish_bait.yaml')
     if os.path.exists(path):
@@ -185,56 +212,58 @@ def load_bait_paths() -> dict[str, dict[str, list[str]]]:
             return yaml.safe_load(f)
     return {}
 
-def scrape_bell():
-    all_fish = {}
-    bait_paths = load_bait_paths()
-    url = 'https://www.garlandtools.org/bell/fish.js'
-    js = requests.get(url).text.replace('\n', ' ')
-    data = re.findall(r'gt.bell.(\w+) = (.*?);', js)
-    with open(data_path('bait.json'), 'r', newline='') as h:
-        bait = json.load(h)
-
-    bait.update(json.loads(data[0][1]))
-    fish = json.loads(data[1][1])
-    for f in fish:
-        if f['zone'] == 'Eulmore - The Buttress':
-            f['zone'] = 'Eulmore'
-        if f['zone'] == 'The Diadem':
-            continue
-        name = f["name"]
-        if name in NOT_IN_FISHING_GUIDE:
-            continue
-        if name not in all_fish:
-            all_fish[name] = {
-                'name': f['name'],
-                'id': f['id'],
-                'zones': {},
-                'lvl': f['lvl'],
-                'category': f['category'],
-                'bigfish': f['rarity'] > 1,
-                'folklore': f.get('folklore'),
-                'timed': f.get('weather') or f.get('during'),
-                }
-        else:
-            all_fish[name]['lvl'] = min(all_fish[name]['lvl'], f['lvl'])
-        all_fish[name]['zones'][f['zone']] = [c[0] for c in f['baits']]
-        bait_paths.setdefault(name, {})
-        for c in f['baits']:
-            if c[0] not in bait_paths[name].setdefault(f['zone'], []):
-                bait_paths[name][f['zone']].append(c[0])
-
-    with open(data_path('fish.json'), 'w', newline='') as h:
-        json.dump(all_fish, h, indent=1)
-    with open(data_path('bait.json'), 'w', newline='') as h:
-        json.dump(bait, h, indent=1)
-    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
-        yaml.dump(bait_paths, h)
-
-def lookup_item_name(id: int | str) -> str | bool:
+def lookup_item_name(id: int | str) -> str | Literal[False]:
     items = teamcraft_json('items')
     if str(id) not in items:
         return False
     return items[str(id)]['en']
+
+def query_gubal_graphql(operation_name: str, query: str, variables: dict = {}) -> dict:
+    url = "https://gubal.ffxivteamcraft.com/graphql"
+    response = requests.post(url, json={'operationName': operation_name, 'query': query, 'variables': variables})
+    if response.status_code != 200:
+        raise Exception(f"GraphQL query failed with status code {response.status_code}: {response.text}")
+    return response.json()
+
+@ratelimit.sleep_and_retry
+@ratelimit.limits(calls=10, period=5)
+def query_baits_per_fish_per_spot(fish_id: int):
+    print(f"Querying gubal for baits per fish per spot for fish ID {fish_id}")
+    query = """
+query BaitsPerFishPerSpotQuery($fishId: Int, $spotId: Int, $misses: Int, $mLureMax: Int, $aLureMax: Int, $mLureMin: Int, $aLureMin: Int) {
+  baits: baits_per_fish_per_spot(
+    where: {spot: {_eq: $spotId}, itemId: {_eq: $fishId, _gt: $misses}, aLure: {_gte: $aLureMin, _lte: $aLureMax}, mLure: {_gte: $mLureMin, _lte: $mLureMax}, occurences: {_gt: 1}}
+  ) {
+    itemId
+    spot
+    baitId
+    aLure
+    mLure
+    occurences
+  }
+  mooches: baits_per_fish_per_spot(
+    where: {spot: {_eq: $spotId}, baitId: {_eq: $fishId, _gt: $misses}, aLure: {_gte: $aLureMin, _lte: $aLureMax}, mLure: {_gte: $mLureMin, _lte: $mLureMax}, occurences: {_gt: 1}}
+  ) {
+    itemId
+    spot
+    baitId
+    aLure
+    mLure
+    occurences
+  }
+}"""
+    variables = {
+        "fishId": fish_id,
+    }
+    response = query_gubal_graphql("BaitsPerFishPerSpotQuery", query, variables)
+    baits = [BaitInfo(**bait) for bait in response['data']['baits']]
+    mooches = [BaitInfo(**bait) for bait in response['data']['mooches']]
+    return {
+        "baits": baits,
+        "mooches": mooches,
+    }
+
+
 
 @functools.lru_cache
 def lookup_item_by_name(name: str) -> dict | None:
@@ -284,6 +313,7 @@ def lookup_fish(id: int | str) -> dict:
 
 def scrape_teamcraft():
     all_fish = load_all_fish()
+    bait_paths = load_bait_paths()
     fish_ids: list[int] = teamcraft_json('fishes')
     fish_ids.sort()
     for fish_id in fish_ids:
@@ -295,21 +325,73 @@ def scrape_teamcraft():
         if name in NOT_IN_FISHING_GUIDE:
             all_fish[name]['tribal'] = True
 
-    for hole in teamcraft_json('fishing-spots'):
-        zone = datamining_csv('PlaceName')[str(hole['placeId'])]
-        place_name = zone['Name']
+    spots = load_fishing_spots()
+    with open(data_path('hole_info.yaml'), 'w', newline='') as h:
+        yaml.dump(spots, h, indent=2)
+
+    i = 0
+
+    for hole in spots:
+        place_name = hole['zone_name']
+        if place_name == "The Diadem":
+            continue
+        spot_name = hole['hole_name']
         for fish_id in hole['fishes']:
             name = lookup_item_name(fish_id)
-            # if name in NOT_IN_FISHING_GUIDE:
-            #     continue
+            if not name:
+                # print(f"Could not find name for fish ID {fish_id}")
+                continue
+            if name in NOT_IN_FISHING_GUIDE:
+                # print(f"Skipping {name} since it's not in the fishing guide")
+                continue
             fish = lookup_fish(fish_id)
             if not fish:
+                print(f"Could not find fish data for {name} (ID {fish_id})")
                 continue
+
             all_fish.setdefault(name, fish)
-            fish.setdefault('zones', {})
-            all_fish[name]['zones'].setdefault(place_name, [])
+            if not bait_paths.setdefault(name, {}) or not bait_paths[name].setdefault(spot_name, []):
+                fill_bait_from_teamcraft(all_fish[name], bait_paths)
+                i += 1
+                if i % 10 == 0:
+                    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+                        yaml.dump(bait_paths, h, indent=1)
+
+
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
+    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+        yaml.dump(bait_paths, h, indent=1)
+
+def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
+    fish_id = fish['id']
+    bait_info = query_baits_per_fish_per_spot(fish_id)
+    per_spot: dict[str, list[BaitInfo]] = {}
+    # per_zone: dict[str, list[BaitInfo]] = {}
+    for bait in bait_info['baits']:
+        per_spot.setdefault(bait.spot_info['hole_name'], []).append(bait)
+        # per_zone.setdefault(bait.spot_info['zone_name'], []).append(bait)
+
+    for spot, baits in per_spot.items():
+        baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
+        best_occurences = baits[0].occurences
+        # Anything that is less that 5% of the optimal bait is best written off as bad data.
+        viable_baits = [b for b in baits if b.occurences >= best_occurences * 0.05]
+        if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
+            viable_baits = viable_baits[1:] + [viable_baits[0]]
+        # fish['spots'][spot] = [b.bait_name for b in viable_baits]
+        bait_paths.setdefault(fish['name'], {})[spot] = [b.bait_name for b in viable_baits]
+
+    # for zone, baits in per_zone.items():
+    #     baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
+    #     best_occurences = baits[0].occurences
+    #     # Anything that is less that 5% of the optimal bait is best written off as bad data.
+    #     viable_baits = [b for b in baits if b.occurences >= best_occurences * 0.05]
+    #     if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
+    #         viable_baits = viable_baits[1:] + [viable_baits[0]]
+    #     fish['logical_bait'][zone] = [b.bait_name for b in viable_baits]
+
+    return
 
 
 def tribal_fish():
@@ -343,25 +425,30 @@ def apply_bait() -> None:
     baitless = []
     all_fish = load_all_fish()
     bait_paths = load_bait_paths()
+    spots = {spot['hole_name']: spot for spot in load_fishing_spots()}
     for name, fish in all_fish.items():
         if fish.get('tribal'):
             continue
-        if 'The <Emphasis>Endeavor</Emphasis>' in fish['zones']:
+        if 'The <Emphasis>Endeavor</Emphasis>' in fish['logical_bait']:
             continue
-        if 'Limsa Lominsa Lower Decks' in fish['zones']:
-            fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
-            del fish['zones']['Limsa Lominsa Lower Decks']
-        if 'Limsa Lominsa Upper Decks' in fish['zones']:
-            fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
-            del fish['zones']['Limsa Lominsa Upper Decks']
 
-        for zone, baits in bait_paths.get(name, {}).items():
-            if len(baits) > 1 and 'Versatile Lure' in baits:
-                baits.remove('Versatile Lure')
+        fish['logical_bait'] = {}
+        fish['all_bait'] = {}
+        if 'zones' in fish:
+            del fish['zones']
+
+        for hole, baits in bait_paths.get(name, {}).copy().items():
+            if not baits:
+                del bait_paths[name][hole]
+                continue
+            zone_name = spots[hole]['zone_name']
+            # if len(baits) > 1 and 'Versatile Lure' in baits:
+            #     baits.remove('Versatile Lure')
             if baits:
-                fish['zones'][zone] = baits
+                fish['all_bait'][zone_name] = baits
+                fish['logical_bait'].setdefault(zone_name, []).append(baits[0])
             else:
-                print(f"No bait for {name} in {zone}")
+                print(f"No bait for {name} in {hole}")
             for bait in baits.copy():
                 if isinstance(bait, list):
                     baits.remove(bait)
@@ -396,26 +483,29 @@ def apply_bait() -> None:
                         print(f"!!! {name} mooches {bait} but cannot find corresponding fish !!!")
                         bait_data[bait] = info
                         continue
-                    mooch_path = bait_paths.setdefault(mooch, {}).setdefault(zone, [])
+                    mooch_path = bait_paths.setdefault(mooch, {}).setdefault(hole, [])
                     if mooch_path:
-                        baits.remove(bait)
+                        index = baits.index(bait)
+                        # baits.remove(bait)
                         new_bait = mooch_path[0]
                         add = new_bait not in baits
                         if new_bait == "Versatile Lure" and baits:
                             add = False
                         if add:
-                            baits.append(new_bait)
+                            baits[index] = new_bait
+                        else:
+                            baits.remove(bait)
                 if bait not in bait_data and not info.get('mooch'):
                     bait_data[bait] = info
 
 
-        if not fish['zones']:
+        if not fish['all_bait']:
             # print(f"No zones for {name}")
             zoneless.append(name)
             continue
         all_bait = []
-        for zone in fish['zones']:
-            all_bait += fish['zones'][zone]
+        for zone_name in fish['all_bait']:
+            all_bait += fish['all_bait'][zone_name]
         if not all_bait:
             print(f"No bait for {name}")
             baitless.append(name)
@@ -440,7 +530,7 @@ def fill_missing_bait() -> None:
 
     # Cat Became Hungry has all fish, but it's HTML and will need to be scraped with bs4
     # https://en.ff14angler.com/
-    updated = scrape_cat(baitless) or updated
+    # updated = scrape_cat(baitless) or updated
     # Console Games Wiki has everything, but it's inconsistent across pages and is only really useful if I want to hand-enter data
 
     if updated:
@@ -456,7 +546,7 @@ def scrape_carby(baitless) -> bool:
     bait_paths = load_bait_paths()
 
     fish_parameters = datamining_csv('FishParameter', "Item")
-    spots = {spot['id']: spot for spot in teamcraft_json('fishing-spots')}
+    spots = {spot['id']: spot for spot in load_fishing_spots()}
 
     carby_text = requests.get('https://raw.githubusercontent.com/icykoneko/ff14-fish-tracker-app/refs/heads/master/private/fishData.yaml').text
     carby_data = yaml.safe_load(carby_text)
@@ -469,8 +559,8 @@ def scrape_carby(baitless) -> bool:
         item = lookup_item_by_name(fish)
         parameter = fish_parameters.get(item['#'])
         spot = spots.get(int(parameter['FishingSpot']))
-        zone = datamining_csv('PlaceName')[str(spot['placeId'])]
-        place_name = zone['Name']
+        place = datamining_csv('PlaceName')[str(spot['zoneId'])]
+        place_name = place['Name']
         if cdata.get('dataMissing', False):
             print(f"Carby is still missing data for {fish}")
             bait_paths.setdefault(fish, {}).setdefault(place_name, [])
@@ -486,6 +576,15 @@ def scrape_carby(baitless) -> bool:
         with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
             yaml.dump(bait_paths, h, indent=1)
     return updated
+
+@functools.lru_cache
+def load_fishing_spots():
+    spots = []
+    for spot in teamcraft_json('fishing-spots'):
+        spot['hole_name'] = datamining_csv('PlaceName')[str(spot['zoneId'])]['Name']
+        spot['zone_name'] = datamining_csv('PlaceName')[str(spot['placeId'])]['Name']
+        spots.append(spot)
+    return spots
 
 def scrape_cat(baitless) -> bool:
     if not baitless:
@@ -599,12 +698,12 @@ def clean_fish():
     all_fish = load_all_fish()
     for fish in all_fish.values():
         to_remove = []
-        for zone, baits in fish['zones'].items():
+        for zone, baits in fish.get('logical_bait', {}).items():
             if not baits:
                 # print(f"Removing {zone} from {fish['name']}")
                 to_remove.append(zone)
         for zone in to_remove:
-            del fish['zones'][zone]
+            del fish['logical_bait'][zone]
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
@@ -616,10 +715,10 @@ def sort_fish():
 
 
 if __name__ == "__main__":
-    # scrape_bell()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
     fill_missing_bait()
     clean_fish()
     sort_fish()
+

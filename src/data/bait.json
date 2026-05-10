@@ -418,10 +418,12 @@
   "name": "Pot Of Stardust"
  },
  "Select Bait Ball": {
-  "name": "Select Bait Ball"
+  "name": "Select Bait Ball",
+  "id": 38808
  },
  "Plump Worm": {
-  "name": "Plump Worm"
+  "name": "Plump Worm",
+  "id": 29716
  },
  "Popper Lure": {
   "name": "Popper Lure",
@@ -466,5 +468,21 @@
  "Ghost Nipper": {
   "name": "Ghost Nipper",
   "id": 43859
+ },
+ "Crab Ball": {
+  "name": "Crab Ball",
+  "id": 2593
+ },
+ "Brass Spoon Lure": {
+  "name": "Brass Spoon Lure",
+  "id": 2612
+ },
+ "Krill": {
+  "name": "Krill",
+  "id": 29715
+ },
+ "Ragworm": {
+  "name": "Ragworm",
+  "id": 29714
  }
 }
