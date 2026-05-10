@@ -3,6 +3,8 @@
 	"Limsa Lominsa": {
 		"requires": "",
 		"connects_to": [
+            "Limsa Lominsa Lower Decks",
+            "Limsa Lominsa Upper Decks",
 			"Lower La Noscea",
 			"Middle La Noscea",
 			"Western La Noscea",
@@ -14,6 +16,12 @@
 		],
 		"starting": true
 	},
+    "Limsa Lominsa Lower Decks": {
+        "connects_to": []
+    },
+    "Limsa Lominsa Upper Decks": {
+        "connects_to": []
+    },
 	"Middle La Noscea":
 	{
 		"requires": "",
@@ -79,6 +87,8 @@
 	"Gridania": {
 		"requires": "",
 		"connects_to": [
+            "Old Gridania",
+            "New Gridania",
 			"Central Shroud",
 			"North Shroud",
 			"East Shroud",
@@ -86,6 +96,12 @@
 		],
 		"starting": true
 	},
+    "Old Gridania": {
+        "connects_to": []
+    },
+    "New Gridania": {
+        "connects_to": []
+    },
 	"Central Shroud":
 	{
 		"requires": "",
@@ -419,7 +435,11 @@
     "Ultima Thule": {
         "requires": "|Ultima Thule Access: 1|",
         "connects_to": [
+            "Elysion"
         ]
+    },
+    "Elysion": {
+        "connects_to": []
     },
     "Thavnair": {
         "requires": "|Thavnair Access: 1|",
@@ -449,6 +469,11 @@
         ]
     },
     "Ocean Fishing": {
+        "connects_to": [
+            "The *Endeavor*"
+        ]
+    },
+    "The *Endeavor*": {
         "connects_to": []
     },
     "The Firmament": {
