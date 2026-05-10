@@ -41,6 +41,18 @@ def before_is_category_enabled(multiworld: MultiWorld, player: int, category_nam
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the item, False to disable it, or None to use the default behavior
 def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> Optional[bool]:
+    from .Data import BOSS_GOAL_KEY_LOCATIONS
+    item_name = item.get('name', '')
+
+    for base_name in BOSS_GOAL_KEY_LOCATIONS.values():
+        # Disable all boss key/key piece items. The correct one is re-enabled in before_create_items_all
+        if item_name in (f"{base_name} Key", f"{base_name} Key Piece"):
+            return False
+        # Disable all boss cleared items. The correct one is placed as a locked item in after_set_rules
+        if item_name == f"{base_name} Cleared":
+            return False
+
+
     return None
 
 # Use this if you want to override the default behavior of is_option_enabled

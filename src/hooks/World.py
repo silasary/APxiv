@@ -251,25 +251,15 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
-    # Remove all auto generated key items so we can add only the variant we need (key vs key piece)
-    for goal_base_area_name in BOSS_GOAL_KEY_LOCATIONS.values():
-        for variant in (f"{goal_base_area_name} Key", f"{goal_base_area_name} Key Piece"):
-            if variant in item_config:
-                item_config[variant] = 0
-
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
     goal_base_area_name = BOSS_GOAL_KEY_LOCATIONS.get(goal_name)
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
 
-    if boss_key_pieces > 0:
-        if goal_base_area_name:
-            key_item = f"{goal_base_area_name} Key" if boss_key_pieces == 1 else f"{goal_base_area_name} Key Piece"
-            item_config[key_item] = boss_key_pieces
-            world._boss_key_item = key_item
-            world._boss_key_pieces = boss_key_pieces
-        else:
-            world._boss_key_item = ""
-            world._boss_key_pieces = 0
+    if boss_key_pieces > 0 and goal_base_area_name:
+        key_item = f"{goal_base_area_name} Key" if boss_key_pieces == 1 else f"{goal_base_area_name} Key Piece"
+        item_config[key_item] = boss_key_pieces
+        world._boss_key_item = key_item
+        world._boss_key_pieces = boss_key_pieces
     else:
         world._boss_key_item = ""
         world._boss_key_pieces = 0
@@ -277,12 +267,6 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     for name in world.culled_access_items:
         if name in item_config:
             item_config[name] = 0
-
-    # Remove the goal trial cleared item from random generation
-    if goal_base_area_name:
-        cleared_name = f"{goal_base_area_name} Cleared"
-        if cleared_name in item_config:
-            item_config[cleared_name] = 0
 
     all_location_names = {l.name for l in world.get_locations()}
     for bait, fish in bait_to_fish.items():
@@ -292,7 +276,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
 
-    # If there's a boss goal, its trial location will host a "cleared" event
+    # If there's a boss goal, its trial location will host a "cleared" item, specifically for the manual client.
     world._goal_trial = None
     if goal_base_area_name:
         for (duty_type, _, _), names in categorizedLocationNames.items():
