@@ -8,9 +8,10 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: silasary/datapackage_validator@main
         with:
-          datapackage-file: datapackage_export.json
+          datapackage-file: ${{ github.workspace }}/datapackage_export.json
           game-name: Final Fantasy XIV
           apworld-path: src
           apworld-name: ffxiv
