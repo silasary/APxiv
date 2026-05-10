@@ -286,5 +286,53 @@
     "requires": "|5 FSH Levels:18| and |Select Bait Ball|",
     "id": 21441,
     "level": 90
+  },
+  "Lunar Lamenter": {
+    "name": "Lunar Lamenter",
+    "category": [
+      "Fish",
+      "fishsanity",
+      "Mare Lamentorum"
+    ],
+    "region": "Mare Lamentorum",
+    "requires": "|5 FSH Levels:18| and |Grey Worm|",
+    "id": 21165,
+    "level": 90
+  },
+  "Calico Trout": {
+    "name": "Calico Trout",
+    "category": [
+      "Fish",
+      "fishsanity",
+      "Il Mheg"
+    ],
+    "region": "Il Mheg",
+    "requires": "|5 FSH Levels:15| and |Fruit Worm|",
+    "id": 20751,
+    "level": 75
+  },
+  "Prospero Eel": {
+    "name": "Prospero Eel",
+    "category": [
+      "Fish",
+      "fishsanity",
+      "The Tempest"
+    ],
+    "region": "The Tempest",
+    "requires": "|5 FSH Levels:16| and |Moyebi Shrimp|",
+    "id": 20752,
+    "level": 80
+  },
+    "Alnairan Salmon": {
+    "name": "Alnairan Salmon",
+    "category": [
+      "Fish",
+      "fishsanity",
+      "Thavnair"
+    ],
+    "region": "Thavnair",
+    "requires": "|5 FSH Levels:17| and |Leech|",
+    "id": 21164,
+    "level": 85
   }
 }

@@ -16891,14 +16891,16 @@
   "id": 26750,
   "lvl": 75,
   "logical_bait": {},
-  "all_bait": {}
+  "all_bait": {},
+  "tribal": true
  },
  "Prospero Eel": {
   "name": "Prospero Eel",
   "id": 26751,
   "lvl": 80,
   "logical_bait": {},
-  "all_bait": {}
+  "all_bait": {},
+  "tribal": true
  },
  "Crystarium Tetra": {
   "name": "Crystarium Tetra",
@@ -23916,17 +23918,35 @@
  },
  "Alnairan Salmon": {
   "name": "Alnairan Salmon",
+  "tribal": true,
   "id": 35849,
   "lvl": 85,
-  "logical_bait": {},
-  "all_bait": {}
+  "logical_bait": {
+   "Thavnair": [
+    "Leech"
+   ]
+  },
+  "all_bait": {
+   "Thavnair": [
+    "Leech"
+   ]
+  }
  },
  "Lunar Lamenter": {
   "name": "Lunar Lamenter",
   "id": 35850,
   "lvl": 90,
-  "logical_bait": {},
-  "all_bait": {}
+  "tribal": true,
+  "logical_bait": {
+   "Mare Lamentorum": [
+    "Grey Worm"
+   ]
+  },
+  "all_bait": {
+   "Mare Lamentorum": [
+    "Grey Worm"
+   ]
+  }
  },
  "Pecten": {
   "name": "Pecten",
