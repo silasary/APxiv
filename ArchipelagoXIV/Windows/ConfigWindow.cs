@@ -13,13 +13,14 @@ public class ConfigWindow : Window, IDisposable
     private string password;
     private bool force_deathlink;
     private bool ignore_class_restrictions;
+    private bool require_synced_duties;
 
     public ConfigWindow(Plugin plugin, ApState apState) : base(
         "AP Config",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 195);
+        this.Size = new Vector2(232, 220);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
@@ -28,6 +29,7 @@ public class ConfigWindow : Window, IDisposable
         this.connection = Configuration.Connection;
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
+        this.require_synced_duties = Configuration.RequireSyncedDuties;
     }
 
     public ApState ApState { get; }
@@ -41,6 +43,7 @@ public class ConfigWindow : Window, IDisposable
         this.password = Configuration.Password;
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
+        this.require_synced_duties = Configuration.RequireSyncedDuties;
     }
 
     public override void Draw()
@@ -58,12 +61,14 @@ public class ConfigWindow : Window, IDisposable
         ImGui.InputText("Password", ref password, 64, ImGuiInputTextFlags.Password);
         ImGui.Checkbox("Death Link always enabled", ref force_deathlink);
         ImGui.Checkbox("Ignore Class Restrictions", ref ignore_class_restrictions);
+        ImGui.Checkbox("Require Synced Duties", ref require_synced_duties);
         if (ImGui.Button("Save & Connect"))
         {
             Configuration.Connection = connection;
             Configuration.SlotName = slotName;
             Configuration.ForceDeathlink = force_deathlink;
             Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
+            Configuration.RequireSyncedDuties = require_synced_duties;
             Configuration.Password = password;
             Configuration.Save();
             ApState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);

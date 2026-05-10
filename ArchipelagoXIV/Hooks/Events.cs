@@ -115,7 +115,11 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
-            if (canReach && atLevel)
+
+            var currentLevel = DalamudApi.ObjectTable.LocalPlayer?.Level ?? DalamudApi.PlayerState.Level;
+            var isSynced = duty.ClassJobLevelSync == 0 || currentLevel <= duty.ClassJobLevelSync;
+
+            if (canReach && atLevel && (!apState.RequireSyncedDuties || isSynced))
             {
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                 if (location == null)
@@ -133,7 +137,7 @@ namespace ArchipelagoXIV.Hooks
                         extraLocation?.Complete(false);
                     }
                 }
-                DalamudApi.PluginLog.Debug("Marking Check {1}", name);
+                DalamudApi.PluginLog.Debug("Marking Check {0}", name);
                 location.Complete(false);
                 apState.Syncing = true;
                 if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
@@ -143,7 +147,10 @@ namespace ArchipelagoXIV.Hooks
             }
             else
             {
-                DalamudApi.Echo("You do not meet the requirements, not submitting check");
+                if (apState.RequireSyncedDuties && !isSynced)
+                    DalamudApi.Echo("Duty completed unsynced, not submitting check (Require Synced Duties is enabled).");
+                else
+                    DalamudApi.Echo("You do not meet the requirements, not submitting check");
             }
         }
 

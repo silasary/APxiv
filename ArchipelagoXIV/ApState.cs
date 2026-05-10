@@ -58,6 +58,7 @@ namespace ArchipelagoXIV
         public bool CanReturn { get; internal set; } = true;
 
         public bool ApplyClassRestrictions { get => !config.IgnoreClassRestrictions; }
+        public bool RequireSyncedDuties { get => config.RequireSyncedDuties; }
 
         public string? JobText
         {
@@ -165,7 +166,8 @@ namespace ArchipelagoXIV
             config.GameName = this.Game.Name;
             config.Save();
             this.DeathLink = session.CreateDeathLinkService();
-            if (loginSuccessful.SlotData.TryGetValue("death_link", out var deathlink)) {
+            if (loginSuccessful.SlotData.TryGetValue("death_link", out var deathlink))
+            {
                 if ((long)deathlink == 1)
                 {
                     DeathLinkEnabled = true;
@@ -319,7 +321,8 @@ namespace ArchipelagoXIV
                 zoneTT.AppendLine($"Available Checks in {region.Name}:");
                 foreach (var l in MissingLocations)
                 {
-                    if (l.Completed) {
+                    if (l.Completed)
+                    {
                         continue;
                     }
                     if (l.region == region)
@@ -420,7 +423,7 @@ namespace ArchipelagoXIV
                         jobtt.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
                 }
             }
-            
+
             DalamudApi.SetJobTooltop(jobtt.ToString());
 
             if (Syncing)
