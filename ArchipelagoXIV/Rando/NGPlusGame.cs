@@ -54,7 +54,23 @@ namespace ArchipelagoXIV.Rando
         internal override void HandleSlotData(Dictionary<string, object> slotData)
         {
             base.HandleSlotData(slotData);
+
+            // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
+            // It moved to index 4
+            var worldVersion = Version.Parse((string)slotData["world_version"]);
+            DalamudApi.PluginLog.Information($"Unparsed world version: {slotData["world_version"]}");
+
+            if (worldVersion < new Version(0, 29, 0))
+            {
+                if (Goal == 1)
+                {
+                    DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
+                    Goal = 4;
+                }
+            }
+
             this.GoalCount = (long)slotData["mcguffins_needed"];
+
             if (SlotData.TryGetValue("extra_dungeon_checks", out var extra_dungeon_checks))
                 this.ExtraDungeonChecks = (long)extra_dungeon_checks;
             if (SlotData.TryGetValue("boss_key_pieces", out var boss_key_pieces))
@@ -62,7 +78,7 @@ namespace ArchipelagoXIV.Rando
             if (SlotData.TryGetValue("boss_key_item", out var boss_key_item))
                 this.BossKeyItemName = boss_key_item as string ?? "";
 
-            DalamudApi.Echo($"Goal is {GoalCount} Memories.");
+            DalamudApi.PluginLog.Information($"Goal is {GoalCount} Memories.");
         }
 
         internal override string GoalString()
