@@ -91,7 +91,7 @@ namespace ArchipelagoXIV.Rando
             VictoryType.DefeatThordan => "The Singularity Reactor",
             VictoryType.DefeatNidhogg => "The Final Steps of Faith",
             VictoryType.DefeatShinryu => "The Royal Menagerie",
-            VictoryType.DefeatTsukuyomi => "The Jade Stoa",
+            VictoryType.DefeatTsukuyomi => "Castrum Fluminis",
             VictoryType.DefeatHades => "The Dying Gasp",
             VictoryType.DefeatWarriorOfLight => "The Seat of Sacrifice",
             VictoryType.DefeatEndsinger => "The Final Day",

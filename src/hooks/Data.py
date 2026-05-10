@@ -34,7 +34,7 @@ BOSS_GOAL_KEY_LOCATIONS: dict[str, str] = {
     "Defeat King Thordan":         "Singularity Reactor",
     "Defeat Nidhogg":              "Final Steps of Faith",
     "Defeat Shinryu":              "Royal Menagerie",
-    "Defeat Tsukuyomi":            "Jade Stoa",
+    "Defeat Tsukuyomi":            "Castrum Fluminis",
     "Defeat Hades":                "Dying Gasp",
     "Defeat the Warrior of Light": "Seat of Sacrifice",
     "Defeat the Endsinger":        "Final Day",
