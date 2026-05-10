@@ -16,8 +16,12 @@
 		],
 		"starting": true
 	},
-    "Limsa Lominsa Lower Decks": {},
-    "Limsa Lominsa Upper Decks": {},
+    "Limsa Lominsa Lower Decks": {
+        "connects_to": []
+    },
+    "Limsa Lominsa Upper Decks": {
+        "connects_to": []
+    },
 	"Middle La Noscea":
 	{
 		"requires": "",
@@ -92,8 +96,12 @@
 		],
 		"starting": true
 	},
-    "Old Gridania": {},
-    "New Gridania": {},
+    "Old Gridania": {
+        "connects_to": []
+    },
+    "New Gridania": {
+        "connects_to": []
+    },
 	"Central Shroud":
 	{
 		"requires": "",
@@ -430,7 +438,9 @@
             "Elysion"
         ]
     },
-    "Elysion": {},
+    "Elysion": {
+        "connects_to": []
+    },
     "Thavnair": {
         "requires": "|Thavnair Access: 1|",
         "connects_to": [
@@ -463,7 +473,9 @@
             "The *Endeavor*"
         ]
     },
-    "The *Endeavor*": {},
+    "The *Endeavor*": {
+        "connects_to": []
+    },
     "The Firmament": {
         "connects_to": []
     },
