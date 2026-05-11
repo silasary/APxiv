@@ -421,7 +421,7 @@ def after_load_item_file(item_table: list) -> list:
     item_table.extend(level_items)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
-    _cleared_id = 90_000
+    _cleared_id = 40_000
     for base_name, _, _ in BOSS_GOAL_DATA.values():
         item_table.append({
             "name": f"{base_name} Cleared",
