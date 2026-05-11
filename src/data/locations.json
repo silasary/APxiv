@@ -14,69 +14,9 @@
             ]
         },
         {
-            "name": "Defeat the Ultima Weapon",
-            "region": "Northern Thanalan",
-            "level": 50,
-            "victory": true
-        },
-        {
-            "name": "Defeat King Thordan",
-            "region": "Azys Lla",
-            "level": 60,
-            "victory": true
-        },
-        {
-            "name": "Defeat Nidhogg",
-            "region": "Ishgard",
-            "level": 60,
-            "victory": true
-        },
-        {
             "name": "Defeat Shinryu",
             "region": "The Lochs",
             "level": 70,
-            "victory": true
-        },
-        {
-            "name": "Defeat Tsukuyomi",
-            "region": "Yanxia",
-            "level": 70,
-            "victory": true
-        },
-        {
-            "name": "Defeat Hades",
-            "region": "The Tempest",
-            "level": 80,
-            "victory": true
-        },
-        {
-            "name": "Defeat the Warrior of Light",
-            "region": "The Crystarium",
-            "level": 80,
-            "victory": true
-        },
-        {
-            "name": "Defeat the Endsinger",
-            "region": "Ultima Thule",
-            "level": 90,
-            "victory": true
-        },
-        {
-            "name": "Defeat Zeromus",
-            "region": "Mare Lamentorum",
-            "level": 90,
-            "victory": true
-        },
-        {
-            "name": "Defeat Sphene",
-            "region": "Living Memory",
-            "level": 100,
-            "victory": true
-        },
-        {
-            "name": "Defeat Necron",
-            "region": "Living Memory",
-            "level": 100,
             "victory": true
         }
     ]
