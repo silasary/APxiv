@@ -125,7 +125,8 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             used_names = world.random.sample(names, count)
 
             goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-            goal_base_duty_name = BOSS_GOAL_DATA.get(goal_name)[0]
+            goal_data = BOSS_GOAL_DATA.get(goal_name)
+            goal_base_duty_name = goal_data[0] if goal_data else None
 
             # Force the goal's required trial into the location pool if it belongs to this category
             if dutyType == "Trial" and goal_base_duty_name:
@@ -175,7 +176,8 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
         goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        goal_base_duty_name = BOSS_GOAL_DATA.get(goal_name)[0]
+        goal_data = BOSS_GOAL_DATA.get(goal_name)
+        goal_base_duty_name = goal_data[0] if goal_data else None
         locations_to_remove = ["Castrum Meridianum", "The Praetorium"]
 
         if goal_base_duty_name != "Porta Decumana":
@@ -253,7 +255,8 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-    goal_duty_base_name = BOSS_GOAL_DATA.get(goal_name)[0]
+    goal_data = BOSS_GOAL_DATA.get(goal_name)
+    goal_duty_base_name = goal_data[0] if goal_data else None
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
 
     if boss_key_pieces > 0 and goal_duty_base_name:
@@ -435,7 +438,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             entrance.access_rule = Entrance.access_rule
 
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-    goal_duty_base_name = BOSS_GOAL_DATA.get(goal_name)[0]
+    goal_data = BOSS_GOAL_DATA.get(goal_name)
+    goal_duty_base_name = goal_data[0] if goal_data else None
     goal_location = multiworld.get_location(goal_name, player)
     goal_trial = getattr(world, '_goal_trial', None)
 
