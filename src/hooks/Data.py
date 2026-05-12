@@ -1,4 +1,3 @@
-from ast import Name
 import csv
 import json
 import pkgutil
