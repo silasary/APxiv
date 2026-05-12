@@ -54,7 +54,7 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
-FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout']
+FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout', '/cheer', '/shrug', '/wave', '/toast']
 
 bonus_regions = {}
 
