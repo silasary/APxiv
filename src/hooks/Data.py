@@ -12,7 +12,8 @@ from itertools import chain
 # 19,000-19,999: Ocean Fishing
 # 20,000-29,999: Fish
 # 30,000-39,999: Extra Dungeon checks
-# 40,000-
+# 40,000-40,499: Boss Goal locations and their clear items
+# 40,500-
 
 
 # called after the game.json file has been loaded
