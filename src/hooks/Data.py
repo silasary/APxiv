@@ -38,6 +38,8 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
+FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout']
+
 bonus_regions = {}
 
 fate_zones = {
@@ -387,6 +389,17 @@ def after_load_item_file(item_table: list) -> list:
         })
     level_items[0]['id'] = 5_000
     item_table.extend(level_items)
+
+    filler_items = []
+    for emote in FILLER_EMOTES:
+        filler_items.append({
+            "name": emote,
+            "category": ["Filler"],
+            "progression": False,
+            "filler": True,
+        })
+    filler_items[0]['id'] = 999_000
+    item_table.extend(filler_items)
 
     return item_table
 
