@@ -203,21 +203,24 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     empty_regions = sorted(empty_regions, key=lambda r: r.distance, reverse=True)
     culled_regions = set()
     culled_access_items = set()
+    unculled_access_items = set()
     for region in empty_regions:
         connected = {e.connected_region for e in region.exits if e.connected_region.distance > region.distance}
         cullable = all(c in culled_regions for c in connected)
+        access_item_name = region.name + " Access"
         if cullable:
             # print(f'Culling unused {region.name}')
-            access_item_name = region.name + " Access"
             culled_access_items.add(access_item_name)
             culled_regions.add(region)
-
+        elif item_name_to_item.get(access_item_name):
+            unculled_access_items.add(access_item_name)
         pass
 
     if hasattr(multiworld, "clear_location_cache"):
         multiworld.clear_location_cache()
     world.culled_access_items = culled_access_items
     world.culled_regions = culled_regions
+    world.unculled_access_items = unculled_access_items
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -231,6 +234,10 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     for name in world.culled_access_items:
         if name in item_config:
             item_config[name] = 0
+
+    for name in world.unculled_access_items:
+        world.push_precollected(world.create_item(name))
+        item_config[name] = 0
 
     all_location_names = {l.name for l in world.get_locations()}
     for bait, fish in bait_to_fish.items():
