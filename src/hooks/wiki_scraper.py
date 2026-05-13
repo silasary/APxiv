@@ -199,17 +199,23 @@ def _build_nm_territory_map(
 
 _HUNT_NAME_IGNORE = { "of", "the", "and" }
 
-_HUNT_NAME_SKIP: dict[str] = {
+_HUNT_NAME_SKIP: set[str] = {
     "Thousand-cast Theda",
     "Shadow-dweller Yamini",
     "Narrow-rift",
     "Gwas-y-neidr"
 }
 
+_HUNT_NAME_MANUAL_FIX: dict[str, str] = {
+    "Croque-mitaine": "Croque-Mitaine",
+}
+
 
 def _normalize_hunt_name(name: str) -> str:
     if name in _HUNT_NAME_SKIP:
         return name
+    elif name in _HUNT_NAME_MANUAL_FIX:
+        return _HUNT_NAME_MANUAL_FIX[name]
 
     words = name.split(" ")
     result: list[str] = []
