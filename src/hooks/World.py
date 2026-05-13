@@ -515,8 +515,11 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
     slot_data["skipped_duties"] = list(world.skipped_duties)
-    apJson = json.loads(pkgutil.get_data(__package__.rsplit('.', 1)[0], 'archipelago.json'))
-    slot_data["world_version"] = apJson.get("world_version", "0.0.0")
+    slot_data["world_version"] = world.world_version.as_simple_string()
+    if slot_data["world_version"] == "0.0.0":
+        # fallback
+        apJson = json.loads(pkgutil.get_data(__package__.rsplit('.', 1)[0], 'archipelago.json') or b'{}') # pyright: ignore[reportOptionalMemberAccess]
+        slot_data["world_version"] = apJson.get("world_version", "0.0.0")
 
     return slot_data
 
