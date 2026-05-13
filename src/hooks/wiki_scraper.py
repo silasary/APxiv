@@ -197,6 +197,32 @@ def _build_nm_territory_map(
     return result
 
 
+_HUNT_NAME_IGNORE = { "of", "the", "and" }
+
+_HUNT_NAME_SKIP: dict[str] = {
+    "Thousand-cast Theda",
+    "Shadow-dweller Yamini",
+    "Narrow-rift",
+    "Gwas-y-neidr"
+}
+
+
+def _normalize_hunt_name(name: str) -> str:
+    if name in _HUNT_NAME_SKIP:
+        return name
+
+    words = name.split(" ")
+    result: list[str] = []
+    
+    for i, word in enumerate(words):
+        if i > 0 and word.lower() in _HUNT_NAME_IGNORE:
+            result.append(word.lower())
+        else:
+            result.append(word[0].upper() + word[1:])
+            
+    return " ".join(result)
+
+
 def _write_hunts_csv(rows: list[dict[str, str]]) -> None:
     out_path = os.path.join(os.path.dirname(__file__), "hunts.csv")
     with open(out_path, "w", newline="", encoding="utf-8") as h:
@@ -306,6 +332,8 @@ def scrape_hunts() -> list[dict[str, str]]:
             
             if not mob_name:
                 continue
+
+            mob_name = _normalize_hunt_name(mob_name)
 
             rows.append({
                 "Name":      mob_name,
