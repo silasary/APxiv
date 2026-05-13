@@ -85,7 +85,8 @@ namespace ArchipelagoXIV.Hooks
 
         }
 
-        public void Disable() {
+        public void Disable()
+        {
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
@@ -121,6 +122,9 @@ namespace ArchipelagoXIV.Hooks
 
             if (canReach && atLevel && (!apState.RequireSyncedDuties || isSynced))
             {
+                if (apState.Game is NGPlusGame ngGame && ngGame.GoalDutyName == name)
+                    ngGame.OnGoalDutyCompleted();
+
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                 if (location == null)
                 {
@@ -140,10 +144,6 @@ namespace ArchipelagoXIV.Hooks
                 DalamudApi.PluginLog.Debug("Marking Check {0}", name);
                 location.Complete(false);
                 apState.Syncing = true;
-                if (apState.Game.GoalType == VictoryType.DefeatShinryu && name == "The Royal Menagerie")
-                {
-                    apState.CompleteGame();
-                }
             }
             else
             {
@@ -218,7 +218,7 @@ namespace ArchipelagoXIV.Hooks
                     name = "The" + name[3..];
 
                 var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
-                
+
 
                 if (location == null)
                 {

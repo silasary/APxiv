@@ -7,13 +7,30 @@ using System.Linq;
 
 namespace ArchipelagoXIV.Rando
 {
-    public enum VictoryType { McGuffin, DefeatShinryu, MaskedCarnivale30, None, PotDFloor50 };
+    public enum VictoryType
+    {
+        McGuffin,
+        DefeatUltimaWeapon,
+        DefeatThordan,
+        DefeatNidhogg,
+        DefeatShinryu,
+        DefeatTsukuyomi,
+        DefeatHades,
+        DefeatWarriorOfLight,
+        DefeatEndsinger,
+        DefeatZeromus,
+        DefeatSphene,
+        DefeatNecron,
+        MaskedCarnivale30,
+        None,
+        PotDFloor50
+    };
 
     public abstract class BaseGame(ApState apState)
     {
         protected ApState apState = apState;
 
-        public int Goal { get; private set; }
+        public int Goal { get; protected set; }
         public abstract bool HasMapItems { get; }
 
         private readonly string[] DHLJobs = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL", "MIN", "BTN", "FSH"];
@@ -52,7 +69,7 @@ namespace ArchipelagoXIV.Rando
 
         internal virtual void ProcessItem(ItemInfo item, string itemName)
         {
-            
+
         }
 
         internal virtual void HandleSlotData(Dictionary<string, object> slotData)
@@ -73,7 +90,17 @@ namespace ArchipelagoXIV.Rando
         {
             VictoryType.None => "No Goal set",
             VictoryType.McGuffin => "McGuffin Hunt",
+            VictoryType.DefeatUltimaWeapon => "Defeat the Ultima Weapon at The Porta Decumana",
+            VictoryType.DefeatThordan => "Defeat King Thordan at The Singularity Reactor",
+            VictoryType.DefeatNidhogg => "Defeat Nidhogg at The Final Steps of Faith",
             VictoryType.DefeatShinryu => "Defeat Shinryu at The Royal Menagerie",
+            VictoryType.DefeatTsukuyomi => "Defeat Tsukuyomi at Castrum Fluminis",
+            VictoryType.DefeatHades => "Defeat Hades at The Dying Gasp",
+            VictoryType.DefeatWarriorOfLight => "Defeat the Warrior of Light at The Seat of Sacrifice",
+            VictoryType.DefeatEndsinger => "Defeat the Endsinger at The Final Day",
+            VictoryType.DefeatZeromus => "Defeat Zeromus at The Abyssal Fracture",
+            VictoryType.DefeatSphene => "Defeat Sphene at The Interphos",
+            VictoryType.DefeatNecron => "Defeat Necron at The Ageless Necropolis",
             VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
             VictoryType.PotDFloor50 => "Clear Floor 50 of Palace of the Dead",
             _ => "Unknown Goal",

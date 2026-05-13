@@ -2,12 +2,14 @@ from collections import defaultdict
 import json
 import math
 import os
+import pkgutil
 from typing import Any
 
 import Utils
 from BaseClasses import CollectionState, Item, ItemClassification, LocationProgressType, MultiWorld, Entrance
 from Options import OptionError
 from worlds.AutoWorld import World
+from worlds.generic.Rules import add_rule
 
 # Raw JSON data from the Manual apworld, respectively:
 #          data/game.json, data/items.json, data/locations.json, data/regions.json
@@ -20,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -110,14 +112,29 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
+
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, _dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
+
             if count is None:
                 continue
+
             count = min(len(names), count)
             used_names = world.random.sample(names, count)
+
+            goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+            goal_data = BOSS_GOAL_DATA.get(goal_name)
+            goal_base_duty_name = goal_data[0] if goal_data else None
+
+            # Force the goal's required trial into the location pool if it belongs to this category
+            if dutyType == "Trial" and goal_base_duty_name:
+                goal_trial = next((n for n in names if n == f"The {goal_base_duty_name}" or n == goal_base_duty_name), None)
+
+                if goal_trial and goal_trial not in used_names:
+                    used_names.append(goal_trial)
+
             for name in names:
                 if name not in used_names:
                     world.skipped_duties.add(name)
@@ -158,7 +175,16 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
-        locationNamesToRemove.extend(["The Porta Decumana", "Castrum Meridianum", "The Praetorium"])
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        goal_data = BOSS_GOAL_DATA.get(goal_name)
+        goal_base_duty_name = goal_data[0] if goal_data else None
+        locations_to_remove = ["Castrum Meridianum", "The Praetorium"]
+
+        if goal_base_duty_name != "Porta Decumana":
+            # Add ultima weapon trial regardless of MSQ settings, if set as goal
+            locations_to_remove.append("The Porta Decumana")
+
+        locationNamesToRemove.extend(locations_to_remove)
 
 
     # Find all region access items.
@@ -228,6 +254,20 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 #       will create 5 items that are the "useful trap" class
 # {"Item Name": {ItemClassification.useful: 5}} <- You can also use the classification directly
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
+    goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+    goal_data = BOSS_GOAL_DATA.get(goal_name)
+    goal_duty_base_name = goal_data[0] if goal_data else None
+    boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
+
+    if boss_key_pieces > 0 and goal_duty_base_name:
+        key_item = f"{goal_duty_base_name} Key" if boss_key_pieces == 1 else f"{goal_duty_base_name} Key Piece"
+        item_config[key_item] = boss_key_pieces
+        world._boss_key_item = key_item
+        world._boss_key_pieces = boss_key_pieces
+    else:
+        world._boss_key_item = ""
+        world._boss_key_pieces = 0
+
     for name in world.culled_access_items:
         if name in item_config:
             item_config[name] = 0
@@ -239,6 +279,20 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     item_count = sum(item_config.values())
     location_count = len(world.get_locations())
+
+    # If there's a boss goal, its trial location will host a "cleared" item, specifically for the manual client.
+    world._goal_trial = None
+
+    if goal_duty_base_name:
+        for (duty_type, _, _), names in categorizedLocationNames.items():
+            if duty_type == "Trial":
+                goal_trial = next((n for n in names if n == f"The {goal_duty_base_name}" or n == goal_duty_base_name), None)
+
+                if goal_trial and goal_trial in all_location_names:
+                    world._goal_trial = goal_trial
+                    location_count -= 1
+                    break
+
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
     capped_count = math.ceil(min(level_cap, actual_level_cap) / 5)
@@ -246,9 +300,14 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count - capped_count
 
-    item_config['Memory of a Distant World'] = min(remaining // 4, 50)
+    if goal_duty_base_name:
+        # Boss goal: no McGuffins needed
+        item_config['Memory of a Distant World'] = 0
+        world.mcguffins_needed = 0
+    else:
+        item_config['Memory of a Distant World'] = min(remaining // 4, 50)
+        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
     item_count += item_config['Memory of a Distant World']
-    world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
 
     if is_fishing_enabled(multiworld, player):
         prog_levels = ['5 FSH Levels'] + prog_levels
@@ -378,6 +437,35 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             entrance.hide_path = True
             entrance.access_rule = Entrance.access_rule
 
+    goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+    goal_data = BOSS_GOAL_DATA.get(goal_name)
+    goal_duty_base_name = goal_data[0] if goal_data else None
+    goal_location = multiworld.get_location(goal_name, player)
+    goal_trial = getattr(world, '_goal_trial', None)
+
+    if goal_duty_base_name and goal_trial:
+        event_name = f"{goal_duty_base_name} Cleared"
+        trial_location = multiworld.get_location(goal_trial, player)
+
+        # Put goal's "Cleared" item into it's trial location and require it for goal
+        item_id = world.item_name_to_id.get(event_name)
+        trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
+        trial_location.place_locked_item(trial_event)
+
+        def has_cleared_goal_trial(state: CollectionState) -> bool:
+            return state.has(event_name, player)
+
+        add_rule(goal_location, has_cleared_goal_trial)
+
+        key_item = getattr(world, "_boss_key_item", "")
+        key_count = getattr(world, "_boss_key_pieces", 0)
+
+        if key_item and key_count > 0:
+            def has_enough_key_pieces(state: CollectionState) -> bool:
+                return state.count(key_item, player) >= key_count
+
+            add_rule(trial_location, has_enough_key_pieces)
+
 # This method is called before the victory location has the victory event placed and locked
 def before_pre_fill(world: World, multiworld: MultiWorld, player: int):
     pass
@@ -427,12 +515,20 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
     slot_data["skipped_duties"] = list(world.skipped_duties)
-    slot_data.setdefault("world_version", world.world_version)
+    slot_data["world_version"] = world.world_version.as_simple_string()
+    if slot_data["world_version"] == "0.0.0":
+        # fallback
+        apJson = json.loads(pkgutil.get_data(__package__.rsplit('.', 1)[0], 'archipelago.json') or b'{}') # pyright: ignore[reportOptionalMemberAccess]
+        slot_data["world_version"] = apJson.get("world_version", "0.0.0")
+
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["mcguffins_needed"] = world.mcguffins_needed
+    slot_data["boss_key_pieces"] = getattr(world, "_boss_key_pieces", 0)
+    slot_data["boss_key_item"] = getattr(world, "_boss_key_item", "")
+
     return slot_data
 
 # This is called right at the end, in case you want to write stuff to the spoiler log

@@ -463,5 +463,137 @@
         "category": ["Raid Key"],
         "count": 1,
         "progression": true
+    },
+        {
+        "name": "Porta Decumana Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Porta Decumana Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Singularity Reactor Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Singularity Reactor Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Steps of Faith Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Steps of Faith Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Royal Menagerie Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Royal Menagerie Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Castrum Fluminis Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Castrum Fluminis Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Dying Gasp Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Dying Gasp Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Seat of Sacrifice Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Seat of Sacrifice Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Day Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Day Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Abyssal Fracture Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Abyssal Fracture Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Interphos Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Interphos Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Ageless Necropolis Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Ageless Necropolis Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
     }
 ]

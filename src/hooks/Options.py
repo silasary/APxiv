@@ -199,6 +199,20 @@ class McGuffinsNeeded(Range):
     range_start = 1
     range_end = 100
 
+class BossKeyPieces(Range):
+    """
+    Number of key pieces required to challenge the final boss (boss goal only).
+
+    When set to 0, no key is required and the victory location is accessible on region and level alone.
+    When set to 1-10, that many key items are shuffled into the item pool
+    and must all be collected before the goal location is accessible.
+    Has no effect when the goal is set to McGuffin Hunt (Collect Memories).
+    """
+    display_name = "Boss Key Pieces"
+    default = 0
+    range_start = 0
+    range_end = 10
+
 class ForceJob(OptionSet):
     """
     Choose which classes are progression.
@@ -283,8 +297,10 @@ class FatesPerZone(Range):
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
-    # Goal
+    options["goal"] = None
     options["mcguffins_needed"] = McGuffinsNeeded
+    options["boss_key_pieces"] = BossKeyPieces
+
     # Duties
     options["duty_difficulty"] = DutyDifficulty
     options["max_party_size"] = MaxPartySize
@@ -317,6 +333,7 @@ def before_options_defined(options: dict) -> dict:
     # Jobs
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
+
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
