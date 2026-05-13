@@ -12503,21 +12503,21 @@
  "Deep Velodyna Carp": {
   "name": "Deep Velodyna Carp",
   "id": 17949,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 64,
   "tribal": true
  },
  "Harutsuge Sprag": {
   "name": "Harutsuge Sprag",
   "id": 17950,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 68,
   "tribal": true
  },
  "Giant Plesiosaur": {
   "name": "Giant Plesiosaur",
   "id": 17952,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
@@ -15440,182 +15440,182 @@
  "Sunshell": {
   "name": "Sunshell",
   "id": 22668,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Steppe Barramundi": {
   "name": "Steppe Barramundi",
   "id": 22669,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Water Fan": {
   "name": "Water Fan",
   "id": 22670,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Arrowhead Snail": {
   "name": "Arrowhead Snail",
   "id": 22671,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Invisible Catfish": {
   "name": "Invisible Catfish",
   "id": 22672,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Khaal Crab": {
   "name": "Khaal Crab",
   "id": 22673,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Fish Offering": {
   "name": "Fish Offering",
   "id": 22674,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Fatty Eel": {
   "name": "Fatty Eel",
   "id": 22675,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Crimson Copperfish": {
   "name": "Crimson Copperfish",
   "id": 22676,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Zagas A'khaal": {
   "name": "Zagas A'khaal",
   "id": 22677,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Gigas Catfish": {
   "name": "Gigas Catfish",
   "id": 22678,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Rainbow Killifish": {
   "name": "Rainbow Killifish",
   "id": 22679,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Steppe Sweetfish": {
   "name": "Steppe Sweetfish",
   "id": 22680,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Greasy Strangler": {
   "name": "Greasy Strangler",
   "id": 22681,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Grass Shrimp": {
   "name": "Grass Shrimp",
   "id": 22682,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Flagon Clam": {
   "name": "Flagon Clam",
   "id": 22683,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Moon Oyster": {
   "name": "Moon Oyster",
   "id": 22684,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Leatherscale": {
   "name": "Leatherscale",
   "id": 22685,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Dusk Scallop": {
   "name": "Dusk Scallop",
   "id": 22686,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Spikefish": {
   "name": "Spikefish",
   "id": 22687,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Nhaama's Claw": {
   "name": "Nhaama's Claw",
   "id": 22688,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Spearhead Snail": {
   "name": "Spearhead Snail",
   "id": 22689,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Granite Hardscale": {
   "name": "Granite Hardscale",
   "id": 22690,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Plump Trout": {
   "name": "Plump Trout",
   "id": 22691,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Appleseed": {
   "name": "Appleseed",
   "id": 22692,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
  "Crawling Cog": {
   "name": "Crawling Cog",
   "id": 22693,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
@@ -16035,7 +16035,7 @@
  "Fishy Fish": {
   "name": "Fishy Fish",
   "id": 23171,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 60,
   "tribal": true
  },
@@ -19405,140 +19405,140 @@
  "Glowfish": {
   "name": "Glowfish",
   "id": 29564,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Shimmershell": {
   "name": "Shimmershell",
   "id": 29565,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Dalan's Claw": {
   "name": "Dalan's Claw",
   "id": 29566,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Magma Eel": {
   "name": "Magma Eel",
   "id": 29567,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Mossy Tortoise": {
   "name": "Mossy Tortoise",
   "id": 29568,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Clawbow": {
   "name": "Splendid Clawbow",
   "id": 29569,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Trout": {
   "name": "Splendid Trout",
   "id": 29570,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Eryops": {
   "name": "Splendid Eryops",
   "id": 29571,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Robber Crab": {
   "name": "Splendid Robber Crab",
   "id": 29572,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Poison Catfish": {
   "name": "Splendid Poison Catfish",
   "id": 29575,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Pondfrond": {
   "name": "Splendid Pondfrond",
   "id": 29576,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Spiralshell": {
   "name": "Splendid Spiralshell",
   "id": 29577,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Silver Kitten": {
   "name": "Splendid Silver Kitten",
   "id": 29580,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Magmatongue": {
   "name": "Splendid Magmatongue",
   "id": 29582,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Treescale": {
   "name": "Splendid Treescale",
   "id": 29583,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Pipira": {
   "name": "Splendid Pipira",
   "id": 29584,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Shellfish": {
   "name": "Splendid Shellfish",
   "id": 29585,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Egg-bearing Trout": {
   "name": "Splendid Egg-bearing Trout",
   "id": 29586,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Diamondtongue": {
   "name": "Splendid Diamondtongue",
   "id": 29587,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
  "Splendid Larva": {
   "name": "Splendid Larva",
   "id": 29588,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 70,
   "tribal": true
  },
@@ -20983,7 +20983,7 @@
  "Grade 2 Skybuilders' Cloudskipper": {
   "name": "Grade 2 Skybuilders' Cloudskipper",
   "id": 29994,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21002,7 +21002,7 @@
  "Grade 2 Skybuilders' Meditator": {
   "name": "Grade 2 Skybuilders' Meditator",
   "id": 29995,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21023,7 +21023,7 @@
  "Grade 2 Skybuilders' Coeurlfish": {
   "name": "Grade 2 Skybuilders' Coeurlfish",
   "id": 29996,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21038,7 +21038,7 @@
  "Grade 2 Skybuilders' Garpike": {
   "name": "Grade 2 Skybuilders' Garpike",
   "id": 29997,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21054,7 +21054,7 @@
  "Grade 2 Skybuilders' Pirarucu": {
   "name": "Grade 2 Skybuilders' Pirarucu",
   "id": 29998,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21068,7 +21068,7 @@
  "Grade 2 Skybuilders' Brown Bolo": {
   "name": "Grade 2 Skybuilders' Brown Bolo",
   "id": 29999,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Versatile Lure",
@@ -21083,7 +21083,7 @@
  "Grade 2 Skybuilders' Bitterling": {
   "name": "Grade 2 Skybuilders' Bitterling",
   "id": 30000,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Grade 2 Skybuilders' Cloudskipper",
@@ -21098,7 +21098,7 @@
  "Grade 2 Skybuilders' Caiman": {
   "name": "Grade 2 Skybuilders' Caiman",
   "id": 30001,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Butterworm",
     "Grade 2 Skybuilders' Cloudskipper",
@@ -21112,7 +21112,7 @@
  "Grade 2 Skybuilders' Cloud Cutter": {
   "name": "Grade 2 Skybuilders' Cloud Cutter",
   "id": 30002,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Diadem Balloon Bug",
@@ -21131,7 +21131,7 @@
  "Grade 2 Skybuilders' Vampiric Tapestry": {
   "name": "Grade 2 Skybuilders' Vampiric Tapestry",
   "id": 30003,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Diadem Balloon Bug",
@@ -21153,7 +21153,7 @@
  "Grade 2 Skybuilders' Tupuxuara": {
   "name": "Grade 2 Skybuilders' Tupuxuara",
   "id": 30004,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Balloon Bug",
     "Diadem Crane Fly",
@@ -21171,7 +21171,7 @@
  "Grade 2 Skybuilders' Blind Manta": {
   "name": "Grade 2 Skybuilders' Blind Manta",
   "id": 30005,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Grade 2 Skybuilders' Cloud Cutter",
@@ -21189,7 +21189,7 @@
  "Grade 2 Artisanal Skybuilders' Rhomaleosaurus": {
   "name": "Grade 2 Artisanal Skybuilders' Rhomaleosaurus",
   "id": 30006,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Grade 2 Skybuilders' Cloud Cutter",
     "Grade 3 Skybuilders' Scorpionfly",
@@ -21204,7 +21204,7 @@
  "Grade 2 Artisanal Skybuilders' Gobbie Mask": {
   "name": "Grade 2 Artisanal Skybuilders' Gobbie Mask",
   "id": 30007,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Grade 2 Skybuilders' Cloud Cutter",
     "Versatile Lure",
@@ -21218,7 +21218,7 @@
  "Grade 2 Artisanal Skybuilders' Pterodactyl": {
   "name": "Grade 2 Artisanal Skybuilders' Pterodactyl",
   "id": 30008,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Crane Fly",
     "Diadem Crane Fly",
@@ -21233,7 +21233,7 @@
  "Grade 2 Artisanal Skybuilders' Skyfish": {
   "name": "Grade 2 Artisanal Skybuilders' Skyfish",
   "id": 30009,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Hoverworm",
     "Diadem Hoverworm",
@@ -21247,7 +21247,7 @@
  "Grade 2 Artisanal Skybuilders' Cometfish": {
   "name": "Grade 2 Artisanal Skybuilders' Cometfish",
   "id": 30010,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Balloon Bug",
     "Diadem Balloon Bug"
@@ -21262,7 +21262,7 @@
  "Grade 2 Artisanal Skybuilders' Anomalocaris": {
   "name": "Grade 2 Artisanal Skybuilders' Anomalocaris",
   "id": 30011,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Diadem Red Balloon"
@@ -21277,7 +21277,7 @@
  "Grade 2 Artisanal Skybuilders' Rhamphorhynchus": {
   "name": "Grade 2 Artisanal Skybuilders' Rhamphorhynchus",
   "id": 30012,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Crane Fly",
     "Diadem Crane Fly"
@@ -21292,7 +21292,7 @@
  "Grade 2 Artisanal Skybuilders' Dragon's Soul": {
   "name": "Grade 2 Artisanal Skybuilders' Dragon's Soul",
   "id": 30013,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Hoverworm",
     "Diadem Hoverworm"
@@ -21584,7 +21584,7 @@
  "Petal Shell": {
   "name": "Petal Shell",
   "id": 31129,
-  "zones": {
+  "logical_bait": {
    "Yanxia": [
     "Signature Skyball"
    ]
@@ -21596,7 +21596,7 @@
  "Allagan Hunter": {
   "name": "Allagan Hunter",
   "id": 31134,
-  "zones": {
+  "logical_bait": {
    "Azys Lla": [
     "Signature Skyball"
    ]
@@ -21608,7 +21608,7 @@
  "Grade 3 Skybuilders' Thunderbolt Sculpin": {
   "name": "Grade 3 Skybuilders' Thunderbolt Sculpin",
   "id": 31578,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -21618,7 +21618,7 @@
  "Grade 3 Skybuilders' Alligator Snapping Turtle": {
   "name": "Grade 3 Skybuilders' Alligator Snapping Turtle",
   "id": 31579,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -21628,7 +21628,7 @@
  "Grade 3 Skybuilders' Bonytongue": {
   "name": "Grade 3 Skybuilders' Bonytongue",
   "id": 31580,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -21638,7 +21638,7 @@
  "Grade 3 Skybuilders' Hermit Goby": {
   "name": "Grade 3 Skybuilders' Hermit Goby",
   "id": 31581,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -21648,7 +21648,7 @@
  "Grade 3 Skybuilders' Mudskipper": {
   "name": "Grade 3 Skybuilders' Mudskipper",
   "id": 31582,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21658,7 +21658,7 @@
  "Grade 3 Skybuilders' Steppe Bullfrog": {
   "name": "Grade 3 Skybuilders' Steppe Bullfrog",
   "id": 31583,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21668,7 +21668,7 @@
  "Grade 3 Skybuilders' Golden Loach": {
   "name": "Grade 3 Skybuilders' Golden Loach",
   "id": 31584,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21678,7 +21678,7 @@
  "Grade 3 Skybuilders' Bass": {
   "name": "Grade 3 Skybuilders' Bass",
   "id": 31585,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21688,7 +21688,7 @@
  "Grade 3 Skybuilders' Cherax": {
   "name": "Grade 3 Skybuilders' Cherax",
   "id": 31586,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21698,7 +21698,7 @@
  "Grade 3 Skybuilders' Marimo": {
   "name": "Grade 3 Skybuilders' Marimo",
   "id": 31587,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21708,7 +21708,7 @@
  "Grade 3 Skybuilders' Catfish": {
   "name": "Grade 3 Skybuilders' Catfish",
   "id": 31588,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21718,7 +21718,7 @@
  "Grade 3 Skybuilders' Ricefish": {
   "name": "Grade 3 Skybuilders' Ricefish",
   "id": 31589,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -21728,7 +21728,7 @@
  "Grade 3 Skybuilders' Scorpionfly": {
   "name": "Grade 3 Skybuilders' Scorpionfly",
   "id": 31590,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Diadem Red Balloon",
@@ -21743,7 +21743,7 @@
  "Grade 3 Skybuilders' Whiteloom": {
   "name": "Grade 3 Skybuilders' Whiteloom",
   "id": 31591,
-  "zones": {
+  "logical_bait": {
    "The Diadem": [
     "Diadem Red Balloon",
     "Grade 3 Skybuilders' Scorpionfly",
@@ -21759,7 +21759,7 @@
  "Grade 3 Skybuilders' Pteranodon": {
   "name": "Grade 3 Skybuilders' Pteranodon",
   "id": 31592,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21769,7 +21769,7 @@
  "Grade 3 Skybuilders' King's Mantle": {
   "name": "Grade 3 Skybuilders' King's Mantle",
   "id": 31593,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21779,7 +21779,7 @@
  "Grade 3 Skybuilders' Blue Medusa": {
   "name": "Grade 3 Skybuilders' Blue Medusa",
   "id": 31594,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21789,7 +21789,7 @@
  "Grade 3 Skybuilders' Gurnard": {
   "name": "Grade 3 Skybuilders' Gurnard",
   "id": 31595,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21799,7 +21799,7 @@
  "Grade 3 Artisanal Skybuilders' Oscar": {
   "name": "Grade 3 Artisanal Skybuilders' Oscar",
   "id": 31596,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21809,7 +21809,7 @@
  "Grade 3 Artisanal Skybuilders' Blind Manta": {
   "name": "Grade 3 Artisanal Skybuilders' Blind Manta",
   "id": 31597,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21819,7 +21819,7 @@
  "Grade 3 Artisanal Skybuilders' Mosasaur": {
   "name": "Grade 3 Artisanal Skybuilders' Mosasaur",
   "id": 31598,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21829,7 +21829,7 @@
  "Grade 3 Artisanal Skybuilders' Storm Chaser": {
   "name": "Grade 3 Artisanal Skybuilders' Storm Chaser",
   "id": 31599,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21839,7 +21839,7 @@
  "Grade 3 Artisanal Skybuilders' Archaeopteryx": {
   "name": "Grade 3 Artisanal Skybuilders' Archaeopteryx",
   "id": 31600,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21851,7 +21851,7 @@
  "Grade 3 Artisanal Skybuilders' Wyvern": {
   "name": "Grade 3 Artisanal Skybuilders' Wyvern",
   "id": 31601,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21863,7 +21863,7 @@
  "Grade 3 Artisanal Skybuilders' Cloudshark": {
   "name": "Grade 3 Artisanal Skybuilders' Cloudshark",
   "id": 31602,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21875,7 +21875,7 @@
  "Grade 3 Artisanal Skybuilders' Helicoprion": {
   "name": "Grade 3 Artisanal Skybuilders' Helicoprion",
   "id": 31603,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -21887,7 +21887,7 @@
  "Flintstrike": {
   "name": "Flintstrike",
   "id": 31770,
-  "zones": {
+  "logical_bait": {
    "Azys Lla": [
     "Signature Skyball"
    ]
@@ -21899,7 +21899,7 @@
  "Pickled Pom": {
   "name": "Pickled Pom",
   "id": 31771,
-  "zones": {
+  "logical_bait": {
    "Azys Lla": [
     "Signature Skyball"
    ]
@@ -23165,7 +23165,7 @@
  "Grade 4 Skybuilders' Zagas Khaal": {
   "name": "Grade 4 Skybuilders' Zagas Khaal",
   "id": 32882,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -23175,7 +23175,7 @@
  "Grade 4 Skybuilders' Goldsmith Crab": {
   "name": "Grade 4 Skybuilders' Goldsmith Crab",
   "id": 32883,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -23185,7 +23185,7 @@
  "Grade 4 Skybuilders' Common Bitterling": {
   "name": "Grade 4 Skybuilders' Common Bitterling",
   "id": 32884,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -23195,7 +23195,7 @@
  "Grade 4 Skybuilders' Skyloach": {
   "name": "Grade 4 Skybuilders' Skyloach",
   "id": 32885,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 10,
@@ -23205,7 +23205,7 @@
  "Grade 4 Skybuilders' Glacier Core": {
   "name": "Grade 4 Skybuilders' Glacier Core",
   "id": 32886,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23215,7 +23215,7 @@
  "Grade 4 Skybuilders' Kissing Fish": {
   "name": "Grade 4 Skybuilders' Kissing Fish",
   "id": 32887,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23225,7 +23225,7 @@
  "Grade 4 Skybuilders' Cavalry Catfish": {
   "name": "Grade 4 Skybuilders' Cavalry Catfish",
   "id": 32888,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23235,7 +23235,7 @@
  "Grade 4 Skybuilders' Manasail": {
   "name": "Grade 4 Skybuilders' Manasail",
   "id": 32889,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23245,7 +23245,7 @@
  "Grade 4 Skybuilders' Starflower": {
   "name": "Grade 4 Skybuilders' Starflower",
   "id": 32890,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23255,7 +23255,7 @@
  "Grade 4 Skybuilders' Cyan Crab": {
   "name": "Grade 4 Skybuilders' Cyan Crab",
   "id": 32891,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23265,7 +23265,7 @@
  "Grade 4 Skybuilders' Fickle Krait": {
   "name": "Grade 4 Skybuilders' Fickle Krait",
   "id": 32892,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23275,7 +23275,7 @@
  "Grade 4 Skybuilders' Proto-hropken": {
   "name": "Grade 4 Skybuilders' Proto-hropken",
   "id": 32893,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 60,
@@ -23285,7 +23285,7 @@
  "Grade 4 Skybuilders' Ghost Faerie": {
   "name": "Grade 4 Skybuilders' Ghost Faerie",
   "id": 32894,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23295,7 +23295,7 @@
  "Grade 4 Skybuilders' Ashfish": {
   "name": "Grade 4 Skybuilders' Ashfish",
   "id": 32895,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23305,7 +23305,7 @@
  "Grade 4 Skybuilders' Whitehorse": {
   "name": "Grade 4 Skybuilders' Whitehorse",
   "id": 32896,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23315,7 +23315,7 @@
  "Grade 4 Skybuilders' Ocean Cloud": {
   "name": "Grade 4 Skybuilders' Ocean Cloud",
   "id": 32897,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23325,7 +23325,7 @@
  "Grade 4 Skybuilders' Black Fanfish": {
   "name": "Grade 4 Skybuilders' Black Fanfish",
   "id": 32898,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23335,7 +23335,7 @@
  "Grade 4 Skybuilders' Sunfish": {
   "name": "Grade 4 Skybuilders' Sunfish",
   "id": 32899,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23345,7 +23345,7 @@
  "Grade 4 Artisanal Skybuilders' Sweatfish": {
   "name": "Grade 4 Artisanal Skybuilders' Sweatfish",
   "id": 32900,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23355,7 +23355,7 @@
  "Grade 4 Artisanal Skybuilders' Sculptor": {
   "name": "Grade 4 Artisanal Skybuilders' Sculptor",
   "id": 32901,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23365,7 +23365,7 @@
  "Grade 4 Artisanal Skybuilders' Little Thalaos": {
   "name": "Grade 4 Artisanal Skybuilders' Little Thalaos",
   "id": 32902,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23375,7 +23375,7 @@
  "Grade 4 Artisanal Skybuilders' Lightning Chaser": {
   "name": "Grade 4 Artisanal Skybuilders' Lightning Chaser",
   "id": 32903,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23385,7 +23385,7 @@
  "Grade 4 Artisanal Skybuilders' Marrella": {
   "name": "Grade 4 Artisanal Skybuilders' Marrella",
   "id": 32904,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23397,7 +23397,7 @@
  "Grade 4 Artisanal Skybuilders' Crimson Namitaro": {
   "name": "Grade 4 Artisanal Skybuilders' Crimson Namitaro",
   "id": 32905,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23409,7 +23409,7 @@
  "Grade 4 Artisanal Skybuilders' Griffin": {
   "name": "Grade 4 Artisanal Skybuilders' Griffin",
   "id": 32906,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -23421,7 +23421,7 @@
  "Grade 4 Artisanal Skybuilders' Meganeura": {
   "name": "Grade 4 Artisanal Skybuilders' Meganeura",
   "id": 32907,
-  "zones": {
+  "logical_bait": {
    "The Diadem": []
   },
   "lvl": 80,
@@ -26146,7 +26146,7 @@
  "Timeworn Kumbhiraskin Map": {
   "name": "Timeworn Kumbhiraskin Map",
   "id": 36612,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
@@ -26555,175 +26555,175 @@
  "Soggy Alien Kelp": {
   "name": "Soggy Alien Kelp",
   "id": 38324,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Stellar Herring": {
   "name": "Stellar Herring",
   "id": 38325,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Meteoric Bonito": {
   "name": "Meteoric Bonito",
   "id": 38326,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Copperscale": {
   "name": "Copperscale",
   "id": 38327,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Methane Puffer": {
   "name": "Methane Puffer",
   "id": 38328,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Chemically Rich Fish": {
   "name": "Chemically Rich Fish",
   "id": 38329,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Wildlife Sample": {
   "name": "Wildlife Sample",
   "id": 38330,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Nondescript Fish": {
   "name": "Nondescript Fish",
   "id": 38331,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Fresh Seaweed": {
   "name": "Fresh Seaweed",
   "id": 38332,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Elysian Nudibranch": {
   "name": "Elysian Nudibranch",
   "id": 38333,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Sticky Fingers": {
   "name": "Sticky Fingers",
   "id": 38334,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Elysian Stickleback": {
   "name": "Elysian Stickleback",
   "id": 38335,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Saltwater Fish": {
   "name": "Saltwater Fish",
   "id": 38336,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Seaweed Snapper": {
   "name": "Seaweed Snapper",
   "id": 38337,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Karellian Fishy Fish": {
   "name": "Karellian Fishy Fish",
   "id": 38338,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Paraichthyoid": {
   "name": "Paraichthyoid",
   "id": 38339,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Supremest Crustacean": {
   "name": "Supremest Crustacean",
   "id": 38340,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Babycray": {
   "name": "Babycray",
   "id": 38341,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Silky Cosmocoral": {
   "name": "Silky Cosmocoral",
   "id": 38342,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Chromatic Fish": {
   "name": "Chromatic Fish",
   "id": 38343,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Dragon's Delight": {
   "name": "Dragon's Delight",
   "id": 38344,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Astral Algae": {
   "name": "Astral Algae",
   "id": 38345,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Weird Fish": {
   "name": "Weird Fish",
   "id": 38346,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Cosmic Sponge": {
   "name": "Cosmic Sponge",
   "id": 38347,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 80,
   "tribal": true
  },
  "Platinum Seahorse": {
   "name": "Platinum Seahorse",
   "id": 38792,
-  "zones": {
+  "logical_bait": {
    "Lakeland": [
     "Select Bait Ball"
    ]
@@ -26735,7 +26735,7 @@
  "Clavekeeper": {
   "name": "Clavekeeper",
   "id": 38793,
-  "zones": {
+  "logical_bait": {
    "Kholusia": [
     "Select Bait Ball"
    ]
@@ -26747,7 +26747,7 @@
  "Mirror Image": {
   "name": "Mirror Image",
   "id": 38798,
-  "zones": {
+  "logical_bait": {
    "Il Mheg": [
     "Select Bait Ball"
    ]
@@ -26759,7 +26759,7 @@
  "Spangled Pirarucu": {
   "name": "Spangled Pirarucu",
   "id": 38799,
-  "zones": {
+  "logical_bait": {
    "The Rak'tika Greatwood": [
     "Select Bait Ball"
    ]
@@ -27004,7 +27004,7 @@
  "Gold Dustfish": {
   "name": "Gold Dustfish",
   "id": 39809,
-  "zones": {
+  "logical_bait": {
    "Amh Araeng": [
     "Select Bait Ball"
    ]
@@ -27016,7 +27016,7 @@
  "Forgiven Melancholy": {
   "name": "Forgiven Melancholy",
   "id": 39810,
-  "zones": {
+  "logical_bait": {
    "Lakeland": [
     "Select Bait Ball"
    ]
@@ -27028,7 +27028,7 @@
  "Oil Slick": {
   "name": "Oil Slick",
   "id": 39815,
-  "zones": {
+  "logical_bait": {
    "Kholusia": [
     "Select Bait Ball"
    ]
@@ -27040,7 +27040,7 @@
  "Gonzalo's Grace": {
   "name": "Gonzalo's Grace",
   "id": 39816,
-  "zones": {
+  "logical_bait": {
    "The Tempest": [
     "Select Bait Ball"
    ]
@@ -28734,7 +28734,7 @@
  "Deadwood Shadow": {
   "name": "Deadwood Shadow",
   "id": 41298,
-  "zones": {
+  "logical_bait": {
    "The Rak'tika Greatwood": [
     "Select Bait Ball",
     "Golding"
@@ -28747,7 +28747,7 @@
  "Ronkan Bullion": {
   "name": "Ronkan Bullion",
   "id": 41299,
-  "zones": {
+  "logical_bait": {
    "The Rak'tika Greatwood": [
     "Golding"
    ]
@@ -28759,7 +28759,7 @@
  "Little Bounty": {
   "name": "Little Bounty",
   "id": 41300,
-  "zones": {
+  "logical_bait": {
    "Il Mheg": [
     "Select Bait Ball"
    ]
@@ -28771,7 +28771,7 @@
  "Saint Fathric's Face": {
   "name": "Saint Fathric's Face",
   "id": 41301,
-  "zones": {
+  "logical_bait": {
    "Il Mheg": [
     "Select Bait Ball"
    ]
@@ -28783,7 +28783,7 @@
  "Golding": {
   "name": "Golding",
   "id": 41302,
-  "zones": {
+  "logical_bait": {
    "The Rak'tika Greatwood": [
     "Select Bait Ball"
    ]
@@ -31926,7 +31926,7 @@
  "King Puffer": {
   "name": "King Puffer",
   "id": 43903,
-  "zones": {
+  "logical_bait": {
    "Tuliyollal": [
     "Crimson Lugworm",
     "Versatile Lure"
@@ -31939,7 +31939,7 @@
  "Yok Huy Pleco": {
   "name": "Yok Huy Pleco",
   "id": 43904,
-  "zones": {
+  "logical_bait": {
    "Kozama'uka": [
     "Honeybee",
     "Versatile Lure"
@@ -31952,7 +31952,7 @@
  "Qor Pirarucu": {
   "name": "Qor Pirarucu",
   "id": 43905,
-  "zones": {
+  "logical_bait": {
    "Urqopacha": [
     "Honeybee",
     "Versatile Lure"
@@ -31965,7 +31965,7 @@
  "Raging Hanuhead": {
   "name": "Raging Hanuhead",
   "id": 43906,
-  "zones": {
+  "logical_bait": {
    "Shaaloani": [
     "Dragonfly",
     "Cactuar Jig",
@@ -31979,14 +31979,14 @@
  "Cenote Shark": {
   "name": "Cenote Shark",
   "id": 43915,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 95,
   "tribal": true
  },
  "Fulmisturgeon": {
   "name": "Fulmisturgeon",
   "id": 43916,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 100,
   "tribal": true
  },
@@ -35186,168 +35186,168 @@
  "Cindershell": {
   "name": "Cindershell",
   "id": 48011,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Glowing Waterweed": {
   "name": "Glowing Waterweed",
   "id": 48014,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Anklefish": {
   "name": "Anklefish",
   "id": 48017,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Meteorfish": {
   "name": "Meteorfish",
   "id": 48020,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Xbr'aal Loach": {
   "name": "Xbr'aal Loach",
   "id": 48023,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Freakish Fish": {
   "name": "Freakish Fish",
   "id": 48026,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Aether-infused Algae": {
   "name": "Aether-infused Algae",
   "id": 48029,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Freshwater Mudfish": {
   "name": "Freshwater Mudfish",
   "id": 48032,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Tsoly Sponge": {
   "name": "Tsoly Sponge",
   "id": 48035,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Iq Rrax Whelk": {
   "name": "Iq Rrax Whelk",
   "id": 48038,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Waterweed Fish": {
   "name": "Waterweed Fish",
   "id": 48041,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Odorous Waterweed": {
   "name": "Odorous Waterweed",
   "id": 48044,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Shellfish of Living Light": {
   "name": "Shellfish of Living Light",
   "id": 48047,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Ut'ohmu Trout": {
   "name": "Ut'ohmu Trout",
   "id": 48050,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Moss Sample": {
   "name": "Moss Sample",
   "id": 48053,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Promising Shellfish": {
   "name": "Promising Shellfish",
   "id": 48056,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Smokeshell": {
   "name": "Smokeshell",
   "id": 48059,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Cexudross Fish": {
   "name": "Cexudross Fish",
   "id": 48062,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Tsoly Sweetfish": {
   "name": "Tsoly Sweetfish",
   "id": 48065,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Thick-boned Fish": {
   "name": "Thick-boned Fish",
   "id": 48068,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Desiccant Mollusk": {
   "name": "Desiccant Mollusk",
   "id": 48071,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Crystalfish": {
   "name": "Crystalfish",
   "id": 48074,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Freshwater Algae": {
   "name": "Freshwater Algae",
   "id": 48077,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
  "Tsoly Tea Grass": {
   "name": "Tsoly Tea Grass",
   "id": 48083,
-  "zones": {},
+  "logical_bait": {},
   "lvl": 90,
   "tribal": true
  },
