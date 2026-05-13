@@ -167,7 +167,7 @@ namespace ArchipelagoXIV.Rando
             var fishsanity = JObject.Parse(reader.ReadToEnd()).Values();
             foreach (JObject fish in fishsanity)
             {
-                var zones = fish.Value<JObject>("zones");
+                var zones = fish.Value<JObject>("logical_bait");
                 List<string> zoneNames = [];
                 List<string> baits = [];
                 foreach (var z in zones)
