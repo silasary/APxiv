@@ -161,7 +161,7 @@ def load_all_fish():
 _HUNT_EXPANSIONS: dict[str, tuple[str, int]] = {
     "0": ("ARR", 50),
     "1": ("HW", 60),
-    "2": ("SB", 70),
+    "2": ("StB", 70),
     "3": ("ShB", 80),
     "4": ("EW", 90),
     "5": ("DT", 100),
