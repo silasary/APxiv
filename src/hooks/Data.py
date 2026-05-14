@@ -12,7 +12,9 @@ from itertools import chain
 # 19,000-19,999: Ocean Fishing
 # 20,000-29,999: Fish
 # 30,000-39,999: Extra Dungeon checks
-# 40,000-
+# 40,000-40,499: Boss Goal locations and their clear items
+# 45,000-49,999: Hunt Marks (Huntsanity)
+# 50,000-
 
 
 # called after the game.json file has been loaded
@@ -410,6 +412,31 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
+def generate_hunt_list() -> list[dict]:
+    hunt_list = []
+    _id = 45_000
+    huntreader = csv.DictReader(pkgutil.get_data(__name__, "hunts.csv").decode().splitlines(), delimiter=',', quotechar='"')
+    
+    for row in huntreader:
+        row = {k.strip(): v.strip() for k, v in row.items()}
+        rank = row["Rank"]
+        expansion = row["Expansion"]
+        level = row["Level"]
+        
+        hunt_list.append({
+            "id": _id,
+            "name": f"Hunt {row['Name']}",
+            "region": row["Location"],
+            "category": ["Hunt Marks", f"Hunt Marks ({expansion})", f"Hunt Marks ({rank}-Rank)", row["Location"]],
+            "requires": "{anyClassLevel(" + level + ")}",
+            "level": level,
+            "rank": rank,
+        })
+        
+        _id += 1
+        
+    return hunt_list
+
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
     duty_locations, extra_duty_locations = generate_duty_list()
@@ -419,6 +446,7 @@ def after_load_location_file(location_table: list) -> list:
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
     location_table.extend(extra_duty_locations)
+    location_table.extend(generate_hunt_list())
 
     return location_table
 

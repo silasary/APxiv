@@ -7,7 +7,6 @@ import functools
 import json
 import math
 import os
-import re
 from typing import Literal
 
 import bs4
@@ -156,6 +155,213 @@ def load_all_fish():
     with open(data_path('fish.json'), 'r', newline='') as h:
         all_fish = json.load(h)
     return all_fish
+
+
+# Mapping of TerritoryType.ExVersion -> (expansion tag, capstone level)
+_HUNT_EXPANSIONS: dict[str, tuple[str, int]] = {
+    "0": ("ARR", 50),
+    "1": ("HW", 60),
+    "2": ("StB", 70),
+    "3": ("ShB", 80),
+    "4": ("EW", 90),
+    "5": ("DT", 100),
+}
+
+# NotoriousMonster.Rank values: 1 = B, 2 = A, 3 = S
+_HUNT_RANK_LABELS = {"1": "B", "2": "A", "3": "S"}
+
+
+def _build_nm_territory_map(
+    territory_type: dict[str, dict[str, str]],
+) -> dict[str, tuple[str, str]]:
+    result: dict[str, tuple[str, str]] = {}
+    for tt in territory_type.values():
+        nm_terr_id = tt.get("NotoriousMonsterTerritory", "0")
+        
+        if not nm_terr_id or nm_terr_id == "0" or nm_terr_id in result:
+            continue
+        
+        place = tt.get("PlaceName", "0")
+        
+        if place == "0":
+            continue
+        
+        result[nm_terr_id] = (place, tt.get("ExVersion", "0"))
+        
+    return result
+
+
+_HUNT_NAME_IGNORE = { "of", "the", "and" }
+
+_HUNT_NAME_SKIP: set[str] = {
+    "Thousand-cast Theda",
+    "Shadow-dweller Yamini",
+    "Narrow-rift",
+    "Gwas-y-neidr"
+}
+
+_HUNT_NAME_MANUAL_FIX: dict[str, str] = {
+    "Croque-mitaine": "Croque-Mitaine",
+}
+
+
+def _normalize_hunt_name(name: str) -> str:
+    if name in _HUNT_NAME_SKIP:
+        return name
+    elif name in _HUNT_NAME_MANUAL_FIX:
+        return _HUNT_NAME_MANUAL_FIX[name]
+
+    words = name.split(" ")
+    result: list[str] = []
+    
+    for i, word in enumerate(words):
+        if i > 0 and word.lower() in _HUNT_NAME_IGNORE:
+            result.append(word.lower())
+        else:
+            result.append(word[0].upper() + word[1:])
+            
+    return " ".join(result)
+
+
+def _write_hunts_csv(rows: list[dict[str, str]]) -> None:
+    out_path = os.path.join(os.path.dirname(__file__), "hunts.csv")
+    with open(out_path, "w", newline="", encoding="utf-8") as h:
+        writer = csv.DictWriter(h, fieldnames=["Name", "Rank", "Level", "Location", "Expansion"])
+        writer.writeheader()
+        writer.writerows(rows)
+    by_rank = {r: sum(1 for row in rows if row["Rank"] == r) for r in ("B", "A", "S")}
+    print(f"Wrote {len(rows)} hunt marks to {out_path} (by rank: {by_rank})")
+
+
+def scrape_hunts() -> list[dict[str, str]]:
+    """Build Hunt Mark (Notorious Monster) locations from datamining CSVs.
+
+    Writes ``hunts.csv`` alongside ``duties.csv``/``fates.csv`` and returns the
+    rows for inspection. Columns: Name, Rank, Level, Location, Expansion.
+
+    Sheet relationships used here:
+      TerritoryType             - one row per playable zone; links to NMTerritory + PlaceName + ExVersion
+      NotoriousMonster          - one row per hunt mark; has Rank (1/2/3) and BNpcName id
+      NotoriousMonsterTerritory - groups up to 10 NM ids per open-world zone
+      BNpcName                  - resolves BNpcName id -> display name (Singular column)
+      PlaceName                 - resolves PlaceName id -> human-readable zone name (Name column)
+
+    Lookup chain per hunt mark:
+      TerritoryType.NotoriousMonsterTerritory  ->  NotoriousMonsterTerritory row
+      NotoriousMonsterTerritory.NotoriousMonsters[i]  ->  NotoriousMonster row
+      NotoriousMonster.BNpcName  ->  BNpcName.Singular  (mob display name)
+      TerritoryType.PlaceName  ->  PlaceName.Name  (zone display name)
+      TerritoryType.ExVersion  ->  expansion tag + capstone level
+    """
+    print("Building hunts.csv from datamining CSVs")
+
+    # Relevant columns: PlaceName, ExVersion, NotoriousMonsterTerritory
+    territory_type     = datamining_csv("TerritoryType")
+    # Relevant columns: BNpcName (id), Rank (1=B,2=A,3=S)
+    notorious_monster  = datamining_csv("NotoriousMonster")
+    # Columns: NotoriousMonsters[0..9] (NM row ids)
+    nm_territory       = datamining_csv("NotoriousMonsterTerritory")
+    # Relevant column: Singular (mob name)
+    bnpc_name          = datamining_csv("BNpcName")
+    # Relevant column: Name (zone name )
+    place_name         = datamining_csv("PlaceName")
+    # NMTerritory id -> (PlaceName id, ExVersion string)
+    nm_terr_to_zone = _build_nm_territory_map(territory_type)
+
+    rows: list[dict[str, str]] = []
+    # Dedup guard: the same NM can appear in multiple TerritoryType rows for the same zone.
+    seen_hunts: set[tuple[str, str, str]] = set()  # (bnpc_id, place_id, rank_label)
+
+    for terr_id, terr in nm_territory.items():
+        # Skip NMTerritory rows that have no matching open-world zone (e.g. unused rows)
+        zone = nm_terr_to_zone.get(terr_id)
+        
+        if not zone:
+            continue
+        
+        place_id, ex_version = zone
+
+        expansion_info = _HUNT_EXPANSIONS.get(ex_version)
+        
+        # Skip new expansion data
+        if expansion_info is None:
+            continue
+        
+        expansion_tag, level = expansion_info
+
+        # Resolve the zone's display name from PlaceName
+        zone_name = place_name.get(place_id, {}).get("Name", "")
+        
+        if not zone_name:
+            continue
+
+        # Each territory row has up to 10 NM slots
+        for i in range(10):
+            slot = f"NotoriousMonsters[{i}]"
+            nm_id = terr.get(slot, "0")
+            
+            if not nm_id or nm_id == "0":
+                continue
+
+            nm = notorious_monster.get(nm_id)
+            
+            if not nm:
+                continue
+
+            rank_label = _HUNT_RANK_LABELS.get(nm.get("Rank", "0"))
+            
+            if rank_label is None:
+                continue
+
+            # BNpcName is the id used to look up the display name
+            bnpc_id = nm.get("BNpcName", "0")
+            
+            if bnpc_id == "0":
+                continue
+
+            hunt_key = (bnpc_id, place_id, rank_label)
+            
+            if hunt_key in seen_hunts:
+                continue
+            
+            seen_hunts.add(hunt_key)
+
+            # BNpcName.Singular is the in-game name (inconsistent formatting)
+            mob_name = bnpc_name.get(bnpc_id, {}).get("Singular", "")
+            
+            if not mob_name:
+                continue
+
+            mob_name = _normalize_hunt_name(mob_name)
+
+            rows.append({
+                "Name":      mob_name,
+                "Rank":      rank_label,
+                "Level":     level,
+                "Location":  zone_name,
+                "Expansion": expansion_tag,
+            })
+
+    # SS hunts (e.g. Ker, Ker Shroud) spawn in multiple zones
+    # Just filter out any entries with multiple locations
+    zone_count_by_name: dict[str, int] = {}
+    for row in rows:
+        zone_count_by_name[row["Name"]] = zone_count_by_name.get(row["Name"], 0) + 1
+        
+    elite_marks = {name for name, count in zone_count_by_name.items() if count > 1}
+    
+    if elite_marks:
+        print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
+        filtered: list[dict[str, str]] = []
+        
+        for row in rows:
+            if row["Name"] not in elite_marks:
+                filtered.append(row)
+                
+        rows = filtered
+
+    _write_hunts_csv(rows)
+    return rows
 
 # def find_fishing_spots() -> None:
 #     baseurl = "https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fishing_log]]|?Gives resource|?Has fishing log level|?Located in|?Bait used|sort=Has fishing log level|offset={0}&format=json&api_version=3"
@@ -715,6 +921,7 @@ def sort_fish():
 
 
 if __name__ == "__main__":
+    scrape_hunts()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
