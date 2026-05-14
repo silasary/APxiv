@@ -174,12 +174,6 @@ _HUNT_RANK_LABELS = {"1": "B", "2": "A", "3": "S"}
 def _build_nm_territory_map(
     territory_type: dict[str, dict[str, str]],
 ) -> dict[str, tuple[str, str]]:
-    """Return {NMTerritory row id -> (PlaceName id, ExVersion)} from TerritoryType rows.
-
-    Some open-world zones have multiple TerritoryType rows sharing the same
-    NotoriousMonsterTerritory (e.g. weather/phase variants of the same zone).
-    Only the first hit is kept so each hunt territory maps to a single zone name.
-    """
     result: dict[str, tuple[str, str]] = {}
     for tt in territory_type.values():
         nm_terr_id = tt.get("NotoriousMonsterTerritory", "0")
@@ -199,17 +193,23 @@ def _build_nm_territory_map(
 
 _HUNT_NAME_IGNORE = { "of", "the", "and" }
 
-_HUNT_NAME_SKIP: dict[str] = {
+_HUNT_NAME_SKIP: set[str] = {
     "Thousand-cast Theda",
     "Shadow-dweller Yamini",
     "Narrow-rift",
     "Gwas-y-neidr"
 }
 
+_HUNT_NAME_MANUAL_FIX: dict[str, str] = {
+    "Croque-mitaine": "Croque-Mitaine",
+}
+
 
 def _normalize_hunt_name(name: str) -> str:
     if name in _HUNT_NAME_SKIP:
         return name
+    elif name in _HUNT_NAME_MANUAL_FIX:
+        return _HUNT_NAME_MANUAL_FIX[name]
 
     words = name.split(" ")
     result: list[str] = []
@@ -265,7 +265,6 @@ def scrape_hunts() -> list[dict[str, str]]:
     bnpc_name          = datamining_csv("BNpcName")
     # Relevant column: Name (zone name )
     place_name         = datamining_csv("PlaceName")
-
     # NMTerritory id -> (PlaceName id, ExVersion string)
     nm_terr_to_zone = _build_nm_territory_map(territory_type)
 
