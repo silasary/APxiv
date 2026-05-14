@@ -280,6 +280,21 @@ class FatesPerZone(Range):
     range_start = 0
     range_end = 10
 
+class Huntsanity(OptionSet):
+    """
+    Include Hunt Marks in the location pool.
+
+    Each selected rank adds those hunts as checks.
+    - B: B-rank hunts - 2 per zone. Respawning indefinitely.
+    - A: A-rank hunts - 2 per zone. Hours of respawn time. Old low level hunts are usually killed on sight and not relayed. Finishing this goal may require a long time.
+    - S: S-rank hunts - rare spawns with very long respawn timers. If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
+
+    List any wanted ranks. For example [B] / [B, A, S] / ... / omit or [] to disable entirely.
+    """
+    display_name = "Huntsanity"
+    valid_keys = {"B", "A", "S"}
+    default = frozenset()
+
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
@@ -308,9 +323,10 @@ def before_options_defined(options: dict) -> dict:
     options["ultimate_count"] = UltimateCount
 
     # Fates
+    options["fates_per_zone"] = FatesPerZone
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
-    options["fates_per_zone"] = FatesPerZone
+    options["huntsanity"] = Huntsanity
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
