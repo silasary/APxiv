@@ -226,7 +226,7 @@ def _normalize_hunt_name(name: str) -> str:
 def _write_hunts_csv(rows: list[dict[str, str]]) -> None:
     out_path = os.path.join(os.path.dirname(__file__), "hunts.csv")
     with open(out_path, "w", newline="", encoding="utf-8") as h:
-        writer = csv.DictWriter(h, fieldnames=["Name", "Rank", "Level", "Location", "Expansion"])
+        writer = csv.DictWriter(h, fieldnames=["BNpcNameId", "Name", "Rank", "Location", "Level", "Expansion"])
         writer.writeheader()
         writer.writerows(rows)
     by_rank = {r: sum(1 for row in rows if row["Rank"] == r) for r in ("B", "A", "S")}
@@ -314,12 +314,12 @@ def scrape_hunts() -> list[dict[str, str]]:
                 continue
 
             # BNpcName is the id used to look up the display name
-            bnpc_id = nm.get("BNpcName", "0")
+            bnpc_name_id = nm.get("BNpcName", "0")
             
-            if bnpc_id == "0":
+            if bnpc_name_id == "0":
                 continue
 
-            hunt_key = (bnpc_id, place_id, rank_label)
+            hunt_key = (bnpc_name_id, place_id, rank_label)
             
             if hunt_key in seen_hunts:
                 continue
@@ -327,7 +327,7 @@ def scrape_hunts() -> list[dict[str, str]]:
             seen_hunts.add(hunt_key)
 
             # BNpcName.Singular is the in-game name (inconsistent formatting)
-            mob_name = bnpc_name.get(bnpc_id, {}).get("Singular", "")
+            mob_name = bnpc_name.get(bnpc_name_id, {}).get("Singular", "")
             
             if not mob_name:
                 continue
@@ -335,10 +335,11 @@ def scrape_hunts() -> list[dict[str, str]]:
             mob_name = _normalize_hunt_name(mob_name)
 
             rows.append({
+                "BNpcNameId": bnpc_name_id,
                 "Name":      mob_name,
                 "Rank":      rank_label,
-                "Level":     level,
                 "Location":  zone_name,
+                "Level":     level,
                 "Expansion": expansion_tag,
             })
 
