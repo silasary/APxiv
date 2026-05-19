@@ -1,7 +1,7 @@
-﻿name: FFXIV_Fishes
+name: FFXIV_Boss
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Final Fantasy XIV Fishsanity
+description: Final Fantasy XIV - Boss Goal (Random expansion boss, minimal duties and fates)
 
 game: Final Fantasy XIV
 requires:
@@ -15,69 +15,42 @@ Final Fantasy XIV:
         normal: 50
 
     accessibility:
-        full: 50
-        minimal: 0
+        full: 0
+        minimal: 50
 
     goal:
-        collect memories: 50
-        defeat the ultima weapon: 0
-        defeat king thordan: 0
-        defeat nidhogg: 0
-        defeat shinryu: 0
-        defeat tsukuyomi: 0
-        defeat hades: 0
-        defeat the warrior of light: 0
-        defeat the endsinger: 0
-        defeat zeromus: 0
-        defeat sphene: 0
-        defeat necron: 0
+        defeat king thordan: 50
+        defeat shinryu: 50
+        defeat hades: 50
+        defeat the endsinger: 50
+        defeat sphene: 50
 
     mcguffins_needed:
         # Percentage of Distant Memories needed to win the game.
         20: 50
-        random: 0
-        random-low: 0
-        random-high: 0
-        random-range-1-100: 0
 
     boss_key_pieces:
-        # Number of key pieces required to challenge the final boss (boss goal only).
-        # Has no effect when goal is set to Collect Memories.
-        0: 50
-        random: 0
-        random-low: 0
-        random-high: 0
-        random-range-0-10: 0
+        # Require collecting key pieces before you can challenge the final boss.
+        # Set to 0 to skip the key gate entirely.
+        3: 50
 
     duty_difficulty:
-        no_duties: 50
-        normal: 0
-        extreme: 0
-        savage: 0
-        endgame: 0
+        normal: 50
 
     allow_main_scenario_duties:
-        # Include Castrum Meridianum, Praetorium, and The Porta Decumana in the location pool.
-        # These duties are long and contain unskippable cutscenes.
         "false": 50
-        "true": 0
 
     extra_dungeon_checks:
         0: 50
 
     include_ocean_fishing:
-        # Ocean Fishing departs once every two real-world hours on a specified route.
-        # This option is absolutely not sync-viable.
-        "false": 0
-        "true": 50
+        "false": 50
 
     include_pvp:
         "false": 50
-        "true": 0
 
     include_bozja:
         "false": 50
-        "true": 0
 
     dungeon_count:
         0: 50
@@ -86,7 +59,7 @@ Final Fantasy XIV:
         0: 50
 
     trial_count:
-        0: 50
+        3: 50
 
     extreme_trial_count:
         0: 50
@@ -111,24 +84,18 @@ Final Fantasy XIV:
 
     fatesanity:
         "false": 50
-        "true": 0
 
     include_unreasonable_fates:
         "false": 50
-        "true": 0
 
     fates_per_zone:
-        0: 50
+        1: 50
 
     fishsanity:
-        disabled: 0
-        normal_fish: 0
-        timed_fish: 0
-        big_fish: 50
+        disabled: 50
 
     fishsanity_disable_starting_bait:
         "false": 50
-        "true": 0
 
     force_jobs: []
 
@@ -141,7 +108,6 @@ Final Fantasy XIV:
 
     include_guildhests:
         "false": 50
-        "true": 0
 
     ###########################
     # Item & Location Options #

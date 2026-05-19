@@ -12,7 +12,8 @@ from itertools import chain
 # 19,000-19,999: Ocean Fishing
 # 20,000-29,999: Fish
 # 30,000-39,999: Extra Dungeon checks
-# 40,000-
+# 40,000-40,499: Boss Goal locations and their clear items
+# 40,500-
 
 
 # called after the game.json file has been loaded
@@ -29,6 +30,21 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
+BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
+    # Goal: (Name, Region, Level)
+    "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
+    "Defeat King Thordan":         ("Singularity Reactor",  "Azys Lla",          60),
+    "Defeat Nidhogg":              ("Final Steps of Faith", "Ishgard",           60),
+    "Defeat Shinryu":              ("Royal Menagerie",      "The Lochs",         70),
+    "Defeat Tsukuyomi":            ("Castrum Fluminis",     "Yanxia",            70),
+    "Defeat Hades":                ("Dying Gasp",           "The Tempest",       80),
+    "Defeat the Warrior of Light": ("Seat of Sacrifice",    "The Crystarium",    80),
+    "Defeat the Endsinger":        ("Final Day",            "Ultima Thule",      90),
+    "Defeat Zeromus":              ("Abyssal Fracture",     "Mare Lamentorum",   90),
+    "Defeat Sphene":               ("Interphos",            "Living Memory",    100),
+    "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
+}
+
 WORLD_BOSSES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
@@ -38,7 +54,7 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
-FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout']
+FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout', '/cheer', '/shrug', '/wave', '/toast']
 
 bonus_regions = {}
 
@@ -106,6 +122,20 @@ fate_zones = {
 bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
+
+def generate_victory_locations() -> list[dict]:
+    # Build victory location entries from BOSS_GOAL_KEY_LOCATIONS
+    # to preserve existing location IDs for backwards compatibility
+    _id = 40_000
+    locations = []
+
+    for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
+        if goal_name == "Defeat Shinryu":  # already in locations.json
+            continue
+        locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
+        _id += 1
+
+    return locations
 
 def get_duty_expansion(category: str) -> tuple[str, str]:
     if category == "PvP":
@@ -390,6 +420,17 @@ def after_load_item_file(item_table: list) -> list:
     level_items[0]['id'] = 5_000
     item_table.extend(level_items)
 
+    # Add clear items related to the boss goal locations. Prerequisites for victory button
+    _cleared_id = 40_000
+    for base_name, _, _ in BOSS_GOAL_DATA.values():
+        item_table.append({
+            "name": f"{base_name} Cleared",
+            "progression": True,
+            "count": 0,
+            "id": _cleared_id,
+        })
+        _cleared_id += 1
+
     filler_items = []
     for emote in FILLER_EMOTES:
         filler_items.append({
@@ -419,6 +460,7 @@ def after_load_location_file(location_table: list) -> list:
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
     location_table.extend(extra_duty_locations)
+    location_table.extend(generate_victory_locations())
 
     return location_table
 
