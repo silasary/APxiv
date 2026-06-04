@@ -134,9 +134,9 @@ namespace ArchipelagoXIV.Hooks
 
                 if (apState.Game is NGPlusGame state)
                 {
-                    for (var i = 0; i < state.ExtraDungeonChecks + 2; i++)
+                    for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
                     {
-                        DalamudApi.Echo($"looking for {name} {i}");
+                        DalamudApi.PluginLog.Debug($"looking for {name} {i}");
                         var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
                         extraLocation?.Complete(false);
                     }
