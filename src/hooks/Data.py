@@ -300,7 +300,7 @@ def generate_fish_list() -> list[dict]:
     for name, data in fish.items():
         requires = "{fishingLevel(" + str(data['lvl']) + ")}"
 
-        zones = data['logical_bait'] if 'logical_bait' in data else {}
+        zones = data['zones'] if 'zones' in data else {}
         if not zones:
             _id += 1
             continue
