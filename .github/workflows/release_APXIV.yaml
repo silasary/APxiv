@@ -69,3 +69,16 @@ jobs:
                   commit: ${{ env.GITHUB_REF }}
                   artifacts: Archipelago/build/apworlds/${{ env.world }}.apworld
                   body: ${{ steps.get_changelog.outputs.result }}
+
+            - uses: silasary/datapackage_validator@main
+              with:
+                  datapackage-file: ${{ github.workspace }}/datapackage_export.json
+                  game-name: Final Fantasy XIV
+                  apworld-path: src
+                  apworld-name: ffxiv
+                  ap-version: latest
+                  python-version: "3.13"
+                  update-export: true
+            - uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                commit_message: "Update datapackage export for new version"
