@@ -225,19 +225,18 @@ def _normalize_hunt_name(name: str) -> str:
 
 def _write_hunts_csv(rows: list[dict[str, str]]) -> None:
     out_path = os.path.join(os.path.dirname(__file__), "hunts.csv")
+    
     with open(out_path, "w", newline="", encoding="utf-8") as h:
         writer = csv.DictWriter(h, fieldnames=["BNpcNameId", "Name", "Rank", "Location", "Level", "Expansion"])
         writer.writeheader()
         writer.writerows(rows)
+        
     by_rank = {r: sum(1 for row in rows if row["Rank"] == r) for r in ("B", "A", "S")}
     print(f"Wrote {len(rows)} hunt marks to {out_path} (by rank: {by_rank})")
 
 
 def scrape_hunts() -> list[dict[str, str]]:
-    """Build Hunt Mark (Notorious Monster) locations from datamining CSVs.
-
-    Writes ``hunts.csv`` alongside ``duties.csv``/``fates.csv`` and returns the
-    rows for inspection. Columns: Name, Rank, Level, Location, Expansion.
+    """Build Hunt (Notorious Monster) locations from datamining CSVs.
 
     Sheet relationships used here:
       TerritoryType             - one row per playable zone; links to NMTerritory + PlaceName + ExVersion
