@@ -73,7 +73,106 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
+    #HW locations
+    if location['region'] == "Ishgard" and level_cap < 51:
+        return False
     if location['region'] == "The Firmament" and level_cap < 51:
+        return False
+    if location['region'] == "Coerthas Western Highlands" and level_cap < 51:
+        return False
+    if location['region'] == "The Sea of Clouds" and level_cap < 51:
+        return False
+    if location['region'] == "The Dravanian Forelands" and level_cap < 51:
+        return False
+    if location['region'] == "The Churning Mists" and level_cap < 51:
+        return False
+    if location['region'] == "The Dravanian Hinterlands" and level_cap < 51:
+        return False
+    if location['region'] == "Azys Lla" and level_cap < 51:
+        return False
+    if location['region'] == "Alexander" and level_cap < 51:
+        return False
+    #StB locations
+    if location['region'] == "Rhalgr's Reach" and level_cap < 61:
+        return False
+    if location['region'] == "The Fringes" and level_cap < 61:
+        return False
+    if location['region'] == "The Peaks" and level_cap < 61:
+        return False
+    if location['region'] == "The Lochs" and level_cap < 61:
+        return False
+    if location['region'] == "Interdimensional Rift" and level_cap < 61:
+        return False
+    if location['region'] == "Kugane" and level_cap < 61:
+        return False
+    if location['region'] == "Shirogane" and level_cap < 61:
+        return False
+    if location['region'] == "The Ruby Sea" and level_cap < 61:
+        return False
+    if location['region'] == "Yanxia" and level_cap < 61:
+        return False
+    if location['region'] == "The Azim Steppe" and level_cap < 61:
+        return False
+    #ShB locations
+    if location['region'] == "The Crystarium" and level_cap < 71:
+        return False
+    if location['region'] == "Eulmore" and level_cap < 71:
+        return False
+    if location['region'] == "Lakeland" and level_cap < 71:
+        return False
+    if location['region'] == "Kholusia" and level_cap < 71:
+        return False
+    if location['region'] == "Amh Araeng" and level_cap < 71:
+        return False
+    if location['region'] == "Il Mheg" and level_cap < 71:
+        return False
+    if location['region'] == "The Rak'tika Greatwood" and level_cap < 71:
+        return False
+    if location['region'] == "The Tempest" and level_cap < 71:
+        return False
+    if location['region'] == "The Empty" and level_cap < 71:
+        return False
+    if location['region'] == "Gangos" and level_cap < 71:
+        return False
+    #EnW locations
+    if location['region'] == "Old Sharlayan" and level_cap < 81:
+        return False
+    if location['region'] == "Radz-at-Han" and level_cap < 81:
+        return False
+    if location['region'] == "Labyrinthos" and level_cap < 81:
+        return False
+    if location['region'] == "Thavnair" and level_cap < 81:
+        return False
+    if location['region'] == "Garlemald" and level_cap < 81:
+        return False
+    if location['region'] == "Mare Lamentorum" and level_cap < 81:
+        return False
+    if location['region'] == "Elpis" and level_cap < 81:
+        return False
+    if location['region'] == "Ultima Thule" and level_cap < 81:
+        return False
+    if location['region'] == "Elysion" and level_cap < 81:
+        return False
+    #DT locations
+    if location['region'] == "Tuliyollal" and level_cap < 91:
+        return False
+    if location['region'] == "Solution Nine" and level_cap < 91:
+        return False
+    if location['region'] == "Urqopacha" and level_cap < 91:
+        return False
+    if location['region'] == "Kozama'uka" and level_cap < 91:
+        return False
+    if location['region'] == "Yak T'el" and level_cap < 91:
+        return False
+    if location['region'] == "Shaaloani" and level_cap < 91:
+        return False
+    if location['region'] == "Heritage Found" and level_cap < 91:
+        return False
+    if location['region'] == "Living Memory" and level_cap < 91:
+        return False
+    if location['region'] == "The Arcadion" and level_cap < 91:
+        return False
+    if location['region'] == "Mist Continent" and level_cap < 91:
         return False
     return None
 
