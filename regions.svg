@@ -150,11 +150,12 @@ class "Manual"
 "Manual" - -> "Ul'dah"
 class "Limsa Lominsa"
 "Limsa Lominsa" : {field} The Sirensong Sea
-"Limsa Lominsa" : {field} Pharos Sirius (Hard)
 "Limsa Lominsa" - -> "Old Sharlayan"
 "Limsa Lominsa" - -> "Ocean Fishing"
 class "Gridania"
 "Gridania" : {field} The Howling Eye
+"Gridania" : {field} The Howling Eye (Hard)
+"Gridania" : {field} The Howling Eye (Extreme)
 class "Ul'dah"
 "Ul'dah" : {field} Paglth'an
 class "Lower La Noscea"
@@ -193,6 +194,7 @@ class "Middle La Noscea"
 "Middle La Noscea" : {field} A Mad Mad Mad Sergeant (FATE)
 "Middle La Noscea" : {field} The Boy Who Cried Jackal (FATE)
 "Middle La Noscea" : {field} Basic Training Enemy Parties
+"Middle La Noscea" : {field} Pharos Sirius (Hard)
 "Limsa Lominsa" <- -> "Middle La Noscea"
 "Lower La Noscea" <- -> "Middle La Noscea"
 class "Western La Noscea"
@@ -440,6 +442,8 @@ class "Upper La Noscea"
 "Upper La Noscea" : {field} The Wanderer's Palace
 "Upper La Noscea" : {field} The Wanderer's Palace (Hard)
 "Upper La Noscea" : {field} The Navel
+"Upper La Noscea" : {field} The Navel (Hard)
+"Upper La Noscea" : {field} The Navel (Extreme)
 "Upper La Noscea" : {field} More than a Feeler
 "Eastern La Noscea" <- -> "Upper La Noscea"
 "Western La Noscea" <- -> "Upper La Noscea"
@@ -488,8 +492,6 @@ class "Coerthas Central Highlands"
 "Coerthas Central Highlands" : {field} Snowcloak
 "Coerthas Central Highlands" : {field} A Relic Reborn The Chimera
 "Coerthas Central Highlands" : {field} Battle on the Big Bridge
-"Coerthas Central Highlands" : {field} The Howling Eye (Hard)
-"Coerthas Central Highlands" : {field} The Howling Eye (Extreme)
 "Coerthas Central Highlands" : {field} The Akh Afah Amphitheatre (Hard)
 "Coerthas Central Highlands" : {field} The Akh Afah Amphitheatre (Extreme)
 "Coerthas Central Highlands" : {field} Shadow and Claw
@@ -862,9 +864,7 @@ class "Outer La Noscea"
 "Outer La Noscea" : {field} Spandy Balidet (FATE)
 "Outer La Noscea" : {field} Making the Rounds (FATE)
 "Outer La Noscea" : {field} Full Metal Alchemist (FATE)
-"Outer La Noscea" : {field} The Navel (Hard)
-"Outer La Noscea" : {field} The Navel (Extreme)
-"Outer La Noscea" <- -> "Outer La Noscea"
+"Upper La Noscea" <- -> "Outer La Noscea"
 class "Mor Dhona"
 "Mor Dhona" : {field} V for Vinedetta (FATE)
 "Mor Dhona" : {field} Good to Be Bud (FATE)
