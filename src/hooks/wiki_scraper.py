@@ -216,7 +216,7 @@ def lookup_item_name(id: int | str) -> str | Literal[False]:
     items = teamcraft_json('items')
     if str(id) not in items:
         return False
-    return items[str(id)]['en']
+    return items[str(id)]['en'].strip()
 
 def query_gubal_graphql(operation_name: str, query: str, variables: dict = {}) -> dict:
     url = "https://gubal.ffxivteamcraft.com/graphql"
@@ -318,9 +318,9 @@ def scrape_teamcraft():
     fish_ids.sort()
     for fish_id in fish_ids:
         fish = lookup_fish(fish_id)
-        name = fish['name']
-        if name is False:
+        if fish['name'] is False:
             continue
+        name = fish['name'].strip()
         all_fish.setdefault(name, fish)
         if name in NOT_IN_FISHING_GUIDE:
             all_fish[name]['tribal'] = True
@@ -374,11 +374,11 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
 
     for spot, baits in per_spot.items():
         baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
-        best_occurences = baits[0].occurences
-        # Anything that is less that 5% of the optimal bait is best written off as bad data.
-        viable_baits = [b for b in baits if b.occurences >= best_occurences * 0.05]
-        if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
-            viable_baits = viable_baits[1:] + [viable_baits[0]]
+        # best_occurences = baits[0].occurences
+        # Anything that is less than 10 catches is best written off as bad data.
+        viable_baits = [b for b in baits if b.occurences >= 10]
+        #if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
+        #    viable_baits = viable_baits[1:] + [viable_baits[0]]
         # fish['spots'][spot] = [b.bait_name for b in viable_baits]
         bait_paths.setdefault(fish['name'], {})[spot] = [b.bait_name for b in viable_baits]
 
@@ -429,11 +429,10 @@ def apply_bait() -> None:
     for name, fish in all_fish.items():
         if fish.get('tribal'):
             continue
-        if 'The <Emphasis>Endeavor</Emphasis>' in fish['logical_bait']:
-            continue
-
         fish['logical_bait'] = {}
         fish['all_bait'] = {}
+        fish['logical_intuition'] = {}
+        fish['intuition_bait'] = {}
         if 'zones' in fish:
             del fish['zones']
 
@@ -442,11 +441,97 @@ def apply_bait() -> None:
                 del bait_paths[name][hole]
                 continue
             zone_name = spots[hole]['zone_name']
+            #Check if Ocean Fish, moved here
+            if zone_name == "The *Endeavor*":
+                del bait_paths[name][hole]
+                continue
             # if len(baits) > 1 and 'Versatile Lure' in baits:
             #     baits.remove('Versatile Lure')
+            #Adds logical baits from the teamcraft recommended baits list
+            try:
+                fish_from_fishingsources = teamcraft_json('fishing-sources')[str(fish['id'])]
+            except KeyError:
+                continue
+            for fishsource in fish_from_fishingsources:
+                if fishsource['spot'] == spots[hole]["id"]:
+                    teamcraft_optimalbait = lookup_item_name(fishsource['bait'])
+                    #check if optimal bait is a fish, and if so use the optimal bait for that fish for logic
+                    info = bait_data.get(teamcraft_optimalbait, {"name": teamcraft_optimalbait})
+                    if 'id' not in info:
+                        item = lookup_item_by_name(teamcraft_optimalbait)
+                        if item:
+                            info['id'] = int(item['#'])
+                        else:
+                            print(f"Could not find item ID for bait: {teamcraft_optimalbait}")
+                            bait_data[teamcraft_optimalbait] = info
+                            continue
+                        category = lookup_item_ui_category(item["ItemUICategory"])
+                        if category == "Fishing Tackle":
+                            pass
+                        elif category == "Seafood":
+                            info['mooch'] = True
+                        else:
+                            print(f"!!! Bait {teamcraft_optimalbait} has unexpected category {category} !!!")
+                            info['category'] = category
+                    if info.get('mooch'):
+                        found = False
+                        mooch = ''
+                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                            if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                teamcraft_optimalbait = lookup_item_name(fish_mooch_source['bait'])
+                                #This can almost certainly be handled better, checking for a second mooch in the chain, ie Jungle Catfish
+                                item = lookup_item_by_name(teamcraft_optimalbait)
+                                if lookup_item_ui_category(item["ItemUICategory"]) == "Seafood":
+                                    for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                        if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                            teamcraft_optimalbait = lookup_item_name(fish_mooch_source['bait'])
+
+
+                    #While in teamcraft fishing-sources, check the intuition requirements and add them
+                    if fishsource.get('predators'):
+                        for predators in fishsource.get('predators'):
+                            intuition_bait = bait_paths.setdefault(lookup_item_name(predators["id"]), {}).setdefault(hole, [])
+                            for fish_predator_source in teamcraft_json('fishing-sources')[str(predators["id"])]:
+                                if fish_predator_source['spot'] == spots[hole]["id"]:
+                                    logical_intuition = lookup_item_name(fish_predator_source['bait'])
+
+                                    info = bait_data.get(logical_intuition, {"name": logical_intuition})
+                                    if 'id' not in info:
+                                        item = lookup_item_by_name(logical_intuition)
+                                        if item:
+                                            info['id'] = int(item['#'])
+                                        else:
+                                            print(f"Could not find item ID for bait: {logical_intuition}")
+                                            bait_data[logical_intuition] = info
+                                            continue
+                                        category = lookup_item_ui_category(item["ItemUICategory"])
+                                        if category == "Fishing Tackle":
+                                            pass
+                                        elif category == "Seafood":
+                                            info['mooch'] = True
+                                        else:
+                                            print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
+                                            info['category'] = category
+                                    if info.get('mooch'):
+                                        found = False
+                                        mooch = ''
+                                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                            if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                                logical_intuition = lookup_item_name(fish_mooch_source['bait'])
+                                                #this can almost certainly be handled way better, this is to check for mooch chains. Ie Imperial Goldfish
+                                                item = lookup_item_by_name(logical_intuition)
+                                                if lookup_item_ui_category(item["ItemUICategory"]) == "Seafood":
+                                                    for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                                        if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                                            logical_intuition = lookup_item_name(fish_mooch_source['bait'])
+
+
+
+                            fish['intuition_bait'][zone_name] = intuition_bait
+                            fish['logical_intuition'].setdefault(zone_name, []).append(logical_intuition)
             if baits:
                 fish['all_bait'][zone_name] = baits
-                fish['logical_bait'].setdefault(zone_name, []).append(baits[0])
+                fish['logical_bait'].setdefault(zone_name, []).append(teamcraft_optimalbait)
             else:
                 print(f"No bait for {name} in {hole}")
             for bait in baits.copy():
@@ -454,15 +539,18 @@ def apply_bait() -> None:
                     baits.remove(bait)
                     baits.append(bait[0])
                     bait = bait[0]
-                info = bait_data.get(bait, {"name": bait})
-
+                info = bait_data.get(str(bait), {"name": bait})
+                if bait == fish['name']:
+                    print(f"Bait {bait} = fish {fish}")
+                    baits.remove(bait)
+                    continue
                 if 'id' not in info:
-                    item = lookup_item_by_name(bait)
+                    item = lookup_item_by_name(str(bait))
                     if item:
                         info['id'] = int(item['#'])
                     else:
                         print(f"Could not find item ID for bait: {bait}")
-                        bait_data[bait] = info
+                        bait_data[str(bait)] = info
                         continue
                     category = lookup_item_ui_category(item["ItemUICategory"])
                     if category == "Fishing Tackle":
@@ -487,10 +575,10 @@ def apply_bait() -> None:
                     if mooch_path:
                         index = baits.index(bait)
                         # baits.remove(bait)
-                        new_bait = mooch_path[0]
+                        new_bait = mooch_path
                         add = new_bait not in baits
-                        if new_bait == "Versatile Lure" and baits:
-                            add = False
+                        #if new_bait == "Versatile Lure" and baits:
+                        #    add = False
                         if add:
                             baits[index] = new_bait
                         else:
