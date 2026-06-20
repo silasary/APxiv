@@ -338,8 +338,6 @@ def generate_fish_list() -> list[dict]:
                 #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first bait seen(should only be one)
                 for bait_intuition in intuition[region]:
                     requires += f" and |{bait_intuition}|"
-            print(name)
-            print(requires)
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
