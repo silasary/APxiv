@@ -86,6 +86,12 @@ namespace ArchipelagoXIV.Hooks
                 return;
             }
 
+            if (!loc.IsAccessible())
+            {
+                DalamudApi.PluginLog.Information($"[Hunt] {huntInfo.LocationName} is not in logic (level or region requirement not met), skipping.");
+                return;
+            }
+
             loc.Complete();
         }
 
