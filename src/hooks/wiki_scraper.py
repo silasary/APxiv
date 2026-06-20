@@ -561,7 +561,7 @@ def apply_bait() -> None:
                     baits.remove(bait)
                     baits.append(bait[0])
                     bait = bait[0]
-                info = bait_data.get(str(bait), {"name": bait})
+                #info = bait_data.get(str(bait), {"name": bait})
                 if bait == fish['name']:
                     baits.remove(bait)
                     continue
@@ -833,5 +833,3 @@ if __name__ == "__main__":
     clean_fish()
     print("Starting sort_fish")
     sort_fish()
-    #print("Starting sort_bait")
-    #sort_bait()
