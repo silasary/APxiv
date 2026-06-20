@@ -1465,9 +1465,28 @@ Assassin Betta:
   - Sinking Minnow
   - Honey Worm
   - Glowworm
-  - Silverfish
   - Honey Worm
   - Versatile Lure
+  - Honey Worm
+  - Versatile Lure
+  - Glowworm
+  - Rainbow Spoon Lure
+  - Freshwater Boilie
+  - Honey Worm
+  - Spinnerbait
+  - Streamer
+  - Topwater Frog
+  - Honey Worm
+  - Snurble Fly
+  - Honey Worm
+  - Stem Borer
+  - Crayfish Ball
+  - Caddisfly Larva
+  - Versatile Lure
+  - Mythril Spoon Lure
+  - Sinking Minnow
+  - Honey Worm
+  - Glowworm
   Moondrip:
   - Honey Worm
   - Versatile Lure
@@ -1509,9 +1528,25 @@ Assassin Betta:
   - Honey Worm
   - Streamer
   - Versatile Lure
-  - Silverfish
   - Caddisfly Larva
   - Honey Worm
+  - Glowworm
+  - Caddisfly Larva
+  - Honey Worm
+  - Versatile Lure
+  - Stem Borer
+  - Freshwater Boilie
+  - Mythril Spoon Lure
+  - Silver Spoon Lure
+  - Caddisfly Larva
+  - Spinner
+  - Snurble Fly
+  - Wildfowl Fly
+  - Topwater Frog
+  - Glowworm
+  - Honey Worm
+  - Streamer
+  - Versatile Lure
   Rathefrost:
   - Honey Worm
   - Glowworm
@@ -1530,10 +1565,23 @@ Assassin Betta:
   - Versatile Lure
   - Sinking Minnow
   - Stem Borer
-  - Silverfish
   - Honey Worm
   - Glowworm
   - Versatile Lure
+  - Glowworm
+  - Honey Worm
+  - Versatile Lure
+  - Honey Worm
+  - Freshwater Boilie
+  - Caddisfly Larva
+  - Honey Worm
+  - Glowworm
+  - Honey Worm
+  - Snurble Fly
+  - Glowworm
+  - Versatile Lure
+  - Sinking Minnow
+  - Stem Borer
   The North Shards:
   - Honey Worm
   - Versatile Lure
@@ -1558,10 +1606,29 @@ Assassin Betta:
   - Versatile Lure
   - Syrphid Basket
   - Spinner
-  - Silverfish
   - Honey Worm
   - Versatile Lure
   - Glowworm
+  - Honey Worm
+  - Versatile Lure
+  - Glowworm
+  - Honey Worm
+  - Honey Worm
+  - Honey Worm
+  - Stem Borer
+  - Snurble Fly
+  - Freshwater Boilie
+  - Topwater Frog
+  - Streamer
+  - Mythril Spoon Lure
+  - Caddisfly Larva
+  - Streamer
+  - Silver Spoon Lure
+  - Wildfowl Fly
+  - Honey Worm
+  - Versatile Lure
+  - Syrphid Basket
+  - Spinner
   The Tangle:
   - Midge Basket
   - Honey Worm
@@ -2419,7 +2486,19 @@ Blackfin Snake Eel:
   - Live Shrimp
   - Bream Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Live Shrimp
+  - Versatile Lure
+  - Bream Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
 Blacklip Oyster:
   Cape Westwind:
   - Versatile Lure
@@ -4626,7 +4705,6 @@ Brown Bolo:
   - Red Balloon
   - Giant Crane Fly
   - Giant Crane Fly
-  - Sky Faerie
   - Versatile Lure
   - Red Balloon
   - Metal Spinner
@@ -4635,6 +4713,13 @@ Brown Bolo:
   - Red Balloon
   - Giant Crane Fly
   - Versatile Lure
+  - Metal Spinner
+  - Red Balloon
+  - Giant Crane Fly
+  - Versatile Lure
+  - Metal Spinner
+  - Metal Spinner
+  - Red Balloon
 Browned Banana Eel:
   Pavana's Remorse:
   - Mayfly
@@ -4793,7 +4878,18 @@ Bullwhip:
   - Versatile Lure
   - Versatile Lure
   - Versatile Lure
-  - Platinum Fish
+  - Fiend Worm
+  - Signature Skyball
+  - Versatile Lure
+  - Fiend Worm
+  - Signature Skyball
+  - Fiend Worm
+  - Signature Skyball
+  - Signature Skyball
+  - Fiend Worm
+  - Versatile Lure
+  - Versatile Lure
+  - Versatile Lure
   Alpha Quadrant:
   - Signature Skyball
   - Fiend Worm
@@ -7451,7 +7547,21 @@ Daio Squid:
   - Metal Spinner
   - Versatile Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Metal Spinner
+  - Bream Lure
+  - Versatile Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
+  - Live Shrimp
+  - Metal Spinner
+  - Versatile Lure
+  - Metal Spinner
   - Bream Lure
 Dammroen Herring:
   The Spoiled One:
@@ -9883,7 +9993,16 @@ Fate's Design:
   - Versatile Lure
   - Mackerel Strip
   - Shrimp Ball
-  - Shadowdart Sardine
+  - Versatile Lure
+  - Shrimp Ball
+  - Mackerel Strip
+  - Shrimp Ball
+  - Shrimp Ball
+  - Mackerel Strip
+  - Mackerel Strip
+  - Versatile Lure
+  - Mackerel Strip
+  - Shrimp Ball
   - Versatile Lure
   - Shrimp Ball
   - Mackerel Strip
@@ -11439,7 +11558,19 @@ Glass Flounder:
   - Live Shrimp
   - Bream Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Live Shrimp
+  - Versatile Lure
+  - Bream Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
 Glass Herring:
   Isari:
   - Live Shrimp
@@ -11616,11 +11747,17 @@ Gobbie Mask:
   - Giant Crane Fly
   - Giant Crane Fly
   - Versatile Lure
-  - Sky Faerie
   - Red Balloon
   - Giant Crane Fly
   - Giant Crane Fly
   - Giant Crane Fly
+  - Red Balloon
+  - Versatile Lure
+  - Giant Crane Fly
+  - Metal Spinner
+  - Red Balloon
+  - Red Balloon
+  - Red Balloon
 Goblin Bass:
   Middle Thaliak River:
   - Brute Leech
@@ -15258,7 +15395,21 @@ Koromo Octopus:
   - Metal Spinner
   - Versatile Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Metal Spinner
+  - Bream Lure
+  - Versatile Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
+  - Live Shrimp
+  - Metal Spinner
+  - Versatile Lure
+  - Metal Spinner
   - Bream Lure
 Kotsu Zetsu:
   Mercantile Docks:
@@ -15433,10 +15584,29 @@ Kuno the Killer:
   - Versatile Lure
   - Syrphid Basket
   - Spinner
-  - Silverfish
   - Honey Worm
   - Versatile Lure
   - Glowworm
+  - Honey Worm
+  - Versatile Lure
+  - Glowworm
+  - Honey Worm
+  - Honey Worm
+  - Honey Worm
+  - Stem Borer
+  - Snurble Fly
+  - Freshwater Boilie
+  - Topwater Frog
+  - Streamer
+  - Mythril Spoon Lure
+  - Caddisfly Larva
+  - Streamer
+  - Silver Spoon Lure
+  - Wildfowl Fly
+  - Honey Worm
+  - Versatile Lure
+  - Syrphid Basket
+  - Spinner
 La Noscean Jelly: {}
 La Noscean Perch:
   Nym River:
@@ -15861,8 +16031,16 @@ Lamprey:
   - Caddisfly Larva
   - Caddisfly Larva
   - Spinnerbait
-  - Silverfish
   - Caddisfly Larva
+  - Caddisfly Larva
+  - Versatile Lure
+  - Honey Worm
+  - Freshwater Boilie
+  - Caddisfly Larva
+  - Wildfowl Fly
+  - Caddisfly Larva
+  - Caddisfly Larva
+  - Spinnerbait
   The Juggernaut:
   - Midge Basket
   - Honey Worm
@@ -16053,7 +16231,19 @@ Leaf Tatsunoko:
   - Live Shrimp
   - Bream Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Live Shrimp
+  - Versatile Lure
+  - Bream Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
 Leafy Seadragon:
   Cedarwood:
   - Spoon Worm
@@ -16656,7 +16846,17 @@ Lungfish:
   - Versatile Lure
   - Signature Skyball
   - Signature Skyball
-  - Aether Eye
+  - Purse Web Spider
+  - Signature Skyball
+  - Brute Leech
+  - Versatile Lure
+  - Purse Web Spider
+  - Purse Web Spider
+  - Purse Web Spider
+  - Brute Leech
+  - Versatile Lure
+  - Signature Skyball
+  - Signature Skyball
 Macrobrachium Lar:
   The Mover Beta:
   - Mayfly
@@ -17167,7 +17367,6 @@ Manasail:
   - Metal Spinner
   - Red Balloon
   - Giant Crane Fly
-  - Sky Faerie
   - Versatile Lure
   - Red Balloon
   - Metal Spinner
@@ -17176,6 +17375,13 @@ Manasail:
   - Red Balloon
   - Giant Crane Fly
   - Versatile Lure
+  - Metal Spinner
+  - Red Balloon
+  - Giant Crane Fly
+  - Versatile Lure
+  - Metal Spinner
+  - Metal Spinner
+  - Red Balloon
 Manasvin: {}
 Maneater Clam:
   Purpure:
@@ -20490,7 +20696,17 @@ Othardian Trout:
   - Stonefly Larva
   - Versatile Lure
   - Stonefly Larva
-  - Zagas Khaal
+  - Nightcrawler
+  - Stonefly Larva
+  - Versatile Lure
+  - Midge Larva
+  - Nightcrawler
+  - Stonefly Larva
+  - Nightcrawler
+  - Nightcrawler
+  - Stonefly Larva
+  - Versatile Lure
+  - Stonefly Larva
   Lower Yat Khaal:
   - Stonefly Larva
   - Versatile Lure
@@ -24686,7 +24902,6 @@ Silver Shark:
   - Sinking Minnow
   - Versatile Lure
   - Yumizuno
-  - Merlthor Goby
   - Lugworm
   - Floating Minnow
   - Versatile Lure
@@ -24694,6 +24909,31 @@ Silver Shark:
   - Rat Tail
   - Pill Bug
   - Crab Ball
+  - Lugworm
+  - Pill Bug
+  - Versatile Lure
+  - Floating Minnow
+  - Crab Ball
+  - Goby Ball
+  - Krill Cage Feeder
+  - Rat Tail
+  - Shrimp Cage Feeder
+  - Herring Ball
+  - Spoon Worm
+  - Lugworm
+  - Saltwater Boilie
+  - Glowworm
+  - Lugworm
+  - Steel Jig
+  - Northern Krill
+  - Lugworm
+  - Heavy Steel Jig
+  - Lugworm
+  - Lugworm
+  - Versatile Lure
+  - Sinking Minnow
+  - Versatile Lure
+  - Yumizuno
   Costa del Sol:
   - Spoon Worm
   - Versatile Lure
@@ -24739,7 +24979,6 @@ Silver Shark:
   - Crab Ball
   - Heavy Steel Jig
   - Versatile Lure
-  - Merlthor Goby
   - Lugworm
   - Pill Bug
   - Spoon Worm
@@ -24754,6 +24993,28 @@ Silver Shark:
   - Sinking Minnow
   - Versatile Lure
   - Glowworm
+  - Pill Bug
+  - Lugworm
+  - Spoon Worm
+  - Versatile Lure
+  - Herring Ball
+  - Krill Cage Feeder
+  - Floating Minnow
+  - Pill Bug
+  - Rat Tail
+  - Shrimp Cage Feeder
+  - Saltwater Boilie
+  - Northern Krill
+  - Glowworm
+  - Steel Jig
+  - Yumizuno
+  - Goby Ball
+  - Pill Bug
+  - Sinking Minnow
+  - Pill Bug
+  - Crab Ball
+  - Heavy Steel Jig
+  - Versatile Lure
   South Bloodshore:
   - Lugworm
   - Versatile Lure
@@ -25918,11 +26179,17 @@ Star Faerie:
   - Red Balloon
   - Giant Crane Fly
   - Versatile Lure
-  - Sky Faerie
   - Red Balloon
   - Giant Crane Fly
   - Giant Crane Fly
   - Giant Crane Fly
+  - Red Balloon
+  - Versatile Lure
+  - Giant Crane Fly
+  - Metal Spinner
+  - Red Balloon
+  - Red Balloon
+  - Red Balloon
   - Red Balloon
   - Versatile Lure
   - Giant Crane Fly
@@ -26816,7 +27083,19 @@ Swordfish:
   - Live Shrimp
   - Bream Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Live Shrimp
+  - Versatile Lure
+  - Bream Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
 Swordspine Snook:
   Oinops:
   - Mayfly
@@ -27801,7 +28080,17 @@ Tiny Axolotl:
   - Versatile Lure
   - Signature Skyball
   - Signature Skyball
-  - Aether Eye
+  - Purse Web Spider
+  - Signature Skyball
+  - Brute Leech
+  - Versatile Lure
+  - Purse Web Spider
+  - Purse Web Spider
+  - Purse Web Spider
+  - Brute Leech
+  - Versatile Lure
+  - Signature Skyball
+  - Signature Skyball
 Tiny Tortoise:
   The Salt Strand:
   - Yumizuno
@@ -28430,7 +28719,6 @@ Ut'ohmu Tiika:
   - Crimson Lugworm
   - Versatile Lure
   - Crimson Lugworm
-  - Sharknose Goby
   - Ghost Nipper
   - Versatile Lure
   - Ghost Nipper
@@ -28448,10 +28736,45 @@ Ut'ohmu Tiika:
   - Crimson Lugworm
   - Ghost Nipper
   - Ghost Nipper
-  - Sharknose Goby
   - Crimson Lugworm
   - Ghost Nipper
   - Versatile Lure
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Versatile Lure
+  - Ghost Nipper
+  - Ghost Nipper
+  - Crimson Lugworm
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Crimson Lugworm
+  - Versatile Lure
+  - Versatile Lure
+  - Crimson Lugworm
+  - Versatile Lure
+  - Shucked Clam
+  - Crimson Lugworm
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Ghost Nipper
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Versatile Lure
+  - Ghost Nipper
+  - Ghost Nipper
+  - Crimson Lugworm
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Crimson Lugworm
+  - Versatile Lure
+  - Versatile Lure
+  - Crimson Lugworm
+  - Versatile Lure
+  - Shucked Clam
+  - Crimson Lugworm
+  - Crimson Lugworm
+  - Ghost Nipper
+  - Ghost Nipper
 Uyuy Xage:
   Bopo'uihih:
   - Golden Stonefly Nymph
@@ -29798,7 +30121,19 @@ Xenocypris:
   - Versatile Lure
   - Versatile Lure
   - Mayfly
-  - Astacus Aetherius
+  - Versatile Lure
+  - Leech
+  - Mayfly
+  - Mayfly
+  - Mayfly
+  - Sky Spoon Lure
+  - Versatile Lure
+  - Leech
+  - Versatile Lure
+  - Mayfly
+  - Versatile Lure
+  - Mayfly
+  - Mayfly
   - Versatile Lure
   - Leech
   - Mayfly
@@ -30025,7 +30360,18 @@ Yak T'el Catfish:
   - Golden Stonefly Nymph
   - Honeybee
   - Red Maggots
-  - Flawless Saucer
+  - Versatile Lure
+  - Red Maggots
+  - Honeybee
+  - Popper Lure
+  - Red Maggots
+  - Honeybee
+  - Versatile Lure
+  - Red Maggots
+  - Versatile Lure
+  - Popper Lure
+  - Honeybee
+  - Red Maggots
   - Versatile Lure
   - Red Maggots
   - Honeybee
@@ -30063,7 +30409,27 @@ Yak T'el Catfish:
   - Red Maggots
   - Popper Lure
   - Honeybee
-  - Checkered Cichlid
+  - Popper Lure
+  - Versatile Lure
+  - Honeybee
+  - Popper Lure
+  - Honeybee
+  - Honeybee
+  - Popper Lure
+  - Versatile Lure
+  - Popper Lure
+  - Honeybee
+  - Popper Lure
+  - Versatile Lure
+  - Popper Lure
+  - Versatile Lure
+  - Red Maggots
+  - Popper Lure
+  - Honeybee
+  - Versatile Lure
+  - Versatile Lure
+  - Honeybee
+  - Honeybee
   - Popper Lure
   - Versatile Lure
   - Honeybee
@@ -30402,7 +30768,14 @@ Yellow Pipira:
   - Robber Ball
   - Robber Ball
   - Robber Ball
-  - Diamond Pipira
+  - Robber Ball
+  - Versatile Lure
+  - Robber Ball
+  - Robber Ball
+  - Baitbugs
+  - Robber Ball
+  - Baitbugs
+  - Baitbugs
   - Robber Ball
   - Versatile Lure
   - Robber Ball
@@ -30711,7 +31084,21 @@ Zekki Gator:
   - Metal Spinner
   - Versatile Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Metal Spinner
+  - Bream Lure
+  - Versatile Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
+  - Live Shrimp
+  - Metal Spinner
+  - Versatile Lure
+  - Metal Spinner
   - Bream Lure
 Zekki Grouper:
   The Isle of Zekki:
@@ -30736,7 +31123,21 @@ Zekki Grouper:
   - Metal Spinner
   - Versatile Lure
   - Metal Spinner
-  - Ruby Shrimp
+  - Bream Lure
+  - Live Shrimp
+  - Metal Spinner
+  - Bream Lure
+  - Versatile Lure
+  - Blue Bobbit
+  - Metal Spinner
+  - Live Shrimp
+  - Live Shrimp
+  - Bream Lure
+  - Metal Spinner
+  - Live Shrimp
+  - Metal Spinner
+  - Versatile Lure
+  - Metal Spinner
   - Bream Lure
 Zorgor Condor:
   Westbound Zorgor:
