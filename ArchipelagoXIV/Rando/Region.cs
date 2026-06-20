@@ -15,6 +15,7 @@ namespace ArchipelagoXIV.Rando
             APData.LoadRegions();
             APData.LoadDutiesCsv();
             APData.LoadFatesCsv();
+            APData.LoadHuntsCsv();
             APData.LoadFish();
             APData.LoadRemoved();
         }

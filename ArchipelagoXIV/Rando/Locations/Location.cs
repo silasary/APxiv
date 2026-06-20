@@ -143,6 +143,10 @@ namespace ArchipelagoXIV.Rando.Locations
             {
                 MeetsRequirements = Logic.Always();
             }
+            else if (APData.HuntData.TryGetValue(Name, out var huntLevel))
+            {
+                MeetsRequirements = Logic.Level(huntLevel);
+            }
             else if (Name == "Return to the Waking Sands")
             {
                 MeetsRequirements = Logic.Always();

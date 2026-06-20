@@ -171,7 +171,7 @@ namespace ArchipelagoXIV
                     {
                         var name = nm.BNpcName.Value.Singular.ToString();
                         var rank = nm.Rank switch { 1 => "B", 2 => "A", _ => "S" };
-                        return new NotoriousMonsterInfo(name, rank, $"{name} (Hunt)");
+                        return new NotoriousMonsterInfo(name, rank, $"Hunt {name}");
                     });
         }
 
