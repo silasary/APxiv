@@ -303,7 +303,7 @@ class Huntsanity(OptionSet):
     - A: A-rank hunts - 2 per zone. Hours of respawn time. Old low level hunts are usually killed on sight and not relayed. Finishing this goal may require a long time.
     - S: S-rank hunts - rare spawns with very long respawn timers. If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
 
-    List any wanted ranks. For example [B] / [B, A, S] / ... / omit or [] to disable entirely.
+    List any wanted ranks. For example ["B"] / ["B", "A", "S"] / ... / omit or [] to disable entirely.
     """
     display_name = "Huntsanity"
     valid_keys = {"B", "A", "S"}
