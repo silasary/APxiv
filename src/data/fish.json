@@ -19992,9 +19992,6 @@
     "Metal Spinner",
     "Stonefly Larva",
     "Suspending Minnow"
-   ],
-   "The Diadem": [
-    "Metal Spinner"
    ]
   },
   "all_bait": {
@@ -20002,10 +19999,6 @@
     "Metal Spinner",
     "Signature Skyball",
     "Stonefly Larva",
-    "Suspending Minnow",
-    "Versatile Lure"
-   ],
-   "The Diadem": [
     "Suspending Minnow",
     "Versatile Lure"
    ]
@@ -20086,9 +20079,6 @@
     "Nightcrawler",
     "Suspending Minnow"
    ],
-   "The Diadem": [
-    "Metal Spinner"
-   ],
    "Shirogane": [
     "Metal Spinner"
    ]
@@ -20101,9 +20091,6 @@
     "Signature Skyball",
     "Stonefly Larva",
     "Suspending Minnow",
-    "Versatile Lure"
-   ],
-   "The Diadem": [
     "Versatile Lure"
    ],
    "Shirogane": [
@@ -30200,9 +30187,6 @@
   "logical_bait": {
    "Ultima Thule": [
     "Gold Salmon Roe"
-   ],
-   "Elysion": [
-    "Gold Salmon Roe"
    ]
   },
   "all_bait": {
@@ -30212,9 +30196,6 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
-   ],
-   "Elysion": [
-    "Gold Salmon Roe"
    ]
   },
   "logical_intuition": {},
@@ -30267,9 +30248,6 @@
   "logical_bait": {
    "Ultima Thule": [
     "Gold Salmon Roe"
-   ],
-   "Elysion": [
-    "Gold Salmon Roe"
    ]
   },
   "all_bait": {
@@ -30279,9 +30257,6 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
-   ],
-   "Elysion": [
-    "Gold Salmon Roe"
    ]
   },
   "logical_intuition": {},

@@ -445,6 +445,12 @@ def apply_bait() -> None:
             if zone_name == "The *Endeavor*":
                 del bait_paths[name][hole]
                 continue
+            elif zone_name == "The Diadem":
+                del bait_paths[name][hole]
+                continue
+            elif zone_name == "Elysion":
+                del bait_paths[name][hole]
+                continue
             # if len(baits) > 1 and 'Versatile Lure' in baits:
             #     baits.remove('Versatile Lure')
             #Adds logical baits from the teamcraft recommended baits list
@@ -821,15 +827,9 @@ def sort_fish():
 
 
 if __name__ == "__main__":
-    print("Starting scrape_teamcraft")
     scrape_teamcraft()
-    print("Starting tribal_fish")
     tribal_fish()
-    print("Starting apply_bait")
     apply_bait()
-    print("Starting fill_missing_bait")
     fill_missing_bait()
-    print("Starting clean_fish")
     clean_fish()
-    print("Starting sort_fish")
     sort_fish()
