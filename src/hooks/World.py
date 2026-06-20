@@ -108,8 +108,11 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if not has_fates and not has_dungeons and not has_fish and not has_hunts:
         raise OptionError("You can't disable everything.")
 
+    if has_hunts and level_cap < 50:
+        raise OptionError("Huntsanity requires a level cap of at least 50.")
+
     if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
-        raise OptionError("Huntsanity alone does not provide enough locations. Please enable at least 2 fates per zone, duties, or fish alongside it.")
+        raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
     if (
         not has_dungeons
