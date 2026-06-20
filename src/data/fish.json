@@ -1072,8 +1072,8 @@
    "Western La Noscea": [
     "Northern Krill",
     "Goby Ball",
-    "Yumizuno",
     "Pill Bug",
+    "Yumizuno",
     "Versatile Lure",
     "Rat Tail",
     "Saltwater Boilie",
@@ -1146,6 +1146,7 @@
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Goby Ball"
    ],
    "Western Thanalan": [
@@ -1653,8 +1654,8 @@
     "Northern Krill",
     "Floating Minnow",
     "Yumizuno",
-    "Herring Ball",
     "Northern Krill",
+    "Herring Ball",
     "Steel Jig",
     "Northern Krill",
     "Saltwater Boilie",
@@ -4318,6 +4319,7 @@
     "Bass Ball",
     "Floating Minnow",
     "Honey Worm",
+    "Syrphid Basket",
     "Streamer",
     "Mythril Spoon Lure",
     "Crow Fly"
@@ -4954,8 +4956,8 @@
     "Midge Basket",
     "Butterworm",
     "Syrphid Basket",
-    "Brass Spoon Lure",
     "Freshwater Boilie",
+    "Brass Spoon Lure",
     "Butterworm",
     "Honey Worm",
     "Butterworm",
@@ -5137,12 +5139,12 @@
     "Streamer",
     "Bass Ball",
     "Glowworm",
+    "Midge Basket",
     "Butterworm",
     "Glowworm",
     "Midge Basket",
     "Spinner",
     "Spinnerbait",
-    "Midge Basket",
     "Topwater Frog"
    ],
    "The Lavender Beds": [
@@ -6121,8 +6123,8 @@
   },
   "all_bait": {
    "North Shroud": [
-    "Crow Fly",
     "Butterworm",
+    "Crow Fly",
     "Floating Minnow",
     "Versatile Lure",
     "Wildfowl Fly",
@@ -6368,7 +6370,8 @@
     "Chocobo Fly",
     "Wildfowl Fly",
     "Honey Worm",
-    "Syrphid Basket"
+    "Syrphid Basket",
+    "Versatile Lure"
    ],
    "Outer La Noscea": [
     "Spinnerbait",
@@ -6533,8 +6536,8 @@
     "Versatile Lure",
     "Spinnerbait",
     "Caddisfly Larva",
-    "Sinking Minnow",
     "Butterworm",
+    "Sinking Minnow",
     "Snurble Fly",
     "Spinner"
    ]
@@ -8432,8 +8435,8 @@
     "Sinking Minnow",
     "Streamer",
     "Glowworm",
-    "Versatile Lure",
     "Glowworm",
+    "Versatile Lure",
     "Caddisfly Larva",
     "Stem Borer",
     "Topwater Frog",
@@ -11071,8 +11074,6 @@
   },
   "all_bait": {
    "Middle La Noscea": [
-    "Rat Tail",
-    "Rat Tail",
     "Rat Tail"
    ]
   },
@@ -12863,7 +12864,7 @@
   "timed": 2,
   "logical_bait": {
    "Western La Noscea": [
-    "Merlthor Goby"
+    "Lugworm"
    ]
   },
   "all_bait": {
@@ -15091,8 +15092,8 @@
     "Versatile Lure",
     "Purse Web Spider",
     "Brute Leech",
-    "Purse Web Spider",
     "Brute Leech",
+    "Purse Web Spider",
     "Brute Leech",
     "Stonefly Nymph"
    ]
@@ -18568,8 +18569,8 @@
     "Versatile Lure",
     "Suspending Minnow",
     "Stonefly Larva",
-    "Stonefly Larva",
     "Suspending Minnow",
+    "Stonefly Larva",
     "Suspending Minnow"
    ]
   },
@@ -24035,8 +24036,8 @@
     "Versatile Lure",
     "Fruit Worm",
     "Robber Ball",
-    "Versatile Lure",
     "Marble Nymph",
+    "Versatile Lure",
     "Fruit Worm"
    ]
   },
@@ -24062,7 +24063,8 @@
     "Baitbugs",
     "Marble Nymph",
     "Fruit Worm",
-    "Fruit Worm"
+    "Fruit Worm",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -25948,8 +25950,8 @@
    "The Rak'tika Greatwood": [
     "Baitbugs",
     "Baitbugs",
-    "Versatile Lure",
     "Baitbugs",
+    "Versatile Lure",
     "Baitbugs"
    ]
   },
@@ -26294,6 +26296,7 @@
   },
   "all_bait": {
    "The Tempest": [
+    "Short Bill Minnow",
     "Short Bill Minnow"
    ]
   },
@@ -29741,7 +29744,7 @@
   "timed": 2,
   "logical_bait": {
    "The Rak'tika Greatwood": [
-    "Clown Tetra"
+    "Robber Ball"
    ]
   },
   "all_bait": {
@@ -30406,6 +30409,7 @@
     "Leech",
     "Mayfly",
     "Sky Spoon Lure",
+    "Mayfly",
     "Mayfly"
    ]
   },
@@ -30965,8 +30969,8 @@
     "Mackerel Strip",
     "Shrimp Ball",
     "Mackerel Strip",
-    "Versatile Lure",
     "Shrimp Ball",
+    "Versatile Lure",
     "Shrimp Ball"
    ]
   },
@@ -31484,6 +31488,7 @@
     "Versatile Lure",
     "Mayfly",
     "Sky Spoon Lure",
+    "Mayfly",
     "Mayfly"
    ]
   },
@@ -35140,6 +35145,7 @@
     "Versatile Lure",
     "Mayfly",
     "Sky Spoon Lure",
+    "Mayfly",
     "Mayfly"
    ]
   }
@@ -35772,8 +35778,8 @@
     "Crimson Lugworm",
     "Crimson Lugworm",
     "Shucked Clam",
-    "Ghost Nipper",
-    "Metal Spinner"
+    "Metal Spinner",
+    "Ghost Nipper"
    ]
   },
   "logical_intuition": {},
@@ -35963,7 +35969,8 @@
     "Silkmoth Pupa",
     "Silkmoth Pupa",
     "White Worm",
-    "Versatile Lure"
+    "Versatile Lure",
+    "White Worm"
    ]
   },
   "logical_intuition": {},
@@ -36811,8 +36818,8 @@
   },
   "all_bait": {
    "Kozama'uka": [
-    "Versatile Lure",
     "Golden Stonefly Nymph",
+    "Versatile Lure",
     "Honeybee",
     "Versatile Lure",
     "Popper Lure",
@@ -36839,8 +36846,8 @@
   },
   "all_bait": {
    "Kozama'uka": [
-    "Versatile Lure",
     "Golden Stonefly Nymph",
+    "Versatile Lure",
     "Honeybee",
     "Popper Lure",
     "Versatile Lure",
@@ -37365,8 +37372,8 @@
     "Versatile Lure",
     "Golden Stonefly Nymph",
     "Versatile Lure",
-    "Red Maggots",
-    "Golden Stonefly Nymph"
+    "Golden Stonefly Nymph",
+    "Red Maggots"
    ]
   },
   "logical_intuition": {},
@@ -37942,6 +37949,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Versatile Lure",
     "Crimson Lugworm"
    ]
   },
@@ -39029,8 +39037,8 @@
     "Ghost Nipper",
     "Versatile Lure",
     "Ghost Nipper",
-    "Versatile Lure",
-    "Ghost Nipper"
+    "Ghost Nipper",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -39054,8 +39062,8 @@
     "Versatile Lure",
     "Ghost Nipper",
     "Ghost Nipper",
-    "Versatile Lure",
     "Ghost Nipper",
+    "Versatile Lure",
     "Versatile Lure",
     "Ghost Nipper",
     "Versatile Lure"
@@ -39239,8 +39247,8 @@
     "Popper Lure",
     "Popper Lure",
     "Red Maggots",
-    "Versatile Lure",
     "Popper Lure",
+    "Versatile Lure",
     "Red Maggots",
     "Red Maggots",
     "Popper Lure",
