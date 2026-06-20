@@ -479,7 +479,7 @@ def apply_bait() -> None:
                     #While in teamcraft fishing-sources, check the intuition requirements and add them
                     if fishsource.get('predators'):
                         for predators in fishsource.get('predators'):
-                            intuition_bait = bait_paths.setdefault(lookup_item_name(predators["id"]), {}).setdefault(hole, [])
+                            intuition_bait = bait_paths[lookup_item_name(predators["id"])][hole]
                             for fish_predator_source in teamcraft_json('fishing-sources')[str(predators["id"])]:
                                 if fish_predator_source['spot'] == spots[hole]["id"]:
                                     logical_intuition = lookup_item_name(fish_predator_source['bait'])
@@ -519,50 +519,49 @@ def apply_bait() -> None:
                     bait = bait[0]
                 info = bait_data.get(str(bait), {"name": bait})
                 if bait == fish['name']:
-                    #print(f"Bait {bait} = fish {fish}")
                     baits.remove(bait)
                     continue
-                if 'id' not in info:
-                    item = lookup_item_by_name(str(bait))
-                    if item:
-                        info['id'] = int(item['#'])
-                    else:
-                        print(f"Could not find item ID for bait: {bait}")
-                        bait_data[str(bait)] = info
-                        continue
-                    category = lookup_item_ui_category(item["ItemUICategory"])
-                    if category == "Fishing Tackle":
-                        pass
-                    elif category == "Seafood":
-                        info['mooch'] = True
-                    else:
-                        print(f"!!! Bait {bait} has unexpected category {category} !!!")
-                        info['category'] = category
-                if info.get('mooch'):
-                    found = False
-                    mooch = ''
-                    for mooch in bait_paths.keys():
-                        if mooch.lower() == bait.lower():
-                            found = True
-                            break
-                    if not found:
-                        print(f"!!! {name} mooches {bait} but cannot find corresponding fish !!!")
-                        bait_data[bait] = info
-                        continue
-                    mooch_path = bait_paths.setdefault(mooch, {}).setdefault(hole, [])
+                #if 'id' not in info:
+                #    item = lookup_item_by_name(str(bait))
+                #    if item:
+                #        info['id'] = int(item['#'])
+                #    else:
+                #        print(f"Could not find item ID for bait: {bait}")
+                #        bait_data[str(bait)] = info
+                #        continue
+                #    category = lookup_item_ui_category(item["ItemUICategory"])
+                #    if category == "Fishing Tackle":
+                #        pass
+                #    elif category == "Seafood":
+                #        info['mooch'] = True
+                #    else:
+                #        print(f"!!! Bait {bait} has unexpected category {category} !!!")
+                #        info['category'] = category
+                item = lookup_item_by_name(str(bait))
+                category = lookup_item_ui_category(item["ItemUICategory"])
+                if category == "Fishing Tackle":
+                    moochstatus = False
+                    pass
+                elif category == "Seafood":
+                    moochstatus = True
+                else:
+                    print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
+                while moochstatus:
+                    mooch_path = bait_paths[bait][hole]
                     if mooch_path:
-                        index = baits.index(bait)
                         # baits.remove(bait)
-                        new_bait = mooch_path
-                        add = new_bait not in baits
-                        if new_bait == "Versatile Lure" and baits:
-                            add = False
-                        if add:
-                            baits[index] = new_bait
-                        else:
-                            baits.remove(bait)
-                if bait not in bait_data and not info.get('mooch'):
-                    bait_data[bait] = info
+                        baits.remove(bait)
+                        bait = mooch_path
+                        print("new_bait")
+                        print(bait)
+                        item = lookup_item_by_name(str(bait))
+                        print(item)
+                        if not item:
+                            print("bait+bait")
+                            baits += bait
+                            moochstatus = False
+                #if bait not in bait_data and not info.get('mooch'):
+                #    print("if bait not in bait_data and not info.get('mooch')")
 
 
         if not fish['all_bait']:
