@@ -76,6 +76,7 @@ namespace ArchipelagoXIV.Rando
         public static readonly Dictionary<string, FishData> FishData = [];
         public static readonly Dictionary<string, int> FateData = [];
         public static readonly Dictionary<string, int> HuntData = [];
+        public static readonly Dictionary<string, string> HuntRankData = [];
 
         public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; }
 
@@ -140,7 +141,7 @@ namespace ArchipelagoXIV.Rando
             using var reader = new StreamReader(stream);
             Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
             string? line = null;
-            
+
             while ((line = reader.ReadLine()) != null)
             {
                 var row = CSVParser.Split(line);
@@ -148,11 +149,13 @@ namespace ArchipelagoXIV.Rando
                     continue;
 
                 var name = $"Hunt {row[1].Trim()}";
+                var rank = row[2].Trim();
                 var zone = row[3].Trim();
                 var level = int.Parse(row[4].Trim());
 
                 Aliases[name] = zone;
                 HuntData[name] = level;
+                HuntRankData[name] = rank;
             }
         }
 

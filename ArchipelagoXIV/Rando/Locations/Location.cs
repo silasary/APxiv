@@ -210,7 +210,12 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public string DisplayText
         {
-            get => Name + HintText;
+            get
+            {
+                if (APData.HuntRankData.TryGetValue(Name, out var rank) && APData.Aliases.TryGetValue(Name, out var zone))
+                    return $"{Name} ({rank}-Rank, {zone}){HintText}";
+                return Name + HintText;
+            }
         }
 
         public string HintText { get
