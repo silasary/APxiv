@@ -167,9 +167,12 @@ namespace ArchipelagoXIV.Rando
             var fishsanity = JObject.Parse(reader.ReadToEnd()).Values();
             foreach (JObject fish in fishsanity)
             {
-                var zones = fish.Value<JObject>("logical_bait");
+                var zones = fish.Value<JObject>("zones");
+                Console.WriteLine(zones);
+                var intuition = fish.Value<JObject>("logical_intuition");
                 List<string> zoneNames = [];
                 List<string> baits = [];
+                List<string> intuitionbaits = [];
                 foreach (var z in zones)
                 {
                     var zbaits = z.Value.Values<string>().ToArray();
@@ -177,16 +180,41 @@ namespace ArchipelagoXIV.Rando
                         continue;
                     zoneNames.Add(z.Key);
                     baits.AddRange(zbaits);
+                    //This is extremely hacky. Someone pls fix this should be very easy. Intuition only has a single zone/hole as of DT
+                    foreach (var y in intuition)
+                    {
+                        var zintuition = y.Value.Values<string>().ToArray();
+                        if (zintuition.Length != 0)
+                            intuitionbaits.AddRange(zintuition);
+                    }
                 }
                 baits = baits.Distinct().ToList();
-                var data = new FishData
-                {
-                    Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
-                    Id = fish.Value<int>("id"),
-                    Baits = [.. baits],
-                    Regions = zoneNames.Select(z => Regions[z]).ToArray(),
-                };
-                APData.FishData[fish.Value<string>("name")] = data;
+                intuitionbaits = intuitionbaits.Distinct().ToList();
+                //if (intuitionbaits.Count == 0)
+                //{
+                    var data = new FishData
+                    {
+                        Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
+                        Id = fish.Value<int>("id"),
+                        Baits = [.. baits],
+                        Intuition = [.. intuitionbaits],
+                        Regions = zoneNames.Select(z => Regions[z]).ToArray(),
+                    };
+                    APData.FishData[fish.Value<string>("name")] = data;
+                //}
+                //else
+                //{
+                //    var data = new FishData
+                //    {
+                //        Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
+                //        Id = fish.Value<int>("id"),
+                //        Baits = [.. baits],
+                //        //Intuition = [.. intuitionbaits],
+                //        Regions = zoneNames.Select(z => Regions[z]).ToArray(),
+                //    };
+                //    APData.FishData[fish.Value<string>("name")] = data;
+                //}
+                
             }
         }
     }

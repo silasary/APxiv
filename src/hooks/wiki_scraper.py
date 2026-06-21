@@ -389,7 +389,7 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     #     viable_baits = [b for b in baits if b.occurences >= best_occurences * 0.05]
     #     if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
     #         viable_baits = viable_baits[1:] + [viable_baits[0]]
-    #     fish['logical_bait'][zone] = [b.bait_name for b in viable_baits]
+    #     fish['zones'][zone] = [b.bait_name for b in viable_baits]
 
     return
 
@@ -429,12 +429,10 @@ def apply_bait() -> None:
     for name, fish in all_fish.items():
         if fish.get('tribal'):
             continue
-        fish['logical_bait'] = {}
+        fish['zones'] = {}
         fish['all_bait'] = {}
         fish['logical_intuition'] = {}
         fish['intuition_bait'] = {}
-        if 'zones' in fish:
-            del fish['zones']
 
         for hole, baits in bait_paths.get(name, {}).copy().items():
             if not baits:
@@ -562,41 +560,41 @@ def apply_bait() -> None:
                 
             if baits:
                 fish['all_bait'][zone_name] = baits
-                fish['logical_bait'].setdefault(zone_name, []).append(teamcraft_optimalbait)
+                fish['zones'].setdefault(zone_name, []).append(teamcraft_optimalbait)
                 #sort and clean
                 fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))  
-                fish['logical_bait'][zone_name] = sorted(set(fish['logical_bait'][zone_name]))
+                fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
                 fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))  
-                fish['logical_bait'][zone_name] = sorted(set(fish['logical_bait'][zone_name]))
+                fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
                 #Merge zones, comment this out for poptracker scraper
                 if zone_name == 'Limsa Lominsa Lower Decks':
                     fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
                     fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
                     del fish['all_bait']['Limsa Lominsa Lower Decks']
-                    fish['logical_bait']['Limsa Lominsa'] = combine_lists(fish['logical_bait'].get('Limsa Lominsa', []), fish['logical_bait']['Limsa Lominsa Lower Decks'])
-                    fish['logical_bait']['Limsa Lominsa'] = sorted(set(fish['logical_bait']['Limsa Lominsa']))  
-                    del fish['logical_bait']['Limsa Lominsa Lower Decks']
+                    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
+                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                    del fish['zones']['Limsa Lominsa Lower Decks']
                 elif zone_name == 'Limsa Lominsa Upper Decks':
                     fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
                     fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
                     del fish['all_bait']['Limsa Lominsa Upper Decks']
-                    fish['logical_bait']['Limsa Lominsa'] = combine_lists(fish['logical_bait'].get('Limsa Lominsa', []), fish['logical_bait']['Limsa Lominsa Upper Decks'])
-                    fish['logical_bait']['Limsa Lominsa'] = sorted(set(fish['logical_bait']['Limsa Lominsa']))  
-                    del fish['logical_bait']['Limsa Lominsa Upper Decks']
+                    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
+                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                    del fish['zones']['Limsa Lominsa Upper Decks']
                 elif zone_name == 'New Gridania':
                     fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
                     fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
                     del fish['all_bait']['New Gridania']
-                    fish['logical_bait']['Gridania'] = combine_lists(fish['logical_bait'].get('Gridania', []), fish['logical_bait']['New Gridania'])
-                    fish['logical_bait']['Gridania'] = sorted(set(fish['logical_bait']['Gridania']))  
-                    del fish['logical_bait']['New Gridania']
+                    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['New Gridania'])
+                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                    del fish['zones']['New Gridania']
                 elif zone_name == 'Old Gridania':
                     fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
                     fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
                     del fish['all_bait']['Old Gridania']
-                    fish['logical_bait']['Gridania'] = combine_lists(fish['logical_bait'].get('Gridania', []), fish['logical_bait']['Old Gridania'])
-                    fish['logical_bait']['Gridania'] = sorted(set(fish['logical_bait']['Gridania']))  
-                    del fish['logical_bait']['Old Gridania']
+                    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['Old Gridania'])
+                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                    del fish['zones']['Old Gridania']
             else:
                 print(f"No bait for {name} in {hole}")
 
@@ -800,12 +798,12 @@ def clean_fish():
     all_fish = load_all_fish()
     for fish in all_fish.values():
         to_remove = []
-        for zone, baits in fish.get('logical_bait', {}).items():
+        for zone, baits in fish.get('zones', {}).items():
             if not baits:
                 # print(f"Removing {zone} from {fish['name']}")
                 to_remove.append(zone)
         for zone in to_remove:
-            del fish['logical_bait'][zone]
+            del fish['zones'][zone]
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 

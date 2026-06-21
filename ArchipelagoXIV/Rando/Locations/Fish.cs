@@ -11,6 +11,7 @@ namespace ArchipelagoXIV.Rando.Locations
         public int Level;
         public Region[] Regions;
         public string[] Baits;
+        public string[] Intuition;
     }
 
     internal class Fish : Location
@@ -45,6 +46,8 @@ namespace ArchipelagoXIV.Rando.Locations
                 else
                     this.region = region;
                 if (!Data.Baits.Any(b => apState.Items.Contains(b)))
+                    return Accessible = false;
+                if (!Data.Intuition.All(b => apState.Items.Contains(b)))
                     return Accessible = false;
                 return Accessible = true;
             }

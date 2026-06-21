@@ -300,7 +300,7 @@ def generate_fish_list() -> list[dict]:
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
         try:
-            zones = data['logical_bait']
+            zones = data['zones']
         except:
             _id += 1
             continue
