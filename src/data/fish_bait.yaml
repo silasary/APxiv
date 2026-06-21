@@ -102,8 +102,8 @@ Abalathian Smelt:
   - Freshwater Boilie
   - Mythril Spoon Lure
   - Wildfowl Fly
-  - Silver Spoon Lure
   - Sinking Minnow
+  - Silver Spoon Lure
   - Glowworm
   - Glowworm
   - Glowworm
@@ -2255,9 +2255,9 @@ Black Eel:
   - Glowworm
   - Crow Fly
   - Syrphid Basket
+  - Syrphid Basket
   - Versatile Lure
   - Brass Spoon Lure
-  - Syrphid Basket
   Everschade:
   - Syrphid Basket
   - Butterworm
@@ -2265,8 +2265,8 @@ Black Eel:
   - Bass Ball
   - Honey Worm
   - Floating Minnow
-  - Crow Fly
   - Syrphid Basket
+  - Crow Fly
   - Freshwater Boilie
   - Glowworm
   - Chocobo Fly
@@ -2615,8 +2615,8 @@ Blindfish:
   - Versatile Lure
   - Chocobo Fly
   - Syrphid Basket
-  - Glowworm
   - Syrphid Basket
+  - Glowworm
   - Freshwater Boilie
   - Honey Worm
   - Syrphid Basket
@@ -2637,11 +2637,11 @@ Blindfish:
   - Wildfowl Fly
   - Freshwater Boilie
   - Mythril Spoon Lure
+  - Sinking Minnow
   - Silver Spoon Lure
   - Glowworm
   - Glowworm
   - Glowworm
-  - Sinking Minnow
   - Spinner
   - Snurble Fly
   - Streamer
@@ -3471,10 +3471,10 @@ Blue Octopus:
   - Rat Tail
   - Saltwater Boilie
   - Northern Krill
+  - Steel Jig
   - Floating Minnow
   - Versatile Lure
   - Crab Ball
-  - Steel Jig
   - Shrimp Cage Feeder
   - Krill Cage Feeder
   - Sinking Minnow
@@ -3705,6 +3705,7 @@ Bluetail:
   - Mayfly
   - Mayfly
   - Mayfly
+  - Versatile Lure
 Bobgoblin Bass:
   Middle Thaliak River:
   - Goblin Jig
@@ -4560,6 +4561,7 @@ Brassfish:
   - Midge Larva
   - Salmon Roe
   - Nightcrawler
+  - Suspending Minnow
   The Silver Canal:
   - Nightcrawler
   - Midge Larva
@@ -5333,8 +5335,8 @@ Cave Cherax:
   - Honey Worm
   - Glowworm
   - Syrphid Basket
-  - Topwater Frog
   - Stem Borer
+  - Topwater Frog
   - Butterworm
   - Freshwater Boilie
   - Mythril Spoon Lure
@@ -5343,11 +5345,11 @@ Cave Cherax:
   - Glowworm
   - Glowworm
   - Crow Fly
+  - Sinking Minnow
   - Floating Minnow
   - Bass Ball
   - Glowworm
   - Bloodworm
-  - Sinking Minnow
   - Silver Spoon Lure
   - Snurble Fly
   - Streamer
@@ -5365,8 +5367,8 @@ Cave Cherax:
   - Freshwater Boilie
   - Mythril Spoon Lure
   - Wildfowl Fly
-  - Silver Spoon Lure
   - Sinking Minnow
+  - Silver Spoon Lure
   - Glowworm
   - Glowworm
   - Glowworm
@@ -5719,8 +5721,8 @@ Chub:
   - Freshwater Boilie
   - Sinking Minnow
   - Crayfish Ball
-  - Floating Minnow
   - Crayfish Ball
+  - Floating Minnow
   - Stem Borer
   - Butterworm
   - Syrphid Basket
@@ -6101,8 +6103,8 @@ Cloudribbon:
   - Cactuar Jig
   - Cactuar Jig
   - Versatile Lure
-  - Versatile Lure
   - Dragonfly
+  - Versatile Lure
   - Versatile Lure
   - Dragonfly
   - Dragonfly
@@ -6259,6 +6261,7 @@ Cobrafish:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Coccosteus: {}
@@ -7159,8 +7162,8 @@ Crayfish:
   - Freshwater Boilie
   - Sinking Minnow
   - Stem Borer
-  - Butterworm
   - Crayfish Ball
+  - Butterworm
   - Crayfish Ball
   - Floating Minnow
   - Syrphid Basket
@@ -7342,8 +7345,8 @@ Crimson Trout:
   - Versatile Lure
   - Honey Worm
   - Spinnerbait
-  - Topwater Frog
   - Glowworm
+  - Topwater Frog
   - Mythril Spoon Lure
   - Freshwater Boilie
   - Streamer
@@ -7419,6 +7422,7 @@ Crystal Pigeon:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Crystalfin:
@@ -9195,8 +9199,8 @@ Electric Catfish:
   - Midge Larva
   - Stonefly Larva
   - Suspending Minnow
-  - Versatile Lure
   - Nightcrawler
+  - Versatile Lure
 Electrobetta:
   Alexandrian Ruins:
   - Popper Lure
@@ -9269,11 +9273,11 @@ Emperor Fish:
   - Syrphid Basket
   - Topwater Frog
   - Crayfish Ball
-  - Wildfowl Fly
   - Bass Ball
+  - Wildfowl Fly
   - Syrphid Basket
-  - Streamer
   - Floating Minnow
+  - Streamer
   - Moth Pupa
   - Butterworm
   - Bloodworm
@@ -11029,8 +11033,8 @@ Giant Bass:
   - Snurble Fly
   - Stem Borer
   The Nail:
-  - Versatile Lure
   - Topwater Frog
+  - Versatile Lure
   - Honey Worm
   - Spinnerbait
   - Stem Borer
@@ -11062,8 +11066,8 @@ Giant Bass:
   - Versatile Lure
   - Topwater Frog
   - Sinking Minnow
-  - Rainbow Spoon Lure
   - Glowworm
+  - Rainbow Spoon Lure
   - Mythril Spoon Lure
   - Snurble Fly
   - Silver Spoon Lure
@@ -11246,8 +11250,8 @@ Giant Trahira:
   - Golden Stonefly Nymph
   - Honeybee
   - Popper Lure
-  - Red Maggots
   - Golden Stonefly Nymph
+  - Red Maggots
   - Golden Stonefly Nymph
   - Versatile Lure
   - Honeybee
@@ -11257,14 +11261,14 @@ Giant Trahira:
   - Red Maggots
   - Popper Lure
   - Red Maggots
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Honeybee
@@ -11580,8 +11584,8 @@ Glass Herring:
   - Versatile Lure
   - Live Shrimp
   - Bream Lure
-  - Blue Bobbit
   - Metal Spinner
+  - Blue Bobbit
   - Live Shrimp
   The Ruby Price:
   - Blue Bobbit
@@ -11677,8 +11681,8 @@ Gliding Fish:
   - Metal Spinner
   - Live Shrimp
   - Bream Lure
-  - Versatile Lure
   - Live Shrimp
+  - Versatile Lure
   - Blue Bobbit
 Glimmerscale:
   Nophica's Wells:
@@ -11723,8 +11727,8 @@ Globefish:
   - Blue Bobbit
   - Versatile Lure
   - Live Shrimp
-  - Bream Lure
   - Live Shrimp
+  - Bream Lure
   - Metal Spinner
 Gnomefish:
   Quickspill Delta:
@@ -12515,8 +12519,8 @@ Grip Killifish:
   - Stem Borer
   - Freshwater Boilie
   - Glowworm
-  - Wildfowl Fly
   - Spinnerbait
+  - Wildfowl Fly
   - Spinner
   - Snurble Fly
   - Caddisfly Larva
@@ -12754,8 +12758,8 @@ Gyr Abanian Trout:
   - Midge Larva
   - Stonefly Larva
   - Suspending Minnow
-  - Versatile Lure
   - Nightcrawler
+  - Versatile Lure
   The Arms of Meed:
   - Suspending Minnow
   - Midge Larva
@@ -13140,10 +13144,10 @@ Harbor Herring:
   - Rat Tail
   - Saltwater Boilie
   - Northern Krill
+  - Steel Jig
   - Floating Minnow
   - Versatile Lure
   - Crab Ball
-  - Steel Jig
   - Shrimp Cage Feeder
   - Krill Cage Feeder
   - Sinking Minnow
@@ -13952,14 +13956,14 @@ Hunmu Ob:
   - Versatile Lure
 Hunu Peacock Bass:
   Peaks Poga:
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Honeybee
@@ -14132,6 +14136,7 @@ Icepike:
   - Versatile Lure
   - Gold Salmon Roe
   - Sky Spoon Lure
+  - Versatile Lure
   - Mayfly
   - Leech
   - Versatile Lure
@@ -14187,6 +14192,7 @@ Ignus Snail:
   - Spinnerbait
   - Freshwater Boilie
   - Streamer
+  - Spinnerbait
   Ceruleum Field:
   - Versatile Lure
   - Glowworm
@@ -14462,8 +14468,8 @@ Indigo Herring:
   - Sinking Minnow
   - Spoon Worm
   - Northern Krill
-  - Steel Jig
   - Spoon Worm
+  - Steel Jig
   - Spoon Worm
   - Herring Ball
   The Silver Bazaar:
@@ -14607,8 +14613,8 @@ Iribainion:
   - Versatile Lure
   - Leech
   - Gold Salmon Roe
-  - Mayfly
   - Sky Spoon Lure
+  - Mayfly
   - Mayfly
   - Mayfly
   - Mayfly
@@ -14707,8 +14713,8 @@ Isle Skipper:
   - Leech
   - Gold Salmon Roe
   - Mayfly
-  - Mayfly
   - Sky Spoon Lure
+  - Mayfly
   - Mayfly
   - Versatile Lure
   - Leech
@@ -15219,11 +15225,11 @@ Kissing Trout:
   - Syrphid Basket
   - Topwater Frog
   - Crayfish Ball
-  - Wildfowl Fly
   - Bass Ball
+  - Wildfowl Fly
   - Syrphid Basket
-  - Streamer
   - Floating Minnow
+  - Streamer
   - Moth Pupa
   - Butterworm
   - Bloodworm
@@ -17579,6 +17585,7 @@ Megalodon:
   - Lugworm
   - Goby Ball
   - Versatile Lure
+  - Rat Tail
   - Lugworm
   - Goby Ball
   - Pill Bug
@@ -18346,8 +18353,8 @@ Mitten Crab:
   - Freshwater Boilie
   - Stem Borer
   - Glowworm
-  - Silver Spoon Lure
   - Syrphid Basket
+  - Silver Spoon Lure
   - Caddisfly Larva
   Hidden Falls:
   - Honey Worm
@@ -18631,8 +18638,8 @@ Monk Betta:
   - Midge Larva
   - Stonefly Larva
   - Suspending Minnow
-  - Versatile Lure
   - Nightcrawler
+  - Versatile Lure
 Monke Onke:
   East Agelyss River:
   - Butterworm
@@ -19040,9 +19047,9 @@ Mosquito Fish:
   - Popper Lure
   - Golden Stonefly Nymph
   - Red Maggots
-  - Golden Stonefly Nymph
-  - Golden Stonefly Nymph
   - Red Maggots
+  - Golden Stonefly Nymph
+  - Golden Stonefly Nymph
   - Red Maggots
 Mossgill Salmon:
   The Mover Alpha:
@@ -20455,12 +20462,12 @@ Oho Hunu:
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-  - Golden Stonefly Nymph
   - Versatile Lure
+  - Golden Stonefly Nymph
   - Honeybee
   - Golden Stonefly Nymph
-  - Red Maggots
   - Golden Stonefly Nymph
+  - Red Maggots
   - Honeybee
   The Dewspun Bank:
   - Versatile Lure
@@ -20815,8 +20822,8 @@ Pagan Pirarucu:
   - Midge Larva
   - Stonefly Larva
   - Suspending Minnow
-  - Versatile Lure
   - Nightcrawler
+  - Versatile Lure
 Paglth'an Discus:
   Zahar'ak:
   - Glowworm
@@ -21014,8 +21021,8 @@ Pebble Crab:
   - Yumizuno
   - Saltwater Boilie
   - Northern Krill
-  - Crab Ball
   - Steel Jig
+  - Crab Ball
   - Versatile Lure
   - Shrimp Cage Feeder
   - Spoon Worm
@@ -21047,8 +21054,8 @@ Pebble Crab:
   - Steel Jig
   - Goby Ball
   - Saltwater Boilie
-  - Rat Tail
   - Shrimp Cage Feeder
+  - Rat Tail
   - Spoon Worm
   - Heavy Steel Jig
   - Crab Ball
@@ -21120,14 +21127,14 @@ Pelubane:
   - Popper Lure
   - Red Maggots
   - Popper Lure
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Honeybee
@@ -21168,6 +21175,7 @@ Petticoat Tetra:
   - Red Maggots
   - Golden Stonefly Nymph
   - Popper Lure
+  - Red Maggots
 Phallaina:
   "Limne 3-\u03B2":
   - Stardust
@@ -21428,8 +21436,8 @@ Pipira Pira:
   - Brute Leech
   - Bladed Steel Jig
   - Versatile Lure
-  - Metal Spinner
   - Purse Web Spider
+  - Metal Spinner
   - Brute Leech
   - Stonefly Nymph
   - Goblin Jig
@@ -21858,6 +21866,7 @@ Pond Mussel:
   - Versatile Lure
   - Glowworm
   - Topwater Frog
+  - Spinnerbait
   - Mythril Spoon Lure
   - Streamer
   - Caddisfly Larva
@@ -22172,14 +22181,14 @@ Pumpkin Perch:
 Punutiy Pain:
   Peaks Poga:
   - Golden Stonefly Nymph
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-  - Honeybee
   - Golden Stonefly Nymph
+  - Honeybee
   - Golden Stonefly Nymph
   - Versatile Lure
   - Honeybee
@@ -22222,6 +22231,7 @@ Purpure Cod:
   - Metal Spinner
   - Versatile Lure
   - Versatile Lure
+  - Metal Spinner
 Purse of Riches:
   High Tide Harbor:
   - Ghost Nipper
@@ -22447,8 +22457,8 @@ Rainbow Trout:
   - Midge Basket
   - Butterworm
   - Syrphid Basket
-  - Crow Fly
   - Bass Ball
+  - Crow Fly
   - Floating Minnow
   - Honey Worm
   - Freshwater Boilie
@@ -22458,8 +22468,8 @@ Rainbow Trout:
   - Syrphid Basket
   - Brass Spoon Lure
   - Chocobo Fly
-  - Versatile Lure
   - Syrphid Basket
+  - Versatile Lure
   Fallgourd Float:
   - Wildfowl Fly
   - Midge Basket
@@ -22573,12 +22583,12 @@ Rainbow Trout:
   - Honey Worm
   - Crow Fly
   - Bloodworm
-  - Bass Ball
   - Butterworm
+  - Bass Ball
   - Streamer
   - Floating Minnow
-  - Syrphid Basket
   - Butterworm
+  - Syrphid Basket
   - Wildfowl Fly
   - Glowworm
   - Sinking Minnow
@@ -22904,8 +22914,8 @@ Red Sky Coral:
   - Metal Spinner
   - Bladed Steel Jig
   - Metal Spinner
-  - Versatile Lure
   - Metal Spinner
+  - Versatile Lure
   - Bladed Steel Jig
 Redtail:
   The Outer Fist:
@@ -23256,8 +23266,8 @@ River Shrimp:
   - Metal Spinner
   - Versatile Lure
   - Versatile Lure
-  - Metal Spinner
   - Brute Leech
+  - Metal Spinner
 Riverlong Candiru:
   Miyakabek'zu:
   - Red Maggots
@@ -23492,8 +23502,8 @@ Rothlyt Oyster:
   - Saltwater Boilie
   - Northern Krill
   - Yumizuno
-  - Krill Cage Feeder
   - Heavy Steel Jig
+  - Krill Cage Feeder
   - Spoon Worm
   - Herring Ball
   - Crab Ball
@@ -23508,9 +23518,9 @@ Rothlyt Oyster:
   - Northern Krill
   - Saltwater Boilie
   - Crab Ball
+  - Steel Jig
   - Versatile Lure
   - Spoon Worm
-  - Steel Jig
   - Rat Tail
   - Northern Krill
   - Krill Cage Feeder
@@ -23535,8 +23545,8 @@ Rothlyt Oyster:
   - Rat Tail
   - Steel Jig
   - Saltwater Boilie
-  - Spoon Worm
   - Shrimp Cage Feeder
+  - Spoon Worm
   - Crab Ball
   - Heavy Steel Jig
   - Krill Cage Feeder
@@ -23714,6 +23724,7 @@ Rudderfish:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Sabaton: {}
@@ -23779,6 +23790,7 @@ Sagolii Monkfish:
   - Sand Gecko
   - Sand Leech
   - Freshwater Boilie
+  - Sand Leech
   - Sand Leech
   - Sand Leech
 Saltmill:
@@ -23849,6 +23861,7 @@ Sandfish:
   - Sand Gecko
   - Sand Leech
   - Freshwater Boilie
+  - Sand Leech
   - Sand Leech
   - Sand Leech
 Sapphire Coral:
@@ -23992,6 +24005,7 @@ Scorpionfly:
   - Metal Spinner
   - Giant Crane Fly
   - Versatile Lure
+  - Metal Spinner
   - Metal Spinner
   - Red Balloon
   - Giant Crane Fly
@@ -24428,8 +24442,8 @@ Shadow Catfish:
   - Crayfish Ball
   - Versatile Lure
   - Wildfowl Fly
-  - Moth Pupa
   - Crayfish Ball
+  - Moth Pupa
   - Versatile Lure
   - Wildfowl Fly
   - Midge Basket
@@ -25464,6 +25478,7 @@ Skulleater:
   - Baitbugs
   - Marble Nymph
   - Robber Ball
+  - Marble Nymph
   Upper Watts River:
   - Baitbugs
   - Versatile Lure
@@ -25555,6 +25570,7 @@ Sky Faerie:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Sky Sweeper:
@@ -25588,6 +25604,7 @@ Sky Sweeper:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Skyfish:
@@ -25921,8 +25938,8 @@ Southern Pike:
   - Honey Worm
   - Glowworm
   - Mythril Spoon Lure
-  - Stem Borer
   - Topwater Frog
+  - Stem Borer
   - Topwater Frog
   - Caddisfly Larva
   - Stem Borer
@@ -26647,8 +26664,8 @@ Striped Goby:
   - Honey Worm
   - Glowworm
   - Syrphid Basket
-  - Topwater Frog
   - Stem Borer
+  - Topwater Frog
   - Butterworm
   - Freshwater Boilie
   - Mythril Spoon Lure
@@ -26657,11 +26674,11 @@ Striped Goby:
   - Glowworm
   - Glowworm
   - Crow Fly
+  - Sinking Minnow
   - Floating Minnow
   - Bass Ball
   - Glowworm
   - Bloodworm
-  - Sinking Minnow
   - Silver Spoon Lure
   - Snurble Fly
   - Streamer
@@ -26683,8 +26700,8 @@ Striped Goby:
   - Syrphid Basket
   - Butterworm
   Fallgourd Float:
-  - Moth Pupa
   - Crayfish Ball
+  - Moth Pupa
   - Versatile Lure
   - Wildfowl Fly
   - Midge Basket
@@ -26730,11 +26747,11 @@ Striped Goby:
   - Syrphid Basket
   - Topwater Frog
   - Crayfish Ball
-  - Wildfowl Fly
   - Bass Ball
+  - Wildfowl Fly
   - Syrphid Basket
-  - Streamer
   - Floating Minnow
+  - Streamer
   - Moth Pupa
   - Butterworm
   - Bloodworm
@@ -26795,6 +26812,7 @@ Stupendemys:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Suiten Ippeki:
@@ -28334,8 +28352,8 @@ Triaina:
   - Versatile Lure
 Tricolored Carp:
   Murmur Rills:
-  - Butterworm
   - Crow Fly
+  - Butterworm
   - Floating Minnow
   - Versatile Lure
   - Wildfowl Fly
@@ -28470,6 +28488,7 @@ Tupuxuara:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
   - Red Balloon
@@ -28480,6 +28499,7 @@ Tupuxuara:
   - Red Balloon
   - Versatile Lure
   - Red Balloon
+  - Metal Spinner
   - Red Balloon
   - Red Balloon
 Turali Beaded Lizard:
@@ -29089,8 +29109,8 @@ Vongola Clam:
   - Yumizuno
   - Rat Tail
   - Saltwater Boilie
-  - Spoon Worm
   - Shrimp Cage Feeder
+  - Spoon Worm
   - Steel Jig
   - Northern Krill
   - Crab Ball
@@ -29554,8 +29574,8 @@ Watcher Catfish:
   - Midge Larva
   - Stonefly Larva
   - Suspending Minnow
-  - Versatile Lure
   - Nightcrawler
+  - Versatile Lure
 Water Ball:
   The Rift of Sighs:
   - Fruit Worm
@@ -30704,6 +30724,7 @@ Yellow Pipira:
   - Select Bait Ball
   - Select Bait Ball
   - Robber Ball
+  - Versatile Lure
   - Robber Ball
   - Versatile Lure
   - Baitbugs
@@ -30905,6 +30926,7 @@ Yugr'am Salmon:
   - Wildfowl Fly
   - Snurble Fly
   - Sinking Minnow
+  - Topwater Frog
   Verdant Drop:
   - Bass Ball
   - Versatile Lure
