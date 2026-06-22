@@ -32,7 +32,7 @@ namespace ArchipelagoXIV.Hooks
         {
             if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
             {
-                var name = value.Name.ToString();
+                var name = value.Name.ToString().TrimEnd();
                 if (APData.FishData.ContainsKey(name))
                 {
                     //DalamudApi.Echo($"Caught a {name}!");
