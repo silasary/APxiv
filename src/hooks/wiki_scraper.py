@@ -559,42 +559,40 @@ def apply_bait() -> None:
                 #    print("if bait not in bait_data and not info.get('mooch')")
                 
             if baits:
-                fish['all_bait'][zone_name] = baits
                 fish['zones'].setdefault(zone_name, []).append(teamcraft_optimalbait)
+                fish['all_bait'][zone_name] = baits
                 #sort and clean
-                fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))  
                 fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
                 fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))  
-                fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
                 #Merge zones, comment this out for poptracker scraper
                 if zone_name == 'Limsa Lominsa Lower Decks':
-                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
-                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
-                    del fish['all_bait']['Limsa Lominsa Lower Decks']
                     fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
                     fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
                     del fish['zones']['Limsa Lominsa Lower Decks']
-                elif zone_name == 'Limsa Lominsa Upper Decks':
-                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
+                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
                     fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
-                    del fish['all_bait']['Limsa Lominsa Upper Decks']
+                    del fish['all_bait']['Limsa Lominsa Lower Decks']
+                elif zone_name == 'Limsa Lominsa Upper Decks':
                     fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
                     fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
                     del fish['zones']['Limsa Lominsa Upper Decks']
+                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
+                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
+                    del fish['all_bait']['Limsa Lominsa Upper Decks']
                 elif zone_name == 'New Gridania':
-                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
-                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
-                    del fish['all_bait']['New Gridania']
                     fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['New Gridania'])
                     fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
                     del fish['zones']['New Gridania']
-                elif zone_name == 'Old Gridania':
-                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
+                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
                     fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
-                    del fish['all_bait']['Old Gridania']
+                    del fish['all_bait']['New Gridania']
+                elif zone_name == 'Old Gridania':
                     fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['Old Gridania'])
                     fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
                     del fish['zones']['Old Gridania']
+                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
+                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
+                    del fish['all_bait']['Old Gridania']
             else:
                 print(f"No bait for {name} in {hole}")
 
