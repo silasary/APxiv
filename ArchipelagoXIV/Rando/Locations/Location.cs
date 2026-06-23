@@ -24,6 +24,12 @@ namespace ArchipelagoXIV.Rando.Locations
             this.apState = apState;
             ApId = id;
             Name = name;
+            if (Data.FateTable.TryGetValue(Name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+                {
+                    Name = fate.Name.ToString().Trim();
+                    if (!name.EndsWith("(FATE)"))
+                        Name += " (FATE)";
+                }
             if (Data.DutyAliases.TryGetValue(Name, out var value))
                 Name = value;
             Level = 0;
