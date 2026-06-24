@@ -116,7 +116,6 @@ namespace ArchipelagoXIV.Hooks
             }
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
-            apState.territoryName = duty.Name.ToString();
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
 
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
@@ -176,6 +175,7 @@ namespace ArchipelagoXIV.Hooks
                 var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
                 apState.territoryName = territory.PlaceName.Value.Name.ToString();
                 apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
+                apState.RefreshBars = true;
 
                 if (!apState.Connected)
                 {
@@ -196,7 +196,10 @@ namespace ArchipelagoXIV.Hooks
             else
             {
                 var duty = DalamudApi.DutyState.ContentFinderCondition.Value;
-                apState.territoryName = duty.Name.ToString();
+                var name = duty.Name.ToString();
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+                apState.territoryName = name;
                 apState.RefreshBars = true;
             }
         }
@@ -204,7 +207,10 @@ namespace ArchipelagoXIV.Hooks
         private unsafe void DutyState_DutyStarted(IDutyStateEventArgs args)
         {
             var duty = args.ContentFinderCondition.Value;
-            apState.territoryName = duty.Name.ToString();
+            var name = duty.Name.ToString();
+            if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+            apState.territoryName = name;
             apState.RefreshBars = true;
         }
 
