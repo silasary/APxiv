@@ -79,7 +79,8 @@ namespace ArchipelagoXIV.Hooks
 
             DalamudApi.PluginLog.Information($"[Hunt] Killed {huntInfo.Rank}-rank {huntInfo.Name}");
 
-            var loc = apState.MissingLocations?.FirstOrDefault(l => l.Name == huntInfo.LocationName);
+            var loc = apState.MissingLocations?.FirstOrDefault(l => string.Equals(l.Name, huntInfo.LocationName, StringComparison.OrdinalIgnoreCase));
+            
             if (loc == null)
             {
                 DalamudApi.PluginLog.Information($"[Hunt] {huntInfo.LocationName} not in missing locations (already done or not in this seed).");
