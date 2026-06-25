@@ -89,6 +89,13 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         if illegal_jobs:
             raise OptionError("You can't enforce jobs that are excluded from the free trial.")
 
+    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
+    force_jobs   = get_option_value(multiworld, player, "force_jobs")
+    conflicts = [j for j in force_jobs if j in exclude_jobs]
+    
+    if conflicts:
+        raise OptionError(f"Jobs cannot be both forced and excluded: {', '.join(sorted(conflicts))}")
+
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
     level_cap = get_option_value(multiworld, player, 'level_cap')
@@ -170,19 +177,29 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         melee   = [j for j in melee   if j not in FREE_TRIAL_EXCLUDED_JOBS]
         caster  = [j for j in caster  if j not in FREE_TRIAL_EXCLUDED_JOBS]
 
-    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
     
+    if exclude_jobs:
+        tanks   = [j for j in tanks   if j not in exclude_jobs]
+        healers = [j for j in healers if j not in exclude_jobs]
+        melee   = [j for j in melee   if j not in exclude_jobs]
+        caster  = [j for j in caster  if j not in exclude_jobs]
+        ranged  = [j for j in ranged  if j not in exclude_jobs]
+        doh     = [j for j in doh     if j not in exclude_jobs]
+
+    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
             force_jobs = force_jobs[:5]
         prog_classes = force_jobs
     else:
-        prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
-        
+        prog_classes = [role[0] for role in [tanks, healers, melee, caster, ranged] if role]
+
     world.prog_classes = prog_classes
     world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
-    world.prog_doh = doh[0]
+    world.prog_doh = doh[0] if doh else None
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -370,8 +387,10 @@ def before_create_items_filler(
 ) -> list:
     prog_levels = world.prog_levels
     start_class = world.random.choice(prog_levels)
-    prog_doh = f"5 {world.prog_doh} Levels"
+    prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
+    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
+    excluded_level_items = {f"5 {job} Levels" for job in exclude_jobs} if exclude_jobs else set()
 
     seen_levels = {}
     locations_per_depth = defaultdict(list)
@@ -409,6 +428,9 @@ def before_create_items_filler(
             if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
                 multiworld.push_precollected(item)
                 continue
+
+        if item.name in excluded_level_items:
+            continue
 
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
