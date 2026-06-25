@@ -305,9 +305,6 @@ def generate_fish_list() -> list[dict]:
             _id += 1
             continue
         intuition = data['logical_intuition']
-        if not zones:
-            _id += 1
-            continue
         if len(zones) > 1:
             # cry
             region = name
