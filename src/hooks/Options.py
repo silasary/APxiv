@@ -244,6 +244,15 @@ class LevelCap(Range):
     range_start = 30
     range_end = 100
 
+class FreeTrial(Toggle):
+    """
+    Restrict the game to content available in the free trial.
+
+    This automatically enforces a level cap of 80 and excludes all Endwalker and Dawntrail locations, duties, and jobs (Sage, Reaper, Viper, Pictomancer).
+    """
+    display_name = "Free Trial Mode"
+    default = False
+
 class AllowMainScenario(DefaultOnToggle):
     """
     Include Castrum Meridianum, Praetorium, and The Porta Decumana in the location pool.
@@ -333,6 +342,7 @@ def before_options_defined(options: dict) -> dict:
     # Jobs
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
+    options["free_trial"] = FreeTrial
 
     return options
 

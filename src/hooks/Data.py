@@ -30,6 +30,10 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
+FREE_TRIAL_MAX_LEVEL = 80
+FREE_TRIAL_EXCLUDED_EXPANSIONS = ["EW", "DT"]
+FREE_TRIAL_EXCLUDED_JOBS = ["SGE", "RPR", "VPR", "PCT"]
+
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
     "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),

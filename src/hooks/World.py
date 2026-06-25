@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES, FREE_TRIAL_EXCLUDED_EXPANSIONS, FREE_TRIAL_EXCLUDED_JOBS, FREE_TRIAL_MAX_LEVEL
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -81,6 +81,14 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
 
+    if is_option_enabled(multiworld, player, "free_trial"):
+        world.options.level_cap.value = min(world.options.level_cap.value, FREE_TRIAL_MAX_LEVEL)
+        force_jobs = get_option_value(multiworld, player, "force_jobs")
+        illegal_jobs = [j for j in force_jobs if j in FREE_TRIAL_EXCLUDED_JOBS]
+        
+        if illegal_jobs:
+            raise OptionError("You can't enforce jobs that are excluded from the free trial.")
+
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
     level_cap = get_option_value(multiworld, player, 'level_cap')
@@ -115,10 +123,14 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
-            dutyType, _dutyExpansion, dutyDifficulty = category
+            dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
 
             if count is None:
+                continue
+
+            if is_option_enabled(multiworld, player, "free_trial") and dutyExpansion in FREE_TRIAL_EXCLUDED_EXPANSIONS:
+                world.skipped_duties.update(names)
                 continue
 
             count = min(len(names), count)
@@ -152,7 +164,14 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
+
+    if is_option_enabled(multiworld, player, "free_trial"):
+        healers = [j for j in healers if j not in FREE_TRIAL_EXCLUDED_JOBS]
+        melee   = [j for j in melee   if j not in FREE_TRIAL_EXCLUDED_JOBS]
+        caster  = [j for j in caster  if j not in FREE_TRIAL_EXCLUDED_JOBS]
+
     force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+    
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
@@ -160,6 +179,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         prog_classes = force_jobs
     else:
         prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+        
     world.prog_classes = prog_classes
     world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
     world.prog_doh = doh[0]
