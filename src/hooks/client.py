@@ -2,7 +2,9 @@ import asyncio
 import os
 
 import urllib.parse
+import webbrowser
 
+from Utils import messagebox
 from CommonClient import get_base_parser, server_loop
 from kvui import GameManager
 from worlds import AutoWorldRegister, network_data_package
@@ -124,6 +126,11 @@ async def game_watcher_xiv(ctx: ManualContext):
 #################################################################
 
 async def main(args):
+    if not tracker_loaded:
+        messagebox("Universal Tracker not found", "Universal Tracker is required to run the XIV Manual client.")
+        webbrowser.open("https://github.com/FarisTheAncient/Archipelago/releases?q=Tracker")
+        return
+
     config_file = {}
     if args.apmanual_file and args.apmanual_file.startswith("archipelago://"):
         url = urllib.parse.urlparse(args.apmanual_file)
