@@ -35,6 +35,7 @@ namespace ArchipelagoXIV.Hooks
                 var name = value.Name.ToString().TrimEnd();
                 if (APData.FishData.ContainsKey(name))
                 {
+                    //DalamudApi.Echo($"Caught a {name}!");
                     var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                     if (loc != null && loc.IsAccessible())
                     {
