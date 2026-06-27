@@ -54,7 +54,7 @@ Note: Almost everything listed below can be disabled with yaml options, have a r
     * This corresponds to the "Minimum" level a FATE will allow before ignoring your contribution.
 	* For Example, If I want to check if I can currently participate in a FATE that is level 13, My current job level needs to be level 9 or higher.
 * Tacker
-  * If you are not using the Dalamud plugin, it is STRONGLY suggested you install [Universal Tracker](https://discord.com/channels/1097532591650910289/1176939614985011200).  There is a lot of complex logic, and far too many checks.  Please do not try to figure it out by hand.
+  * If you are not using the Dalamud plugin, it is STRONGLY suggested you install [Universal Tracker](https://github.com/FarisTheAncient/Archipelago/releases?q=Tracker).  There is a lot of complex logic, and far too many checks.  Please do not try to figure it out by hand.
 
 ## Fishsanity
 * Fishing data is sourced from [Garland Tools](https://www.garlandtools.org/ffxivfisher/).

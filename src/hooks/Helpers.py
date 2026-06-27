@@ -75,6 +75,30 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if location['region'] == "The Firmament" and level_cap < 51:
         return False
+    if location['region'] == "Coerthas Western Highlands" and level_cap < 51:
+        return False
+    if location['region'] == "The Sea of Clouds" and level_cap < 51:
+        return False
+    if location['region'] == "The Fringes" and level_cap < 61:
+        return False
+    if location['region'] == "The Peaks" and level_cap < 61:
+        return False
+    if location['region'] == "Lakeland" and level_cap < 71:
+        return False
+    if location['region'] == "Kholusia" and level_cap < 71:
+        return False
+    if location['region'] == "Amh Araeng" and level_cap < 71:
+        return False
+    if location['region'] == "Old Sharlayan" and level_cap < 81:
+        return False
+    if location['region'] == "Labyrinthos" and level_cap < 81:
+        return False
+    if location['region'] == "Thavnair" and level_cap < 81:
+        return False
+    if location['region'] == "Urqopacha" and level_cap < 91:
+        return False
+    if location['region'] == "Kozama'uka" and level_cap < 91:
+        return False
     return None
 
 
