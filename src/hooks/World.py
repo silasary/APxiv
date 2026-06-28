@@ -22,8 +22,8 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES, FREE_TRIAL_EXCLUDED_EXPANSIONS, FREE_TRIAL_EXCLUDED_JOBS, FREE_TRIAL_MAX_LEVEL
-from .Helpers import get_int_value, is_fishing_enabled
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES, FREE_TRIAL_EXCLUDED_JOBS, FREE_TRIAL_MAX_LEVEL
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_expansions, get_excluded_jobs
 from .Options import LevelCap
 
 ########################################################################################
@@ -89,12 +89,13 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         if illegal_jobs:
             raise OptionError("You can't enforce jobs that are excluded from the free trial.")
 
-    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
-    force_jobs   = get_option_value(multiworld, player, "force_jobs")
-    conflicts = [j for j in force_jobs if j in exclude_jobs]
-    
+    excluded_jobs = get_excluded_jobs(multiworld, player)
+    force_jobs = get_option_value(multiworld, player, "force_jobs")
+    conflicts = [j for j in force_jobs if j in excluded_jobs]
+
     if conflicts:
-        raise OptionError(f"Jobs cannot be both forced and excluded: {', '.join(sorted(conflicts))}")
+        raise OptionError(f"Jobs cannot be both forced and excluded (directly or via an excluded "
+                          f"expansion): {', '.join(sorted(conflicts))}")
 
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
@@ -112,6 +113,12 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
 
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+    goal_expansion = goal_location.get("expansion")
+    
+    if goal_expansion in excluded_expansions:
+        raise OptionError(f"The selected goal '{goal}' belongs to expansion '{goal_expansion}', which is excluded.")
+
     has_fates = get_option_value(multiworld, player, 'fatesanity') or get_int_value(multiworld, player, 'fates_per_zone') > 0
     has_duties = get_int_value(multiworld, player, 'max_party_size') > 0 and get_int_value(multiworld, player, 'duty_difficulty') > 0
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
@@ -128,6 +135,8 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
 
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
@@ -136,7 +145,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             if count is None:
                 continue
 
-            if is_option_enabled(multiworld, player, "free_trial") and dutyExpansion in FREE_TRIAL_EXCLUDED_EXPANSIONS:
+            if dutyExpansion in excluded_expansions:
                 world.skipped_duties.update(names)
                 continue
 
@@ -172,13 +181,8 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
 
-    if is_option_enabled(multiworld, player, "free_trial"):
-        healers = [j for j in healers if j not in FREE_TRIAL_EXCLUDED_JOBS]
-        melee   = [j for j in melee   if j not in FREE_TRIAL_EXCLUDED_JOBS]
-        caster  = [j for j in caster  if j not in FREE_TRIAL_EXCLUDED_JOBS]
+    exclude_jobs = get_excluded_jobs(multiworld, player)
 
-    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
-    
     if exclude_jobs:
         tanks   = [j for j in tanks   if j not in exclude_jobs]
         healers = [j for j in healers if j not in exclude_jobs]
@@ -279,8 +283,32 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     if hasattr(multiworld, "clear_location_cache"):
         multiworld.clear_location_cache()
+        
     world.culled_access_items = culled_access_items
     world.culled_regions = culled_regions
+
+    # Ensure every region with checks remains reachable
+    start = multiworld.get_region("Manual", player)
+    reachable: set = set()
+    frontier = [start]
+    
+    while frontier:
+        region = frontier.pop()
+        
+        if region in reachable or region in culled_regions:
+            continue
+        
+        reachable.add(region)
+        frontier.extend(e.connected_region for e in region.exits)
+        
+    unreachable = sorted(r.name for r in checked_regions
+                         if r.locations and r not in reachable and r not in culled_regions)
+    
+    if unreachable:
+        raise OptionError(
+            "Excluding the selected expansions left content unreachable: "
+            f"{', '.join(unreachable)}."
+        )
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
 # Valid item_config key/values:
@@ -389,7 +417,7 @@ def before_create_items_filler(
     start_class = world.random.choice(prog_levels)
     prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-    exclude_jobs = get_option_value(multiworld, player, "exclude_jobs")
+    exclude_jobs = get_excluded_jobs(multiworld, player)
     excluded_level_items = {f"5 {job} Levels" for job in exclude_jobs} if exclude_jobs else set()
 
     seen_levels = {}

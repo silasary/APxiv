@@ -250,12 +250,21 @@ class ExcludeJob(OptionSet):
         for item_name in self.value:
             if item_name not in all_jobs:
                 picks = get_fuzzy_results(item_name, all_jobs, limit=1)
-                
+
                 raise Exception(f"Item {item_name} from option {self} "
                                 f"is not a valid job from {world.game}. "
                                 f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
-                
+
         return super().verify(world, player_name, plando_options)
+
+class ExcludeExpansion(OptionSet):
+    """
+    Exclude entire expansions from the game. Valid values: HW, StB, ShB, EW, DT.
+
+    All locations, duties, FATEs, fish, and jobs that belong to an excluded expansion are removed.
+    """
+    display_name = "Exclude Expansions"
+    valid_keys = frozenset(["HW", "StB", "ShB", "EW", "DT"])
 
 class LevelCap(Range):
     """
@@ -358,14 +367,17 @@ def before_options_defined(options: dict) -> dict:
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
     options["fates_per_zone"] = FatesPerZone
+    
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
-    # Jobs
+    
+    # Jobs & Expansions
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
     options["level_cap"] = LevelCap
     options["free_trial"] = FreeTrial
+    options["exclude_expansions"] = ExcludeExpansion
 
     return options
 

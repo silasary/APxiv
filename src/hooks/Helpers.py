@@ -31,6 +31,29 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     assert isinstance(value, int)
     return value
 
+def get_excluded_expansions(multiworld: MultiWorld, player: int) -> set[str]:
+    """Excluded by exclude_expansions plus free_trial"""
+    from ..Helpers import get_option_value, is_option_enabled
+    from .Data import FREE_TRIAL_EXCLUDED_EXPANSIONS
+
+    excluded = set(get_option_value(multiworld, player, "exclude_expansions"))
+
+    if is_option_enabled(multiworld, player, "free_trial"):
+        excluded.update(FREE_TRIAL_EXCLUDED_EXPANSIONS)
+        
+    return excluded
+
+def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
+    """Jobs excluded directly via exclude_jobs plus all jobs of any excluded expansion"""
+    from ..Helpers import get_option_value
+    from .Data import JOB_EXPANSION
+    
+    excluded = set(get_option_value(multiworld, player, "exclude_jobs"))
+    expansions = get_excluded_expansions(multiworld, player)
+    excluded.update(job for job, exp in JOB_EXPANSION.items() if exp in expansions)
+    
+    return excluded
+
 def is_fishsanity_only(multiworld: MultiWorld, player: int) -> bool:
     from ..Helpers import is_option_enabled
     is_fishsanity = is_option_enabled(multiworld, player, "fishsanity")
@@ -79,16 +102,17 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> Optional[bool]:
-    from .Data import FREE_TRIAL_EXCLUDED_EXPANSIONS
-    from ..Helpers import is_option_enabled
-    
     level_cap = get_int_value(multiworld, player, "level_cap")
-    
+
     if location.get('victory'):  # This should get fixed in the main code
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
         return False
-    if is_option_enabled(multiworld, player, "free_trial") and location.get("expansion") in FREE_TRIAL_EXCLUDED_EXPANSIONS:
+
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+    location_expansion = location.get("expansion")
+    
+    if location_expansion in excluded_expansions:
         return False
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False
