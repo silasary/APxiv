@@ -100,7 +100,7 @@ namespace ArchipelagoXIV.Rando
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
-            
+
             while ((line = reader.ReadLine()) != null)
             {
                 Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
@@ -189,31 +189,16 @@ namespace ArchipelagoXIV.Rando
                 }
                 baits = baits.Distinct().ToList();
                 intuitionbaits = intuitionbaits.Distinct().ToList();
-                //if (intuitionbaits.Count == 0)
-                //{
-                    var data = new FishData
-                    {
-                        Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
-                        Id = fish.Value<int>("id"),
-                        Baits = [.. baits],
-                        Intuition = [.. intuitionbaits],
-                        Regions = zoneNames.Select(z => Regions[z]).ToArray(),
-                    };
-                    APData.FishData[fish.Value<string>("name")] = data;
-                //}
-                //else
-                //{
-                //    var data = new FishData
-                //    {
-                //        Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
-                //        Id = fish.Value<int>("id"),
-                //        Baits = [.. baits],
-                //        //Intuition = [.. intuitionbaits],
-                //        Regions = zoneNames.Select(z => Regions[z]).ToArray(),
-                //    };
-                //    APData.FishData[fish.Value<string>("name")] = data;
-                //}
-                
+                var data = new FishData
+                {
+                    Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
+                    Id = fish.Value<int>("id"),
+                    Baits = [.. baits],
+                    Intuition = [.. intuitionbaits],
+                    Regions = zoneNames.Select(z => Regions[z]).ToArray(),
+                };
+                APData.FishData[fish.Value<string>("name")] = data;
+
             }
         }
     }
