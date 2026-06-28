@@ -492,6 +492,7 @@ def generate_hunt_list() -> list[dict]:
             "requires": "{anyClassLevel(" + level + ")}",
             "level": level,
             "rank": rank,
+            "expansion": expansion,
         })
         
         _id += 1
