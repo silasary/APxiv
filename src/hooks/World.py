@@ -538,6 +538,12 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
         trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
         trial_location.place_locked_item(trial_event)
 
+        # Since we create a new item we need to drop a filler item to balance the pool
+        spare = next((i for i in multiworld.itempool
+                      if i.player == player and i.classification == ItemClassification.filler), None)
+        if spare is not None:
+            multiworld.itempool.remove(spare)
+
         def has_cleared_goal_trial(state: CollectionState) -> bool:
             return state.has(event_name, player)
 
