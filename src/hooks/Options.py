@@ -312,6 +312,14 @@ class Huntsanity(OptionSet):
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
+    # Some boss goals to fix off-by-one errors with goals pre-shinryu (and shinryu taking ultimas spot)
+    from ..Locations import victory_names
+    from .Data import BOSS_GOAL_DATA
+    
+    non_boss = [n for n in victory_names if n not in BOSS_GOAL_DATA]
+    boss_in_order = [b for b in BOSS_GOAL_DATA if b in victory_names]
+    victory_names[:] = non_boss + boss_in_order
+
     options["goal"] = None
     options["mcguffins_needed"] = McGuffinsNeeded
     options["boss_key_pieces"] = BossKeyPieces
