@@ -168,7 +168,6 @@ namespace ArchipelagoXIV.Rando
             foreach (JObject fish in fishsanity)
             {
                 var zones = fish.Value<JObject>("zones");
-                Console.WriteLine(zones);
                 var intuition = fish.Value<JObject>("logical_intuition");
                 List<string> zoneNames = [];
                 List<string> baits = [];

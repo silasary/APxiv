@@ -60,6 +60,11 @@ namespace ArchipelagoXIV.Rando.Locations
             var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ToString();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
             //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
+            if (!Logic.Level(Data.Level, "FSH")(apState, false))
+            {
+                DalamudApi.Echo($"Current level is not in logic. Requires FSH level {Data.Level}");
+                return false;
+            }
             if (!apState.Items.Contains(currentBaitName))
             {
                 DalamudApi.Echo($"{currentBaitName} is not in logic");
