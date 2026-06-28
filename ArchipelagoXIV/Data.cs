@@ -8,6 +8,8 @@ namespace ArchipelagoXIV
 {
     internal static partial class Data
     {
+        internal record NotoriousMonsterInfo(string Name, string Rank, string LocationName);
+
         public static TerritoryType[] Territories { get; private set; } = [];
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
@@ -17,6 +19,8 @@ namespace ArchipelagoXIV
         public static IKDRoute[] IKDRoutes { get; private set; }
 
         public static FrozenDictionary<string, Fate> FateTable { get; private set; } = null;
+
+        public static FrozenDictionary<uint, NotoriousMonsterInfo> HuntTable { get; private set; } = FrozenDictionary<uint, NotoriousMonsterInfo>.Empty;
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -138,8 +142,10 @@ namespace ArchipelagoXIV
 
         public static void Initialize() {
             var dataManager = DalamudApi.DataManager;
+
             if (dataManager == null)
                 return;
+
             Territories = [.. dataManager.GetExcelSheet<TerritoryType>()];
 
             Duties = [.. dataManager.GetExcelSheet<InstanceContent>()];
@@ -154,7 +160,19 @@ namespace ArchipelagoXIV
 
             IKDRoutes = [.. dataManager.GetExcelSheet<IKDRoute>()];
 
-            FateTable = DalamudApi.DataManager.GetExcelSheet<Fate>().DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
+            FateTable = dataManager.GetExcelSheet<Fate>().DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
+
+            HuntTable = dataManager.GetExcelSheet<NotoriousMonster>()
+                .Where(nm => nm.Rank is 1 or 2 or 3 && nm.BNpcName.RowId != 0)
+                .DistinctBy(nm => nm.BNpcName.RowId)
+                .ToFrozenDictionary(
+                    nm => nm.BNpcName.RowId,
+                    nm =>
+                    {
+                        var name = nm.BNpcName.Value.Singular.ToString();
+                        var rank = nm.Rank switch { 1 => "B", 2 => "A", _ => "S" };
+                        return new NotoriousMonsterInfo(name, rank, $"Hunt {name}");
+                    });
         }
 
         public static ContentFinderCondition GetDuty(uint territoryId) {
