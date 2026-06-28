@@ -115,20 +115,36 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 
     excluded_expansions = get_excluded_expansions(multiworld, player)
     goal_expansion = goal_location.get("expansion")
-    
+
     if goal_expansion in excluded_expansions:
         raise OptionError(f"The selected goal '{goal}' belongs to expansion '{goal_expansion}', which is excluded.")
 
-    has_fates = get_option_value(multiworld, player, 'fatesanity') or get_int_value(multiworld, player, 'fates_per_zone') > 0
+    has_fatesanity = get_option_value(multiworld, player, 'fatesanity')
+    fate_count = get_int_value(multiworld, player, 'fates_per_zone')
+    has_fates = has_fatesanity or fate_count > 0
     has_duties = get_int_value(multiworld, player, 'max_party_size') > 0 and get_int_value(multiworld, player, 'duty_difficulty') > 0
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
+    has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
 
-    if not has_fates and not has_dungeons and not has_fish:
+    if not has_fates and not has_dungeons and not has_fish and not has_hunts:
         raise OptionError("You can't disable everything.")
 
-    if not has_dungeons and not has_fish and not get_option_value(multiworld, player, 'fatesanity') and get_int_value(multiworld, player, 'fates_per_zone') < 3:
+    if has_hunts and level_cap < 50:
+        raise OptionError("Huntsanity requires a level cap of at least 50.")
+
+    if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
+        raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
+
+    if (
+        not has_dungeons
+        and not has_fish
+        and not has_fatesanity
+        and not has_hunts
+        and get_int_value(multiworld, player, 'fates_per_zone') < 3
+    ):
         world.options.fates_per_zone.value = 3
+        
 
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
