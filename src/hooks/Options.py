@@ -113,7 +113,7 @@ class VariantDungeonCount(Range):
     """
     Number of Variant Dungeons per expansion to include in the location pool
     """
-    display_name = "Dungeon Count"
+    display_name = "Variant Dungeon Count"
     default = 3
     range_start = 0
     range_end = 3
@@ -140,7 +140,7 @@ class EndgameTrialCount(Range):
     """
     Number of Current Extreme Trials to include in the location pool
     """
-    display_name = "Extreme Trial Count"
+    display_name = "Endgame Extreme Trial Count"
     default = 8
     range_start = 0
     range_end = 8
@@ -176,7 +176,7 @@ class EndgameRaidCount(Range):
     """
     Number of Endgame Savage Raids to include in the location pool
     """
-    display_name = "Savage Raid Count"
+    display_name = "Endgame Savage Raid Count"
     default = 12
     range_start = 0
     range_end = 12
