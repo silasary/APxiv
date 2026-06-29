@@ -21,6 +21,7 @@ namespace ArchipelagoXIV.Rando
         private long McGuffinCount;
         private long BossKeyPiecesNeeded;
         private string BossKeyItemName = "";
+        private string GoalName = "";
 
 
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
@@ -55,20 +56,39 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
 
-            // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
-            // It moved to index 4
-            slotData.TryGetValue("world_version", out var version_obj);
-            var version_string = version_obj as string ?? "0.0.0";
-            var worldVersion = Version.Parse(version_string);
-            DalamudApi.PluginLog.Information($"Unparsed world version: {version_string}");
-
-            if (worldVersion < new Version(0, 29, 0))
+            // Newer apworld sends a goal name to prevent ambiguity
+            if (slotData.TryGetValue("goal_name", out var goal_name_obj) && goal_name_obj is string goal_name)
             {
-                if (Goal == 1)
+                GoalName = goal_name;
+                DalamudApi.PluginLog.Information($"Goal name from slot data: {GoalName}");
+            }
+            else
+            {
+                // No goal_name => a legacy seed whose goal index used the OLD boss order (Shinryu
+                // first). Adjust indexes as GoalTypeFromIndex expects:
+                //
+                //   stored index   used to mean        ->  remap to
+                //        1         Shinryu                     4
+                //        2         Ultima                      1
+                //        3         Thordan                     2
+                //        4         Nidhogg                     3
+                //        0, 5..11  (already correct)           unchanged
+                //
+                // Fixes two legacy worlds for compatibility: pre-0.29 only ever stored 0 or 1, while 0.29.0
+                // added the other bosses but shipped them in incorrect order.
+                var legacyGoal = Goal;
+
+                Goal = Goal switch
                 {
-                    DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
-                    Goal = 4;
-                }
+                    1 => 4,  // Shinryu
+                    2 => 1,  // Ultima
+                    3 => 2,  // Thordan
+                    4 => 3,  // Nidhogg
+                    _ => Goal,
+                };
+
+                if (Goal != legacyGoal)
+                    DalamudApi.PluginLog.Information($"Remapping legacy boss goal index {legacyGoal} -> {Goal}");
             }
 
             this.GoalCount = (long)slotData["mcguffins_needed"];
@@ -85,7 +105,7 @@ namespace ArchipelagoXIV.Rando
 
         internal override string GoalString()
         {
-            if (Goal == 0)
+            if (GoalType == VictoryType.McGuffin)
                 return $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered";
 
             var baseString = base.GoalString();
@@ -119,7 +139,27 @@ namespace ArchipelagoXIV.Rando
             _ => "",
         };
 
-        internal override VictoryType GoalType => Goal switch
+        internal override VictoryType GoalType =>
+            string.IsNullOrEmpty(GoalName) ? GoalTypeFromIndex : GoalTypeFromName;
+
+        private VictoryType GoalTypeFromName => GoalName switch
+        {
+            "Collect Memories" => VictoryType.McGuffin,
+            "Defeat the Ultima Weapon" => VictoryType.DefeatUltimaWeapon,
+            "Defeat King Thordan" => VictoryType.DefeatThordan,
+            "Defeat Nidhogg" => VictoryType.DefeatNidhogg,
+            "Defeat Shinryu" => VictoryType.DefeatShinryu,
+            "Defeat Tsukuyomi" => VictoryType.DefeatTsukuyomi,
+            "Defeat Hades" => VictoryType.DefeatHades,
+            "Defeat the Warrior of Light" => VictoryType.DefeatWarriorOfLight,
+            "Defeat the Endsinger" => VictoryType.DefeatEndsinger,
+            "Defeat Zeromus" => VictoryType.DefeatZeromus,
+            "Defeat Sphene" => VictoryType.DefeatSphene,
+            "Defeat Necron" => VictoryType.DefeatNecron,
+            _ => VictoryType.McGuffin,
+        };
+
+        private VictoryType GoalTypeFromIndex => Goal switch
         {
             0 => VictoryType.McGuffin,
             1 => VictoryType.DefeatUltimaWeapon,

@@ -544,6 +544,7 @@ def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, 
     slot_data["mcguffins_needed"] = world.mcguffins_needed
     slot_data["boss_key_pieces"] = getattr(world, "_boss_key_pieces", 0)
     slot_data["boss_key_item"] = getattr(world, "_boss_key_item", "")
+    slot_data["goal_name"] = victory_names[slot_data["goal"]]
 
     return slot_data
 
