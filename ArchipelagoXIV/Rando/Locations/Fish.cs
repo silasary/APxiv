@@ -1,6 +1,7 @@
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ArchipelagoXIV.Rando.Locations
 {
@@ -10,7 +11,7 @@ namespace ArchipelagoXIV.Rando.Locations
         public int Id;
         public int Level;
         public Region[] Regions;
-        public string[] Baits;
+        public Dictionary<string, List<string>> Baits;
         public string[] Intuition;
     }
 
@@ -45,7 +46,7 @@ namespace ArchipelagoXIV.Rando.Locations
                     return Accessible = false;
                 else
                     this.region = region;
-                if (!Data.Baits.Any(b => apState.Items.Contains(b)))
+                if (!Data.Baits[region.Name].Any(b => apState.Items.Contains(b)))
                     return Accessible = false;
                 if (!Data.Intuition.All(b => apState.Items.Contains(b)))
                     return Accessible = false;

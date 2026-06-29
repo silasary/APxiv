@@ -172,14 +172,19 @@ namespace ArchipelagoXIV.Rando
                 List<string> zoneNames = [];
                 List<string> baits = [];
                 List<string> intuitionbaits = [];
+                Dictionary<string, List<string>> baitsDict = [];
                 foreach (var z in zones)
                 {
                     var zbaits = z.Value.Values<string>().ToArray();
                     if (zbaits.Length == 0)
                         continue;
                     zoneNames.Add(z.Key);
+                    //This is dumb, and almost certainly a better method exists
+                    baits = [];
                     baits.AddRange(zbaits);
-                    //This is extremely hacky. Someone pls fix this should be very easy. Intuition only has a single zone/hole as of DT
+                    baits = baits.Distinct().ToList();
+                    baitsDict[z.Key] = baits;
+                    //This should probably go inside its own dictionary as well, but I'll worry about it if it becomes a problem
                     foreach (var y in intuition)
                     {
                         var zintuition = y.Value.Values<string>().ToArray();
@@ -187,13 +192,12 @@ namespace ArchipelagoXIV.Rando
                             intuitionbaits.AddRange(zintuition);
                     }
                 }
-                baits = baits.Distinct().ToList();
                 intuitionbaits = intuitionbaits.Distinct().ToList();
                 var data = new FishData
                 {
                     Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
                     Id = fish.Value<int>("id"),
-                    Baits = [.. baits],
+                    Baits = baitsDict,
                     Intuition = [.. intuitionbaits],
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
                 };
