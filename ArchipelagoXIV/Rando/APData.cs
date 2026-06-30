@@ -179,7 +179,10 @@ namespace ArchipelagoXIV.Rando
                     if (zbaits.Length == 0)
                         continue;
                     zoneNames.Add(z.Key);
-                    baits = zbaits.Distinct().ToList();
+                    //This is dumb, and almost certainly a better method exists
+                    baits = [];
+                    baits.AddRange(zbaits);
+                    baits = baits.Distinct().ToList();
                     baitsDict[z.Key] = baits;
                     //This should probably go inside its own dictionary as well, but I'll worry about it if it becomes a problem
                     foreach (var y in intuition)
