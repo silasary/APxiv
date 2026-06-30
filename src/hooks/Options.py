@@ -237,6 +237,50 @@ class ForceJob(OptionSet):
 
         return super().verify(world, player_name, plando_options)
 
+class ExcludeExpansion(OptionSet):
+    """
+    Choose which expansions to exclude from the game entirely.
+
+    Locations and jobs belonging to excluded expansions will not appear in the pool.
+    Forced jobs that are part of an excluded expansion remain force-enabled.
+    """
+    display_name = "Exclude Expansions"
+    valid_keys = frozenset(["HW", "StB", "ShB", "EW", "DT"])
+
+class ExcludeJob(OptionSet):
+    """
+    Choose which jobs to exclude from the game entirely.
+
+    Excluded jobs will not be chosen as progression or filler jobs.
+    """
+    display_name = "Exclude Jobs"
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
+        all_jobs = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
+
+        for item_name in self.value:
+            if item_name not in all_jobs:
+                picks = get_fuzzy_results(item_name, all_jobs, limit=1)
+
+                raise Exception(f"Item {item_name} from option {self} "
+                                f"is not a valid job from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+        return super().verify(world, player_name, plando_options)
+
+
+class FreeTrial(Toggle):
+    """
+    Restrict the game to Free Trial content.
+
+    Caps the level to 80, excludes Endwalker and Dawntrail locations and jobs.
+    """
+
+    display_name = "Free Trial"
+    default = False
+
+
 class LevelCap(Range):
     """
     Maximum level of the player.
@@ -348,8 +392,11 @@ def before_options_defined(options: dict) -> dict:
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
-    # Jobs
+    # Jobs & Expansions
     options["force_jobs"] = ForceJob
+    options["exclude_jobs"] = ExcludeJob
+    options["exclude_expansions"] = ExcludeExpansion
+    options["free_trial"] = FreeTrial
     options["level_cap"] = LevelCap
 
     return options
