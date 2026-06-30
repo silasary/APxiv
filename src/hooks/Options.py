@@ -237,6 +237,16 @@ class ForceJob(OptionSet):
 
         return super().verify(world, player_name, plando_options)
 
+class ExcludeExpansion(OptionSet):
+    """
+    Choose which expansions to exclude from the game entirely.
+
+    Locations and jobs belonging to excluded expansions will not appear in the pool.
+    Forced jobs that are part of an excluded expansion remain force-enabled.
+    """
+    display_name = "Exclude Expansions"
+    valid_keys = frozenset(["HW", "StB", "ShB", "EW", "DT"])
+
 class ExcludeJob(OptionSet):
     """
     Choose which jobs to exclude from the game entirely.
@@ -370,9 +380,10 @@ def before_options_defined(options: dict) -> dict:
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
-    # Jobs
+    # Jobs & Expansions
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
+    options["exclude_expansions"] = ExcludeExpansion
     options["level_cap"] = LevelCap
 
     return options
