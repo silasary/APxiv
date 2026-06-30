@@ -206,14 +206,14 @@ class BossKeyPieces(Range):
     Number of key pieces required to challenge the final boss (boss goal only).
 
     When set to 0, no key is required and the victory location is accessible on region and level alone.
-    When set to 1-10, that many key items are shuffled into the item pool
+    When set to 1-25, that many key items are shuffled into the item pool
     and must all be collected before the goal location is accessible.
     Has no effect when the goal is set to McGuffin Hunt (Collect Memories).
     """
     display_name = "Boss Key Pieces"
-    default = 0
+    default = 10
     range_start = 0
-    range_end = 10
+    range_end = 25
 
 class ForceJob(OptionSet):
     """
