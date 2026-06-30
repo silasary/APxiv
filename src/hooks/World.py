@@ -23,7 +23,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
 from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
-from .Helpers import get_int_value, is_fishing_enabled
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs
 from .Options import LevelCap
 
 ########################################################################################
@@ -80,6 +80,13 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     This is the earliest hook called during generation, before anything else is done.
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
+
+    excluded_jobs = get_excluded_jobs(multiworld, player)
+    force_jobs = get_option_value(multiworld, player, "force_jobs")
+    job_conflicts = [job for job in force_jobs if job in excluded_jobs]
+
+    if job_conflicts:
+        raise OptionError(f"Jobs cannot be both forced and excluded: {', '.join(sorted(job_conflicts))}")
 
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
@@ -168,17 +175,30 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
+
+    exclude_jobs = get_excluded_jobs(multiworld, player)
+
+    if exclude_jobs:
+        tanks   = [j for j in tanks   if j not in exclude_jobs]
+        healers = [j for j in healers if j not in exclude_jobs]
+        melee   = [j for j in melee   if j not in exclude_jobs]
+        caster  = [j for j in caster  if j not in exclude_jobs]
+        ranged  = [j for j in ranged  if j not in exclude_jobs]
+        doh     = [j for j in doh     if j not in exclude_jobs]
+
     force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+
     if force_jobs:
         if len(force_jobs) > 5:
             world.random.shuffle(force_jobs)
             force_jobs = force_jobs[:5]
         prog_classes = force_jobs
     else:
-        prog_classes = [tanks[0], healers[0], melee[0], caster[0], ranged[0]]
+        prog_classes = [role[0] for role in [tanks, healers, melee, caster, ranged] if role]
+
     world.prog_classes = prog_classes
     world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
-    world.prog_doh = doh[0]
+    world.prog_doh = doh[0] if doh else None
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -366,8 +386,10 @@ def before_create_items_filler(
 ) -> list:
     prog_levels = world.prog_levels
     start_class = world.random.choice(prog_levels)
-    prog_doh = f"5 {world.prog_doh} Levels"
+    prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
+    exclude_jobs = get_excluded_jobs(multiworld, player)
+    excluded_level_items = {f"5 {job} Levels" for job in exclude_jobs} if exclude_jobs else set()
 
     seen_levels = {}
     locations_per_depth = defaultdict(list)
@@ -405,6 +427,9 @@ def before_create_items_filler(
             if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
                 multiworld.push_precollected(item)
                 continue
+
+        if item.name in excluded_level_items:
+            continue
 
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
