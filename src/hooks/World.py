@@ -307,6 +307,10 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
                 if goal_trial and goal_trial in all_location_names:
                     world._goal_trial = goal_trial
                     location_count -= 1
+                    event_name = f"{goal_duty_base_name} Cleared"
+                    item_id = world.item_name_to_id.get(event_name)
+                    trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
+                    multiworld.get_location(goal_trial, player).place_locked_item(trial_event)
                     break
 
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
@@ -462,11 +466,6 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     if goal_duty_base_name and goal_trial:
         event_name = f"{goal_duty_base_name} Cleared"
         trial_location = multiworld.get_location(goal_trial, player)
-
-        # Put goal's "Cleared" item into it's trial location and require it for goal
-        item_id = world.item_name_to_id.get(event_name)
-        trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
-        trial_location.place_locked_item(trial_event)
 
         def has_cleared_goal_trial(state: CollectionState) -> bool:
             return state.has(event_name, player)
