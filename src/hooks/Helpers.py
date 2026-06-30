@@ -11,10 +11,16 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     return value
 
 def get_excluded_expansions(multiworld: MultiWorld, player: int) -> set[str]:
-    """Expansions excluded via exclude_expansions"""
-    from ..Helpers import get_option_value
+    """Expansions excluded via exclude_expansions or free_trial"""
+    from ..Helpers import get_option_value, is_option_enabled
+    from .Data import FREE_TRIAL_EXCLUDED_EXPANSIONS
 
-    return set(get_option_value(multiworld, player, "exclude_expansions"))
+    excluded = set(get_option_value(multiworld, player, "exclude_expansions"))
+    
+    if is_option_enabled(multiworld, player, "free_trial"):
+        excluded.update(FREE_TRIAL_EXCLUDED_EXPANSIONS)
+        
+    return excluded
 
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
     """Jobs excluded directly via exclude_jobs plus all jobs of any excluded expansion"""

@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES, FREE_TRIAL_EXCLUDED_JOBS, FREE_TRIAL_MAX_LEVEL
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_excluded_expansions
 from .Options import LevelCap
 
@@ -96,6 +96,16 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     goal_level = goal_location.get('level', 0)
     if not get_option_value(multiworld, player,"include_dungeons"):
         world.options.dungeon_count.value = 0
+
+    if is_option_enabled(multiworld, player, "free_trial"):
+        if level_cap > FREE_TRIAL_MAX_LEVEL:
+            world.options.level_cap.value = FREE_TRIAL_MAX_LEVEL
+            level_cap = FREE_TRIAL_MAX_LEVEL
+            
+        ft_job_conflicts = [job for job in force_jobs if job in FREE_TRIAL_EXCLUDED_JOBS]
+        
+        if ft_job_conflicts:
+            raise OptionError(f"These forced jobs don't exist in Free Trial: {', '.join(sorted(ft_job_conflicts))}")
 
     if hasattr(multiworld, "re_gen_passthrough"):
         slot_data = multiworld.re_gen_passthrough.get(world.game, {})

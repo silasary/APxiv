@@ -269,6 +269,18 @@ class ExcludeJob(OptionSet):
 
         return super().verify(world, player_name, plando_options)
 
+
+class FreeTrial(Toggle):
+    """
+    Restrict the game to Free Trial content.
+
+    Caps the level to 80, excludes Endwalker and Dawntrail locations and jobs.
+    """
+
+    display_name = "Free Trial"
+    default = False
+
+
 class LevelCap(Range):
     """
     Maximum level of the player.
@@ -384,6 +396,7 @@ def before_options_defined(options: dict) -> dict:
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
     options["exclude_expansions"] = ExcludeExpansion
+    options["free_trial"] = FreeTrial
     options["level_cap"] = LevelCap
 
     return options

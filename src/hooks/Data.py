@@ -34,6 +34,10 @@ DOL = ["MIN", "BTN", "FSH"]
 EXCLUDABLE_EXPANSIONS = ["HW", "StB", "ShB", "EW", "DT"]
 EXPANSION_ORDER = {"ARR": 0, "HW": 1, "StB": 2, "ShB": 3, "EW": 4, "DT": 5}
 
+FREE_TRIAL_MAX_LEVEL = 80
+FREE_TRIAL_EXCLUDED_EXPANSIONS = ["EW", "DT"]
+FREE_TRIAL_EXCLUDED_JOBS = ["SGE", "RPR", "VPR", "PCT"]
+
 JOB_EXPANSION = {
     "DRK": "HW", "AST": "HW", "MCH": "HW",
     "SAM": "StB", "RDM": "StB", "BLU": "StB",
