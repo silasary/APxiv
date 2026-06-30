@@ -4,6 +4,27 @@ from BaseClasses import MultiWorld
 
 from .. import Helpers
 
+REGION_LEVEL_GATES: dict[str, int] = {
+    # Heavensward
+    "The Firmament":              51,
+    "Coerthas Western Highlands": 51,
+    "The Sea of Clouds":          51,
+    # Stormblood
+    "The Fringes":                61,
+    "The Peaks":                  61,
+    # Shadowbringers
+    "Lakeland":                   71,
+    "Kholusia":                   71,
+    "Amh Araeng":                 71,
+    # Endwalker
+    "Old Sharlayan":              81,
+    "Labyrinthos":                81,
+    "Thavnair":                   81,
+    # Dawntrail
+    "Urqopacha":                  91,
+    "Kozama'uka":                 91,
+}
+
 def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
@@ -73,31 +94,8 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
-    if location['region'] == "The Firmament" and level_cap < 51:
-        return False
-    if location['region'] == "Coerthas Western Highlands" and level_cap < 51:
-        return False
-    if location['region'] == "The Sea of Clouds" and level_cap < 51:
-        return False
-    if location['region'] == "The Fringes" and level_cap < 61:
-        return False
-    if location['region'] == "The Peaks" and level_cap < 61:
-        return False
-    if location['region'] == "Lakeland" and level_cap < 71:
-        return False
-    if location['region'] == "Kholusia" and level_cap < 71:
-        return False
-    if location['region'] == "Amh Araeng" and level_cap < 71:
-        return False
-    if location['region'] == "Old Sharlayan" and level_cap < 81:
-        return False
-    if location['region'] == "Labyrinthos" and level_cap < 81:
-        return False
-    if location['region'] == "Thavnair" and level_cap < 81:
-        return False
-    if location['region'] == "Urqopacha" and level_cap < 91:
-        return False
-    if location['region'] == "Kozama'uka" and level_cap < 91:
+    region_min_level = REGION_LEVEL_GATES.get(location['region'])
+    if region_min_level and level_cap < region_min_level:
         return False
     return None
 
