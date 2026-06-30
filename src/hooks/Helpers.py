@@ -10,6 +10,12 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     assert isinstance(value, int)
     return value
 
+def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
+    """Jobs excluded directly via exclude_jobs"""
+    from ..Helpers import get_option_value
+
+    return set(get_option_value(multiworld, player, "exclude_jobs"))
+
 def is_fishsanity_only(multiworld: MultiWorld, player: int) -> bool:
     from ..Helpers import is_option_enabled
     is_fishsanity = is_option_enabled(multiworld, player, "fishsanity")
