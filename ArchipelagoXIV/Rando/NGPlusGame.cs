@@ -57,12 +57,7 @@ namespace ArchipelagoXIV.Rando
 
             // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
             // It moved to index 4
-            slotData.TryGetValue("world_version", out var version_obj);
-            var version_string = version_obj as string ?? "0.0.0";
-            var worldVersion = Version.Parse(version_string);
-            DalamudApi.PluginLog.Information($"Unparsed world version: {version_string}");
-
-            if (worldVersion < new Version(0, 29, 0))
+            if (WorldVersion < new Version(0, 29, 0))
             {
                 if (Goal == 1)
                 {
