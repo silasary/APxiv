@@ -1,6 +1,7 @@
 import logging
 import os
 from typing import Callable, Optional, ClassVar, Counter, Any
+import typing
 import webbrowser
 
 import Utils
@@ -9,7 +10,7 @@ from worlds.LauncherComponents import Component, SuffixIdentifier, components, T
 
 from .Data import item_table, location_table, event_table, category_table
 from .Game import game_name, filler_item_name, starting_items, unused_goals_are_locations
-from .Meta import world_description, world_webworld
+from .Meta import ManualSettings, world_description, world_webworld
 from .Locations import location_id_to_name, location_name_to_id, location_name_to_location, location_name_groups, victory_names, event_name_to_event
 from .Items import item_id_to_name, item_name_to_id, item_name_to_item, item_name_groups
 from .DataValidation import runGenerationDataValidation, runPreFillDataValidation
@@ -98,6 +99,14 @@ class ManualWorld(World):
     origin_region_name = "Manual"
 
     _rule_data: dict[str, Any] = {}
+
+    settings: typing.ClassVar[ManualSettings]
+
+    tracker_world: ClassVar = {
+        "external_pack_key": "ut_poptracker_path",
+        "map_page_maps": "maps/maps.json",
+        "map_page_locations": ["locations/Amh Araeng.json"],
+    }
 
     def get_filler_item_name(self) -> str:
         return hook_get_filler_item_name(self, self.multiworld, self.player) or self.filler_item_name

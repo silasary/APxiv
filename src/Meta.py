@@ -1,4 +1,4 @@
-
+import settings
 from BaseClasses import Tutorial
 from enum import Enum
 from worlds.AutoWorld import World, WebWorld
@@ -68,3 +68,11 @@ world_description: str = set_world_description("""
     the player must manually refrain from using these gathered items until the tracker shows that they have been acquired or sent.
     """)
 world_webworld: ManualWeb = set_world_webworld(ManualWeb())
+
+class ManualSettings(settings.Group):
+    class UTPoptrackerPath(settings.FilePath):
+        """Path to the user's FFXIV Poptracker Pack."""
+        description = "FFXIV's Poptracker Pack zip file"
+        required = False
+
+    ut_poptracker_path: UTPoptrackerPath | str = UTPoptrackerPath(None)
