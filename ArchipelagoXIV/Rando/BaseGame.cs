@@ -23,6 +23,7 @@ namespace ArchipelagoXIV.Rando
         DefeatNecron,
         MaskedCarnivale30,
         None,
+        Unknown,
         PotDFloor50
     };
 
@@ -84,6 +85,15 @@ namespace ArchipelagoXIV.Rando
             {
                 Goal = (int)(long)goal;
             }
+            if (slotData.TryGetValue("world_version", out var version_obj))
+            {
+                var version_string = version_obj as string ?? "0.0.0";
+                this.WorldVersion = Version.Parse(version_string);
+            }
+            else
+            {
+                this.WorldVersion = new Version(0, 0, 0);
+            }
         }
 
         internal virtual string GoalString() => GoalType switch
@@ -110,5 +120,6 @@ namespace ArchipelagoXIV.Rando
 
         internal abstract VictoryType GoalType { get; }
         public Dictionary<string, object> SlotData { get; private set; }
+        public Version WorldVersion { get; private set; }
     }
 }

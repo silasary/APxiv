@@ -65,6 +65,7 @@ class DutyDifficulty(Choice):
     option_extreme = 2
     option_savage = 3
     option_endgame = 4
+    # visibility = Visibility.none
 
 class MaxPartySize(Choice):
     """
@@ -113,7 +114,7 @@ class VariantDungeonCount(Range):
     """
     Number of Variant Dungeons per expansion to include in the location pool
     """
-    display_name = "Dungeon Count"
+    display_name = "Variant Dungeon Count"
     default = 3
     range_start = 0
     range_end = 3
@@ -129,7 +130,7 @@ class TrialCount(Range):
 
 class ExtremeTrialCount(Range):
     """
-    Number of Extreme Trials per expansion to include in the location pool
+    Number of non-current Extreme Trials per expansion to include in the location pool
     """
     display_name = "Extreme Trial Count"
     default = 8
@@ -138,9 +139,9 @@ class ExtremeTrialCount(Range):
 
 class EndgameTrialCount(Range):
     """
-    Number of Current Extreme Trials to include in the location pool
+    Number of current Extreme Trials to include in the location pool
     """
-    display_name = "Extreme Trial Count"
+    display_name = "Endgame Extreme Trial Count"
     default = 8
     range_start = 0
     range_end = 8
@@ -176,7 +177,7 @@ class EndgameRaidCount(Range):
     """
     Number of Endgame Savage Raids to include in the location pool
     """
-    display_name = "Savage Raid Count"
+    display_name = "Endgame Savage Raid Count"
     default = 12
     range_start = 0
     range_end = 12
@@ -189,6 +190,7 @@ class UltimateCount(Range):
     default = 10
     range_start = 0
     range_end = 10
+    visibility = Visibility.none
 
 class McGuffinsNeeded(Range):
     """
@@ -373,8 +375,11 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
     pass
 
 # Use this Hook if you want to add your Option to an Option group (existing or not)
-def before_option_groups_created(groups: dict[str, list[Option]]) -> dict[str, list[Option]]:
+def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
     # Uses the format groups['GroupName'] = [TotalCharactersToWinWith]
+    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
+    groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
+
     return groups
 
 def after_option_groups_created(groups: list[OptionGroup]) -> list[OptionGroup]:
