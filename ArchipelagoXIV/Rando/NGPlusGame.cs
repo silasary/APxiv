@@ -64,31 +64,9 @@ namespace ArchipelagoXIV.Rando
             }
             else
             {
-                // No goal_name => a legacy seed whose goal index used the OLD boss order (Shinryu
-                // first). Adjust indexes as GoalTypeFromIndex expects:
-                //
-                //   stored index   used to mean        ->  remap to
-                //        1         Shinryu                     4
-                //        2         Ultima                      1
-                //        3         Thordan                     2
-                //        4         Nidhogg                     3
-                //        0, 5..11  (already correct)           unchanged
-                //
-                // Fixes two legacy worlds for compatibility: pre-0.29 only ever stored 0 or 1, while 0.29.0
-                // added the other bosses but shipped them in incorrect order.
-                var legacyGoal = Goal;
-
-                Goal = Goal switch
-                {
-                    1 => 4,  // Shinryu
-                    2 => 1,  // Ultima
-                    3 => 2,  // Thordan
-                    4 => 3,  // Nidhogg
-                    _ => Goal,
-                };
-
-                if (Goal != legacyGoal)
-                    DalamudApi.PluginLog.Information($"Remapping legacy boss goal index {legacyGoal} -> {Goal}");
+                // No goal_name => a legacy seed (pre-fix apworld). Goal is resolved via the
+                // legacy-ordered GoalTypeFromIndex below instead of the name-based lookup.
+                DalamudApi.PluginLog.Information($"No goal_name in slot data; resolving legacy seed via goal index {Goal}.");
             }
 
             this.GoalCount = (long)slotData["mcguffins_needed"];
@@ -159,13 +137,14 @@ namespace ArchipelagoXIV.Rando
             _ => VictoryType.McGuffin,
         };
 
+        // Represents the incorrect index order of legacy seeds
         private VictoryType GoalTypeFromIndex => Goal switch
         {
             0 => VictoryType.McGuffin,
-            1 => VictoryType.DefeatUltimaWeapon,
-            2 => VictoryType.DefeatThordan,
-            3 => VictoryType.DefeatNidhogg,
-            4 => VictoryType.DefeatShinryu,
+            2 => VictoryType.DefeatUltimaWeapon,
+            3 => VictoryType.DefeatThordan,
+            4 => VictoryType.DefeatNidhogg,
+            1 => VictoryType.DefeatShinryu,
             5 => VictoryType.DefeatTsukuyomi,
             6 => VictoryType.DefeatHades,
             7 => VictoryType.DefeatWarriorOfLight,
