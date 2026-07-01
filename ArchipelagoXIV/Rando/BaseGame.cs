@@ -23,6 +23,7 @@ namespace ArchipelagoXIV.Rando
         DefeatNecron,
         MaskedCarnivale30,
         None,
+        Unknown,
         PotDFloor50
     };
 

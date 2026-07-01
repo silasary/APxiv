@@ -128,7 +128,7 @@ namespace ArchipelagoXIV.Rando
             9 => VictoryType.DefeatZeromus,
             10 => VictoryType.DefeatSphene,
             11 => VictoryType.DefeatNecron,
-            _ => VictoryType.McGuffin,
+            _ => VictoryType.Unknown,
         };
 
         public override bool HasMapItems => true;
