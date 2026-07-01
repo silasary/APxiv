@@ -4,7 +4,9 @@ from BaseClasses import MultiWorld
 
 from .. import Helpers
 
-REGION_LEVEL_GATES: dict[str, int] = {
+# Zones on the level cap can be ambiguous.
+# This skews regions at the start of an expansion to not be included unless the x1 level is also included in the cap.
+REGION_LEVEL_CAP_ADJUSTMENTS: dict[str, int] = {
     # Heavensward
     "The Firmament":              51,
     "Coerthas Western Highlands": 51,
@@ -94,7 +96,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
-    region_min_level = REGION_LEVEL_GATES.get(location['region'])
+    region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:
         return False
     return None
