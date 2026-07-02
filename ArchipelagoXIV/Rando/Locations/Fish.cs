@@ -11,6 +11,7 @@ namespace ArchipelagoXIV.Rando.Locations
         public int Level;
         public Region[] Regions;
         public string[] Baits;
+        public string[] Intuition;
     }
 
     internal class Fish : Location
@@ -46,6 +47,8 @@ namespace ArchipelagoXIV.Rando.Locations
                     this.region = region;
                 if (!Data.Baits.Any(b => apState.Items.Contains(b)))
                     return Accessible = false;
+                if (!Data.Intuition.All(b => apState.Items.Contains(b)))
+                    return Accessible = false;
                 return Accessible = true;
             }
             return Accessible;
@@ -57,6 +60,11 @@ namespace ArchipelagoXIV.Rando.Locations
             var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ToString();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
             //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
+            if (!Logic.Level(Data.Level, "FSH")(apState, false))
+            {
+                DalamudApi.Echo($"Current level is not in logic. Requires FSH level {Data.Level}");
+                return false;
+            }
             if (!apState.Items.Contains(currentBaitName))
             {
                 DalamudApi.Echo($"{currentBaitName} is not in logic");
