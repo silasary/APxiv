@@ -21,6 +21,7 @@ namespace ArchipelagoXIV.Rando
         private long McGuffinCount;
         private long BossKeyPiecesNeeded;
         private string BossKeyItemName = "";
+        private string GoalName = "";
 
 
         public override string Name => isManual ? "Manual_FFXIV_Silasary" : "Final Fantasy XIV";
@@ -55,15 +56,17 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
 
-            // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
-            // It moved to index 4
-            if (WorldVersion < new Version(0, 29, 0))
+            // Newer apworld sends a goal name to prevent ambiguity
+            if (slotData.TryGetValue("goal_name", out var goal_name_obj) && goal_name_obj is string goal_name)
             {
-                if (Goal == 1)
-                {
-                    DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
-                    Goal = 4;
-                }
+                GoalName = goal_name;
+                DalamudApi.PluginLog.Information($"Goal name from slot data: {GoalName}");
+            }
+            else
+            {
+                // No goal_name => a legacy seed (pre-fix apworld). Goal is resolved via the
+                // legacy-ordered GoalTypeFromIndex below instead of the name-based lookup.
+                DalamudApi.PluginLog.Information($"No goal_name in slot data; resolving legacy seed via goal index {Goal}.");
             }
 
             this.GoalCount = (long)slotData["mcguffins_needed"];
@@ -80,7 +83,7 @@ namespace ArchipelagoXIV.Rando
 
         internal override string GoalString()
         {
-            if (Goal == 0)
+            if (GoalType == VictoryType.McGuffin)
                 return $"{McGuffinCount}/{GoalCount} Memories of a Distant World recovered";
 
             var baseString = base.GoalString();
@@ -114,13 +117,34 @@ namespace ArchipelagoXIV.Rando
             _ => "",
         };
 
-        internal override VictoryType GoalType => Goal switch
+        internal override VictoryType GoalType =>
+            string.IsNullOrEmpty(GoalName) ? GoalTypeFromIndex : GoalTypeFromName;
+
+        private VictoryType GoalTypeFromName => GoalName switch
+        {
+            "Collect Memories" => VictoryType.McGuffin,
+            "Defeat the Ultima Weapon" => VictoryType.DefeatUltimaWeapon,
+            "Defeat King Thordan" => VictoryType.DefeatThordan,
+            "Defeat Nidhogg" => VictoryType.DefeatNidhogg,
+            "Defeat Shinryu" => VictoryType.DefeatShinryu,
+            "Defeat Tsukuyomi" => VictoryType.DefeatTsukuyomi,
+            "Defeat Hades" => VictoryType.DefeatHades,
+            "Defeat the Warrior of Light" => VictoryType.DefeatWarriorOfLight,
+            "Defeat the Endsinger" => VictoryType.DefeatEndsinger,
+            "Defeat Zeromus" => VictoryType.DefeatZeromus,
+            "Defeat Sphene" => VictoryType.DefeatSphene,
+            "Defeat Necron" => VictoryType.DefeatNecron,
+            _ => VictoryType.McGuffin,
+        };
+
+        // Represents the incorrect index order of legacy seeds
+        private VictoryType GoalTypeFromIndex => Goal switch
         {
             0 => VictoryType.McGuffin,
-            1 => VictoryType.DefeatUltimaWeapon,
-            2 => VictoryType.DefeatThordan,
-            3 => VictoryType.DefeatNidhogg,
-            4 => VictoryType.DefeatShinryu,
+            2 => VictoryType.DefeatUltimaWeapon,
+            3 => VictoryType.DefeatThordan,
+            4 => VictoryType.DefeatNidhogg,
+            1 => VictoryType.DefeatShinryu,
             5 => VictoryType.DefeatTsukuyomi,
             6 => VictoryType.DefeatHades,
             7 => VictoryType.DefeatWarriorOfLight,
