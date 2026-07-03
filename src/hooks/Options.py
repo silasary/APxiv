@@ -246,7 +246,7 @@ class LevelCap(Range):
     range_start = 30
     range_end = 100
 
-class AllowMainScenario(DefaultOnToggle):
+class AllowMainScenario(Toggle):
     """
     Include Castrum Meridianum, Praetorium, and The Porta Decumana in the location pool.
     These duties are long and contain unskippable cutscenes.
@@ -379,7 +379,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Duty Finder"] = [DutyDifficulty, IncludeBozja, IncludePvP, IncludeGuildhests,
-                             ExtraDungeonChecks, AllowMainScenario, 
+                             ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
                              NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]
     return groups
