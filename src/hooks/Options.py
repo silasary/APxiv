@@ -273,6 +273,11 @@ class FishsanityDisableStartingBait(Toggle):
     This option may cause generation to fail.
     """
 
+class IncludeGuildhests(Toggle):
+    """
+    Include Guildhests in the location pool.
+    """
+
 class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
@@ -327,6 +332,7 @@ def before_options_defined(options: dict) -> dict:
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
     options["include_bozja"] = IncludeBozja
+    options["include_guildhests"] = IncludeGuildhests
 
     # Duty Counts
     options["dungeon_count"] = DungeonCount
@@ -368,10 +374,14 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
 
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
-    # Uses the format groups['GroupName'] = [TotalCharactersToWinWith]
+    groups["Character Settings"] = [LevelCap, ForceJob]
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
-
+    groups["Huntsanity"] = [Huntsanity]
+    groups["Duty Finder"] = [DutyDifficulty, IncludeBozja, IncludePvP, IncludeGuildhests,
+                             ExtraDungeonChecks, AllowMainScenario, 
+                             DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
+                             NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]
     return groups
 
 def after_option_groups_created(groups: list[OptionGroup]) -> list[OptionGroup]:
