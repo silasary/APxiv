@@ -92,7 +92,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         slot_data = multiworld.re_gen_passthrough.get(world.game, {})
         world.mcguffins_needed = slot_data['mcguffins_needed']
     else:
-        world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
+        world.mcguffins_needed = 50
 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
@@ -122,7 +122,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
-        
+
 
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
@@ -322,7 +322,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         world.mcguffins_needed = 0
     else:
         item_config['Memory of a Distant World'] = min(remaining // 4, 50)
-        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
+        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffin_percentage_needed") / 100))
     item_count += item_config['Memory of a Distant World']
 
     if is_fishing_enabled(multiworld, player):

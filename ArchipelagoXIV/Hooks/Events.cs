@@ -21,6 +21,7 @@ namespace ArchipelagoXIV.Hooks
 
         public void Enable()
         {
+            DalamudApi.DutyState.DutyStarted += DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
@@ -87,6 +88,7 @@ namespace ArchipelagoXIV.Hooks
 
         public void Disable()
         {
+            DalamudApi.DutyState.DutyStarted -= DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
@@ -115,6 +117,7 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
+
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
 
             var currentLevel = DalamudApi.ObjectTable.LocalPlayer?.Level ?? DalamudApi.PlayerState.Level;
@@ -160,30 +163,55 @@ namespace ArchipelagoXIV.Hooks
         public void RefreshTerritory()
         {
             if (DalamudApi.ClientState.IsLoggedIn)
+            {
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
+            }
         }
 
         private void ClientState_TerritoryChanged(uint e)
         {
-            var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
-            apState.territoryName = territory.PlaceName.Value.Name.ToString();
-            apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
+            if (!DalamudApi.DutyState.IsDutyStarted)
+                {
+                var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
+                apState.territoryName = territory.PlaceName.Value.Name.ToString();
+                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
+                apState.RefreshBars = true;
 
-            if (!apState.Connected)
-            {
-                // Check if known location
-                //RegionContainer.CanReach(apState, apState.territoryName);
-                return;
+                if (!apState.Connected)
+                {
+                    // Check if known location
+                    //RegionContainer.CanReach(apState, apState.territoryName);
+                    return;
+                }
+
+                apState.RefreshBars = true;
+
+
+                if (apState.territoryName == "The Waking Sands")
+                {
+                    var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
+                    PrayReturn?.Complete();
+                }
             }
+            else
+            {
+                var duty = DalamudApi.DutyState.ContentFinderCondition.Value;
+                var name = duty.Name.ToString();
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+                apState.territoryName = name;
+                apState.RefreshBars = true;
+            }
+        }
 
+        private unsafe void DutyState_DutyStarted(IDutyStateEventArgs args)
+        {
+            var duty = args.ContentFinderCondition.Value;
+            var name = duty.Name.ToString();
+            if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+            apState.territoryName = name;
             apState.RefreshBars = true;
-
-
-            if (apState.territoryName == "The Waking Sands")
-            {
-                var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
-                PrayReturn?.Complete();
-            }
         }
 
         public unsafe void CheckAmnesty()
