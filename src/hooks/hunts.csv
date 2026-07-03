@@ -1,0 +1,202 @@
+BNpcNameId,Name,Rank,Location,Level,Expansion
+2928,Skogs Fru,B,Middle La Noscea,50,ARR
+2945,Vogaal Ja,A,Middle La Noscea,50,ARR
+2962,Croque-Mitaine,S,Middle La Noscea,50,ARR
+2929,Barbastelle,B,Lower La Noscea,50,ARR
+2946,Unktehi,A,Lower La Noscea,50,ARR
+2963,Croakadile,S,Lower La Noscea,50,ARR
+2930,Bloody Mary,B,Eastern La Noscea,50,ARR
+2947,Hellsclaw,A,Eastern La Noscea,50,ARR
+2964,The Garlok,S,Eastern La Noscea,50,ARR
+2931,Dark Helmet,B,Western La Noscea,50,ARR
+2948,Nahn,A,Western La Noscea,50,ARR
+2965,Bonnacon,S,Western La Noscea,50,ARR
+2932,Myradrosh,B,Upper La Noscea,50,ARR
+2949,Marberry,A,Upper La Noscea,50,ARR
+2966,Nandi,S,Upper La Noscea,50,ARR
+2923,Sewer Syrup,B,Western Thanalan,50,ARR
+2940,Alectryon,A,Western Thanalan,50,ARR
+2957,Zona Seeker,S,Western Thanalan,50,ARR
+2924,Ovjang,B,Central Thanalan,50,ARR
+2941,Sabotender Bailarina,A,Central Thanalan,50,ARR
+2958,Brontes,S,Central Thanalan,50,ARR
+2925,Gatling,B,Eastern Thanalan,50,ARR
+2942,Maahes,A,Eastern Thanalan,50,ARR
+2959,Lampalagua,S,Eastern Thanalan,50,ARR
+2926,Albin the Ashen,B,Southern Thanalan,50,ARR
+2943,Zanig'oh,A,Southern Thanalan,50,ARR
+2960,Nunyunuwi,S,Southern Thanalan,50,ARR
+2927,Flame Sergeant Dalvag,B,Northern Thanalan,50,ARR
+2944,Dalvag's Final Flame,A,Northern Thanalan,50,ARR
+2961,Minhocao,S,Northern Thanalan,50,ARR
+2919,White Joker,B,Central Shroud,50,ARR
+2936,Forneus,A,Central Shroud,50,ARR
+2953,Laideronnette,S,Central Shroud,50,ARR
+2920,Stinging Sophie,B,East Shroud,50,ARR
+2937,Melt,A,East Shroud,50,ARR
+2954,Wulgaru,S,East Shroud,50,ARR
+2921,Monarch Ogrefly,B,South Shroud,50,ARR
+2938,Ghede Ti Malice,A,South Shroud,50,ARR
+2955,Mindflayer,S,South Shroud,50,ARR
+2922,Phecda,B,North Shroud,50,ARR
+2939,Girtab,A,North Shroud,50,ARR
+2956,Thousand-cast Theda,S,North Shroud,50,ARR
+2934,Naul,B,Coerthas Central Highlands,50,ARR
+2951,Marraco,A,Coerthas Central Highlands,50,ARR
+2968,Safat,S,Coerthas Central Highlands,50,ARR
+2935,Leech King,B,Mor Dhona,50,ARR
+2952,Kurrea,A,Mor Dhona,50,ARR
+2969,Agrippa the Mighty,S,Mor Dhona,50,ARR
+2933,Vuokho,B,Outer La Noscea,50,ARR
+2950,Cornu,A,Outer La Noscea,50,ARR
+2967,Chernobog,S,Outer La Noscea,50,ARR
+4350,Alteci,B,Coerthas Western Highlands,60,HW
+4351,Kreutzet,B,Coerthas Western Highlands,60,HW
+4362,Mirka,A,Coerthas Western Highlands,60,HW
+4363,Lyuba,A,Coerthas Western Highlands,60,HW
+4374,Kaiser Behemoth,S,Coerthas Western Highlands,60,HW
+4352,Gnath Cometdrone,B,The Dravanian Forelands,60,HW
+4353,Thextera,B,The Dravanian Forelands,60,HW
+4364,Pylraster,A,The Dravanian Forelands,60,HW
+4365,Lord of the Wyverns,A,The Dravanian Forelands,60,HW
+4375,Senmurv,S,The Dravanian Forelands,60,HW
+4354,Pterygotus,B,The Dravanian Hinterlands,60,HW
+4355,False Gigantopithecus,B,The Dravanian Hinterlands,60,HW
+4366,Slipkinx Steeljoints,A,The Dravanian Hinterlands,60,HW
+4367,Stolas,A,The Dravanian Hinterlands,60,HW
+4376,The Pale Rider,S,The Dravanian Hinterlands,60,HW
+4356,Scitalis,B,The Churning Mists,60,HW
+4357,The Scarecrow,B,The Churning Mists,60,HW
+4368,Bune,A,The Churning Mists,60,HW
+4369,Agathos,A,The Churning Mists,60,HW
+4377,Gandarewa,S,The Churning Mists,60,HW
+4358,Squonk,B,The Sea of Clouds,60,HW
+4359,Sanu Vali of Dancing Wings,B,The Sea of Clouds,60,HW
+4370,Enkelados,A,The Sea of Clouds,60,HW
+4371,Sisiutl,A,The Sea of Clouds,60,HW
+4378,Bird of Paradise,S,The Sea of Clouds,60,HW
+4360,Lycidas,B,Azys Lla,60,HW
+4361,Omni,B,Azys Lla,60,HW
+4372,Campacti,A,Azys Lla,60,HW
+4373,Stench Blossom,A,Azys Lla,60,HW
+4380,Leucrotta,S,Azys Lla,60,HW
+6008,Shadow-dweller Yamini,B,The Fringes,70,StB
+6009,Ouzelum,B,The Fringes,70,StB
+5990,Orcus,A,The Fringes,70,StB
+5991,Erle,A,The Fringes,70,StB
+5987,Udumbara,S,The Fringes,70,StB
+6002,Gauki Strongblade,B,The Ruby Sea,70,StB
+6003,Guhuo Niao,B,The Ruby Sea,70,StB
+5996,Funa Yurei,A,The Ruby Sea,70,StB
+5997,Oni Yumemi,A,The Ruby Sea,70,StB
+5984,Okina,S,The Ruby Sea,70,StB
+6004,Deidar,B,Yanxia,70,StB
+6005,Gyorai Quickstrike,B,Yanxia,70,StB
+5998,Gajasura,A,Yanxia,70,StB
+5999,Angada,A,Yanxia,70,StB
+5985,Gamma,S,Yanxia,70,StB
+6010,Gwas-y-neidr,B,The Peaks,70,StB
+6011,Buccaboo,B,The Peaks,70,StB
+5992,Vochstein,A,The Peaks,70,StB
+5993,Aqrabuamelu,A,The Peaks,70,StB
+5988,Bone Crawler,S,The Peaks,70,StB
+6012,Manes,B,The Lochs,70,StB
+6013,Kiwa,B,The Lochs,70,StB
+5994,Mahisha,A,The Lochs,70,StB
+5995,Luminare,A,The Lochs,70,StB
+5989,Salt and Light,S,The Lochs,70,StB
+6006,Kurma,B,The Azim Steppe,70,StB
+6007,Aswang,B,The Azim Steppe,70,StB
+6000,Girimekhala,A,The Azim Steppe,70,StB
+6001,Sum,A,The Azim Steppe,70,StB
+5986,Orghana,S,The Azim Steppe,70,StB
+8908,La Velue,B,Lakeland,80,ShB
+8909,Itzpapalotl,B,Lakeland,80,ShB
+8906,Nuckelavee,A,Lakeland,80,ShB
+8907,Nariphon,A,Lakeland,80,ShB
+8905,Tyger,S,Lakeland,80,ShB
+8913,Coquecigrue,B,Kholusia,80,ShB
+8914,Indomitable,B,Kholusia,80,ShB
+8911,Li'l Murderer,A,Kholusia,80,ShB
+8912,Huracan,A,Kholusia,80,ShB
+8910,Forgiven Pedantry,S,Kholusia,80,ShB
+8903,Worm of the Well,B,Amh Araeng,80,ShB
+8904,Juggler Hecatomb,B,Amh Araeng,80,ShB
+8901,Maliktender,A,Amh Araeng,80,ShB
+8902,Sugaar,A,Amh Araeng,80,ShB
+8900,Tarchia,S,Amh Araeng,80,ShB
+8656,Domovoi,B,Il Mheg,80,ShB
+8657,Vulpangue,B,Il Mheg,80,ShB
+8654,The Mudman,A,Il Mheg,80,ShB
+8655,O Poorest Pauldia,A,Il Mheg,80,ShB
+8653,Aglaope,S,Il Mheg,80,ShB
+8893,Mindmaker,B,The Rak'tika Greatwood,80,ShB
+8894,Pachamama,B,The Rak'tika Greatwood,80,ShB
+8891,Supay,A,The Rak'tika Greatwood,80,ShB
+8892,Grassman,A,The Rak'tika Greatwood,80,ShB
+8890,Ixtab,S,The Rak'tika Greatwood,80,ShB
+8898,Gilshs Aath Swiftclaw,B,The Tempest,80,ShB
+8899,Deacon,B,The Tempest,80,ShB
+8896,Rusalka,A,The Tempest,80,ShB
+8897,Baal,A,The Tempest,80,ShB
+8895,Gunitt,S,The Tempest,80,ShB
+10635,Green Archon,B,Labyrinthos,90,EW
+10636,Ü-u-ü-u,B,Labyrinthos,90,EW
+10624,Hulder,A,Labyrinthos,90,EW
+10623,Storsie,A,Labyrinthos,90,EW
+10617,Burfurlur the Canny,S,Labyrinthos,90,EW
+10637,Vajrakumara,B,Thavnair,90,EW
+10638,Iravati,B,Thavnair,90,EW
+10625,Yilan,A,Thavnair,90,EW
+10626,Sugriva,A,Thavnair,90,EW
+10618,Sphatika,S,Thavnair,90,EW
+10639,Warmonger,B,Garlemald,90,EW
+10640,Emperor's Rose,B,Garlemald,90,EW
+10627,Minerva,A,Garlemald,90,EW
+10628,Aegeiros,A,Garlemald,90,EW
+10619,Armstrong,S,Garlemald,90,EW
+10641,Daphnia Magna,B,Mare Lamentorum,90,EW
+10642,Genesis Rock,B,Mare Lamentorum,90,EW
+10630,Mousse Princess,A,Mare Lamentorum,90,EW
+10629,Lunatender Queen,A,Mare Lamentorum,90,EW
+10620,Ruminator,S,Mare Lamentorum,90,EW
+10645,Level Cheater,B,Ultima Thule,90,EW
+10646,Oskh Rhei,B,Ultima Thule,90,EW
+10634,Arch-Eta,A,Ultima Thule,90,EW
+10633,Fan Ail,A,Ultima Thule,90,EW
+10622,Narrow-rift,S,Ultima Thule,90,EW
+10643,Yumcax,B,Elpis,90,EW
+10644,Shockmaw,B,Elpis,90,EW
+10632,Petalodus,A,Elpis,90,EW
+10631,Gurangatch,A,Elpis,90,EW
+10621,Ophioneus,S,Elpis,90,EW
+13144,Mad Maguey,B,Urqopacha,100,DT
+13145,Chupacabra,B,Urqopacha,100,DT
+13361,Queen Hawk,A,Urqopacha,100,DT
+13362,Nechuciho,A,Urqopacha,100,DT
+13360,Kirlirger the Abhorrent,S,Urqopacha,100,DT
+13146,The Slammer,B,Kozama'uka,100,DT
+13147,Go'ozoabek'be,B,Kozama'uka,100,DT
+13442,The Raintriller,A,Kozama'uka,100,DT
+13443,Pkuucha,A,Kozama'uka,100,DT
+13444,Ihnuxokiy,S,Kozama'uka,100,DT
+13148,Leafscourge Hadoll Ja,B,Yak T'el,100,DT
+13149,Xty'iinbek,B,Yak T'el,100,DT
+12753,Rrax Yity'a,A,Yak T'el,100,DT
+12692,Starcrier,A,Yak T'el,100,DT
+12754,Neyoozoteel,S,Yak T'el,100,DT
+13150,Nopalitender Fabuloso,B,Shaaloani,100,DT
+13151,Uktena,B,Shaaloani,100,DT
+13400,Yehehetoaua'pyo,A,Shaaloani,100,DT
+13401,Keheniheyamewi,A,Shaaloani,100,DT
+13399,Sansheya,S,Shaaloani,100,DT
+13152,Gallowsbeak,B,Heritage Found,100,DT
+13153,Gargant,B,Heritage Found,100,DT
+13157,Heshuala,A,Heritage Found,100,DT
+13158,Urna Variabilis,A,Heritage Found,100,DT
+13156,Atticus the Primogenitor,S,Heritage Found,100,DT
+13154,Jewel Bearer,B,Living Memory,100,DT
+13155,13th Child,B,Living Memory,100,DT
+13435,Sally the Sweeper,A,Living Memory,100,DT
+13436,Cat's Eye,A,Living Memory,100,DT
+13437,The Forecaster,S,Living Memory,100,DT
