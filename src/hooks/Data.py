@@ -317,7 +317,7 @@ def generate_fish_list() -> list[dict]:
                 _id += 1
                 continue
             if len(zones[region]) > 1:
-                requires += f" and |{zones[region][0]}"
+                requires += f" and (|{zones[region][0]}"
                 #VERY hacky. Definitely a better way to do this 
                 i = 0
                 for r in zones[region]:
@@ -325,16 +325,17 @@ def generate_fish_list() -> list[dict]:
                         i = 1
                         continue
                     requires += f"| OR |{r}"
+                requires += "|)"
 
             else:
-                requires += f" and |{zones[region][0]}"
-            requires += "|"
+                requires += f" and |{zones[region][0]}|"
 
                     
             if intuition:
                 #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
                 for bait_intuition in intuition[region]:
-                    requires += f" and |{bait_intuition}|"
+                    if bait_intuition != zones[region][0]:
+                        requires += f" and |{bait_intuition}|"
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
