@@ -319,7 +319,6 @@ def generate_fish_list() -> list[dict]:
                 continue
             if len(zones[region]) > 1:
                 requires += f" and (|{zones[region][0]}"
-                #VERY hacky. Definitely a better way to do this 
                 i = 0
                 for r in zones[region]:
                     if i == 0:
