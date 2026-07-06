@@ -409,8 +409,9 @@ namespace ArchipelagoXIV
 
             DalamudApi.SetJobStatusBar(JobText);
 
-            var jobtt = new StringBuilder();
-            jobtt.AppendLine("Job Levels:");
+            var progtt = new StringBuilder();
+            var ooltt = new StringBuilder();
+
             foreach (var job in Data.ClassJobs)
             {
                 if (job.ClassJobCategory.Value.RowId == 30 || job.ClassJobCategory.Value.RowId == 31 || (fish && job.RowId == 18))
@@ -420,9 +421,22 @@ namespace ArchipelagoXIV
                         level = Game.MaxLevel(job);
                     }
                     if (level > 0)
-                        jobtt.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
+                    {
+                        var section = ooltt;
+                        if (Game.ProgJobs.Contains(job))
+                        {
+                            section = progtt;
+                        }
+                        section.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
+                    }
                 }
             }
+
+            var jobtt = new StringBuilder();
+            jobtt.AppendLine("Job Levels:");
+            jobtt.Append(progtt).AppendLine();
+            jobtt.AppendLine("Out of Logic Jobs:");
+            jobtt.Append(ooltt);
 
             DalamudApi.SetJobTooltop(jobtt.ToString());
 

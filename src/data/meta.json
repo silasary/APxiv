@@ -26,8 +26,32 @@
                     "_comment": "if you dont include the authors it will use creator from game.json"
                 }
             ],
-            "_options_presets": {
-                "Fishsanity":{
+            "options_presets": {
+                "Short McGuffin Hunt": {
+                    "include_ocean_fishing": false,
+                    "fates_per_zone": 5,
+                    "extra_dungeon_checks": 0,
+                    "mcguffin_percentage_needed": 40
+                },
+                "Short Shinryu": {
+                    "include_ocean_fishing": false,
+                    "fates_per_zone": 5,
+                    "extra_dungeon_checks": 7,
+                    "goal": "defeat shinryu",
+                    "boss_key_pieces": 3
+                },
+                "Fishsanity Reasonable":{
+                    "include_ocean_fishing": true,
+                    "fishsanity": "normal_fish",
+                    "fates_per_zone": 0,
+                    "dungeon_count": 0,
+                    "trial_count": 0,
+                    "alliance_raid_count": 0,
+                    "normal_raid_count": 0,
+                    "savage_raid_count": 0,
+                    "variant_dungeon_count": 0
+                },
+                "Fishsanity Big Fish":{
                     "include_ocean_fishing": true,
                     "fishsanity": "big_fish",
                     "fates_per_zone": 0,
@@ -37,6 +61,19 @@
                     "normal_raid_count": 0,
                     "savage_raid_count": 0,
                     "variant_dungeon_count": 0
+                },
+                "Allsanity": {
+                    "include_ocean_fishing": true,
+                    "include_bozja": true,
+                    "include_pvp": true,
+                    "include_guildhests": true,
+                    "allow_main_scenario_duties": true,
+                    "duty_difficulty": "endgame",
+                    "fishsanity": "big_fish",
+                    "fatesanity": true,
+                    "include_unreasonable_fates": true,
+                    "extra_dungeon_checks": 10,
+                    "huntsanity": ["B", "A", "S"]
                 }
             }
         }
