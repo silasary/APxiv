@@ -36,6 +36,8 @@ namespace ArchipelagoXIV.Rando
 
         private readonly string[] DHLJobs = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL", "MIN", "BTN", "FSH"];
 
+        public readonly List<ClassJob> ProgJobs = [];
+
         public abstract string Name { get; }
 
         public bool FishingMatters { get; set; }

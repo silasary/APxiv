@@ -15,7 +15,7 @@ namespace ArchipelagoXIV.Rando
             isManual = IsManual;
         }
 
-        private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
+        private readonly string[] Jobs = [.. Data.ClassJobs.Where(j => j.ClassJobCategory.Value.RowId == 30 || j.ClassJobCategory.Value.RowId == 31).Select(j => j.Abbreviation.ExtractText())];
         private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
@@ -38,6 +38,10 @@ namespace ArchipelagoXIV.Rando
                 var words = itemName.Split(' ');
                 var job = Data.ClassJobs.First(j => j.Abbreviation == words[1]);
                 Levels[job] = MaxLevel(job);
+                if (item.Flags.HasFlag(ItemFlags.Advancement) && !this.ProgJobs.Contains(job))
+                {
+                    this.ProgJobs.Add(job);
+                }
             }
 
             if (GoalType == VictoryType.McGuffin && (McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
