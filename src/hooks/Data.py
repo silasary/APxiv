@@ -523,7 +523,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
 def ocean_fishing():
     _id = 19_000
     indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
-    ruby_route = ["Ruby Sea", "One River"]
+    ruby_route = ["Ruby Sea", "One River", "Thavnairian Coast"]
 
     locations = []
     for route in indigo_route:
