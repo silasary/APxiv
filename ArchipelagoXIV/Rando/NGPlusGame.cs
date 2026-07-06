@@ -59,17 +59,8 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
 
-            // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
-            // It moved to index 4
-            if (WorldVersion < new Version(0, 29, 0))
-            {
-                if (Goal == 1)
-                {
-                    DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
-                    Goal = (int)VictoryType.DefeatShinryu;
-                }
-            }
-            else if (WorldVersion < new Version(0, 30, 0))
+            // Prior to version 0.30.0, "Defeat Shinryu" was goal 1, and the ARR/HW bosses were after it.
+            if (WorldVersion < new Version(0, 30, 0))
             {
                 if (Goal == 1)
                     Goal = (int)VictoryType.DefeatShinryu;
