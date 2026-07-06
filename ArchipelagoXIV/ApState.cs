@@ -17,6 +17,7 @@ using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Dalamud.Game.Text.SeStringHandling;
 using ArchipelagoXIV.Rando.Locations;
 using System.Threading.Tasks;
+using Dalamud.Utility;
 
 namespace ArchipelagoXIV
 {
@@ -409,8 +410,8 @@ namespace ArchipelagoXIV
 
             DalamudApi.SetJobStatusBar(JobText);
 
-            var progtt = new StringBuilder();
-            var ooltt = new StringBuilder();
+            var progtt = new SeStringBuilder();
+            var ooltt = new SeStringBuilder();
 
             foreach (var job in Data.ClassJobs)
             {
@@ -423,22 +424,31 @@ namespace ArchipelagoXIV
                     if (level > 0)
                     {
                         var section = ooltt;
-                        if (Game.ProgJobs.Contains(job))
+                        var prog = Game.ProgJobs.Contains(job);
+                        if (prog)
                         {
                             section = progtt;
+                            section.AddUiGlow(job.Abbreviation.ExtractText(), Color.Plum.APColourToUIColour());
                         }
-                        section.Append(job.Abbreviation).Append(": ").Append(level).AppendLine();
+                        else
+                        {
+                            section.Append(job.Abbreviation.ToDalamudString());
+                        }
+                        section.Append(": ").Append(level.ToString());
+                        if (prog)
+                            section.Append(" (Prog)");
+                        section.Append("\n");
+
                     }
                 }
             }
 
-            var jobtt = new StringBuilder();
-            jobtt.AppendLine("Job Levels:");
-            jobtt.Append(progtt).AppendLine();
-            jobtt.AppendLine("Out of Logic Jobs:");
-            jobtt.Append(ooltt);
+            var jobtt = new SeStringBuilder();
+            jobtt.Append("Job Levels:\n");
+            jobtt.Append(progtt.BuiltString);
+            jobtt.Append(ooltt.BuiltString);
 
-            DalamudApi.SetJobTooltop(jobtt.ToString());
+            DalamudApi.SetJobTooltop(jobtt.BuiltString);
 
             if (Syncing)
             {
