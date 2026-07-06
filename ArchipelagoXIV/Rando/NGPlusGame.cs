@@ -66,8 +66,19 @@ namespace ArchipelagoXIV.Rando
                 if (Goal == 1)
                 {
                     DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
-                    Goal = 4;
+                    Goal = (int)VictoryType.DefeatShinryu;
                 }
+            }
+            else if (WorldVersion < new Version(0, 30, 0))
+            {
+                if (Goal == 1)
+                    Goal = (int)VictoryType.DefeatShinryu;
+                else if (Goal == 2)
+                    Goal = (int)VictoryType.DefeatUltimaWeapon;
+                else if (Goal == 3)
+                    Goal = (int)VictoryType.DefeatThordan;
+                else if (Goal == 4)
+                    Goal = (int)VictoryType.DefeatNidhogg;
             }
 
             this.GoalCount = (long)slotData["mcguffins_needed"];
