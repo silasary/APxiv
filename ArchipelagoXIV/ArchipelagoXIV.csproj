@@ -25,6 +25,7 @@
         <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
         <EmbeddedResource Include="..\src\hooks\duties.csv" Link="duties.csv" />
         <EmbeddedResource Include="..\src\hooks\fates.csv" Link="fates.csv" />
+        <EmbeddedResource Include="..\src\hooks\hunts.csv" Link="hunts.csv" />
     </ItemGroup>
 
     <ItemGroup>

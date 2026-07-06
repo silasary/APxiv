@@ -149,6 +149,10 @@ namespace ArchipelagoXIV.Rando.Locations
             {
                 MeetsRequirements = Logic.Always();
             }
+            else if (APData.HuntData.TryGetValue(Name, out var huntLevel))
+            {
+                MeetsRequirements = Logic.Level(huntLevel);
+            }
             else if (Name == "Return to the Waking Sands")
             {
                 MeetsRequirements = Logic.Always();
@@ -212,7 +216,12 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public string DisplayText
         {
-            get => Name + HintText;
+            get
+            {
+                if (APData.HuntRankData.TryGetValue(Name, out var rank) && APData.Aliases.TryGetValue(Name, out var zone))
+                    return $"{Name} ({rank}-Rank, {zone}){HintText}";
+                return Name + HintText;
+            }
         }
 
         public string HintText { get

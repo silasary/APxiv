@@ -21,6 +21,7 @@ namespace ArchipelagoXIV
         internal Events Events { get; }
         internal UIHooks UiHooks { get; }
         internal DeathLinkHooks DLHooks { get; }
+        internal HuntHooks HuntHooks { get; }
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("ArchipelagoXIV");
 
@@ -47,6 +48,7 @@ namespace ArchipelagoXIV
             this.Events = new Events(apState);
             this.UiHooks = new UIHooks(apState);
             this.DLHooks = new DeathLinkHooks(apState);
+            this.HuntHooks = new HuntHooks(apState);
 
 
             ConfigWindow = new ConfigWindow(this, this.apState);
@@ -83,6 +85,7 @@ namespace ArchipelagoXIV
             this.Events.Enable();
             UiHooks.Enable();
             DLHooks.Enable();
+            HuntHooks.Enable();
             DalamudApi.Framework.Update += Framework_Update;
             DalamudApi.SetStatusBar("AP Ready");
             DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
@@ -150,6 +153,7 @@ namespace ArchipelagoXIV
             Events.Disable();
             UiHooks.Disable();
             DLHooks.Dispose();
+            HuntHooks.Dispose();
             CommandManager.RemoveHandler("/ap");
             CommandManager.RemoveHandler("/ap-connect");
             CommandManager.RemoveHandler("/ap-config");
