@@ -131,8 +131,6 @@ def generate_victory_locations() -> list[dict]:
     locations = []
 
     for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
-        if goal_name == "Defeat Shinryu":  # already in locations.json
-            continue
         locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
         _id += 1
 
@@ -206,6 +204,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                     })
                     _xid += 1
 
+    duty_list[0]["id"] = 4  # Mistakes were made, and they're not worth fixing at this point.
     return duty_list, extra_list
 
 def generate_fate_list():
@@ -456,13 +455,13 @@ def generate_hunt_list() -> list[dict]:
     hunt_list = []
     _id = 45_000
     huntreader = csv.DictReader(pkgutil.get_data(__name__, "hunts.csv").decode().splitlines(), delimiter=',', quotechar='"')
-    
+
     for row in huntreader:
         row = {k.strip(): v.strip() for k, v in row.items()}
         rank = row["Rank"]
         expansion = row["Expansion"]
         level = row["Level"]
-        
+
         hunt_list.append({
             "id": _id,
             "name": f"Hunt {row['Name']}",
@@ -472,9 +471,9 @@ def generate_hunt_list() -> list[dict]:
             "level": level,
             "rank": rank,
         })
-        
+
         _id += 1
-        
+
     return hunt_list
 
 def after_load_location_file(location_table: list) -> list:

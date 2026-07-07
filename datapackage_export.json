@@ -15573,7 +15573,7 @@
             "location_name_to_id": {
                 "Collect Memories": 1,
                 "Return to the Waking Sands": 2,
-                "Defeat Shinryu": 3,
+
                 "Sastasha": 4,
                 "The Tam-Tara Deepcroft": 5,
                 "Copperbell Mines": 6,
@@ -19604,17 +19604,7 @@
                 "The Clyteum 7": 30959,
                 "The Clyteum 8": 30960,
                 "The Clyteum 9": 30961,
-                "The Clyteum 10": 30962,
-                "Defeat the Ultima Weapon": 40000,
-                "Defeat King Thordan": 40001,
-                "Defeat Nidhogg": 40002,
-                "Defeat Tsukuyomi": 40003,
-                "Defeat Hades": 40004,
-                "Defeat the Warrior of Light": 40005,
-                "Defeat the Endsinger": 40006,
-                "Defeat Zeromus": 40007,
-                "Defeat Sphene": 40008,
-                "Defeat Necron": 40009
+                "The Clyteum 10": 30962
             },
             "checksum": "e4787786f4ebec4ea746e71a91d6186c488336d5"
         }
