@@ -81,7 +81,6 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> Optional[bool]:
-    level_cap = get_int_value(multiworld, player, "level_cap")
     if location.get('victory'):  # This should get fixed in the main code
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
@@ -90,7 +89,11 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
+    
+    level_cap = get_int_value(multiworld, player, "level_cap")
     if "level" in location and int(location["level"]) > level_cap:
+        return False
+    if "rank" in location and location["rank"] not in Helpers.get_option_value(multiworld, player, "huntsanity"):
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
