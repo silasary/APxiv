@@ -158,7 +158,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
     extra_list = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
-    dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 0
     _xid = 30_000
     prev_category = "Dungeon (ARR)"
@@ -189,8 +189,10 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                 _id += 50
                 prev_category = category
                 location["id"] = _id
-            if row["Location"] == "Gangos":
+            if row["Location"] in ["Gangos", "Bozjan Southern Front", "Zadnor"]:
                 location["category"].append("Bozja")
+            if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
+                location["category"].append("Occult Crescent")
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:
