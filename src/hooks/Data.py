@@ -118,6 +118,10 @@ fate_zones = {
     "Shaaloani": [96],
     "Heritage Found": [98],
     "Living Memory": [99],
+
+    "Bozjan Southern Front": [71],
+    "Zadnor": [76],
+    "The Occult Crescent: South Horn": [100],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
@@ -456,13 +460,13 @@ def generate_hunt_list() -> list[dict]:
     hunt_list = []
     _id = 45_000
     huntreader = csv.DictReader(pkgutil.get_data(__name__, "hunts.csv").decode().splitlines(), delimiter=',', quotechar='"')
-    
+
     for row in huntreader:
         row = {k.strip(): v.strip() for k, v in row.items()}
         rank = row["Rank"]
         expansion = row["Expansion"]
         level = row["Level"]
-        
+
         hunt_list.append({
             "id": _id,
             "name": f"Hunt {row['Name']}",
@@ -472,9 +476,9 @@ def generate_hunt_list() -> list[dict]:
             "level": level,
             "rank": rank,
         })
-        
+
         _id += 1
-        
+
     return hunt_list
 
 def after_load_location_file(location_table: list) -> list:

@@ -346,6 +346,17 @@
 	},
     "Gangos": {
         "requires": "|Gangos Access: 1|",
+        "connects_to": [
+            "Bozjan Southern Front",
+            "Zadnor"
+        ]
+    },
+    "Bozjan Southern Front": {
+        "requires": "",
+        "connects_to": []
+    },
+    "Zadnor": {
+        "requires": "|Zadnor Access: 1|",
         "connects_to": []
     },
 	"The Azim Steppe":
@@ -500,7 +511,8 @@
             "Urqopacha",
             "Kozama'uka",
             "Yak T'el",
-            "Shaaloani"
+            "Shaaloani",
+            "Phantom Village"
         ]
     },
     "Urqopacha": {
@@ -539,6 +551,16 @@
     },
     "Mist Continent": {
         "requires": "",
+        "connects_to": []
+    },
+    "Phantom Village": {
+        "requires": "",
+        "connects_to": [
+            "The Occult Crescent: South Horn"
+    ]
+    },
+    "The Occult Crescent: South Horn": {
+        "requires": "|The Occult Crescent: South Horn Access: 1|",
         "connects_to": []
     }
 
