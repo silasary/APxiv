@@ -55,7 +55,45 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
-FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout', '/cheer', '/shrug', '/wave', '/toast']
+FILLER_ITEMS = {
+    '/pet': 1.0,
+    '/dote': 1.0,
+    '/slap': 1.0,
+    '/beesknees': 1.0,
+    '/lookout': 1.0,
+    '/cheer': 1.0,
+    '/shrug': 1.0,
+    '/wave': 1.0,
+    '/toast': 1.0,
+
+    'Fire Shard': 0.1,
+    'Ice Shard': 0.1,
+    'Wind Shard': 0.1,
+    'Earth Shard': 0.1,
+    'Lightning Shard': 0.1,
+    'Water Shard': 0.1,
+
+    'Fire Crystal': 0.1,
+    'Ice Crystal': 0.1,
+    'Wind Crystal': 0.1,
+    'Earth Crystal': 0.1,
+    'Lightning Crystal': 0.1,
+    'Water Crystal': 0.1,
+
+    'Fire Cluster': 0.1,
+    'Ice Cluster': 0.1,
+    'Wind Cluster': 0.1,
+    'Earth Cluster': 0.1,
+    'Lightning Cluster': 0.1,
+    'Water Cluster': 0.1,
+
+    '1 Gil': 0.1,
+    '3 Gil': 0.1,
+    '5 Gil': 0.1,
+    }
+
+FILLER_NAMES = list(FILLER_ITEMS.keys())
+FILLER_WEIGHTS = list(FILLER_ITEMS.values())
 
 bonus_regions = {}
 
@@ -432,7 +470,7 @@ def after_load_item_file(item_table: list) -> list:
         _cleared_id += 1
 
     filler_items = []
-    for emote in FILLER_EMOTES:
+    for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
             "category": ["Filler"],
