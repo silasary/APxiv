@@ -102,7 +102,7 @@ namespace ArchipelagoXIV.Rando
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
-            
+
             while ((line = reader.ReadLine()) != null)
             {
                 Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
@@ -195,8 +195,10 @@ namespace ArchipelagoXIV.Rando
             foreach (JObject fish in fishsanity)
             {
                 var zones = fish.Value<JObject>("zones");
+                var intuition = fish.Value<JObject>("logical_intuition");
                 List<string> zoneNames = [];
                 List<string> baits = [];
+                List<string> intuitionbaits = [];
                 foreach (var z in zones)
                 {
                     var zbaits = z.Value.Values<string>().ToArray();
@@ -204,16 +206,26 @@ namespace ArchipelagoXIV.Rando
                         continue;
                     zoneNames.Add(z.Key);
                     baits.AddRange(zbaits);
+                    //This is extremely hacky. Someone pls fix this should be very easy. Intuition only has a single zone/hole as of DT
+                    foreach (var y in intuition)
+                    {
+                        var zintuition = y.Value.Values<string>().ToArray();
+                        if (zintuition.Length != 0)
+                            intuitionbaits.AddRange(zintuition);
+                    }
                 }
                 baits = baits.Distinct().ToList();
+                intuitionbaits = intuitionbaits.Distinct().ToList();
                 var data = new FishData
                 {
                     Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
                     Id = fish.Value<int>("id"),
                     Baits = [.. baits],
+                    Intuition = [.. intuitionbaits],
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
                 };
                 APData.FishData[fish.Value<string>("name")] = data;
+
             }
         }
     }

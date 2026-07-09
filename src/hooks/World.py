@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled
 from .Options import LevelCap
 
@@ -73,7 +73,7 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
-    return world.random.choice(FILLER_EMOTES)
+    return world.random.choices(FILLER_NAMES, weights=FILLER_WEIGHTS)[0]
 
 def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
     """

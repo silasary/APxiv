@@ -55,7 +55,45 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
-FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout', '/cheer', '/shrug', '/wave', '/toast']
+FILLER_ITEMS = {
+    '/pet': 1.0,
+    '/dote': 1.0,
+    '/slap': 1.0,
+    '/beesknees': 1.0,
+    '/lookout': 1.0,
+    '/cheer': 1.0,
+    '/shrug': 1.0,
+    '/wave': 1.0,
+    '/toast': 1.0,
+
+    'Fire Shard': 0.1,
+    'Ice Shard': 0.1,
+    'Wind Shard': 0.1,
+    'Earth Shard': 0.1,
+    'Lightning Shard': 0.1,
+    'Water Shard': 0.1,
+
+    'Fire Crystal': 0.1,
+    'Ice Crystal': 0.1,
+    'Wind Crystal': 0.1,
+    'Earth Crystal': 0.1,
+    'Lightning Crystal': 0.1,
+    'Water Crystal': 0.1,
+
+    'Fire Cluster': 0.1,
+    'Ice Cluster': 0.1,
+    'Wind Cluster': 0.1,
+    'Earth Cluster': 0.1,
+    'Lightning Cluster': 0.1,
+    'Water Cluster': 0.1,
+
+    '1 Gil': 0.1,
+    '3 Gil': 0.1,
+    '5 Gil': 0.1,
+    }
+
+FILLER_NAMES = list(FILLER_ITEMS.keys())
+FILLER_WEIGHTS = list(FILLER_ITEMS.values())
 
 bonus_regions = {}
 
@@ -135,8 +173,6 @@ def generate_victory_locations() -> list[dict]:
     locations = []
 
     for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
-        if goal_name == "Defeat Shinryu":  # already in locations.json
-            continue
         locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
         _id += 1
 
@@ -212,6 +248,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                     })
                     _xid += 1
 
+    duty_list[0]["id"] = 4  # Mistakes were made, and they're not worth fixing at this point.
     return duty_list, extra_list
 
 def generate_fate_list():
@@ -306,11 +343,12 @@ def generate_fish_list() -> list[dict]:
     locations = []
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
-
+        
         zones = data['zones']
-        if not zones:
+        if not zones:    
             _id += 1
             continue
+        intuition = data['logical_intuition']
         if len(zones) > 1:
             # cry
             region = name
@@ -322,8 +360,25 @@ def generate_fish_list() -> list[dict]:
             if not zones[region]:
                 _id += 1
                 continue
-            requires += f" and |{zones[region][0]}|"
+            if len(zones[region]) > 1:
+                requires += f" and (|{zones[region][0]}"
+                i = 0
+                for r in zones[region]:
+                    if i == 0:
+                        i = 1
+                        continue
+                    requires += f"| OR |{r}"
+                requires += "|)"
 
+            else:
+                requires += f" and |{zones[region][0]}|"
+
+                    
+            if intuition:
+                #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
+                for bait_intuition in intuition[region]:
+                    if bait_intuition != zones[region][0]:
+                        requires += f" and |{bait_intuition}|"
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
@@ -439,7 +494,7 @@ def after_load_item_file(item_table: list) -> list:
         _cleared_id += 1
 
     filler_items = []
-    for emote in FILLER_EMOTES:
+    for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
             "category": ["Filler"],
