@@ -82,6 +82,10 @@ namespace ArchipelagoXIV
             {"Shaaloani", 95},
             {"Heritage Found", 97},
             {"Living Memory", 99},
+
+            {"Bozjan Southern Front", 71 },
+            {"Zadnor", 76},
+            {"The Occult Crescent: South Horn", 100},
         };
 
         public static Dictionary<string, string> DutyAliases = new()
