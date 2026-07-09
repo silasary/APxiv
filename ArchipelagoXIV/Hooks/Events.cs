@@ -31,9 +31,9 @@ namespace ArchipelagoXIV.Hooks
 
         private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
         {
-            if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
+            if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
             {
-                var name = value.Name.ToString();
+                var name = value.Name.ToString().TrimEnd();
                 if (APData.FishData.ContainsKey(name))
                 {
                     //DalamudApi.Echo($"Caught a {name}!");

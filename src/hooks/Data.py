@@ -337,11 +337,12 @@ def generate_fish_list() -> list[dict]:
     locations = []
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
-
+        
         zones = data['zones']
-        if not zones:
+        if not zones:    
             _id += 1
             continue
+        intuition = data['logical_intuition']
         if len(zones) > 1:
             # cry
             region = name
@@ -353,8 +354,25 @@ def generate_fish_list() -> list[dict]:
             if not zones[region]:
                 _id += 1
                 continue
-            requires += f" and |{zones[region][0]}|"
+            if len(zones[region]) > 1:
+                requires += f" and (|{zones[region][0]}"
+                i = 0
+                for r in zones[region]:
+                    if i == 0:
+                        i = 1
+                        continue
+                    requires += f"| OR |{r}"
+                requires += "|)"
 
+            else:
+                requires += f" and |{zones[region][0]}|"
+
+                    
+            if intuition:
+                #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
+                for bait_intuition in intuition[region]:
+                    if bait_intuition != zones[region][0]:
+                        requires += f" and |{bait_intuition}|"
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
