@@ -38,7 +38,8 @@
                     "fates_per_zone": 5,
                     "extra_dungeon_checks": 7,
                     "goal": "defeat shinryu",
-                    "boss_key_pieces": 3
+                    "boss_key_pieces": 3,
+                    "level_cap": 70
                 },
                 "Fishsanity Reasonable":{
                     "include_ocean_fishing": true,
@@ -74,6 +75,10 @@
                     "include_unreasonable_fates": true,
                     "extra_dungeon_checks": 10,
                     "huntsanity": ["B", "A", "S"]
+                },
+                "Free Trial": {
+                    "level_cap": 80,
+                    "goal": "Defeat Hades"
                 }
             }
         }
