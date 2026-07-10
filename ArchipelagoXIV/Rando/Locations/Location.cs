@@ -16,6 +16,8 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new ObsoleteLocation(apState, id, name);
             if (APData.FishData.ContainsKey(name))
                 return new Fish(apState, id, name);
+            if (name.StartsWith("Attune "))
+                return new AttuneLocation(apState, id, name);
             return new Location(apState, id, name);
         }
 
