@@ -3,6 +3,7 @@ using System.Numerics;
 using ArchipelagoXIV.Rando;
 using Dalamud.Interface.Windowing;
 using Dalamud.Bindings.ImGui;
+using System.Linq;
 
 namespace ArchipelagoXIV.Windows;
 
@@ -34,9 +35,10 @@ public class MainWindow : Window
         if (!state.Connected)
         {
 
-            if (ImGui.Button($"Reconnect to {plugin.Configuration.Connection}"))
+            if (!plugin.Configuration.ConnectionHistory.Any() && ImGui.Button($"Reconnect to {plugin.Configuration.Connection}"))
             {
                 state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName, plugin.Configuration.Password);
+                plugin.Configuration.AddToConnectionHistory();
             }
 
             if (ImGui.Button("View setup guide"))
@@ -49,7 +51,7 @@ public class MainWindow : Window
                 System.Diagnostics.Process.Start(psi);
             }
 
-            if (ImGui.Button("Join Support Discord"))
+            if (ImGui.Button("Join Unofficial Archipelago Discord"))
             {
                 var psi = new System.Diagnostics.ProcessStartInfo("https://discord.gg/TT4cZRHJ6F")
                 {
@@ -57,6 +59,15 @@ public class MainWindow : Window
                     Verb = "open"
                 };
                 System.Diagnostics.Process.Start(psi);
+            }
+            ImGui.Separator();
+            foreach (var item in plugin.Configuration.ConnectionHistory)
+            {
+                if (ImGui.Button($"Reconnect to {item}"))
+                {
+                    var parts = item.Split("@");
+                    state.Connect(parts[1], parts[0].Split(":")[0], parts[0].Split(":")[1]);
+                }
             }
 
             return;
