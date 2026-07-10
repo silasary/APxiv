@@ -78,7 +78,7 @@ namespace ArchipelagoXIV.Rando
         public static readonly Dictionary<string, int> HuntData = [];
         public static readonly Dictionary<string, string> HuntRankData = [];
 
-        public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; }
+        public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; } = [];
 
         public static void LoadDutiesCsv()
         {
