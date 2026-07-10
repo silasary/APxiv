@@ -7,7 +7,7 @@ import functools
 import json
 import math
 import os
-from typing import Literal
+from typing import Any, Literal
 
 import bs4
 import ratelimit
@@ -158,13 +158,14 @@ def load_all_fish():
 
 
 # Mapping of TerritoryType.ExVersion -> (expansion tag, capstone level)
-_HUNT_EXPANSIONS: dict[str, tuple[str, int]] = {
-    "0": ("ARR", 50),
-    "1": ("HW", 60),
-    "2": ("StB", 70),
-    "3": ("ShB", 80),
-    "4": ("EW", 90),
-    "5": ("DT", 100),
+_EX_VERSION_DATA: dict[str, tuple[str, int, int]] = {
+    "0": ("ARR", 1, 50),
+    "1": ("HW", 50, 60),
+    "2": ("StB", 60, 70),
+    "3": ("ShB", 70, 80),
+    "4": ("EW", 80, 90),
+    "5": ("DT", 90, 100),
+    "6": ("EC", 100, 110),
 }
 
 # NotoriousMonster.Rank values: 1 = B, 2 = A, 3 = S
@@ -177,17 +178,17 @@ def _build_nm_territory_map(
     result: dict[str, tuple[str, str]] = {}
     for tt in territory_type.values():
         nm_terr_id = tt.get("NotoriousMonsterTerritory", "0")
-        
+
         if not nm_terr_id or nm_terr_id == "0" or nm_terr_id in result:
             continue
-        
+
         place = tt.get("PlaceName", "0")
-        
+
         if place == "0":
             continue
-        
+
         result[nm_terr_id] = (place, tt.get("ExVersion", "0"))
-        
+
     return result
 
 
@@ -213,24 +214,24 @@ def _normalize_hunt_name(name: str) -> str:
 
     words = name.split(" ")
     result: list[str] = []
-    
+
     for i, word in enumerate(words):
         if i > 0 and word.lower() in _HUNT_NAME_IGNORE:
             result.append(word.lower())
         else:
             result.append(word[0].upper() + word[1:])
-            
+
     return " ".join(result)
 
 
 def _write_hunts_csv(rows: list[dict[str, str]]) -> None:
     out_path = os.path.join(os.path.dirname(__file__), "hunts.csv")
-    
+
     with open(out_path, "w", newline="", encoding="utf-8") as h:
         writer = csv.DictWriter(h, fieldnames=["BNpcNameId", "Name", "Rank", "Location", "Level", "Expansion"])
         writer.writeheader()
         writer.writerows(rows)
-        
+
     by_rank = {r: sum(1 for row in rows if row["Rank"] == r) for r in ("B", "A", "S")}
     print(f"Wrote {len(rows)} hunt marks to {out_path} (by rank: {by_rank})")
 
@@ -274,23 +275,23 @@ def scrape_hunts() -> list[dict[str, str]]:
     for terr_id, terr in nm_territory.items():
         # Skip NMTerritory rows that have no matching open-world zone (e.g. unused rows)
         zone = nm_terr_to_zone.get(terr_id)
-        
+
         if not zone:
             continue
-        
+
         place_id, ex_version = zone
 
-        expansion_info = _HUNT_EXPANSIONS.get(ex_version)
-        
+        expansion_info = _EX_VERSION_DATA.get(ex_version)
+
         # Skip new expansion data
         if expansion_info is None:
             continue
-        
-        expansion_tag, level = expansion_info
+
+        expansion_tag, _minlevel, level = expansion_info
 
         # Resolve the zone's display name from PlaceName
         zone_name = place_name.get(place_id, {}).get("Name", "")
-        
+
         if not zone_name:
             continue
 
@@ -298,36 +299,36 @@ def scrape_hunts() -> list[dict[str, str]]:
         for i in range(10):
             slot = f"NotoriousMonsters[{i}]"
             nm_id = terr.get(slot, "0")
-            
+
             if not nm_id or nm_id == "0":
                 continue
 
             nm = notorious_monster.get(nm_id)
-            
+
             if not nm:
                 continue
 
             rank_label = _HUNT_RANK_LABELS.get(nm.get("Rank", "0"))
-            
+
             if rank_label is None:
                 continue
 
             # BNpcName is the id used to look up the display name
             bnpc_name_id = nm.get("BNpcName", "0")
-            
+
             if bnpc_name_id == "0":
                 continue
 
             hunt_key = (bnpc_name_id, place_id, rank_label)
-            
+
             if hunt_key in seen_hunts:
                 continue
-            
+
             seen_hunts.add(hunt_key)
 
             # BNpcName.Singular is the in-game name (inconsistent formatting)
             mob_name = bnpc_name.get(bnpc_name_id, {}).get("Singular", "")
-            
+
             if not mob_name:
                 continue
 
@@ -347,17 +348,17 @@ def scrape_hunts() -> list[dict[str, str]]:
     zone_count_by_name: dict[str, int] = {}
     for row in rows:
         zone_count_by_name[row["Name"]] = zone_count_by_name.get(row["Name"], 0) + 1
-        
+
     elite_marks = {name for name, count in zone_count_by_name.items() if count > 1}
-    
+
     if elite_marks:
         print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
         filtered: list[dict[str, str]] = []
-        
+
         for row in rows:
             if row["Name"] not in elite_marks:
                 filtered.append(row)
-                
+
         rows = filtered
 
     _write_hunts_csv(rows)
@@ -683,7 +684,7 @@ def apply_bait() -> None:
                                 item = lookup_item_by_name(teamcraft_optimalbait)
                                 if lookup_item_ui_category(item["ItemUICategory"]) != "Seafood":
                                     moochstatus = False
-                                    
+
 
 
                     #While in teamcraft fishing-sources, check the intuition requirements and add them
@@ -711,7 +712,7 @@ def apply_bait() -> None:
                                                     moochstatus = False
                             fish['intuition_bait'][zone_name] = intuition_bait
                             fish['logical_intuition'].setdefault(zone_name, []).append(logical_intuition)
-                            fish['intuition_bait'][zone_name] = sorted(set(fish['intuition_bait'][zone_name]))  
+                            fish['intuition_bait'][zone_name] = sorted(set(fish['intuition_bait'][zone_name]))
                             fish['logical_intuition'][zone_name] = sorted(set(fish['logical_intuition'][zone_name]))
             for bait in baits.copy():
                 if isinstance(bait, list):
@@ -763,41 +764,41 @@ def apply_bait() -> None:
                             moochstatus = False
                 #if bait not in bait_data and not info.get('mooch'):
                 #    print("if bait not in bait_data and not info.get('mooch')")
-                
+
             if baits:
                 fish['zones'].setdefault(zone_name, []).append(teamcraft_optimalbait)
                 fish['all_bait'][zone_name] = baits
                 #sort and clean
                 fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
-                fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))  
+                fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))
                 #Merge zones, comment this out for poptracker scraper
                 if zone_name == 'Limsa Lominsa Lower Decks':
                     fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
-                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))
                     del fish['zones']['Limsa Lominsa Lower Decks']
                     fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
-                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
+                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))
                     del fish['all_bait']['Limsa Lominsa Lower Decks']
                 elif zone_name == 'Limsa Lominsa Upper Decks':
                     fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
-                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))
                     del fish['zones']['Limsa Lominsa Upper Decks']
                     fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
-                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
+                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))
                     del fish['all_bait']['Limsa Lominsa Upper Decks']
                 elif zone_name == 'New Gridania':
                     fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['New Gridania'])
-                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))
                     del fish['zones']['New Gridania']
                     fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
-                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
+                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))
                     del fish['all_bait']['New Gridania']
                 elif zone_name == 'Old Gridania':
                     fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['Old Gridania'])
-                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))
                     del fish['zones']['Old Gridania']
                     fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
-                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
+                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))
                     del fish['all_bait']['Old Gridania']
             else:
                 print(f"No bait for {name} in {hole}")
@@ -1011,14 +1012,38 @@ def clean_fish():
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
-def sort_fish():
+def sort_fish() -> None:
     all_fish = load_all_fish()
     sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1].get('id', math.inf)))
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(sorted_fish, h, indent=1)
 
+def scrape_aetherytes() -> None:
+    aetherytes = datamining_csv('Aetheryte')
+    places = datamining_csv('PlaceName')
+    territory_type = datamining_csv("TerritoryType")
+    aetheryte_locations = []
+    for aetheryte in aetherytes.values():
+        location_data: dict[str, Any] = {}
+        location_data['id'] = int(aetheryte['#'])
+        if aetheryte['IsAetheryte'] != 'True':
+            continue
+        if int(aetheryte['PlaceName']) < 10:
+            continue
+        place = places[aetheryte['PlaceName']]
+        location_data['name'] = place['Name']
+        map = datamining_csv('Map')[aetheryte['Map']]
+        location_data['map'] = places[map['PlaceName']]['Name']
+        territory = territory_type[map['TerritoryType']]
+        location_data['expansion'] = _EX_VERSION_DATA[territory['ExVersion']][0]
+        location_data['level'] = _EX_VERSION_DATA[territory['ExVersion']][1]
+        aetheryte_locations.append(location_data)
+    with open(data_path('aetherytes.json'), 'w', newline='') as h:
+        json.dump(aetheryte_locations, h, indent=1)
+
 
 if __name__ == "__main__":
+    scrape_aetherytes()
     scrape_hunts()
     scrape_teamcraft()
     tribal_fish()
