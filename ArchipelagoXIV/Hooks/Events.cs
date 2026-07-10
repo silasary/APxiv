@@ -115,7 +115,7 @@ namespace ArchipelagoXIV.Hooks
                 name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
 
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
