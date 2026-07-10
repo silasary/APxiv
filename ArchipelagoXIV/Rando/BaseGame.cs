@@ -38,6 +38,8 @@ namespace ArchipelagoXIV.Rando
 
         public readonly List<ClassJob> ProgJobs = [];
 
+        public readonly HashSet<string> AttunedAetherytes = [];
+
         public abstract string Name { get; }
 
         public bool FishingMatters { get; set; }

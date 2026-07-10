@@ -40,9 +40,8 @@ namespace ArchipelagoXIV.Rando
             { "Shirogane", "Kugane" },
             { "Empyreum", "Ishgard" },
             // Gold Saucer
-            { "The Gold Saucer", "Southern Thanalan" },
-            { "Chocobo Square", "Southern Thanalan" },
-            { "The Battlehall", "Southern Thanalan" },
+            { "Chocobo Square", "The Gold Saucer" },
+            { "The Battlehall", "The Gold Saucer" },
             // Instanced Zone
             { "The Waking Sands", "Western Thanalan" },
             { "Fortemps Manor", "Ishgard" },

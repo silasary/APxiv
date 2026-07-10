@@ -85,7 +85,6 @@ namespace ArchipelagoXIV
             }
         }
 
-        public bool Hooked { get; internal set; }
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => i.ItemDisplayName) ?? Array.Empty<string>();
         public Location[] MissingLocations { get; private set; } = [];
@@ -94,6 +93,7 @@ namespace ArchipelagoXIV
         public bool Syncing { get; internal set; }
         public bool Loading { get; private set; }
         public bool DeathLinkEnabled { get; private set; }
+        public bool CurrentLocationInLogic { get; private set; }
 
         internal void Disconnect()
         {
@@ -319,6 +319,7 @@ namespace ArchipelagoXIV
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(this.territoryName, (ushort)this.territory.RowId), out var region);
             if (region != null)
             {
+                this.CurrentLocationInLogic = RegionContainer.CanReach(this, region);
                 zoneTT.AppendLine($"Available Checks in {region.Name}:");
                 foreach (var l in MissingLocations)
                 {
@@ -370,11 +371,7 @@ namespace ArchipelagoXIV
 
             zoneTT.AppendLine();
             zoneTT.AppendLine("Zones with checks:");
-            //foreach (var zone in Items.Where(i => i.EndsWith("Access")))
-            //{
-            //    if (RegionContainer.CanReach(this, zone.Replace(" Access", "")))
-            //        zoneTT.AppendLine(zone);
-            //}
+
             foreach (var z in zoneswithchecks)
             {
                 if (RegionContainer.CanReach(this, z))
@@ -402,7 +399,7 @@ namespace ArchipelagoXIV
             }
             else if (BK)
                 DalamudApi.SetStatusBar("BK");
-            else if (RegionContainer.CanReach(this, region))
+            else if (this.CurrentLocationInLogic)
                 DalamudApi.SetStatusBar("In Logic");
             else
                 DalamudApi.SetStatusBar("Out of Logic");
