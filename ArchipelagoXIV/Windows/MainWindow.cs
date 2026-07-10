@@ -61,12 +61,16 @@ public class MainWindow : Window
                 System.Diagnostics.Process.Start(psi);
             }
             ImGui.Separator();
-            foreach (var item in plugin.Configuration.ConnectionHistory)
+            foreach (var item in plugin.Configuration.ConnectionHistory.ToArray())
             {
                 if (ImGui.Button($"Reconnect to {item}"))
                 {
                     var parts = item.Split("@");
-                    state.Connect(parts[1], parts[0].Split(":")[0], parts[0].Split(":")[1]);
+                    var address = parts[1];
+                    var player = parts[0].Split(":")[0];
+                    var password = parts[0].Split(":")[1];
+                    state.Connect(address, player, password);
+                    plugin.Configuration.AddToConnectionHistory(player, password, address);
                 }
             }
 

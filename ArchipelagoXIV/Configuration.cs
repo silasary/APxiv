@@ -36,11 +36,12 @@ namespace ArchipelagoXIV
 
             var quickstring = $"{slotName}:{password}@{connection}";
 
-            if (!ConnectionHistory.Contains(quickstring))
-                ConnectionHistory.Add(quickstring);
+            if (ConnectionHistory.Contains(quickstring))
+                ConnectionHistory.Remove(quickstring);
+            ConnectionHistory.Insert(0, quickstring);
             if (ConnectionHistory.Count > 5)
             {
-                ConnectionHistory.RemoveAt(0);
+                ConnectionHistory.RemoveAt(5);
             }
         }
 
