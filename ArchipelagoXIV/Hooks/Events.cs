@@ -128,13 +128,6 @@ namespace ArchipelagoXIV.Hooks
                 if (apState.Game is NGPlusGame ngGame && ngGame.GoalDutyName == name)
                     ngGame.OnGoalDutyCompleted();
 
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
-                if (location == null)
-                {
-                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
-                    return;
-                }
-
                 if (apState.Game is NGPlusGame state)
                 {
                     for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
@@ -144,6 +137,14 @@ namespace ArchipelagoXIV.Hooks
                         extraLocation?.Complete(false);
                     }
                 }
+
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                if (location == null)
+                {
+                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
+                    return;
+                }
+
                 DalamudApi.PluginLog.Debug("Marking Check {0}", name);
                 location.Complete(false);
                 apState.Syncing = true;
