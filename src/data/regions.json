@@ -587,7 +587,7 @@
     ]
     },
     "The Occult Crescent: South Horn": {
-        "requires": "|The Occult Crescent: South Horn Access: 1|",
+        "requires": "|South Horn Access: 1|",
         "connects_to": []
     }
 
