@@ -16,7 +16,7 @@ namespace ArchipelagoXIV
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
         public static ContentFinderCondition[] Content { get; private set; } = [];
-        public static DynamicEvent[] DynamicEvents { get; private set; } = [];
+        public static FrozenDictionary<string, DynamicEvent> DynamicEvents { get; private set; } = FrozenDictionary<string, DynamicEvent>.Empty;
         public static ImmutableDictionary<uint, Item> Items { get; private set; } = null;
         public static IKDRoute[] IKDRoutes { get; private set; }
 
@@ -166,7 +166,7 @@ namespace ArchipelagoXIV
 
             Content = [.. dataManager.GetExcelSheet<ContentFinderCondition>()];
 
-            DynamicEvents = [.. dataManager.GetExcelSheet<DynamicEvent>()];
+            DynamicEvents = dataManager.GetExcelSheet<DynamicEvent>().Where(de => !de.Name.IsEmpty).ToFrozenDictionary(de => de.Name.ExtractText());
 
             Items = dataManager.GetExcelSheet<Item>().ToImmutableDictionary(i => i.RowId);
 
