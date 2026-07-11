@@ -81,7 +81,10 @@ namespace ArchipelagoXIV.Rando
             if (SlotData.TryGetValue("boss_key_item", out var boss_key_item))
                 this.BossKeyItemName = boss_key_item as string ?? "";
 
-            DalamudApi.PluginLog.Information($"Goal is {GoalCount} Memories.");
+            if (GoalType == VictoryType.McGuffin)
+                DalamudApi.PluginLog.Information($"Goal is {GoalCount} Memories.");
+            else
+                DalamudApi.PluginLog.Information($"Goal is {GoalDutyName}.");
         }
 
         internal override string GoalString()

@@ -1,0 +1,751 @@
+[
+ {
+  "id": 2,
+  "name": "New Gridania",
+  "map": "New Gridania",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 3,
+  "name": "Bentbranch Meadows",
+  "map": "Central Shroud",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 4,
+  "name": "The Hawthorne Hut",
+  "map": "East Shroud",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 5,
+  "name": "Quarrymill",
+  "map": "South Shroud",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 6,
+  "name": "Camp Tranquil",
+  "map": "South Shroud",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 7,
+  "name": "Fallgourd Float",
+  "map": "North Shroud",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 8,
+  "name": "Limsa Lominsa Lower Decks",
+  "map": "Limsa Lominsa Lower Decks",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 9,
+  "name": "Ul'dah - Steps of Nald",
+  "map": "Ul'dah - Steps of Nald",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 10,
+  "name": "Moraby Drydocks",
+  "map": "Lower La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 11,
+  "name": "Costa del Sol",
+  "map": "Eastern La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 12,
+  "name": "Wineport",
+  "map": "Eastern La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 13,
+  "name": "Swiftperch",
+  "map": "Western La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 14,
+  "name": "Aleport",
+  "map": "Western La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 15,
+  "name": "Camp Bronze Lake",
+  "map": "Upper La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 16,
+  "name": "Camp Overlook",
+  "map": "Outer La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 17,
+  "name": "Horizon",
+  "map": "Western Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 18,
+  "name": "Camp Drybone",
+  "map": "Eastern Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 19,
+  "name": "Little Ala Mhigo",
+  "map": "Southern Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 20,
+  "name": "Forgotten Springs",
+  "map": "Southern Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 21,
+  "name": "Camp Bluefog",
+  "map": "Northern Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 22,
+  "name": "Ceruleum Processing Plant",
+  "map": "Northern Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 23,
+  "name": "Camp Dragonhead",
+  "map": "Coerthas Central Highlands",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 24,
+  "name": "Revenant's Toll",
+  "map": "Mor Dhona",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 52,
+  "name": "Summerford Farms",
+  "map": "Middle La Noscea",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 53,
+  "name": "Black Brush Station",
+  "map": "Central Thanalan",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 55,
+  "name": "Wolves' Den Pier",
+  "map": "Wolves' Den Pier",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 62,
+  "name": "The Gold Saucer",
+  "map": "The Gold Saucer",
+  "expansion": "ARR",
+  "level": 1
+ },
+ {
+  "id": 70,
+  "name": "Foundation",
+  "map": "Foundation",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 71,
+  "name": "Falcon's Nest",
+  "map": "Coerthas Western Highlands",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 72,
+  "name": "Camp Cloudtop",
+  "map": "The Sea of Clouds",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 73,
+  "name": "Ok' Zundu",
+  "map": "The Sea of Clouds",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 74,
+  "name": "Helix",
+  "map": "Azys Lla",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 75,
+  "name": "Idyllshire",
+  "map": "Idyllshire",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 76,
+  "name": "Tailfeather",
+  "map": "The Dravanian Forelands",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 77,
+  "name": "Anyx Trine",
+  "map": "The Dravanian Forelands",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 78,
+  "name": "Moghome",
+  "map": "The Churning Mists",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 79,
+  "name": "Zenith",
+  "map": "The Churning Mists",
+  "expansion": "HW",
+  "level": 50
+ },
+ {
+  "id": 98,
+  "name": "Castrum Oriens",
+  "map": "The Fringes",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 99,
+  "name": "The Peering Stones",
+  "map": "The Fringes",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 100,
+  "name": "Ala Gannha",
+  "map": "The Peaks",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 101,
+  "name": "Ala Ghiri",
+  "map": "The Peaks",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 102,
+  "name": "Porta Praetoria",
+  "map": "The Lochs",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 103,
+  "name": "The Ala Mhigan Quarter",
+  "map": "The Lochs",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 104,
+  "name": "Rhalgr's Reach",
+  "map": "Rhalgr's Reach",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 105,
+  "name": "Tamamizu",
+  "map": "The Ruby Sea",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 106,
+  "name": "Onokoro",
+  "map": "The Ruby Sea",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 107,
+  "name": "Namai",
+  "map": "Yanxia",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 108,
+  "name": "The House of the Fierce",
+  "map": "Yanxia",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 109,
+  "name": "Reunion",
+  "map": "The Azim Steppe",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 110,
+  "name": "The Dawn Throne",
+  "map": "The Azim Steppe",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 111,
+  "name": "Kugane",
+  "map": "Kugane",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 127,
+  "name": "The Doman Enclave",
+  "map": "The Doman Enclave",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 128,
+  "name": "Dhoro Iloh",
+  "map": "The Azim Steppe",
+  "expansion": "StB",
+  "level": 60
+ },
+ {
+  "id": 132,
+  "name": "Fort Jobb",
+  "map": "Lakeland",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 133,
+  "name": "The Crystarium",
+  "map": "The Crystarium",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 134,
+  "name": "Eulmore",
+  "map": "Eulmore",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 136,
+  "name": "The Ostall Imperative",
+  "map": "Lakeland",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 137,
+  "name": "Stilltide",
+  "map": "Kholusia",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 138,
+  "name": "Wright",
+  "map": "Kholusia",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 139,
+  "name": "Tomra",
+  "map": "Kholusia",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 140,
+  "name": "Mord Souq",
+  "map": "Amh Araeng",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 141,
+  "name": "Twine",
+  "map": "Amh Araeng",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 142,
+  "name": "Slitherbough",
+  "map": "The Rak'tika Greatwood",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 143,
+  "name": "Fanow",
+  "map": "The Rak'tika Greatwood",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 144,
+  "name": "Lydha Lran",
+  "map": "Il Mheg",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 145,
+  "name": "Pla Enni",
+  "map": "Il Mheg",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 146,
+  "name": "Wolekdorf",
+  "map": "Il Mheg",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 147,
+  "name": "The Ondo Cups",
+  "map": "The Tempest",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 148,
+  "name": "The Macarenses Angle",
+  "map": "The Tempest",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 161,
+  "name": "The Inn at Journey's Head",
+  "map": "Amh Araeng",
+  "expansion": "ShB",
+  "level": 70
+ },
+ {
+  "id": 166,
+  "name": "The Archeion",
+  "map": "Labyrinthos",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 167,
+  "name": "Sharlayan Hamlet",
+  "map": "Labyrinthos",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 168,
+  "name": "Aporia",
+  "map": "Labyrinthos",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 169,
+  "name": "Yedlihmad",
+  "map": "Thavnair",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 170,
+  "name": "The Great Work",
+  "map": "Thavnair",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 171,
+  "name": "Palaka's Stand",
+  "map": "Thavnair",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 172,
+  "name": "Camp Broken Glass",
+  "map": "Garlemald",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 173,
+  "name": "Tertium",
+  "map": "Garlemald",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 174,
+  "name": "Sinus Lacrimarum",
+  "map": "Mare Lamentorum",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 175,
+  "name": "Bestways Burrow",
+  "map": "Mare Lamentorum",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 176,
+  "name": "Anagnorisis",
+  "map": "Elpis",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 177,
+  "name": "The Twelve Wonders",
+  "map": "Elpis",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 178,
+  "name": "Poieten Oikos",
+  "map": "Elpis",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 179,
+  "name": "Reah Tahra",
+  "map": "Ultima Thule",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 180,
+  "name": "Abode of the Ea",
+  "map": "Ultima Thule",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 181,
+  "name": "Base Omicron",
+  "map": "Ultima Thule",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 182,
+  "name": "Old Sharlayan",
+  "map": "Old Sharlayan",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 183,
+  "name": "Radz-at-Han",
+  "map": "Radz-at-Han",
+  "expansion": "EW",
+  "level": 80
+ },
+ {
+  "id": 200,
+  "name": "Wachunpelo",
+  "map": "Urqopacha",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 201,
+  "name": "Worlar's Echo",
+  "map": "Urqopacha",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 202,
+  "name": "Ok'hanu",
+  "map": "Kozama'uka",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 203,
+  "name": "Many Fires",
+  "map": "Kozama'uka",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 204,
+  "name": "Earthenshire",
+  "map": "Kozama'uka",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 205,
+  "name": "Iq Br'aax",
+  "map": "Yak T'el",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 206,
+  "name": "Mamook",
+  "map": "Yak T'el",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 207,
+  "name": "Hhusatahwi",
+  "map": "Shaaloani",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 208,
+  "name": "Sheshenewezi Springs",
+  "map": "Shaaloani",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 209,
+  "name": "Mehwahhetsoan",
+  "map": "Shaaloani",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 210,
+  "name": "Yyasulani Station",
+  "map": "Heritage Found",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 211,
+  "name": "The Outskirts",
+  "map": "Heritage Found",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 212,
+  "name": "Electrope Strike",
+  "map": "Heritage Found",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 213,
+  "name": "Leynode Mnemo",
+  "map": "Living Memory",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 214,
+  "name": "Leynode Pyro",
+  "map": "Living Memory",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 215,
+  "name": "Leynode Aero",
+  "map": "Living Memory",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 216,
+  "name": "Tuliyollal",
+  "map": "Tuliyollal",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 217,
+  "name": "Solution Nine",
+  "map": "Solution Nine",
+  "expansion": "DT",
+  "level": 90
+ },
+ {
+  "id": 238,
+  "name": "Dock Poga",
+  "map": "Kozama'uka",
+  "expansion": "DT",
+  "level": 90
+ }
+]

@@ -14,7 +14,7 @@ from itertools import chain
 # 30,000-39,999: Extra Dungeon checks
 # 40,000-40,499: Boss Goal locations and their clear items
 # 45,000-49,999: Hunt Marks (Huntsanity)
-# 50,000-
+# 50,000-54,999: Aetherite Locations
 
 
 # called after the game.json file has been loaded
@@ -343,9 +343,9 @@ def generate_fish_list() -> list[dict]:
     locations = []
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
-        
+
         zones = data['zones']
-        if not zones:    
+        if not zones:
             _id += 1
             continue
         intuition = data['logical_intuition']
@@ -373,7 +373,7 @@ def generate_fish_list() -> list[dict]:
             else:
                 requires += f" and |{zones[region][0]}|"
 
-                    
+
             if intuition:
                 #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
                 for bait_intuition in intuition[region]:
@@ -538,6 +538,24 @@ def generate_hunt_list() -> list[dict]:
 
     return hunt_list
 
+def generate_aetheryte_list() -> list[dict]:
+    from ..Helpers import load_data_file
+    aetheryte_list = []
+    _id = 50_000
+    aetherytes = load_data_file("aetherytes.json")
+    for ae in aetherytes:
+        aetheryte_list.append(
+            {
+                'id': _id + ae['id'],
+                'name': f"Attune {ae['name']}",
+                'region': ae['map'],
+                'category': ["Aetherytes", ae['map']],
+                'level': ae['level']
+            }
+        )
+
+    return aetheryte_list
+
 def after_load_location_file(location_table: list) -> list:
     #add FATE locations
     duty_locations, extra_duty_locations = generate_duty_list()
@@ -549,6 +567,7 @@ def after_load_location_file(location_table: list) -> list:
     location_table.extend(extra_duty_locations)
     location_table.extend(generate_victory_locations())
     location_table.extend(generate_hunt_list())
+    location_table.extend(generate_aetheryte_list())
 
     return location_table
 

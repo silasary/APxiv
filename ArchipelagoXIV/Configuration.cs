@@ -1,6 +1,7 @@
 using Dalamud.Configuration;
 using Dalamud.Plugin;
 using System;
+using System.Collections.Generic;
 
 namespace ArchipelagoXIV
 {
@@ -20,9 +21,28 @@ namespace ArchipelagoXIV
         public bool RequireSyncedDuties { get; set; } = false;
         public string Password { get; internal set; } = "";
 
+        public List<string> ConnectionHistory { get; set; } = [];
+
         public void Initialize(IDalamudPluginInterface pluginInterface)
         {
             this.pluginInterface = pluginInterface;
+        }
+
+        public void AddToConnectionHistory(string? slotName = null, string? password = null, string? connection = null)
+        {
+            slotName ??= this.SlotName;
+            password ??= this.Password;
+            connection ??= this.Connection;
+
+            var quickstring = $"{slotName}:{password}@{connection}";
+
+            if (ConnectionHistory.Contains(quickstring))
+                ConnectionHistory.Remove(quickstring);
+            ConnectionHistory.Insert(0, quickstring);
+            if (ConnectionHistory.Count > 5)
+            {
+                ConnectionHistory.RemoveAt(5);
+            }
         }
 
         public void Save()
