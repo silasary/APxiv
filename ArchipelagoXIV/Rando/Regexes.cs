@@ -5,7 +5,7 @@ namespace ArchipelagoXIV.Rando
     internal static partial class Regexes
     {
 
-        [GeneratedRegex("([A-Za-z ']+): FATE #(\\d+)")]
+        [GeneratedRegex("([A-Za-z ':]+): FATE #(\\d+)")]
         private static partial Regex FateRegex();
 
         [GeneratedRegex("\\|([\\w ']+):\\s*(\\d)\\|")]
