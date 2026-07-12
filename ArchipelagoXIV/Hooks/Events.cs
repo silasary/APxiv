@@ -66,6 +66,11 @@ namespace ArchipelagoXIV.Hooks
 
             var loc = apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(locName, StringComparison.OrdinalIgnoreCase));  // FATEsanity check
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
+            if (fateName.EndsWith("..."))
+            {
+                DalamudApi.Echo($"Too long: {locName}");
+                loc = apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(fateName[..^3], StringComparison.OrdinalIgnoreCase)); // FATEsanity check, if name is too long
+            }
             if (loc == null)
             {
                 DalamudApi.PluginLog.Information($"Fate `{locName}` not in world or already completed");
