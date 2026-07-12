@@ -65,6 +65,7 @@ class DutyDifficulty(Choice):
     option_extreme = 2
     option_savage = 3
     option_endgame = 4
+    # option_ultimate = 5  # Not allowed.
     # visibility = Visibility.none
 
 class MaxPartySize(Choice):

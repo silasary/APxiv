@@ -192,7 +192,7 @@ categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyTyp
 def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
     extra_list = []
-    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
+    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame", "Ultimate"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 0
