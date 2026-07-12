@@ -85,7 +85,7 @@ namespace ArchipelagoXIV
             {"Heritage Found", 97},
             {"Living Memory", 99},
 
-            {"Bozjan Southern Front", 71 },
+            {"The Bozjan Southern Front", 71 },
             {"Zadnor", 76},
             {"The Occult Crescent: South Horn", 100},
         };

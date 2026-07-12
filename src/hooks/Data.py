@@ -157,7 +157,7 @@ fate_zones = {
     "Heritage Found": [98],
     "Living Memory": [99],
 
-    "Bozjan Southern Front": [71],
+    "The Bozjan Southern Front": [71],
     "Zadnor": [76],
     "The Occult Crescent: South Horn": [100],
 }
@@ -225,7 +225,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                 _id += 50
                 prev_category = category
                 location["id"] = _id
-            if row["Location"] in ["Gangos", "Bozjan Southern Front", "Zadnor"]:
+            if row["Location"] in ["Gangos", "The Bozjan Southern Front", "Zadnor"]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
                 location["category"].append("Occult Crescent")
