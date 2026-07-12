@@ -596,6 +596,10 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
+    if key in ["The Bozjan Southern Front", "Zadnor"]:
+        location["category"].append("Bozja")
+    if key in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
+        location["category"].append("Occult Crescent")
     if _id:
         location["id"] = _id
     return location
