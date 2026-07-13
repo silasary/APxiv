@@ -91,7 +91,7 @@ namespace ArchipelagoXIV.Rando
                 var duty = Data.GetDuty(territoryId);
                 if (duty.RowId > 0)
                 {
-                    name = duty.Name.ToString();
+                    name = duty.Name.ExtractText();
                     if (name.StartsWith("the"))
                         name = "The" + name[3..];
                     if (APData.Aliases.TryGetValue(name, out alias))

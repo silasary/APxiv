@@ -68,10 +68,10 @@ namespace ArchipelagoXIV.Hooks
 
             var loc = apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(locName, StringComparison.OrdinalIgnoreCase));  // FATEsanity check
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
-            if (fateName.EndsWith("..."))
+            if (loc == null && fateName.EndsWith("..."))
             {
-                DalamudApi.Echo($"Too long: {locName}");
                 loc = apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(fateName[..^3], StringComparison.OrdinalIgnoreCase)); // FATEsanity check, if name is too long
+                DalamudApi.PluginLog.Info($"FATE name too long, guessing {locName} is {loc?.Name}");
             }
             if (loc == null)
             {
@@ -181,8 +181,8 @@ namespace ArchipelagoXIV.Hooks
             if (!DalamudApi.DutyState.IsDutyStarted)
                 {
                 var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
-                apState.territoryName = territory.PlaceName.Value.Name.ToString();
-                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
+                apState.territoryName = territory.PlaceName.Value.Name.ExtractText();
+                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ExtractText();
                 apState.RefreshBars = true;
 
                 if (!apState.Connected)
@@ -204,7 +204,7 @@ namespace ArchipelagoXIV.Hooks
             else
             {
                 var duty = DalamudApi.DutyState.ContentFinderCondition.Value;
-                var name = duty.Name.ToString();
+                var name = duty.Name.ExtractText();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
                 apState.territoryName = name;
@@ -215,7 +215,7 @@ namespace ArchipelagoXIV.Hooks
         private unsafe void DutyState_DutyStarted(IDutyStateEventArgs args)
         {
             var duty = args.ContentFinderCondition.Value;
-            var name = duty.Name.ToString();
+            var name = duty.Name.ExtractText();
             if (name.StartsWith("the"))
                     name = "The" + name[3..];
             apState.territoryName = name;
@@ -249,7 +249,7 @@ namespace ArchipelagoXIV.Hooks
             static void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
-                var name = content.Name.ToString();
+                var name = content.Name.ExtractText();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
 
