@@ -15,7 +15,7 @@ namespace ArchipelagoXIV.Rando
             isManual = IsManual;
         }
 
-        private readonly string[] Jobs = ["PLD", "WAR", "DRK", "GNB", "WHM", "SCH", "AST", "SGE", "MNK", "DRG", "NIN", "SAM", "RPR", "BRD", "MCH", "DNC", "BLM", "SMN", "RDM", "BLU"];
+        private readonly string[] Jobs = [.. Data.ClassJobs.Where(j => j.ClassJobCategory.Value.RowId == 30 || j.ClassJobCategory.Value.RowId == 31).Select(j => j.Abbreviation.ExtractText())];
         private readonly bool isManual;
         private long GoalCount;
         private long McGuffinCount;
@@ -38,6 +38,10 @@ namespace ArchipelagoXIV.Rando
                 var words = itemName.Split(' ');
                 var job = Data.ClassJobs.First(j => j.Abbreviation == words[1]);
                 Levels[job] = MaxLevel(job);
+                if (item.Flags.HasFlag(ItemFlags.Advancement) && !this.ProgJobs.Contains(job))
+                {
+                    this.ProgJobs.Add(job);
+                }
             }
 
             if (GoalType == VictoryType.McGuffin && (McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World")) >= GoalCount)
@@ -55,20 +59,17 @@ namespace ArchipelagoXIV.Rando
         {
             base.HandleSlotData(slotData);
 
-            // Boss goals were added in version 0.29.0, previously "Defeat Shinryu" was goal 1.
-            // It moved to index 4
-            slotData.TryGetValue("world_version", out var version_obj);
-            var version_string = version_obj as string ?? "0.0.0";
-            var worldVersion = Version.Parse(version_string);
-            DalamudApi.PluginLog.Information($"Unparsed world version: {version_string}");
-
-            if (worldVersion < new Version(0, 29, 0))
+            // Prior to version 0.30.0, "Defeat Shinryu" was goal 1, and the ARR/HW bosses were after it.
+            if (WorldVersion < new Version(0, 30, 0))
             {
                 if (Goal == 1)
-                {
-                    DalamudApi.PluginLog.Information($"Remapping old versions shinryu goal");
-                    Goal = 4;
-                }
+                    Goal = (int)VictoryType.DefeatShinryu;
+                else if (Goal == 2)
+                    Goal = (int)VictoryType.DefeatUltimaWeapon;
+                else if (Goal == 3)
+                    Goal = (int)VictoryType.DefeatThordan;
+                else if (Goal == 4)
+                    Goal = (int)VictoryType.DefeatNidhogg;
             }
 
             this.GoalCount = (long)slotData["mcguffins_needed"];
@@ -80,7 +81,10 @@ namespace ArchipelagoXIV.Rando
             if (SlotData.TryGetValue("boss_key_item", out var boss_key_item))
                 this.BossKeyItemName = boss_key_item as string ?? "";
 
-            DalamudApi.PluginLog.Information($"Goal is {GoalCount} Memories.");
+            if (GoalType == VictoryType.McGuffin)
+                DalamudApi.PluginLog.Information($"Goal is {GoalCount} Memories.");
+            else
+                DalamudApi.PluginLog.Information($"Goal is {GoalDutyName}.");
         }
 
         internal override string GoalString()
@@ -133,7 +137,7 @@ namespace ArchipelagoXIV.Rando
             9 => VictoryType.DefeatZeromus,
             10 => VictoryType.DefeatSphene,
             11 => VictoryType.DefeatNecron,
-            _ => VictoryType.McGuffin,
+            _ => VictoryType.Unknown,
         };
 
         public override bool HasMapItems => true;

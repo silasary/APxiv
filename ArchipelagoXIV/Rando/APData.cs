@@ -40,9 +40,8 @@ namespace ArchipelagoXIV.Rando
             { "Shirogane", "Kugane" },
             { "Empyreum", "Ishgard" },
             // Gold Saucer
-            { "The Gold Saucer", "Southern Thanalan" },
-            { "Chocobo Square", "Southern Thanalan" },
-            { "The Battlehall", "Southern Thanalan" },
+            { "Chocobo Square", "The Gold Saucer" },
+            { "The Battlehall", "The Gold Saucer" },
             // Instanced Zone
             { "The Waking Sands", "Western Thanalan" },
             { "Fortemps Manor", "Ishgard" },
@@ -63,6 +62,7 @@ namespace ArchipelagoXIV.Rando
             { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
             { 2, "The Tam-Tara Deepcroft" },
             { 24, "The Tam-Tara Deepcroft (Hard)" },
+            { 1066, "The Merchant's Tale" },
         };
 
         public static Dictionary<string, ushort> CheckNameToContentID = new()
@@ -70,6 +70,7 @@ namespace ArchipelagoXIV.Rando
             { "The Thousand Maws of Toto-Rak", 1 },
             { "The Tam-Tara Deepcroft", 2 },
             { "The Tam-Tara Deepcroft (Hard)", 24 },
+            { "The Merchant's Tale", 1066 },
         };
 
         public static readonly Dictionary<string, Region> Regions = [];
@@ -78,7 +79,7 @@ namespace ArchipelagoXIV.Rando
         public static readonly Dictionary<string, int> HuntData = [];
         public static readonly Dictionary<string, string> HuntRankData = [];
 
-        public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; }
+        public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; } = [];
 
         public static void LoadDutiesCsv()
         {
@@ -102,7 +103,7 @@ namespace ArchipelagoXIV.Rando
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.fates.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
-            
+
             while ((line = reader.ReadLine()) != null)
             {
                 Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
@@ -195,8 +196,10 @@ namespace ArchipelagoXIV.Rando
             foreach (JObject fish in fishsanity)
             {
                 var zones = fish.Value<JObject>("zones");
+                var intuition = fish.Value<JObject>("logical_intuition");
                 List<string> zoneNames = [];
                 List<string> baits = [];
+                List<string> intuitionbaits = [];
                 foreach (var z in zones)
                 {
                     var zbaits = z.Value.Values<string>().ToArray();
@@ -204,16 +207,26 @@ namespace ArchipelagoXIV.Rando
                         continue;
                     zoneNames.Add(z.Key);
                     baits.AddRange(zbaits);
+                    //This is extremely hacky. Someone pls fix this should be very easy. Intuition only has a single zone/hole as of DT
+                    foreach (var y in intuition)
+                    {
+                        var zintuition = y.Value.Values<string>().ToArray();
+                        if (zintuition.Length != 0)
+                            intuitionbaits.AddRange(zintuition);
+                    }
                 }
                 baits = baits.Distinct().ToList();
+                intuitionbaits = intuitionbaits.Distinct().ToList();
                 var data = new FishData
                 {
                     Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
                     Id = fish.Value<int>("id"),
                     Baits = [.. baits],
+                    Intuition = [.. intuitionbaits],
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
                 };
                 APData.FishData[fish.Value<string>("name")] = data;
+
             }
         }
     }

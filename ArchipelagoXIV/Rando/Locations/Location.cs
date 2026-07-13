@@ -12,10 +12,17 @@ namespace ArchipelagoXIV.Rando.Locations
         public static Location Create(ApState apState, long id)
         {
             var name = apState.session.Locations.GetLocationNameFromId(id);
+            if (Data.DutyAliases.TryGetValue(name, out var value))
+                name = value;
+
             if (APData.ObsoleteChecks.ContainsKey(name))
                 return new ObsoleteLocation(apState, id, name);
             if (APData.FishData.ContainsKey(name))
                 return new Fish(apState, id, name);
+            if (name.StartsWith("Attune "))
+                return new AttuneLocation(apState, id, name);
+            if (Data.DynamicEvents.ContainsKey(name))
+                return new CriticalEncounterLocation(apState, id, name);
             return new Location(apState, id, name);
         }
 
@@ -83,18 +90,6 @@ namespace ArchipelagoXIV.Rando.Locations
                     {
                         content = Data.Content[id];
                     }
-                    if (content.RowId == 0)
-                    {
-                        var de = Data.DynamicEvents.FirstOrDefault(de => de.Name == Name);
-                        if (de.RowId > 32)
-                        {
-                            Level = 100;
-                        }
-                        else if (de.RowId > 0)
-                        {
-                            Level = 80;
-                        }
-                    }
                     if (MeetsRequirements == null)
                         SetRequirements();
                 }
@@ -106,7 +101,7 @@ namespace ArchipelagoXIV.Rando.Locations
             return Accessible;
         }
 
-        private void SetRequirements()
+        protected virtual void SetRequirements()
         {
             if (content.RowId > 0)
             {
@@ -163,7 +158,7 @@ namespace ArchipelagoXIV.Rando.Locations
             }
             else if (Name.StartsWith("Ocean Fishing"))
             {
-                if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River")
+                if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River" ||Name == "Ocean Fishing: Thavnairian Coast")
                     MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
                 else
                     MeetsRequirements = Logic.Level(5, "FSH");
@@ -211,7 +206,7 @@ namespace ArchipelagoXIV.Rando.Locations
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             apState.SaveCache();
-            apState.session!.Locations.CompleteLocationChecks(ApId);
+            await apState.session!.Locations.CompleteLocationChecksAsync(ApId);
         }
 
         public string DisplayText

@@ -595,5 +595,17 @@
         "category": ["Boss Key"],
         "count": 0,
         "progression": true
+    },
+    {
+        "name": "Zadnor Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Phantom Village Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
     }
 ]

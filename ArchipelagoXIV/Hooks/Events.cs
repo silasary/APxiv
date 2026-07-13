@@ -21,6 +21,7 @@ namespace ArchipelagoXIV.Hooks
 
         public void Enable()
         {
+            DalamudApi.DutyState.DutyStarted += DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
@@ -30,9 +31,9 @@ namespace ArchipelagoXIV.Hooks
 
         private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
         {
-            if (Data.Items.TryGetValue(data.Item.ItemId, out var value))
+            if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
             {
-                var name = value.Name.ToString();
+                var name = value.Name.ToString().TrimEnd();
                 if (APData.FishData.ContainsKey(name))
                 {
                     //DalamudApi.Echo($"Caught a {name}!");
@@ -55,7 +56,9 @@ namespace ArchipelagoXIV.Hooks
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
             var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible() || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible();
             string locName;
-            if (apState.territoryName == "The Firmament")
+            if (Data.DynamicEvents.ContainsKey(fateName))
+                locName = fateName;
+            else if (apState.territoryName == "The Firmament")
                 locName = fateName + " (FETE)";
             else
                 locName = fateName + " (FATE)";
@@ -65,6 +68,11 @@ namespace ArchipelagoXIV.Hooks
 
             var loc = apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(locName, StringComparison.OrdinalIgnoreCase));  // FATEsanity check
             loc ??= apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(apState.territoryName + ": FATE #") && !f.Completed);  // FATE #N check
+            if (loc == null && fateName.EndsWith("..."))
+            {
+                loc = apState.MissingLocations.FirstOrDefault(f => f.Name.StartsWith(fateName[..^3], StringComparison.OrdinalIgnoreCase)); // FATEsanity check, if name is too long
+                DalamudApi.PluginLog.Info($"FATE name too long, guessing {locName} is {loc?.Name}");
+            }
             if (loc == null)
             {
                 DalamudApi.PluginLog.Information($"Fate `{locName}` not in world or already completed");
@@ -87,6 +95,7 @@ namespace ArchipelagoXIV.Hooks
 
         public void Disable()
         {
+            DalamudApi.DutyState.DutyStarted -= DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
             DalamudApi.AddonLifecycle.UnregisterListener(AddonEvent.PreFinalize, "FateReward", OnFatePreFinalize);
@@ -113,8 +122,9 @@ namespace ArchipelagoXIV.Hooks
                 name = "Ocean Fishing: " + route.Name.ToString();
             }
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content, territoryType.RowId);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
+
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
 
             var currentLevel = DalamudApi.ObjectTable.LocalPlayer?.Level ?? DalamudApi.PlayerState.Level;
@@ -125,13 +135,6 @@ namespace ArchipelagoXIV.Hooks
                 if (apState.Game is NGPlusGame ngGame && ngGame.GoalDutyName == name)
                     ngGame.OnGoalDutyCompleted();
 
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
-                if (location == null)
-                {
-                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
-                    return;
-                }
-
                 if (apState.Game is NGPlusGame state)
                 {
                     for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
@@ -141,6 +144,14 @@ namespace ArchipelagoXIV.Hooks
                         extraLocation?.Complete(false);
                     }
                 }
+
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                if (location == null)
+                {
+                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
+                    return;
+                }
+
                 DalamudApi.PluginLog.Debug("Marking Check {0}", name);
                 location.Complete(false);
                 apState.Syncing = true;
@@ -160,30 +171,55 @@ namespace ArchipelagoXIV.Hooks
         public void RefreshTerritory()
         {
             if (DalamudApi.ClientState.IsLoggedIn)
+            {
                 ClientState_TerritoryChanged(DalamudApi.ClientState.TerritoryType);
+            }
         }
 
         private void ClientState_TerritoryChanged(uint e)
         {
-            var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
-            apState.territoryName = territory.PlaceName.Value.Name.ToString();
-            apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ToString();
+            if (!DalamudApi.DutyState.IsDutyStarted)
+                {
+                var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
+                apState.territoryName = territory.PlaceName.Value.Name.ExtractText();
+                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ExtractText();
+                apState.RefreshBars = true;
 
-            if (!apState.Connected)
-            {
-                // Check if known location
-                //RegionContainer.CanReach(apState, apState.territoryName);
-                return;
+                if (!apState.Connected)
+                {
+                    // Check if known location
+                    //RegionContainer.CanReach(apState, apState.territoryName);
+                    return;
+                }
+
+                apState.RefreshBars = true;
+
+
+                if (apState.territoryName == "The Waking Sands")
+                {
+                    var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
+                    PrayReturn?.Complete();
+                }
             }
+            else
+            {
+                var duty = DalamudApi.DutyState.ContentFinderCondition.Value;
+                var name = duty.Name.ExtractText();
+                if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+                apState.territoryName = name;
+                apState.RefreshBars = true;
+            }
+        }
 
+        private unsafe void DutyState_DutyStarted(IDutyStateEventArgs args)
+        {
+            var duty = args.ContentFinderCondition.Value;
+            var name = duty.Name.ExtractText();
+            if (name.StartsWith("the"))
+                    name = "The" + name[3..];
+            apState.territoryName = name;
             apState.RefreshBars = true;
-
-
-            if (apState.territoryName == "The Waking Sands")
-            {
-                var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
-                PrayReturn?.Complete();
-            }
         }
 
         public unsafe void CheckAmnesty()
@@ -213,7 +249,7 @@ namespace ArchipelagoXIV.Hooks
             static void Send(ApState apState, uint queuedId)
             {
                 var content = Data.Content.First(c => c.RowId == queuedId);
-                var name = content.Name.ToString();
+                var name = content.Name.ExtractText();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
 

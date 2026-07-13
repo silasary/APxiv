@@ -1,31 +1,77 @@
 using Dalamud.Hooking;
+using FFXIVClientStructs.FFXIV.Client.Game.Control;
+using FFXIVClientStructs.FFXIV.Client.Game.Object;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
+using FFXIVClientStructs.FFXIV.Client.UI.Agent;
+using Lumina.Excel.Sheets;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using ExecuteEmoteDelegate = FFXIVClientStructs.FFXIV.Client.UI.Agent.AgentEmote.Delegates.ExecuteEmote;
+using InteractWithObjectDelegate = FFXIVClientStructs.FFXIV.Client.Game.Control.TargetSystem.Delegates.InteractWithObject;
+using IsUnlockLinkUnlockedDelegate = FFXIVClientStructs.FFXIV.Client.Game.UI.UIState.Delegates.IsUnlockLinkUnlocked;
 
 namespace ArchipelagoXIV.Hooks
 {
-    internal class UnlockHooks(ApState apState) : IDisposable
+    internal class UnlockHooks : IDisposable
     {
-        private bool initialized;
-        private Hook<IsUnlockLinkUnlockedDelegate> isUnlockLinkUnlockedHook;
+        public unsafe UnlockHooks(ApState apState)
+        {
+            this.apState = apState;
+            //this.execute_emote = DalamudApi.GameInteropProvider.HookFromAddress<ExecuteEmoteDelegate>(AgentEmote.MemberFunctionPointers.ExecuteEmote, this.ExecuteEmoteDetour);
+            //this.isUnlockLinkUnlockedHook = DalamudApi.GameInteropProvider.HookFromAddress<IsUnlockLinkUnlockedDelegate>(UIState.MemberFunctionPointers.IsUnlockLinkUnlocked, this.IsUnlockLinkUnlocked);
+            this.interactWithObject = DalamudApi.GameInteropProvider.HookFromAddress<InteractWithObjectDelegate>(TargetSystem.MemberFunctionPointers.InteractWithObject, this.InteractWithObjectDetour);
 
-        private unsafe delegate bool IsUnlockLinkUnlockedDelegate(UIState* ui, uint unlockLink);
+        }
+
+        private unsafe ulong InteractWithObjectDetour(TargetSystem* thisPtr, GameObject* obj, bool checkLineOfSight)
+        {
+            if (apState.Connected && obj->GetObjectKind() == ObjectKind.Aetheryte && apState.CurrentLocationInLogic)
+            {
+                var area = TerritoryInfo.Instance()->SubAreaPlaceNameId;
+                var areaname = DalamudApi.DataManager.GetExcelSheet<PlaceName>().GetRow(area).Name.ExtractText();
+                if (string.IsNullOrEmpty(areaname))
+                    areaname = apState.territoryName;
+                DalamudApi.PluginLog.Debug($"InteractWithObjectDetour called with obj: {obj->NameString}, baseid: {obj->BaseId}, checkLineOfSight: {checkLineOfSight}, area: {areaname}");
+
+                if (apState.Game.AttunedAetherytes.Add(areaname))
+                {
+                    var name = $"Attune {areaname}";
+                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    if (loc != null)
+                    {
+                        loc.Complete();
+                    }
+                    else
+                    {
+                        DalamudApi.PluginLog.Info($"Could not find location for {name} in missing locations.");
+                    }
+                }
+            }
+            return interactWithObject!.Original(thisPtr, obj, checkLineOfSight);
+        }
+
+        private unsafe void ExecuteEmoteDetour(AgentEmote* thisPtr, ushort emoteId, EmoteController.PlayEmoteOption* playEmoteOption, bool addToHistory, bool liveUpdateHistory)
+        {
+            //DalamudApi.PluginLog.Debug($"ExecuteEmoteDetour called with emoteId: {emoteId}");
+            execute_emote!.Original(thisPtr, emoteId, playEmoteOption, addToHistory, liveUpdateHistory);
+        }
+
+        private bool initialized;
+        private readonly ApState apState;
+
+        private readonly Hook<IsUnlockLinkUnlockedDelegate>? isUnlockLinkUnlockedHook = null;
+        private readonly Hook<ExecuteEmoteDelegate>? execute_emote = null;
+        private readonly Hook<InteractWithObjectDelegate>? interactWithObject = null;
 
         public unsafe void Enable()
         {
             //return;
             if (!initialized)
             {
-                initialized = true;
-                //    if (!DalamudApi.SigScanner.TryScanText("E8 ?? ?? ?? ?? 88 45 80", out nint address))
-                //    {
-                //        DalamudApi.Echo("Error: Could not hook");
-                //        return;
-                //    }
-
-                //    isUnlockLinkUnlockedHook = Hook<IsUnlockLinkUnlockedDelegate>.FromAddress(address, IsUnlockLinkUnlocked);
-                //    isUnlockLinkUnlockedHook.Enable();
-                //apState.Hooked = true;
+                execute_emote?.Enable();
+                isUnlockLinkUnlockedHook?.Enable();
+                interactWithObject?.Enable();
 
                 initialized = true;
             }
@@ -54,7 +100,9 @@ namespace ArchipelagoXIV.Hooks
 
         public void Dispose()
         {
-            apState.Hooked = false;
+            initialized = false;
+            execute_emote?.Dispose();
+            interactWithObject?.Dispose();
             //isUnlockLinkUnlockedHook.Disable();
             //isUnlockLinkUnlockedHook.Dispose();
         }

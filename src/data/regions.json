@@ -1,5 +1,13 @@
 
 {
+    "Airship": {
+        "connects_to": [
+            "Limsa Lominsa",
+            "Gridania",
+            "Ul'dah",
+            "Ishgard"
+        ]
+    },
 	"Limsa Lominsa": {
 		"requires": "",
 		"connects_to": [
@@ -9,8 +17,8 @@
 			"Middle La Noscea",
 			"Western La Noscea",
 			"Eastern La Noscea",
-			"Ishgard",
 			"Kugane",
+            "Airship",
             "Old Sharlayan",
             "Ocean Fishing"
 		],
@@ -92,7 +100,7 @@
 			"Central Shroud",
 			"North Shroud",
 			"East Shroud",
-			"Ishgard"
+			"Airship"
 		],
 		"starting": true
 	},
@@ -144,13 +152,21 @@
 	"Ul'dah": {
 		"requires": "",
 		"connects_to": [
+            "Ul'dah - Steps of Nald",
 			"Central Thanalan",
 			"Western Thanalan",
 			"Masked Carnivale",
-			"Ishgard"
+            "The Gold Saucer",
+            "Airship"
 		],
 		"starting": true
 	},
+    "Ul'dah - Steps of Nald": {
+        "connects_to": []
+    },
+    "The Gold Saucer": {
+        "connects_to": []
+    },
 	"Central Thanalan":
 	{
 		"requires": "",
@@ -225,9 +241,8 @@
 	{
 		"requires": "|Ishgard Access:1|",
 		"connects_to": [
-			"Limsa Lominsa",
-			"Gridania",
-			"Ul'dah",
+            "Airship",
+            "Foundation",
 			"Coerthas Central Highlands",
 			"Coerthas Western Highlands",
 			"The Sea of Clouds",
@@ -236,6 +251,9 @@
             "The Diadem"
 		]
 	},
+    "Foundation": {
+        "connects_to": []
+    },
 	"Coerthas Western Highlands":
 	{
 		"requires": "|Coerthas Western Highlands Access:1|",
@@ -270,9 +288,13 @@
 	{
 		"requires": "|The Dravanian Hinterlands and Idyllshire Access:1|",
 		"connects_to": [
-            "Alexander"
+            "Alexander",
+            "Idyllshire"
 		]
 	},
+    "Idyllshire": {
+        "connects_to": []
+    },
     "Alexander":
     {
         "requires": "|Alexander Key| or |Alexander Access|"
@@ -341,11 +363,27 @@
 	{
 		"requires": "|Yanxia Access: 1|",
 		"connects_to": [
-            "Gangos"
+            "The Doman Enclave"
 		]
 	},
+    "The Doman Enclave": {
+        "connects_to": [
+            "Gangos"
+        ]
+    },
     "Gangos": {
         "requires": "|Gangos Access: 1|",
+        "connects_to": [
+            "The Bozjan Southern Front",
+            "Zadnor"
+        ]
+    },
+    "The Bozjan Southern Front": {
+        "requires": "",
+        "connects_to": []
+    },
+    "Zadnor": {
+        "requires": "|Zadnor Access: 1|",
         "connects_to": []
     },
 	"The Azim Steppe":
@@ -500,7 +538,8 @@
             "Urqopacha",
             "Kozama'uka",
             "Yak T'el",
-            "Shaaloani"
+            "Shaaloani",
+            "Phantom Village"
         ]
     },
     "Urqopacha": {
@@ -538,6 +577,16 @@
         "connects_to": ["Mist Continent"]
     },
     "Mist Continent": {
+        "requires": "",
+        "connects_to": []
+    },
+    "Phantom Village": {
+        "requires": "|Phantom Village Access: 1|",
+        "connects_to": [
+            "The Occult Crescent: South Horn"
+    ]
+    },
+    "The Occult Crescent: South Horn": {
         "requires": "",
         "connects_to": []
     }

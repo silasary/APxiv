@@ -4,6 +4,29 @@ from BaseClasses import MultiWorld
 
 from .. import Helpers
 
+# Zones on the level cap can be ambiguous.
+# This skews regions at the start of an expansion to not be included unless the x1 level is also included in the cap.
+REGION_LEVEL_CAP_ADJUSTMENTS: dict[str, int] = {
+    # Heavensward
+    "The Firmament":              51,
+    "Coerthas Western Highlands": 51,
+    "The Sea of Clouds":          51,
+    # Stormblood
+    "The Fringes":                61,
+    "The Peaks":                  61,
+    # Shadowbringers
+    "Lakeland":                   71,
+    "Kholusia":                   71,
+    "Amh Araeng":                 71,
+    # Endwalker
+    "Old Sharlayan":              81,
+    "Labyrinthos":                81,
+    "Thavnair":                   81,
+    # Dawntrail
+    "Urqopacha":                  91,
+    "Kozama'uka":                 91,
+}
+
 def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
@@ -64,7 +87,6 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> Optional[bool]:
-    level_cap = get_int_value(multiworld, player, "level_cap")
     if location.get('victory'):  # This should get fixed in the main code
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
@@ -73,37 +95,18 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
+    
+    level_cap = get_int_value(multiworld, player, "level_cap")
     if "level" in location and int(location["level"]) > level_cap:
+        return False
+    if "rank" in location and location["rank"] not in Helpers.get_option_value(multiworld, player, "huntsanity"):
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
-    if location['region'] == "The Firmament" and level_cap < 51:
-        return False
-    if location['region'] == "Coerthas Western Highlands" and level_cap < 51:
-        return False
-    if location['region'] == "The Sea of Clouds" and level_cap < 51:
-        return False
-    if location['region'] == "The Fringes" and level_cap < 61:
-        return False
-    if location['region'] == "The Peaks" and level_cap < 61:
-        return False
-    if location['region'] == "Lakeland" and level_cap < 71:
-        return False
-    if location['region'] == "Kholusia" and level_cap < 71:
-        return False
-    if location['region'] == "Amh Araeng" and level_cap < 71:
-        return False
-    if location['region'] == "Old Sharlayan" and level_cap < 81:
-        return False
-    if location['region'] == "Labyrinthos" and level_cap < 81:
-        return False
-    if location['region'] == "Thavnair" and level_cap < 81:
-        return False
-    if location['region'] == "Urqopacha" and level_cap < 91:
-        return False
-    if location['region'] == "Kozama'uka" and level_cap < 91:
+    region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
+    if region_min_level and level_cap < region_min_level:
         return False
     return None
 

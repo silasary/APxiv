@@ -85,7 +85,6 @@ namespace ArchipelagoXIV
             this.Events.Enable();
             UiHooks.Enable();
             DLHooks.Enable();
-            HuntHooks.Enable();
             DalamudApi.Framework.Update += Framework_Update;
             DalamudApi.SetStatusBar("AP Ready");
             DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
@@ -122,6 +121,7 @@ namespace ArchipelagoXIV
                 apState.UpdateBars();
 
             Events.CheckAmnesty();
+            HuntHooks.OnFrameworkUpdate();
         }
 
         private void Chat(string command, string arguments)
@@ -153,7 +153,7 @@ namespace ArchipelagoXIV
             Events.Disable();
             UiHooks.Disable();
             DLHooks.Dispose();
-            HuntHooks.Dispose();
+            DalamudApi.Framework.Update -= Framework_Update;
             CommandManager.RemoveHandler("/ap");
             CommandManager.RemoveHandler("/ap-connect");
             CommandManager.RemoveHandler("/ap-config");

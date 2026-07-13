@@ -70,6 +70,7 @@ public class ConfigWindow : Window, IDisposable
             Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
             Configuration.RequireSyncedDuties = require_synced_duties;
             Configuration.Password = password;
+            Configuration.AddToConnectionHistory();
             Configuration.Save();
             ApState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
         }
