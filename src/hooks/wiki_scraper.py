@@ -168,6 +168,37 @@ _EX_VERSION_DATA: dict[str, tuple[str, int, int]] = {
     "6": ("EC", 100, 110),
 }
 
+@functools.lru_cache
+def _patch_id_to_ex() -> dict[int, int]:
+    """Map xivapi patch ID -> ExVersion"""
+    print("Fetching patchlist.json from xivapi datamining-patches repo")
+
+    patches = requests.get(
+        "https://raw.githubusercontent.com/xivapi/ffxiv-datamining-patches/master/patchlist.json"
+    ).json()
+
+    return {p["ID"]: p["ExVersion"] for p in patches}
+
+
+def get_patch_expansion(item_id: int | str) -> str | None:
+    """Expansion tag a fish was introduced in
+
+    item id -> Teamcraft item-patch (patch id) -> xivapi patchlist (ExVersion)
+    -> _EX_VERSION_DATA tag.
+    """
+    item_patch = teamcraft_json('item-patch')
+    patch_id = item_patch.get(str(item_id))
+
+    if patch_id is None:
+        return None
+
+    ex = _patch_id_to_ex().get(patch_id)
+
+    if ex is None:
+        return None
+
+    return _EX_VERSION_DATA.get(str(ex), (None,))[0]
+
 # NotoriousMonster.Rank values: 1 = B, 2 = A, 3 = S
 _HUNT_RANK_LABELS = {"1": "B", "2": "A", "3": "S"}
 
@@ -514,9 +545,39 @@ def lookup_fish(id: int | str) -> dict:
     timed = fishdata.get('timed') or fishdata.get('weathered') or fishdata.get('during')
     if timed:
         fish['timed'] = timed
+
     if fishdata.get('stars'):
         fishdata['stars'] = fishdata['stars']
+        
+    expansion = get_patch_expansion(fishdata['itemId'])
+    
+    if expansion is not None:
+        fish['expansion'] = expansion
+        
     return fish
+
+def apply_fish_expansions() -> None:
+    """Backfill the `expansion` field on existing fish.json records"""
+    all_fish = load_all_fish()
+    missing = []
+    
+    for name, fish in all_fish.items():
+        expansion = get_patch_expansion(fish.get('id'))
+        
+        if expansion is None:
+            missing.append(name)
+            continue
+        
+        fish['expansion'] = expansion
+        
+    print(f"Set expansion for {len(all_fish) - len(missing)} fish, "
+          f"{len(missing)} missing patch data.")
+
+    with open(data_path('fish.json'), 'w', newline='') as f:
+        json.dump(all_fish, f, indent=1)
+
+    with open(data_path('missing_fish_expansions.txt'), 'w', newline='') as f:
+        f.write('\n'.join(missing))
 
 def scrape_teamcraft():
     all_fish = load_all_fish()
@@ -1051,3 +1112,4 @@ if __name__ == "__main__":
     fill_missing_bait()
     clean_fish()
     sort_fish()
+    apply_fish_expansions()

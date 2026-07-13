@@ -370,8 +370,6 @@ def generate_fish_list(region_expansion: dict[str, str]) -> list[dict]:
             bonus_regions[name] = {
                 "entrance_requires": {k: '|' + '| OR |'.join(v) + '|' for k, v in zones.items() if v}
             }
-            # use the earliest expansion across all zones
-            expansion = min((region_expansion[z] for z in zones), key=lambda e: EXPANSION_ORDER[e])
         else:
             region = next(iter(zones.keys()))
             if not zones[region]:
@@ -389,8 +387,6 @@ def generate_fish_list(region_expansion: dict[str, str]) -> list[dict]:
 
             else:
                 requires += f" and |{zones[region][0]}|"
-            expansion = region_expansion[region]
-
 
             if intuition:
                 #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
@@ -399,6 +395,13 @@ def generate_fish_list(region_expansion: dict[str, str]) -> list[dict]:
                         requires += f" and |{bait_intuition}|"
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
+
+        expansion = data.get('expansion')
+
+        # Fallback based on region
+        if expansion is None:
+            zone_expansions = (region_expansion[zone] for zone in zones)
+            expansion = min(zone_expansions, key=lambda exp: EXPANSION_ORDER[exp])
 
         loc = {
             "name": name,
