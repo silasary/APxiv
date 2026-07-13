@@ -583,7 +583,7 @@ def after_load_location_file(location_table: list) -> list:
     from ..Helpers import load_data_file
 
     regions = load_data_file("regions.json")
-    region_expansion = {name: data["expansion"] for name, data in regions.items()}
+    region_expansion = {name: data.get("expansion") for name, data in regions.items()}
 
     duty_locations, extra_duty_locations = generate_duty_list()
 
