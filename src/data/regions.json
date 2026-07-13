@@ -6,7 +6,8 @@
             "Gridania",
             "Ul'dah",
             "Ishgard"
-        ]
+        ],
+        "expansion": "ARR"
     },
 	"Limsa Lominsa": {
 		"requires": "",
@@ -180,10 +181,12 @@
 		"expansion": "ARR"
 	},
     "Ul'dah - Steps of Nald": {
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "ARR"
     },
     "The Gold Saucer": {
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "ARR"
     },
 	"Central Thanalan":
 	{
@@ -279,7 +282,8 @@
 		"expansion": "HW"
 	},
     "Foundation": {
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "HW"
     },
 	"Coerthas Western Highlands":
 	{
@@ -325,7 +329,8 @@
             "expansion": "HW"
 	},
     "Idyllshire": {
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "HW"
     },
     "Alexander":
     {
@@ -402,10 +407,11 @@
 	},
 	"Yanxia":
 	{
-		"requires": "|Yanxia Access: 1|",
+        "requires": "|Yanxia Access: 1|",
 		"connects_to": [
             "The Doman Enclave"
-		]
+		],
+        "expansion": "StB"
 	},
     "The Doman Enclave": {
         "connects_to": [
@@ -423,10 +429,12 @@
     },
     "The Bozjan Southern Front": {
         "requires": "",
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "ShB"
     },
     "Zadnor": {
-        "requires": "|Zadnor Access: 1|"
+        "requires": "|Zadnor Access: 1|",
+        "expansion": "ShB"
     },
 	"The Azim Steppe":
 	{
@@ -656,13 +664,15 @@
     },
     "Mist Continent": {
         "requires": "",
-        "connects_to": []
+        "connects_to": [],
+        "expansion": "DT"
     },
     "Phantom Village": {
         "requires": "|Phantom Village Access: 1|",
         "connects_to": [
             "The Occult Crescent: South Horn"
-    ]
+        ],
+        "expansion": "DT"
     },
     "The Occult Crescent: South Horn": {
         "requires": "",
