@@ -415,8 +415,7 @@
     },
     "Gangos": {
         "requires": "|Gangos Access: 1|",
-        "connects_to": [],
-        "expansion": "ShB"
+        "expansion": "ShB",
         "connects_to": [
             "The Bozjan Southern Front",
             "Zadnor"
@@ -427,7 +426,7 @@
         "connects_to": []
     },
     "Zadnor": {
-        "requires": "|Zadnor Access: 1|",
+        "requires": "|Zadnor Access: 1|"
     },
 	"The Azim Steppe":
 	{
