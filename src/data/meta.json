@@ -66,6 +66,8 @@
                 "Allsanity": {
                     "include_ocean_fishing": true,
                     "include_bozja": true,
+                    "include_occult_crescent": true,
+                    "include_duels": true,
                     "include_pvp": true,
                     "include_guildhests": true,
                     "allow_main_scenario_duties": true,
