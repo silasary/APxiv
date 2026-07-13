@@ -581,10 +581,9 @@ def generate_aetheryte_list() -> list[dict]:
     return aetheryte_list
 
 def after_load_location_file(location_table: list) -> list:
-    from ..Helpers import load_data_file
+    from ..Data import region_table
 
-    regions = load_data_file("regions.json")
-    region_expansion = {name: data.get("expansion") for name, data in regions.items()}
+    region_expansion = {name: data.get("expansion") for name, data in region_table.items()}
 
     duty_locations, extra_duty_locations = generate_duty_list()
 
