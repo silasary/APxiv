@@ -247,6 +247,28 @@ class ForceJob(OptionSet):
 
         return super().verify(world, player_name, plando_options)
 
+class ExcludeJob(OptionSet):
+    """
+    Choose which jobs to exclude from the game entirely.
+
+    Excluded jobs will not be chosen as progression or filler jobs.
+    """
+    display_name = "Exclude Jobs"
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
+        all_jobs = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
+
+        for item_name in self.value:
+            if item_name not in all_jobs:
+                picks = get_fuzzy_results(item_name, all_jobs, limit=1)
+
+                raise Exception(f"Item {item_name} from option {self} "
+                                f"is not a valid job from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+        return super().verify(world, player_name, plando_options)
+
 class LevelCap(Range):
     """
     Maximum level of the player.
@@ -380,6 +402,7 @@ def before_options_defined(options: dict) -> dict:
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
     # Jobs
     options["force_jobs"] = ForceJob
+    options["exclude_jobs"] = ExcludeJob
     options["level_cap"] = LevelCap
 
     # Field Ops
