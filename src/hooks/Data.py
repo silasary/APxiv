@@ -573,7 +573,8 @@ def generate_aetheryte_list() -> list[dict]:
                 'name': f"Attune {ae['name']}",
                 'region': ae['map'],
                 'category': ["Aetherytes", ae['map']],
-                'level': ae['level']
+                'level': ae['level'],
+                'expansion': ae['expansion'],
             }
         )
 
