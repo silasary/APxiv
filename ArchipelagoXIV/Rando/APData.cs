@@ -45,10 +45,10 @@ namespace ArchipelagoXIV.Rando
             // Instanced Zone
             { "The Waking Sands", "Western Thanalan" },
             { "Fortemps Manor", "Ishgard" },
-            { "Matoya's Cave", "The Dravnian Hinterlands" },
+            { "Sacrificial Chamber", "The Dravanian Forelands" },
+            { "Matoya's Cave", "The Dravanian Hinterlands" },
             { "The Lightfeather Proving Grounds", "Ishgard" },
             { "Ruby Bazaar Offices", "Kugane" },
-            { "The Doman Enclave", "Yanxia" },
             { "The Omphalos", "Mor Dhona"  },
             { "Main Hall", "Old Sharlayan" },
             { "Elysion", "Ultima Thule"},
