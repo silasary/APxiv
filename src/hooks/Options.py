@@ -307,7 +307,6 @@ class IncludeDuels(Toggle):
     These are 1v1 boss fights that spawn at the end of a CE chain, and only one participating player can qualify for.
     They are hard to beat and time-consuming to even attempt.
     """
-    visibility = Visibility.none  # todo: Implement me
 
 class IncludeOccultCrescent(Toggle):
     """

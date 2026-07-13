@@ -137,6 +137,12 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             if count is None:
                 continue
 
+            if dutyType == "Field Operation" and not is_option_enabled(multiworld, player, "include_duels"):
+                duels = [n for n in names if location_name_to_location[n].get('party', None) == 0]
+                names = [n for n in names if n not in duels]
+                world.skipped_duties.update(duels)
+
+
             count = min(len(names), count)
             used_names = world.random.sample(names, count)
 
