@@ -65,6 +65,7 @@ class DutyDifficulty(Choice):
     option_extreme = 2
     option_savage = 3
     option_endgame = 4
+    # option_ultimate = 5  # Not allowed.
     # visibility = Visibility.none
 
 class MaxPartySize(Choice):
@@ -182,6 +183,15 @@ class EndgameRaidCount(Range):
     range_start = 0
     range_end = 12
 
+class FieldOperationCriticalEncounterCount(Range):
+    """
+    Number of Field Operation Critical Encounters per expansion to include in the location pool
+    """
+    display_name = "Field Operation CE Count"
+    default = 33
+    range_start = 0
+    range_end = 33
+
 class UltimateCount(Range):
     """
     Number of Ultimate Raids to include in the location pool
@@ -287,7 +297,23 @@ class IncludeBozja(Toggle):
     """
     Include Save the Queen content in the location pool.
 
-    This includes the Fates, Trials and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    This includes the Fates, CEs and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    """
+
+class IncludeDuels(Toggle):
+    """
+    Include Field Operation Duels in the location pool.
+
+    These are 1v1 boss fights that spawn at the end of a CE chain, and only one participating player can qualify for.
+    They are hard to beat and time-consuming to even attempt.
+    """
+    visibility = Visibility.none  # todo: Implement me
+
+class IncludeOccultCrescent(Toggle):
+    """
+    Include Occult Crescent content in the location pool.
+
+    This includes the Fates, CEs and Alliance Raids of the Occult Crescent.
     """
 
 class FatesPerZone(Range):
@@ -331,7 +357,6 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
-    options["include_bozja"] = IncludeBozja
     options["include_guildhests"] = IncludeGuildhests
 
     # Duty Counts
@@ -358,6 +383,12 @@ def before_options_defined(options: dict) -> dict:
     options["force_jobs"] = ForceJob
     options["level_cap"] = LevelCap
 
+    # Field Ops
+    options["include_bozja"] = IncludeBozja
+    options["field_operation_critical_encounter_count"] = FieldOperationCriticalEncounterCount
+    options["include_duels"] = IncludeDuels
+    options["include_occult_crescent"] = IncludeOccultCrescent
+
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
@@ -378,7 +409,8 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
-    groups["Duty Finder"] = [DutyDifficulty, IncludeBozja, IncludePvP, IncludeGuildhests,
+    groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
+    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
                              NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]

@@ -56,7 +56,9 @@ namespace ArchipelagoXIV.Hooks
             var fateName = fateRewardAddon->GetNodeById(6)->GetAsAtkTextNode()->NodeText.ToString();
             var success = ((AddonFateReward*)fateRewardAddon)->AtkTextNode248->AtkResNode.IsVisible() || ((AddonFateReward*)fateRewardAddon)->AtkTextNode250->AtkResNode.IsVisible();
             string locName;
-            if (apState.territoryName == "The Firmament")
+            if (Data.DynamicEvents.ContainsKey(fateName))
+                locName = fateName;
+            else if (apState.territoryName == "The Firmament")
                 locName = fateName + " (FETE)";
             else
                 locName = fateName + " (FATE)";

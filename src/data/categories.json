@@ -21,6 +21,10 @@
         "yaml_option": ["include_bozja"],
         "hidden": true
     },
+    "Occult Crescent": {
+        "yaml_option": ["include_occult_crescent"],
+        "hidden": true
+    },
     "fishsanity": {
         "yaml_option": [],
         "hidden": true

@@ -135,12 +135,12 @@ def datamining_csv(filename: str, key = "#") -> dict[str, dict[str, str]]:
 
 def find_fates(zone: str) -> list[str]:
     print('Finding fates for zone: ' + zone)
-    url = f"https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fates]]%20[[Located%20in::{zone}]]%20[[Is%20event%20fate::false]]|?Has%20FATE%20level|?Is retired content|sort%3DHas FATE level,&format=json&api_version=3"
+    url = f"https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fates]]%20[[Located%20in::{zone}]]%20[[Is%20event%20fate::false]]|?Has%20FATE%20level|?Is retired content&format=json&api_version=3"
     data = requests.get(url).json()
     fates = []
     for page in data["query"]["results"]:
         name = list(page.keys())[0]
-        level = page[name]['printouts']['Has FATE level'][0]
+        level = (page[name]['printouts']['Has FATE level'] or [0])[0]
         line = name.replace(',','') + "," + str(level) + ',' + zone
         if page[name]['printouts']['Is retired content']:
             continue
