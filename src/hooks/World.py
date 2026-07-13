@@ -129,7 +129,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
-        
+
 
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
@@ -364,7 +364,23 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count
     if remaining > 0:
-        filler_levels = [f"5 {job} Levels" for job in TANKS + HEALERS + MELEE + CASTER + RANGED + DOH]
+        exclude_jobs = get_excluded_jobs(multiworld, player)
+
+        tanks = TANKS.copy()
+        healers = HEALERS.copy()
+        melee = MELEE.copy()
+        caster = CASTER.copy()
+        ranged = RANGED.copy()
+        doh = DOH.copy()
+        if exclude_jobs:
+            tanks   = [j for j in tanks   if j not in exclude_jobs]
+            healers = [j for j in healers if j not in exclude_jobs]
+            melee   = [j for j in melee   if j not in exclude_jobs]
+            caster  = [j for j in caster  if j not in exclude_jobs]
+            ranged  = [j for j in ranged  if j not in exclude_jobs]
+            doh     = [j for j in doh     if j not in exclude_jobs]
+
+        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
             item_config[name] = min(remaining, capped_count)
@@ -388,8 +404,6 @@ def before_create_items_filler(
     start_class = world.random.choice(prog_levels)
     prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-    exclude_jobs = get_excluded_jobs(multiworld, player)
-    excluded_level_items = {f"5 {job} Levels" for job in exclude_jobs} if exclude_jobs else set()
 
     seen_levels = {}
     locations_per_depth = defaultdict(list)
@@ -427,9 +441,6 @@ def before_create_items_filler(
             if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
                 multiworld.push_precollected(item)
                 continue
-
-        if item.name in excluded_level_items:
-            continue
 
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
