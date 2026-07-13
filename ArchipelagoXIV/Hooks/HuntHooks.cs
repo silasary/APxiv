@@ -6,24 +6,14 @@ using System.Linq;
 
 namespace ArchipelagoXIV.Hooks
 {
-    internal class HuntHooks(ApState apState) : IDisposable
+    internal class HuntHooks(ApState apState)
     {
         // Maps GameObjectId → last known HP so we can detect the alive→dead transition
         private readonly Dictionary<ulong, uint> _trackedHp = [];
         // Mobs the local player has interacted with
         private readonly HashSet<ulong> _playerAttacked = [];
 
-        public void Enable()
-        {
-            DalamudApi.Framework.Update += OnFrameworkUpdate;
-        }
-
-        public void Disable()
-        {
-            DalamudApi.Framework.Update -= OnFrameworkUpdate;
-        }
-
-        private void OnFrameworkUpdate(Dalamud.Plugin.Services.IFramework _)
+        public void OnFrameworkUpdate()
         {
             var localPlayer = DalamudApi.ObjectTable.LocalPlayer;
             var localPlayerId = localPlayer?.GameObjectId ?? ulong.MaxValue;
@@ -94,11 +84,6 @@ namespace ArchipelagoXIV.Hooks
             }
 
             loc.Complete();
-        }
-
-        public void Dispose()
-        {
-            Disable();
         }
     }
 }

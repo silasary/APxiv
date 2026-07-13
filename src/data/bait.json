@@ -414,8 +414,10 @@
   "id": 36597,
   "icon": 27101
  },
- "Pot Of Stardust": {
-  "name": "Pot Of Stardust"
+ "Diadem Hoverworm": {
+  "name": "Diadem Hoverworm",
+  "id": 30281,
+  "icon": 27000
  },
  "Select Bait Ball": {
   "name": "Select Bait Ball",

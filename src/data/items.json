@@ -656,5 +656,19 @@
         "count": 0,
         "progression": true,
         "expansion": "DT"
+    },
+    {
+        "name": "Zadnor Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "expansion": "ShB"
+    },
+    {
+        "name": "Phantom Village Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true,
+        "expansion": "DT"
     }
 ]

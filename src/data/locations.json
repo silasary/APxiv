@@ -12,12 +12,6 @@
             "category": [
                 "Western Thanalan"
             ]
-        },
-        {
-            "name": "Defeat Shinryu",
-            "region": "The Lochs",
-            "level": 70,
-            "victory": true
         }
     ]
 }

@@ -14,7 +14,7 @@ from itertools import chain
 # 30,000-39,999: Extra Dungeon checks
 # 40,000-40,499: Boss Goal locations and their clear items
 # 45,000-49,999: Hunt Marks (Huntsanity)
-# 50,000-
+# 50,000-54,999: Aetherite Locations
 
 
 # called after the game.json file has been loaded
@@ -66,7 +66,45 @@ WORLD_BOSSES = [
     "The Serpentlord Seethes", "Mascot Murder",
     ]
 
-FILLER_EMOTES = ['/pet', '/dote', '/slap', '/beesknees', '/lookout', '/cheer', '/shrug', '/wave', '/toast']
+FILLER_ITEMS = {
+    '/pet': 1.0,
+    '/dote': 1.0,
+    '/slap': 1.0,
+    '/beesknees': 1.0,
+    '/lookout': 1.0,
+    '/cheer': 1.0,
+    '/shrug': 1.0,
+    '/wave': 1.0,
+    '/toast': 1.0,
+
+    'Fire Shard': 0.1,
+    'Ice Shard': 0.1,
+    'Wind Shard': 0.1,
+    'Earth Shard': 0.1,
+    'Lightning Shard': 0.1,
+    'Water Shard': 0.1,
+
+    'Fire Crystal': 0.1,
+    'Ice Crystal': 0.1,
+    'Wind Crystal': 0.1,
+    'Earth Crystal': 0.1,
+    'Lightning Crystal': 0.1,
+    'Water Crystal': 0.1,
+
+    'Fire Cluster': 0.1,
+    'Ice Cluster': 0.1,
+    'Wind Cluster': 0.1,
+    'Earth Cluster': 0.1,
+    'Lightning Cluster': 0.1,
+    'Water Cluster': 0.1,
+
+    '1 Gil': 0.1,
+    '3 Gil': 0.1,
+    '5 Gil': 0.1,
+    }
+
+FILLER_NAMES = list(FILLER_ITEMS.keys())
+FILLER_WEIGHTS = list(FILLER_ITEMS.values())
 
 bonus_regions = {}
 
@@ -129,6 +167,10 @@ fate_zones = {
     "Shaaloani": [96],
     "Heritage Found": [98],
     "Living Memory": [99],
+
+    "The Bozjan Southern Front": [71],
+    "Zadnor": [76],
+    "The Occult Crescent: South Horn": [100],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
@@ -142,8 +184,6 @@ def generate_victory_locations(region_expansion: dict[str, str]) -> list[dict]:
     locations = []
 
     for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
-        if goal_name == "Defeat Shinryu":  # already in locations.json
-            continue
         locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id, "expansion": region_expansion[region]})
         _id += 1
 
@@ -163,9 +203,9 @@ categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyTyp
 def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
     extra_list = []
-    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame"]
+    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame", "Ultimate"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
-    dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='|')
+    dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 0
     _xid = 30_000
     prev_category = "Dungeon (ARR)"
@@ -196,8 +236,10 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                 _id += 50
                 prev_category = category
                 location["id"] = _id
-            if row["Location"] == "Gangos":
+            if row["Location"] in ["Gangos", "The Bozjan Southern Front", "Zadnor"]:
                 location["category"].append("Bozja")
+            if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
+                location["category"].append("Occult Crescent")
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:
@@ -218,6 +260,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                     })
                     _xid += 1
 
+    duty_list[0]["id"] = 4  # Mistakes were made, and they're not worth fixing at this point.
     return duty_list, extra_list
 
 def generate_fate_list(region_expansion: dict[str, str]):
@@ -320,6 +363,7 @@ def generate_fish_list(region_expansion: dict[str, str]) -> list[dict]:
         if not zones:
             _id += 1
             continue
+        intuition = data['logical_intuition']
         if len(zones) > 1:
             # cry
             region = name
@@ -333,9 +377,26 @@ def generate_fish_list(region_expansion: dict[str, str]) -> list[dict]:
             if not zones[region]:
                 _id += 1
                 continue
-            requires += f" and |{zones[region][0]}|"
+            if len(zones[region]) > 1:
+                requires += f" and (|{zones[region][0]}"
+                i = 0
+                for r in zones[region]:
+                    if i == 0:
+                        i = 1
+                        continue
+                    requires += f"| OR |{r}"
+                requires += "|)"
+
+            else:
+                requires += f" and |{zones[region][0]}|"
             expansion = region_expansion[region]
 
+
+            if intuition:
+                #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
+                for bait_intuition in intuition[region]:
+                    if bait_intuition != zones[region][0]:
+                        requires += f" and |{bait_intuition}|"
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
@@ -452,7 +513,7 @@ def after_load_item_file(item_table: list) -> list:
         _cleared_id += 1
 
     filler_items = []
-    for emote in FILLER_EMOTES:
+    for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
             "category": ["Filler"],
@@ -475,13 +536,13 @@ def generate_hunt_list() -> list[dict]:
     hunt_list = []
     _id = 45_000
     huntreader = csv.DictReader(pkgutil.get_data(__name__, "hunts.csv").decode().splitlines(), delimiter=',', quotechar='"')
-    
+
     for row in huntreader:
         row = {k.strip(): v.strip() for k, v in row.items()}
         rank = row["Rank"]
         expansion = row["Expansion"]
         level = row["Level"]
-        
+
         hunt_list.append({
             "id": _id,
             "name": f"Hunt {row['Name']}",
@@ -492,10 +553,28 @@ def generate_hunt_list() -> list[dict]:
             "rank": rank,
             "expansion": expansion,
         })
-        
+
         _id += 1
-        
+
     return hunt_list
+
+def generate_aetheryte_list() -> list[dict]:
+    from ..Helpers import load_data_file
+    aetheryte_list = []
+    _id = 50_000
+    aetherytes = load_data_file("aetherytes.json")
+    for ae in aetherytes:
+        aetheryte_list.append(
+            {
+                'id': _id + ae['id'],
+                'name': f"Attune {ae['name']}",
+                'region': ae['map'],
+                'category': ["Aetherytes", ae['map']],
+                'level': ae['level']
+            }
+        )
+
+    return aetheryte_list
 
 def after_load_location_file(location_table: list) -> list:
     from ..Helpers import load_data_file
@@ -512,6 +591,7 @@ def after_load_location_file(location_table: list) -> list:
     location_table.extend(extra_duty_locations)
     location_table.extend(generate_victory_locations(region_expansion))
     location_table.extend(generate_hunt_list())
+    location_table.extend(generate_aetheryte_list())
 
     return location_table
 
@@ -541,6 +621,10 @@ def create_FATE_location(number: int, key: str, lvl: int, expansion: str, _id: i
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
+    if key in ["The Bozjan Southern Front", "Zadnor"]:
+        location["category"].append("Bozja")
+    if key in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
+        location["category"].append("Occult Crescent")
     if _id:
         location["id"] = _id
     return location
@@ -548,7 +632,7 @@ def create_FATE_location(number: int, key: str, lvl: int, expansion: str, _id: i
 def ocean_fishing():
     _id = 19_000
     indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
-    ruby_route = ["Ruby Sea", "One River"]
+    ruby_route = ["Ruby Sea", "One River", "Thavnairian Coast"]
 
     locations = []
     for route in indigo_route:

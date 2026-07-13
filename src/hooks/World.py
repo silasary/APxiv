@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_EMOTES
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_excluded_expansions
 from .Options import LevelCap
 
@@ -67,13 +67,13 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
     if duty_type == "PvP":
         return None
     if duty_type == "Field Operation":
-        return None
+        return get_int_value(multiworld, player, "field_operation_critical_encounter_count")
     raise ValueError(f"Unknown duty type {duty_type}")
 
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
-    return world.random.choice(FILLER_EMOTES)
+    return world.random.choices(FILLER_NAMES, weights=FILLER_WEIGHTS)[0]
 
 def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> None:
     """
@@ -101,7 +101,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         slot_data = multiworld.re_gen_passthrough.get(world.game, {})
         world.mcguffins_needed = slot_data['mcguffins_needed']
     else:
-        world.mcguffins_needed = get_option_value(multiworld, player, "mcguffins_needed")
+        world.mcguffins_needed = 50
 
     if goal_level and goal_level > level_cap:
         raise OptionError(f"The selected goal '{goal}' requires level {goal_location.get('level')}, which exceeds the level cap of {level_cap}.")
@@ -137,7 +137,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
-        
+
 
 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
@@ -157,6 +157,12 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             if dutyExpansion in excluded_expansions:
                 world.skipped_duties.update(names)
                 continue
+
+            if dutyType == "Field Operation" and not is_option_enabled(multiworld, player, "include_duels"):
+                duels = [n for n in names if location_name_to_location[n].get('party', None) == 0]
+                names = [n for n in names if n not in duels]
+                world.skipped_duties.update(duels)
+
 
             count = min(len(names), count)
             used_names = world.random.sample(names, count)
@@ -358,7 +364,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         world.mcguffins_needed = 0
     else:
         item_config['Memory of a Distant World'] = min(remaining // 4, 50)
-        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffins_needed") / 100))
+        world.mcguffins_needed = int(item_config['Memory of a Distant World'] * (get_int_value(multiworld, player, "mcguffin_percentage_needed") / 100))
     item_count += item_config['Memory of a Distant World']
 
     if is_fishing_enabled(multiworld, player):
@@ -380,7 +386,23 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count
     if remaining > 0:
-        filler_levels = [f"5 {job} Levels" for job in TANKS + HEALERS + MELEE + CASTER + RANGED + DOH]
+        exclude_jobs = get_excluded_jobs(multiworld, player)
+
+        tanks = TANKS.copy()
+        healers = HEALERS.copy()
+        melee = MELEE.copy()
+        caster = CASTER.copy()
+        ranged = RANGED.copy()
+        doh = DOH.copy()
+        if exclude_jobs:
+            tanks   = [j for j in tanks   if j not in exclude_jobs]
+            healers = [j for j in healers if j not in exclude_jobs]
+            melee   = [j for j in melee   if j not in exclude_jobs]
+            caster  = [j for j in caster  if j not in exclude_jobs]
+            ranged  = [j for j in ranged  if j not in exclude_jobs]
+            doh     = [j for j in doh     if j not in exclude_jobs]
+
+        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
             item_config[name] = min(remaining, capped_count)
@@ -404,9 +426,6 @@ def before_create_items_filler(
     start_class = world.random.choice(prog_levels)
     prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-    force_jobs_raw = set(get_option_value(multiworld, player, "force_jobs"))
-    exclude_jobs = get_excluded_jobs(multiworld, player) - force_jobs_raw
-    excluded_level_items = {f"5 {job} Levels" for job in exclude_jobs} if exclude_jobs else set()
 
     seen_levels = {}
     locations_per_depth = defaultdict(list)
@@ -444,9 +463,6 @@ def before_create_items_filler(
             if item.name == "5 FSH Levels" and seen_levels[item.name] <= 5:
                 multiworld.push_precollected(item)
                 continue
-
-        if item.name in excluded_level_items:
-            continue
 
         if item_name_to_item[item.name].get("level", 0) > level_cap:
             # Do not add the item to the item pool if the level requirement is above the level cap.
