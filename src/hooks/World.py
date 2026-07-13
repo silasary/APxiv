@@ -149,13 +149,14 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
-            count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
-
-            if count is None:
-                continue
 
             if dutyExpansion in excluded_expansions:
                 world.skipped_duties.update(names)
+                continue
+
+            count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
+
+            if count is None:
                 continue
 
             if dutyType == "Field Operation" and not is_option_enabled(multiworld, player, "include_duels"):
