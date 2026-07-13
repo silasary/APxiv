@@ -255,7 +255,18 @@ class ExcludeExpansion(OptionSet):
     Forced jobs that are part of an excluded expansion remain force-enabled.
     """
     display_name = "Exclude Expansions"
-    valid_keys = frozenset(["HW", "StB", "ShB", "EW", "DT"])
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        from .Data import EXCLUDABLE_EXPANSIONS
+
+        for item_name in self.value:
+            if item_name not in EXCLUDABLE_EXPANSIONS:
+                picks = get_fuzzy_results(item_name, EXCLUDABLE_EXPANSIONS, limit=1)
+                raise Exception(f"Item {item_name} from option {self} "
+                                f"is not a valid expansion from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+        return super().verify(world, player_name, plando_options)
 
 class ExcludeJob(OptionSet):
     """
