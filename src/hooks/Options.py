@@ -314,6 +314,7 @@ class FishsanityDisableStartingBait(Toggle):
 
     This option may cause generation to fail.
     """
+    visibility = Visibility.none  # This needs to be locked behind a host.yaml setting
 
 class IncludeGuildhests(Toggle):
     """

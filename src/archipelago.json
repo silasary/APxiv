@@ -1,10 +1,17 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.29.0",
+    "world_version": "0.30.0",
     "minimum_ap_version": "0.6.7",
     "changelog": [
-        "* Added new goal options for defeating specific bosses",
-        "* Added option to gate boss goals behind collected key items",
+        "* Added new checks for attuning aetherytes.",
+        "* Added new option: Huntsanity.  Checks for defeating hunt targets.",
+        "* Added the rest of Bozja.",
+        "* Added Occult Crescent South Horn.",
+        "* Added new PvP map",
+        "* Changed logic for Big Fish to also require the bait for Intuition fish",
+        "* More kinds of filler items.",
+        "* Option to exclude specific jobs from the item pool.",
+        "* Assorted bugfixes",
         ""
     ]
 }

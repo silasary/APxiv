@@ -23,6 +23,11 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new AttuneLocation(apState, id, name);
             if (Data.DynamicEvents.ContainsKey(name))
                 return new CriticalEncounterLocation(apState, id, name);
+            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+            {
+                return new FateLocation(apState, id, name, fate);
+            }
+
             return new Location(apState, id, name);
         }
 
@@ -31,18 +36,11 @@ namespace ArchipelagoXIV.Rando.Locations
             this.apState = apState;
             ApId = id;
             Name = name;
-            if (Data.FateTable.TryGetValue(Name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
-                {
-                    Name = fate.Name.ToString().Trim();
-                    if (!Name.EndsWith("(FATE)"))
-                        Name += " (FATE)";
-                }
-            if (Data.DutyAliases.TryGetValue(Name, out var value))
-                Name = value;
+
             Level = 0;
         }
 
-        public readonly string Name;
+        public string Name { get; protected set; }
         protected readonly ApState apState;
         public readonly long ApId;
         public int Level;
@@ -125,20 +123,6 @@ namespace ArchipelagoXIV.Rando.Locations
                     MeetsRequirements = Logic.Level(80, "BLU");
                 else
                     DalamudApi.Echo($"Unknown stage {Name}");
-            }
-            else if (Name.EndsWith(" (FATE)"))
-            {
-                if (APData.FateData.TryGetValue(Name, out var fateLevel))
-                    MeetsRequirements = Logic.Level(fateLevel);
-                else
-                {
-                    DalamudApi.Echo($"Could not find fate level for {Name}");
-                    MeetsRequirements = Logic.Always();
-                }
-            }
-            else if (Name.EndsWith(" (FETE)"))
-            {
-                MeetsRequirements = Logic.LevelDOHDOL(APData.FateData[Name]);
             }
             else if (Name.EndsWith(" (GATE)"))
             {
