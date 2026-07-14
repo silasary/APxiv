@@ -46,11 +46,12 @@ BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
 }
 
-WORLD_BOSSES = [
+UNREASONABLE_FATES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
     "A Horse Outside (FATE)", "Foxy Lady (FATE)",
     "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
+    "Subtle Nightshade", "Toxic Nightshade", "Deadly Nightshade",  # Not a world boss, but a very messy fate chain that frequently fails due to conflicting FATEs being up.
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
     "The Serpentlord Seethes", "Mascot Murder",
     ]
