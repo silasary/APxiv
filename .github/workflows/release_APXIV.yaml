@@ -82,6 +82,8 @@ jobs:
             - name: Update template yamls
               continue-on-error: true
               run: |
+                source venv/bin/activate
+                cd Archipelago
                 python Launcher.py "Generate Template Options" --skip_open_folder
                 rm template_yamls/*.yaml
                 cp "Archipelago/Players/Templates/Presets/Final Fantasy XIV - *.yaml" template_yamls/

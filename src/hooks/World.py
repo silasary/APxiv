@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, WORLD_BOSSES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_excluded_expansions
 from .Options import LevelCap
 
@@ -229,7 +229,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToExclude = []
     empty_regions = []
     if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
-        locationNamesToRemove.extend(WORLD_BOSSES)
+        locationNamesToRemove.extend(UNREASONABLE_FATES)
 
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
