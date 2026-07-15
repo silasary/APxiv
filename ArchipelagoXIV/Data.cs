@@ -145,7 +145,13 @@ namespace ArchipelagoXIV
             { "The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
+            // Aetheryte place names that don't match the actual aetheryte name
+            // Because the code happens in a detour, we'd rather hardcode these than do string manipulation at check time
             { "Attune Crick", "Attune Onokoro" },
+            { "Attune Kugane Aetheryte Plaza", "Attune Kugane" },
+            { "Attune Old Sharlayan Aetheryte Plaza", "Attune Old Sharlayan" },
+            { "Attune Radz-at-Han Aetheryte Plaza", "Attune Radz-at-Han" },
+            { "Attune Tuliyollal Aetheryte Plaza", "Attune Tuliyollal" },
         };
 
         public static void Initialize() {
