@@ -145,6 +145,7 @@ namespace ArchipelagoXIV
             { "The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
+            { "Attune Crick", "Attune Onokoro" },
         };
 
         public static void Initialize() {

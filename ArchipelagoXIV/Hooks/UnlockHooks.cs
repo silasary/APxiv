@@ -1,3 +1,4 @@
+using ArchipelagoXIV.Rando;
 using Dalamud.Hooking;
 using FFXIVClientStructs.FFXIV.Client.Game.Control;
 using FFXIVClientStructs.FFXIV.Client.Game.Object;
@@ -37,6 +38,10 @@ namespace ArchipelagoXIV.Hooks
                 if (apState.Game.AttunedAetherytes.Add(areaname))
                 {
                     var name = $"Attune {areaname}";
+                    if (Data.DutyAliases.TryGetValue(name, out var alias))
+                    {
+                        name = alias;
+                    }
                     var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
                     if (loc != null)
                     {
