@@ -267,6 +267,16 @@ namespace ArchipelagoXIV.Hooks
                     var message = $"Granted Queue Amnesty for {name}";
                     DalamudApi.ToastGui.ShowQuest(message, new Dalamud.Game.Gui.Toast.QuestToastOptions { PlaySound = true });
                     DalamudApi.Echo(message);
+
+                    if (apState.Game is NGPlusGame state)
+                    {
+                        for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
+                        {
+                            DalamudApi.PluginLog.Debug($"looking for {name} {i}");
+                            var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
+                            extraLocation?.Complete(false);
+                        }
+                    }
                     location.Complete();
                     UIGlobals.PlayChatSoundEffect(6);
                 }
