@@ -11,7 +11,8 @@ namespace ArchipelagoXIV.Rando
 
         static RegionContainer()
         {
-            Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah", "Ishgard"]);
+            Menu = new Region("Menu", ["Limsa Lominsa", "Gridania", "Ul'dah"]);
+            Menu.Distance = 0;
             APData.LoadRegions();
             APData.LoadDutiesCsv();
             APData.LoadFatesCsv();
@@ -61,6 +62,8 @@ namespace ArchipelagoXIV.Rando
                     {
                         if (!explored.Contains(conn))
                             queue.Enqueue(conn);
+                        if (conn.Distance == null || conn.Distance > region.Distance + 1)
+                            conn.Distance = region.Distance + 1;
                     }
                 }
                 return false;
@@ -116,6 +119,8 @@ namespace ArchipelagoXIV.Rando
         public Func<ApState, bool, bool> MeetsRequirements;
         public Region[]? Connections = null;
         public string[] _connections;
+
+        public int? Distance = null;
 
         internal bool stale;
         internal bool Reachable;
