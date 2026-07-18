@@ -33,7 +33,10 @@ namespace ArchipelagoXIV
         private ConfigWindow ConfigWindow { get; set; }
         private MainWindow MainWindow { get; set; }
 
+        private DebugWindow DebugWindow { get; set; }
+        
         public async Task LoadAsync(CancellationToken cancellationToken)
+
         {
             DalamudApi.Initialize(PluginInterface);
             Data.Initialize();
@@ -52,9 +55,11 @@ namespace ArchipelagoXIV
 
             ConfigWindow = new ConfigWindow(this, this.apState);
             MainWindow = new MainWindow(this, this.apState);
+            DebugWindow = new DebugWindow(this, this.apState);
 
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
+            WindowSystem.AddWindow(DebugWindow);
 
             this.CommandManager.AddHandler("/ap-connect", new CommandInfo(Connect)
             {
@@ -65,6 +70,10 @@ namespace ArchipelagoXIV
             this.CommandManager.AddHandler("/ap-config", new CommandInfo(ShowConfig)
             {
                 HelpMessage = "Archipelago Config"
+            });
+            this.CommandManager.AddHandler("/ap-debug", new CommandInfo(ShowDebug)
+            {
+                HelpMessage = "Show Archipelago debug window"
             });
 
             this.CommandManager.AddHandler("/ap-disconnect", new CommandInfo(Disconnect)
@@ -165,6 +174,11 @@ namespace ArchipelagoXIV
         private void ShowConfig(string command, string arguments)
         {
             this.ConfigWindow.IsOpen = true;
+        }
+
+        private void ShowDebug(string command, string arguments)
+        {
+            this.DebugWindow.IsOpen = true;
         }
 
         public void Dispose()
