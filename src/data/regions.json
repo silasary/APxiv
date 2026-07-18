@@ -499,7 +499,30 @@
     },
     "Mare Lamentorum": {
         "requires": "|Mare Lamentorum Access: 1|",
+        "connects_to": [
+            "Sinus Ardorum"
+        ]
+    },
+    "Sinus Ardorum": {
+        "requires": "",
         "connects_to": []
+    },
+    "Phaenna": {
+        "requires": "",
+        "connects_to": [
+            "Oizys"
+        ]
+    },
+    "Oizys": {
+        "requires": "",
+        "connects_to": [
+            "Auxesia"
+        ]
+    },
+    "Auxesia": {
+        "requires": "",
+        "connects_to": [
+        ]
     },
     "Elpis": {
         "requires": "|Elpis Access: 1|",
