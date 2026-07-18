@@ -9,6 +9,7 @@ using Archipelago.MultiClient.Net.Packets;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
+using System;
 
 namespace ArchipelagoXIV
 {
@@ -90,7 +91,9 @@ namespace ArchipelagoXIV
                 DalamudApi.SetStatusBar("AP Ready");
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
+            await LogicUpdate(cancellationToken);
         }
+
 
         public async ValueTask DisposeAsync()
         {
@@ -98,6 +101,20 @@ namespace ArchipelagoXIV
             {
                 Dispose();
             });
+        }
+
+        private async Task LogicUpdate(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                if (apState.RefreshBars)
+                {
+                    await apState.UpdateBars();
+                    apState.RefreshBars = false;
+                }
+
+                await Task.Delay(1000, cancellationToken);
+            }
         }
 
         private void Framework_Update(IFramework framework)
@@ -122,13 +139,8 @@ namespace ArchipelagoXIV
                 apState.lastFateCount = fates;
                 refresh = true;
             }
-            if (apState.RefreshBars)
-            {
-                apState.RefreshBars = false;
-                refresh = true;
-            }
             if (refresh)
-                apState.UpdateBars();
+                apState.RefreshBars = true;
 
             Events.CheckAmnesty();
             HuntHooks.OnFrameworkUpdate();

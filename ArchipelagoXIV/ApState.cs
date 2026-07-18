@@ -304,8 +304,11 @@ namespace ArchipelagoXIV
             RefreshBars = true;
         }
 
-        public void UpdateBars()
+        public async Task UpdateBars()
         {
+            if (this.lastJob.RowId == 0)
+                return;
+
             var BK = true;
             var fish = false;
             var fisher = this.lastJob.Abbreviation == "FSH";
@@ -450,7 +453,7 @@ namespace ArchipelagoXIV
             if (Syncing)
             {
                 Syncing = false;
-                Task.Run(async () => await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]));
+                await Task.Run(async () => await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]));
             }
             this.lastUpFateCount = upfates;
         }
