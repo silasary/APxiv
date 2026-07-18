@@ -79,7 +79,10 @@ public class MainWindow : Window
         if (state.territoryName == null)
             return;
 
-        var canReach = RegionContainer.CanReach(state, state.territoryName, (ushort)state.territory.RowId);
+        var regionname = RegionContainer.LocationToRegion(state.territoryName, (ushort)state.territory.RowId);
+        var canReach = false;
+        if (APData.Regions.TryGetValue(regionname, out var value))
+            canReach = value.Reachable;
 
         ImGui.TextColored(canReach ? new Vector4(0.4f, 1f, 0.4f, 1f) : new Vector4(1f, 0.4f, 0.4f, 1f),
             $"Current location in logic: {canReach}");
@@ -102,7 +105,7 @@ public class MainWindow : Window
         //ImGui.Indent(55);
         foreach (var location in state.MissingLocations)
         {
-            if (location.IsAccessible())
+            if (location.Accessible)
             {
                 var name = location.DisplayText;
                 if (location.Name.EndsWith(" (FATE)"))
