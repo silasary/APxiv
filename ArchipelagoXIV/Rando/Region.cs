@@ -20,10 +20,14 @@ namespace ArchipelagoXIV.Rando
             APData.LoadRemoved();
         }
 
-        internal static void MarkStale()
+        internal static void MarkStale(bool reset)
         {
             foreach (var region in APData.Regions.Values) {
-                region.stale = true;
+                if (reset)
+                    region.Reachable = false;
+
+                if (!region.Reachable)
+                    region.stale = true;
             }
         }
 
@@ -54,8 +58,10 @@ namespace ArchipelagoXIV.Rando
 
                     region.Connections ??= region._connections.Select(n => APData.Regions.TryGetValue(n, out var r) ? r : null).OfType<Region>().ToArray();
                     foreach (var conn in region.Connections)
+                    {
                         if (!explored.Contains(conn))
                             queue.Enqueue(conn);
+                    }
                 }
                 return false;
             }

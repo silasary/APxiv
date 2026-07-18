@@ -311,7 +311,7 @@ namespace ArchipelagoXIV
             if (Loading)
                 return;
 
-            RefreshRegions();
+            RefreshRegions(false);
             this.RefreshLocations(false);
             RefreshBars = true;
         }
@@ -470,9 +470,9 @@ namespace ArchipelagoXIV
             this.lastUpFateCount = upfates;
         }
 
-        private static void RefreshRegions()
+        private static void RefreshRegions(bool reset)
         {
-            RegionContainer.MarkStale();
+            RegionContainer.MarkStale(reset);
         }
 
         private void MessageLog_OnMessageReceived(Archipelago.MultiClient.Net.MessageLog.Messages.LogMessage message)
@@ -493,7 +493,7 @@ namespace ArchipelagoXIV
             if (Loading)
             {
                 Loading = false;
-                RefreshRegions();
+                RefreshRegions(true);
                 this.RefreshLocations(true);
                 Game.Ready();
                 RefreshBars = true;
