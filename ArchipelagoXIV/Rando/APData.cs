@@ -33,12 +33,6 @@ namespace ArchipelagoXIV.Rando
             { "Cloud Nine", "Ishgard"},
             { "Bokairo Inn", "Kugane"},
             { "Andron", "Old Sharlayan"},
-            // Player Housing
-            { "The Goblet", "Ul'dah" },
-            { "Mist", "Limsa Lominsa" },
-            { "The Lavender Beds", "Gridania" },
-            { "Shirogane", "Kugane" },
-            { "Empyreum", "Ishgard" },
             // Gold Saucer
             { "Chocobo Square", "The Gold Saucer" },
             { "The Battlehall", "The Gold Saucer" },

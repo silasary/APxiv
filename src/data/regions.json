@@ -248,7 +248,8 @@
 			"The Sea of Clouds",
 			"Azys Lla",
             "The Firmament",
-            "The Diadem"
+            "The Diadem",
+            "Empyreum"
 		]
 	},
     "Foundation": {
@@ -540,6 +541,9 @@
         "connects_to": []
     },
     "The Firmament": {
+        "connects_to": []
+    },
+    "Empyreum": {
         "connects_to": []
     },
     "Mist": {
