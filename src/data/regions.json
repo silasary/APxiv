@@ -505,7 +505,9 @@
     },
     "Sinus Ardorum": {
         "requires": "",
-        "connects_to": []
+        "connects_to": [
+			"Phaenna"
+		]
     },
     "Phaenna": {
         "requires": "",
