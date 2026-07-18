@@ -143,7 +143,7 @@ namespace ArchipelagoXIV.Rando.Locations
             else if (Name.StartsWith("Ocean Fishing"))
             {
                 if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River" ||Name == "Ocean Fishing: Thavnairian Coast")
-                    MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
+                    MeetsRequirements = Logic.And(Logic.Level(60, "FSH"), Logic.HasItem("Kugane Access"));
                 else
                     MeetsRequirements = Logic.Level(5, "FSH");
             }

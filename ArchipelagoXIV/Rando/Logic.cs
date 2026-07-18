@@ -51,5 +51,10 @@ namespace ArchipelagoXIV.Rando
             var gLevel = asCurrentClass ? state.Game.MaxLevel(state.lastJob) : state.Game.MaxLevelDHL();
             return gLevel >= level;
         };
+
+        internal static Func<ApState, bool, bool>? And(params Func<ApState, bool, bool>?[] rules) => (state, asCurrentClass) =>
+        {
+            return rules.Where(r => r != null).All(r => r!(state, asCurrentClass));
+        };
     }
 }
