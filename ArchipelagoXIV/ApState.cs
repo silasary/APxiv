@@ -467,6 +467,7 @@ namespace ArchipelagoXIV
             if (Syncing)
             {
                 Syncing = false;
+                await SaveCache();
                 await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
                 MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
             }
