@@ -134,17 +134,19 @@ namespace ArchipelagoXIV
             if (string.IsNullOrWhiteSpace(password))
                 password = null;
 
-            var result = this.session.TryConnectAndLogin(Game.Name, player, Archipelago.MultiClient.Net.Enums.ItemsHandlingFlags.AllItems, tags: tags, password: password);
+            var connectResult = await this.session.ConnectAsync();
+
+            var result = await this.session.LoginAsync(Game.Name, player, ItemsHandlingFlags.AllItems, tags: tags, password: password);
             Connected = result.Successful;
             if (!result.Successful)
             {
                 var failure = result as LoginFailure;
                 foreach (var e in failure.Errors)
                     DalamudApi.Echo(e);
-                if (failure.ErrorCodes.Length != 0 && failure.ErrorCodes.First() == Archipelago.MultiClient.Net.Enums.ConnectionRefusedError.InvalidGame)
+                if (failure.ErrorCodes.Length != 0 && failure.ErrorCodes.First() == ConnectionRefusedError.InvalidGame)
                 {
                     this.Game = new SpectatorGame(this);
-                    Connect(address, player, password);
+                    await ConnectAsync(address, player, password);
                     return;
 
                 }
@@ -164,7 +166,7 @@ namespace ArchipelagoXIV
                 LoadGame(game);
                 if (this.Game is not SpectatorGame)
                 {
-                    Connect(address, player, password);
+                    await ConnectAsync(address, player, password);
                     return;
                 }
                 DalamudApi.Echo($"Spectating {game}");
