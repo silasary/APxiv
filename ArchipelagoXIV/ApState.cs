@@ -262,12 +262,12 @@ namespace ArchipelagoXIV
             this.session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
         }
 
-        internal async Task SaveCache()
+        internal void SaveCache()
         {
             if (savingCache)
                 return;
             savingCache = true;
-            await File.WriteAllTextAsync(SaveFileName(), JsonConvert.SerializeObject(this.localsave));
+            File.WriteAllText(SaveFileName(), JsonConvert.SerializeObject(this.localsave));
             savingCache = false;
         }
 
@@ -467,8 +467,7 @@ namespace ArchipelagoXIV
             if (Syncing)
             {
                 Syncing = false;
-                await SaveCache();
-                await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
+                await Task.Run(async () => await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]));
             }
             this.lastUpFateCount = upfates;
         }
