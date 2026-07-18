@@ -4,6 +4,7 @@ using ArchipelagoXIV.Rando;
 using Dalamud.Interface.Windowing;
 using Dalamud.Bindings.ImGui;
 using System.Linq;
+using ArchipelagoXIV.Rando.Locations;
 
 namespace ArchipelagoXIV.Windows;
 
@@ -105,6 +106,9 @@ public class MainWindow : Window
         //ImGui.Indent(55);
         foreach (var location in state.MissingLocations)
         {
+            if (location is DutySubLocation subLocation && !(subLocation.parent?.Completed ?? true))
+                continue;
+
             if (location.Accessible)
             {
                 var name = location.DisplayText;
