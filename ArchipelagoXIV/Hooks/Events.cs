@@ -49,7 +49,7 @@ namespace ArchipelagoXIV.Hooks
                 }
             }
         }
-
+          
         private unsafe void OnFatePreFinalize(AddonEvent type, AddonArgs args)
         {
             var fateRewardAddon = (AtkUnitBase*)args.Addon.Address;

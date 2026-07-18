@@ -7,36 +7,34 @@ using ArchipelagoXIV.Hooks;
 using Dalamud.Plugin.Services;
 using Archipelago.MultiClient.Net.Packets;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace ArchipelagoXIV
 {
-    public sealed class Plugin : IDalamudPlugin
+    public sealed class Plugin : IAsyncDalamudPlugin
     {
+        [PluginService]
         private IDalamudPluginInterface PluginInterface { get; init; }
+        [PluginService]
         private ICommandManager CommandManager { get; init; }
 
-        private ApState apState { get; init; }
+        private ApState apState { get; set; }
 
-        internal UnlockHooks Hooks { get; }
-        internal Events Events { get; }
-        internal UIHooks UiHooks { get; }
-        internal DeathLinkHooks DLHooks { get; }
-        internal HuntHooks HuntHooks { get; }
-        public Configuration Configuration { get; init; }
+        internal UnlockHooks Hooks { get; private set; }
+        internal Events Events { get; private set; }
+        internal UIHooks UiHooks { get; private set; }
+        internal DeathLinkHooks DLHooks { get; private set; }
+        internal HuntHooks HuntHooks { get; private set; }
+        public Configuration Configuration { get; private set; }
         public WindowSystem WindowSystem = new("ArchipelagoXIV");
 
-        private ConfigWindow ConfigWindow { get; init; }
-        private MainWindow MainWindow { get; init; }
+        private ConfigWindow ConfigWindow { get; set; }
+        private MainWindow MainWindow { get; set; }
 
-        public Plugin(
-            IDalamudPluginInterface pluginInterface,
-            ICommandManager commandManager
-        )
+        public async Task LoadAsync(CancellationToken cancellationToken)
         {
-            this.PluginInterface = pluginInterface;
-            this.CommandManager = commandManager;
-
-            DalamudApi.Initialize(pluginInterface);
+            DalamudApi.Initialize(PluginInterface);
             Data.Initialize();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
@@ -81,13 +79,25 @@ namespace ArchipelagoXIV
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.PluginInterface.UiBuilder.OpenMainUi += () => MainWindow.IsOpen = true;
-            this.Hooks.Enable();
-            this.Events.Enable();
-            UiHooks.Enable();
-            DLHooks.Enable();
-            DalamudApi.Framework.Update += Framework_Update;
-            DalamudApi.SetStatusBar("AP Ready");
-            DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
+
+            await DalamudApi.Framework.RunOnFrameworkThread(() =>
+            {
+                this.Hooks.Enable();
+                this.Events.Enable();
+                UiHooks.Enable();
+                DLHooks.Enable();
+                DalamudApi.Framework.Update += Framework_Update;
+                DalamudApi.SetStatusBar("AP Ready");
+                DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
+            });
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            await DalamudApi.Framework.RunOnFrameworkThread(() =>
+            {
+                Dispose();
+            });
         }
 
         private void Framework_Update(IFramework framework)
@@ -192,7 +202,5 @@ namespace ArchipelagoXIV
         {
             ConfigWindow.IsOpen = true;
         }
-
-
     }
 }
