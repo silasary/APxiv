@@ -141,7 +141,7 @@ namespace ArchipelagoXIV.Hooks
                     {
                         DalamudApi.PluginLog.Debug($"looking for {name} {i}");
                         var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
-                        extraLocation?.Complete(false);
+                        extraLocation?.Complete();
                     }
                 }
 
@@ -153,7 +153,7 @@ namespace ArchipelagoXIV.Hooks
                 }
 
                 DalamudApi.PluginLog.Debug("Marking Check {0}", name);
-                location.Complete(false);
+                location.Complete();
                 apState.Syncing = true;
             }
             else
@@ -253,7 +253,7 @@ namespace ArchipelagoXIV.Hooks
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
 
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                var location = apState.AllLocations.FirstOrDefault(l => l.Name == name);
 
 
                 if (location == null)
@@ -274,7 +274,7 @@ namespace ArchipelagoXIV.Hooks
                         {
                             DalamudApi.PluginLog.Debug($"looking for {name} {i}");
                             var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
-                            extraLocation?.Complete(false);
+                            extraLocation?.Complete();
                         }
                     }
                     location.Complete();

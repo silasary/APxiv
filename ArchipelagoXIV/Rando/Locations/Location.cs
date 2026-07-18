@@ -59,16 +59,13 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public virtual bool IsAccessible()
         {
-            if (Completed)
-                return false;
-
             if (stale)
             {
                 stale = false;
-                var allMissingLocations = apState?.session?.Locations?.AllMissingLocations;
-                if (allMissingLocations == null)
+                var allLocations = apState?.session?.Locations?.AllLocations;
+                if (allLocations == null)
                     return Accessible = false;
-                if (!allMissingLocations.Contains(ApId))
+                if (!allLocations.Contains(ApId))
                     return Accessible = false;
                 if (!apState?.Game?.MeetsRequirements(this) ?? false)
                     return Accessible = false;
@@ -178,19 +175,13 @@ namespace ArchipelagoXIV.Rando.Locations
             return true;
         }
 
-        public void Complete(bool sendNow = true)
-        {
-            Completed = true;
-            apState.localsave!.CompletedChecks.Add(ApId);
-            if (sendNow)
-                Task.Run(CompleteAsync);
-            apState.RefreshBars = true;
-        }
-        private async void CompleteAsync()
+        public void Complete()
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
-            apState.SaveCache();
-            await apState.session!.Locations.CompleteLocationChecksAsync(ApId);
+            Completed = true;
+            apState.localsave!.CompletedChecks.Add(ApId);
+            apState.RefreshBars = true;
+            apState.Syncing = true;
         }
 
         public string DisplayText
