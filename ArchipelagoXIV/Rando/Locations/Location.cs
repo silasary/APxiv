@@ -185,8 +185,8 @@ namespace ArchipelagoXIV.Rando.Locations
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             Completed = true;
             apState.localsave!.CompletedChecks.Add(ApId);
-            apState.RefreshBars = true;
             apState.Syncing = true;
+            apState.RefreshBars = true;
         }
 
         public virtual string DisplayText
