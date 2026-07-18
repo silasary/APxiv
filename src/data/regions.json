@@ -297,7 +297,7 @@
     },
     "Alexander":
     {
-        "requires": "|Alexander Key:1| or |Alexander Access:1|"
+        "requires": "|Alexander Key| or |Alexander Access|"
     },
 	"Azys Lla":
 	{
@@ -324,7 +324,7 @@
 		]
 	},
     "Interdimensional Rift": {
-        "requires": "|Interdimensional Rift Access:1| or |Omega Key:1|",
+        "requires": "|Interdimensional Rift Access| or |Omega Key|",
         "connects_to": []
     },
 	"The Peaks":
@@ -429,7 +429,7 @@
 		]
 	},
     "The Empty": {
-        "requires": "|The Empty Access: 1| or |Eden Key:1|",
+        "requires": "|The Empty Access: 1| or |Eden Key|",
         "connects_to": []
     },
 	"Il Mheg":
@@ -592,7 +592,7 @@
         "connects_to": ["The Arcadion"]
     },
     "The Arcadion": {
-        "requires": "|Arcadion Key:1| or |Arcadion Access:1|",
+        "requires": "|Arcadion Key| or |Arcadion Access|",
         "connects_to": []
     },
     "Living Memory": {

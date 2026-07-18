@@ -24,9 +24,6 @@ namespace ArchipelagoXIV.Rando
                          select HasItem(m.Groups[0].Value)).ToArray();
             if (rules.Length != 0)
                 return (state, asCurrentClass) => rules.All(r => r(state, asCurrentClass));
-            if (string.IsNullOrEmpty(requires))
-                return Always();
-            DalamudApi.Echo($"Could not parse Requires string: {requires}");
             return Always();
         }
 

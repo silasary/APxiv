@@ -77,19 +77,11 @@ namespace ArchipelagoXIV.Rando
             if (location?.region != null)
                 return CanReach(apState, location.region);
 
-            if (location is DutySubLocation subLocation)
-            {
-                name = subLocation.GetParent().Name;
-            }
-
             name = LocationToRegion(name, territoryId);
             if (!APData.Regions.TryGetValue(name, out var value))
             {
-                if (!APData.Regions.TryGetValue(name, out value))
-                {
-                    DalamudApi.PluginLog.Warning($"Unknown Location {name} (tt={territoryId}, loc={location?.Name})");
-                    return false;
-                }
+                //DalamudApi.Echo($"Unknown Location {name} ({territoryId})");
+                return false;
             }
             if (location != null)
                 location.region = value;

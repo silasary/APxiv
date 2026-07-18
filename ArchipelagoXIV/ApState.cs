@@ -87,8 +87,6 @@ namespace ArchipelagoXIV
 
         public bool Connected { get; internal set; }
         public IEnumerable<string> Items => session?.Items.AllItemsReceived.Select(i => i.ItemDisplayName) ?? Array.Empty<string>();
-
-        public Location[] AllLocations { get; private set; } = [];
         public Location[] MissingLocations { get; private set; } = [];
         public Hint[] Hints { get; private set; }
         public SaveFile? localsave { get; private set; }
@@ -351,7 +349,7 @@ namespace ArchipelagoXIV
                         {
                             zoneTT.AppendLine(l.DisplayText);
                             checks++;
-                            if (l is FateLocation)
+                            if (l.Name.Contains("FATE"))
                                 fates++;
                             if (DalamudApi.FateTable.Any(f => f.Name.ToString().Equals(l.Name.Replace(" (FATE)", ""), StringComparison.OrdinalIgnoreCase)))
                             {
@@ -511,10 +509,7 @@ namespace ArchipelagoXIV
             }
 
             if (hard || MissingLocations == null || MissingLocations.Length == 0)
-            {
-                AllLocations = [.. session!.Locations.AllLocations.Select(i => Location.Create(this, i))];
-                MissingLocations = [.. AllLocations.Where(l => !l.Completed)];
-            }
+                MissingLocations = session!.Locations.AllMissingLocations.Select(i => Location.Create(this, i)).ToArray();
             else
             {
                 foreach (var l in MissingLocations)

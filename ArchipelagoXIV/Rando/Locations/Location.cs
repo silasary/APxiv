@@ -28,26 +28,6 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new FateLocation(apState, id, name, fate);
             }
 
-            var content = Data.Content.FirstOrDefault(cf => cf.Name == name);
-            if (content.RowId == 0 && name.StartsWith("The"))
-                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == "the" + name[3..]);
-            if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(name, out var cid))
-            {
-                content = Data.Content[cid];
-            }
-            if (content.RowId > 0)
-            {
-                return new DutyLocation(apState, id, name, content);
-            }
-
-            // Bonus checks come in the form "Sastasha 2"
-            var match = Regexes.ExtraCheckName.Match(name);
-            if (match.Success)
-            {
-                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
-                return new DutySubLocation(apState, id, name, content);
-            }
-
             return new Location(apState, id, name);
         }
 
@@ -74,7 +54,7 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
-        public ContentFinderCondition Content { get; protected set; }
+        private ContentFinderCondition content;
         public Hint? HintedItem { get; set; } = null;
 
         public virtual bool IsAccessible()
@@ -94,7 +74,22 @@ namespace ArchipelagoXIV.Rando.Locations
                     return Accessible = false;
                 if (MeetsRequirements == null)
                 {
-                    SetRequirements();
+                    content = Data.Content.FirstOrDefault(cf => cf.Name == Name);
+                    if (content.RowId == 0 && Name.StartsWith("The"))
+                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == "the" + Name[3..]);
+                    if (content.RowId == 0)
+                    {
+                        // Bonus checks come in the form "Sastasha 2"
+                        var match = Regexes.ExtraCheckName.Match(Name);
+                        if (match.Success && match.Groups.Count > 1)
+                            content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
+                    }
+                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(Name, out var id))
+                    {
+                        content = Data.Content[id];
+                    }
+                    if (MeetsRequirements == null)
+                        SetRequirements();
                 }
                 if (!MeetsRequirements(apState, false))
                     return Accessible = false;
@@ -106,9 +101,9 @@ namespace ArchipelagoXIV.Rando.Locations
 
         protected virtual void SetRequirements()
         {
-            if (Content.RowId > 0)
+            if (content.RowId > 0)
             {
-                MeetsRequirements = Logic.Level(Content.ClassJobLevelRequired);
+                MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
             }
             else if (Regexes.FATE.Match(Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
@@ -198,7 +193,7 @@ namespace ArchipelagoXIV.Rando.Locations
             await apState.session!.Locations.CompleteLocationChecksAsync(ApId);
         }
 
-        public virtual string DisplayText
+        public string DisplayText
         {
             get
             {
