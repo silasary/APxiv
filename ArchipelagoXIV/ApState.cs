@@ -467,8 +467,8 @@ namespace ArchipelagoXIV
             if (Syncing)
             {
                 Syncing = false;
+                await SaveCache();
                 await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
-                MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
             }
             this.lastUpFateCount = upfates;
         }
@@ -514,7 +514,7 @@ namespace ArchipelagoXIV
             if (hard || MissingLocations == null || MissingLocations.Length == 0)
             {
                 AllLocations = [.. session!.Locations.AllLocations.Select(i => Location.Create(this, i))];
-                MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
+                MissingLocations = [.. AllLocations.Where(l => !l.Completed)];
             }
             else
             {
