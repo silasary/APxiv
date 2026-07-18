@@ -135,7 +135,6 @@ namespace ArchipelagoXIV
                 password = null;
 
             var connectResult = await this.session.ConnectAsync();
-
             var result = await this.session.LoginAsync(Game.Name, player, ItemsHandlingFlags.AllItems, tags: tags, password: password);
             Connected = result.Successful;
             if (!result.Successful)
@@ -158,7 +157,6 @@ namespace ArchipelagoXIV
 
             var loginSuccessful = (LoginSuccessful)result;
             slot = loginSuccessful.Slot;
-            this.Game.HandleSlotData(loginSuccessful.SlotData);
 
             if (this.Game is SpectatorGame)
             {
@@ -166,12 +164,19 @@ namespace ArchipelagoXIV
                 LoadGame(game);
                 if (this.Game is not SpectatorGame)
                 {
-                    await ConnectAsync(address, player, password);
-                    return;
+                    this.session.ConnectionInfo.UpdateConnectionOptions(["Dalamud"]);
                 }
-                DalamudApi.Echo($"Spectating {game}");
+                else
+                {
+                    DalamudApi.Echo($"Spectating {game}");
+                }
             }
+            this.Game.HandleSlotData(loginSuccessful.SlotData);
             config.GameName = this.Game.Name;
+            config.SlotName = slotName;
+            config.Connection = address;
+            config.Password = password;
+            config.AddToConnectionHistory();
             config.Save();
             this.DeathLink = session.CreateDeathLinkService();
             if (loginSuccessful.SlotData.TryGetValue("death_link", out var deathlink))

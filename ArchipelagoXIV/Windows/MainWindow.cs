@@ -38,7 +38,6 @@ public class MainWindow : Window
             if (!plugin.Configuration.ConnectionHistory.Any() && ImGui.Button($"Reconnect to {plugin.Configuration.Connection}"))
             {
                 state.Connect(plugin.Configuration.Connection, plugin.Configuration.SlotName, plugin.Configuration.Password);
-                plugin.Configuration.AddToConnectionHistory();
             }
 
             if (ImGui.Button("View setup guide"))
@@ -70,7 +69,6 @@ public class MainWindow : Window
                     var player = parts[0].Split(":")[0];
                     var password = parts[0].Split(":")[1];
                     state.Connect(address, player, password);
-                    plugin.Configuration.AddToConnectionHistory(player, password, address);
                 }
             }
 
