@@ -91,12 +91,13 @@ namespace ArchipelagoXIV
                 DalamudApi.SetStatusBar("AP Ready");
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
-            await LogicUpdate(cancellationToken);
+            Task.Run(() => LogicUpdate(cancellationToken), cancellationToken);
         }
 
 
         public async ValueTask DisposeAsync()
         {
+            await apState.DisconnectAsync();
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
                 Dispose();
@@ -168,7 +169,7 @@ namespace ArchipelagoXIV
 
         public void Dispose()
         {
-            apState?.Disconnect();
+            
             WindowSystem.RemoveAllWindows();
             ConfigWindow.Dispose();
             Hooks.Dispose();
@@ -202,7 +203,7 @@ namespace ArchipelagoXIV
 
         private void Disconnect(string command, string args)
         {
-            apState.Disconnect();
+            Task.Run(apState.DisconnectAsync);
         }
 
         private void DrawUI()

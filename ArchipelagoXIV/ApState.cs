@@ -95,17 +95,22 @@ namespace ArchipelagoXIV
         public bool DeathLinkEnabled { get; private set; }
         public bool CurrentLocationInLogic { get; private set; }
 
-        internal void Disconnect()
+        internal async Task DisconnectAsync()
         {
             if (Connected && (session?.Socket?.Connected ?? false))
-                session?.Socket?.DisconnectAsync()?.Wait();
+                await session?.Socket?.DisconnectAsync();
         }
 
         internal void Connect(string address, string? player = null, string? password = null)
         {
+            Task.Run(async () => await ConnectAsync(address, player, password));
+        }
+
+        internal async Task ConnectAsync(string address, string? player = null, string? password = null)
+        {
             if (Connected)
             {
-                Disconnect();
+                await DisconnectAsync();
             }
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.PlayerState;
