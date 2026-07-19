@@ -480,7 +480,7 @@ def after_load_item_file(item_table: list) -> list:
             "max_count": int(max_level / 5),
             "filler": True,
         })
-    level_items[0]['id'] = 5_000
+    level_items[0]["id"] = 5_000
     item_table.extend(level_items)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
@@ -501,6 +501,7 @@ def after_load_item_file(item_table: list) -> list:
             "category": ["Filler"],
             "progression": False,
             "filler": True,
+            "count": 0,
         })
     filler_items[0]['id'] = 999_000
     item_table.extend(filler_items)
