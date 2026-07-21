@@ -466,14 +466,18 @@ namespace ArchipelagoXIV
 
             DalamudApi.SetJobTooltop(jobtt.BuiltString);
 
-            if (Syncing)
-            {
-                Syncing = false;
-                await SaveCache();
-                await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
-                MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
-            }
             this.lastUpFateCount = upfates;
+        }
+
+        public async Task SyncLocations()
+        {
+            await SaveCache();
+
+            if (!Connected)
+                return;
+
+            await session!.Locations.CompleteLocationChecksAsync([.. localsave!.CompletedChecks]);
+            MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
         }
 
         private static void RefreshRegions(bool reset)
