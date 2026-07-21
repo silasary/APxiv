@@ -15,6 +15,8 @@ from itertools import chain
 # 40,000-40,499: Boss Goal locations and their clear items
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
+# 55,000-56,999: Levequests (numbered, per-zone)
+# 57,000-59,999: Levequests (Levesanity)
 
 
 # called after the game.json file has been loaded
@@ -161,6 +163,32 @@ fate_zones = {
     "The Bozjan Southern Front": [71],
     "Zadnor": [76],
     "The Occult Crescent: South Horn": [100],
+}
+
+# Battlecraft levequest zones -> (min leve level in zone, expansion tag).
+leve_zones: dict[str, tuple[int, str]] = {
+    "Lower La Noscea": (1, "ARR"),
+    "Eastern La Noscea": (30, "ARR"),
+    "Western La Noscea": (10, "ARR"),
+
+    "Central Shroud": (1, "ARR"),
+    "East Shroud": (15, "ARR"),
+    "South Shroud": (20, "ARR"),
+
+    "Western Thanalan": (1, "ARR"),
+    "Eastern Thanalan": (15, "ARR"),
+    "Southern Thanalan": (25, "ARR"),
+    "Northern Thanalan": (40, "ARR"),
+
+    "Coerthas Central Highlands": (35, "ARR"),
+    "Coerthas Western Highlands": (50, "HW"),
+
+    "Mor Dhona": (45, "ARR"),
+
+    "The Sea of Clouds": (56, "HW"),
+    "The Dravanian Forelands": (52, "HW"),
+    "The Churning Mists": (54, "HW"),
+    "The Dravanian Hinterlands": (58, "HW"),
 }
 
 bait_to_fish: dict[str, set[str]] = {}

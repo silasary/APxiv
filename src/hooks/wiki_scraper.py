@@ -1045,6 +1045,8 @@ def scrape_aetherytes() -> None:
 if __name__ == "__main__":
     scrape_aetherytes()
     scrape_hunts()
+    from scrapers.leves import build_leves_csv
+    build_leves_csv(datamining_csv, _EX_VERSION_DATA)
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
