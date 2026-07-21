@@ -1,23 +1,23 @@
-using ArchipelagoXIV.Rando;
 using Archipelago.MultiClient.Net;
+using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
+using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Archipelago.MultiClient.Net.MessageLog.Parts;
-using System.Text;
 using Archipelago.MultiClient.Net.Models;
-using Newtonsoft.Json;
-using System.IO;
+using Archipelago.MultiClient.Net.Packets;
+using ArchipelagoXIV.Rando;
+using ArchipelagoXIV.Rando.Locations;
+using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using Lumina.Excel.Sheets;
-using Archipelago.MultiClient.Net.Enums;
-using Archipelago.MultiClient.Net.Packets;
-using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
-using Dalamud.Game.Text.SeStringHandling;
-using ArchipelagoXIV.Rando.Locations;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Dalamud.Utility;
 
 namespace ArchipelagoXIV
 {
@@ -346,6 +346,8 @@ namespace ArchipelagoXIV
                     }
                     if (l.region == region)
                     {
+                        if (l is DutySubLocation subLocation && !(subLocation.parent?.Completed ?? true))
+                            continue;
 
                         if (l.IsAccessible())
                         {

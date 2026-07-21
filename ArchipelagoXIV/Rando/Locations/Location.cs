@@ -58,6 +58,8 @@ namespace ArchipelagoXIV.Rando.Locations
             Name = name;
 
             Level = 0;
+
+            Completed = apState.session!.Locations.AllLocationsChecked.Contains(id);
         }
 
         public string Name { get; protected set; }
