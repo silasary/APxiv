@@ -216,14 +216,14 @@ class BossKeyPieces(Range):
     Number of key pieces required to challenge the final boss (boss goal only).
 
     When set to 0, no key is required and the victory location is accessible on region and level alone.
-    When set to 1-10, that many key items are shuffled into the item pool
+    When set to 1-25, that many key items are shuffled into the item pool
     and must all be collected before the goal location is accessible.
     Has no effect when the goal is set to McGuffin Hunt (Collect Memories).
     """
     display_name = "Boss Key Pieces"
-    default = 0
+    default = 10
     range_start = 0
-    range_end = 10
+    range_end = 25
 
 class ForceJob(OptionSet):
     """
@@ -423,8 +423,9 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
     #  Here's an example on how to add your aliases to the generated goal
     # options.type_hints['goal'].aliases.update({"example": 0, "second_alias": 1})
     # options.type_hints['goal'].options.update({"example": 0, "second_alias": 1})  #for an alias to be valid it must also be in options
-
-    pass
+    from ..Locations import victory_names
+    
+    options.type_hints['goal'].default = victory_names.index("Defeat Necron")
 
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
