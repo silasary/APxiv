@@ -179,7 +179,7 @@ namespace ArchipelagoXIV.Hooks
         private void ClientState_TerritoryChanged(uint e)
         {
             if (!DalamudApi.DutyState.IsDutyStarted)
-                {
+            {
                 var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
                 apState.territoryName = territory.PlaceName.Value.Name.ExtractText();
                 apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ExtractText();
@@ -191,9 +191,6 @@ namespace ArchipelagoXIV.Hooks
                     //RegionContainer.CanReach(apState, apState.territoryName);
                     return;
                 }
-
-                apState.RefreshBars = true;
-
 
                 if (apState.territoryName == "The Waking Sands")
                 {

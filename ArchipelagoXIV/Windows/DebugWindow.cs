@@ -13,6 +13,7 @@ namespace ArchipelagoXIV.Windows
     {
         public override void Draw()
         {
+            ImGui.Text($"BG Task State: {plugin.BackgroundTask.Status} (Should be WaitingForActivation)");
             ImGui.Text($"apState.territoryName: `{state.territoryName}`");
 
             ImGui.Separator();

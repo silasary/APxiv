@@ -29,6 +29,8 @@ namespace ArchipelagoXIV
         internal HuntHooks HuntHooks { get; private set; }
         public Configuration Configuration { get; private set; }
         public WindowSystem WindowSystem = new("ArchipelagoXIV");
+        private CancellationTokenSource BackgroundCancellationToken;
+        public Task BackgroundTask { get; private set; }
 
         private ConfigWindow ConfigWindow { get; set; }
         private MainWindow MainWindow { get; set; }
@@ -100,7 +102,8 @@ namespace ArchipelagoXIV
                 DalamudApi.SetStatusBar("AP Ready");
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
-            Task.Run(() => LogicUpdate(cancellationToken), cancellationToken);
+            this.BackgroundCancellationToken = new CancellationTokenSource();
+            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), cancellationToken);
         }
 
 
