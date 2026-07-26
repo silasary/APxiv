@@ -103,6 +103,11 @@ namespace ArchipelagoXIV
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
             StartBGTask();
+
+            if (Configuration.ConnectAtStartup)
+            {
+                await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+            }
         }
 
         public void StartBGTask()
@@ -207,7 +212,6 @@ namespace ArchipelagoXIV
         {
             
             WindowSystem.RemoveAllWindows();
-            ConfigWindow.Dispose();
             Hooks.Dispose();
             Events.Disable();
             UiHooks.Disable();

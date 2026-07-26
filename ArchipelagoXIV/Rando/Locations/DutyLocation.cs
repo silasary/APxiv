@@ -20,9 +20,9 @@ namespace ArchipelagoXIV.Rando.Locations
             {
                 if (SubLocations.Length > 0)
                 {
-                    return Name + $" ×{SubLocations.Length + 1}" + HintText;
+                    return Name + $" ×{SubLocations.Length + 1}";
                 }
-                return Name + HintText;
+                return Name;
             }
         }
     }

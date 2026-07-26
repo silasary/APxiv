@@ -97,6 +97,11 @@ namespace ArchipelagoXIV
         public bool DeathLinkEnabled { get; private set; }
         public bool CurrentLocationInLogic { get; private set; }
 
+        internal void Disconnect()
+        {
+            Task.Run(async () => await DisconnectAsync());
+        }
+
         internal async Task DisconnectAsync()
         {
             if (Connected && (session?.Socket?.Connected ?? false))

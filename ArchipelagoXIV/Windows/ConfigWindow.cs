@@ -5,7 +5,7 @@ using Dalamud.Bindings.ImGui;
 
 namespace ArchipelagoXIV.Windows;
 
-public class ConfigWindow : Window, IDisposable
+public class ConfigWindow : SharedWindow
 {
     private readonly Configuration Configuration;
     private string slotName;
@@ -14,27 +14,25 @@ public class ConfigWindow : Window, IDisposable
     private bool force_deathlink;
     private bool ignore_class_restrictions;
     private bool require_synced_duties;
+    private bool connect_at_startup;
 
-    public ConfigWindow(Plugin plugin, ApState apState) : base(
+    public ConfigWindow(Plugin plugin, ApState apState) : base(plugin, apState,
         "AP Config",
-        ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
+        ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 220);
+        //this.Size = new Vector2(300, 350);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
-        ApState = apState;
         this.slotName = Configuration.SlotName;
         this.connection = Configuration.Connection;
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
         this.require_synced_duties = Configuration.RequireSyncedDuties;
+        this.connect_at_startup = Configuration.ConnectAtStartup;
+
     }
-
-    public ApState ApState { get; }
-
-    public void Dispose() { }
 
     public override void OnOpen()
     {
@@ -44,6 +42,7 @@ public class ConfigWindow : Window, IDisposable
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
         this.require_synced_duties = Configuration.RequireSyncedDuties;
+        this.connect_at_startup = Configuration.ConnectAtStartup;
     }
 
     public override void Draw()
@@ -62,6 +61,7 @@ public class ConfigWindow : Window, IDisposable
         ImGui.Checkbox("Death Link always enabled", ref force_deathlink);
         ImGui.Checkbox("Ignore Class Restrictions", ref ignore_class_restrictions);
         ImGui.Checkbox("Require Synced Duties", ref require_synced_duties);
+        ImGui.Checkbox("Connect at Startup", ref connect_at_startup);
         if (ImGui.Button("Save & Connect"))
         {
             Configuration.Connection = connection;
@@ -70,9 +70,19 @@ public class ConfigWindow : Window, IDisposable
             Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
             Configuration.RequireSyncedDuties = require_synced_duties;
             Configuration.Password = password;
+            Configuration.ConnectAtStartup = connect_at_startup;
             Configuration.AddToConnectionHistory();
             Configuration.Save();
-            ApState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+            state.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
         }
+        if (state.Connected)
+        {
+            ImGui.SameLine();
+            if (ImGui.Button("Disconnect"))
+            {
+                state.Disconnect();
+            }
+        }
+        RecentConnectionsButtons();
     }
 }

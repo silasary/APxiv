@@ -110,17 +110,21 @@ namespace ArchipelagoXIV.Hooks
             var duty = args.ContentFinderCondition.Value;
             if (!APData.ContentIDToLocationName.TryGetValue(duty.Content.RowId, out var name))
             {
-                name = duty.Name.ToString();
-                if (name.StartsWith("the"))
-                    name = "The" + name[3..];
-                name = name.Replace("<italic(1)>", "").Replace("<italic(0)>", "");
+                name = duty.Name.ExtractText();
             }
             if (name == "Ocean Fishing")
             {
                 var oceanfishing = EventFramework.Instance()->GetInstanceContentOceanFishing();
                 var route = Data.IKDRoutes.FirstOrDefault(r => r.RowId == oceanfishing->CurrentRoute);
-                name = "Ocean Fishing: " + route.Name.ToString();
+                name = "Ocean Fishing: " + route.Name.ExtractText();
             }
+            if (name.Contains("(Unreal)"))
+            {
+                // We will never have unreals in the seed, because they're not permanent content.
+                // But if you clear it, I'll absolutely give you credit for the associated Extreme.
+                name = name.Replace("(Unreal)", "(Extreme)");
+            }
+
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
@@ -145,7 +149,7 @@ namespace ArchipelagoXIV.Hooks
                     }
                 }
 
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
                 if (location == null)
                 {
                     DalamudApi.Echo("Location already completed or not in seed, nothing to do.");

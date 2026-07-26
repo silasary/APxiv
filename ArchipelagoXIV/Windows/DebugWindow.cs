@@ -13,6 +13,8 @@ namespace ArchipelagoXIV.Windows
 {
     internal class DebugWindow(Plugin plugin, ApState state) : Window("Archipelego Debug", ImGuiWindowFlags.None)
     {
+        private bool ShowCompletedLocations = true;
+
         public override void Draw()
         {
             ImGui.Text($"BG Task State: {plugin.BackgroundTask.Status} (Should be WaitingForActivation)");
@@ -30,6 +32,7 @@ namespace ArchipelagoXIV.Windows
             ImGui.Text($"apState.territoryName: `{state.territoryName}`");
 
             ImGui.Separator();
+            ImGui.Checkbox("Show Completed Locations", ref this.ShowCompletedLocations);
             var regions = APData.Regions.OrderBy(r => r.Value.Distance ?? 999).ToList();
             var checksPerRegion = state.AllLocations.Where(l => l.region != null).GroupBy(l => l.region).ToDictionary(g => g.Key, g => g.ToList());
 
@@ -59,8 +62,12 @@ namespace ArchipelagoXIV.Windows
                 ImGui.Unindent();
             }
 
-            static void PrintLocationInfo(Location check)
+            void PrintLocationInfo(Location check)
             {
+                if (check.Completed && !this.ShowCompletedLocations)
+                {
+                    return;
+                }
                 var accessible = check.Accessible ? "Accessible" : "Inaccessible";
                 var completed = check.Completed ? "Completed" : "Incomplete";
                 var colour = check.Completed ? ImGuiColors.DalamudGrey : check.Accessible ? ImGuiColors.ParsedGreen : ImGuiColors.DalamudRed;
