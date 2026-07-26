@@ -167,6 +167,15 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             for name in names:
                 if name not in used_names:
                     world.skipped_duties.add(name)
+        if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
+            goal_name = victory_names[get_int_value(multiworld, player, "goal")]
+            goal_data = BOSS_GOAL_DATA.get(goal_name)
+            goal_base_duty_name = goal_data[0] if goal_data else None
+            world.skipped_duties.update(["Castrum Meridianum", "The Praetorium"])
+
+            if goal_base_duty_name != "Porta Decumana":
+                # Add ultima weapon trial regardless of MSQ settings, if set as goal
+                world.skipped_duties.add("The Porta Decumana")
 
     tanks = TANKS.copy()
     healers = HEALERS.copy()
@@ -215,18 +224,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         locationNamesToRemove.extend(UNREASONABLE_FATES)
 
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-
-    if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
-        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        goal_data = BOSS_GOAL_DATA.get(goal_name)
-        goal_base_duty_name = goal_data[0] if goal_data else None
-        locations_to_remove = ["Castrum Meridianum", "The Praetorium"]
-
-        if goal_base_duty_name != "Porta Decumana":
-            # Add ultima weapon trial regardless of MSQ settings, if set as goal
-            locations_to_remove.append("The Porta Decumana")
-
-        locationNamesToRemove.extend(locations_to_remove)
 
 
     # Find all region access items.
