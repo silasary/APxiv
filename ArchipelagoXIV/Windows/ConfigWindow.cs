@@ -71,6 +71,7 @@ public class ConfigWindow : SharedWindow
         }
         if (state.Connected)
         {
+            ImGui.SameLine();
             if (ImGui.Button("Disconnect"))
             {
                 state.Disconnect();
