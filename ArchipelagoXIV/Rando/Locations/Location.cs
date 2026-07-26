@@ -70,7 +70,11 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public bool Accessible;
 
-        public bool Completed { get; protected set; }
+        /// <summary>
+        /// Warning:  Setting this does not send the check.  Use Complete() instead.
+        /// Setting this is only for internal use to mark checks as completed when the server tells us they are completed.
+        /// </summary>
+        public bool Completed { get; internal set; }
 
         internal bool stale = true;
 

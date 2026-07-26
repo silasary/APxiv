@@ -30,17 +30,20 @@ namespace ArchipelagoXIV.Rando.Locations
     internal class DutySubLocation : Location
     {
         public DutyLocation? parent;
+        public string DutyName { get; }
+
         public DutySubLocation(ApState apState, long id, string name, ContentFinderCondition content) : base(apState, id, name)
         {
             this.Content = content;
+            this.DutyName = Regexes.ExtraCheckName.Match(Name).Groups[1].Value;
         }
+
 
         public DutyLocation GetParent()
         {
             if (parent == null)
             {
-                var dutyname = Regexes.ExtraCheckName.Match(Name).Groups[1].Value;
-                parent = apState.AllLocations?.FirstOrDefault(loc => loc.Name == dutyname) as DutyLocation;
+                parent = apState.AllLocations?.FirstOrDefault(loc => loc.Name == DutyName) as DutyLocation;
             }
             return parent!;
         }
@@ -54,7 +57,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 dutyParent.SubLocations = [.. dutyParent.SubLocations, this];
                 this.parent = dutyParent;
             }
-            MeetsRequirements = parent?.MeetsRequirements ?? Logic.Always();
+            MeetsRequirements = parent?.MeetsRequirements ?? Logic.Level(Content.ClassJobLevelRequired);
         }
     }
 }

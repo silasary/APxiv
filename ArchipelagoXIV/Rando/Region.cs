@@ -79,7 +79,7 @@ namespace ArchipelagoXIV.Rando
 
             if (location is DutySubLocation subLocation)
             {
-                name = subLocation.GetParent().Name;
+                name = subLocation.GetParent()?.Name ?? subLocation.DutyName;
             }
 
             name = LocationToRegion(name, territoryId);
