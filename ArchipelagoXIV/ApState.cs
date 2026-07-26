@@ -244,6 +244,10 @@ namespace ArchipelagoXIV
 
         private void Locations_CheckedLocationsUpdated(System.Collections.ObjectModel.ReadOnlyCollection<long> newCheckedLocations)
         {
+            foreach (var item in AllLocations.Where(l => newCheckedLocations.Contains(l.ApId)))
+            {
+                item.Completed = true;
+            }
             RefreshLocations(false);
             RefreshBars = true;
         }
