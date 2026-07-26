@@ -103,6 +103,11 @@ namespace ArchipelagoXIV
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
             StartBGTask();
+
+            if (Configuration.ConnectAtStartup)
+            {
+                await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+            }
         }
 
         public void StartBGTask()

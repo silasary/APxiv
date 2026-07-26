@@ -14,6 +14,7 @@ public class ConfigWindow : SharedWindow
     private bool force_deathlink;
     private bool ignore_class_restrictions;
     private bool require_synced_duties;
+    private bool connect_at_startup;
 
     public ConfigWindow(Plugin plugin, ApState apState) : base(plugin, apState,
         "AP Config",
@@ -29,6 +30,8 @@ public class ConfigWindow : SharedWindow
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
         this.require_synced_duties = Configuration.RequireSyncedDuties;
+        this.connect_at_startup = Configuration.ConnectAtStartup;
+
     }
 
     public override void OnOpen()
@@ -39,6 +42,7 @@ public class ConfigWindow : SharedWindow
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
         this.require_synced_duties = Configuration.RequireSyncedDuties;
+        this.connect_at_startup = Configuration.ConnectAtStartup;
     }
 
     public override void Draw()
@@ -57,6 +61,7 @@ public class ConfigWindow : SharedWindow
         ImGui.Checkbox("Death Link always enabled", ref force_deathlink);
         ImGui.Checkbox("Ignore Class Restrictions", ref ignore_class_restrictions);
         ImGui.Checkbox("Require Synced Duties", ref require_synced_duties);
+        ImGui.Checkbox("Connect at Startup", ref connect_at_startup);
         if (ImGui.Button("Save & Connect"))
         {
             Configuration.Connection = connection;
@@ -65,6 +70,7 @@ public class ConfigWindow : SharedWindow
             Configuration.IgnoreClassRestrictions = ignore_class_restrictions;
             Configuration.RequireSyncedDuties = require_synced_duties;
             Configuration.Password = password;
+            Configuration.ConnectAtStartup = connect_at_startup;
             Configuration.AddToConnectionHistory();
             Configuration.Save();
             state.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
