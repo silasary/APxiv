@@ -151,6 +151,7 @@ namespace ArchipelagoXIV
             { "Attune Limsa Lominsa Aetheryte Plaza", "Attune Limsa Lominsa Lower Decks" },
             { "Attune Gridania Aetheryte Plaza", "Attune New Gridania" },
             { "Attune Ul'dah Aetheryte Plaza", "Attune Ul'dah - Steps of Nald" },
+            { "Attune Gold Saucer Aetheryte Plaza", "Attune The Gold Saucer" },
             { "Attune Ishgard Aetheryte Plaza", "Attune Foundation" },
             { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
             { "Attune Rhalgr's Reach Aetheryte Plaza", "Attune Rhalgr's Reach" },
