@@ -25,7 +25,6 @@ namespace ArchipelagoXIV.Rando
             { "Flame Barracks", "Ul'dah"},
             { "Foundation", "Ishgard"},
             { "The Pillars", "Ishgard"},
-            { "Idyllshire", "The Dravanian Forelands"},
             // Inns
             { "Mizzenmast Inn", "Limsa Lominsa"},
             { "The Roost", "Gridania"},

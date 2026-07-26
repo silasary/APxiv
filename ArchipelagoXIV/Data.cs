@@ -152,6 +152,7 @@ namespace ArchipelagoXIV
             { "Attune Old Sharlayan Aetheryte Plaza", "Attune Old Sharlayan" },
             { "Attune Radz-at-Han Aetheryte Plaza", "Attune Radz-at-Han" },
             { "Attune Tuliyollal Aetheryte Plaza", "Attune Tuliyollal" },
+            { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
         };
 
         public static void Initialize() {
