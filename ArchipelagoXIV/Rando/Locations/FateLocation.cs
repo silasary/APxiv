@@ -76,7 +76,7 @@ namespace ArchipelagoXIV.Rando.Locations
                     FateType.GATE => "GATE)",
                     _ => ""
                 };
-                return $"{fateName} ({this.region.Name} {fateTypeText} {HintText}";
+                return $"{fateName} ({this.region.Name} {fateTypeText}";
             }
         }
     }

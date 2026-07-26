@@ -99,6 +99,7 @@ public class MainWindow : SharedWindow
         }
         //ImGui.Indent(55);
         var relevantLocations = new List<Location>();
+        var hintedLocations = new List<Location>();
         var otherLocations = new List<Location>();
         var queueNames = GetQueueNames();
 
@@ -111,6 +112,8 @@ public class MainWindow : SharedWindow
             {
                 if (location.region == currentRegion || queueNames.Contains(location.Name, StringComparer.InvariantCultureIgnoreCase))
                     relevantLocations.Add(location);
+                else if (location.HintedItem != null)
+                    hintedLocations.Add(location);
                 else
                     otherLocations.Add(location);
             }
@@ -118,6 +121,14 @@ public class MainWindow : SharedWindow
         if (relevantLocations.Count > 0)
         {
             foreach (var location in relevantLocations)
+            {
+                RenderLocation(location);
+            }
+            ImGui.Separator();
+        }
+        if (hintedLocations.Count > 0)
+        {
+            foreach (var location in hintedLocations)
             {
                 RenderLocation(location);
             }
@@ -133,6 +144,16 @@ public class MainWindow : SharedWindow
         {
             var name = location.DisplayText;
             ImGui.Text($"{name}");
+            if (location.HintedItem != null)
+            {
+                var colour = ImGuiColors.DalamudGrey;
+                if (location.HintedItem.Status == Archipelago.MultiClient.Net.Enums.HintStatus.Priority)
+                    colour = ImGuiColors.DalamudViolet;
+                if (location.HintedItem.Status == Archipelago.MultiClient.Net.Enums.HintStatus.Avoid)
+                    colour = ImGuiColors.DalamudRed;
+
+                ImGui.TextColored(colour, $" {location.HintText}");
+            }
         }
 
         //ImGui.Unindent(55);

@@ -1,3 +1,4 @@
+using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 
 namespace ArchipelagoXIV
@@ -6,7 +7,14 @@ namespace ArchipelagoXIV
     {
         public static string ReceivingPlayerName(this Hint hint, ApState state)
         {
-            return state.session!.Players.GetPlayerAliasAndName(hint.ReceivingPlayer);
+            var playerinfo = state.session?.Players.GetPlayerInfo(hint.ReceivingPlayer);
+            if (playerinfo == null) {
+                return $"Unknown Player {hint.ReceivingPlayer}";
+            }
+            if (playerinfo.Alias != null && playerinfo.Alias != playerinfo.Name)
+                return $"{playerinfo.Alias} ({playerinfo.Name})";
+
+            return playerinfo.Name;
         }
 
         public static string ItemName(this Hint hint, ApState state)

@@ -200,8 +200,8 @@ namespace ArchipelagoXIV.Rando.Locations
             get
             {
                 if (APData.HuntRankData.TryGetValue(Name, out var rank) && APData.Aliases.TryGetValue(Name, out var zone))
-                    return $"{Name} ({rank}-Rank, {zone}){HintText}";
-                return Name + HintText;
+                    return $"{Name} ({rank}-Rank, {zone})";
+                return Name;
             }
         }
 
@@ -211,7 +211,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 {
                     var p = HintedItem.ReceivingPlayerName(apState);
                     var i = HintedItem.ItemName(apState);
-                    return $" (Contains {p}'s {i})";
+                    return $" Contains {p}'s {i}";
                 }
 
                 return "";
