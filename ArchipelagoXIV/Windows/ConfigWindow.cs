@@ -69,6 +69,13 @@ public class ConfigWindow : SharedWindow
             Configuration.Save();
             state.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
         }
+        if (state.Connected)
+        {
+            if (ImGui.Button("Disconnect"))
+            {
+                state.Disconnect();
+            }
+        }
         RecentConnectionsButtons();
     }
 }
