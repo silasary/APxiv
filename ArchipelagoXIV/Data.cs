@@ -148,11 +148,19 @@ namespace ArchipelagoXIV
             // Aetheryte place names that don't match the actual aetheryte name
             // Because the code happens in a detour, we'd rather hardcode these than do string manipulation at check time
             { "Attune Crick", "Attune Onokoro" },
+            { "Attune Limsa Lominsa Aetheryte Plaza", "Attune Limsa Lominsa Lower Decks" },
+            { "Attune Gridania Aetheryte Plaza", "Attune New Gridania" },
+            { "Attune Ul'dah Aetheryte Plaza", "Attune Ul'dah - Steps of Nald" },
+            { "Attune Ishgard Aetheryte Plaza", "Attune Foundation" },
+            { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
+            { "Attune Rhalgr's Reach Aetheryte Plaza", "Attune Rhalgr's Reach" },
             { "Attune Kugane Aetheryte Plaza", "Attune Kugane" },
+            { "Attune The Crystarium Aetheryte Plaza", "Attune The Crystarium" },
+            { "Attune Eulmore Aetheryte Plaza", "Attune Eulmore" },
             { "Attune Old Sharlayan Aetheryte Plaza", "Attune Old Sharlayan" },
             { "Attune Radz-at-Han Aetheryte Plaza", "Attune Radz-at-Han" },
             { "Attune Tuliyollal Aetheryte Plaza", "Attune Tuliyollal" },
-            { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
+            { "Attune Solution Nine Aetheryte Plaza", "Attune Solution Nine" },
         };
 
         public static void Initialize() {
