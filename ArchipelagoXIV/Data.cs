@@ -155,6 +155,7 @@ namespace ArchipelagoXIV
             { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
             { "Attune Rhalgr's Reach Aetheryte Plaza", "Attune Rhalgr's Reach" },
             { "Attune Kugane Aetheryte Plaza", "Attune Kugane" },
+            { "Attune Doman Enclave Aetheryte Plaza", "Attune The Doman Enclave" },
             { "Attune The Crystarium Aetheryte Plaza", "Attune The Crystarium" },
             { "Attune Eulmore Aetheryte Plaza", "Attune Eulmore" },
             { "Attune Old Sharlayan Aetheryte Plaza", "Attune Old Sharlayan" },
