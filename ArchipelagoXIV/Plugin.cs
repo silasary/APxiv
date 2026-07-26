@@ -102,10 +102,14 @@ namespace ArchipelagoXIV
                 DalamudApi.SetStatusBar("AP Ready");
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
-            this.BackgroundCancellationToken = new CancellationTokenSource();
-            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), cancellationToken);
+            StartBGTask();
         }
 
+        public void StartBGTask()
+        {
+            this.BackgroundCancellationToken = new CancellationTokenSource();
+            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), this.BackgroundCancellationToken.Token);
+        }
 
         public async ValueTask DisposeAsync()
         {
