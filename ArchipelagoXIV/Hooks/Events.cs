@@ -144,7 +144,7 @@ namespace ArchipelagoXIV.Hooks
                     for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
                     {
                         DalamudApi.PluginLog.Debug($"looking for {name} {i}");
-                        var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name == $"{name} {i}");
+                        var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals($"{name} {i}", StringComparison.InvariantCultureIgnoreCase));
                         extraLocation?.Complete();
                     }
                 }
