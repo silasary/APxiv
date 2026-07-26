@@ -1,10 +1,14 @@
-using System;
-using System.Numerics;
 using ArchipelagoXIV.Rando;
-using Dalamud.Interface.Windowing;
-using Dalamud.Bindings.ImGui;
-using System.Linq;
 using ArchipelagoXIV.Rando.Locations;
+using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.Colors;
+using Dalamud.Interface.Windowing;
+using FFXIVClientStructs.FFXIV.Client.Enums;
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 
 namespace ArchipelagoXIV.Windows;
 
@@ -63,8 +67,8 @@ public class MainWindow : SharedWindow
 
         var regionname = RegionContainer.LocationToRegion(state.territoryName, (ushort)state.territory.RowId);
         var canReach = false;
-        if (APData.Regions.TryGetValue(regionname, out var value))
-            canReach = value.Reachable;
+        if (APData.Regions.TryGetValue(regionname, out var currentRegion))
+            canReach = currentRegion.Reachable;
 
         ImGui.TextColored(canReach ? new Vector4(0.4f, 1f, 0.4f, 1f) : new Vector4(1f, 0.4f, 0.4f, 1f),
             $"Current location in logic: {canReach}");
@@ -84,7 +88,20 @@ public class MainWindow : SharedWindow
         {
             return;
         }
+        if (DalamudApi.DutyState.IsDutyStarted)
+        {
+            var location = state.AllLocations.FirstOrDefault(l => l.Name == state.territoryName);
+            if (location is DutyLocation dutyLocation)
+            {
+                ImGui.TextColored(ImGuiColors.DalamudOrange, $"Current Duty: {dutyLocation.DisplayText}");
+
+            }
+        }
         //ImGui.Indent(55);
+        var relevantLocations = new List<Location>();
+        var otherLocations = new List<Location>();
+        var queueNames = GetQueueNames();
+
         foreach (var location in state.MissingLocations)
         {
             if (location is DutySubLocation subLocation && !(subLocation.parent?.Completed ?? true))
@@ -92,15 +109,52 @@ public class MainWindow : SharedWindow
 
             if (location.Accessible)
             {
-                var name = location.DisplayText;
-                if (location.Name.EndsWith(" (FATE)"))
-                {
-                    name = name.Replace("(FATE)", $"({RegionContainer.LocationToRegion(name)} FATE)");
-                }
-                ImGui.Text($"{name}");
+                if (location.region == currentRegion || queueNames.Contains(location.Name, StringComparer.InvariantCultureIgnoreCase))
+                    relevantLocations.Add(location);
+                else
+                    otherLocations.Add(location);
             }
+        }
+        if (relevantLocations.Count > 0)
+        {
+            foreach (var location in relevantLocations)
+            {
+                RenderLocation(location);
+            }
+            ImGui.Separator();
+        }
+
+        foreach (var location in otherLocations)
+        {
+            RenderLocation(location);
+        }
+
+        static void RenderLocation(Location location)
+        {
+            var name = location.DisplayText;
+            ImGui.Text($"{name}");
         }
 
         //ImGui.Unindent(55);
+    }
+
+    private unsafe string[] GetQueueNames()
+    {
+        var cf = ContentsFinder.Instance();
+        if (cf->QueueInfo.QueueState == ContentsFinderQueueState.Queued)
+        {
+            var queueNames = new List<string>();
+            for (var i = 0; i < cf->QueueInfo.QueuedEntries.Length; i++)
+            {
+                if (cf->QueueInfo.QueuedEntries[i].ContentType == FFXIVClientStructs.FFXIV.Client.UI.Agent.ContentsType.Regular)
+                {
+                    var queuedId = cf->QueueInfo.QueuedEntries[i].Id;
+                    var content = Data.Content.First(c => c.RowId == queuedId);
+                    queueNames.Add(content.Name.ExtractText());
+                }
+            }
+            return [.. queueNames];
+        }
+        return [];
     }
 }
