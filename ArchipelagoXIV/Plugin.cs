@@ -207,7 +207,6 @@ namespace ArchipelagoXIV
         {
             
             WindowSystem.RemoveAllWindows();
-            ConfigWindow.Dispose();
             Hooks.Dispose();
             Events.Disable();
             UiHooks.Disable();

@@ -5,7 +5,7 @@ using Dalamud.Bindings.ImGui;
 
 namespace ArchipelagoXIV.Windows;
 
-public class ConfigWindow : Window, IDisposable
+public class ConfigWindow : SharedWindow
 {
     private readonly Configuration Configuration;
     private string slotName;
@@ -15,26 +15,21 @@ public class ConfigWindow : Window, IDisposable
     private bool ignore_class_restrictions;
     private bool require_synced_duties;
 
-    public ConfigWindow(Plugin plugin, ApState apState) : base(
+    public ConfigWindow(Plugin plugin, ApState apState) : base(plugin, apState,
         "AP Config",
-        ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
+        ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(232, 220);
+        //this.Size = new Vector2(300, 350);
         this.SizeCondition = ImGuiCond.Always;
 
         this.Configuration = plugin.Configuration;
-        ApState = apState;
         this.slotName = Configuration.SlotName;
         this.connection = Configuration.Connection;
         this.force_deathlink = Configuration.ForceDeathlink;
         this.ignore_class_restrictions = Configuration.IgnoreClassRestrictions;
         this.require_synced_duties = Configuration.RequireSyncedDuties;
     }
-
-    public ApState ApState { get; }
-
-    public void Dispose() { }
 
     public override void OnOpen()
     {
@@ -72,7 +67,8 @@ public class ConfigWindow : Window, IDisposable
             Configuration.Password = password;
             Configuration.AddToConnectionHistory();
             Configuration.Save();
-            ApState.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+            state.Connect(Configuration.Connection, Configuration.SlotName, Configuration.Password);
         }
+        RecentConnectionsButtons();
     }
 }

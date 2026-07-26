@@ -8,22 +8,15 @@ using ArchipelagoXIV.Rando.Locations;
 
 namespace ArchipelagoXIV.Windows;
 
-public class MainWindow : Window
+public class MainWindow : SharedWindow
 {
-    private readonly ApState state;
-    private readonly Plugin plugin;
-
-    public MainWindow(Plugin plugin, ApState state) : base(
-        "Archipelago", ImGuiWindowFlags.None)
+    public MainWindow(Plugin plugin, ApState state) : base(plugin, state, "Archipelago", ImGuiWindowFlags.None)
     {
         this.SizeConstraints = new WindowSizeConstraints
         {
             MinimumSize = new Vector2(375, 330),
             MaximumSize = new Vector2(float.MaxValue, float.MaxValue)
         };
-
-        this.state = state;
-        this.plugin = plugin;
     }
 
     public override void Draw()
@@ -60,19 +53,7 @@ public class MainWindow : Window
                 };
                 System.Diagnostics.Process.Start(psi);
             }
-            ImGui.Separator();
-            foreach (var item in plugin.Configuration.ConnectionHistory.ToArray())
-            {
-                if (ImGui.Button($"Reconnect to {item}"))
-                {
-                    var parts = item.Split("@");
-                    var address = parts[1];
-                    var player = parts[0].Split(":")[0];
-                    var password = parts[0].Split(":")[1];
-                    state.Connect(address, player, password);
-                }
-            }
-
+            RecentConnectionsButtons();
             return;
         }
 
