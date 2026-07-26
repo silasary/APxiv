@@ -108,12 +108,20 @@ namespace ArchipelagoXIV
         public void StartBGTask()
         {
             this.BackgroundCancellationToken = new CancellationTokenSource();
-            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), this.BackgroundCancellationToken.Token);
+            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), this.BackgroundCancellationToken.Token).ContinueWith(ca =>
+            {
+                if (ca.IsFaulted)
+                {
+                    DalamudApi.PluginLog.Error(ca.Exception, "Background task failed");
+                }
+                this.BackgroundCancellationToken.Dispose();
+            });
         }
 
         public async ValueTask DisposeAsync()
         {
             await apState.DisconnectAsync();
+            this.BackgroundCancellationToken.Cancel();
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
                 Dispose();
