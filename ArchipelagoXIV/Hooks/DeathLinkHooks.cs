@@ -40,6 +40,8 @@ namespace ArchipelagoXIV.Hooks
             byte param9)
         {
             processPacketActorControlHook.Original(entityId, category, param1, param2, param3, param4, param5, param6, param7, param8, targetId, param9);
+            if (!apState.Connected)
+                return;
             if (category != 0x6)
                 return; // Only process death events
             var playerid = DalamudApi.ObjectTable.LocalPlayer?.GameObjectId;
