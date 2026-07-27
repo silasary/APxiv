@@ -129,6 +129,10 @@ namespace ArchipelagoXIV.Hooks
                 // It looks nicer
                 name = "The" + name[3..];
             }
+            if (name.StartsWith("Crystalline Conflict (Custom Match - "))
+            {
+                name = name[37..^1];
+            }
 
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
@@ -213,6 +217,11 @@ namespace ArchipelagoXIV.Hooks
                 var name = duty.Name.ExtractText();
                 if (name.StartsWith("the"))
                     name = "The" + name[3..];
+                if (name.StartsWith("Crystalline Conflict (Custom Match - "))
+                {
+                    name = name[37..^1];
+                }
+
                 apState.territoryName = name;
                 apState.RefreshBars = true;
             }

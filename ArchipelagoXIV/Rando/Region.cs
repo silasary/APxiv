@@ -98,6 +98,9 @@ namespace ArchipelagoXIV.Rando
 
         public static string LocationToRegion(string name, uint territoryId = 0)
         {
+            if (name.StartsWith("Crystalline Conflict (Custom Match - "))
+                name = name[37..^1];
+
             if (APData.Aliases.TryGetValue(name, out var alias))
             {
                 name = alias;
