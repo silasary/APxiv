@@ -124,6 +124,11 @@ namespace ArchipelagoXIV.Hooks
                 // But if you clear it, I'll absolutely give you credit for the associated Extreme.
                 name = name.Replace("(Unreal)", "(Extreme)");
             }
+            if (name.StartsWith("the"))
+            {
+                // It looks nicer
+                name = "The" + name[3..];
+            }
 
             DalamudApi.Echo($"{name} Completed");
             DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
