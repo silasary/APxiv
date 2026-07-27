@@ -126,7 +126,8 @@ namespace ArchipelagoXIV
         public async ValueTask DisposeAsync()
         {
             await apState.DisconnectAsync();
-            this.BackgroundCancellationToken.Cancel();
+            if (!this.BackgroundTask.IsCompleted)
+                this.BackgroundCancellationToken.Cancel();
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
                 Dispose();
