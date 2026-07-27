@@ -34,25 +34,27 @@ namespace ArchipelagoXIV.Hooks
             processPacketActorControlHook.Disable();
         }
 
+
         private void ProcessPacketActorControlDetour(
-            uint category, uint eventId, uint param1, uint param2, uint param3, uint param4, uint param5, uint param6, uint param7, uint param8, ulong targetId,
+            uint entityId, uint category, uint param1, uint param2, uint param3, uint param4, uint param5, uint param6, uint param7, uint param8, ulong targetId,
             byte param9)
         {
-            processPacketActorControlHook.Original(category, eventId, param1, param2, param3, param4, param5, param6, param7, param8, targetId, param9);
-            if (targetId != DalamudApi.ObjectTable.LocalPlayer?.GameObjectId)
+            processPacketActorControlHook.Original(entityId, category, param1, param2, param3, param4, param5, param6, param7, param8, targetId, param9);
+            if (category != 0x6)
+                return; // Only process death events
+            var playerid = DalamudApi.ObjectTable.LocalPlayer?.GameObjectId;
+            DalamudApi.PluginLog.Debug($"ProcessPacketActorControlDetour called with entityId: {entityId}, category: {category}, targetId: {targetId}. playerId: {playerid}");
+            if (entityId != playerid)
                 return; // Only process our own deaths
             if (apState.DeathLinkEnabled == false)
                 return;
 
             try
             {
-                if (category == 0x6)
-                {
-                    // Death
-                    var cause = $"{DalamudApi.PlayerState.CharacterName} died in {apState.territoryName}";
-                    DalamudApi.ShowError("Death sent :)");
-                    apState.DeathLink?.SendDeathLink(new Archipelago.MultiClient.Net.BounceFeatures.DeathLink.DeathLink(apState.slotName, cause));
-                }
+                var cause = $"{DalamudApi.PlayerState.CharacterName} died in {apState.territoryName}";
+                DalamudApi.PluginLog.Debug($"Sending death link with cause: {cause}");
+                DalamudApi.ShowError("Death sent to your friends :)");
+                apState.DeathLink!.SendDeathLink(new Archipelago.MultiClient.Net.BounceFeatures.DeathLink.DeathLink(apState.slotName, cause));
             }
             catch (Exception e)
             {
