@@ -44,20 +44,24 @@ namespace ArchipelagoXIV.Rando.Locations
             if (parent == null)
             {
                 parent = apState.AllLocations?.FirstOrDefault(loc => loc.Name == DutyName) as DutyLocation;
+                parent?.SubLocations = [.. parent.SubLocations, this];
             }
             return parent!;
         }
 
-        protected override void SetRequirements()
+        internal override void SetRequirements()
         {
-            var dutyname = Regexes.ExtraCheckName.Match(Name).Groups[1].Value;
-            var parent = apState.AllLocations.FirstOrDefault(loc => loc.Name == dutyname);
-            if (parent is DutyLocation dutyParent)
+            var parent = GetParent();
+            if (parent != null && parent.MeetsRequirements == null)
             {
-                dutyParent.SubLocations = [.. dutyParent.SubLocations, this];
-                this.parent = dutyParent;
+                parent.SetRequirements();
             }
-            MeetsRequirements = parent?.MeetsRequirements ?? Logic.Level(Content.ClassJobLevelRequired);
+
+            MeetsRequirements = parent?.MeetsRequirements;
+            if (MeetsRequirements == null && Content.RowId != 0)
+            {
+                MeetsRequirements = Logic.Level(Content.ClassJobLevelRequired);
+            }
         }
     }
 }

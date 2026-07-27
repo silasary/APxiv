@@ -99,6 +99,13 @@ namespace ArchipelagoXIV.Rando.Locations
                 {
                     SetRequirements();
                 }
+                if (MeetsRequirements == null)
+                {
+                    // Fallback to always accessible if we can't determine requirements
+                    DalamudApi.PluginLog.Warning($"Could not determine requirements for {Name} ({ApId})");
+                    MeetsRequirements = Logic.Always();
+                }
+
                 if (!MeetsRequirements(apState, false))
                     return Accessible = false;
                 return Accessible = true;
@@ -107,7 +114,7 @@ namespace ArchipelagoXIV.Rando.Locations
             return Accessible;
         }
 
-        protected virtual void SetRequirements()
+        internal virtual void SetRequirements()
         {
             if (Content.RowId > 0)
             {

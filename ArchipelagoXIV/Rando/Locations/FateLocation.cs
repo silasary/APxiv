@@ -41,7 +41,7 @@ namespace ArchipelagoXIV.Rando.Locations
             Name = fateName + fatetype;
         }
 
-        protected override void SetRequirements()
+        internal override void SetRequirements()
         {
             if (Name.EndsWith(" (FATE)"))
             {
