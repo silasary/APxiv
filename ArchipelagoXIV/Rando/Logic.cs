@@ -26,7 +26,7 @@ namespace ArchipelagoXIV.Rando
                 if(requires.Contains("| or |"))
                     return (state, asCurrentClass) => rules.Any(r => r(state, asCurrentClass));
                 else
-                return (state, asCurrentClass) => rules.All(r => r(state, asCurrentClass));
+                    return (state, asCurrentClass) => rules.All(r => r(state, asCurrentClass));
             if (string.IsNullOrEmpty(requires))
                 return Always();
             DalamudApi.Echo($"Could not parse Requires string: {requires}");
