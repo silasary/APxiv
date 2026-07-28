@@ -121,14 +121,12 @@ namespace ArchipelagoXIV
             }
             DalamudApi.SetStatusBar("Connecting...");
             var localPlayer = DalamudApi.PlayerState;
-            if (localPlayer == null || !localPlayer.ClassJob.IsValid)
-                return;
 
             this.session = ArchipelagoSessionFactory.CreateSession(address);
             this.session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             if (string.IsNullOrEmpty(player))
             {
-                player = localPlayer.CharacterName.ToString();
+                player = localPlayer?.CharacterName?.ToString() ?? "";
             }
             DeathLinkEnabled = false;
             var tags = new string[] { "Dalamud" };
