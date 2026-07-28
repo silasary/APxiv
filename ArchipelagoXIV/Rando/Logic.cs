@@ -23,7 +23,10 @@ namespace ArchipelagoXIV.Rando
             var rules = (from Match m in Regexes.itemRegex.Matches(requires)
                          select HasItem(m.Groups[0].Value)).ToArray();
             if (rules.Length != 0)
-                return (state, asCurrentClass) => rules.Any(r => r(state, asCurrentClass));
+                if(requires.Contains(" or "))
+                    return (state, asCurrentClass) => rules.Any(r => r(state, asCurrentClass));
+                else
+                    return (state, asCurrentClass) => rules.All(r => r(state, asCurrentClass));
             if (string.IsNullOrEmpty(requires))
                 return Always();
             DalamudApi.Echo($"Could not parse Requires string: {requires}");
