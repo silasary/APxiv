@@ -20,6 +20,10 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
+        <Content Include="..\images\color-icon.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
         <EmbeddedResource Include="..\src\data\removed_locations.json" Link="removed_locations.json" />
         <EmbeddedResource Include="..\src\data\fish.json" Link="fish.json" />
         <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
@@ -30,5 +34,6 @@
 
     <ItemGroup>
         <PackageReference Include="Archipelago.MultiClient.Net" Version="6.7.1" />
+        <PackageReference Include="KamiToolKit" Version="2.2.0" />
     </ItemGroup>
 </Project>
