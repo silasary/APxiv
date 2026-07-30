@@ -126,9 +126,7 @@ namespace ArchipelagoXIV
             this.session.MessageLog.OnMessageReceived += MessageLog_OnMessageReceived;
             if (string.IsNullOrEmpty(player))
             {
-                if (localPlayer == null || !localPlayer.ClassJob.IsValid)
-                    return;
-                player = localPlayer.CharacterName.ToString();
+                player = localPlayer?.CharacterName?.ToString() ?? "";
             }
             DeathLinkEnabled = false;
             var tags = new string[] { "Dalamud" };
