@@ -5442,6 +5442,8 @@
   "lvl": 43,
   "all_bait": {
    "Northern Thanalan": [
+    "Glowworm",
+    "Spinner",
     "Spinnerbait",
     "Stem Borer",
     "Versatile Lure"
@@ -5452,10 +5454,15 @@
    "Eastern La Noscea": [
     "Freshwater Boilie",
     "Glowworm",
+    "Mythril Spoon Lure",
+    "Snurble Fly",
+    "Spinner",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Mythril Spoon Lure",
     "Stem Borer",
     "Topwater Frog",
@@ -35164,24 +35171,44 @@
  "Purse of Riches": {
   "name": "Purse of Riches",
   "id": 49794,
-  "zones": {},
+  "zones": {
+   "Tuliyollal": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Tuliyollal": [
+    "Ghost Nipper"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Punutiy Pain": {
   "name": "Punutiy Pain",
   "id": 49795,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
@@ -35301,14 +35328,32 @@
  "Esperance Carp": {
   "name": "Esperance Carp",
   "id": 49801,
-  "zones": {},
+  "zones": {
+   "Living Memory": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {}
+  "all_bait": {
+   "Living Memory": [
+    "Red Maggots"
+   ]
+  },
+  "logical_intuition": {
+   "Living Memory": [
+    "Popper Lure"
+   ]
+  },
+  "intuition_bait": {
+   "Living Memory": [
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  }
  },
  "Voyaging Loach": {
   "name": "Voyaging Loach",
@@ -36643,74 +36688,140 @@
  "Iron Oxydoras": {
   "name": "Iron Oxydoras",
   "id": 52000,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Excavator Catfish": {
   "name": "Excavator Catfish",
   "id": 52001,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Moonmarking Saucer": {
   "name": "Moonmarking Saucer",
   "id": 52002,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Honeybee"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Yak T'el": [
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Autarch's Supper": {
   "name": "Autarch's Supper",
   "id": 52003,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Bitterbark Caiman": {
   "name": "Bitterbark Caiman",
   "id": 52004,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Yak T'el": [
+    "Metal Spinner",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {}
  },
  "Vagrant Keeper": {
   "name": "Vagrant Keeper",
   "id": 52005,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Dragonfly"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43885,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {}
+  "all_bait": {
+   "Shaaloani": [
+    "Dragonfly"
+   ]
+  },
+  "logical_intuition": {
+   "Shaaloani": [
+    "Cactuar Jig"
+   ]
+  },
+  "intuition_bait": {
+   "Shaaloani": [
+    "Cactuar Jig",
+    "Dragonfly",
+    "Versatile Lure"
+   ]
+  }
  },
  "Shined Copper Shark": {
   "name": "Shined Copper Shark",

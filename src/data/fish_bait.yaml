@@ -824,7 +824,9 @@ Augmented High Allagan Helmet:
   - Versatile Lure
   - Fiend Worm
   - Signature Skyball
-Autarch's Supper: {}
+Autarch's Supper:
+  Sapsweet Cenote:
+  - Red Maggots
 Autumn Leaf:
   Thaliak River:
   - Signature Skyball
@@ -1076,7 +1078,16 @@ Bishopfish:
   Clearpool:
   - Brute Leech
   - Brute Leech
-Bitterbark Caiman: {}
+Bitterbark Caiman:
+  Bitterbark Cenote:
+  - Red Maggots
+  - Red Maggots
+  - Metal Spinner
+  - Versatile Lure
+  - Red Maggots
+  - Red Maggots
+  - Versatile Lure
+  - Metal Spinner
 Black Eel:
   East Hathoeva River:
   - Syrphid Basket
@@ -4538,7 +4549,9 @@ Eryops:
   - Robber Ball
   - Robber Ball
   - Robber Ball
-Esperance Carp: {}
+Esperance Carp:
+  Proto Alexandria:
+  - Red Maggots
 Eulmore Butterfly:
   The Derelicts:
   - Squid Strip
@@ -4624,7 +4637,9 @@ Everkeep Yabby:
   - Red Maggots
   - Versatile Lure
   - Popper Lure
-Excavator Catfish: {}
+Excavator Catfish:
+  Marsh Ligaka:
+  - Popper Lure
 Executioner: {}
 Exterminator: {}
 Fae Rainbow:
@@ -7207,7 +7222,15 @@ Iris Wrasse:
 Iron Noose:
   Forgotten Springs:
   - Spinner
-Iron Oxydoras: {}
+Iron Oxydoras:
+  Miyakabek'zoma:
+  - Golden Stonefly Nymph
+  - Golden Stonefly Nymph
+  - Versatile Lure
+  - Honeybee
+  - Golden Stonefly Nymph
+  - Golden Stonefly Nymph
+  - Metal Spinner
 Iron Shadowtongue:
   Iq Rrax Tsoly:
   - Red Maggots
@@ -7490,6 +7513,8 @@ Knifefish:
   - Spinnerbait
   - Stem Borer
   - Versatile Lure
+  - Glowworm
+  - Spinner
   Rathefrost:
   - Glowworm
   - Versatile Lure
@@ -7498,6 +7523,12 @@ Knifefish:
   - Versatile Lure
   - Glowworm
   - Freshwater Boilie
+  - Stem Borer
+  - Snurble Fly
+  - Spinner
+  - Mythril Spoon Lure
+  Singing Shards:
+  - Versatile Lure
   The Burning Wall:
   - Stem Borer
   - Topwater Frog
@@ -7505,6 +7536,8 @@ Knifefish:
   - Versatile Lure
   - Mythril Spoon Lure
   - Stem Borer
+  - Freshwater Boilie
+  - Topwater Frog
   The Deep Tangle:
   - Glowworm
 Knifejaw: {}
@@ -9161,7 +9194,14 @@ Moongripper:
 Moonlight Guppy:
   The Rusted Reservoir:
   - Baitbugs
-Moonmarking Saucer: {}
+Moonmarking Saucer:
+  Cenote Jayunja:
+  - Red Maggots
+  - Versatile Lure
+  - Red Maggots
+  - Honeybee
+  - Red Maggots
+  - Popper Lure
 Mopbeard: {}
 Mora Tecta:
   Northwest Caliban Gorge:
@@ -10772,7 +10812,17 @@ Pumpkin Perch:
   - Red Maggots
   - Versatile Lure
   - Popper Lure
-Punutiy Pain: {}
+Punutiy Pain:
+  Peaks Poga:
+  - Golden Stonefly Nymph
+  - Honeybee
+  - Golden Stonefly Nymph
+  - Versatile Lure
+  - Popper Lure
+  - Golden Stonefly Nymph
+  - Red Maggots
+  - Honeybee
+  - Golden Stonefly Nymph
 Purple Buckler:
   Heather Falls:
   - Midge Larva
@@ -10793,7 +10843,9 @@ Purpure Cod:
   Purpure:
   - Metal Spinner
   - Versatile Lure
-Purse of Riches: {}
+Purse of Riches:
+  High Tide Harbor:
+  - Ghost Nipper
 Pyariyoanaan Cichlid:
   Niikwerepi:
   - Versatile Lure
@@ -14245,7 +14297,9 @@ Vagrant Cascade:
   - Versatile Lure
   - Dragonfly
   - Dragonfly
-Vagrant Keeper: {}
+Vagrant Keeper:
+  Westbound Zorgor:
+  - Dragonfly
 Vampire Lampern:
   Parata's Peace:
   - Honey Worm
@@ -14517,6 +14571,7 @@ Wandering Starscale:
   - Mayfly
   - Versatile Lure
   - Sky Spoon Lure
+  - Mayfly
 Warballoon:
   Greytail Falls:
   - Balloon Bug

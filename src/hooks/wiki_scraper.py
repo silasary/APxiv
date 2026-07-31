@@ -595,8 +595,8 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     for spot, baits in per_spot.items():
         baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
         # best_occurences = baits[0].occurences
-        # Anything that is less than 100 catches is best written off as bad data.
-        viable_baits = [b for b in baits if b.occurences >= 100]
+        # Anything that is less than 50 catches is best written off as bad data.
+        viable_baits = [b for b in baits if b.occurences >= 50]
         #if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
         #    viable_baits = viable_baits[1:] + [viable_baits[0]]
         # fish['spots'][spot] = [b.bait_name for b in viable_baits]
