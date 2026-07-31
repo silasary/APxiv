@@ -60,16 +60,8 @@ namespace ArchipelagoXIV.Rando.Locations
             var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ToString();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
             //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
-            if (!Logic.Level(Data.Level, "FSH")(apState, false))
-            {
-                DalamudApi.Echo($"Current level is not in logic. Requires FSH level {Data.Level}");
+            if(!DalamudApi.PlayerState.ClassJob.Value.Abbreviation.ToString().Contains("FSH"))
                 return false;
-            }
-            if (!apState.Items.Contains(currentBaitName))
-            {
-                DalamudApi.Echo($"{currentBaitName} is not in logic");
-                return false;
-            }
             if (!Data.Regions.Contains(region))
             {
                 // Retainer fish
@@ -80,7 +72,16 @@ namespace ArchipelagoXIV.Rando.Locations
                 DalamudApi.Echo($"{region.Name} is not in logic");
                 return false;
             }
-            
+            if (!apState.Items.Contains(currentBaitName))
+            {
+                DalamudApi.Echo($"{currentBaitName} is not in logic");
+                return false;
+            }
+            if (!Logic.Level(Data.Level, "FSH")(apState, false))
+            {
+                DalamudApi.Echo($"Current level is not in logic. Requires FSH level {Data.Level}");
+                return false;
+            }
             return true;
 
         }

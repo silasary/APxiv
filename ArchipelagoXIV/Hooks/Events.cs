@@ -38,11 +38,11 @@ namespace ArchipelagoXIV.Hooks
                 {
                     //DalamudApi.Echo($"Caught a {name}!");
                     var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
-                    if (loc != null && loc.IsAccessible())
-                    {
-                        loc.Complete();
-                    }
-                    else if (loc is Fish f && f.OutOfLogic())
+                    //if (loc != null && loc.IsAccessible())
+                    //{
+                    //    loc.Complete();
+                    //}
+                    if (loc is Fish f && f.OutOfLogic())
                     {
                         loc.Complete();
                     }
