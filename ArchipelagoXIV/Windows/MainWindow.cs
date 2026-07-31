@@ -105,7 +105,7 @@ public class MainWindow : SharedWindow
 
         foreach (var location in state.MissingLocations)
         {
-            if (location is DutySubLocation subLocation && !(subLocation.parent?.Completed ?? true))
+            if (location is DutySubLocation subLocation && !(subLocation.parent?.Completed ?? true) && subLocation.HintedItem == null)
                 continue;
 
             if (location.Accessible)
