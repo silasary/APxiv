@@ -19,12 +19,16 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
     "Goby Ball",
     "Lugworm",
     "Pill Bug",
+    "Rat Tail",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -63,6 +67,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -79,23 +84,29 @@
     "Goby Ball",
     "Lugworm",
     "Pill Bug",
+    "Rat Tail",
+    "Shrimp Cage Feeder",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Limsa Lominsa": [
     "Floating Minnow",
@@ -103,6 +114,8 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Spoon Worm",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
@@ -159,12 +172,15 @@
     "Goby Ball",
     "Lugworm",
     "Northern Krill",
+    "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure"
    ],
    "Western Thanalan": [
     "Heavy Steel Jig",
     "Lugworm",
+    "Rat Tail",
     "Versatile Lure"
    ],
    "Limsa Lominsa": [
@@ -174,6 +190,7 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Spoon Worm",
     "Versatile Lure"
    ],
    "Western La Noscea": [
@@ -192,6 +209,7 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -220,11 +238,14 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Spoon Worm",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
     "Goby Ball",
     "Herring Ball",
+    "Krill Cage Feeder",
     "Lugworm",
     "Northern Krill",
     "Pill Bug",
@@ -238,6 +259,7 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -264,6 +286,7 @@
   "lvl": 6,
   "all_bait": {
    "Lower La Noscea": [
+    "Crab Ball",
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
@@ -272,20 +295,27 @@
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
+    "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Limsa Lominsa": [
     "Floating Minnow",
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Spoon Worm",
     "Versatile Lure"
    ],
    "Middle La Noscea": [
@@ -293,6 +323,7 @@
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -318,11 +349,14 @@
     "Northern Krill",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Middle La Noscea": [
+    "Crab Ball",
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
@@ -375,20 +409,25 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Sinking Minnow",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Mist": [
     "Floating Minnow",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Eastern La Noscea": [
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
@@ -403,7 +442,9 @@
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Western La Noscea": [
     "Floating Minnow",
@@ -411,13 +452,16 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western Thanalan": [
     "Heavy Steel Jig",
     "Pill Bug",
-    "Versatile Lure"
+    "Rat Tail",
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -449,6 +493,8 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -477,6 +523,10 @@
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Sinking Minnow",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
@@ -502,7 +552,9 @@
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -523,6 +575,8 @@
   "all_bait": {
    "Lower La Noscea": [
     "Goby Ball",
+    "Northern Krill",
+    "Pill Bug",
     "Rat Tail",
     "Versatile Lure",
     "Yumizuno"
@@ -532,6 +586,7 @@
     "Northern Krill",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -565,6 +620,7 @@
     "Herring Ball",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Versatile Lure",
     "Yumizuno"
@@ -573,11 +629,14 @@
     "Goby Ball",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western Thanalan": [
+    "Goby Ball",
     "Heavy Steel Jig",
+    "Rat Tail",
     "Versatile Lure"
    ]
   },
@@ -602,7 +661,9 @@
   "all_bait": {
    "Lower La Noscea": [
     "Goby Ball",
+    "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ],
@@ -610,13 +671,15 @@
     "Goby Ball",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western Thanalan": [
     "Heavy Steel Jig",
     "Rat Tail",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -637,6 +700,8 @@
   "all_bait": {
    "Western La Noscea": [
     "Rat Tail",
+    "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
@@ -644,7 +709,9 @@
     "Herring Ball",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -675,6 +742,8 @@
    ],
    "Western La Noscea": [
     "Rat Tail",
+    "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
@@ -701,12 +770,16 @@
   "lvl": 18,
   "all_bait": {
    "Lower La Noscea": [
+    "Heavy Steel Jig",
     "Rat Tail",
     "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western La Noscea": [
+    "Floating Minnow",
+    "Heavy Steel Jig",
     "Rat Tail",
     "Saltwater Boilie",
     "Steel Jig",
@@ -731,9 +804,12 @@
   "lvl": 19,
   "all_bait": {
    "Eastern La Noscea": [
+    "Crab Ball",
     "Floating Minnow",
+    "Glowworm",
     "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
     "Northern Krill",
     "Rat Tail",
     "Saltwater Boilie",
@@ -747,7 +823,8 @@
     "Floating Minnow",
     "Rat Tail",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -770,21 +847,28 @@
   "lvl": 20,
   "all_bait": {
    "Western Thanalan": [
+    "Crab Ball",
     "Heavy Steel Jig",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Shrimp Cage Feeder",
     "Versatile Lure"
    ],
    "Western La Noscea": [
+    "Crab Ball",
     "Rat Tail",
     "Saltwater Boilie",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
+    "Crab Ball",
     "Herring Ball",
     "Northern Krill",
     "Rat Tail",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -824,6 +908,7 @@
   "lvl": 21,
   "all_bait": {
    "Lower La Noscea": [
+    "Crab Ball",
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
@@ -838,18 +923,22 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Sinking Minnow",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Mist": [
     "Floating Minnow",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Western La Noscea": [
     "Goby Ball",
@@ -882,12 +971,16 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Western Thanalan": [
     "Heavy Steel Jig",
     "Pill Bug",
-    "Versatile Lure"
+    "Rat Tail",
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -914,25 +1007,36 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Floating Minnow",
+    "Heavy Steel Jig",
+    "Herring Ball",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western Thanalan": [
+    "Crab Ball",
     "Floating Minnow",
     "Heavy Steel Jig",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Shrimp Cage Feeder",
     "Versatile Lure"
    ],
    "Mist": [
     "Floating Minnow",
+    "Shrimp Cage Feeder",
     "Spoon Worm",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
+    "Crab Ball",
     "Floating Minnow",
     "Herring Ball",
     "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Sinking Minnow",
     "Versatile Lure",
@@ -956,8 +1060,13 @@
   "lvl": 24,
   "all_bait": {
    "Western Thanalan": [
+    "Crab Ball",
+    "Floating Minnow",
     "Heavy Steel Jig",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Shrimp Cage Feeder",
+    "Steel Jig",
     "Versatile Lure"
    ],
    "Western La Noscea": [
@@ -967,10 +1076,12 @@
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -993,6 +1104,7 @@
   "lvl": 25,
   "all_bait": {
    "Eastern La Noscea": [
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
@@ -1010,6 +1122,8 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Sinking Minnow",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ],
@@ -1019,6 +1133,7 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -1039,6 +1154,9 @@
    "Western Thanalan": [
     "Heavy Steel Jig",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Shrimp Cage Feeder",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -1066,11 +1184,14 @@
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
+    "Floating Minnow",
     "Herring Ball",
     "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Versatile Lure",
     "Yumizuno"
@@ -1099,6 +1220,7 @@
     "Krill Cage Feeder",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -1106,10 +1228,12 @@
    ],
    "Mist": [
     "Heavy Steel Jig",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -1132,18 +1256,22 @@
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Lower La Noscea": [
     "Herring Ball",
     "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Sinking Minnow",
+    "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
@@ -1168,7 +1296,9 @@
    "Western La Noscea": [
     "Heavy Steel Jig",
     "Herring Ball",
+    "Northern Krill",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -1179,6 +1309,8 @@
     "Northern Krill",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
+    "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
@@ -1205,17 +1337,21 @@
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure"
    ]
   },
@@ -1239,6 +1375,8 @@
   "lvl": 31,
   "all_bait": {
    "Eastern La Noscea": [
+    "Glowworm",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
@@ -1250,16 +1388,20 @@
     "Yumizuno"
    ],
    "Mist": [
+    "Saltwater Boilie",
     "Spoon Worm",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Western Thanalan": [
+    "Heavy Steel Jig",
     "Northern Krill",
     "Saltwater Boilie",
     "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -1281,7 +1423,10 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Heavy Steel Jig",
+    "Herring Ball",
+    "Krill Cage Feeder",
     "Northern Krill",
+    "Spoon Worm",
     "Steel Jig",
     "Versatile Lure"
    ],
@@ -1289,7 +1434,8 @@
     "Heavy Steel Jig",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -1314,7 +1460,11 @@
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Heavy Steel Jig",
+    "Herring Ball",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Spoon Worm",
     "Versatile Lure"
    ]
   },
@@ -1341,6 +1491,7 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Heavy Steel Jig",
+    "Herring Ball",
     "Krill Cage Feeder",
     "Saltwater Boilie",
     "Spoon Worm",
@@ -1351,11 +1502,14 @@
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Mist": [
+    "Saltwater Boilie",
     "Spoon Worm",
     "Versatile Lure"
    ]
@@ -1377,9 +1531,11 @@
     "Heavy Steel Jig",
     "Northern Krill",
     "Saltwater Boilie",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -1403,6 +1559,7 @@
   "all_bait": {
    "Western Thanalan": [
     "Glowworm",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
@@ -1411,13 +1568,18 @@
     "Versatile Lure"
    ],
    "Western La Noscea": [
+    "Glowworm",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Saltwater Boilie",
     "Sinking Minnow",
     "Spoon Worm",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Eastern La Noscea": [
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Saltwater Boilie",
@@ -1444,8 +1606,10 @@
    "Eastern La Noscea": [
     "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
     "Northern Krill",
     "Saltwater Boilie",
+    "Sinking Minnow",
     "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
@@ -1453,6 +1617,8 @@
    "Western La Noscea": [
     "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
+    "Saltwater Boilie",
     "Sinking Minnow",
     "Steel Jig",
     "Versatile Lure",
@@ -1478,12 +1644,17 @@
    "Western La Noscea": [
     "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
     "Sinking Minnow",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Eastern La Noscea": [
+    "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
     "Northern Krill",
     "Versatile Lure"
    ]
@@ -1516,6 +1687,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -1546,16 +1718,20 @@
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
+    "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Middle La Noscea": [
     "Floating Minnow",
@@ -1566,6 +1742,8 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Sinking Minnow",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -1595,6 +1773,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -1609,21 +1788,26 @@
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Eastern La Noscea": [
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Lugworm",
     "Northern Krill",
@@ -1648,6 +1832,8 @@
   "timed": 1,
   "all_bait": {
    "Gridania": [
+    "Freshwater Boilie",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ]
@@ -1674,11 +1860,14 @@
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Mist": [
+    "Saltwater Boilie",
     "Spoon Worm",
     "Versatile Lure"
    ]
@@ -1718,6 +1907,7 @@
   "all_bait": {
    "Western La Noscea": [
     "Glowworm",
+    "Northern Krill",
     "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
@@ -1741,12 +1931,14 @@
   "all_bait": {
    "Western Thanalan": [
     "Glowworm",
+    "Northern Krill",
     "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ],
    "Western La Noscea": [
     "Glowworm",
+    "Northern Krill",
     "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
@@ -1777,6 +1969,7 @@
    ],
    "Western La Noscea": [
     "Glowworm",
+    "Saltwater Boilie",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -1833,6 +2026,7 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure"
    ]
   },
@@ -1930,6 +2124,7 @@
   "lvl": 50,
   "all_bait": {
    "Eastern La Noscea": [
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
@@ -1959,6 +2154,8 @@
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -1983,6 +2180,7 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Lugworm",
     "Northern Krill",
@@ -1993,18 +2191,22 @@
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -2024,6 +2226,7 @@
   "lvl": 50,
   "all_bait": {
    "Eastern La Noscea": [
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
@@ -2039,6 +2242,7 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -2058,14 +2262,19 @@
   "all_bait": {
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
+    "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -2082,14 +2291,18 @@
   "lvl": 50,
   "all_bait": {
    "Western La Noscea": [
+    "Crab Ball",
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
     "Northern Krill",
     "Pill Bug",
+    "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -2114,6 +2327,7 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Lugworm",
     "Northern Krill",
@@ -2124,18 +2338,22 @@
    ],
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -2157,6 +2375,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -2196,9 +2415,11 @@
   "lvl": 2,
   "all_bait": {
    "Gridania": [
+    "Bass Ball",
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
+    "Freshwater Boilie",
     "Honey Worm",
     "Moth Pupa",
     "Stem Borer",
@@ -2214,6 +2435,7 @@
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Midge Basket",
     "Moth Pupa",
     "Versatile Lure"
    ],
@@ -2226,7 +2448,10 @@
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Freshwater Boilie",
+    "Glowworm",
     "Moth Pupa",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -2282,18 +2507,26 @@
   "lvl": 4,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Bass Ball",
     "Chocobo Fly",
+    "Crayfish Ball",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Midge Basket",
     "Moth Pupa",
     "Stem Borer",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Topwater Frog",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "North Shroud": [
     "Bass Ball",
     "Bloodworm",
     "Crayfish Ball",
+    "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
     "Midge Basket",
@@ -2303,14 +2536,19 @@
    ],
    "East Shroud": [
     "Crayfish Ball",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Moth Pupa",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Freshwater Boilie",
+    "Glowworm",
     "Moth Pupa",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -2334,6 +2572,7 @@
    "Middle La Noscea": [
     "Bloodworm",
     "Butterworm",
+    "Chocobo Fly",
     "Crayfish Ball",
     "Moth Pupa",
     "Versatile Lure"
@@ -2379,13 +2618,17 @@
   "lvl": 5,
   "all_bait": {
    "Lower La Noscea": [
+    "Bloodworm",
     "Chocobo Fly",
+    "Crayfish Ball",
     "Midge Basket",
     "Moth Pupa",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "Northern Thanalan": [
+    "Butterworm",
+    "Chocobo Fly",
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
@@ -2395,15 +2638,19 @@
     "Versatile Lure"
    ],
    "Central Thanalan": [
+    "Bass Ball",
+    "Bloodworm",
     "Crayfish Ball",
     "Moth Pupa",
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Moth Pupa",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "South Shroud": [
     "Bass Ball",
@@ -2416,30 +2663,47 @@
     "Honey Worm",
     "Midge Basket",
     "Moth Pupa",
+    "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Spinnerbait",
+    "Streamer",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "East Shroud": [
+    "Bloodworm",
+    "Butterworm",
+    "Crayfish Ball",
+    "Midge Basket",
     "Moth Pupa",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Floating Minnow",
     "Moth Pupa",
     "Versatile Lure"
    ],
    "Mor Dhona": [
+    "Bloodworm",
     "Caddisfly Larva",
     "Crayfish Ball",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
     "Moth Pupa",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -2463,6 +2727,7 @@
    "Middle La Noscea": [
     "Bloodworm",
     "Crayfish Ball",
+    "Freshwater Boilie",
     "Moth Pupa",
     "Versatile Lure"
    ],
@@ -2502,10 +2767,12 @@
     "Versatile Lure"
    ],
    "Central Thanalan": [
+    "Bass Ball",
     "Crayfish Ball",
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Versatile Lure"
@@ -2519,6 +2786,7 @@
    "Middle La Noscea": [
     "Bloodworm",
     "Butterworm",
+    "Chocobo Fly",
     "Crayfish Ball",
     "Versatile Lure"
    ]
@@ -2549,25 +2817,37 @@
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Bloodworm",
+    "Crayfish Ball",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "The Lavender Beds": [
+    "Bass Ball",
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Crow Fly",
     "Floating Minnow",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Crow Fly",
+    "Freshwater Boilie",
+    "Glowworm",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -2592,23 +2872,34 @@
   "lvl": 8,
   "all_bait": {
    "Upper La Noscea": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Crow Fly",
+    "Floating Minnow",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Crow Fly",
     "Midge Basket",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Bloodworm",
+    "Caddisfly Larva",
     "Crayfish Ball",
+    "Floating Minnow",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Spinnerbait",
     "Versatile Lure"
    ]
   },
@@ -2641,14 +2932,17 @@
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
+    "Freshwater Boilie",
     "Honey Worm",
     "Stem Borer",
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Middle La Noscea": [
     "Bloodworm",
@@ -2656,8 +2950,12 @@
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Freshwater Boilie",
+    "Glowworm",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -2697,35 +2995,49 @@
   "lvl": 9,
   "all_bait": {
    "North Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Floating Minnow",
     "Versatile Lure"
    ],
    "Central Thanalan": [
+    "Bass Ball",
+    "Bloodworm",
     "Crayfish Ball",
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Butterworm",
+    "Caddisfly Larva",
     "Crayfish Ball",
+    "Floating Minnow",
     "Midge Basket",
     "Versatile Lure"
    ],
    "The Goblet": [
     "Bloodworm",
+    "Butterworm",
     "Caddisfly Larva",
     "Crayfish Ball",
-    "Versatile Lure"
+    "Honey Worm",
+    "Midge Basket",
+    "Syrphid Basket",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Central Shroud": [
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Glowworm",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -2768,7 +3080,14 @@
   "lvl": 10,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Bass Ball",
+    "Bloodworm",
+    "Crayfish Ball",
+    "Crow Fly",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Spinner",
+    "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -2778,13 +3097,16 @@
     "Crayfish Ball",
     "Crow Fly",
     "Floating Minnow",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Gridania": [
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ],
@@ -2792,7 +3114,8 @@
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Western Thanalan": [
     "Bloodworm",
@@ -2804,18 +3127,25 @@
    "Middle La Noscea": [
     "Bloodworm",
     "Butterworm",
+    "Chocobo Fly",
     "Crayfish Ball",
+    "Crow Fly",
     "Sinking Minnow",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bloodworm",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "Central Shroud": [
     "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
+    "Crow Fly",
+    "Freshwater Boilie",
+    "Glowworm",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -2856,11 +3186,14 @@
     "Spinner",
     "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Glowworm",
     "Honey Worm",
+    "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Versatile Lure"
@@ -2892,17 +3225,22 @@
    ],
    "Coerthas Central Highlands": [
     "Chocobo Fly",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Stem Borer",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Western Thanalan": [
     "Honey Worm",
     "Mythril Spoon Lure",
+    "Rainbow Spoon Lure",
     "Silver Spoon Lure",
+    "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -2929,15 +3267,20 @@
   "lvl": 13,
   "all_bait": {
    "Central Shroud": [
+    "Bass Ball",
     "Bloodworm",
     "Butterworm",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Honey Worm",
     "Midge Basket",
+    "Mythril Spoon Lure",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Eastern Thanalan": [
+    "Bloodworm",
     "Midge Basket",
     "Syrphid Basket",
     "Versatile Lure"
@@ -2952,6 +3295,7 @@
     "Bass Ball",
     "Bloodworm",
     "Crow Fly",
+    "Midge Basket",
     "Versatile Lure"
    ]
   },
@@ -2983,17 +3327,21 @@
    "Coerthas Central Highlands": [
     "Caddisfly Larva",
     "Honey Worm",
+    "Topwater Frog",
     "Versatile Lure"
    ],
    "South Shroud": [
+    "Bass Ball",
     "Bloodworm",
     "Butterworm",
     "Crow Fly",
     "Honey Worm",
     "Midge Basket",
+    "Streamer",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crow Fly",
     "Floating Minnow",
@@ -3006,6 +3354,9 @@
     "Butterworm",
     "Caddisfly Larva",
     "Crow Fly",
+    "Floating Minnow",
+    "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -3038,7 +3389,9 @@
     "Bloodworm",
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
     "Freshwater Boilie",
+    "Honey Worm",
     "Midge Basket",
     "Spinner",
     "Spinnerbait",
@@ -3046,18 +3399,24 @@
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Floating Minnow",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
     "Bloodworm",
     "Butterworm",
+    "Caddisfly Larva",
     "Floating Minnow",
+    "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "South Shroud": [
+    "Bass Ball",
     "Bloodworm",
     "Butterworm",
     "Honey Worm",
@@ -3067,6 +3426,7 @@
    "Middle La Noscea": [
     "Bloodworm",
     "Butterworm",
+    "Chocobo Fly",
     "Midge Basket",
     "Versatile Lure"
    ]
@@ -3100,15 +3460,22 @@
   "lvl": 16,
   "all_bait": {
    "Central Shroud": [
+    "Bass Ball",
     "Butterworm",
+    "Crayfish Ball",
     "Floating Minnow",
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
-    "Versatile Lure"
+    "Mythril Spoon Lure",
+    "Syrphid Basket",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "North Shroud": [
     "Bass Ball",
+    "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
     "Honey Worm",
@@ -3120,6 +3487,7 @@
     "Bass Ball",
     "Brass Spoon Lure",
     "Butterworm",
+    "Caddisfly Larva",
     "Chocobo Fly",
     "Crayfish Ball",
     "Crow Fly",
@@ -3128,31 +3496,43 @@
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Stem Borer",
     "Streamer",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "East Shroud": [
+    "Butterworm",
+    "Caddisfly Larva",
     "Midge Basket",
     "Versatile Lure"
    ],
    "Mor Dhona": [
+    "Brass Spoon Lure",
     "Caddisfly Larva",
     "Crow Fly",
+    "Floating Minnow",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "The Lavender Beds": [
     "Butterworm",
+    "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -3188,8 +3568,11 @@
   "lvl": 17,
   "all_bait": {
    "Upper La Noscea": [
+    "Brass Spoon Lure",
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
     "Spinner",
     "Spinnerbait",
@@ -3197,13 +3580,17 @@
     "Versatile Lure"
    ],
    "South Shroud": [
+    "Bass Ball",
+    "Brass Spoon Lure",
     "Butterworm",
     "Crow Fly",
     "Honey Worm",
     "Midge Basket",
+    "Streamer",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
+    "Butterworm",
     "Chocobo Fly",
     "Crow Fly",
     "Midge Basket",
@@ -3213,25 +3600,34 @@
    ],
    "North Shroud": [
     "Bass Ball",
+    "Brass Spoon Lure",
+    "Chocobo Fly",
     "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
+    "Honey Worm",
     "Midge Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "Eastern Thanalan": [
+    "Crow Fly",
     "Midge Basket",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "Western Thanalan": [
     "Butterworm",
+    "Crow Fly",
     "Midge Basket",
     "Versatile Lure"
    ],
    "The Goblet": [
+    "Butterworm",
     "Caddisfly Larva",
+    "Honey Worm",
     "Midge Basket",
+    "Spinnerbait",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -3262,7 +3658,10 @@
   "lvl": 17,
   "all_bait": {
    "Lower La Noscea": [
+    "Butterworm",
+    "Crow Fly",
     "Midge Basket",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
@@ -3315,20 +3714,26 @@
   "timed": 1,
   "all_bait": {
    "South Shroud": [
+    "Bass Ball",
     "Butterworm",
     "Honey Worm",
     "Midge Basket",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Bass Ball",
     "Floating Minnow",
+    "Honey Worm",
     "Midge Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "Eastern La Noscea": [
+    "Floating Minnow",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
@@ -3337,9 +3742,11 @@
     "Versatile Lure"
    ],
    "The Lavender Beds": [
+    "Brass Spoon Lure",
     "Butterworm",
     "Floating Minnow",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -3362,6 +3769,7 @@
     "Chocobo Fly",
     "Crow Fly",
     "Floating Minnow",
+    "Midge Basket",
     "Versatile Lure"
    ]
   },
@@ -3393,11 +3801,13 @@
    "Lower La Noscea": [
     "Chocobo Fly",
     "Crow Fly",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Gridania": [
     "Crow Fly",
+    "Snurble Fly",
     "Versatile Lure"
    ],
    "East Shroud": [
@@ -3406,7 +3816,9 @@
    ],
    "Central Shroud": [
     "Crow Fly",
-    "Versatile Lure"
+    "Floating Minnow",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Southern Thanalan": [
     "Crow Fly",
@@ -3452,6 +3864,7 @@
   "lvl": 20,
   "all_bait": {
    "Southern Thanalan": [
+    "Bass Ball",
     "Butterworm",
     "Floating Minnow",
     "Freshwater Boilie",
@@ -3464,7 +3877,9 @@
     "Butterworm",
     "Honey Worm",
     "Midge Basket",
+    "Snurble Fly",
     "Stem Borer",
+    "Streamer",
     "Syrphid Basket",
     "Versatile Lure"
    ],
@@ -3480,13 +3895,18 @@
    ],
    "Lower La Noscea": [
     "Butterworm",
+    "Crow Fly",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Upper La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
     "Versatile Lure"
    ],
@@ -3498,16 +3918,26 @@
    "The Goblet": [
     "Butterworm",
     "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
+    "Brass Spoon Lure",
     "Butterworm",
+    "Caddisfly Larva",
     "Floating Minnow",
+    "Freshwater Boilie",
+    "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Middle La Noscea": [
     "Butterworm",
+    "Chocobo Fly",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Versatile Lure"
    ]
   },
@@ -3534,6 +3964,7 @@
     "Butterworm",
     "Crow Fly",
     "Floating Minnow",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "North Shroud": [
@@ -3542,6 +3973,8 @@
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Butterworm",
+    "Caddisfly Larva",
     "Floating Minnow",
     "Midge Basket",
     "Versatile Lure"
@@ -3587,15 +4020,21 @@
    "South Shroud": [
     "Bass Ball",
     "Butterworm",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bass Ball",
     "Butterworm",
     "Crayfish Ball",
     "Floating Minnow",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "North Shroud": [
     "Bass Ball",
@@ -3606,6 +4045,8 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
@@ -3622,9 +4063,12 @@
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Bass Ball",
     "Butterworm",
+    "Crow Fly",
     "Honey Worm",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Central Thanalan": [
@@ -3634,6 +4078,7 @@
    ],
    "Southern Thanalan": [
     "Bass Ball",
+    "Butterworm",
     "Glowworm",
     "Honey Worm",
     "Versatile Lure"
@@ -3673,14 +4118,18 @@
     "Versatile Lure"
    ],
    "The Lavender Beds": [
+    "Bass Ball",
     "Butterworm",
     "Crow Fly",
     "Floating Minnow",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Central Shroud": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -3726,7 +4175,10 @@
    ],
    "Lower La Noscea": [
     "Butterworm",
+    "Crow Fly",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Spinner",
     "Spinnerbait",
     "Versatile Lure"
    ],
@@ -3737,24 +4189,34 @@
    ],
    "East Shroud": [
     "Crayfish Ball",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Moth Pupa",
     "Versatile Lure"
    ],
    "The Goblet": [
     "Butterworm",
     "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Freshwater Boilie",
+    "Glowworm",
     "Moth Pupa",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "Middle La Noscea": [
     "Butterworm",
+    "Chocobo Fly",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Versatile Lure"
    ]
   },
@@ -3778,7 +4240,11 @@
    "Upper La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
+    "Spinner",
     "Spinnerbait",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
@@ -3812,12 +4278,19 @@
    "Upper La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Butterworm",
+    "Crayfish Ball",
+    "Floating Minnow",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Stem Borer",
     "Streamer",
@@ -3826,8 +4299,11 @@
    ],
    "Outer La Noscea": [
     "Butterworm",
+    "Floating Minnow",
+    "Glowworm",
     "Honey Worm",
     "Spinnerbait",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "East Shroud": [
@@ -3861,28 +4337,41 @@
     "Chocobo Fly",
     "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinner",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Upper La Noscea": [
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Outer La Noscea": [
+    "Bass Ball",
+    "Brass Spoon Lure",
     "Caddisfly Larva",
+    "Chocobo Fly",
     "Crow Fly",
+    "Floating Minnow",
+    "Honey Worm",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Crow Fly",
     "Freshwater Boilie",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -3925,6 +4414,7 @@
    "Upper La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
     "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
@@ -3934,6 +4424,9 @@
    "Outer La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Glowworm",
+    "Honey Worm",
     "Spinnerbait",
     "Versatile Lure"
    ]
@@ -3971,12 +4464,16 @@
     "Bass Ball",
     "Butterworm",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
     "Butterworm",
+    "Floating Minnow",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
@@ -3984,6 +4481,7 @@
     "Butterworm",
     "Freshwater Boilie",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -4028,30 +4526,38 @@
     "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Upper La Noscea": [
+    "Bass Ball",
     "Brass Spoon Lure",
     "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "South Shroud": [
     "Bass Ball",
     "Brass Spoon Lure",
+    "Chocobo Fly",
     "Crow Fly",
     "Floating Minnow",
     "Honey Worm",
+    "Silver Spoon Lure",
     "Versatile Lure"
    ],
    "Central Thanalan": [
     "Crow Fly",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "East Shroud": [
     "Crow Fly",
+    "Floating Minnow",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -4061,6 +4567,7 @@
    "The Goblet": [
     "Caddisfly Larva",
     "Crow Fly",
+    "Spinnerbait",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -4068,7 +4575,10 @@
     "Bass Ball",
     "Brass Spoon Lure",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -4132,8 +4642,12 @@
    "South Shroud": [
     "Bass Ball",
     "Caddisfly Larva",
+    "Chocobo Fly",
     "Freshwater Boilie",
     "Honey Worm",
+    "Rainbow Spoon Lure",
+    "Sinking Minnow",
+    "Spinner",
     "Spinnerbait",
     "Streamer",
     "Syrphid Basket",
@@ -4143,6 +4657,9 @@
    "East Shroud": [
     "Bass Ball",
     "Caddisfly Larva",
+    "Floating Minnow",
+    "Spinnerbait",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -4166,6 +4683,7 @@
     "Bass Ball",
     "Bloodworm",
     "Crayfish Ball",
+    "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
     "Honey Worm",
@@ -4176,8 +4694,11 @@
    ],
    "The Lavender Beds": [
     "Butterworm",
+    "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -4199,19 +4720,28 @@
   "all_bait": {
    "South Shroud": [
     "Bass Ball",
+    "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Bass Ball",
     "Butterworm",
+    "Crayfish Ball",
     "Floating Minnow",
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
-    "Versatile Lure"
+    "Mythril Spoon Lure",
+    "Syrphid Basket",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -4235,6 +4765,7 @@
   "lvl": 29,
   "all_bait": {
    "Southern Thanalan": [
+    "Bass Ball",
     "Butterworm",
     "Floating Minnow",
     "Freshwater Boilie",
@@ -4245,16 +4776,21 @@
    ],
    "Eastern La Noscea": [
     "Butterworm",
+    "Freshwater Boilie",
     "Honey Worm",
     "Midge Basket",
+    "Snurble Fly",
     "Stem Borer",
+    "Streamer",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "The Goblet": [
     "Butterworm",
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Honey Worm",
+    "Midge Basket",
     "Versatile Lure"
    ]
   },
@@ -4274,6 +4810,7 @@
   "all_bait": {
    "Southern Thanalan": [
     "Bass Ball",
+    "Chocobo Fly",
     "Glowworm",
     "Honey Worm",
     "Versatile Lure"
@@ -4300,17 +4837,22 @@
   "all_bait": {
    "South Shroud": [
     "Bass Ball",
+    "Honey Worm",
     "Sinking Minnow",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Bass Ball",
+    "Chocobo Fly",
+    "Freshwater Boilie",
     "Honey Worm",
     "Sinking Minnow",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
+    "Chocobo Fly",
     "Sinking Minnow",
     "Versatile Lure"
    ]
@@ -4336,15 +4878,18 @@
   "all_bait": {
    "Central Shroud": [
     "Bass Ball",
+    "Honey Worm",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "The Lavender Beds": [
+    "Bass Ball",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
+    "Caddisfly Larva",
     "Syrphid Basket",
     "Versatile Lure"
    ]
@@ -4363,9 +4908,12 @@
   "lvl": 32,
   "all_bait": {
    "Southern Thanalan": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Silver Spoon Lure",
     "Spinner",
+    "Spinnerbait",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -4403,6 +4951,7 @@
     "Stem Borer",
     "Streamer",
     "Syrphid Basket",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -4410,18 +4959,26 @@
     "Chocobo Fly",
     "Spinner",
     "Spinnerbait",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Western Thanalan": [
     "Chocobo Fly",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Silver Spoon Lure",
+    "Spinner",
+    "Spinnerbait",
+    "Stem Borer",
     "Streamer",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Streamer",
     "Syrphid Basket",
@@ -4463,8 +5020,12 @@
     "Caddisfly Larva",
     "Freshwater Boilie",
     "Honey Worm",
+    "Rainbow Spoon Lure",
+    "Sinking Minnow",
+    "Spinnerbait",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -4502,9 +5063,11 @@
   "lvl": 34,
   "all_bait": {
    "Central Shroud": [
+    "Honey Worm",
     "Silver Spoon Lure",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "South Shroud": [
     "Freshwater Boilie",
@@ -4522,6 +5085,8 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Snurble Fly",
     "Spinnerbait",
     "Streamer",
     "Topwater Frog",
@@ -4532,6 +5097,7 @@
     "Honey Worm",
     "Silver Spoon Lure",
     "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
@@ -4539,7 +5105,9 @@
     "Versatile Lure"
    ],
    "Mor Dhona": [
-    "Honey Worm"
+    "Honey Worm",
+    "Streamer",
+    "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Caddisfly Larva",
@@ -4547,10 +5115,14 @@
     "Honey Worm",
     "Mythril Spoon Lure",
     "Stem Borer",
+    "Streamer",
+    "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "The Lavender Beds": [
+    "Silver Spoon Lure",
     "Syrphid Basket",
     "Versatile Lure"
    ]
@@ -4593,6 +5165,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
@@ -4603,9 +5179,11 @@
     "Versatile Lure"
    ],
    "South Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Stem Borer",
     "Streamer",
     "Syrphid Basket",
     "Topwater Frog",
@@ -4614,13 +5192,19 @@
    "Upper La Noscea": [
     "Honey Worm",
     "Spinnerbait",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
+    "Glowworm",
+    "Honey Worm",
     "Spinnerbait",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Stem Borer",
     "Streamer",
@@ -4628,7 +5212,9 @@
     "Versatile Lure"
    ],
    "Mor Dhona": [
-    "Glowworm"
+    "Glowworm",
+    "Honey Worm",
+    "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Freshwater Boilie",
@@ -4669,6 +5255,7 @@
     "Crow Fly",
     "Floating Minnow",
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Midge Basket",
     "Snurble Fly",
@@ -4682,22 +5269,30 @@
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Silver Spoon Lure",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "Mor Dhona": [
     "Glowworm",
+    "Honey Worm",
+    "Midge Basket",
     "Versatile Lure"
    ],
    "The Lavender Beds": [
     "Butterworm",
+    "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ],
    "South Shroud": [
     "Bass Ball",
     "Brass Spoon Lure",
     "Butterworm",
+    "Caddisfly Larva",
     "Chocobo Fly",
     "Crayfish Ball",
     "Crow Fly",
@@ -4706,10 +5301,12 @@
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
+    "Stem Borer",
     "Streamer",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -4740,7 +5337,9 @@
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Freshwater Boilie",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Spinnerbait",
     "Syrphid Basket",
     "Versatile Lure",
@@ -4753,6 +5352,8 @@
     "Wildfowl Fly"
    ],
    "North Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Stem Borer",
     "Streamer",
@@ -4830,12 +5431,15 @@
     "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "South Shroud": [
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Central Shroud": [
@@ -4849,12 +5453,18 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Western Thanalan": [
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Silver Spoon Lure",
+    "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -4863,27 +5473,34 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
     "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "Upper La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ],
    "The Goblet": [
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Honey Worm",
     "Versatile Lure"
    ]
@@ -4913,13 +5530,20 @@
     "Versatile Lure"
    ],
    "Central Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -4941,7 +5565,12 @@
     "Caddisfly Larva",
     "Freshwater Boilie",
     "Honey Worm",
-    "Versatile Lure"
+    "Rainbow Spoon Lure",
+    "Sinking Minnow",
+    "Spinnerbait",
+    "Streamer",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -4977,6 +5606,7 @@
   "lvl": 37,
   "all_bait": {
    "Northern Thanalan": [
+    "Glowworm",
     "Honey Worm",
     "Spinnerbait",
     "Stem Borer",
@@ -4984,15 +5614,19 @@
    ],
    "Coerthas Central Highlands": [
     "Honey Worm",
+    "Topwater Frog",
     "Versatile Lure"
    ],
    "Upper La Noscea": [
     "Honey Worm",
+    "Sinking Minnow",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
+    "Caddisfly Larva",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -5000,7 +5634,9 @@
    ],
    "Eastern La Noscea": [
     "Honey Worm",
+    "Sinking Minnow",
     "Spinner",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -5010,7 +5646,10 @@
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Rainbow Spoon Lure",
     "Silver Spoon Lure",
     "Sinking Minnow",
@@ -5041,20 +5680,24 @@
   "lvl": 38,
   "all_bait": {
    "South Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Sinking Minnow",
+    "Stem Borer",
     "Streamer",
     "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "East Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Sinking Minnow",
+    "Snurble Fly",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -5081,12 +5724,18 @@
   "lvl": 38,
   "all_bait": {
    "Western Thanalan": [
+    "Caddisfly Larva",
     "Honey Worm",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
     "Herring Ball",
     "Honey Worm",
+    "Krill Cage Feeder",
+    "Spinnerbait",
     "Versatile Lure"
    ]
   },
@@ -5122,15 +5771,21 @@
    "Coerthas Central Highlands": [
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Stem Borer",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ],
    "Southern Thanalan": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinner",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
     "Stem Borer",
     "Streamer",
@@ -5153,7 +5808,9 @@
   "timed": 1,
   "all_bait": {
    "Eastern Thanalan": [
+    "Freshwater Boilie",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -5172,7 +5829,9 @@
   "lvl": 40,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -5200,6 +5859,7 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
@@ -5207,7 +5867,9 @@
    "Eastern Thanalan": [
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Topwater Frog",
     "Versatile Lure"
@@ -5240,9 +5902,12 @@
    "Upper La Noscea": [
     "Mythril Spoon Lure",
     "Spinnerbait",
+    "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
+    "Caddisfly Larva",
     "Mythril Spoon Lure",
     "Spinner",
     "Spinnerbait",
@@ -5250,7 +5915,9 @@
     "Versatile Lure"
    ],
    "Coerthas Central Highlands": [
+    "Glowworm",
     "Mythril Spoon Lure",
+    "Spinner",
     "Spinnerbait",
     "Stem Borer",
     "Topwater Frog",
@@ -5291,6 +5958,7 @@
     "Freshwater Boilie",
     "Glowworm",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -5300,19 +5968,24 @@
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Freshwater Boilie",
     "Glowworm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Versatile Lure"
    ],
    "Eastern Thanalan": [
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Topwater Frog",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
     "Caddisfly Larva",
+    "Glowworm",
     "Spinnerbait",
     "Stem Borer",
     "Versatile Lure"
@@ -5342,11 +6015,14 @@
   "lvl": 42,
   "all_bait": {
    "Eastern La Noscea": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Spinner",
     "Stem Borer",
     "Versatile Lure"
    ],
    "North Shroud": [
+    "Freshwater Boilie",
     "Glowworm",
     "Stem Borer",
     "Streamer",
@@ -5356,6 +6032,8 @@
    "Eastern Thanalan": [
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Topwater Frog",
     "Versatile Lure"
@@ -5380,7 +6058,8 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Spinner",
-    "Stem Borer"
+    "Stem Borer",
+    "Versatile Lure"
    ],
    "Outer La Noscea": [
     "Spinner",
@@ -5408,13 +6087,20 @@
    "Upper La Noscea": [
     "Butterworm",
     "Crow Fly",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
     "Versatile Lure"
    ],
    "East Shroud": [
     "Bass Ball",
+    "Brass Spoon Lure",
     "Butterworm",
+    "Caddisfly Larva",
     "Floating Minnow",
+    "Freshwater Boilie",
+    "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -5487,12 +6173,17 @@
   "timed": 1,
   "all_bait": {
    "North Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Stem Borer",
     "Streamer",
     "Topwater Frog",
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -5530,13 +6221,17 @@
     "Versatile Lure"
    ],
    "Upper La Noscea": [
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Rainbow Spoon Lure",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -5544,6 +6239,8 @@
     "Versatile Lure"
    ],
    "Coerthas Central Highlands": [
+    "Glowworm",
+    "Spinnerbait",
     "Versatile Lure"
    ]
   },
@@ -5571,11 +6268,14 @@
   "all_bait": {
    "North Shroud": [
     "Glowworm",
+    "Stem Borer",
     "Streamer",
     "Topwater Frog",
     "Versatile Lure"
    ],
    "East Shroud": [
+    "Freshwater Boilie",
+    "Glowworm",
     "Spinnerbait",
     "Stem Borer",
     "Streamer",
@@ -5585,6 +6285,9 @@
    "Eastern Thanalan": [
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Honey Worm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Topwater Frog",
     "Versatile Lure"
@@ -5611,6 +6314,7 @@
   "lvl": 45,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Glowworm",
     "Topwater Frog",
     "Versatile Lure"
    ]
@@ -5629,7 +6333,9 @@
   "lvl": 45,
   "all_bait": {
    "Eastern La Noscea": [
+    "Caddisfly Larva",
     "Glowworm",
+    "Snurble Fly",
     "Spinnerbait",
     "Versatile Lure"
    ]
@@ -5649,6 +6355,7 @@
   "timed": 1,
   "all_bait": {
    "Eastern La Noscea": [
+    "Freshwater Boilie",
     "Glowworm",
     "Snurble Fly",
     "Versatile Lure"
@@ -5669,7 +6376,9 @@
   "all_bait": {
    "South Shroud": [
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -5691,6 +6400,7 @@
     "Glowworm",
     "Snurble Fly",
     "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ]
   },
@@ -5719,22 +6429,35 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Rainbow Spoon Lure",
     "Silver Spoon Lure",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
+    "Brass Spoon Lure",
     "Caddisfly Larva",
     "Crow Fly",
+    "Floating Minnow",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -5765,6 +6488,7 @@
     "Freshwater Boilie",
     "Glowworm",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -5776,12 +6500,15 @@
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Freshwater Boilie",
     "Glowworm",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
     "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ]
   },
@@ -5811,6 +6538,7 @@
     "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -5818,6 +6546,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Silver Spoon Lure",
+    "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -5826,6 +6558,8 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
     "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
@@ -5859,8 +6593,14 @@
     "Versatile Lure"
    ],
    "Western Thanalan": [
+    "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Rainbow Spoon Lure",
     "Silver Spoon Lure",
+    "Stem Borer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
@@ -5897,6 +6637,7 @@
    ],
    "Mor Dhona": [
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Glowworm",
     "Rainbow Spoon Lure",
     "Topwater Frog",
@@ -5950,10 +6691,14 @@
     "Freshwater Boilie",
     "Glowworm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
+    "Topwater Frog",
     "Versatile Lure"
    ],
    "Mor Dhona": [
-    "Glowworm"
+    "Glowworm",
+    "Versatile Lure"
    ],
    "South Shroud": [
     "Freshwater Boilie",
@@ -5978,16 +6723,24 @@
   "lvl": 50,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Bass Ball",
     "Brute Leech",
     "Chocobo Fly",
+    "Crayfish Ball",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Midge Basket",
     "Moth Pupa",
     "Purse Web Spider",
     "Stem Borer",
     "Stonefly Nymph",
+    "Streamer",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Topwater Frog",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -6005,7 +6758,10 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Glowworm",
     "Honey Worm",
+    "Purse Web Spider",
+    "Spinnerbait",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Versatile Lure"
@@ -6043,6 +6799,7 @@
     "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
@@ -6051,11 +6808,14 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ],
    "Mor Dhona": [
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ],
@@ -6063,11 +6823,16 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ],
    "The Goblet": [
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Honey Worm",
     "Versatile Lure"
    ]
@@ -6092,11 +6857,17 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Silver Spoon Lure",
+    "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ]
   },
@@ -6134,15 +6905,19 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Butterworm",
     "Chocobo Fly",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Moth Pupa",
+    "Mythril Spoon Lure",
     "Stem Borer",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -6159,6 +6934,7 @@
   "lvl": 50,
   "all_bait": {
    "Upper La Noscea": [
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -6180,7 +6956,9 @@
   "timed": 1,
   "all_bait": {
    "Outer La Noscea": [
-    "Spinnerbait"
+    "Caddisfly Larva",
+    "Spinnerbait",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -6198,7 +6976,8 @@
   "timed": 1,
   "all_bait": {
    "Eastern Thanalan": [
-    "Caddisfly Larva"
+    "Caddisfly Larva",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -6242,6 +7021,7 @@
     "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -6263,11 +7043,13 @@
   "lvl": 50,
   "all_bait": {
    "Upper La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinnerbait",
     "Versatile Lure"
    ],
    "Outer La Noscea": [
+    "Freshwater Boilie",
     "Honey Worm",
     "Spinnerbait",
     "Versatile Lure"
@@ -6288,6 +7070,7 @@
   "timed": 1,
   "all_bait": {
    "Mor Dhona": [
+    "Caddisfly Larva",
     "Rainbow Spoon Lure"
    ]
   },
@@ -6306,7 +7089,10 @@
   "timed": 1,
   "all_bait": {
    "East Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Rainbow Spoon Lure",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -6366,16 +7152,24 @@
   "lvl": 50,
   "all_bait": {
    "Coerthas Central Highlands": [
+    "Bass Ball",
     "Brute Leech",
     "Chocobo Fly",
+    "Crayfish Ball",
+    "Floating Minnow",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Midge Basket",
     "Moth Pupa",
     "Purse Web Spider",
     "Stem Borer",
     "Stonefly Nymph",
+    "Streamer",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Topwater Frog",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -6396,6 +7190,8 @@
     "Glowworm",
     "Honey Worm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
     "Versatile Lure"
    ]
   },
@@ -6469,6 +7265,7 @@
    "Mor Dhona": [
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ]
@@ -6490,6 +7287,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -6531,6 +7332,7 @@
   "lvl": 37,
   "all_bait": {
    "Southern Thanalan": [
+    "Freshwater Boilie",
     "Rolling Stone",
     "Sand Gecko",
     "Sand Leech",
@@ -6641,7 +7443,9 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Balloon Bug",
+    "Freshwater Boilie",
     "Hoverworm",
+    "Saltwater Boilie",
     "Versatile Lure"
    ]
   },
@@ -6662,6 +7466,7 @@
     "Balloon Bug",
     "Freshwater Boilie",
     "Hoverworm",
+    "Saltwater Boilie",
     "Versatile Lure"
    ]
   },
@@ -6722,7 +7527,9 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Balloon Bug",
+    "Freshwater Boilie",
     "Hoverworm",
+    "Saltwater Boilie",
     "Versatile Lure"
    ]
   },
@@ -6834,12 +7641,16 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure"
    ],
    "Western La Noscea": [
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -6864,6 +7675,9 @@
     "Crab Ball",
     "Heavy Steel Jig",
     "Herring Ball",
+    "Krill Cage Feeder",
+    "Northern Krill",
+    "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
     "Steel Jig",
@@ -6898,11 +7712,15 @@
   "lvl": 40,
   "all_bait": {
    "Western La Noscea": [
+    "Glowworm",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Saltwater Boilie",
-    "Versatile Lure"
+    "Sinking Minnow",
+    "Versatile Lure",
+    "Yumizuno"
    ],
    "Eastern La Noscea": [
     "Herring Ball",
@@ -6937,8 +7755,10 @@
    "Western La Noscea": [
     "Glowworm",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Saltwater Boilie",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -6971,20 +7791,25 @@
    ],
    "Coerthas Central Highlands": [
     "Chocobo Fly",
+    "Glowworm",
     "Honey Worm",
+    "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Versatile Lure"
    ],
    "The Churning Mists": [
+    "Chocobo Fly",
     "Purse Web Spider",
     "Stonefly Nymph",
     "Versatile Lure"
    ],
    "Mor Dhona": [
+    "Chocobo Fly",
     "Glowworm",
     "Honey Worm",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -7180,6 +8005,8 @@
   "timed": 2,
   "all_bait": {
    "East Shroud": [
+    "Butterworm",
+    "Caddisfly Larva",
     "Midge Basket",
     "Versatile Lure"
    ]
@@ -7204,6 +8031,7 @@
     "Lugworm",
     "Pill Bug",
     "Rat Tail",
+    "Saltwater Boilie",
     "Versatile Lure"
    ]
   },
@@ -7250,6 +8078,8 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Sinking Minnow",
+    "Spoon Worm",
+    "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -7404,6 +8234,8 @@
   "all_bait": {
    "East Shroud": [
     "Crayfish Ball",
+    "Freshwater Boilie",
+    "Midge Basket",
     "Moth Pupa",
     "Versatile Lure"
    ]
@@ -7462,6 +8294,7 @@
   "timed": 2,
   "all_bait": {
    "Lower La Noscea": [
+    "Spinner",
     "Spinnerbait"
    ]
   },
@@ -7614,10 +8447,13 @@
   "timed": 2,
   "all_bait": {
    "Central Shroud": [
+    "Bloodworm",
     "Butterworm",
     "Crayfish Ball",
     "Freshwater Boilie",
+    "Glowworm",
     "Moth Pupa",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -7663,6 +8499,8 @@
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
+    "Sinking Minnow",
+    "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
    ]
@@ -7873,6 +8711,7 @@
   "timed": 2,
   "all_bait": {
    "Upper La Noscea": [
+    "Freshwater Boilie",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -7992,7 +8831,9 @@
    "Southern Thanalan": [
     "Bass Ball",
     "Butterworm",
+    "Floating Minnow",
     "Freshwater Boilie",
+    "Glowworm",
     "Midge Basket",
     "Versatile Lure"
    ]
@@ -8014,8 +8855,13 @@
   "all_bait": {
    "East Shroud": [
     "Bass Ball",
+    "Brass Spoon Lure",
     "Butterworm",
+    "Caddisfly Larva",
     "Floating Minnow",
+    "Freshwater Boilie",
+    "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -8117,6 +8963,7 @@
   "timed": 2,
   "all_bait": {
    "Mist": [
+    "Saltwater Boilie",
     "Spoon Worm",
     "Versatile Lure"
    ]
@@ -8214,7 +9061,9 @@
   "all_bait": {
    "South Shroud": [
     "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -8235,8 +9084,11 @@
   "all_bait": {
    "The Lavender Beds": [
     "Butterworm",
+    "Crow Fly",
     "Floating Minnow",
+    "Freshwater Boilie",
     "Midge Basket",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -8582,7 +9434,9 @@
     "Butterworm",
     "Honey Worm",
     "Midge Basket",
+    "Snurble Fly",
     "Stem Borer",
+    "Streamer",
     "Syrphid Basket",
     "Versatile Lure"
    ]
@@ -8604,14 +9458,19 @@
   "all_bait": {
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
+    "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
     "Spoon Worm",
-    "Versatile Lure"
+    "Steel Jig",
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -8692,13 +9551,17 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Purse Web Spider",
     "Stem Borer",
     "Stonefly Nymph",
+    "Streamer",
     "Syrphid Basket",
-    "Versatile Lure"
+    "Topwater Frog",
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -8718,11 +9581,17 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Purse Web Spider",
+    "Sinking Minnow",
     "Stem Borer",
     "Stonefly Nymph",
     "Streamer",
+    "Syrphid Basket",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -8765,9 +9634,11 @@
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -8810,18 +9681,22 @@
   "all_bait": {
    "Western La Noscea": [
     "Floating Minnow",
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
+    "Northern Krill",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Yumizuno"
    ]
   },
   "logical_intuition": {},
@@ -8862,6 +9737,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -8876,6 +9755,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
+    "Snurble Fly",
+    "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -8894,6 +9777,7 @@
   "timed": 2,
   "all_bait": {
    "Eastern La Noscea": [
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
@@ -8921,6 +9805,7 @@
   "all_bait": {
    "Eastern La Noscea": [
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Lugworm",
     "Northern Krill",
@@ -8959,6 +9844,8 @@
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -8985,6 +9872,8 @@
     "Herring Ball",
     "Krill Cage Feeder",
     "Northern Krill",
+    "Saltwater Boilie",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -9007,14 +9896,18 @@
   "timed": 2,
   "all_bait": {
    "Western La Noscea": [
+    "Crab Ball",
+    "Floating Minnow",
     "Goby Ball",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
     "Northern Krill",
     "Pill Bug",
+    "Rat Tail",
     "Saltwater Boilie",
     "Shrimp Cage Feeder",
+    "Sinking Minnow",
     "Spoon Worm",
     "Steel Jig",
     "Versatile Lure",
@@ -9088,6 +9981,9 @@
     "Freshwater Boilie",
     "Glowworm",
     "Rainbow Spoon Lure",
+    "Spinnerbait",
+    "Streamer",
+    "Topwater Frog",
     "Versatile Lure"
    ]
   }
@@ -9105,14 +10001,19 @@
   "timed": 2,
   "all_bait": {
    "Mor Dhona": [
+    "Brass Spoon Lure",
     "Caddisfly Larva",
     "Crow Fly",
+    "Floating Minnow",
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Midge Basket",
     "Rainbow Spoon Lure",
+    "Silver Spoon Lure",
+    "Sinking Minnow",
     "Stem Borer",
+    "Syrphid Basket",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -9135,6 +10036,7 @@
    "Mor Dhona": [
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ]
@@ -9157,6 +10059,7 @@
    "Mor Dhona": [
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ]
@@ -9170,6 +10073,7 @@
    "Mor Dhona": [
     "Glowworm",
     "Honey Worm",
+    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ]
@@ -9192,6 +10096,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -9216,6 +10121,7 @@
     "Floating Minnow",
     "Glowworm",
     "Goby Ball",
+    "Heavy Steel Jig",
     "Herring Ball",
     "Krill Cage Feeder",
     "Lugworm",
@@ -9243,8 +10149,14 @@
   "timed": 2,
   "all_bait": {
    "Western Thanalan": [
+    "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Rainbow Spoon Lure",
     "Silver Spoon Lure",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -9267,6 +10179,10 @@
     "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
+    "Mythril Spoon Lure",
+    "Silver Spoon Lure",
+    "Stem Borer",
+    "Streamer",
     "Versatile Lure"
    ]
   },
@@ -9292,6 +10208,7 @@
     "Silver Spoon Lure",
     "Sinking Minnow",
     "Stem Borer",
+    "Topwater Frog",
     "Versatile Lure",
     "Wildfowl Fly"
    ]
@@ -9337,7 +10254,9 @@
   "all_bait": {
    "Coerthas Central Highlands": [
     "Brute Leech",
+    "Glowworm",
     "Honey Worm",
+    "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Versatile Lure"
@@ -9351,7 +10270,9 @@
   "intuition_bait": {
    "Coerthas Central Highlands": [
     "Chocobo Fly",
+    "Glowworm",
     "Honey Worm",
+    "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Versatile Lure"
@@ -9436,7 +10357,10 @@
   "timed": 2,
   "all_bait": {
    "East Shroud": [
+    "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
+    "Rainbow Spoon Lure",
     "Spinner",
     "Spinnerbait",
     "Stem Borer",
@@ -9526,7 +10450,8 @@
   "timed": 1,
   "all_bait": {
    "Eastern La Noscea": [
-    "Heavy Steel Jig"
+    "Heavy Steel Jig",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -9659,10 +10584,13 @@
   "all_bait": {
    "Coerthas Western Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
     "Freshwater Boilie",
     "Honey Worm",
     "Metal Spinner",
     "Purse Web Spider",
+    "Spinner",
+    "Stem Borer",
     "Stonefly Nymph",
     "Versatile Lure"
    ]
@@ -9729,6 +10657,7 @@
   "timed": 1,
   "all_bait": {
    "The Dravanian Forelands": [
+    "Bladed Steel Jig",
     "Brute Leech",
     "Goblin Jig",
     "Metal Spinner",
@@ -9858,6 +10787,7 @@
     "Spinner",
     "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -9878,13 +10808,17 @@
    "Coerthas Western Highlands": [
     "Brute Leech",
     "Caddisfly Larva",
+    "Freshwater Boilie",
     "Glowworm",
     "Honey Worm",
     "Metal Spinner",
     "Mythril Spoon Lure",
     "Purse Web Spider",
+    "Sinking Minnow",
     "Spinner",
+    "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -10113,11 +11047,14 @@
     "Brute Leech",
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
     "Goblin Jig",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Purse Web Spider",
     "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -10138,11 +11075,14 @@
     "Brute Leech",
     "Caddisfly Larva",
     "Freshwater Boilie",
+    "Glowworm",
     "Goblin Jig",
     "Honey Worm",
+    "Mythril Spoon Lure",
     "Purse Web Spider",
     "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -10355,13 +11295,18 @@
   "all_bait": {
    "Coerthas Western Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
+    "Glowworm",
     "Goblin Jig",
+    "Honey Worm",
     "Metal Spinner",
+    "Mythril Spoon Lure",
     "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -10658,6 +11603,7 @@
   "all_bait": {
    "The Dravanian Forelands": [
     "Brute Leech",
+    "Goblin Jig",
     "Metal Spinner",
     "Purse Web Spider",
     "Stonefly Nymph",
@@ -10928,7 +11874,11 @@
   "timed": 1,
   "all_bait": {
    "Azys Lla": [
-    "Brute Leech"
+    "Bladed Steel Jig",
+    "Brute Leech",
+    "Purse Web Spider",
+    "Signature Skyball",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -11263,6 +12213,7 @@
    "The Dravanian Hinterlands": [
     "Bladed Steel Jig",
     "Goblin Jig",
+    "Stonefly Nymph",
     "Versatile Lure"
    ]
   },
@@ -11302,6 +12253,7 @@
   "timed": 1,
   "all_bait": {
    "The Churning Mists": [
+    "Bladed Steel Jig",
     "Brute Leech",
     "Goblin Jig",
     "Metal Spinner",
@@ -11394,6 +12346,7 @@
     "Spinner",
     "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -11842,12 +12795,17 @@
   "all_bait": {
    "Coerthas Western Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
+    "Glowworm",
+    "Honey Worm",
     "Metal Spinner",
+    "Mythril Spoon Lure",
     "Purse Web Spider",
     "Stonefly Nymph",
     "Syrphid Basket",
     "Topwater Frog",
-    "Versatile Lure"
+    "Versatile Lure",
+    "Wildfowl Fly"
    ]
   },
   "logical_intuition": {},
@@ -12337,9 +13295,16 @@
    "Coerthas Western Highlands": [
     "Brute Leech",
     "Caddisfly Larva",
+    "Freshwater Boilie",
+    "Glowworm",
+    "Honey Worm",
     "Metal Spinner",
+    "Mythril Spoon Lure",
     "Purse Web Spider",
+    "Spinner",
+    "Stem Borer",
     "Stonefly Nymph",
+    "Syrphid Basket",
     "Versatile Lure"
    ]
   },
@@ -12415,7 +13380,11 @@
   "timed": 1,
   "all_bait": {
    "The Dravanian Hinterlands": [
-    "Brute Leech"
+    "Bladed Steel Jig",
+    "Brute Leech",
+    "Goblin Jig",
+    "Metal Spinner",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -12617,7 +13586,8 @@
   "folklore": 12701,
   "all_bait": {
    "Coerthas Western Highlands": [
-    "Brute Leech"
+    "Brute Leech",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -13760,6 +14730,7 @@
   "all_bait": {
    "Coerthas Western Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
     "Metal Spinner",
     "Purse Web Spider",
     "Stonefly Nymph",
@@ -13774,6 +14745,7 @@
   "intuition_bait": {
    "Coerthas Western Highlands": [
     "Brute Leech",
+    "Caddisfly Larva",
     "Metal Spinner",
     "Purse Web Spider",
     "Stonefly Nymph",
@@ -13937,6 +14909,7 @@
   "all_bait": {
    "Yanxia": [
     "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -14034,6 +15007,7 @@
    "Rhalgr's Reach": [
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
    ]
@@ -14235,10 +15209,12 @@
   "timed": 1,
   "all_bait": {
    "The Azim Steppe": [
-    "Midge Larva"
+    "Midge Larva",
+    "Versatile Lure"
    ],
    "Shirogane": [
-    "Midge Larva"
+    "Midge Larva",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -14417,6 +15393,7 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
    ]
@@ -14435,6 +15412,8 @@
   "lvl": 64,
   "all_bait": {
    "Yanxia": [
+    "Nightcrawler",
+    "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
    ]
@@ -14593,6 +15572,7 @@
   "folklore": 17843,
   "all_bait": {
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -14637,6 +15617,7 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Suspending Minnow",
     "Versatile Lure"
    ],
    "The Peaks": [
@@ -14665,9 +15646,12 @@
   "lvl": 62,
   "all_bait": {
    "Rhalgr's Reach": [
+    "Metal Spinner",
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ],
    "The Fringes": [
@@ -14708,6 +15692,7 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -14729,6 +15714,7 @@
     "Nightcrawler",
     "Salmon Roe",
     "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -14749,6 +15735,8 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -14769,6 +15757,8 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -14787,6 +15777,8 @@
   "all_bait": {
    "Rhalgr's Reach": [
     "Salmon Roe",
+    "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -15136,6 +16128,8 @@
   "all_bait": {
    "The Peaks": [
     "Midge Larva",
+    "Nightcrawler",
+    "Salmon Roe",
     "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
@@ -15156,6 +16150,8 @@
   "all_bait": {
    "The Peaks": [
     "Midge Larva",
+    "Nightcrawler",
+    "Salmon Roe",
     "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
@@ -15436,6 +16432,7 @@
     "Versatile Lure"
    ],
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -15823,6 +16820,7 @@
   "lvl": 68,
   "all_bait": {
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -15857,6 +16855,7 @@
   "all_bait": {
    "Yanxia": [
     "Nightcrawler",
+    "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
    ]
@@ -15889,6 +16888,7 @@
     "Versatile Lure"
    ],
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -15917,6 +16917,7 @@
   "lvl": 63,
   "all_bait": {
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -15943,6 +16944,7 @@
   "timed": 1,
   "all_bait": {
    "Yanxia": [
+    "Midge Larva",
     "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
@@ -16004,6 +17006,7 @@
    "Yanxia": [
     "Midge Larva",
     "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -16044,6 +17047,7 @@
   "lvl": 69,
   "all_bait": {
    "Yanxia": [
+    "Metal Spinner",
     "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
@@ -16064,6 +17068,7 @@
   "lvl": 64,
   "all_bait": {
    "Yanxia": [
+    "Nightcrawler",
     "Stonefly Larva",
     "Suspending Minnow",
     "Versatile Lure"
@@ -16105,6 +17110,7 @@
    "Yanxia": [
     "Midge Larva",
     "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -16128,6 +17134,8 @@
   "lvl": 64,
   "all_bait": {
    "Yanxia": [
+    "Metal Spinner",
+    "Midge Larva",
     "Nightcrawler",
     "Stonefly Larva",
     "Suspending Minnow",
@@ -16178,6 +17186,7 @@
   "all_bait": {
    "The Azim Steppe": [
     "Midge Larva",
+    "Nightcrawler",
     "Salmon Roe",
     "Suspending Minnow",
     "Versatile Lure"
@@ -16185,6 +17194,7 @@
    "Shirogane": [
     "Midge Larva",
     "Nightcrawler",
+    "Salmon Roe",
     "Versatile Lure"
    ]
   },
@@ -16243,7 +17253,9 @@
   "lvl": 66,
   "all_bait": {
    "The Azim Steppe": [
+    "Metal Spinner",
     "Midge Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -16432,6 +17444,7 @@
    "Yanxia": [
     "Nightcrawler",
     "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ],
    "Shirogane": [
@@ -16537,6 +17550,7 @@
   "timed": 2,
   "all_bait": {
    "Eastern La Noscea": [
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
@@ -16567,6 +17581,7 @@
   "timed": 1,
   "all_bait": {
    "Eastern La Noscea": [
+    "Glowworm",
     "Goby Ball",
     "Heavy Steel Jig",
     "Herring Ball",
@@ -16927,6 +17942,7 @@
   "folklore": 17843,
   "all_bait": {
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -17238,6 +18254,7 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -17363,6 +18380,7 @@
   "timed": 2,
   "all_bait": {
    "Kugane": [
+    "Bream Lure",
     "Live Shrimp",
     "Metal Spinner",
     "Versatile Lure"
@@ -17674,6 +18692,8 @@
     "Midge Larva",
     "Nightcrawler",
     "Salmon Roe",
+    "Stonefly Larva",
+    "Suspending Minnow",
     "Versatile Lure"
    ]
   },
@@ -18580,6 +19600,7 @@
     "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -18597,6 +19618,7 @@
   "lvl": 71,
   "all_bait": {
    "The Crystarium": [
+    "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
     "Robber Ball",
@@ -18636,6 +19658,7 @@
   "lvl": 72,
   "all_bait": {
    "The Crystarium": [
+    "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
     "Robber Ball",
@@ -18656,6 +19679,7 @@
   "lvl": 72,
   "all_bait": {
    "The Crystarium": [
+    "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
     "Versatile Lure"
@@ -18677,6 +19701,7 @@
    "The Crystarium": [
     "Fruit Worm",
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -18715,6 +19740,7 @@
   "lvl": 71,
   "all_bait": {
    "The Crystarium": [
+    "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
     "Robber Ball",
@@ -18738,6 +19764,7 @@
     "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -18903,6 +19930,7 @@
    "Lakeland": [
     "Baitbugs",
     "Fruit Worm",
+    "Marble Nymph",
     "Versatile Lure"
    ]
   },
@@ -18947,6 +19975,7 @@
     "Fruit Worm",
     "Marble Nymph",
     "Metal Spinner",
+    "Robber Ball",
     "Select Bait Ball",
     "Versatile Lure"
    ]
@@ -18970,6 +19999,7 @@
     "Fruit Worm",
     "Marble Nymph",
     "Metal Spinner",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -18990,6 +20020,7 @@
    "Lakeland": [
     "Fruit Worm",
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -19049,6 +20080,7 @@
    "Lakeland": [
     "Baitbugs",
     "Fruit Worm",
+    "Marble Nymph",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -19089,6 +20121,7 @@
    "Lakeland": [
     "Baitbugs",
     "Fruit Worm",
+    "Marble Nymph",
     "Versatile Lure"
    ]
   },
@@ -19107,6 +20140,7 @@
   "all_bait": {
    "Lakeland": [
     "Baitbugs",
+    "Fruit Worm",
     "Marble Nymph",
     "Robber Ball",
     "Versatile Lure"
@@ -19126,7 +20160,9 @@
   "lvl": 75,
   "all_bait": {
    "Lakeland": [
-    "Baitbugs"
+    "Baitbugs",
+    "Robber Ball",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -19172,6 +20208,7 @@
     "Marble Nymph",
     "Metal Spinner",
     "Robber Ball",
+    "Select Bait Ball",
     "Versatile Lure"
    ]
   },
@@ -19190,6 +20227,7 @@
   "lvl": 71,
   "all_bait": {
    "Kholusia": [
+    "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
     "Metal Spinner",
@@ -19250,8 +20288,10 @@
   "lvl": 72,
   "all_bait": {
    "Kholusia": [
+    "Fruit Worm",
     "Marble Nymph",
     "Metal Spinner",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -19272,6 +20312,7 @@
     "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -19289,6 +20330,7 @@
   "lvl": 72,
   "all_bait": {
    "Kholusia": [
+    "Fruit Worm",
     "Marble Nymph",
     "Versatile Lure"
    ]
@@ -19750,6 +20792,7 @@
   "lvl": 74,
   "all_bait": {
    "Il Mheg": [
+    "Baitbugs",
     "Marble Nymph",
     "Versatile Lure"
    ]
@@ -19769,6 +20812,7 @@
   "all_bait": {
    "Il Mheg": [
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -19790,6 +20834,7 @@
     "Baitbugs",
     "Fruit Worm",
     "Marble Nymph",
+    "Metal Spinner",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -19834,6 +20879,8 @@
    "Il Mheg": [
     "Baitbugs",
     "Marble Nymph",
+    "Metal Spinner",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -19951,6 +20998,7 @@
   "all_bait": {
    "Il Mheg": [
     "Marble Nymph",
+    "Robber Ball",
     "Versatile Lure"
    ]
   },
@@ -20031,6 +21079,7 @@
    "The Rak'tika Greatwood": [
     "Baitbugs",
     "Fruit Worm",
+    "Marble Nymph",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -20049,6 +21098,7 @@
   "lvl": 77,
   "all_bait": {
    "The Rak'tika Greatwood": [
+    "Baitbugs",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -20127,6 +21177,7 @@
   "all_bait": {
    "The Rak'tika Greatwood": [
     "Baitbugs",
+    "Marble Nymph",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -20163,6 +21214,7 @@
   "lvl": 75,
   "all_bait": {
    "The Rak'tika Greatwood": [
+    "Baitbugs",
     "Robber Ball",
     "Versatile Lure"
    ]
@@ -20557,6 +21609,7 @@
   "lvl": 79,
   "all_bait": {
    "The Tempest": [
+    "Metal Spinner",
     "Short Bill Minnow",
     "Squid Strip",
     "Versatile Lure"
@@ -24364,7 +25417,9 @@
   "all_bait": {
    "Old Sharlayan": [
     "Gold Salmon Roe",
+    "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   },
@@ -24404,6 +25459,7 @@
   "all_bait": {
    "Old Sharlayan": [
     "Gold Salmon Roe",
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -24740,6 +25796,7 @@
    "Labyrinthos": [
     "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   },
@@ -24761,6 +25818,7 @@
    "Labyrinthos": [
     "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   },
@@ -24863,6 +25921,7 @@
   "all_bait": {
    "Thavnair": [
     "Mackerel Strip",
+    "Metal Spinner",
     "Shrimp Ball",
     "Versatile Lure"
    ]
@@ -25163,7 +26222,9 @@
   "all_bait": {
    "Thavnair": [
     "Leech",
-    "Mayfly"
+    "Mayfly",
+    "Sky Spoon Lure",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -25262,6 +26323,7 @@
   "lvl": 88,
   "all_bait": {
    "Thavnair": [
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -25301,6 +26363,7 @@
   "lvl": 86,
   "all_bait": {
    "Thavnair": [
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -25644,6 +26707,7 @@
   "lvl": 86,
   "all_bait": {
    "Mare Lamentorum": [
+    "Gold Salmon Roe",
     "Leech",
     "Mayfly",
     "Sky Spoon Lure",
@@ -25826,6 +26890,7 @@
   "all_bait": {
    "Elpis": [
     "Gold Salmon Roe",
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -25869,6 +26934,7 @@
   "all_bait": {
    "Elpis": [
     "Gold Salmon Roe",
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -25888,6 +26954,7 @@
   "lvl": 87,
   "all_bait": {
    "Elpis": [
+    "Gold Salmon Roe",
     "Leech",
     "Mayfly",
     "Sky Spoon Lure",
@@ -26161,6 +27228,7 @@
   "lvl": 90,
   "all_bait": {
    "Ultima Thule": [
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -26943,6 +28011,7 @@
   "all_bait": {
    "Elpis": [
     "Gold Salmon Roe",
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -27159,6 +28228,7 @@
   "all_bait": {
    "Kholusia": [
     "Metal Spinner",
+    "Squid Strip",
     "Versatile Lure"
    ]
   },
@@ -27375,7 +28445,8 @@
   "timed": 1,
   "all_bait": {
    "Elpis": [
-    "Mayfly"
+    "Mayfly",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -27532,7 +28603,8 @@
   "timed": 1,
   "all_bait": {
    "Labyrinthos": [
-    "Leech"
+    "Leech",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -28471,6 +29543,7 @@
    "Labyrinthos": [
     "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   },
@@ -28608,6 +29681,7 @@
    "Labyrinthos": [
     "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   },
@@ -28620,6 +29694,7 @@
    "Labyrinthos": [
     "Leech",
     "Mayfly",
+    "Sky Spoon Lure",
     "Versatile Lure"
    ]
   }
@@ -28838,6 +29913,7 @@
   "all_bait": {
    "Tuliyollal": [
     "Golden Stonefly Nymph",
+    "Honeybee",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -28962,6 +30038,7 @@
    "Tuliyollal": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Metal Spinner",
     "Shucked Clam",
     "Versatile Lure"
    ]
@@ -28982,6 +30059,7 @@
    "Tuliyollal": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Metal Spinner",
     "Shucked Clam",
     "Versatile Lure"
    ]
@@ -29214,7 +30292,8 @@
   "timed": 1,
   "all_bait": {
    "Urqopacha": [
-    "Red Maggots"
+    "Red Maggots",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -29272,6 +30351,7 @@
   "lvl": 94,
   "all_bait": {
    "Urqopacha": [
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -29293,6 +30373,7 @@
    "Kozama'uka": [
     "Golden Stonefly Nymph",
     "Honeybee",
+    "Metal Spinner",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -29315,6 +30396,8 @@
    "Kozama'uka": [
     "Golden Stonefly Nymph",
     "Honeybee",
+    "Metal Spinner",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -29484,6 +30567,8 @@
   "all_bait": {
    "Kozama'uka": [
     "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -29504,6 +30589,8 @@
   "all_bait": {
    "Kozama'uka": [
     "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -29523,6 +30610,7 @@
   "all_bait": {
    "Kozama'uka": [
     "Golden Stonefly Nymph",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -29690,6 +30778,8 @@
     "Golden Stonefly Nymph",
     "Honeybee",
     "Metal Spinner",
+    "Popper Lure",
+    "Red Maggots",
     "Versatile Lure"
    ]
   },
@@ -29710,6 +30800,8 @@
     "Golden Stonefly Nymph",
     "Honeybee",
     "Metal Spinner",
+    "Popper Lure",
+    "Red Maggots",
     "Versatile Lure"
    ]
   },
@@ -29730,6 +30822,8 @@
     "Golden Stonefly Nymph",
     "Honeybee",
     "Metal Spinner",
+    "Popper Lure",
+    "Red Maggots",
     "Versatile Lure"
    ]
   },
@@ -29750,6 +30844,8 @@
     "Golden Stonefly Nymph",
     "Honeybee",
     "Metal Spinner",
+    "Popper Lure",
+    "Red Maggots",
     "Versatile Lure"
    ]
   },
@@ -29877,6 +30973,7 @@
   "lvl": 93,
   "all_bait": {
    "Yak T'el": [
+    "Golden Stonefly Nymph",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -29896,6 +30993,7 @@
   "lvl": 94,
   "all_bait": {
    "Yak T'el": [
+    "Golden Stonefly Nymph",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -29954,6 +31052,7 @@
   "all_bait": {
    "Yak T'el": [
     "Honeybee",
+    "Metal Spinner",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -30204,6 +31303,7 @@
   "lvl": 96,
   "all_bait": {
    "Yak T'el": [
+    "Honeybee",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -30364,6 +31464,7 @@
   "lvl": 96,
   "all_bait": {
    "Yak T'el": [
+    "Honeybee",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -30403,6 +31504,7 @@
   "all_bait": {
    "Yak T'el": [
     "Metal Spinner",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -30422,6 +31524,7 @@
   "all_bait": {
    "Yak T'el": [
     "Metal Spinner",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -30442,6 +31545,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -30461,6 +31565,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -30480,6 +31585,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -30499,6 +31605,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -30520,6 +31627,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -30824,6 +31932,7 @@
   "lvl": 97,
   "all_bait": {
    "Heritage Found": [
+    "Metal Spinner",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -30843,6 +31952,7 @@
   "lvl": 97,
   "all_bait": {
    "Heritage Found": [
+    "Metal Spinner",
     "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
@@ -31242,6 +32352,7 @@
   "lvl": 100,
   "all_bait": {
    "Living Memory": [
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -31319,6 +32430,7 @@
   "all_bait": {
    "Living Memory": [
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -31686,6 +32798,7 @@
    "Yak T'el": [
     "Crimson Lugworm",
     "Ghost Nipper",
+    "Shucked Clam",
     "Versatile Lure"
    ]
   },
@@ -33492,7 +34605,8 @@
   "lvl": 100,
   "all_bait": {
    "Shaaloani": [
-    "Dragonfly"
+    "Dragonfly",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -36702,6 +37816,8 @@
     "Golden Stonefly Nymph",
     "Honeybee",
     "Metal Spinner",
+    "Popper Lure",
+    "Red Maggots",
     "Versatile Lure"
    ]
   },
@@ -36786,6 +37902,7 @@
   "all_bait": {
    "Yak T'el": [
     "Metal Spinner",
+    "Popper Lure",
     "Red Maggots",
     "Versatile Lure"
    ]
@@ -36923,7 +38040,8 @@
   "lvl": 92,
   "all_bait": {
    "Tuliyollal": [
-    "Metal Spinner"
+    "Metal Spinner",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
