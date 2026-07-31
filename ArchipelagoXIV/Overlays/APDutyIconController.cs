@@ -57,15 +57,29 @@ internal unsafe class APDutyIconController : IDisposable
         if (!apState.Connected) {
             return false;
         }
-        String dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
-        DalamudApi.PluginLog.Debug("Checking DutyList entry: {0}", listItem.GetNode<AtkTextNode>(3)->NodeText.ToString());
-        var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(dutyName, StringComparison.InvariantCultureIgnoreCase));
-        if (location != null && location.Accessible)
-        {
-            DalamudApi.PluginLog.Debug("Found Check");
-            return true;
-        }
-        return false;
+        return true;
+        //String dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
+        //DalamudApi.PluginLog.Debug("Checking DutyList entry: {0}", listItem.GetNode<AtkTextNode>(3)->NodeText.ToString());
+        //var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(dutyName, StringComparison.InvariantCultureIgnoreCase));
+        //if (location != null)
+        //{
+        //        var node = listItem.GetNode<AtkResNode>(4);
+        //    if (node != null)
+        //    {
+        //        DalamudApi.PluginLog.Debug(node->GetNodeType().ToString());
+        //    }
+            
+        //    //if ()
+        //    //{
+
+        //    //}
+        //    if (location.Accessible && !location.Completed)
+        //    {
+        //        DalamudApi.PluginLog.Debug("Found Check {0}", location.Name);
+        //        return true;
+        //    }
+        //}
+        //return false;
     }
 
     private void UpdateElementMethod(AddonContentsFinder* addon, ListItemData listItem)
@@ -78,12 +92,12 @@ internal unsafe class APDutyIconController : IDisposable
             {
                 node.IsVisible = false;
             }
-            else
+            else if (location.Accessible && !location.Completed)
             {
                 node.IsVisible = true;
             }
         }
-        else
+        else if (location != null && location.Accessible && !location.Completed)
         {
             AtkTextNode* textNode = listItem.GetNode<AtkTextNode>(3);
             var newNode = new APDutyIcons
