@@ -25,7 +25,7 @@ internal unsafe class APDutyIconController : IDisposable
 
     private NativeListController<AddonContentsFinder, ListItemData> listController;
 
-    private Dictionary<Location, object> locationNodes;
+    //private Dictionary<Location, object> locationNodes;
     private ApState apState;
     private APDutyIcons? apDutyIcons;
     private readonly Dictionary<uint, APDutyIcons> imageNodes = [];
@@ -58,28 +58,6 @@ internal unsafe class APDutyIconController : IDisposable
             return false;
         }
         return true;
-        //String dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
-        //DalamudApi.PluginLog.Debug("Checking DutyList entry: {0}", listItem.GetNode<AtkTextNode>(3)->NodeText.ToString());
-        //var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(dutyName, StringComparison.InvariantCultureIgnoreCase));
-        //if (location != null)
-        //{
-        //        var node = listItem.GetNode<AtkResNode>(4);
-        //    if (node != null)
-        //    {
-        //        DalamudApi.PluginLog.Debug(node->GetNodeType().ToString());
-        //    }
-            
-        //    //if ()
-        //    //{
-
-        //    //}
-        //    if (location.Accessible && !location.Completed)
-        //    {
-        //        DalamudApi.PluginLog.Debug("Found Check {0}", location.Name);
-        //        return true;
-        //    }
-        //}
-        //return false;
     }
 
     private void UpdateElementMethod(AddonContentsFinder* addon, ListItemData listItem)
