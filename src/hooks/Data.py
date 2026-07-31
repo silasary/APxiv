@@ -31,6 +31,33 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
+JOB_FULL_NAMES = {
+    "PLD": "Paladin",
+    "WAR": "Warrior",
+    "DRK": "Dark Knight",
+    "GNB": "Gunbreaker",
+    "WHM": "White Mage",
+    "SCH": "Scholar",
+    "AST": "Astrologian",
+    "SGE": "Sage",
+    "MNK": "Monk",
+    "DRG": "Dragoon",
+    "NIN": "Ninja",
+    "SAM": "Samurai",
+    "RPR": "Reaper",
+    "VPR": "Viper",
+    "BST": "Beastmaster",
+    "BLM": "Black Mage",
+    "SMN": "Summoner",
+    "RDM": "Red Mage",
+    "BLU": "Blue Mage",
+    "PCT": "Pictomancer",
+    "BRD": "Bard",
+    "MCH": "Machinist",
+    "DNC": "Dancer",
+    "FSH": "Fisher",
+}
+
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
     "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
