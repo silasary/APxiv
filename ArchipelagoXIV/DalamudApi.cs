@@ -43,6 +43,7 @@ namespace ArchipelagoXIV
         //[PluginService] public static IPartyList PartyList { get; private set; } = null!;
         [PluginService] public static IPlayerState PlayerState { get; private set; } = null!;
         [PluginService] public static IPluginLog PluginLog { get; private set; } = null!;
+        [PluginService] public static ITextureProvider TextureProvider { get; private set; } = null!;
         [PluginService] public static IToastGui ToastGui { get; private set; } = null!;
 
 
