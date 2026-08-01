@@ -741,6 +741,7 @@ def apply_bait() -> None:
                 #        info['category'] = category
                 item = lookup_item_by_name(str(bait))
                 category = lookup_item_ui_category(item["ItemUICategory"])
+                moochstatus = False
                 if category == "Fishing Tackle":
                     moochstatus = False
                     pass
@@ -764,6 +765,13 @@ def apply_bait() -> None:
                             moochstatus = False
                 #if bait not in bait_data and not info.get('mooch'):
                 #    print("if bait not in bait_data and not info.get('mooch')")
+                if len(bait_paths[name][hole]) != len(set(bait_paths[name][hole])):
+                    # There are duplicate entries
+                    deduped = []
+                    for b in bait_paths[name][hole]:
+                        if b not in deduped:
+                            deduped.append(b)
+                    bait_paths[name][hole] = deduped
 
             if baits:
                 fish['zones'].setdefault(zone_name, []).append(teamcraft_optimalbait)
