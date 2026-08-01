@@ -10,16 +10,20 @@ namespace ArchipelagoXIV.Rando.Locations
         public int Id;
         public int Level;
         public Region[] Regions;
+        public string[] Holes;
         public string[] Baits;
         public string[] Intuition;
     }
 
     internal class Fish : Location
     {
+        public readonly string[] holes;
+
         public Fish(ApState apState, long id, string name) : base(apState, id, name)
         {
             Data = APData.FishData[name];
             region = Data.Regions[0];
+            holes = Data.Holes;
         }
 
         public FishData Data { get; }

@@ -190,9 +190,11 @@ namespace ArchipelagoXIV.Rando
             {
                 var zones = fish.Value<JObject>("zones");
                 var intuition = fish.Value<JObject>("logical_intuition");
+                var holes = fish.Value<JArray>("holes");
                 List<string> zoneNames = [];
                 List<string> baits = [];
                 List<string> intuitionbaits = [];
+                List<string> holenames = [];
                 foreach (var z in zones)
                 {
                     var zbaits = z.Value.Values<string>().ToArray();
@@ -210,6 +212,8 @@ namespace ArchipelagoXIV.Rando
                 }
                 baits = baits.Distinct().ToList();
                 intuitionbaits = intuitionbaits.Distinct().ToList();
+                if (holes != null)
+                    holenames = holes.Where(h => h != null).Select(t => t.ToString()).ToList();
                 var data = new FishData
                 {
                     Level = (int)Math.Floor(fish.Value<int>("lvl") / 5.0) * 5,
@@ -217,6 +221,7 @@ namespace ArchipelagoXIV.Rando
                     Baits = [.. baits],
                     Intuition = [.. intuitionbaits],
                     Regions = zoneNames.Select(z => Regions[z]).ToArray(),
+                    Holes = holenames.ToArray(),
                 };
                 APData.FishData[fish.Value<string>("name")] = data;
 

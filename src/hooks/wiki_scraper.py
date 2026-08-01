@@ -638,6 +638,7 @@ def apply_bait() -> None:
             continue
         fish['zones'] = {}
         fish['all_bait'] = {}
+        fish['holes'] = []
         fish['logical_intuition'] = {}
         fish['intuition_bait'] = {}
 
@@ -656,6 +657,8 @@ def apply_bait() -> None:
             elif zone_name == "Elysion":
                 del bait_paths[name][hole]
                 continue
+            if hole not in fish['holes']:
+                fish['holes'].append(hole)
             # if len(baits) > 1 and 'Versatile Lure' in baits:
             #     baits.remove('Versatile Lure')
             #Adds logical baits from the teamcraft recommended baits list
