@@ -66,6 +66,206 @@ namespace ArchipelagoXIV.Rando
             { "The Merchant's Tale", 1066 },
         };
 
+        public static Dictionary<string, string> FishingHoleRegions = new()
+        {
+            //La Noscea
+            { "Limsa Lominsa Upper Decks", "La Noscea"},
+            { "Limsa Lominsa Lower Decks", "La Noscea"},
+            { "Middle La Noscea", "La Noscea"},
+            { "Lower La Noscea", "La Noscea"},
+            { "Eastern La Noscea", "La Noscea"},
+            { "Western La Noscea", "La Noscea"},
+            { "Upper La Noscea", "La Noscea" },
+            { "Outer La Noscea", "La Noscea" },
+            { "Mist", "La Noscea"},
+            //The Black Shroud,
+            { "New Gridania", "The Black Shroud"},
+            { "Old Gridania", "The Black Shroud"},
+            { "Central Shroud", "The Black Shroud"},
+            { "East Shroud", "The Black Shroud"},
+            { "South Shroud", "The Black Shroud"},
+            { "North Shroud", "The Black Shroud"},
+            { "The Lavender Beds", "The Black Shroud" },
+            //Thanalan
+            { "Western Thanalan", "Thanalan"},
+            { "Central Thanalan", "Thanalan"},
+            { "Eastern Thanalan", "Thanalan"},
+            { "Southern Thanalan", "Thanalan"},
+            { "Northern Thanalan", "Thanalan"},
+            { "The Goblet", "Thanalan"},
+            //Coerthas
+            { "Coerthas Central Highlands", "Coerthas"},
+            { "Coerthas Western Highlands", "Coerthas"},
+            //Mor Dhona
+            { "Mor Dhona", "Mor Dhona"},
+            //Abalathia's Spine
+            { "The Sea of Clouds", "Abalathia's Spine" },
+            { "Azys Lla", "Abalathia's Spine" },
+            //Dravania
+            { "The Dravanian Forelands", "Dravania" },
+            { "The Dravanian Hinterlands", "Dravania" },
+            { "The Churning Mists", "Dravania" },
+            //Gyr Abania
+            { "Rhalgr's Reach", "Gyr Abania" },
+            { "The Fringes", "Gyr Abania" },
+            { "The Peaks", "Gyr Abania" },
+            { "The Lochs", "Gyr Abania" },
+            //Othard
+            { "The Ruby Sea", "Othard" },
+            { "Yanxia", "Othard" },
+            { "The Azim Steppe", "Othard" },
+            //Hingashi
+            { "Kugane", "Hingashi" },
+            { "Shirogane", "Hingashi" },
+            //Norvrandt
+            { "The Crystarium", "Norvrandt" },
+            { "Eulmore", "Norvrandt" },
+            { "Lakeland", "Norvrandt" },
+            { "Kholusia", "Norvrandt" },
+            { "Amh Araeng", "Norvrandt" },
+            { "Il Mheg", "Norvrandt" },
+            { "The Rak'tika Greatwood", "Norvrandt" },
+            { "The Tempest", "Norvrandt" },
+            //The Northern Empty
+            { "Old Sharlayan", "The Northern Empty" },
+            { "Labyrinthos", "The Northern Empty" },
+            //Ilsabard
+            { "Radz-at-Han", "Ilsabard" },
+            { "Thavnair", "Ilsabard" },
+            { "Garlemald", "Ilsabard" },
+            //The Sea of Stars
+            { "Mare Lamentorum", "The Sea of Stars" },
+            { "Ultima Thule", "The Sea of Stars" },
+            //The World Unsundered
+            { "Elpis", "The World Unsundered" },
+            //Yok Tural
+            { "Tuliyollal", "Yok Tural" },
+            { "Urqopacha", "Yok Tural" },
+            { "Kozama'uke", "Yok Tural" },
+            { "Yak T'el", "Yok Tural" },
+            //Xak Tural
+            { "Solution Nine", "Xak Tural" },
+            { "Shaaloani", "Xak Tural" },
+            { "Heritage Found", "Xak Tural" },
+            //Unlost World
+            { "Living Memory", "Unlost World" },
+            //The High Seas
+            //{ "Galadion Bay", "The High Seas" },
+            //{ "The Southern Straight or Merlthor", "The High Seas" },
+            //{ "The Northern Straight or Merlthor", "The High Seas" },
+            //{ "Rhotano Sea", "The High Seas" },
+            //{ "The Cieldalaes", "The High Seas" },
+            //{ "The Bloodbrine Sea", "The High Seas" },
+            //{ "The Rothlyt Sound", "The High Seas" },
+            //{ "The Siresong Sea", "The High Seas" },
+            //{ "Kugane
+
+        };
+        public static String[] FishingRegions = [
+            "La Noscea",
+            "The Black Shroud",
+            "Thanalan",
+            "Coerthas",
+            "Mor Dhona",
+            "Abalathia's Spine",
+            "Dravania",
+            "Gyr Abania",
+            "Othard",
+            "Hingashi",
+            "Norvrandt",
+            "The Northern Empty",
+            "Ilsabard",
+            "The Sea of Stars",
+            "The World Unsundered",
+            "Yok Tural",
+            "Xak Tural",
+            "Unlost World"
+            ];
+
+
+
+        public static String[] FishingHoles = [//La Noscea
+            "Limsa Lominsa Upper Decks",
+            "Limsa Lominsa Lower Decks",
+            "Middle La Noscea",
+            "Lower La Noscea",
+            "Eastern La Noscea",
+            "Western La Noscea",
+            "Upper La Noscea",
+            "Outer La Noscea",
+            "Mist",
+            //The Black Shroud,
+            "New Gridania",
+            "Old Gridania",
+            "Central Shroud",
+            "East Shroud",
+            "South Shroud",
+            "North Shroud",
+            "The Lavender Beds",
+            //Thanalan
+            "Western Thanalan",
+            "Central Thanalan",
+            "Eastern Thanalan",
+            "Southern Thanalan",
+            "Northern Thanalan",
+            "The Goblet",
+            //Coerthas
+            "Coerthas Central Highlands",
+            "Coerthas Western Highlands",
+            //Mor Dhona
+            "Mor Dhona",
+            //Abalathia's Spine
+            "The Sea of Clouds",
+            "Azys Lla",
+            //Dravania
+            "The Dravanian Forelands",
+            "The Dravanian Hinterlands",
+            "The Churning Mists",
+            //Gyr Abania
+            "Rhalgr's Reach",
+            "The Fringes",
+            "The Peaks",
+            "The Lochs",
+            //Othard
+            "The Ruby Sea",
+            "Yanxia",
+            "The Azim Steppe",
+            //Hingashi
+            "Kugane",
+            "Shirogane",
+            //Norvrandt
+            "The Crystarium",
+            "Eulmore",
+            "Lakeland",
+            "Kholusia",
+            "Amh Araeng",
+            "Il Mheg",
+            "The Rak'tika Greatwood",
+            "The Tempest",
+            //The Northern Empty
+            "Old Sharlayan",
+            "Labyrinthos",
+            //Ilsabard
+            "Radz-at-Han",
+            "Thavnair",
+            "Garlemald",
+            //The Sea of Stars
+            "Mare Lamentorum",
+            "Ultima Thule",
+            //The World Unsundered
+            "Elpis",
+            //Yok Tural
+            "Tuliyollal",
+            "Urqopacha",
+            "Kozama'uke",
+            "Yak T'el",
+            //Xak Tural
+            "Solution Nine",
+            "Shaaloani",
+            "Heritage Found",
+            //Unlost World
+            "Living Memory"];
+
         public static readonly Dictionary<string, Region> Regions = [];
         public static readonly Dictionary<string, FishData> FishData = [];
         public static readonly Dictionary<string, int> FateData = [];

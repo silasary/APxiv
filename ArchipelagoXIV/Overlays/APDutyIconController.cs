@@ -46,6 +46,7 @@ internal unsafe class APDutyIconController : IDisposable
 
     public void Dispose()
     {
+        DalamudApi.PluginLog.Debug("Disposing Content Finder Overlay");
         listController?.Dispose();
     }
 
@@ -62,8 +63,9 @@ internal unsafe class APDutyIconController : IDisposable
 
     private void UpdateElementMethod(AddonContentsFinder* addon, ListItemData listItem)
     {
-        String dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
+        var dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
         var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(dutyName, StringComparison.InvariantCultureIgnoreCase));
+        if (location != null) DalamudApi.PluginLog.Debug("Updationg {0}", location.Name);
         if (imageNodes.TryGetValue(listItem.NodeId, out var node))
         {
             if (location == null)

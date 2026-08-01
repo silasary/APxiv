@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -96,6 +97,8 @@ namespace ArchipelagoXIV
         public bool Loading { get; private set; }
         public bool DeathLinkEnabled { get; private set; }
         public bool CurrentLocationInLogic { get; private set; }
+        public string[] AvailableFishingHoles { get; private set; }
+        public string[] AvailableFishingRegions { get; private set; }
 
         internal void Disconnect()
         {
@@ -474,6 +477,7 @@ namespace ArchipelagoXIV
             DalamudApi.SetJobTooltop(jobtt.BuiltString);
 
             this.lastUpFateCount = upfates;
+            RefreshFishingHoles();
         }
 
         public async Task SyncLocations()
@@ -535,6 +539,52 @@ namespace ArchipelagoXIV
                 foreach (var l in MissingLocations)
                     l.stale = true;
             }
+        }
+
+        public void RefreshFishingHoles()
+        {
+            var availableFishingHoles = new List<string>();
+            var availableFishingRegions = new List<string>();
+            var fishList = MissingLocations.OfType<Fish>().ToArray();
+            foreach (var fish in fishList)
+            {
+                foreach (var h in fish.holes)
+                {
+                    if (availableFishingHoles.Contains(h))
+                    {
+                        availableFishingHoles.Add(h);
+                        DalamudApi.PluginLog.Debug("Hole: {0}, Region: {1}", h, APData.FishingHoleRegions[h]);
+                        if (availableFishingRegions.Contains(APData.FishingHoleRegions[h]))
+                        {
+
+                        }
+                    }
+                }
+            }
+            //foreach (var h in APData.FishingHoles)
+            //{
+            //    {
+            //        if (f.holes.Contains(h))
+            //        {
+            //            AvailableFishingHoles.Add(h);
+            //            break;
+            //        }
+
+            //    }
+            //}
+            //foreach (var r in APData.FishingRegions)
+            //{
+            //    foreach(var h in AvailableFishingHoles)
+            //    {
+            //        if (APData.FishingHoleRegions[h].Equals(r))
+            //        {
+            //            AvailableFishingRegions.Add(h);
+            //            break;
+            //        }
+            //    }
+            //}
+            AvailableFishingHoles = availableFishingHoles.ToArray();
+            AvailableFishingRegions = availableFishingRegions.ToArray();
         }
     }
 }
