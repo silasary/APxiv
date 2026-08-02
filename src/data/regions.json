@@ -612,7 +612,8 @@
     "Phantom Village": {
         "requires": "|Phantom Village Access: 1|",
         "connects_to": [
-            "The Occult Crescent: South Horn"
+            "The Occult Crescent: South Horn",
+            "The Occult Crescent: North Horn"
     ]
     },
     "The Occult Crescent: South Horn": {
