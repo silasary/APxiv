@@ -167,6 +167,11 @@ def load_all_fish():
         all_fish = json.load(h)
     return all_fish
 
+def load_all_fish_by_hole():
+    with open(data_path('fish_by_hole.json'), 'r', newline='') as h:
+        all_fish = json.load(h)
+    return all_fish
+
 
 # Mapping of TerritoryType.ExVersion -> (expansion tag, capstone level)
 _EX_VERSION_DATA: dict[str, tuple[str, int, int]] = {
@@ -580,6 +585,8 @@ def scrape_teamcraft():
 
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+            json.dump(all_fish, h, indent=1)
     with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
         yaml.dump(bait_paths, h, indent=1)
 
@@ -633,6 +640,8 @@ def tribal_fish():
                     # print(name)
         offset = data.get('query-continue-offset')
     with open(data_path('fish.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
         json.dump(all_fish, h, indent=1)
 
 def combine_lists(a: list, b: list) -> list:
@@ -862,6 +871,234 @@ def fill_missing_bait() -> None:
     if updated:
         apply_bait()
 
+def apply_bait_by_hole() -> None:
+    with open(data_path('bait.json'), 'r', newline='') as h:
+        bait_data = json.load(h)
+    zoneless = []
+    baitless = []
+    all_fish = load_all_fish_by_hole()
+    bait_paths = load_bait_paths()
+    spots = {spot['hole_name']: spot for spot in load_fishing_spots()}
+    for name, fish in all_fish.items():
+        if fish.get('tribal'):
+            continue
+        fish['logical_bait'] = {}
+        fish['all_bait'] = {}
+        fish['logical_intuition'] = {}
+        fish['intuition_bait'] = {}
+        if 'zones' in fish:
+            del fish['zones']
+
+        for hole, baits in bait_paths.get(name, {}).copy().items():
+            if not baits:
+                del bait_paths[name][hole]
+                continue
+            zone_name = spots[hole]['zone_name']
+            #Check if Ocean Fish, moved here
+            if zone_name == "The *Endeavor*":
+                del bait_paths[name][hole]
+                continue
+            elif zone_name == "The Diadem":
+                del bait_paths[name][hole]
+                continue
+            elif zone_name == "Elysion":
+                del bait_paths[name][hole]
+                continue
+
+            # if len(baits) > 1 and 'Versatile Lure' in baits:
+            #     baits.remove('Versatile Lure')
+            #Adds logical baits from the teamcraft recommended baits list
+            try:
+                fish_from_fishingsources = teamcraft_json('fishing-sources')[str(fish['id'])]
+            except KeyError:
+                continue
+            for fishsource in fish_from_fishingsources:
+                if fishsource['spot'] == spots[hole]["id"]:
+                    teamcraft_optimalbait = lookup_item_name(fishsource['bait'])
+                    #check if optimal bait is a fish, and if so use the optimal bait for that fish for logic
+                    moochstatus = False
+                    item = lookup_item_by_name(teamcraft_optimalbait)
+                    category = lookup_item_ui_category(item["ItemUICategory"])
+                    moochstatus = False
+                    if category == "Fishing Tackle":
+                        pass
+                        moochstatus = False
+                    elif category == "Seafood":
+                        moochstatus = True
+                    else:
+                        print(f"!!! Bait {teamcraft_optimalbait} has unexpected category {category} !!!")
+                    while moochstatus:
+                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                            if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                teamcraft_optimalbait = lookup_item_name(fish_mooch_source['bait'])
+                                item = lookup_item_by_name(teamcraft_optimalbait)
+                                if lookup_item_ui_category(item["ItemUICategory"]) != "Seafood":
+                                    moochstatus = False
+                                    
+
+
+                    #While in teamcraft fishing-sources, check the intuition requirements and add them
+                    if fishsource.get('predators'):
+                        for predators in fishsource.get('predators'):
+                            intuition_bait = bait_paths[lookup_item_name(predators["id"])][hole]
+                            for fish_predator_source in teamcraft_json('fishing-sources')[str(predators["id"])]:
+                                if fish_predator_source['spot'] == spots[hole]["id"]:
+                                    logical_intuition = lookup_item_name(fish_predator_source['bait'])
+                                    item = lookup_item_by_name(logical_intuition)
+                                    category = lookup_item_ui_category(item["ItemUICategory"])
+                                    if category == "Fishing Tackle":
+                                        moochstatus = False
+                                        pass
+                                    elif category == "Seafood":
+                                        moochstatus = True
+                                    else:
+                                        print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
+                                    while moochstatus:
+                                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                            if fish_mooch_source['spot'] == spots[hole]["id"]:
+                                                logical_intuition = lookup_item_name(fish_mooch_source['bait'])
+                                                item = lookup_item_by_name(logical_intuition)
+                                                if lookup_item_ui_category(item["ItemUICategory"]) != "Seafood":
+                                                    moochstatus = False
+                            fish['intuition_bait'][hole] = intuition_bait
+                            fish['logical_intuition'].setdefault(hole, []).append(logical_intuition)
+                            fish['intuition_bait'][hole] = sorted(set(fish['intuition_bait'][hole]))  
+                            fish['logical_intuition'][hole] = sorted(set(fish['logical_intuition'][hole]))
+            for bait in baits.copy():
+                if isinstance(bait, list):
+                    baits.remove(bait)
+                    baits.append(bait[0])
+                    bait = bait[0]
+                #info = bait_data.get(str(bait), {"name": bait})
+                if bait == fish['name']:
+                    baits.remove(bait)
+                    continue
+                #if 'id' not in info:
+                #    item = lookup_item_by_name(str(bait))
+                #    if item:
+                #        info['id'] = int(item['#'])
+                #    else:
+                #        print(f"Could not find item ID for bait: {bait}")
+                #        bait_data[str(bait)] = info
+                #        continue
+                #    category = lookup_item_ui_category(item["ItemUICategory"])
+                #    if category == "Fishing Tackle":
+                #        pass
+                #    elif category == "Seafood":
+                #        info['mooch'] = True
+                #    else:
+                #        print(f"!!! Bait {bait} has unexpected category {category} !!!")
+                #        info['category'] = category
+                item = lookup_item_by_name(str(bait))
+                category = lookup_item_ui_category(item["ItemUICategory"])
+                if category == "Fishing Tackle":
+                    moochstatus = False
+                    pass
+                elif category == "Seafood":
+                    moochstatus = True
+                else:
+                    print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
+                #this should probably be handled differently. It will add fish to the bait list inadvertently, but this gets resolved by running the scraper multiple times
+                while moochstatus:
+                    mooch_path = bait_paths[bait][hole]
+                    if mooch_path:
+                        # baits.remove(bait)
+                        baits.remove(bait)
+                        bait = mooch_path
+                        item = lookup_item_by_name(str(bait))
+                        if not item:
+                            baits += bait
+                            moochstatus = False
+                        elif lookup_item_ui_category(item["ItemUICategory"]) == "Fishing Tackle":
+                            baits += bait
+                            moochstatus = False
+                #if bait not in bait_data and not info.get('mooch'):
+                #    print("if bait not in bait_data and not info.get('mooch')")
+                if len(bait_paths[name][hole]) != len(set(bait_paths[name][hole])):
+                    # There are duplicate entries
+                    deduped = []
+                    for b in bait_paths[name][hole]:
+                        if b not in deduped:
+                            deduped.append(b)
+                    bait_paths[name][hole] = deduped
+                
+            if baits:
+                fish['logical_bait'].setdefault(hole, []).append(teamcraft_optimalbait)
+                fish['all_bait'][hole] = baits
+                #sort and clean
+                fish['logical_bait'][hole] = sorted(set(fish['logical_bait'][hole]))
+                fish['all_bait'][hole] = sorted(set(fish['all_bait'][hole]))  
+                #Merge zones, comment this out for poptracker scraper
+                #if zone_name == 'Limsa Lominsa Lower Decks':
+                #    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
+                #    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
+                #    del fish['all_bait']['Limsa Lominsa Lower Decks']
+                #    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
+                #    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                #    del fish['zones']['Limsa Lominsa Lower Decks']
+                #elif zone_name == 'Limsa Lominsa Upper Decks':
+                #    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
+                #    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))  
+                #    del fish['all_bait']['Limsa Lominsa Upper Decks']
+                #    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
+                #    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))  
+                #    del fish['zones']['Limsa Lominsa Upper Decks']
+                #elif zone_name == 'New Gridania':
+                #    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
+                #    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
+                #    del fish['all_bait']['New Gridania']
+                #    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['New Gridania'])
+                #    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                #    del fish['zones']['New Gridania']
+                #elif zone_name == 'Old Gridania':
+                #    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
+                #    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))  
+                #    del fish['all_bait']['Old Gridania']
+                #    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['Old Gridania'])
+                #    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))  
+                #    del fish['zones']['Old Gridania']
+            else:
+                print(f"No bait for {name} in {hole}")
+
+
+        if not fish['all_bait']:
+            # print(f"No zones for {name}")
+            zoneless.append(name)
+            continue
+        all_bait = []
+        for hole in fish['all_bait']:
+            all_bait += fish['all_bait'][hole]
+        if not all_bait:
+            print(f"No bait for {name}")
+            baitless.append(name)
+
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+    with open(data_path('zoneless.yaml'), 'w', newline='') as h:
+        yaml.dump(zoneless, h, indent=1)
+    with open(data_path('baitless.yaml'), 'w', newline='') as h:
+        yaml.dump(baitless, h, indent=1)
+    with open(data_path('bait.json'), 'w', newline='') as h:
+        json.dump(bait_data, h, indent=1)
+    with open(data_path('fish_bait.yaml'), 'w', newline='') as h:
+        yaml.dump(bait_paths, h, indent=1)
+
+def fill_missing_bait_by_hole() -> None:
+    with open(data_path('baitless.yaml'), 'r', newline='') as h:
+        baitless = yaml.safe_load(h)
+    updated = False
+    # TODO: Carby Plushy has data for Big Fish, but not the normal fish
+    updated = scrape_carby(baitless) or updated
+
+    # Cat Became Hungry has all fish, but it's HTML and will need to be scraped with bs4
+    # https://en.ff14angler.com/
+    # updated = scrape_cat(baitless) or updated
+    # Console Games Wiki has everything, but it's inconsistent across pages and is only really useful if I want to hand-enter data
+
+    if updated:
+        apply_bait_by_hole()
+
+
 def scrape_carby(baitless) -> bool:
     if not baitless:
         return False
@@ -1062,6 +1299,25 @@ def scrape_aetherytes() -> None:
     with open(data_path('aetherytes.json'), 'w', newline='') as h:
         json.dump(aetheryte_locations, h, indent=1)
 
+def clean_fish_by_hole():
+    all_fish = load_all_fish_by_hole()
+    for fish in all_fish.values():
+        to_remove = []
+        for zone, baits in fish.get('zones', {}).items():
+            if not baits:
+                # print(f"Removing {zone} from {fish['name']}")
+                to_remove.append(zone)
+        for zone in to_remove:
+            del fish['zones'][zone]
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+
+def sort_fish_by_hole():
+    all_fish = load_all_fish_by_hole()
+    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1].get('id', math.inf)))
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+        json.dump(sorted_fish, h, indent=1)
+
 
 if __name__ == "__main__":
     scrape_aetherytes()
@@ -1069,6 +1325,10 @@ if __name__ == "__main__":
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
+    apply_bait_by_hole()
     fill_missing_bait()
+    fill_missing_bait_by_hole()
     clean_fish()
+    clean_fish_by_hole()
     sort_fish()
+    sort_fish_by_hole()
