@@ -145,6 +145,7 @@ namespace ArchipelagoXIV
             { "The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
+            { "Ocean Fishing: Ruby Sea", "Ocean Fishing: Ruby Price"},
             // Aetheryte place names that don't match the actual aetheryte name
             // Because the code happens in a detour, we'd rather hardcode these than do string manipulation at check time
             { "Attune Crick", "Attune Onokoro" },
