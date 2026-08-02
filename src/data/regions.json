@@ -618,6 +618,9 @@
     "The Occult Crescent: South Horn": {
         "requires": "",
         "connects_to": []
+    },
+    "The Occult Crescent: North Horn": {
+        "requires": "",
+        "connects_to": []
     }
-
 }
