@@ -7,6 +7,7 @@ using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Game.DutyState;
 using Dalamud.Hooking;
 using Dalamud.Logging;
+using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.Enums;
 using FFXIVClientStructs.FFXIV.Client.Game.Event;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
@@ -59,6 +60,7 @@ namespace ArchipelagoXIV.Hooks
 
         private unsafe void EnqueueFateRewardDetour(AgentFateReward* thisPtr, AgentFateReward.Reward* reward)
         {
+            EnqueueFateReward.Original(thisPtr, reward);
             var success = reward->IsSuccess;
             var fateID = reward->Id;
 
@@ -71,6 +73,8 @@ namespace ArchipelagoXIV.Hooks
                     break;
                 case AgentFateReward.RewardType.DynamicEventReward:
                     location = apState.MissingLocations.OfType<CriticalEncounterLocation>().FirstOrDefault(f => f.CriticalEncounter.RowId == fateID);
+                    // For some reason I can't figure out yet, reward->id is always 0 for CEs, so we have to check by name instead.
+                    location ??= apState.MissingLocations.FirstOrDefault(f => f.Name.Equals(reward->Name.ExtractText(), StringComparison.OrdinalIgnoreCase));
                     break;
             }
             //var fatename = DalamudApi.DataManager.GetExcelSheet<Fate>(ClientLanguage.English)[fateID].Name.ExtractText();
