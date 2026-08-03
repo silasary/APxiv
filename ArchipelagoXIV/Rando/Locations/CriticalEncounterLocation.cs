@@ -7,7 +7,7 @@ namespace ArchipelagoXIV.Rando.Locations
 {
     internal class CriticalEncounterLocation : Location
     {
-        private readonly DynamicEvent CriticalEncounter;
+        public readonly DynamicEvent CriticalEncounter;
 
         public CriticalEncounterLocation(ApState apState, long id, string name) : base(apState, id, name)
         {
