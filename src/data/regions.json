@@ -59,7 +59,8 @@
 			"Lower La Noscea",
 			"Limsa Lominsa",
 			"Middle La Noscea",
-			"Upper La Noscea"
+			"Upper La Noscea",
+			"The Binding Coil of Bahamut"
 		]
 	},
 	"Western La Noscea":
@@ -146,7 +147,8 @@
 		"connects_to": [
 			"Gridania",
 			"Central Shroud",
-			"Coerthas Central Highlands"
+			"Coerthas Central Highlands",
+			"The Second Coil of Bahamut"
 		]
 	},
 	"Ul'dah": {
@@ -178,6 +180,18 @@
 			"Ul'dah"
 		]
 	},
+    "The Binding Coil of Bahamut": {
+        "requires": "|Dalamud Fragment Access: 1| or |Bahamut Key:1|",
+        "connects_to": []
+    },
+    "The Second Coil of Bahamut": {
+        "requires": "|Dalamud Fragment Access: 1| or |Bahamut Key:1|",
+        "connects_to": []
+    },
+    "The Final Coil of Bahamut": {
+        "requires": "|Dalamud Fragment Access: 1| or |Bahamut Key:1|",
+        "connects_to": []
+    },
 	"Masked Carnivale":
 	{
 		"_requires": "|5 BLU Levels:10|",
@@ -215,7 +229,8 @@
 		"requires": "|Northern Thanalan Access:1|",
 		"connects_to": [
 			"Central Thanalan",
-			"Mor Dhona"
+			"Mor Dhona",
+			"The Final Coil of Bahamut"
 		]
 	},
 	"Coerthas Central Highlands":
@@ -468,7 +483,8 @@
     "Labyrinthos": {
         "requires": "|Labyrinthos Access: 1|",
         "connects_to": [
-            "Ultima Thule"
+            "Ultima Thule",
+			"The Dæmons' Nest"
         ]
     },
     "Ultima Thule": {
@@ -530,7 +546,16 @@
     "Elpis": {
         "requires": "|Elpis Access: 1|",
         "connects_to": [
+			"The Gates of Pandaemonium"
         ]
+    },
+    "The Gates of Pandaemonium": {
+        "requires": "|Pandaemonium Access: 1| or |Pandaemonium Key:1|",
+        "connects_to": []
+    },
+    "The Dæmons' Nest": {
+        "requires": "|Pandaemonium Access: 1| or |Pandaemonium Key:1|",
+        "connects_to": []
     },
     "Ocean Fishing": {
         "connects_to": [
