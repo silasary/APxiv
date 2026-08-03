@@ -226,6 +226,7 @@ namespace ArchipelagoXIV
             WindowSystem.RemoveAllWindows();
             Hooks.Dispose();
             Events.Disable();
+            Events.Dispose();
             UiHooks.Disable();
             DLHooks.Dispose();
             DalamudApi.Framework.Update -= Framework_Update;

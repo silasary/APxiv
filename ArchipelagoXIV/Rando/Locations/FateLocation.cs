@@ -16,6 +16,7 @@ namespace ArchipelagoXIV.Rando.Locations
         private string serverName;
         private string fateName;
         private readonly FateType fateType;
+        public uint FateID { get; }
 
         public FateLocation(ApState apState, long id, string name, Fate fate)
             : base(apState, id, name)
@@ -39,6 +40,7 @@ namespace ArchipelagoXIV.Rando.Locations
             }
             fateName = fate.Name.ExtractText().Trim();
             Name = fateName + fatetype;
+            FateID = fate.RowId;
         }
 
         internal override void SetRequirements()
