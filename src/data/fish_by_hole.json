@@ -43729,10 +43729,19 @@
   "name": "Pote'uka",
   "id": 52012,
   "lvl": 91,
-  "all_bait": {},
+  "all_bait": {
+   "Waters Hanu": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {}
+  "logical_bait": {
+   "Waters Hanu": [
+    "Metal Spinner"
+   ]
+  }
  },
  "Harbor Cloud": {
   "name": "Harbor Cloud",
@@ -43756,19 +43765,37 @@
   "name": "Iq Ebaji",
   "id": 52014,
   "lvl": 93,
-  "all_bait": {},
+  "all_bait": {
+   "Iq Br'aax Reservoir": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {}
+  "logical_bait": {
+   "Iq Br'aax Reservoir": [
+    "Metal Spinner"
+   ]
+  }
  },
  "Yowekwa Inkhead": {
   "name": "Yowekwa Inkhead",
   "id": 52015,
   "lvl": 95,
-  "all_bait": {},
+  "all_bait": {
+   "Westbound Zorgor": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {}
+  "logical_bait": {
+   "Westbound Zorgor": [
+    "Metal Spinner"
+   ]
+  }
  },
  "Burst Lungfish": {
   "name": "Burst Lungfish",
