@@ -247,6 +247,8 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
             if expansion is not None:
                 location["expansion"] = expansion
             category = row["Category"]
+            if category.startswith("Unused"):
+                continue
             if category.startswith("Variant Dungeon"):
                 category = category.replace("Variant Dungeon", "Dungeon")
             if category != prev_category:
