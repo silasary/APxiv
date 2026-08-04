@@ -22,7 +22,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
+from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, LIMITED, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs
 from .Options import LevelCap
 
@@ -182,6 +182,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     melee = MELEE.copy()
     caster = CASTER.copy()
     ranged = RANGED.copy()
+    limited = LIMITED.copy()
     doh = DOH.copy()
 
     world.random.shuffle(tanks)
@@ -189,6 +190,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(melee)
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
+    world.random.shuffle(limited)
     world.random.shuffle(doh)
 
     exclude_jobs = get_excluded_jobs(multiworld, player)
@@ -199,9 +201,14 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         melee   = [j for j in melee   if j not in exclude_jobs]
         caster  = [j for j in caster  if j not in exclude_jobs]
         ranged  = [j for j in ranged  if j not in exclude_jobs]
+        limited = [j for j in limited if j not in exclude_jobs]
         doh     = [j for j in doh     if j not in exclude_jobs]
 
     force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+    level_cap = get_option_value(multiworld, player, 'level_cap')
+
+    if level_cap > 80 and "BLU" in force_jobs:
+        force_jobs.remove("BLU")
 
     if force_jobs:
         if len(force_jobs) > 5:
@@ -374,6 +381,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         melee = MELEE.copy()
         caster = CASTER.copy()
         ranged = RANGED.copy()
+        limited = LIMITED.copy()
         doh = DOH.copy()
         if exclude_jobs:
             tanks   = [j for j in tanks   if j not in exclude_jobs]
@@ -381,9 +389,10 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
             melee   = [j for j in melee   if j not in exclude_jobs]
             caster  = [j for j in caster  if j not in exclude_jobs]
             ranged  = [j for j in ranged  if j not in exclude_jobs]
+            limited = [j for j in limited if j not in exclude_jobs]
             doh     = [j for j in doh     if j not in exclude_jobs]
 
-        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
+        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + limited + doh]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
             item_config[name] = min(remaining, capped_count)

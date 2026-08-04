@@ -28,6 +28,7 @@ HEALERS = ["WHM","SCH","AST","SGE"]
 MELEE = ["MNK","DRG","NIN","SAM","RPR", "VPR"]
 CASTER = ["BLM","SMN","RDM","PCT"]
 RANGED = ["BRD","MCH","DNC"]
+LIMITED = ["BLU"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
@@ -455,7 +456,7 @@ def generate_bait_list() -> list[dict]:
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
 def after_load_item_file(item_table: list) -> list:
     item_table.extend(generate_bait_list())
-    classes = TANKS + HEALERS + MELEE + RANGED + CASTER + ["BLU"]
+    classes = TANKS + HEALERS + MELEE + RANGED + CASTER + LIMITED
     # crafters
     DOH = [
         "CRP",
@@ -684,6 +685,10 @@ def hook_interpret_slot_data(world, player: int, slot_data: dict[str, Any]) -> b
         prog_classes = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + ["FSH"]
 
     for job in prog_classes:
+        #if slot_data.get("level_cap") > 80 and job == "BLU":
+        #    #This can be phrased better. Come back to this later
+        #    raise Exception(f"Level cap must be below BLU max level to be progression")
+        #print(f"{job} {slot_data.get("level_cap")}")
         world.item_name_to_item["5 " + job + " Levels"]["progression"] = True
     return False
 
