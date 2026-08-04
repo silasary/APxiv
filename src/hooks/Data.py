@@ -31,6 +31,33 @@ RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
 
+JOB_FULL_NAMES = {
+    "PLD": "Paladin",
+    "WAR": "Warrior",
+    "DRK": "Dark Knight",
+    "GNB": "Gunbreaker",
+    "WHM": "White Mage",
+    "SCH": "Scholar",
+    "AST": "Astrologian",
+    "SGE": "Sage",
+    "MNK": "Monk",
+    "DRG": "Dragoon",
+    "NIN": "Ninja",
+    "SAM": "Samurai",
+    "RPR": "Reaper",
+    "VPR": "Viper",
+    "BST": "Beastmaster",
+    "BLM": "Black Mage",
+    "SMN": "Summoner",
+    "RDM": "Red Mage",
+    "BLU": "Blue Mage",
+    "PCT": "Pictomancer",
+    "BRD": "Bard",
+    "MCH": "Machinist",
+    "DNC": "Dancer",
+    "FSH": "Fisher",
+}
+
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
     "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
@@ -608,7 +635,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
 def ocean_fishing():
     _id = 19_000
     indigo_route = ["Rhotano Sea", "Bloodbrine Sea", "Rothlyt Sound", "Northern Strait of Merlthor"]
-    ruby_route = ["Ruby Sea", "One River", "Thavnairian Coast"]
+    ruby_route = ["Ruby Price", "One River", "Thavnairian Coast"]
 
     locations = []
     for route in indigo_route:

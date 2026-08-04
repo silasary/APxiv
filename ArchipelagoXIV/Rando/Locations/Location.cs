@@ -23,7 +23,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new AttuneLocation(apState, id, name);
             if (Data.DynamicEvents.ContainsKey(name))
                 return new CriticalEncounterLocation(apState, id, name);
-            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(" (FETE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
             {
                 return new FateLocation(apState, id, name, fate);
             }
@@ -157,7 +157,7 @@ namespace ArchipelagoXIV.Rando.Locations
             }
             else if (Name.StartsWith("Ocean Fishing"))
             {
-                if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River" ||Name == "Ocean Fishing: Thavnairian Coast")
+                if (Name == "Ocean Fishing: Ruby Price" || Name == "Ocean Fishing: One River" || Name == "Ocean Fishing: Thavnairian Coast")
                     MeetsRequirements = Logic.And(Logic.Level(60, "FSH"), Logic.HasItem("Kugane Access"));
                 else
                     MeetsRequirements = Logic.Level(5, "FSH");

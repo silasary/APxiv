@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using KamiToolKit;
+using ArchipelagoXIV.Overlays;
 
 namespace ArchipelagoXIV
 {
@@ -36,7 +38,8 @@ namespace ArchipelagoXIV
         private MainWindow MainWindow { get; set; }
 
         private DebugWindow DebugWindow { get; set; }
-        
+
+        internal APDutyIconController ApDutyController { get; set; }
         public async Task LoadAsync(CancellationToken cancellationToken)
 
         {
@@ -94,6 +97,8 @@ namespace ArchipelagoXIV
 
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
+                KamiToolKitLibrary.Initialize(PluginInterface);
+                ApDutyController = new APDutyIconController(apState);
                 this.Hooks.Enable();
                 this.Events.Enable();
                 UiHooks.Enable();
@@ -103,17 +108,23 @@ namespace ArchipelagoXIV
                 DalamudApi.logicBar!.OnClick += (e) => { MainWindow.IsOpen = !MainWindow.IsOpen; };
             });
             StartBGTask();
-
-            if (Configuration.ConnectAtStartup)
-            {
-                await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
-            }
         }
 
         public void StartBGTask()
         {
             this.BackgroundCancellationToken = new CancellationTokenSource();
-            this.BackgroundTask = Task.Run(() => LogicUpdate(this.BackgroundCancellationToken.Token), this.BackgroundCancellationToken.Token).ContinueWith(ca =>
+            this.BackgroundTask = Task.Run(async () =>
+            {
+                if (Configuration.ConnectAtStartup)
+                {
+                    while (!DalamudApi.PlayerState.IsLoaded)
+                    {
+                        await Task.Delay(1000, this.BackgroundCancellationToken.Token);
+                    }
+                    await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+                }
+                await LogicUpdate(this.BackgroundCancellationToken.Token);
+            }, this.BackgroundCancellationToken.Token).ContinueWith(ca =>
             {
                 if (ca.IsFaulted)
                 {
@@ -215,15 +226,18 @@ namespace ArchipelagoXIV
             WindowSystem.RemoveAllWindows();
             Hooks.Dispose();
             Events.Disable();
+            Events.Dispose();
             UiHooks.Disable();
             DLHooks.Dispose();
             DalamudApi.Framework.Update -= Framework_Update;
+            KamiToolKitLibrary.Dispose();
             CommandManager.RemoveHandler("/ap");
             CommandManager.RemoveHandler("/ap-connect");
             CommandManager.RemoveHandler("/ap-config");
             CommandManager.RemoveHandler("/ap-disconnect");
             DalamudApi.DtrBar.Remove("Archipelago");
             DalamudApi.DtrBar.Remove("APJob");
+            ApDutyController.Dispose();
         }
 
         private void Connect(string command, string args)
