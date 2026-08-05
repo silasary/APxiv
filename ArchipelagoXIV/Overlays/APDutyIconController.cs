@@ -1,22 +1,14 @@
-using ArchipelagoXIV;
 using ArchipelagoXIV.Overlays.CustomNodes;
-using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using KamiToolKit.Classes;
 using KamiToolKit.Controllers;
 using KamiToolKit.Enums;
-using KamiToolKit.Extensions;
-using KamiToolKit.Nodes;
-using Lumina.Excel.Sheets;
-using Lumina.Excel.Sheets.Experimental;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Xml.Linq;
 
 namespace ArchipelagoXIV.Overlays;
 
@@ -24,6 +16,7 @@ internal unsafe class APDutyIconController : IDisposable
 {
 
     private NativeListController<AddonContentsFinder, ListItemData> listController;
+    private AddonController<AddonContentsFinder> addonController;
 
     //private Dictionary<Location, object> locationNodes;
     private ApState apState;
@@ -41,14 +34,25 @@ internal unsafe class APDutyIconController : IDisposable
             UpdateElement = UpdateElementMethod,
         };
         listController.Enable();
+        addonController = new AddonController<AddonContentsFinder>
+        {
+            AddonName = "ContentsFinder",
+            OnFinalize = DutyFinderClosed,
+        };
+        addonController.Enable();
         DalamudApi.PluginLog.Info("Content Finder overlay enabled");
     }
 
     public void Dispose()
     {
         listController?.Dispose();
+        addonController?.Dispose();
     }
 
+    private void DutyFinderClosed(AddonContentsFinder* addon)
+    {
+        imageNodes.Clear();
+    }
     private static AtkComponentListItemRenderer* GetPopulatorMethod(AddonContentsFinder* addonContentsFinder)
     => addonContentsFinder->DutyList->GetComponentItemRendererById(6);
 
@@ -62,10 +66,11 @@ internal unsafe class APDutyIconController : IDisposable
 
     private void UpdateElementMethod(AddonContentsFinder* addon, ListItemData listItem)
     {
-        String dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
+        var dutyName = listItem.GetNode<AtkTextNode>(3)->NodeText.ExtractText();
         var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(dutyName, StringComparison.InvariantCultureIgnoreCase));
         if (imageNodes.TryGetValue(listItem.NodeId, out var node))
         {
+            DalamudApi.PluginLog.Debug("Node: {0}", node);
             if (location == null)
             {
                 node.IsVisible = false;

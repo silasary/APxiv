@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Resources;
+using Lumina.Text.ReadOnly;
 
 namespace ArchipelagoXIV.Overlays.CustomNodes
 {
@@ -22,14 +24,15 @@ namespace ArchipelagoXIV.Overlays.CustomNodes
 
             SimpleImageNode APIcon = new SimpleImageNode()
             {
-                Size = new Vector2(22.0f, 22.0f),
+                Size = new Vector2(20.0f, 20.0f),
                 Position = Vector2.One,
                 TextureCoordinates = new Vector2(0.0f, 0.0f),
-                TextureSize = new Vector2(22.0f, 22.0f),
+                TextureSize = new Vector2(20.0f, 20.0f),
                 //TexturePath = icon_path,
                 IsVisible = true,
                 WrapMode = WrapMode.Tile,
                 ImageNodeFlags = FFXIVClientStructs.FFXIV.Component.GUI.ImageNodeFlags.AutoFit,
+                TextTooltip = (ReadOnlySeString)"Archipelago:\nIn Logic"
             };
             APIcon.LoadIcon(61826);
             APIcon.AttachNode(this);
