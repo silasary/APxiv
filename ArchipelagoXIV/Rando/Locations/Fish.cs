@@ -75,7 +75,7 @@ namespace ArchipelagoXIV.Rando.Locations
             if (!apState.Items.Contains(currentBaitName) && !Data.Baits.Any(b => apState.Items.Contains(b))) 
             {
                 // Checks if either current bait is acquired, or if the logical bait has been acquired. If the latter, allow any bait
-                DalamudApi.Echo($"{currentBaitName} not yet obtain, and logical bait is also missing");
+                DalamudApi.Echo($"{currentBaitName} not yet obtained, and logical bait is also missing");
                 return false;
             }
             if (!Logic.Level(Data.Level, "FSH")(apState, false))
