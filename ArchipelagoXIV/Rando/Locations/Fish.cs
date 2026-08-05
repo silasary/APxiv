@@ -72,8 +72,9 @@ namespace ArchipelagoXIV.Rando.Locations
                 DalamudApi.Echo($"{region.Name} is not in logic");
                 return false;
             }
-            if (!apState.Items.Contains(currentBaitName))
+            if (!apState.Items.Contains(currentBaitName) && !Data.Baits.Any(b => apState.Items.Contains(b))) 
             {
+                // Checks if either current bait is acquired, or if the logical bait has been acquired. If the latter, allow any bait
                 DalamudApi.Echo($"{currentBaitName} is not in logic");
                 return false;
             }
