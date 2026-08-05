@@ -1,9 +1,11 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.30.1",
+    "world_version": "0.30.2",
     "minimum_ap_version": "0.6.7",
     "changelog": [
-        "* Main Scenario extra checks now respect the 'Allow Main Scenario Duties' option.",
+        "* Added custom job level UI to the XIV manual client.",
+        "* Fixed bug where Coils of Bahamut would always be in logic.",
+        "* Fixed the name of Ocean Fishing: Ruby Price.",
         ""
     ]
 }
