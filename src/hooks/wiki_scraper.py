@@ -1276,6 +1276,25 @@ def sort_fish() -> None:
     with open(data_path('fish.json'), 'w', newline='') as h:
         json.dump(sorted_fish, h, indent=1)
 
+def clean_fish_by_hole():
+    all_fish = load_all_fish_by_hole()
+    for fish in all_fish.values():
+        to_remove = []
+        for zone, baits in fish.get('zones', {}).items():
+            if not baits:
+                # print(f"Removing {zone} from {fish['name']}")
+                to_remove.append(zone)
+        for zone in to_remove:
+            del fish['zones'][zone]
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+        json.dump(all_fish, h, indent=1)
+
+def sort_fish_by_hole():
+    all_fish = load_all_fish_by_hole()
+    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1].get('id', math.inf)))
+    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
+        json.dump(sorted_fish, h, indent=1)
+
 def scrape_aetherytes() -> None:
     aetherytes = datamining_csv('Aetheryte')
     places = datamining_csv('PlaceName')
