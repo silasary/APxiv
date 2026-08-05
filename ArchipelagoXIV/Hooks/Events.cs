@@ -200,7 +200,6 @@ namespace ArchipelagoXIV.Hooks
             {
                 var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
                 apState.territoryName = territory.PlaceName.Value.Name.ExtractText();
-                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ExtractText();
                 apState.RefreshBars = true;
 
                 if (!apState.Connected)

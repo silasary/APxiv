@@ -1299,29 +1299,31 @@ def scrape_aetherytes() -> None:
     with open(data_path('aetherytes.json'), 'w', newline='') as h:
         json.dump(aetheryte_locations, h, indent=1)
 
-def clean_fish_by_hole():
-    all_fish = load_all_fish_by_hole()
-    for fish in all_fish.values():
-        to_remove = []
-        for zone, baits in fish.get('zones', {}).items():
-            if not baits:
-                # print(f"Removing {zone} from {fish['name']}")
-                to_remove.append(zone)
-        for zone in to_remove:
-            del fish['zones'][zone]
-    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
-        json.dump(all_fish, h, indent=1)
+def scrape_territory_types() -> None:
+    territory_type = datamining_csv("TerritoryType")
+    territory_data = []
+    with open(data_path('regions.json'), 'r', newline='') as h:
+        regions = json.load(h)
+    pass
+    for territory in territory_type.values():
+        if territory['PlaceName'] == '0':
+            continue
+        place_name = datamining_csv('PlaceName')[territory['PlaceName']]
+        pass
+        name = place_name['Name']
+        if name in regions:
+            ids = set(regions[name].get('ids', []))
+            ids.add(int(territory['#']))
+            regions[name]['ids'] = sorted(ids)
 
-def sort_fish_by_hole():
-    all_fish = load_all_fish_by_hole()
-    sorted_fish = dict(sorted(all_fish.items(), key=lambda item: item[1].get('id', math.inf)))
-    with open(data_path('fish_by_hole.json'), 'w', newline='') as h:
-        json.dump(sorted_fish, h, indent=1)
+    with open(data_path('regions.json'), 'w', newline='') as h:
+        json.dump(regions, h, indent=4)
 
 
 if __name__ == "__main__":
     scrape_aetherytes()
     scrape_hunts()
+    scrape_territory_types()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()

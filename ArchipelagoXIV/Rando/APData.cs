@@ -67,6 +67,7 @@ namespace ArchipelagoXIV.Rando
         };
 
         public static readonly Dictionary<string, Region> Regions = [];
+        public static readonly Dictionary<uint, Region> RegionsByTerritoryType = [];
         public static readonly Dictionary<string, FishData> FishData = [];
         public static readonly Dictionary<string, int> FateData = [];
         public static readonly Dictionary<string, int> HuntData = [];
@@ -169,7 +170,8 @@ namespace ArchipelagoXIV.Rando
                 var requires = region.Value.Value<string>("requires");
                 if (requires != null)
                     rule = Logic.FromString(requires);
-                _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+                var territoryTypeIds = region.Value["ids"]?.ToObject<uint[]>() ?? [];
+                _ = new Region(region.Key, connections.ToArray() ?? [], rule, territoryTypeIds);
             }
         }
 
