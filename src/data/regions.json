@@ -56,11 +56,11 @@
 	{
 		"requires": "|Eastern La Noscea Access:1|",
 		"connects_to": [
-			"Lower La Noscea",
-			"Limsa Lominsa",
-			"Middle La Noscea",
-			"Upper La Noscea",
-			"The Binding Coil of Bahamut"
+            "Lower La Noscea",
+            "Limsa Lominsa",
+            "Middle La Noscea",
+            "Upper La Noscea",
+            "The Binding Coil of Bahamut"
 		]
 	},
 	"Western La Noscea":
@@ -145,10 +145,10 @@
 	{
 		"requires": "|North Shroud Access:1|",
 		"connects_to": [
-			"Gridania",
-			"Central Shroud",
-			"Coerthas Central Highlands",
-			"The Second Coil of Bahamut"
+            "Gridania",
+            "Central Shroud",
+            "Coerthas Central Highlands",
+            "The Second Coil of Bahamut"
 		]
 	},
 	"Ul'dah": {
@@ -228,9 +228,9 @@
 	{
 		"requires": "|Northern Thanalan Access:1|",
 		"connects_to": [
-			"Central Thanalan",
-			"Mor Dhona",
-			"The Final Coil of Bahamut"
+            "Central Thanalan",
+            "Mor Dhona",
+            "The Final Coil of Bahamut"
 		]
 	},
 	"Coerthas Central Highlands":
@@ -484,7 +484,7 @@
         "requires": "|Labyrinthos Access: 1|",
         "connects_to": [
             "Ultima Thule",
-			"The Dæmons' Nest"
+            "The Dæmons' Nest"
         ]
     },
     "Ultima Thule": {
@@ -546,7 +546,7 @@
     "Elpis": {
         "requires": "|Elpis Access: 1|",
         "connects_to": [
-			"The Gates of Pandaemonium"
+            "The Gates of Pandaemonium"
         ]
     },
     "The Gates of Pandaemonium": {
