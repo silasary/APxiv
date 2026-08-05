@@ -58,6 +58,12 @@ JOB_FULL_NAMES = {
     "FSH": "Fisher",
 }
 
+LEVEL_CAP = 100
+LIMITED_LEVEL_CAPS = {
+    "BLU": 80,
+    "BST": 50,
+}
+
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
     "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
@@ -220,7 +226,7 @@ categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyTyp
 def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list = []
     extra_list = []
-    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame", "Ultimate"]
+    difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame", "Ultimate", "Disabled"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='"')
     _id = 0
@@ -474,14 +480,11 @@ def after_load_item_file(item_table: list) -> list:
         "BTN",
         "FSH",
         ]
-    max_level = 100
-    max_blu = 80
 
     level_items = []
     for job in classes:
+        max_level = LIMITED_LEVEL_CAPS.get(job, LEVEL_CAP)
         n = int(max_level / 5)
-        if job == "BLU":
-            n = int(max_blu / 5)
 
         level_items.append({
             "name": f"5 {job} Levels",
@@ -496,7 +499,7 @@ def after_load_item_file(item_table: list) -> list:
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOH"],
             "count": 0,
-            "max_count": int(max_level / 5),
+            "max_count": int(LEVEL_CAP / 5),
             "filler": True,
         })
     for job in DOL:
@@ -504,7 +507,7 @@ def after_load_item_file(item_table: list) -> list:
             "name": f"5 {job} Levels",
             "category": ["Class Level", "DOL"],
             "count": 0,
-            "max_count": int(max_level / 5),
+            "max_count": int(LEVEL_CAP / 5),
             "filler": True,
         })
     level_items[0]['id'] = 5_000
