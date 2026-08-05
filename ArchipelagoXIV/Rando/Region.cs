@@ -100,8 +100,7 @@ namespace ArchipelagoXIV.Rando
         {
             if (territoryId > 0)
             {
-                var region = APData.Regions.Values.FirstOrDefault(r => r.TerritoryTypeId == territoryId);
-                if (region != null)
+                if (APData.RegionsByTerritoryType.TryGetValue(territoryId, out var region))
                     return region.Name;
             }
 
@@ -142,15 +141,19 @@ namespace ArchipelagoXIV.Rando
 
         internal bool stale;
         internal bool Reachable;
-        public int? TerritoryTypeId;
 
-        public Region(string name, string[] connections, Func<ApState, bool, bool>? requirements = null, int? territoryTypeId = null)
+        public Region(string name, string[] connections, Func<ApState, bool, bool>? requirements = null, uint[] territoryTypeIds = null)
         {
             APData.Regions.Add(name, this);
+            if (territoryTypeIds != null)
+            {
+                foreach (var id in territoryTypeIds)
+                    APData.RegionsByTerritoryType[id] = this;
+            }
+
             Name = name;
             this.stale = true;
             this._connections = connections;
-            this.TerritoryTypeId = territoryTypeId;
             this.MeetsRequirements = requirements ?? Logic.Always();
             
         }

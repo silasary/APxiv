@@ -1062,7 +1062,10 @@ def scrape_territory_types() -> None:
         pass
         name = place_name['Name']
         if name in regions:
-            regions[name]['id'] = int(territory['#'])
+            ids = set(regions[name].get('ids', []))
+            ids.add(int(territory['#']))
+            regions[name]['ids'] = sorted(ids)
+
     with open(data_path('regions.json'), 'w', newline='') as h:
         json.dump(regions, h, indent=4)
 

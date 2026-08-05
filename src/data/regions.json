@@ -22,15 +22,24 @@
             "Ocean Fishing"
         ],
         "starting": true,
-        "id": 181
+        "ids": [
+            181
+        ]
     },
     "Limsa Lominsa Lower Decks": {
         "connects_to": [],
-        "id": 404
+        "ids": [
+            129,
+            404
+        ]
     },
     "Limsa Lominsa Upper Decks": {
         "connects_to": [],
-        "id": 474
+        "ids": [
+            128,
+            409,
+            474
+        ]
     },
     "Middle La Noscea": {
         "requires": "",
@@ -40,7 +49,13 @@
             "Western La Noscea",
             "Eastern La Noscea"
         ],
-        "id": 285
+        "ids": [
+            134,
+            214,
+            252,
+            272,
+            285
+        ]
     },
     "Lower La Noscea": {
         "requires": "|Lower La Noscea Access:1|",
@@ -52,7 +67,20 @@
             "Wolves' Den Pier",
             "Mist"
         ],
-        "id": 495
+        "ids": [
+            135,
+            222,
+            249,
+            262,
+            264,
+            265,
+            279,
+            287,
+            307,
+            415,
+            484,
+            495
+        ]
     },
     "Eastern La Noscea": {
         "requires": "|Eastern La Noscea Access:1|",
@@ -63,7 +91,17 @@
             "Upper La Noscea",
             "The Binding Coil of Bahamut"
         ],
-        "id": 867
+        "ids": [
+            137,
+            310,
+            311,
+            327,
+            408,
+            411,
+            414,
+            471,
+            867
+        ]
     },
     "Western La Noscea": {
         "requires": "|Western La Noscea Access:1|",
@@ -73,7 +111,18 @@
             "Limsa Lominsa",
             "Lower La Noscea"
         ],
-        "id": 675
+        "ids": [
+            138,
+            263,
+            280,
+            330,
+            405,
+            406,
+            413,
+            453,
+            552,
+            675
+        ]
     },
     "Upper La Noscea": {
         "requires": "|Upper La Noscea Access:1|",
@@ -82,21 +131,35 @@
             "Eastern La Noscea",
             "Western La Noscea"
         ],
-        "id": 466
+        "ids": [
+            139,
+            221,
+            328,
+            412,
+            454,
+            466
+        ]
     },
     "Outer La Noscea": {
         "requires": "|Outer La Noscea Access:1|",
         "connects_to": [
             "Upper La Noscea"
         ],
-        "id": 486
+        "ids": [
+            180,
+            325,
+            486
+        ]
     },
     "Wolves' Den Pier": {
         "requires": "|Wolves' Den Pier Access:1|",
         "connects_to": [
             "Lower La Noscea"
         ],
-        "id": 717
+        "ids": [
+            250,
+            717
+        ]
     },
     "Gridania": {
         "requires": "",
@@ -112,11 +175,18 @@
     },
     "Old Gridania": {
         "connects_to": [],
-        "id": 865
+        "ids": [
+            133,
+            238,
+            865
+        ]
     },
     "New Gridania": {
         "connects_to": [],
-        "id": 183
+        "ids": [
+            132,
+            183
+        ]
     },
     "Central Shroud": {
         "requires": "",
@@ -127,7 +197,21 @@
             "South Shroud",
             "The Lavender Beds"
         ],
-        "id": 1015
+        "ids": [
+            148,
+            190,
+            219,
+            225,
+            226,
+            227,
+            230,
+            233,
+            237,
+            239,
+            319,
+            320,
+            1015
+        ]
     },
     "East Shroud": {
         "requires": "|East Shroud Access:1|",
@@ -137,7 +221,16 @@
             "Gridania",
             "The Fringes"
         ],
-        "id": 839
+        "ids": [
+            152,
+            191,
+            234,
+            277,
+            289,
+            290,
+            303,
+            839
+        ]
     },
     "South Shroud": {
         "requires": "|South Shroud Access:1|",
@@ -146,7 +239,20 @@
             "East Shroud",
             "Eastern Thanalan"
         ],
-        "id": 473
+        "ids": [
+            153,
+            192,
+            220,
+            229,
+            231,
+            232,
+            235,
+            236,
+            291,
+            317,
+            394,
+            473
+        ]
     },
     "North Shroud": {
         "requires": "|North Shroud Access:1|",
@@ -156,7 +262,13 @@
             "Coerthas Central Highlands",
             "The Second Coil of Bahamut"
         ],
-        "id": 324
+        "ids": [
+            154,
+            228,
+            240,
+            321,
+            324
+        ]
     },
     "Ul'dah": {
         "requires": "",
@@ -172,11 +284,24 @@
     },
     "Ul'dah - Steps of Nald": {
         "connects_to": [],
-        "id": 790
+        "ids": [
+            130,
+            182,
+            251,
+            254,
+            259,
+            274,
+            790
+        ]
     },
     "The Gold Saucer": {
         "connects_to": [],
-        "id": 1359
+        "ids": [
+            144,
+            832,
+            1335,
+            1359
+        ]
     },
     "Central Thanalan": {
         "requires": "",
@@ -187,12 +312,24 @@
             "Western Thanalan",
             "Ul'dah"
         ],
-        "id": 1235
+        "ids": [
+            141,
+            216,
+            248,
+            253,
+            258,
+            270,
+            271,
+            314,
+            1235
+        ]
     },
     "The Binding Coil of Bahamut": {
         "requires": "|Dalamud Fragment Access: 1| or |Bahamut Key:1|",
         "connects_to": [],
-        "id": 733
+        "ids": [
+            733
+        ]
     },
     "The Second Coil of Bahamut": {
         "requires": "|Dalamud Fragment Access: 1| or |Bahamut Key:1|",
@@ -216,7 +353,16 @@
             "Limsa Lominsa",
             "The Goblet"
         ],
-        "id": 1049
+        "ids": [
+            140,
+            215,
+            255,
+            267,
+            269,
+            273,
+            278,
+            1049
+        ]
     },
     "Eastern Thanalan": {
         "requires": "|Eastern Thanalan Access:1|",
@@ -225,7 +371,17 @@
             "Southern Thanalan",
             "South Shroud"
         ],
-        "id": 668
+        "ids": [
+            145,
+            256,
+            257,
+            266,
+            268,
+            275,
+            465,
+            494,
+            668
+        ]
     },
     "Southern Thanalan": {
         "requires": "|Southern Thanalan Access:1|",
@@ -233,7 +389,18 @@
             "Eastern Thanalan",
             "Central Thanalan"
         ],
-        "id": 1236
+        "ids": [
+            146,
+            260,
+            261,
+            306,
+            312,
+            318,
+            323,
+            491,
+            669,
+            1236
+        ]
     },
     "Northern Thanalan": {
         "requires": "|Northern Thanalan Access:1|",
@@ -242,7 +409,11 @@
             "Mor Dhona",
             "The Final Coil of Bahamut"
         ],
-        "id": 483
+        "ids": [
+            147,
+            410,
+            483
+        ]
     },
     "Coerthas Central Highlands": {
         "requires": "|Coerthas Central Highlands Access:1|",
@@ -251,7 +422,26 @@
             "North Shroud",
             "Ishgard"
         ],
-        "id": 699
+        "ids": [
+            155,
+            223,
+            298,
+            301,
+            302,
+            304,
+            313,
+            316,
+            322,
+            468,
+            469,
+            475,
+            487,
+            488,
+            496,
+            500,
+            533,
+            699
+        ]
     },
     "Mor Dhona": {
         "requires": "|Mor Dhona Access:1|",
@@ -260,7 +450,20 @@
             "Coerthas Central Highlands",
             "The Crystarium"
         ],
-        "id": 672
+        "ids": [
+            156,
+            299,
+            300,
+            305,
+            308,
+            309,
+            315,
+            326,
+            335,
+            379,
+            480,
+            672
+        ]
     },
     "Ishgard": {
         "requires": "|Ishgard Access:1|",
@@ -278,7 +481,11 @@
     },
     "Foundation": {
         "connects_to": [],
-        "id": 700
+        "ids": [
+            418,
+            458,
+            700
+        ]
     },
     "Coerthas Western Highlands": {
         "requires": "|Coerthas Western Highlands Access:1|",
@@ -287,14 +494,33 @@
             "The Dravanian Forelands",
             "The Dravanian Hinterlands"
         ],
-        "id": 866
+        "ids": [
+            397,
+            467,
+            470,
+            472,
+            477,
+            479,
+            489,
+            493,
+            497,
+            498,
+            709,
+            866
+        ]
     },
     "The Sea of Clouds": {
         "requires": "|The Sea of Clouds Access:1|",
         "connects_to": [
             "Coerthas Western Highlands"
         ],
-        "id": 1214
+        "ids": [
+            401,
+            455,
+            461,
+            492,
+            1214
+        ]
     },
     "The Dravanian Forelands": {
         "requires": "|The Dravanian Forelands Access:1|",
@@ -302,12 +528,22 @@
             "The Churning Mists",
             "The Dravanian Hinterlands"
         ],
-        "id": 1023
+        "ids": [
+            398,
+            464,
+            481,
+            482,
+            1023
+        ]
     },
     "The Churning Mists": {
         "requires": "|The Churning Mists Access:1|",
         "connects_to": [],
-        "id": 715
+        "ids": [
+            400,
+            501,
+            715
+        ]
     },
     "The Dravanian Hinterlands": {
         "requires": "|The Dravanian Hinterlands and Idyllshire Access:1|",
@@ -315,22 +551,35 @@
             "Alexander",
             "Idyllshire"
         ],
-        "id": 503
+        "ids": [
+            399,
+            476,
+            485,
+            503
+        ]
     },
     "Idyllshire": {
         "connects_to": [],
-        "id": 478
+        "ids": [
+            478
+        ]
     },
     "Alexander": {
         "requires": "|Alexander Key:1| or |Alexander Access:1|",
-        "id": 553
+        "ids": [
+            505,
+            553
+        ]
     },
     "Azys Lla": {
         "requires": "|Azys Lla Access:1|",
         "connects_to": [
             "Ishgard"
         ],
-        "id": 459
+        "ids": [
+            402,
+            459
+        ]
     },
     "Rhalgr's Reach": {
         "requires": "|Rhalgr's Reach Access: 1|",
@@ -338,7 +587,10 @@
             "The Fringes",
             "The Peaks"
         ],
-        "id": 659
+        "ids": [
+            635,
+            659
+        ]
     },
     "The Fringes": {
         "requires": "|The Fringes Access: 1|",
@@ -347,7 +599,17 @@
             "The Peaks",
             "Interdimensional Rift"
         ],
-        "id": 760
+        "ids": [
+            612,
+            640,
+            647,
+            648,
+            670,
+            671,
+            678,
+            703,
+            760
+        ]
     },
     "Interdimensional Rift": {
         "requires": "|Interdimensional Rift Access:1| or |Omega Key:1|",
@@ -360,14 +622,24 @@
             "The Fringes",
             "The Lochs"
         ],
-        "id": 1019
+        "ids": [
+            620,
+            716,
+            868,
+            1019
+        ]
     },
     "The Lochs": {
         "requires": "|The Lochs Access: 1|",
         "connects_to": [
             "Garlemald"
         ],
-        "id": 687
+        "ids": [
+            621,
+            684,
+            686,
+            687
+        ]
     },
     "Kugane": {
         "requires": "|Kugane Access: 1|",
@@ -375,7 +647,13 @@
             "The Ruby Sea",
             "Shirogane"
         ],
-        "id": 710
+        "ids": [
+            628,
+            664,
+            665,
+            667,
+            710
+        ]
     },
     "The Ruby Sea": {
         "requires": "|The Ruby Sea Access: 1|",
@@ -383,20 +661,34 @@
             "Yanxia",
             "The Azim Steppe"
         ],
-        "id": 757
+        "ids": [
+            613,
+            657,
+            711,
+            726,
+            757
+        ]
     },
     "Yanxia": {
         "requires": "|Yanxia Access: 1|",
         "connects_to": [
             "The Doman Enclave"
         ],
-        "id": 685
+        "ids": [
+            614,
+            634,
+            685
+        ]
     },
     "The Doman Enclave": {
         "connects_to": [
             "Gangos"
         ],
-        "id": 759
+        "ids": [
+            682,
+            739,
+            759
+        ]
     },
     "Gangos": {
         "requires": "|Gangos Access: 1|",
@@ -404,7 +696,9 @@
             "The Bozjan Southern Front",
             "Zadnor"
         ],
-        "id": 915
+        "ids": [
+            915
+        ]
     },
     "The Bozjan Southern Front": {
         "requires": "",
@@ -413,12 +707,21 @@
     "Zadnor": {
         "requires": "|Zadnor Access: 1|",
         "connects_to": [],
-        "id": 975
+        "ids": [
+            975
+        ]
     },
     "The Azim Steppe": {
         "requires": "|The Azim Steppe Access: 1|",
         "connects_to": [],
-        "id": 797
+        "ids": [
+            622,
+            688,
+            713,
+            718,
+            723,
+            797
+        ]
     },
     "The Crystarium": {
         "requires": "|The Crystarium Access: 1|",
@@ -429,7 +732,9 @@
             "Eulmore",
             "Elpis"
         ],
-        "id": 819
+        "ids": [
+            819
+        ]
     },
     "Lakeland": {
         "requires": "|Lakeland Access: 1|",
@@ -439,7 +744,12 @@
             "The Crystarium",
             "The Rak'tika Greatwood"
         ],
-        "id": 877
+        "ids": [
+            813,
+            861,
+            862,
+            877
+        ]
     },
     "Kholusia": {
         "requires": "|Kholusia Access: 1|",
@@ -447,39 +757,64 @@
             "The Tempest",
             "Eulmore"
         ],
-        "id": 870
+        "ids": [
+            814,
+            864,
+            870
+        ]
     },
     "Amh Araeng": {
         "requires": "|Amh Araeng Access: 1|",
         "connects_to": [
             "The Empty"
         ],
-        "id": 872
+        "ids": [
+            815,
+            860,
+            872
+        ]
     },
     "The Empty": {
         "requires": "|The Empty Access: 1| or |Eden Key:1|",
         "connects_to": [],
-        "id": 965
+        "ids": [
+            878,
+            965
+        ]
     },
     "Il Mheg": {
         "requires": "|Il Mheg Access: 1|",
         "connects_to": [],
-        "id": 869
+        "ids": [
+            816,
+            869
+        ]
     },
     "The Rak'tika Greatwood": {
         "requires": "|The Rak'tika Greatwood Access: 1|",
         "connects_to": [],
-        "id": 875
+        "ids": [
+            817,
+            871,
+            874,
+            875
+        ]
     },
     "Eulmore": {
         "requires": "|Eulmore Access: 1|",
         "connects_to": [],
-        "id": 863
+        "ids": [
+            820,
+            863
+        ]
     },
     "The Tempest": {
         "requires": "|The Tempest Access: 1|",
         "connects_to": [],
-        "id": 932
+        "ids": [
+            818,
+            932
+        ]
     },
     "Old Sharlayan": {
         "requires": "|Old Sharlayan Access: 1|",
@@ -488,7 +823,9 @@
             "Thavnair",
             "Tuliyollal"
         ],
-        "id": 962
+        "ids": [
+            962
+        ]
     },
     "Labyrinthos": {
         "requires": "|Labyrinthos Access: 1|",
@@ -496,89 +833,125 @@
             "Ultima Thule",
             "The D\u00e6mons' Nest"
         ],
-        "id": 956
+        "ids": [
+            956
+        ]
     },
     "Ultima Thule": {
         "requires": "|Ultima Thule Access: 1|",
         "connects_to": [
             "Elysion"
         ],
-        "id": 1027
+        "ids": [
+            960,
+            1027
+        ]
     },
     "Elysion": {
         "connects_to": [],
-        "id": 1073
+        "ids": [
+            1073
+        ]
     },
     "Thavnair": {
         "requires": "|Thavnair Access: 1|",
         "connects_to": [
             "Radz-at-Han"
         ],
-        "id": 957
+        "ids": [
+            957
+        ]
     },
     "Radz-at-Han": {
         "requires": "|Radz-at-Han Access: 1|",
         "connects_to": [
             "Thavnair"
         ],
-        "id": 963
+        "ids": [
+            963
+        ]
     },
     "Garlemald": {
         "requires": "|Garlemald Access: 1|",
         "connects_to": [
             "Mare Lamentorum"
         ],
-        "id": 1120
+        "ids": [
+            958,
+            1011,
+            1120
+        ]
     },
     "Mare Lamentorum": {
         "requires": "|Mare Lamentorum Access: 1|",
         "connects_to": [
             "Sinus Ardorum"
         ],
-        "id": 959
+        "ids": [
+            959
+        ]
     },
     "Sinus Ardorum": {
         "requires": "",
         "connects_to": [
             "Phaenna"
         ],
-        "id": 1237
+        "ids": [
+            1237
+        ]
     },
     "Phaenna": {
         "requires": "",
         "connects_to": [
             "Oizys"
         ],
-        "id": 1291
+        "ids": [
+            1291
+        ]
     },
     "Oizys": {
         "requires": "",
         "connects_to": [
             "Auxesia"
         ],
-        "id": 1310
+        "ids": [
+            1310
+        ]
     },
     "Auxesia": {
         "requires": "",
         "connects_to": [],
-        "id": 1319
+        "ids": [
+            1319
+        ]
     },
     "Elpis": {
         "requires": "|Elpis Access: 1|",
         "connects_to": [
             "The Gates of Pand\u00e6monium"
         ],
-        "id": 1014
+        "ids": [
+            961,
+            1014
+        ]
     },
     "The Gates of Pand\u00e6monium": {
         "requires": "|Pandaemonium Access: 1| or |Pandaemonium Key:1|",
         "connects_to": [],
-        "id": 1025
+        "ids": [
+            1002,
+            1003,
+            1025
+        ]
     },
     "The D\u00e6mons' Nest": {
         "requires": "|Pandaemonium Access: 1| or |Pandaemonium Key:1|",
         "connects_to": [],
-        "id": 1158
+        "ids": [
+            1149,
+            1150,
+            1158
+        ]
     },
     "Ocean Fishing": {
         "connects_to": [
@@ -587,35 +960,61 @@
     },
     "The *Endeavor*": {
         "connects_to": [],
-        "id": 1163
+        "ids": [
+            900,
+            1163
+        ]
     },
     "The Firmament": {
         "connects_to": [],
-        "id": 886
+        "ids": [
+            886
+        ]
     },
     "Empyreum": {
         "connects_to": [],
-        "id": 979
+        "ids": [
+            979
+        ]
     },
     "Mist": {
         "connects_to": [],
-        "id": 339
+        "ids": [
+            136,
+            339
+        ]
     },
     "The Lavender Beds": {
         "connects_to": [],
-        "id": 340
+        "ids": [
+            340
+        ]
     },
     "The Goblet": {
         "connects_to": [],
-        "id": 341
+        "ids": [
+            341
+        ]
     },
     "The Diadem": {
         "connects_to": [],
-        "id": 939
+        "ids": [
+            512,
+            514,
+            515,
+            624,
+            625,
+            656,
+            901,
+            929,
+            939
+        ]
     },
     "Shirogane": {
         "connects_to": [],
-        "id": 641
+        "ids": [
+            641
+        ]
     },
     "Tuliyollal": {
         "requires": "|Tuliyollal Access: 1|",
@@ -626,45 +1025,63 @@
             "Shaaloani",
             "Phantom Village"
         ],
-        "id": 1185
+        "ids": [
+            1185
+        ]
     },
     "Urqopacha": {
         "requires": "|Urqopacha Access: 1|",
         "connects_to": [],
-        "id": 1187
+        "ids": [
+            1187
+        ]
     },
     "Kozama'uka": {
         "requires": "|Kozama'uka Access: 1|",
         "connects_to": [],
-        "id": 1188
+        "ids": [
+            1188
+        ]
     },
     "Yak T'el": {
         "requires": "|Yak T'el Access: 1|",
         "connects_to": [
             "Living Memory"
         ],
-        "id": 1212
+        "ids": [
+            1189,
+            1211,
+            1212
+        ]
     },
     "Shaaloani": {
         "requires": "|Shaaloani Access: 1|",
         "connects_to": [
             "Heritage Found"
         ],
-        "id": 1244
+        "ids": [
+            1190,
+            1244
+        ]
     },
     "Heritage Found": {
         "requires": "|Heritage Found Access: 1|",
         "connects_to": [
             "Solution Nine"
         ],
-        "id": 1191
+        "ids": [
+            1191
+        ]
     },
     "Solution Nine": {
         "requires": "|Solution Nine Access: 1|",
         "connects_to": [
             "The Arcadion"
         ],
-        "id": 1213
+        "ids": [
+            1186,
+            1213
+        ]
     },
     "The Arcadion": {
         "requires": "|Arcadion Key:1| or |Arcadion Access:1|",
@@ -675,7 +1092,9 @@
         "connects_to": [
             "Mist Continent"
         ],
-        "id": 1192
+        "ids": [
+            1192
+        ]
     },
     "Mist Continent": {
         "requires": "",
@@ -687,7 +1106,10 @@
             "The Occult Crescent: South Horn",
             "The Occult Crescent: North Horn"
         ],
-        "id": 1278
+        "ids": [
+            1269,
+            1278
+        ]
     },
     "The Occult Crescent: South Horn": {
         "requires": "",
