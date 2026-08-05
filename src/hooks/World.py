@@ -23,7 +23,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
 from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
-from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, is_leves_enabled
 from .Options import LevelCap
 
 ########################################################################################
@@ -111,14 +111,15 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
     has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
+    has_leves = is_leves_enabled(multiworld, player)
 
-    if not has_fates and not has_dungeons and not has_fish and not has_hunts:
+    if not has_fates and not has_dungeons and not has_fish and not has_hunts and not has_leves:
         raise OptionError("You can't disable everything.")
 
     if has_hunts and level_cap < 50:
         raise OptionError("Huntsanity requires a level cap of at least 50.")
 
-    if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
+    if has_hunts and not has_dungeons and not has_fish and not has_leves and (not has_fates or fate_count < 2):
         raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
     if (
@@ -126,6 +127,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not has_fish
         and not has_fatesanity
         and not has_hunts
+        and not has_leves
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3

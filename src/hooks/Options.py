@@ -6,6 +6,7 @@ from Options import (
     NamedRange,
     NumericOption,
     Option,
+    OptionError,
     OptionGroup,
     OptionSet,
     PerGameCommonOptions,
@@ -364,6 +365,82 @@ class Huntsanity(OptionSet):
     valid_keys = {"B", "A", "S"}
     default = frozenset()
 
+class LevesPerZone(Range):
+    """
+    Number of levequest checks per zone.
+
+    Applies whether Levesanity is on or off. If 0 and Levesanity is off, levequests are disabled entirely.
+    If 0 and Levesanity is on, ALL eligible named levequests in every zone are included instead of a per-zone
+    cap. This leads to an extreme, very sync-unviable amount of checks and time.
+
+    Levequest Allowance Budget always applies on top of this and may trim the pool further.
+    """
+    display_name = "Levequests Per Zone"
+    default = 0
+    range_start = 0
+    range_end = 10
+
+class Levesanity(Toggle):
+    """
+    Include specific named levequests in the location pool instead of generic "Zone: Levequest #N" checks.
+
+    Combine with Levequests Per Zone = 0 to include every eligible levequest with no per-zone limit.
+    This leads to an extreme, very sync-unviable amount of checks and time.
+
+    Levequest Allowance Budget always applies on top of this and may trim the pool further.
+    """
+    display_name = "Levesanity"
+    default = False
+
+class LeveAllowanceBudget(Range):
+    """
+    Hard cap on the total number of levequest checks generated, regardless of Levequests Per Zone or Levesanity.
+
+    Keep in mind that you may still need more allowances in game than set in this option, as the selection of available Levequests is random.
+    """
+    display_name = "Levequest Allowance Budget"
+    default = 25
+    range_start = 1
+    range_end = 9999
+
+def _verify_valid_leve_keys(option: OptionSet, world: type[World]) -> None:
+    from .Data import DOH, DOL
+    valid = {"Battle"} | set(DOH) | set(DOL)
+
+    for item_name in option.value:
+        if item_name not in valid:
+            picks = get_fuzzy_results(item_name, list(valid), limit=1)
+            raise OptionError(f"Item {item_name} from option {option} "
+                            f"is not a valid levequest job/type from {world.game}. "
+                            f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+class LeveJobWhitelist(OptionSet):
+    """
+    Restrict levequests to specific jobs/types. If empty, all types are allowed.
+
+    Valid keys: "Battle" (combat leves) plus the crafter codes (CRP, BSM, ARM, GSM, LTW, WVR, ALC, CUL) and the
+    gatherer codes (MIN, BTN, FSH).
+
+    Effective allowed types = this whitelist minus Levequest Job Blacklist.
+    """
+    display_name = "Levequest Job Whitelist"
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        _verify_valid_leve_keys(self, world)
+        return super().verify(world, player_name, plando_options)
+
+class LeveJobBlacklist(OptionSet):
+    """
+    Exclude specific jobs/types from levequests entirely.
+
+    Same valid keys as Levequest Job Whitelist.
+    """
+    display_name = "Levequest Job Blacklist"
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        _verify_valid_leve_keys(self, world)
+        return super().verify(world, player_name, plando_options)
+
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
@@ -398,6 +475,14 @@ def before_options_defined(options: dict) -> dict:
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
     options["huntsanity"] = Huntsanity
+
+    # Levequests
+    options["leves_per_zone"] = LevesPerZone
+    options["levesanity"] = Levesanity
+    options["leve_allowance_budget"] = LeveAllowanceBudget
+    options["leve_job_whitelist"] = LeveJobWhitelist
+    options["leve_job_blacklist"] = LeveJobBlacklist
+
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
@@ -432,6 +517,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
+    groups["Levequests"] = [LevesPerZone, Levesanity, LeveAllowanceBudget, LeveJobWhitelist, LeveJobBlacklist]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
