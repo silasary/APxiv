@@ -33,6 +33,14 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     assert isinstance(value, int)
     return value
 
+def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[str]:
+    from ..Helpers import get_option_value
+
+    value = get_option_value(multiworld, player, option_name)
+    assert isinstance(value, (frozenset, set))
+
+    return set(value)
+
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
     """Jobs excluded directly via exclude_jobs"""
     from ..Helpers import get_option_value
@@ -44,11 +52,27 @@ def is_fishsanity_only(multiworld: MultiWorld, player: int) -> bool:
     is_fishsanity = is_option_enabled(multiworld, player, "fishsanity")
     has_fates = is_option_enabled(multiworld, player, "fatesanity") or is_option_enabled(multiworld, player, "fates_per_zone")
     has_duties = get_int_value(multiworld, player, "duty_difficulty") > 0
-    return is_fishsanity and not (has_fates or has_duties)
+    return is_fishsanity and not (has_fates or has_duties or is_leves_enabled(multiworld, player))
 
 def is_fishing_enabled(multiworld, player):
     from ..Helpers import is_option_enabled
     return is_option_enabled(multiworld, player, "fishsanity") or is_option_enabled(multiworld, player, "include_ocean_fishing")
+
+def get_allowed_leve_types(multiworld: MultiWorld, player: int) -> set[str]:
+    from .Data import DOH, DOL
+
+    all_types = {"Battle"} | set(DOH) | set(DOL)
+    whitelist = get_set_value(multiworld, player, "leve_job_whitelist")
+    blacklist = get_set_value(multiworld, player, "leve_job_blacklist")
+
+    return (whitelist if whitelist else all_types) - blacklist
+
+def is_leves_enabled(multiworld: MultiWorld, player: int) -> bool:
+    # will check for DOH and DOL in the future of course
+    if "Battle" not in get_allowed_leve_types(multiworld, player):
+        return False
+
+    return get_int_value(multiworld, player, "leves_per_zone") > 0 or Helpers.is_option_enabled(multiworld, player, "levesanity")
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the category, False to disable it, or None to use the default behavior
@@ -95,7 +119,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
-    
+
     level_cap = get_int_value(multiworld, player, "level_cap")
     if "level" in location and int(location["level"]) > level_cap:
         return False
