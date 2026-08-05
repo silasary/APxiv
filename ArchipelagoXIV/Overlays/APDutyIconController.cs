@@ -1,10 +1,12 @@
 using ArchipelagoXIV.Overlays.CustomNodes;
+using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using KamiToolKit.Classes;
 using KamiToolKit.Controllers;
 using KamiToolKit.Enums;
+using KamiToolKit.Nodes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,15 @@ internal unsafe class APDutyIconController : IDisposable
 {
 
     private NativeListController<AddonContentsFinder, ListItemData> listController;
+    private RadioButtonGroupNode radioButtonGroupNodes;
     private AddonController<AddonContentsFinder> addonController;
 
     //private Dictionary<Location, object> locationNodes;
     private ApState apState;
     private APDutyIcons? apDutyIcons;
+
     private readonly Dictionary<uint, APDutyIcons> imageNodes = [];
+
 
     public APDutyIconController(ApState apState)
     {
@@ -37,16 +42,22 @@ internal unsafe class APDutyIconController : IDisposable
         addonController = new AddonController<AddonContentsFinder>
         {
             AddonName = "ContentsFinder",
+            //OnSetup = OnDutyFinderSetup,
+            OnUpdate = DutyFinderUpdate,
             OnFinalize = DutyFinderClosed,
         };
         addonController.Enable();
         DalamudApi.PluginLog.Info("Content Finder overlay enabled");
     }
-
     public void Dispose()
     {
         listController?.Dispose();
         addonController?.Dispose();
+    }
+
+    private void DutyFinderUpdate(AddonContentsFinder* addon)
+    {
+        
     }
 
     private void DutyFinderClosed(AddonContentsFinder* addon)
@@ -58,7 +69,9 @@ internal unsafe class APDutyIconController : IDisposable
 
     private bool ShouldModifyElementMethod(AddonContentsFinder* addon, ListItemData listItem)
     {
-        if (!apState.Connected) {
+        DalamudApi.PluginLog.Debug("List Node ID {0}", listItem.NodeId.ToString());
+        if (!apState.Connected)
+        {
             return false;
         }
         return true;

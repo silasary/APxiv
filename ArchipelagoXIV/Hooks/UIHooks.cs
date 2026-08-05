@@ -12,8 +12,8 @@ namespace ArchipelagoXIV.Hooks
     {
         public void Enable()
         {
-            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
-            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
+            //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
             //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "ContentsFinder", OnContentsFinderPostSetup);
         }
 
