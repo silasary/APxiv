@@ -169,7 +169,8 @@ namespace ArchipelagoXIV.Rando
                 var requires = region.Value.Value<string>("requires");
                 if (requires != null)
                     rule = Logic.FromString(requires);
-                _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+                var territoryTypeId = region.Value.Value<int?>("id") ?? null;
+                _ = new Region(region.Key, connections.ToArray() ?? [], rule, territoryTypeId);
             }
         }
 

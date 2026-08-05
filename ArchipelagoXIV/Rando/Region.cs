@@ -98,6 +98,13 @@ namespace ArchipelagoXIV.Rando
 
         public static string LocationToRegion(string name, uint territoryId = 0)
         {
+            if (territoryId > 0)
+            {
+                var region = APData.Regions.Values.FirstOrDefault(r => r.TerritoryTypeId == territoryId);
+                if (region != null)
+                    return region.Name;
+            }
+
             if (name.StartsWith("Crystalline Conflict (Custom Match - "))
                 name = name[37..^1];
 
@@ -135,14 +142,17 @@ namespace ArchipelagoXIV.Rando
 
         internal bool stale;
         internal bool Reachable;
+        public int? TerritoryTypeId;
 
-        public Region(string name, string[] connections, Func<ApState, bool, bool>? requirements = null)
+        public Region(string name, string[] connections, Func<ApState, bool, bool>? requirements = null, int? territoryTypeId = null)
         {
             APData.Regions.Add(name, this);
             Name = name;
             this.stale = true;
             this._connections = connections;
+            this.TerritoryTypeId = territoryTypeId;
             this.MeetsRequirements = requirements ?? Logic.Always();
+            
         }
     }
 }

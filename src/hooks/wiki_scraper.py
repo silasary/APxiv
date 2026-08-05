@@ -1049,10 +1049,28 @@ def scrape_aetherytes() -> None:
     with open(data_path('aetherytes.json'), 'w', newline='') as h:
         json.dump(aetheryte_locations, h, indent=1)
 
+def scrape_territory_types() -> None:
+    territory_type = datamining_csv("TerritoryType")
+    territory_data = []
+    with open(data_path('regions.json'), 'r', newline='') as h:
+        regions = json.load(h)
+    pass
+    for territory in territory_type.values():
+        if territory['PlaceName'] == '0':
+            continue
+        place_name = datamining_csv('PlaceName')[territory['PlaceName']]
+        pass
+        name = place_name['Name']
+        if name in regions:
+            regions[name]['id'] = int(territory['#'])
+    with open(data_path('regions.json'), 'w', newline='') as h:
+        json.dump(regions, h, indent=4)
+
 
 if __name__ == "__main__":
     scrape_aetherytes()
     scrape_hunts()
+    scrape_territory_types()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
