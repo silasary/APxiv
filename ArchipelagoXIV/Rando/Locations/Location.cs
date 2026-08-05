@@ -23,7 +23,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new AttuneLocation(apState, id, name);
             if (Data.DynamicEvents.ContainsKey(name))
                 return new CriticalEncounterLocation(apState, id, name);
-            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(" (FETE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
             {
                 return new FateLocation(apState, id, name, fate);
             }

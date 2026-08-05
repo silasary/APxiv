@@ -3361,11 +3361,6 @@
                     "Sludgeskipper",
                     "Spotted Puffer",
                     "Sweeter than Honey (FATE)",
-                    "The Binding Coil of Bahamut - Turn 1",
-                    "The Binding Coil of Bahamut - Turn 2",
-                    "The Binding Coil of Bahamut - Turn 3",
-                    "The Binding Coil of Bahamut - Turn 4",
-                    "The Binding Coil of Bahamut - Turn 5",
                     "The Drowned Sniper",
                     "The Greatest Bream in the World",
                     "The Old Man in the Sea",
@@ -3464,25 +3459,9 @@
                     "Yugr'am Salmon"
                 ],
                 "Elpis": [
-                    "Abyssos: The Eighth Circle",
-                    "Abyssos: The Eighth Circle (Savage)",
-                    "Abyssos: The Fifth Circle",
-                    "Abyssos: The Fifth Circle (Savage)",
-                    "Abyssos: The Seventh Circle",
-                    "Abyssos: The Seventh Circle (Savage)",
-                    "Abyssos: The Sixth Circle",
-                    "Abyssos: The Sixth Circle (Savage)",
                     "Albino Loach",
                     "Antheia",
                     "Antheian Dahlia",
-                    "Asphodelos: The First Circle",
-                    "Asphodelos: The First Circle (Savage)",
-                    "Asphodelos: The Fourth Circle",
-                    "Asphodelos: The Fourth Circle (Savage)",
-                    "Asphodelos: The Second Circle",
-                    "Asphodelos: The Second Circle (Savage)",
-                    "Asphodelos: The Third Circle",
-                    "Asphodelos: The Third Circle (Savage)",
                     "Attune Anagnorisis",
                     "Attune Poieten Oikos",
                     "Attune The Twelve Wonders",
@@ -6008,7 +5987,7 @@
                     "Ocean Fishing: One River",
                     "Ocean Fishing: Rhotano Sea",
                     "Ocean Fishing: Rothlyt Sound",
-                    "Ocean Fishing: Ruby Sea",
+                    "Ocean Fishing: Ruby Price",
                     "Ocean Fishing: Thavnairian Coast",
                     "Octomammoth",
                     "Of Beasts and Braggadocio (FATE)",
@@ -12059,14 +12038,6 @@
                 ],
                 "Labyrinthos": [
                     "Acid in Flight Shepherd's Fright (FATE)",
-                    "Anabaseios: The Eleventh Circle",
-                    "Anabaseios: The Eleventh Circle (Savage)",
-                    "Anabaseios: The Ninth Circle",
-                    "Anabaseios: The Ninth Circle (Savage)",
-                    "Anabaseios: The Tenth Circle",
-                    "Anabaseios: The Tenth Circle (Savage)",
-                    "Anabaseios: The Twelfth Circle",
-                    "Anabaseios: The Twelfth Circle (Savage)",
                     "Astacus Aetherius",
                     "Attune Aporia",
                     "Attune Sharlayan Hamlet",
@@ -12827,14 +12798,6 @@
                     "That Which Binds Us (FATE)",
                     "The Big Issue (FATE)",
                     "The Magical Fruit (FATE)",
-                    "The Second Coil of Bahamut (Savage) - Turn 1",
-                    "The Second Coil of Bahamut (Savage) - Turn 2",
-                    "The Second Coil of Bahamut (Savage) - Turn 3",
-                    "The Second Coil of Bahamut (Savage) - Turn 4",
-                    "The Second Coil of Bahamut - Turn 1",
-                    "The Second Coil of Bahamut - Turn 2",
-                    "The Second Coil of Bahamut - Turn 3",
-                    "The Second Coil of Bahamut - Turn 4",
                     "Tricolored Carp",
                     "Waiting for a Moon to Fall (FATE)"
                 ],
@@ -12891,10 +12854,6 @@
                     "Silverfish",
                     "Sludgeskipper",
                     "The Ceruleum Road (FATE)",
-                    "The Final Coil of Bahamut - Turn 1",
-                    "The Final Coil of Bahamut - Turn 2",
-                    "The Final Coil of Bahamut - Turn 3",
-                    "The Final Coil of Bahamut - Turn 4",
                     "The Minstrel's Ballad: Ultima's Bane",
                     "The Porta Decumana",
                     "The Praetorium",
@@ -12948,7 +12907,7 @@
                     "Ocean Fishing: One River",
                     "Ocean Fishing: Rhotano Sea",
                     "Ocean Fishing: Rothlyt Sound",
-                    "Ocean Fishing: Ruby Sea",
+                    "Ocean Fishing: Ruby Price",
                     "Ocean Fishing: Thavnairian Coast"
                 ],
                 "Old Sharlayan": [
@@ -13086,7 +13045,7 @@
                 ],
                 "Ruby Route": [
                     "Ocean Fishing: One River",
-                    "Ocean Fishing: Ruby Sea",
+                    "Ocean Fishing: Ruby Price",
                     "Ocean Fishing: Thavnairian Coast"
                 ],
                 "Savage Raid (ARR)": [
@@ -13771,6 +13730,13 @@
                     "Yat Khan",
                     "Zagas Khaal"
                 ],
+                "The Binding Coil of Bahamut": [
+                    "The Binding Coil of Bahamut - Turn 1",
+                    "The Binding Coil of Bahamut - Turn 2",
+                    "The Binding Coil of Bahamut - Turn 3",
+                    "The Binding Coil of Bahamut - Turn 4",
+                    "The Binding Coil of Bahamut - Turn 5"
+                ],
                 "The Bozjan Southern Front": [
                     "Aces High",
                     "All Pets Are Off (FATE)",
@@ -14191,6 +14157,16 @@
                     "Wild Wilde Death (FATE)",
                     "Yalm Lobster"
                 ],
+                "The D\u00e6mons' Nest": [
+                    "Anabaseios: The Eleventh Circle",
+                    "Anabaseios: The Eleventh Circle (Savage)",
+                    "Anabaseios: The Ninth Circle",
+                    "Anabaseios: The Ninth Circle (Savage)",
+                    "Anabaseios: The Tenth Circle",
+                    "Anabaseios: The Tenth Circle (Savage)",
+                    "Anabaseios: The Twelfth Circle",
+                    "Anabaseios: The Twelfth Circle (Savage)"
+                ],
                 "The Empty": [
                     "Eden's Gate: Descent",
                     "Eden's Gate: Descent (Savage)",
@@ -14216,6 +14192,12 @@
                     "Eden's Verse: Iconoclasm (Savage)",
                     "Eden's Verse: Refulgence",
                     "Eden's Verse: Refulgence (Savage)"
+                ],
+                "The Final Coil of Bahamut": [
+                    "The Final Coil of Bahamut - Turn 1",
+                    "The Final Coil of Bahamut - Turn 2",
+                    "The Final Coil of Bahamut - Turn 3",
+                    "The Final Coil of Bahamut - Turn 4"
                 ],
                 "The Firmament": [
                     "A Twist of F\u00eate (FETE)",
@@ -14306,6 +14288,24 @@
                     "Wraithfish",
                     "Xenacanthus",
                     "Yes, This Is Dogs (FATE)"
+                ],
+                "The Gates of Pandaemonium": [
+                    "Abyssos: The Eighth Circle",
+                    "Abyssos: The Eighth Circle (Savage)",
+                    "Abyssos: The Fifth Circle",
+                    "Abyssos: The Fifth Circle (Savage)",
+                    "Abyssos: The Seventh Circle",
+                    "Abyssos: The Seventh Circle (Savage)",
+                    "Abyssos: The Sixth Circle",
+                    "Abyssos: The Sixth Circle (Savage)",
+                    "Asphodelos: The First Circle",
+                    "Asphodelos: The First Circle (Savage)",
+                    "Asphodelos: The Fourth Circle",
+                    "Asphodelos: The Fourth Circle (Savage)",
+                    "Asphodelos: The Second Circle",
+                    "Asphodelos: The Second Circle (Savage)",
+                    "Asphodelos: The Third Circle",
+                    "Asphodelos: The Third Circle (Savage)"
                 ],
                 "The Goblet": [
                     "Brass Loach",
@@ -14843,6 +14843,16 @@
                     "You Eat What You Aren't (FATE)",
                     "Youth Must Be Severed (FATE)",
                     "Zuns on the Run (FATE)"
+                ],
+                "The Second Coil of Bahamut": [
+                    "The Second Coil of Bahamut (Savage) - Turn 1",
+                    "The Second Coil of Bahamut (Savage) - Turn 2",
+                    "The Second Coil of Bahamut (Savage) - Turn 3",
+                    "The Second Coil of Bahamut (Savage) - Turn 4",
+                    "The Second Coil of Bahamut - Turn 1",
+                    "The Second Coil of Bahamut - Turn 2",
+                    "The Second Coil of Bahamut - Turn 3",
+                    "The Second Coil of Bahamut - Turn 4"
                 ],
                 "The Tempest": [
                     "A Lot to Swallow (FATE)",
@@ -22097,7 +22107,7 @@
                 "Attune Solution Nine": 50217,
                 "Attune Dock Poga": 50238
             },
-            "checksum": "1aa316ee0cd88fb0acae02f74a3ec0d84045e65b"
+            "checksum": "6d533f0446686c57759ec9be075368f0f28b84a8"
         }
     }
 }
