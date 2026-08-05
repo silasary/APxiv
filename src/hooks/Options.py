@@ -19,6 +19,7 @@ from worlds.AutoWorld import World
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import get_option_value, is_option_enabled
+from .Data import LEVEL_CAP, CASTER, DOH, DOL, HEALERS, MELEE, RANGED, TANKS
 
 
 class OceanFishing(Toggle):
@@ -234,7 +235,6 @@ class ForceJob(OptionSet):
     display_name = "Force Progression Jobs"
 
     def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
         all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
         print(f"{repr(self.value)}/{repr(all)}")
         for item_name in self.value:
@@ -274,9 +274,9 @@ class LevelCap(Range):
     Maximum level of the player.
     """
     display_name = "Level Cap"
-    default = 100
+    default = LEVEL_CAP
     range_start = 30
-    range_end = 100
+    range_end = LEVEL_CAP
 
 class AllowMainScenario(Toggle):
     """

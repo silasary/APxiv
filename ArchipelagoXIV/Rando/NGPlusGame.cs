@@ -20,6 +20,7 @@ namespace ArchipelagoXIV.Rando
         private long GoalCount;
         private long McGuffinCount;
         private long BossKeyPiecesNeeded;
+        private long BossKeyCollected = 0;
         private string BossKeyItemName = "";
 
 
@@ -48,11 +49,20 @@ namespace ArchipelagoXIV.Rando
             {
                 apState.CompleteGame();
             }
+            if (BossKeyPiecesNeeded > 0 && itemName == BossKeyItemName)
+            {
+                BossKeyCollected = apState.Items.Count(i => i == BossKeyItemName);
+                if (BossKeyCollected >= BossKeyPiecesNeeded)
+                    DalamudApi.ShowToast($"You may now challenge {GoalDutyName}");
+            }
         }
 
         internal void OnGoalDutyCompleted()
         {
-            apState.CompleteGame();
+            if (BossKeyCollected >= BossKeyPiecesNeeded)
+                apState.CompleteGame();
+            else
+                DalamudApi.Echo($"You do not have enough {BossKeyItemName}s to goal.");
         }
 
         internal override void HandleSlotData(Dictionary<string, object> slotData)
@@ -96,7 +106,7 @@ namespace ArchipelagoXIV.Rando
 
             if (BossKeyPiecesNeeded > 0 && !string.IsNullOrEmpty(BossKeyItemName))
             {
-                var collected = apState.Items.Count(i => i == BossKeyItemName);
+                var collected = BossKeyCollected;
 
                 if (BossKeyPiecesNeeded == 1)
                     return $"{baseString} [Key: {(collected >= 1 ? "obtained" : "missing")}]";
@@ -145,6 +155,7 @@ namespace ArchipelagoXIV.Rando
         internal override void Ready()
         {
             McGuffinCount = apState.Items.Count(i => i == "Memory of a Distant World");
+            BossKeyCollected = (long)apState.Items.Count(i => i == BossKeyItemName);
         }
     }
 }
