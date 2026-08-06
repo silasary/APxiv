@@ -80,7 +80,7 @@ namespace ArchipelagoXIV.Hooks
                         icons[componentNode->NodeId] = icon;
                         icon.AttachNode(hollowsImageNode, KamiToolKit.Enums.NodePosition.AfterTarget);
                     }
-                    DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
+                    //DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
                     icon.Node->ToggleVisibility(visible);
 
                     // todo: Replace the texture, maybe check if it's hinted?
