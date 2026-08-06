@@ -1,18 +1,25 @@
+using ArchipelagoXIV.Overlays.CustomNodes;
 using Dalamud.Game.Addon.Events;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ArchipelagoXIV.Hooks
 {
-    internal unsafe partial class UIHooks(ApState apState)
+    internal unsafe partial class UIHooks(ApState apState) : IDisposable
     {
+
+        private Dictionary<uint, APDutyIcon> icons = new();
+
         public void Enable()
         {
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostClose, "ContentsFinder", OnContentsFinderClose);
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
             //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "ContentsFinder", OnContentsFinderPostSetup);
         }
@@ -49,17 +56,32 @@ namespace ArchipelagoXIV.Hooks
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;
                 if (componentNode is null) continue;
 
-                var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(5);
+                var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(6);
+
                 //var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(18);
-                var hollowsImageNode = componentNode->Component->GetImageNodeById(7);
+                var hollowsImageNode = componentNode->Component->GetNodeById(10);
+
                 if (textNode is null)
                     continue;
 
-                var name = textNode->NodeText.ToString();
-                var loc = apState.MissingLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);
+                var found = icons.TryGetValue(componentNode->NodeId, out var icon);
+                var name = textNode->NodeText.ExtractText();
+                var loc = apState.AllLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);
                 if (loc != null)
                 {
-                    hollowsImageNode->ToggleVisibility(true);
+                    var visible = loc.Accessible && !loc.Completed;
+                    if (!found)
+                    {
+                        if (!visible)
+                            continue;  // Don't create the icon until we'd need to show it
+
+                        //DalamudApi.PluginLog.Debug($"Creating new icon for {componentNode->NodeId} ({textNode->NodeText.ExtractText()})");
+                        icon = new APDutyIcon();
+                        icons[componentNode->NodeId] = icon;
+                        icon.AttachNode(hollowsImageNode, KamiToolKit.Enums.NodePosition.AfterTarget);
+                    }
+                    DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
+                    icon.Node->ToggleVisibility(visible);
 
                     // todo: Replace the texture, maybe check if it's hinted?
                     //if (hints.Contains(loc.ApId))
@@ -71,10 +93,28 @@ namespace ArchipelagoXIV.Hooks
             }
         }
 
+        private void OnContentsFinderClose(AddonEvent type, AddonArgs args)
+        {
+            foreach (var icon in icons.Values)
+            {
+                icon.Dispose();
+            }
+            icons.Clear();
+        }
+
         private void OnOpenBaitList(AddonEvent type, AddonArgs args)
         {
             //AtkUnitBase* addon = (AddonContentsFinder*)args.Addon;
             //addon->GetNodeById(13)->;
+        }
+
+        public void Dispose()
+        {
+            foreach (var icon in icons.Values)
+            {
+                icon.Dispose();
+            }
+            icons.Clear();
         }
     }
 }
