@@ -56,10 +56,6 @@ namespace ArchipelagoXIV.Rando.Locations
 
         internal unsafe bool OutOfLogic()
         {
-            if (DalamudApi.PlayerState.ClassJob.Value.RowId != 18)
-                // Can't catch fish if not a fisher
-                return false;
-
             var currentBait = PlayerState.Instance()->FishingBait;
             var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ExtractText();
             if (!apState.Items.Contains(currentBaitName))
