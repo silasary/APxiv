@@ -1046,13 +1046,18 @@
     "Yak T'el": {
         "requires": "|Yak T'el Access: 1|",
         "connects_to": [
-            "Living Memory"
+            "Living Memory",
+            "Lower Jeuno"
         ],
         "ids": [
             1189,
             1211,
             1212
         ]
+    },
+    "Lower Jeuno": {
+        "requires": "",
+        "connects_to": []
     },
     "Shaaloani": {
         "requires": "|Shaaloani Access: 1|",
