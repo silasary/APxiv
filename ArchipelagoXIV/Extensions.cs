@@ -1,5 +1,6 @@
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -56,5 +57,13 @@ namespace ArchipelagoXIV
             //var v1 = new Vector4(color.R, color.G, color.B, 255);
             //return (ushort)ImGui.ColorConvertFloat4ToU32(v1);
         }
+
+        /// <summary>
+        /// Is this classjob Row 18 (FSH)?
+        /// </summary>
+        /// (This is entirely for code readability, because I don't want magic numbers everywhere)
+        /// <param name="classJob"></param>
+        /// <returns></returns>
+        public static bool IsFisher(this ClassJob classJob) => classJob.RowId == 18;
     }
 }

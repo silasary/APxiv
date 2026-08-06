@@ -39,7 +39,6 @@ namespace ArchipelagoXIV
 
         private DebugWindow DebugWindow { get; set; }
 
-        internal APDutyIconController ApDutyController { get; set; }
         public async Task LoadAsync(CancellationToken cancellationToken)
 
         {
@@ -98,7 +97,6 @@ namespace ArchipelagoXIV
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
                 KamiToolKitLibrary.Initialize(PluginInterface);
-                ApDutyController = new APDutyIconController(apState);
                 this.Hooks.Enable();
                 this.Events.Enable();
                 UiHooks.Enable();
@@ -228,6 +226,7 @@ namespace ArchipelagoXIV
             Events.Disable();
             Events.Dispose();
             UiHooks.Disable();
+            UiHooks.Dispose();
             DLHooks.Dispose();
             DalamudApi.Framework.Update -= Framework_Update;
             KamiToolKitLibrary.Dispose();
@@ -237,7 +236,6 @@ namespace ArchipelagoXIV
             CommandManager.RemoveHandler("/ap-disconnect");
             DalamudApi.DtrBar.Remove("Archipelago");
             DalamudApi.DtrBar.Remove("APJob");
-            ApDutyController.Dispose();
         }
 
         private void Connect(string command, string args)

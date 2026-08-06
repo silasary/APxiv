@@ -53,7 +53,6 @@ namespace ArchipelagoXIV
 
         public TerritoryType territory { get; internal set; }
         public string territoryName { get; internal set; }
-        public string territoryRegion { get; internal set; }
 
         public bool CanTeleport { get; internal set; } = true;
         public bool CanReturn { get; internal set; } = true;

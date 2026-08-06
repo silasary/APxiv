@@ -118,6 +118,17 @@ NOT_IN_FISHING_GUIDE = [
     "Timeworn Kumbhiraskin Map",
 ]
 
+TIMED_MOOCH = [
+    #Fish that aren't timed in and of themselves, but mooch off of timed fish
+    "Nautilus",
+    "Coelacanth",
+
+    "White Goldfish",
+    "Firelight Goldfish",
+    "Indigo Prismfish",
+
+]
+
 @functools.lru_cache
 def teamcraft_json(filename: str) -> dict | list:
     print(f"Fetching {filename}.json from Teamcraft repo")
@@ -512,6 +523,8 @@ def lookup_fish(id: int | str) -> dict:
     if fishdata.get('folklore'):
         fish['folklore'] = fishdata['folklore']
     timed = fishdata.get('timed') or fishdata.get('weathered') or fishdata.get('during')
+    if fish['name'] in TIMED_MOOCH:
+        timed = 1
     if timed:
         fish['timed'] = timed
     if fishdata.get('stars'):
@@ -582,8 +595,8 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     for spot, baits in per_spot.items():
         baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
         # best_occurences = baits[0].occurences
-        # Anything that is less than 10 catches is best written off as bad data.
-        viable_baits = [b for b in baits if b.occurences >= 10]
+        # Anything that is less than 50 catches is best written off as bad data.
+        viable_baits = [b for b in baits if b.occurences >= 50]
         #if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
         #    viable_baits = viable_baits[1:] + [viable_baits[0]]
         # fish['spots'][spot] = [b.bait_name for b in viable_baits]
@@ -1049,10 +1062,31 @@ def scrape_aetherytes() -> None:
     with open(data_path('aetherytes.json'), 'w', newline='') as h:
         json.dump(aetheryte_locations, h, indent=1)
 
+def scrape_territory_types() -> None:
+    territory_type = datamining_csv("TerritoryType")
+    territory_data = []
+    with open(data_path('regions.json'), 'r', newline='') as h:
+        regions = json.load(h)
+    pass
+    for territory in territory_type.values():
+        if territory['PlaceName'] == '0':
+            continue
+        place_name = datamining_csv('PlaceName')[territory['PlaceName']]
+        pass
+        name = place_name['Name']
+        if name in regions:
+            ids = set(regions[name].get('ids', []))
+            ids.add(int(territory['#']))
+            regions[name]['ids'] = sorted(ids)
+
+    with open(data_path('regions.json'), 'w', newline='') as h:
+        json.dump(regions, h, indent=4)
+
 
 if __name__ == "__main__":
     scrape_aetherytes()
     scrape_hunts()
+    scrape_territory_types()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()

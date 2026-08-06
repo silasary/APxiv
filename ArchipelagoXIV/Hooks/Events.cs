@@ -41,17 +41,34 @@ namespace ArchipelagoXIV.Hooks
         {
             if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
             {
-                var name = value.Name.ToString().TrimEnd();
-                if (APData.FishData.ContainsKey(name))
+                var name = value.Name.ExtractText().TrimEnd();
+                if (DalamudApi.PlayerState.ClassJob.Value.IsFisher() && APData.FishData.ContainsKey(name))
                 {
-                    //DalamudApi.Echo($"Caught a {name}!");
-                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    if (apState.MissingLocations.FirstOrDefault(l => l is Fish f && f.Data.Id == data.Item.BaseItemId) is not Fish loc)
+                        return;
+
+                    APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
+                    if (region == null || !loc.Data.Regions.Contains(region))
+                    {
+                        // This fish was traded, in a retainer, or otherwise obtained in a way that isn't catching it in its native habitat.
+                        return;
+                    }
+                    if (!RegionContainer.CanReach(apState, region))
+                    {
+                        DalamudApi.ShowError($"{region.Name} is not in logic");
+                        return;
+                    }
                     if (loc != null && loc.IsAccessible())
                     {
+                        // The fish is in logic, and we caught it.
+                        // Note:  Because we don't want to punish free trial players for not hoarding scrip bait, we don't actually care if they used the correct bait.
+                        // If they caught it suboptimally with OoL bait, it still counts.
                         loc.Complete();
                     }
                     else if (loc is Fish f && f.OutOfLogic())
                     {
+                        // We caught a fish that's currently out of logic, but everything we did (Hole, bait, etc) was in logic.
+                        // This is usually because the in-logic bait is suboptimal.  We send these.
                         loc.Complete();
                     }
                 }
@@ -200,7 +217,6 @@ namespace ArchipelagoXIV.Hooks
             {
                 var territory = apState.territory = Data.Territories.First(row => row.RowId == e);
                 apState.territoryName = territory.PlaceName.Value.Name.ExtractText();
-                apState.territoryRegion = territory.PlaceNameRegion.Value.Name.ExtractText();
                 apState.RefreshBars = true;
 
                 if (!apState.Connected)
