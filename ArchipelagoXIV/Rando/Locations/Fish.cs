@@ -56,31 +56,22 @@ namespace ArchipelagoXIV.Rando.Locations
 
         internal unsafe bool OutOfLogic()
         {
-            var currentBait = PlayerState.Instance()->FishingBait;
-            var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ToString();
-            APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
-            //DalamudApi.Echo($"{Name} with {currentBaitName} in {region.Name}");
-            if (!Logic.Level(Data.Level, "FSH")(apState, false))
-            {
-                DalamudApi.Echo($"Current level is not in logic. Requires FSH level {Data.Level}");
+            if (DalamudApi.PlayerState.ClassJob.Value.RowId != 18)
+                // Can't catch fish if not a fisher
                 return false;
-            }
+
+            var currentBait = PlayerState.Instance()->FishingBait;
+            var currentBaitName = ArchipelagoXIV.Data.Items[currentBait].Name.ExtractText();
             if (!apState.Items.Contains(currentBaitName))
             {
-                DalamudApi.Echo($"{currentBaitName} is not in logic");
+                DalamudApi.ShowError($"{currentBaitName} has not been found in the Multiworld.");
                 return false;
             }
-            if (!Data.Regions.Contains(region))
+            if (!Logic.Level(Data.Level, "FSH")(apState, false))
             {
-                // Retainer fish
+                DalamudApi.ShowError($"Current level is not in logic. Requires FSH level {Data.Level}");
                 return false;
             }
-            if (!RegionContainer.CanReach(apState, region))
-            {
-                DalamudApi.Echo($"{region.Name} is not in logic");
-                return false;
-            }
-            
             return true;
 
         }

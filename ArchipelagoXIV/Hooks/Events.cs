@@ -44,13 +44,25 @@ namespace ArchipelagoXIV.Hooks
                 var name = value.Name.ToString().TrimEnd();
                 if (APData.FishData.ContainsKey(name))
                 {
-                    //DalamudApi.Echo($"Caught a {name}!");
-                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    if (apState.MissingLocations.FirstOrDefault(l => l is Fish f && f.Data.Id == data.Item.BaseItemId) is not Fish loc)
+                        return;
+
+                    APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
+                    if (region == null || !loc.Data.Regions.Contains(region))
+                    {
+                        // This fish was traded, in a retainer, or otherwise obtained in a way that isn't catching it in its native habitat.
+                        return;
+                    }
+                    if (!RegionContainer.CanReach(apState, region))
+                    {
+                        DalamudApi.ShowError($"{region.Name} is not in logic");
+                        return;
+                    }
                     if (loc != null && loc.IsAccessible())
                     {
                         loc.Complete();
                     }
-                    else if (loc is Fish f && f.OutOfLogic())
+                    if (loc is Fish f && f.OutOfLogic())
                     {
                         loc.Complete();
                     }
