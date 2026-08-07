@@ -90,6 +90,14 @@ namespace ArchipelagoXIV.Hooks
                     //    hollowsImageNode->GetAsAtkImageNode()->LoadIconTexture(60849, 0); //
 
                 }
+                else
+                {
+                    // Not an Archipelago location, hide the icon if it exists
+                    if (icons.TryGetValue(componentNode->NodeId, out icon))
+                    {
+                        icon.Node->ToggleVisibility(false);
+                    }
+                }
             }
         }
 
