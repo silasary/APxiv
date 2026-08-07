@@ -93,8 +93,12 @@ public class MainWindow : SharedWindow
             var location = state.AllLocations.FirstOrDefault(l => l.Name == state.territoryName);
             if (location is DutyLocation dutyLocation)
             {
-                ImGui.TextColored(ImGuiColors.DalamudOrange, $"Current Duty: {dutyLocation.DisplayText}");
-
+                if (dutyLocation.IsAccessible())
+                    ImGui.TextColored(ImGuiColors.DalamudOrange, $"Current Duty: {dutyLocation.DisplayText}");
+                else if (dutyLocation.Completed)
+                    ImGui.TextColored(ImGuiColors.DalamudGrey, $"Current Duty: {dutyLocation.DisplayText} (Already completed)");
+                else
+                    ImGui.TextColored(ImGuiColors.DalamudRed, $"Current Duty: {dutyLocation.DisplayText} (Not in logic)");
             }
         }
         //ImGui.Indent(55);
