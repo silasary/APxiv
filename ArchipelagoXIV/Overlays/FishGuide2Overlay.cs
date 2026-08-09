@@ -92,7 +92,7 @@ namespace ArchipelagoXIV.Overlays
             //DalamudApi.PluginLog.Debug("Updating fish grid");
             for (var i = 0; i <=99; i++)
             {
-                var fishId = FishLookup.fishById[pageNumber + 100 + i];
+                var fishId = Data.FishParameters[(uint)(pageNumber + 100 + i)].Item.RowId;
                 var checkFish = apState.MissingLocations.OfType<Fish>().FirstOrDefault(f => f.Data.Id == fishId);
 
                 if (checkFish != null)
