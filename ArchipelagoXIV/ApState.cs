@@ -143,7 +143,6 @@ namespace ArchipelagoXIV
             Connected = result.Successful;
             if (!result.Successful)
             {
-                DalamudApi.SetStatusBar("Connection Failed");
                 var failure = result as LoginFailure;
                 foreach (var e in failure.Errors)
                     DalamudApi.Echo(e);
@@ -154,6 +153,7 @@ namespace ArchipelagoXIV
                     return;
 
                 }
+                DalamudApi.SetStatusBar("Connection Failed");
                 return;
             }
 
