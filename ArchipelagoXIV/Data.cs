@@ -24,6 +24,7 @@ namespace ArchipelagoXIV
         public static FrozenDictionary<string, Fate> FateTable { get; private set; } = null;
 
         public static FrozenDictionary<uint, NotoriousMonsterInfo> HuntTable { get; private set; } = FrozenDictionary<uint, NotoriousMonsterInfo>.Empty;
+        public static ImmutableDictionary<uint, FishParameter> FishParameters { get; private set; }
 
         public static Dictionary<string, int> FateLevels = new()
         {
@@ -205,6 +206,8 @@ namespace ArchipelagoXIV
                         var rank = nm.Rank switch { 1 => "B", 2 => "A", _ => "S" };
                         return new NotoriousMonsterInfo(name, rank, $"Hunt {name}");
                     });
+
+            FishParameters = dataManager.GetExcelSheet<FishParameter>().ToImmutableDictionary(i => i.RowId);
         }
 
         public static ContentFinderCondition GetDuty(uint territoryId) {
