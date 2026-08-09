@@ -39,7 +39,7 @@ namespace ArchipelagoXIV.Overlays
 
         public void Dispose()
         {
-            apIcons = new APDutyIcon[100];
+            //foreach (var item in apIcons) item.Dispose();
             isSetup = false;
             addonController.Dispose();
         }

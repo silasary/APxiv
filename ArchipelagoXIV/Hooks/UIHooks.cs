@@ -24,10 +24,10 @@ namespace ArchipelagoXIV.Hooks
 
         private Dictionary<uint, APDutyIcon> icons = new();
         private AtkComponentButton*[] grid = new AtkComponentButton*[100];
-        private APDutyIcon[] fishGideIcons = new APDutyIcon[100];
-        private AtkComponentRadioButton*[] fishGuidePageNumberRadioButtons = new AtkComponentRadioButton*[5];
-        private uint fishGuidePageNumber = 0;
-        private static ExcelSheet<FishParameter> FishParameters = DalamudApi.DataManager.GetExcelSheet<FishParameter>();
+        //private APDutyIcon[] fishGideIcons = new APDutyIcon[100];
+        //private AtkComponentRadioButton*[] fishGuidePageNumberRadioButtons = new AtkComponentRadioButton*[5];
+        //private uint fishGuidePageNumber = 0;
+        //private static ExcelSheet<FishParameter> FishParameters = DalamudApi.DataManager.GetExcelSheet<FishParameter>();
 
         public void Enable()
         {
@@ -198,10 +198,7 @@ namespace ArchipelagoXIV.Hooks
 
         public void Dispose()
         {
-            foreach (var icon in icons.Values)
-            {
-                icon.Dispose();
-            }
+            foreach (var icon in icons.Values) icon.Dispose();
             icons.Clear();
         }
     }

@@ -40,6 +40,7 @@ namespace ArchipelagoXIV
         private DebugWindow DebugWindow { get; set; }
 
         private FishGuide2Overlay FishGuideOverlay { get; set; }
+        private FishingLogOverlay FishingLogOverlay { get; set; }
 
         public async Task LoadAsync(CancellationToken cancellationToken)
 
@@ -101,6 +102,7 @@ namespace ArchipelagoXIV
             {
                 KamiToolKitLibrary.Initialize(PluginInterface);
                 FishGuideOverlay = new FishGuide2Overlay(apState);
+                FishingLogOverlay = new FishingLogOverlay(apState);
                 this.Hooks.Enable();
                 this.Events.Enable();
                 UiHooks.Enable();
@@ -233,6 +235,7 @@ namespace ArchipelagoXIV
             UiHooks.Dispose();
             DLHooks.Dispose();
             FishGuideOverlay.Dispose();
+            FishingLogOverlay.Dispose();
             DalamudApi.Framework.Update -= Framework_Update;
             KamiToolKitLibrary.Dispose();
             CommandManager.RemoveHandler("/ap");
