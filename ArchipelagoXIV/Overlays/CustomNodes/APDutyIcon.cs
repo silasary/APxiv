@@ -22,8 +22,8 @@ namespace ArchipelagoXIV.Overlays.CustomNodes
 
             var APIcon = new SimpleImageNode()
             {
-                Size = new Vector2(22.0f, 22.0f),
-                Position = Vector2.One,
+                Size = new Vector2(18, 18),
+                Position = Vector2.Zero,
                 TextureCoordinates = new Vector2(0.0f, 0.0f),
                 TextureSize = new Vector2(22.0f, 22.0f),
                 //TexturePath = icon_path,

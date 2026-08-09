@@ -1,13 +1,21 @@
 using ArchipelagoXIV.Overlays.CustomNodes;
+using ArchipelagoXIV.Rando.Locations;
+using Dalamud.Game;
 using Dalamud.Game.Addon.Events;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
+using KamiToolKit.Enums;
+using Lumina.Excel;
+using Lumina.Excel.Sheets;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Numerics;
 
 namespace ArchipelagoXIV.Hooks
 {
@@ -56,10 +64,10 @@ namespace ArchipelagoXIV.Hooks
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;
                 if (componentNode is null) continue;
 
-                var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(6);
+                var textNode = componentNode->Component->GetTextNodeById(6);
 
                 //var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(18);
-                var hollowsImageNode = componentNode->Component->GetNodeById(10);
+                var targetNode = componentNode->Component->GetNodeById(14);
 
                 if (textNode is null)
                     continue;
@@ -76,12 +84,16 @@ namespace ArchipelagoXIV.Hooks
                             continue;  // Don't create the icon until we'd need to show it
 
                         //DalamudApi.PluginLog.Debug($"Creating new icon for {componentNode->NodeId} ({textNode->NodeText.ExtractText()})");
-                        icon = new APDutyIcon();
+                        icon = new APDutyIcon
+                        {
+                            Position = new Vector2(targetNode->X - 18 - 2, targetNode->Y + ((targetNode->Height - 18) / 2))
+                        };
                         icons[componentNode->NodeId] = icon;
-                        icon.AttachNode(hollowsImageNode, KamiToolKit.Enums.NodePosition.AfterTarget);
+                        targetNode->Width -= (ushort)(18 + 2);
+                        icon.AttachNode(targetNode, NodePosition.AfterTarget);
                     }
                     //DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
-                    icon.Node->ToggleVisibility(visible);
+                    icon.Node->ToggleVisibility(visible); //why would icon be null here??
 
                     // todo: Replace the texture, maybe check if it's hinted?
                     //if (hints.Contains(loc.ApId))
