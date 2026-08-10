@@ -69,8 +69,14 @@ def get_duty_count(duty_type: str, expansion: str, duty_diff: int, multiworld: M
     if duty_type == "Deep Dungeon":
         if expansion == "HW":
             return get_int_value(multiworld, player, "potd_count")
+        if expansion == "StB":
+            return get_int_value(multiworld, player, "hoh_count")
+        if expansion == "EW":
+            return get_int_value(multiworld, player, "eo_count")
+        if expansion == "DT":
+            return get_int_value(multiworld, player, "pt_count")
         else:
-            return None
+            raise ValueError(f"Unknown Deep Dungeon expansion {expansion}")
     if duty_type == "Criterion Dungeon":
         return None
     if duty_type == "Chaotic Raid":

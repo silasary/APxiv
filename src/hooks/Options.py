@@ -198,9 +198,36 @@ class PotDCount(Range):
     Number of Deep Dungeon Floorsets per expansion to include in the location pool
     """
     display_name = "Deep Dungeon Floorset Count"
-    default = 3
+    default = 5
     range_start = 0
     range_end = 20
+
+class HoHCount(Range):
+    """
+    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    """
+    display_name = "Deep Dungeon Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
+
+class EOCount(Range):
+    """
+    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    """
+    display_name = "Deep Dungeon Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
+
+class PTCount(Range):
+    """
+    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    """
+    display_name = "Deep Dungeon Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
 
 class UltimateCount(Range):
     """
@@ -449,6 +476,9 @@ def before_options_defined(options: dict) -> dict:
     options["include_eo"] = IncludeEO
     options["include_pt"] = IncludePT
     options["potd_count"] = PotDCount
+    options["hoh_count"] = HoHCount
+    options["eo_count"] = EOCount
+    options["pt_count"] = PTCount
 
     return options
 
@@ -471,7 +501,8 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT, PotDCount]
+    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT, 
+                              PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
