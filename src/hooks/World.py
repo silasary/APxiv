@@ -158,11 +158,8 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 world.skipped_duties.update(duels)
 
             if dutyType == "Deep Dungeon":
-                print(count) #Remove this after testing
                 count = min(len(names), count) # Probably redundant and can be removed, but I'm putting this here while initial testing. Should probably be removed later
-                print(count) #Remove this after testing
                 used_names = names[:count]
-                print(used_names)
             else:
                 count = min(len(names), count)
                 used_names = world.random.sample(names, count)
