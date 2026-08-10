@@ -193,6 +193,15 @@ class FieldOperationCriticalEncounterCount(Range):
     range_start = 0
     range_end = 33
 
+class PotDCount(Range):
+    """
+    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    """
+    display_name = "Deep Dungeon Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 20
+
 class UltimateCount(Range):
     """
     Number of Ultimate Raids to include in the location pool
@@ -338,6 +347,28 @@ class IncludeOccultCrescent(Toggle):
     This includes the Fates, CEs and Alliance Raids of the Occult Crescent.
     """
 
+class IncludePotD(Toggle):
+    """
+    (Write something here)
+    """
+
+class IncludeHoH(Toggle):
+    """
+    (Write something here)
+    """
+
+class IncludeEO(Toggle):
+    """
+    (Write something here)
+    """
+
+
+class IncludePT(Toggle):
+    """
+    (Write something here)
+    """
+
+
 class FatesPerZone(Range):
     """
     Number of FATEs required per zone.
@@ -412,6 +443,13 @@ def before_options_defined(options: dict) -> dict:
     options["include_duels"] = IncludeDuels
     options["include_occult_crescent"] = IncludeOccultCrescent
 
+    # Deep Dungeon
+    options["include_potd"] = IncludePotD
+    options["include_hoh"] = IncludeHoH
+    options["include_eo"] = IncludeEO
+    options["include_pt"] = IncludePT
+    options["potd_count"] = PotDCount
+
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
@@ -433,6 +471,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
+    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT, PotDCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,

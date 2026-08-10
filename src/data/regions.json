@@ -237,7 +237,8 @@
         "connects_to": [
             "Central Shroud",
             "East Shroud",
-            "Eastern Thanalan"
+            "Eastern Thanalan",
+			"Palace of the Dead"
         ],
         "ids": [
             153,
@@ -254,6 +255,10 @@
             473
         ]
     },
+	"Palace of the Dead": {
+        "requires": "|Palace of the Dead Access:1|",
+		"connects_to": []
+	},
     "North Shroud": {
         "requires": "|North Shroud Access:1|",
         "connects_to": [
@@ -448,7 +453,8 @@
         "connects_to": [
             "Northern Thanalan",
             "Coerthas Central Highlands",
-            "The Crystarium"
+            "The Crystarium",
+			"Eureka Orthos"
         ],
         "ids": [
             156,
@@ -465,6 +471,10 @@
             672
         ]
     },
+	"Eureka Orthos": {
+		"requires": "|Eureka Orthos Access:1|",
+		"connects_to": []
+	},
     "Ishgard": {
         "requires": "|Ishgard Access:1|",
         "connects_to": [
@@ -659,7 +669,8 @@
         "requires": "|The Ruby Sea Access: 1|",
         "connects_to": [
             "Yanxia",
-            "The Azim Steppe"
+            "The Azim Steppe",
+			"Heaven-on-High"
         ],
         "ids": [
             613,
@@ -669,6 +680,10 @@
             757
         ]
     },
+	"Heaven-on-High": {
+		"requires": "|Heaven-on-High Access: 1|",
+		"connects_to": []
+	},
     "Yanxia": {
         "requires": "|Yanxia Access: 1|",
         "connects_to": [
@@ -784,12 +799,18 @@
     },
     "Il Mheg": {
         "requires": "|Il Mheg Access: 1|",
-        "connects_to": [],
+        "connects_to": [
+			"Pilgrim's Traverse"
+		],
         "ids": [
             816,
             869
         ]
     },
+	"Pilgrim's Traverse": {
+        "requires": "|Pilgrim's Traverse Access: 1|",
+        "connects_to": []
+	},
     "The Rak'tika Greatwood": {
         "requires": "|The Rak'tika Greatwood Access: 1|",
         "connects_to": [],

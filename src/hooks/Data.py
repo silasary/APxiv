@@ -263,6 +263,14 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
                 location["category"].append("Occult Crescent")
+            if row["Location"] in ["Palace of the Dead"]:
+                location["category"].append("Palace of the Dead")
+            if row["Location"] in ["Heaven-on-High"]:
+                location["category"].append("Heaven-on-High")
+            if row["Location"] in ["Eureka Orthos"]:
+                location["category"].append("Eureka Orthos")
+            if row["Location"] in ["Pilgrim's Traverse"]:
+                location["category"].append("Pilgrim's Traverse")
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:

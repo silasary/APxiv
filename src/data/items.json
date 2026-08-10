@@ -607,5 +607,29 @@
         "category": ["Location"],
         "count": 1,
         "progression": true
+    },
+    {
+        "name": "Palace of the Dead Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Heaven-on-High Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Eureka Orthos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Pilgrim's Traverse Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
     }
 ]

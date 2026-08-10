@@ -39,7 +39,7 @@ from .Options import LevelCap
 ########################################################################################
 
 
-def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
+def get_duty_count(duty_type: str, expansion: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
     if duty_type == "Dungeon":
         return get_int_value(multiworld, player, "dungeon_count")
     if duty_type == "Variant Dungeon":
@@ -67,8 +67,13 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
     if duty_type == "PvP":
         return None
     if duty_type == "Deep Dungeon":
-        return None
+        if expansion == "HW":
+            return get_int_value(multiworld, player, "potd_count")
+        else:
+            return None
     if duty_type == "Criterion Dungeon":
+        return None
+    if duty_type == "Chaotic Raid":
         return None
     if duty_type == "Field Operation":
         return get_int_value(multiworld, player, "field_operation_critical_encounter_count")
@@ -143,8 +148,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, _dutyExpansion, dutyDifficulty = category
-            count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
-
+            count = get_duty_count(dutyType, _dutyExpansion, dutyDifficulty, multiworld, player)
             if count is None:
                 continue
 
@@ -153,9 +157,15 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 names = [n for n in names if n not in duels]
                 world.skipped_duties.update(duels)
 
-
-            count = min(len(names), count)
-            used_names = world.random.sample(names, count)
+            if dutyType == "Deep Dungeon":
+                print(count) #Remove this after testing
+                count = min(len(names), count) # Probably redundant and can be removed, but I'm putting this here while initial testing. Should probably be removed later
+                print(count) #Remove this after testing
+                used_names = names[:count]
+                print(used_names)
+            else:
+                count = min(len(names), count)
+                used_names = world.random.sample(names, count)
 
             goal_name = victory_names[get_option_value(multiworld, player, "goal")]
             goal_data = BOSS_GOAL_DATA.get(goal_name)
