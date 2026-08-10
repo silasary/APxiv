@@ -314,5 +314,201 @@
     "requires": "|5 FSH Levels:17| and |Leech|",
     "id": 21164,
     "level": 85
+  },
+  "Grade 2 Skybuilders' Cloudskipper": {
+    "name": "Grade 2 Skybuilders' Cloudskipper",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:1| and |Butterworm|",
+    "id": 20981,
+    "level": 1
+  },
+  "Grade 2 Skybuilders' Meditator": {
+    "name": "Grade 2 Skybuilders' Meditator",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:1| and |Butterworm|",
+    "id": 20982,
+    "level": 1
+  },
+  "Grade 2 Skybuilders' Coeurlfish": {
+    "name": "Grade 2 Skybuilders' Coeurlfish",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:1| and |Butterworm|",
+    "id": 20983,
+    "level": 1
+  },
+  "Grade 2 Skybuilders' Garpike": {
+    "name": "Grade 2 Skybuilders' Garpike",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:1| and |Butterworm|",
+    "id": 20984,
+    "level": 1
+  },
+  "Grade 2 Skybuilders' Pirarucu": {
+    "name": "Grade 2 Skybuilders' Pirarucu",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:12| and |Butterworm|",
+    "id": 20985,
+    "level": 60
+  },
+  "Grade 2 Skybuilders' Brown Bolo": {
+    "name": "Grade 2 Skybuilders' Brown Bolo",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:12| and |Butterworm|",
+    "id": 20986,
+    "level": 60
+  },
+  "Grade 2 Skybuilders' Bitterling": {
+    "name": "Grade 2 Skybuilders' Bitterling",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:14| and |Butterworm|",
+    "id": 20987,
+    "level": 70
+  },
+  "Grade 2 Skybuilders' Caiman": {
+    "name": "Grade 2 Skybuilders' Caiman",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:14| and |Butterworm|",
+    "id": 20988,
+    "level": 70
+  },
+  "Grade 2 Skybuilders' Cloud Cutter": {
+    "name": "Grade 2 Skybuilders' Cloud Cutter",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 20989,
+    "level": 80
+  },
+  "Grade 2 Skybuilders' Vampiric Tapestry": {
+    "name": "Grade 2 Skybuilders' Vampiric Tapestry",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 20990,
+    "level": 80
+  },
+  "Grade 2 Skybuilders' Tupuxuara": {
+    "name": "Grade 2 Skybuilders' Tupuxuara",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Balloon Bug|",
+    "id": 20991,
+    "level": 80
+  },
+  "Grade 2 Skybuilders' Blind Manta": {
+    "name": "Grade 2 Skybuilders' Blind Manta",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 20992,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Rhomaleosaurus": {
+    "name": "Grade 2 Artisanal Skybuilders' Rhomaleosaurus",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Grade 2 Skybuilders' Cloud Cutter|",
+    "id": 20993,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Gobbie Mask": {
+    "name": "Grade 2 Artisanal Skybuilders' Gobbie Mask",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Grade 2 Skybuilders' Cloud Cutter|",
+    "id": 20994,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Pterodactyl": {
+    "name": "Grade 2 Artisanal Skybuilders' Pterodactyl",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Crane Fly|",
+    "id": 20995,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Skyfish": {
+    "name": "Grade 2 Artisanal Skybuilders' Skyfish",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Hoverworm|",
+    "id": 20996,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Cometfish": {
+    "name": "Grade 2 Artisanal Skybuilders' Cometfish",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Balloon Bug|",
+    "id": 20997,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Anomalocaris": {
+    "name": "Grade 2 Artisanal Skybuilders' Anomalocaris",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 20998,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Rhamphorhynchus": {
+    "name": "Grade 2 Artisanal Skybuilders' Rhamphorhynchus",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Crane Fly|",
+    "id": 20999,
+    "level": 80
+  },
+  "Grade 2 Artisanal Skybuilders' Dragon's Soul": {
+    "name": "Grade 2 Artisanal Skybuilders' Dragon's Soul",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Hoverworm|",
+    "id": 21000,
+    "level": 80
+  },
+  "Grade 3 Skybuilders' Scorpionfly": {
+    "name": "Grade 3 Skybuilders' Scorpionfly",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 21030,
+    "level": 80
+  },
+  "Grade 3 Skybuilders' Whiteloom": {
+    "name": "Grade 3 Skybuilders' Whiteloom",
+    "region": "The Diadem",
+    "requires": "|5 FSH Levels:16| and |Diadem Red Balloon|",
+    "id": 21031,
+    "level": 80
+  },
+  "Forgiven Melancholy": {
+    "name": "Forgiven Melancholy",
+    "region": "Lakeland",
+    "requires": "|5 FSH Levels:18| and |Select Bait Ball|",
+    "id": 21345,
+    "level": 90
+  },
+  "Ronkan Bullion": {
+    "name": "Ronkan Bullion",
+    "region": "The Rak'tika Greatwood",
+    "requires": "|5 FSH Levels:18| and |Golding|",
+    "id": 21438,
+    "level": 90
+  },
+  "King Puffer": {
+    "name": "King Puffer",
+    "region": "Tuliyollal",
+    "requires": "|5 FSH Levels:18| and |Crimson Lugworm|",
+    "id": 21592,
+    "level": 90
+  },
+  "Yok Huy Pleco": {
+    "name": "Yok Huy Pleco",
+    "region": "Kozama'uka",
+    "requires": "|5 FSH Levels:18| and |Honeybee|",
+    "id": 21593,
+    "level": 93
+  },
+  "Qor Pirarucu": {
+    "name": "Qor Pirarucu",
+    "region": "Urqopacha",
+    "requires": "|5 FSH Levels:19| and |Honeybee|",
+    "id": 21594,
+    "level": 95
+  },
+  "Raging Hanuhead": {
+    "name": "Raging Hanuhead",
+    "region": "Shaaloani",
+    "requires": "|5 FSH Levels:20| and |Dragonfly|",
+    "id": 21595,
+    "level": 98
   }
 }
