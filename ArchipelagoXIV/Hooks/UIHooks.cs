@@ -93,7 +93,8 @@ namespace ArchipelagoXIV.Hooks
                         icon.AttachNode(targetNode, NodePosition.AfterTarget);
                     }
                     //DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
-                    icon?.Node->ToggleVisibility(visible); 
+                    if (icon != null)
+                        icon.Node->ToggleVisibility(visible);
 
                     // todo: Replace the texture, maybe check if it's hinted?
                     //if (hints.Contains(loc.ApId))
