@@ -195,34 +195,34 @@ class FieldOperationCriticalEncounterCount(Range):
 
 class PotDCount(Range):
     """
-    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    Number of Palace of the Dead Floorsets to include in the location pool
     """
-    display_name = "Deep Dungeon Floorset Count"
+    display_name = "Palace of the Dead Floorset Count"
     default = 5
     range_start = 0
     range_end = 20
 
 class HoHCount(Range):
     """
-    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    Number of Heaven-on-High Floorsets to include in the location pool
     """
-    display_name = "Deep Dungeon Floorset Count"
+    display_name = "Heaven-on-High Floorset Count"
     default = 3
     range_start = 0
     range_end = 10
 
 class EOCount(Range):
     """
-    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    Number of Eureka Orthos Floorsets to include in the location pool
     """
-    display_name = "Deep Dungeon Floorset Count"
+    display_name = "Eureka Orthos Floorset Count"
     default = 3
     range_start = 0
     range_end = 10
 
 class PTCount(Range):
     """
-    Number of Deep Dungeon Floorsets per expansion to include in the location pool
+    Number of Pilgrim's Traverse Floorsets to include in the location pool
     """
     display_name = "Deep Dungeon Floorset Count"
     default = 3
@@ -376,23 +376,23 @@ class IncludeOccultCrescent(Toggle):
 
 class IncludePotD(Toggle):
     """
-    (Write something here)
+    Include Palace of the Dead in the location pool.
     """
 
 class IncludeHoH(Toggle):
     """
-    (Write something here)
+    Include Heaven-on-High in the location pool.
     """
 
 class IncludeEO(Toggle):
     """
-    (Write something here)
+    Include Eureka Orthos in the location pool.
     """
 
 
 class IncludePT(Toggle):
     """
-    (Write something here)
+    Include Pilgrim's Traverse in the location pool.
     """
 
 
