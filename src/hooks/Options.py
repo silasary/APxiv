@@ -196,6 +196,8 @@ class FieldOperationCriticalEncounterCount(Range):
 class PotDCount(Range):
     """
     Number of Palace of the Dead Floorsets to include in the location pool
+
+    This could take dozens of hours if maxed out, as the nearest checkpoint is at floor 51
     """
     display_name = "Palace of the Dead Floorset Count"
     default = 5
@@ -205,6 +207,8 @@ class PotDCount(Range):
 class HoHCount(Range):
     """
     Number of Heaven-on-High Floorsets to include in the location pool
+
+    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
     """
     display_name = "Heaven-on-High Floorset Count"
     default = 3
@@ -214,6 +218,8 @@ class HoHCount(Range):
 class EOCount(Range):
     """
     Number of Eureka Orthos Floorsets to include in the location pool
+    
+    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
     """
     display_name = "Eureka Orthos Floorset Count"
     default = 3
