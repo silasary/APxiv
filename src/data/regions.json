@@ -470,6 +470,7 @@
         "connects_to": [
             "Airship",
             "Foundation",
+            "The Pillars",
             "Coerthas Central Highlands",
             "Coerthas Western Highlands",
             "The Sea of Clouds",
@@ -486,6 +487,9 @@
             458,
             700
         ]
+    },
+    "The Pillars": {
+        "connects_to": []
     },
     "Coerthas Western Highlands": {
         "requires": "|Coerthas Western Highlands Access:1|",
