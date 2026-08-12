@@ -3,9 +3,11 @@
   "name": "Malm Kelp",
   "id": 4776,
   "zones": {
-   "Limsa Lominsa": [
-    "Lugworm",
+   "Limsa Lominsa Lower Decks": [
     "Pill Bug"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Lugworm"
    ],
    "Lower La Noscea": [
     "Pill Bug"
@@ -13,7 +15,7 @@
   },
   "lvl": 4,
   "all_bait": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -22,6 +24,12 @@
     "Saltwater Boilie",
     "Spoon Worm",
     "Steel Jig",
+    "Versatile Lure"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Lugworm",
+    "Pill Bug",
     "Versatile Lure"
    ],
    "Lower La Noscea": [
@@ -50,7 +58,10 @@
     "Lugworm",
     "Pill Bug"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
+    "Lugworm"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Lugworm"
    ],
    "Eastern La Noscea": [
@@ -108,7 +119,7 @@
     "Versatile Lure",
     "Yumizuno"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -116,6 +127,11 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Spoon Worm",
+    "Versatile Lure"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Lugworm",
+    "Pill Bug",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
@@ -156,7 +172,10 @@
    "Western Thanalan": [
     "Lugworm"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
+    "Lugworm"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Lugworm"
    ],
    "Western La Noscea": [
@@ -183,7 +202,7 @@
     "Rat Tail",
     "Versatile Lure"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -191,6 +210,12 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Spoon Worm",
+    "Versatile Lure"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Lugworm",
+    "Pill Bug",
     "Versatile Lure"
    ],
    "Western La Noscea": [
@@ -220,7 +245,10 @@
   "name": "Finger Shrimp",
   "id": 4871,
   "zones": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
+    "Lugworm"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Lugworm"
    ],
    "Eastern La Noscea": [
@@ -232,7 +260,7 @@
   },
   "lvl": 4,
   "all_bait": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -240,6 +268,13 @@
     "Rat Tail",
     "Saltwater Boilie",
     "Spoon Worm",
+    "Versatile Lure"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Lugworm",
+    "Pill Bug",
+    "Rat Tail",
     "Versatile Lure"
    ],
    "Eastern La Noscea": [
@@ -276,7 +311,10 @@
    "Western La Noscea": [
     "Pill Bug"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
+    "Pill Bug"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Pill Bug"
    ],
    "Middle La Noscea": [
@@ -309,13 +347,17 @@
     "Versatile Lure",
     "Yumizuno"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Pill Bug",
     "Rat Tail",
     "Saltwater Boilie",
     "Spoon Worm",
+    "Versatile Lure"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Pill Bug",
     "Versatile Lure"
    ],
    "Middle La Noscea": [
@@ -373,7 +415,10 @@
    "Lower La Noscea": [
     "Pill Bug"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
+    "Pill Bug"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Pill Bug"
    ],
    "Mist": [
@@ -403,7 +448,7 @@
     "Versatile Lure",
     "Yumizuno"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Pill Bug",
@@ -413,6 +458,11 @@
     "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Pill Bug",
+    "Versatile Lure"
    ],
    "Mist": [
     "Floating Minnow",
@@ -505,8 +555,10 @@
   "name": "Coral Butterfly",
   "id": 4876,
   "zones": {
-   "Limsa Lominsa": [
-    "Floating Minnow",
+   "Limsa Lominsa Lower Decks": [
+    "Floating Minnow"
+   ],
+   "Limsa Lominsa Upper Decks": [
     "Pill Bug"
    ],
    "Eastern La Noscea": [
@@ -518,7 +570,7 @@
   },
   "lvl": 9,
   "all_bait": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Pill Bug",
@@ -529,6 +581,11 @@
     "Steel Jig",
     "Versatile Lure",
     "Yumizuno"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Pill Bug",
+    "Versatile Lure"
    ],
    "Eastern La Noscea": [
     "Crab Ball",
@@ -883,9 +940,11 @@
    "Lower La Noscea": [
     "Lugworm"
    ],
-   "Limsa Lominsa": [
-    "Lugworm",
+   "Limsa Lominsa Lower Decks": [
     "Pill Bug"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Lugworm"
    ],
    "Mist": [
     "Lugworm"
@@ -916,7 +975,7 @@
     "Versatile Lure",
     "Yumizuno"
    ],
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -927,6 +986,12 @@
     "Spoon Worm",
     "Versatile Lure",
     "Yumizuno"
+   ],
+   "Limsa Lominsa Upper Decks": [
+    "Floating Minnow",
+    "Lugworm",
+    "Pill Bug",
+    "Versatile Lure"
    ],
    "Mist": [
     "Floating Minnow",
@@ -1824,15 +1889,23 @@
   "name": "Raincaller",
   "id": 4905,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
+    "Stem Borer"
+   ],
+   "Old Gridania": [
     "Stem Borer"
    ]
   },
   "lvl": 43,
   "timed": 1,
   "all_bait": {
-   "Gridania": [
+   "New Gridania": [
     "Freshwater Boilie",
+    "Snurble Fly",
+    "Stem Borer",
+    "Versatile Lure"
+   ],
+   "Old Gridania": [
     "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
@@ -2396,7 +2469,7 @@
   "name": "Crayfish",
   "id": 4925,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
     "Moth Pupa"
    ],
    "Middle La Noscea": [
@@ -2410,17 +2483,15 @@
    ],
    "Central Shroud": [
     "Moth Pupa"
+   ],
+   "Old Gridania": [
+    "Moth Pupa"
    ]
   },
   "lvl": 2,
   "all_bait": {
-   "Gridania": [
-    "Bass Ball",
-    "Bloodworm",
+   "New Gridania": [
     "Crayfish Ball",
-    "Crow Fly",
-    "Freshwater Boilie",
-    "Honey Worm",
     "Moth Pupa",
     "Stem Borer",
     "Versatile Lure"
@@ -2454,6 +2525,13 @@
     "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
+   ],
+   "Old Gridania": [
+    "Bloodworm",
+    "Crayfish Ball",
+    "Moth Pupa",
+    "Stem Borer",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -2798,7 +2876,7 @@
   "name": "Pipira",
   "id": 4932,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
     "Crayfish Ball"
    ],
    "East Shroud": [
@@ -2809,17 +2887,16 @@
    ],
    "Central Shroud": [
     "Crayfish Ball"
+   ],
+   "Old Gridania": [
+    "Crayfish Ball"
    ]
   },
   "lvl": 7,
   "all_bait": {
-   "Gridania": [
-    "Bloodworm",
+   "New Gridania": [
     "Crayfish Ball",
     "Crow Fly",
-    "Freshwater Boilie",
-    "Honey Worm",
-    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ],
@@ -2850,6 +2927,12 @@
     "Stem Borer",
     "Versatile Lure",
     "Wildfowl Fly"
+   ],
+   "Old Gridania": [
+    "Bloodworm",
+    "Crayfish Ball",
+    "Stem Borer",
+    "Versatile Lure"
    ]
   },
   "logical_intuition": {},
@@ -2910,7 +2993,7 @@
   "name": "Gudgeon",
   "id": 4934,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
     "Crayfish Ball"
    ],
    "Western Thanalan": [
@@ -2924,16 +3007,15 @@
    ],
    "Lower La Noscea": [
     "Crayfish Ball"
+   ],
+   "Old Gridania": [
+    "Crayfish Ball"
    ]
   },
   "lvl": 8,
   "all_bait": {
-   "Gridania": [
-    "Bloodworm",
+   "New Gridania": [
     "Crayfish Ball",
-    "Crow Fly",
-    "Freshwater Boilie",
-    "Honey Worm",
     "Stem Borer",
     "Versatile Lure"
    ],
@@ -2961,6 +3043,12 @@
    ],
    "Lower La Noscea": [
     "Crayfish Ball",
+    "Versatile Lure"
+   ],
+   "Old Gridania": [
+    "Bloodworm",
+    "Crayfish Ball",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -3055,7 +3143,7 @@
    "North Shroud": [
     "Wildfowl Fly"
    ],
-   "Gridania": [
+   "New Gridania": [
     "Wildfowl Fly"
    ],
    "Central Thanalan": [
@@ -3074,6 +3162,9 @@
     "Wildfowl Fly"
    ],
    "Lower La Noscea": [
+    "Wildfowl Fly"
+   ],
+   "Old Gridania": [
     "Wildfowl Fly"
    ]
   },
@@ -3100,13 +3191,10 @@
     "Versatile Lure",
     "Wildfowl Fly"
    ],
-   "Gridania": [
+   "New Gridania": [
     "Bloodworm",
     "Crayfish Ball",
     "Crow Fly",
-    "Freshwater Boilie",
-    "Honey Worm",
-    "Snurble Fly",
     "Stem Borer",
     "Versatile Lure"
    ],
@@ -3152,6 +3240,13 @@
    "Lower La Noscea": [
     "Bloodworm",
     "Crayfish Ball",
+    "Versatile Lure"
+   ],
+   "Old Gridania": [
+    "Bloodworm",
+    "Crayfish Ball",
+    "Crow Fly",
+    "Stem Borer",
     "Versatile Lure"
    ]
   },
@@ -3783,13 +3878,16 @@
    "Lower La Noscea": [
     "Crow Fly"
    ],
-   "Gridania": [
+   "New Gridania": [
     "Crow Fly"
    ],
    "East Shroud": [
     "Crow Fly"
    ],
    "Central Shroud": [
+    "Crow Fly"
+   ],
+   "Old Gridania": [
     "Crow Fly"
    ],
    "Southern Thanalan": [
@@ -3805,9 +3903,8 @@
     "Spinnerbait",
     "Versatile Lure"
    ],
-   "Gridania": [
+   "New Gridania": [
     "Crow Fly",
-    "Snurble Fly",
     "Versatile Lure"
    ],
    "East Shroud": [
@@ -3819,6 +3916,10 @@
     "Floating Minnow",
     "Versatile Lure",
     "Wildfowl Fly"
+   ],
+   "Old Gridania": [
+    "Crow Fly",
+    "Versatile Lure"
    ],
    "Southern Thanalan": [
     "Crow Fly",
@@ -8042,7 +8143,7 @@
   "name": "Goldenfin",
   "id": 7685,
   "zones": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Upper Decks": [
     "Pill Bug"
    ]
   },
@@ -8050,7 +8151,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Upper Decks": [
     "Pill Bug"
    ]
   },
@@ -8266,7 +8367,7 @@
   "name": "Bloody Brewer",
   "id": 7696,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
     "Crayfish Ball"
    ]
   },
@@ -8274,7 +8375,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Gridania": [
+   "New Gridania": [
     "Crayfish Ball"
    ]
   },
@@ -8362,7 +8463,7 @@
   "name": "Carp Diem",
   "id": 7701,
   "zones": {
-   "Gridania": [
+   "Old Gridania": [
     "Crow Fly"
    ]
   },
@@ -8370,7 +8471,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Gridania": [
+   "Old Gridania": [
     "Crow Fly"
    ]
   },
@@ -8484,7 +8585,7 @@
   "name": "Octomammoth",
   "id": 7707,
   "zones": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Pill Bug"
    ]
   },
@@ -8492,7 +8593,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Limsa Lominsa": [
+   "Limsa Lominsa Lower Decks": [
     "Floating Minnow",
     "Goby Ball",
     "Lugworm",
@@ -8512,7 +8613,7 @@
   "name": "Matron Carp",
   "id": 7708,
   "zones": {
-   "Gridania": [
+   "Old Gridania": [
     "Bloodworm"
    ]
   },
@@ -8520,7 +8621,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Gridania": [
+   "Old Gridania": [
     "Bloodworm"
    ]
   },
@@ -8607,7 +8708,7 @@
   "name": "Stormdancer",
   "id": 7713,
   "zones": {
-   "Gridania": [
+   "New Gridania": [
     "Stem Borer"
    ]
   },
@@ -8615,7 +8716,7 @@
   "bigfish": true,
   "timed": 2,
   "all_bait": {
-   "Gridania": [
+   "New Gridania": [
     "Stem Borer"
    ]
   },
