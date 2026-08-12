@@ -489,7 +489,11 @@
         ]
     },
     "The Pillars": {
-        "connects_to": []
+        "connects_to": [],
+        "ids": [
+            419,
+            499
+        ]
     },
     "Coerthas Western Highlands": {
         "requires": "|Coerthas Western Highlands Access:1|",
