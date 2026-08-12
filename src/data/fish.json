@@ -69315,15 +69315,20 @@
  "Pote'uka": {
   "name": "Pote'uka",
   "id": 52012,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Metal Spinner"
+   ]
+  },
   "lvl": 91,
-  "all_bait": {},
+  "all_bait": {
+   "Kozama'uka": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "intuition_bait": {}
  },
  "Harbor Cloud": {
   "name": "Harbor Cloud",
@@ -69341,46 +69346,43 @@
    ]
   },
   "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {
-   "High Tide Harbor": [
-    "Metal Spinner"
-   ]
-  },
-  "all_bait_by_hole": {
-   "High Tide Harbor": [
-    "Metal Spinner",
-    "Versatile Lure"
-   ]
-  },
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "intuition_bait": {}
  },
  "Iq Ebaji": {
   "name": "Iq Ebaji",
   "id": 52014,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Metal Spinner"
+   ]
+  },
   "lvl": 93,
-  "all_bait": {},
+  "all_bait": {
+   "Yak T'el": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "intuition_bait": {}
  },
  "Yowekwa Inkhead": {
   "name": "Yowekwa Inkhead",
   "id": 52015,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Metal Spinner"
+   ]
+  },
   "lvl": 95,
-  "all_bait": {},
+  "all_bait": {
+   "Shaaloani": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "intuition_bait": {}
  },
  "Burst Lungfish": {
   "name": "Burst Lungfish",
