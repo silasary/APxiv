@@ -31,7 +31,9 @@ namespace ArchipelagoXIV.Rando
             { "The Hourglass", "Ul'dah"},
             { "Cloud Nine", "Ishgard"},
             { "Bokairo Inn", "Kugane"},
+            { "The Pendants Personal Suite", "The Crystarium"},
             { "Andron", "Old Sharlayan"},
+            { "The For'ard Cabins", "Tuliyollal"},
             // Gold Saucer
             { "Chocobo Square", "The Gold Saucer" },
             { "The Battlehall", "The Gold Saucer" },
