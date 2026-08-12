@@ -77,6 +77,7 @@ namespace ArchipelagoXIV.Overlays
                 newIcon.AttachNode(targetNode, NodePosition.AfterTarget);
                 apIcons[i] = newIcon;
                 apIcons[i].IsVisible = false;
+                
             }
         }
 
@@ -98,8 +99,6 @@ namespace ArchipelagoXIV.Overlays
                 if (checkFish != null)
                 {
                     apIcons[i].IsVisible = true;
-                    apIcons[i].TextTooltip = checkFish.Name;
-                    apIcons[i].ShowTooltip();
                 }
                 else
                 {
