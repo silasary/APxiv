@@ -3,7 +3,7 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import Any, cast
+from typing import Any, NotRequired, TypedDict, cast
 
 # Location ID Starts
 # 1-7999: Duties
@@ -16,6 +16,23 @@ from typing import Any, cast
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
 
+class LocationDict(TypedDict):
+    name: str
+    region: str
+    category: NotRequired[list[str]]
+    requires: NotRequired[str]
+    level: NotRequired[int | str]
+    id: NotRequired[int]
+    duty_name: NotRequired[str | None]
+    party: NotRequired[int | None]
+    diff: NotRequired[int | None]
+    extra_number: NotRequired[int | None]
+    expansion: NotRequired[str | None]
+    filler: NotRequired[bool | None]
+    victory: NotRequired[bool | None]
+    is_dungeon: NotRequired[bool | None]
+    rank: NotRequired[str | None]
+    fate_number: NotRequired[int]
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -200,11 +217,11 @@ bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 
-def generate_victory_locations() -> list[dict]:
+def generate_victory_locations() -> list[LocationDict]:
     # Build victory location entries from BOSS_GOAL_KEY_LOCATIONS
     # to preserve existing location IDs for backwards compatibility
     _id = 40_000
-    locations = []
+    locations: list[LocationDict] = []
 
     for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
         locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
@@ -223,9 +240,9 @@ def get_duty_expansion(category: str) -> tuple[str, str]:
 
 categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
 
-def generate_duty_list() -> tuple[list[dict], list[dict]]:
-    duty_list = []
-    extra_list = []
+def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
+    duty_list: list[LocationDict] = []
+    extra_list: list[LocationDict] = []
     difficulties = ["None", "Normal", "Extreme", "Savage", "Endgame", "Ultimate", "Disabled"]
     sizes = ["Solo", "Light Party", "Full Party", "Alliance"]
     dutyreader = csv.DictReader(pkgutil.get_data(__name__, "duties.csv").decode().splitlines(), delimiter=',', quotechar='"')
@@ -238,7 +255,7 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
         if row["Name"] not in HEADER_VALUES:
             requires_str = "{anyClassLevel(" + row["Level Sync"] + ")}"
             requires_str += (" and |" + row["Req Spells"] + "|") if  (row["Req Spells"] != "") else ""
-            location = {
+            location: LocationDict = {
                     "name": row["Name"],
                     "duty_name": row["Name"],
                     "region": row["Location"],
@@ -292,8 +309,8 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
     duty_list[0]["id"] = 4  # Mistakes were made, and they're not worth fixing at this point.
     return duty_list, extra_list
 
-def generate_fate_list():
-    fate_list = []
+def generate_fate_list() -> list[LocationDict]:
+    fate_list: list[LocationDict] = []
 
     _id = 8000
     for key in list(fate_zones.keys()):
@@ -376,13 +393,13 @@ def generate_fate_list():
 
     return fate_list
 
-def generate_fish_list() -> list[dict]:
+def generate_fish_list() -> list[LocationDict]:
     _id = 20_000
     from ..Helpers import load_data_file
     fish = load_data_file("fish.json")
     removed_fish = load_data_file("removed_locations.json")
 
-    locations = []
+    locations: list[LocationDict] = []
     for name, data in fish.items():
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
@@ -425,7 +442,7 @@ def generate_fish_list() -> list[dict]:
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
-        loc = {
+        loc: LocationDict = {
             "name": name,
             "category": ['Fish', "fishsanity"] + list(zones.keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
             "region": region,
@@ -523,8 +540,8 @@ def after_load_progressive_item_file(progressive_item_table: list) -> list:
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
 # if you need access to the locations after processing to add ids, etc., you should use the hooks in World.py
-def generate_hunt_list() -> list[dict]:
-    hunt_list = []
+def generate_hunt_list() -> list[LocationDict]:
+    hunt_list: list[LocationDict] = []
     _id = 45_000
     huntreader = csv.DictReader(pkgutil.get_data(__name__, "hunts.csv").decode().splitlines(), delimiter=',', quotechar='"')
 
@@ -548,9 +565,9 @@ def generate_hunt_list() -> list[dict]:
 
     return hunt_list
 
-def generate_aetheryte_list() -> list[dict]:
+def generate_aetheryte_list() -> list[LocationDict]:
     from ..Helpers import load_data_file
-    aetheryte_list = []
+    aetheryte_list: list[LocationDict] = []
     _id = 50_000
     aetherytes = load_data_file("aetherytes.json")
     for ae in aetherytes:
@@ -566,7 +583,7 @@ def generate_aetheryte_list() -> list[dict]:
 
     return aetheryte_list
 
-def after_load_location_file(location_table: list) -> list:
+def after_load_location_file(location_table: list[LocationDict]) -> list[LocationDict]:
     #add FATE locations
     duty_locations, extra_duty_locations = generate_duty_list()
 
@@ -593,8 +610,8 @@ def after_load_region_file(region_table: dict) -> dict:
             region_table[e]['connects_to'].append(r)
     return region_table
 
-def create_FATE_location(number: int, key: str, lvl: int, _id: int = None):
-    location = {
+def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None) -> LocationDict:
+    location: LocationDict = {
             "name": key + ": FATE #" + str(number),
             "region": key,
             "category": ["FATEs", key],
