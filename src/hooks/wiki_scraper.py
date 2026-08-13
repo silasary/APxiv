@@ -487,9 +487,7 @@ query BaitsPerFishPerSpotQuery($fishId: Int, $spotId: Int, $misses: Int, $mLureM
 def lookup_item_by_name(name: str) -> dict | None:
     items = datamining_csv('Item')
     for item in items.values():
-        if item['Name'] == name:
-            return item
-        elif item['Singular'].lower() == name.lower():
+        if item['Name'] == name or item['Singular'].lower() == name.lower():
             return item
     return None
 
@@ -611,7 +609,6 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     #         viable_baits = viable_baits[1:] + [viable_baits[0]]
     #     fish['zones'][zone] = [b.bait_name for b in viable_baits]
 
-    return
 
 
 def tribal_fish():
@@ -664,13 +661,7 @@ def apply_bait() -> None:
                 continue
             zone_name = spots[hole]['zone_name']
             #Check if Ocean Fish, moved here
-            if zone_name == "The *Endeavor*":
-                del bait_paths[name][hole]
-                continue
-            elif zone_name == "The Diadem":
-                del bait_paths[name][hole]
-                continue
-            elif zone_name == "Elysion":
+            if zone_name == "The *Endeavor*" or zone_name == "The Diadem" or zone_name == "Elysion":
                 del bait_paths[name][hole]
                 continue
             # if len(baits) > 1 and 'Versatile Lure' in baits:
@@ -688,7 +679,6 @@ def apply_bait() -> None:
                     item = lookup_item_by_name(teamcraft_optimalbait)
                     category = lookup_item_ui_category(item["ItemUICategory"])
                     if category == "Fishing Tackle":
-                        pass
                         moochstatus = False
                     elif category == "Seafood":
                         moochstatus = True
@@ -715,7 +705,6 @@ def apply_bait() -> None:
                                     category = lookup_item_ui_category(item["ItemUICategory"])
                                     if category == "Fishing Tackle":
                                         moochstatus = False
-                                        pass
                                     elif category == "Seafood":
                                         moochstatus = True
                                     else:
@@ -732,7 +721,7 @@ def apply_bait() -> None:
                             fish['logical_intuition'].setdefault(zone_name, []).append(logical_intuition)
                             fish['logical_intuition_by_hole'].setdefault(hole, []).append(logical_intuition)
                             fish['intuition_bait'][zone_name] = sorted(set(fish['intuition_bait'][zone_name]))
-                            fish['intuition_bait_by_hole'][hole] = sorted(set(fish['intuition_bait_by_hole'][hole])) 
+                            fish['intuition_bait_by_hole'][hole] = sorted(set(fish['intuition_bait_by_hole'][hole]))
                             fish['logical_intuition'][zone_name] = sorted(set(fish['logical_intuition'][zone_name]))
                             fish['logical_intuition_by_hole'][hole] = sorted(set(fish['logical_intuition_by_hole'][hole]))
             for bait in baits.copy():
@@ -765,7 +754,6 @@ def apply_bait() -> None:
                 moochstatus = False
                 if category == "Fishing Tackle":
                     moochstatus = False
-                    pass
                 elif category == "Seafood":
                     moochstatus = True
                 else:
@@ -778,10 +766,7 @@ def apply_bait() -> None:
                         baits.remove(bait)
                         bait = mooch_path
                         item = lookup_item_by_name(str(bait))
-                        if not item:
-                            baits += bait
-                            moochstatus = False
-                        elif lookup_item_ui_category(item["ItemUICategory"]) == "Fishing Tackle":
+                        if not item or lookup_item_ui_category(item["ItemUICategory"]) == "Fishing Tackle":
                             baits += bait
                             moochstatus = False
                 #if bait not in bait_data and not info.get('mooch'):
@@ -803,7 +788,7 @@ def apply_bait() -> None:
                 fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
                 fish['logical_bait'][hole] = sorted(set(fish['logical_bait'][hole]))
                 fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))
-                fish['all_bait_by_hole'][hole] = sorted(set(fish['all_bait_by_hole'][hole]))  
+                fish['all_bait_by_hole'][hole] = sorted(set(fish['all_bait_by_hole'][hole]))
                 #Merge zones, comment this out for poptracker scraper
             else:
                 print(f"No bait for {name} in {hole}")
@@ -878,7 +863,6 @@ def scrape_carby(baitless) -> bool:
         bait_paths.setdefault(fish, {}).setdefault(place_name, []).extend(cdata['bestCatchPath'])
         baitless.remove(fish)
         updated = True
-        pass
 
     if updated:
         with open(data_path('fish.json'), 'w', newline='') as h:
@@ -963,7 +947,7 @@ def cat_get_spots(regions):
 
     return spots_in_zones, spot_to_id
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 @ratelimit.sleep_and_retry
 @ratelimit.limits(calls=2, period=5)
 def cat_spot_data(spot_id) -> dict[str, dict[str, float]]:
@@ -1051,12 +1035,10 @@ def scrape_territory_types() -> None:
     territory_data = []
     with open(data_path('regions.json'), 'r', newline='') as h:
         regions = json.load(h)
-    pass
     for territory in territory_type.values():
         if territory['PlaceName'] == '0':
             continue
         place_name = datamining_csv('PlaceName')[territory['PlaceName']]
-        pass
         name = place_name['Name']
         if name in regions:
             ids = set(regions[name].get('ids', []))
@@ -1065,6 +1047,7 @@ def scrape_territory_types() -> None:
 
     with open(data_path('regions.json'), 'w', newline='') as h:
         json.dump(regions, h, indent=4)
+        h.write('\n')
 
 
 if __name__ == "__main__":

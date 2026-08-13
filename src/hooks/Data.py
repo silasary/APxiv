@@ -2,8 +2,8 @@ import csv
 import json
 import pkgutil
 import re
-from typing import Any
 from itertools import chain
+from typing import Any
 
 # Location ID Starts
 # 1-7999: Duties
@@ -357,8 +357,9 @@ def generate_fate_list():
     if missing_fatesanity_zones:
         # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
         for key in list(missing_fatesanity_zones.keys()):
-            from . import wiki_scraper
             import os
+
+            from . import wiki_scraper
             additional = wiki_scraper.find_fates(key)
             fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
             with open(fates_path, 'a', newline='') as csvfile:
