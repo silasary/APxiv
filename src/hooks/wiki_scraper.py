@@ -1077,10 +1077,7 @@ def scrape_classjobs() -> None:
         items_levels = json.load(h)
     existing_names = {item['name'] for item in items_levels}
     for item in items_levels:
-        bad_keys = ['category', 'count', 'max_count', 'filler', 'progression', 'value']
-        for key in bad_keys:
-            if key in item:
-                del item[key]
+        item['abbreviation'] = item['name'].split(' ')[1]
     next_id = max(item['id'] for item in items_levels) + 1
     for classjob in classjobs.values():
         if not classjob['Abbreviation'] or classjob['Abbreviation'] in CLASSES:
@@ -1092,11 +1089,12 @@ def scrape_classjobs() -> None:
             items_levels.append({
                 'name': name,
                 'id': next_id,
+                'abbreviation': classjob['Abbreviation'],
             })
             next_id += 1
     items_levels.sort(key=lambda x: x['id'])
     with open(data_path('items.levels.json'), 'w', newline='') as h:
-        json.dump(items_levels, h, indent=4)
+        json.dump(items_levels, h, indent=4, sort_keys=True)
         h.write('\n')
 
 if __name__ == "__main__":

@@ -468,7 +468,7 @@ def after_load_item_file(item_table: list) -> list:
     classes = cast(list[dict], load_data_file("items.levels.json"))
 
     for job in classes:
-        max_level = LIMITED_LEVEL_CAPS.get(job, LEVEL_CAP)
+        max_level = LIMITED_LEVEL_CAPS.get(job['abbreviation'], LEVEL_CAP)
         n = int(max_level / 5)
 
         category = 'DoW/DoM'
