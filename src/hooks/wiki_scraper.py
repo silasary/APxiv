@@ -363,7 +363,7 @@ def scrape_hunts() -> list[dict[str, str]]:
     elite_marks = {name for name, count in zone_count_by_name.items() if count > 1}
 
     if elite_marks:
-        print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
+        # print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
         filtered: list[dict[str, str]] = []
 
         for row in rows:
@@ -660,16 +660,14 @@ def apply_bait() -> None:
                 del bait_paths[name][hole]
                 continue
             zone_name = spots[hole]['zone_name']
-            #Check if Ocean Fish, moved here
-            if zone_name == "The *Endeavor*" or zone_name == "The Diadem" or zone_name == "Elysion":
-                del bait_paths[name][hole]
-                continue
             # if len(baits) > 1 and 'Versatile Lure' in baits:
             #     baits.remove('Versatile Lure')
             #Adds logical baits from the teamcraft recommended baits list
             try:
-                fish_from_fishingsources = teamcraft_json('fishing-sources')[str(fish['id'])]
+                fish_from_fishingsources = teamcraft_json('fishing-sources').get(str(fish['id']), None)
             except KeyError:
+                continue
+            if fish_from_fishingsources is None:
                 continue
             for fishsource in fish_from_fishingsources:
                 if fishsource['spot'] == spots[hole]["id"]:
@@ -685,7 +683,10 @@ def apply_bait() -> None:
                     else:
                         print(f"!!! Bait {teamcraft_optimalbait} has unexpected category {category} !!!")
                     while moochstatus:
-                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                        sources = teamcraft_json('fishing-sources').get(str(item['#']), None)
+                        if sources is None:
+                            break
+                        for fish_mooch_source in sources:
                             if fish_mooch_source['spot'] == spots[hole]["id"]:
                                 teamcraft_optimalbait = lookup_item_name(fish_mooch_source['bait'])
                                 item = lookup_item_by_name(teamcraft_optimalbait)
@@ -698,10 +699,17 @@ def apply_bait() -> None:
                     if fishsource.get('predators'):
                         for predators in fishsource.get('predators'):
                             intuition_bait = bait_paths[lookup_item_name(predators["id"])][hole]
-                            for fish_predator_source in teamcraft_json('fishing-sources')[str(predators["id"])]:
+                            sources = teamcraft_json('fishing-sources').get(str(predators["id"]), None)
+                            if sources is None:
+                                continue
+                            logical_intuition = None
+                            for fish_predator_source in sources:
                                 if fish_predator_source['spot'] == spots[hole]["id"]:
                                     logical_intuition = lookup_item_name(fish_predator_source['bait'])
                                     item = lookup_item_by_name(logical_intuition)
+                                    if not item:
+                                        print(f"Could not find item for {logical_intuition}")
+                                        continue
                                     category = lookup_item_ui_category(item["ItemUICategory"])
                                     if category == "Fishing Tackle":
                                         moochstatus = False
@@ -710,7 +718,10 @@ def apply_bait() -> None:
                                     else:
                                         print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
                                     while moochstatus:
-                                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                        sources = teamcraft_json('fishing-sources').get(str(item['#']), None)
+                                        if sources is None:
+                                            break
+                                        for fish_mooch_source in sources:
                                             if fish_mooch_source['spot'] == spots[hole]["id"]:
                                                 logical_intuition = lookup_item_name(fish_mooch_source['bait'])
                                                 item = lookup_item_by_name(logical_intuition)
@@ -1032,7 +1043,6 @@ def scrape_aetherytes() -> None:
 
 def scrape_territory_types() -> None:
     territory_type = datamining_csv("TerritoryType")
-    territory_data = []
     with open(data_path('regions.json'), 'r', newline='') as h:
         regions = json.load(h)
     for territory in territory_type.values():

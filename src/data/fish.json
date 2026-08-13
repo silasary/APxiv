@@ -44263,80 +44263,212 @@
  "Galadion Goby": {
   "name": "Galadion Goby",
   "id": 28937,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Galadion Chovy": {
   "name": "Galadion Chovy",
   "id": 28938,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Rosy Bream": {
   "name": "Rosy Bream",
   "id": 28939,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Tripod Fish": {
   "name": "Tripod Fish",
   "id": 28940,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sunfly": {
   "name": "Sunfly",
   "id": 28941,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Tarnished Shark": {
   "name": "Tarnished Shark",
   "id": 28942,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -44541,1070 +44673,2826 @@
  "Tossed Dagger": {
   "name": "Tossed Dagger",
   "id": 29718,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Jasperhead": {
   "name": "Jasperhead",
   "id": 29719,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Merlthor Lobster": {
   "name": "Merlthor Lobster",
   "id": 29720,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Heavenswimmer": {
   "name": "Heavenswimmer",
   "id": 29721,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ghoul Barracuda": {
   "name": "Ghoul Barracuda",
   "id": 29722,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Leopard Eel": {
   "name": "Leopard Eel",
   "id": 29723,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Marine Bomb": {
   "name": "Marine Bomb",
   "id": 29724,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Momora Mora": {
   "name": "Momora Mora",
   "id": 29725,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Northern Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Northern Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Merlthor Butterfly": {
   "name": "Merlthor Butterfly",
   "id": 29726,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Gladius": {
   "name": "Gladius",
   "id": 29727,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Rhotano Wahoo": {
   "name": "Rhotano Wahoo",
   "id": 29728,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Rhotano Sardine": {
   "name": "Rhotano Sardine",
   "id": 29729,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Deep Plaice": {
   "name": "Deep Plaice",
   "id": 29730,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Crimson Monkfish": {
   "name": "Crimson Monkfish",
   "id": 29731,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Lampfish": {
   "name": "Lampfish",
   "id": 29732,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ogre Eel": {
   "name": "Ogre Eel",
   "id": 29733,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Cyan Octopus": {
   "name": "Cyan Octopus",
   "id": 29734,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Chrome Hammerhead": {
   "name": "Chrome Hammerhead",
   "id": 29735,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Floefish": {
   "name": "Floefish",
   "id": 29736,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Megasquid": {
   "name": "Megasquid",
   "id": 29737,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Oschon's Stone": {
   "name": "Oschon's Stone",
   "id": 29738,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "La Noscean Jelly": {
   "name": "La Noscean Jelly",
   "id": 29739,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Shaggy Seadragon": {
   "name": "Shaggy Seadragon",
   "id": 29740,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Net Crawler": {
   "name": "Net Crawler",
   "id": 29741,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Dark Nautilus": {
   "name": "Dark Nautilus",
   "id": 29742,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Elder Dinichthys": {
   "name": "Elder Dinichthys",
   "id": 29743,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Drunkfish": {
   "name": "Drunkfish",
   "id": 29744,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Outer Galadion Bay": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Little Leviathan": {
   "name": "Little Leviathan",
   "id": 29745,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Sabaton": {
   "name": "Sabaton",
   "id": 29746,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Open Rhotano Sea": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Shooting Star": {
   "name": "Shooting Star",
   "id": 29747,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Hammerclaw": {
   "name": "Hammerclaw",
   "id": 29748,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Heavenskey": {
   "name": "Heavenskey",
   "id": 29749,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ghost Shark": {
   "name": "Ghost Shark",
   "id": 29750,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Glowworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Glowworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Quicksilver Blade": {
   "name": "Quicksilver Blade",
   "id": 29751,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Navigator's Print": {
   "name": "Navigator's Print",
   "id": 29752,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Casket Oyster": {
   "name": "Casket Oyster",
   "id": 29753,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Fishmonger": {
   "name": "Fishmonger",
   "id": 29754,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mythril Sovereign": {
   "name": "Mythril Sovereign",
   "id": 29755,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Nimble Dancer": {
   "name": "Nimble Dancer",
   "id": 29756,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sea Nettle": {
   "name": "Sea Nettle",
   "id": 29757,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Great Grandmarlin": {
   "name": "Great Grandmarlin",
   "id": 29758,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Shipwreck's Sail": {
   "name": "Shipwreck's Sail",
   "id": 29759,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Azeyma's Sleeve": {
   "name": "Azeyma's Sleeve",
   "id": 29760,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Hi-aetherlouse": {
   "name": "Hi-aetherlouse",
   "id": 29761,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Floating Saucer": {
   "name": "Floating Saucer",
   "id": 29762,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Aetheric Seadragon": {
   "name": "Aetheric Seadragon",
   "id": 29763,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Coral Seadragon": {
   "name": "Coral Seadragon",
   "id": 29764,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Roguesaurus": {
   "name": "Roguesaurus",
   "id": 29765,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Merman's Mane": {
   "name": "Merman's Mane",
   "id": 29766,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Glowworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Glowworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sweeper": {
   "name": "Sweeper",
   "id": 29767,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Silencer": {
   "name": "Silencer",
   "id": 29768,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Deep-sea Eel": {
   "name": "Deep-sea Eel",
   "id": 29769,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Executioner": {
   "name": "Executioner",
   "id": 29770,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Wild Urchin": {
   "name": "Wild Urchin",
   "id": 29771,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "True Barramundi": {
   "name": "True Barramundi",
   "id": 29772,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mopbeard": {
   "name": "Mopbeard",
   "id": 29773,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Slipsnail": {
   "name": "Slipsnail",
   "id": 29774,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Aronnax": {
   "name": "Aronnax",
   "id": 29775,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Coccosteus": {
   "name": "Coccosteus",
   "id": 29776,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bartholomew the Chopper": {
   "name": "Bartholomew the Chopper",
   "id": 29777,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Prowler": {
   "name": "Prowler",
   "id": 29778,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Charlatan Survivor": {
   "name": "Charlatan Survivor",
   "id": 29779,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Prodigal Son": {
   "name": "Prodigal Son",
   "id": 29780,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Gugrusaurus": {
   "name": "Gugrusaurus",
   "id": 29781,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Funnel Shark": {
   "name": "Funnel Shark",
   "id": 29782,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "The Fallen One": {
   "name": "The Fallen One",
   "id": 29783,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Megalodon": {
   "name": "Spectral Megalodon",
   "id": 29784,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Galadion Bay": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Galadion Bay": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Discus": {
   "name": "Spectral Discus",
   "id": 29785,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Southern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Southern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Sea Bo": {
   "name": "Spectral Sea Bo",
   "id": 29786,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "The Northern Strait of Merlthor": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "The Northern Strait of Merlthor": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Bass": {
   "name": "Spectral Bass",
   "id": 29787,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Rhotano Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Rhotano Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sothis": {
   "name": "Sothis",
   "id": 29788,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Glowworm"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Glowworm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Galadion Spectral Current": [
+    "Glowworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Galadion Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Galadion Spectral Current": [
+    "Glowworm",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Coral Manta": {
   "name": "Coral Manta",
   "id": 29789,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Shrimp Cage Feeder"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Shrimp Cage Feeder"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Southern Merlthor Spectral Current": [
+    "Shrimp Cage Feeder"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Shrimp Cage Feeder"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Southern Merlthor Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Shrimp Cage Feeder",
+    "Versatile Lure"
+   ]
+  }
  },
  "Stonescale": {
   "name": "Stonescale",
   "id": 29790,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Rhotano Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Rhotano Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail",
+    "Versatile Lure"
+   ]
+  }
  },
  "Elasmosaurus": {
   "name": "Elasmosaurus",
   "id": 29791,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Northern Merlthor Spectral Current": [
+    "Heavy Steel Jig",
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Grade 2 Skybuilders' Cloudskipper": {
   "name": "Grade 2 Skybuilders' Cloudskipper",
@@ -46653,863 +48541,2275 @@
  "Tortoiseshell Crab": {
   "name": "Tortoiseshell Crab",
   "id": 32055,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Lady's Cameo": {
   "name": "Lady's Cameo",
   "id": 32056,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Metallic Boxfish": {
   "name": "Metallic Boxfish",
   "id": 32057,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Goobbue Ray": {
   "name": "Goobbue Ray",
   "id": 32058,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Watermoura": {
   "name": "Watermoura",
   "id": 32059,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "King Cobrafish": {
   "name": "King Cobrafish",
   "id": 32060,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mamahi-mahi": {
   "name": "Mamahi-mahi",
   "id": 32061,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Lavandin Remora": {
   "name": "Lavandin Remora",
   "id": 32062,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Butterfly": {
   "name": "Spectral Butterfly",
   "id": 32063,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Cieldalaes Geode": {
   "name": "Cieldalaes Geode",
   "id": 32064,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Cieldalaes Margin": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Cieldalaes Margin": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Cieldalaes Margin": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Titanshell Crab": {
   "name": "Titanshell Crab",
   "id": 32065,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mythril Boxfish": {
   "name": "Mythril Boxfish",
   "id": 32066,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mistbeard's Cup": {
   "name": "Mistbeard's Cup",
   "id": 32067,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Anomalocaris Saron": {
   "name": "Anomalocaris Saron",
   "id": 32068,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Flaming Eel": {
   "name": "Flaming Eel",
   "id": 32069,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Jetborne Manta": {
   "name": "Jetborne Manta",
   "id": 32070,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Devil's Sting": {
   "name": "Devil's Sting",
   "id": 32071,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Callichthyid": {
   "name": "Callichthyid",
   "id": 32072,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Meandering Mora": {
   "name": "Meandering Mora",
   "id": 32073,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Hafgufa": {
   "name": "Hafgufa",
   "id": 32074,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Squid Strip"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Ragworm",
+    "Squid Strip"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Cieldalaes Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  }
  },
  "Thaliak Crab": {
   "name": "Thaliak Crab",
   "id": 32075,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Star of the Destroyer": {
   "name": "Star of the Destroyer",
   "id": 32076,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "True Scad": {
   "name": "True Scad",
   "id": 32077,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Blooded Wrasse": {
   "name": "Blooded Wrasse",
   "id": 32078,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bloodpolish Crab": {
   "name": "Bloodpolish Crab",
   "id": 32079,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Blue Stitcher": {
   "name": "Blue Stitcher",
   "id": 32080,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bloodfresh Tuna": {
   "name": "Bloodfresh Tuna",
   "id": 32081,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sunken Mask": {
   "name": "Sunken Mask",
   "id": 32082,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Eel": {
   "name": "Spectral Eel",
   "id": 32083,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bareface": {
   "name": "Bareface",
   "id": 32084,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Open Bloodbrine Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Open Bloodbrine Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Oracular Crab": {
   "name": "Oracular Crab",
   "id": 32085,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Dravanian Bream": {
   "name": "Dravanian Bream",
   "id": 32086,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Skaldminni": {
   "name": "Skaldminni",
   "id": 32087,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Serrated Clam": {
   "name": "Serrated Clam",
   "id": 32088,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Beatific Vision": {
   "name": "Beatific Vision",
   "id": 32089,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Exterminator": {
   "name": "Exterminator",
   "id": 32090,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Gory Tuna": {
   "name": "Gory Tuna",
   "id": 32091,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ticinepomis": {
   "name": "Ticinepomis",
   "id": 32092,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Quartz Hammerhead": {
   "name": "Quartz Hammerhead",
   "id": 32093,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Seafaring Toad": {
   "name": "Seafaring Toad",
   "id": 32094,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Pill Bug"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Pill Bug"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Bloodbrine Spectral Current": [
+    "Pill Bug"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Pill Bug"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Bloodbrine Spectral Current": [
+    "Krill",
+    "Pill Bug",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Crow Puffer": {
   "name": "Crow Puffer",
   "id": 32095,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Rothlyt Kelp": {
   "name": "Rothlyt Kelp",
   "id": 32096,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Living Lantern": {
   "name": "Living Lantern",
   "id": 32097,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Honeycomb Fish": {
   "name": "Honeycomb Fish",
   "id": 32098,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Godsbed": {
   "name": "Godsbed",
   "id": 32099,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Lansquenet": {
   "name": "Lansquenet",
   "id": 32100,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Thavnairian Shark": {
   "name": "Thavnairian Shark",
   "id": 32101,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Nephrite Eel": {
   "name": "Nephrite Eel",
   "id": 32102,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectresaur": {
   "name": "Spectresaur",
   "id": 32103,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ginkgo Fin": {
   "name": "Ginkgo Fin",
   "id": 32104,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Outer Rothlyt Sound": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Versatile Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Outer Rothlyt Sound": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Garum Jug": {
   "name": "Garum Jug",
   "id": 32105,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Smooth Jaguar": {
   "name": "Smooth Jaguar",
   "id": 32106,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Rothlyt Mussel": {
   "name": "Rothlyt Mussel",
   "id": 32107,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Levi Elver": {
   "name": "Levi Elver",
   "id": 32108,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Pearl Bombfish": {
   "name": "Pearl Bombfish",
   "id": 32109,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Trollfish": {
   "name": "Trollfish",
   "id": 32110,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Panoptes": {
   "name": "Panoptes",
   "id": 32111,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Crepe Sole": {
   "name": "Crepe Sole",
   "id": 32112,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Knifejaw": {
   "name": "Knifejaw",
   "id": 32113,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Versatile Lure"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Versatile Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Placodus": {
   "name": "Placodus",
   "id": 32114,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 80,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Rothlyt Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Rothlyt Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Grade 4 Skybuilders' Zagas Khaal": {
   "name": "Grade 4 Skybuilders' Zagas Khaal",
@@ -54502,53 +57802,141 @@
  "Pink Shrimp": {
   "name": "Pink Shrimp",
   "id": 40521,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sirensong Mussel": {
   "name": "Sirensong Mussel",
   "id": 40522,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Arrowhead": {
   "name": "Arrowhead",
   "id": 40523,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Deepshade Sardine": {
   "name": "Deepshade Sardine",
   "id": 40524,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -54583,259 +57971,669 @@
  "Poet's Pipe": {
   "name": "Poet's Pipe",
   "id": 40527,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Marine Matanga": {
   "name": "Marine Matanga",
   "id": 40528,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Coelacanth": {
   "name": "Spectral Coelacanth",
   "id": 40529,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Dusk Shark": {
   "name": "Dusk Shark",
   "id": 40530,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Open Sirensong Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Open Sirensong Sea": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Open Sirensong Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Mermaid Scale": {
   "name": "Mermaid Scale",
   "id": 40531,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Broadhead": {
   "name": "Broadhead",
   "id": 40532,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Vivid Pink Shrimp": {
   "name": "Vivid Pink Shrimp",
   "id": 40533,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Sunken Coelacanth": {
   "name": "Sunken Coelacanth",
   "id": 40534,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Siren's Sigh": {
   "name": "Siren's Sigh",
   "id": 40535,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Mackerel Strip",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Mackerel Strip",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Black-jawed Helicoprion": {
   "name": "Black-jawed Helicoprion",
   "id": 40536,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Impostopus": {
   "name": "Impostopus",
   "id": 40537,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Mackerel Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Mackerel Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Jade Mantis Shrimp": {
   "name": "Jade Mantis Shrimp",
   "id": 40538,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Nymeia's Wheel": {
   "name": "Nymeia's Wheel",
   "id": 40539,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Taniwha": {
   "name": "Taniwha",
   "id": 40540,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Mackerel Strip"
+   ]
+  },
   "lvl": 90,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Mackerel Strip"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Sirensong Spectral Current": [
+    "Mackerel Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Mackerel Strip"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Sirensong Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Sirensong Spectral Current": [
+    "Krill",
+    "Mackerel Strip",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Ruby Herring": {
   "name": "Ruby Herring",
   "id": 40541,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Whirlpool Turban": {
   "name": "Whirlpool Turban",
   "id": 40542,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Leopard Prawn": {
   "name": "Leopard Prawn",
   "id": 40543,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spear Squid": {
   "name": "Spear Squid",
   "id": 40544,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -54870,232 +58668,598 @@
  "Hatatate": {
   "name": "Hatatate",
   "id": 40547,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Silent Shark": {
   "name": "Silent Shark",
   "id": 40548,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Wrasse": {
   "name": "Spectral Wrasse",
   "id": 40549,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mizuhiki": {
   "name": "Mizuhiki",
   "id": 40550,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Kugane Coast": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Kugane Coast": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Snapping Koban": {
   "name": "Snapping Koban",
   "id": 40551,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Silkweft Prawn": {
   "name": "Silkweft Prawn",
   "id": 40552,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Stingfin Trevally": {
   "name": "Stingfin Trevally",
   "id": 40553,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Swordtip Squid": {
   "name": "Swordtip Squid",
   "id": 40554,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Mailfish": {
   "name": "Mailfish",
   "id": 40555,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Idaten's Bolt": {
   "name": "Idaten's Bolt",
   "id": 40556,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Maelstrom Turban": {
   "name": "Maelstrom Turban",
   "id": 40557,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Shoshitsuki": {
   "name": "Shoshitsuki",
   "id": 40558,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spadefish": {
   "name": "Spadefish",
   "id": 40559,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Glass Dragon": {
   "name": "Glass Dragon",
   "id": 40560,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 90,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Kugane Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Kugane Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Kugane Spectral Current": [
+    "Plump Worm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Crimson Kelp": {
   "name": "Crimson Kelp",
   "id": 40561,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Reef Squid": {
   "name": "Reef Squid",
   "id": 40562,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -55130,13 +59294,35 @@
  "Shisui Goby": {
   "name": "Shisui Goby",
   "id": 40565,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -55157,246 +59343,640 @@
  "Barded Lobster": {
   "name": "Barded Lobster",
   "id": 40567,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Violet Sentry": {
   "name": "Violet Sentry",
   "id": 40568,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Snake Eel": {
   "name": "Spectral Snake Eel",
   "id": 40569,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Heavensent Shark": {
   "name": "Heavensent Shark",
   "id": 40570,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Open Ruby Sea": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Open Ruby Sea": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Open Ruby Sea": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Fleeting Squid": {
   "name": "Fleeting Squid",
   "id": 40571,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bowbarb Lobster": {
   "name": "Bowbarb Lobster",
   "id": 40572,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Pitch Pickle": {
   "name": "Pitch Pickle",
   "id": 40573,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Senbei Octopus": {
   "name": "Senbei Octopus",
   "id": 40574,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Tentacle Thresher": {
   "name": "Tentacle Thresher",
   "id": 40575,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Bekko Rockhugger": {
   "name": "Bekko Rockhugger",
   "id": 40576,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Yellow Iris": {
   "name": "Yellow Iris",
   "id": 40577,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Crimson Sentry": {
   "name": "Crimson Sentry",
   "id": 40578,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Flying Squid": {
   "name": "Flying Squid",
   "id": 40579,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Hells' Claw": {
   "name": "Hells' Claw",
   "id": 40580,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
   "lvl": 90,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Squid Strip"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Ruby Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Squid Strip"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Ruby Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Squid Strip",
+    "Versatile Lure"
+   ]
+  }
  },
  "Catching Carp": {
   "name": "Catching Carp",
   "id": 40581,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Garlean Bluegill": {
   "name": "Garlean Bluegill",
   "id": 40582,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "timed": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Yanxian Softshell": {
   "name": "Yanxian Softshell",
   "id": 40583,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -55431,221 +60011,569 @@
  "Singular Shrimp": {
   "name": "Singular Shrimp",
   "id": 40586,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Brocade Carp": {
   "name": "Brocade Carp",
   "id": 40587,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Yanxian Sturgeon": {
   "name": "Yanxian Sturgeon",
   "id": 40588,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Spectral Kotsu Zetsu": {
   "name": "Spectral Kotsu Zetsu",
   "id": 40589,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lower One River": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Fishy Shark": {
   "name": "Fishy Shark",
   "id": 40590,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Lower One River": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lower One River": [
+    "Plump Worm"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Lower One River": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Lower One River": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Versatile Lure"
+   ]
+  }
  },
  "Gensui Shrimp": {
   "name": "Gensui Shrimp",
   "id": 40591,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Yato-no-kami": {
   "name": "Yato-no-kami",
   "id": 40592,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Heron's Eel": {
   "name": "Heron's Eel",
   "id": 40593,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Crowshadow Mussel": {
   "name": "Crowshadow Mussel",
   "id": 40594,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Yanxian Goby": {
   "name": "Yanxian Goby",
   "id": 40595,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Iridescent Trout": {
   "name": "Iridescent Trout",
   "id": 40596,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Un-Namazu": {
   "name": "Un-Namazu",
   "id": 40597,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Gakugyo": {
   "name": "Gakugyo",
   "id": 40598,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Ginrin Goshiki": {
   "name": "Ginrin Goshiki",
   "id": 40599,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Jewel of Plum Spring": {
   "name": "Jewel of Plum Spring",
   "id": 40600,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Stonefly Nymph"
+   ]
+  },
   "lvl": 90,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Stonefly Nymph"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "One River Spectral Current": [
+    "Stonefly Nymph"
+   ]
+  },
+  "all_bait_by_hole": {
+   "One River Spectral Current": [
+    "Stonefly Nymph"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "One River Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "One River Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Stonefly Nymph",
+    "Versatile Lure"
+   ]
+  }
  },
  "Ossicula": {
   "name": "Ossicula",
@@ -57565,7 +62493,7 @@
   "id": 43697,
   "zones": {
    "Kozama'uka": [
-    "Golden Stonefly Nymph"
+    "Popper Lure"
    ]
   },
   "lvl": 93,
@@ -57582,7 +62510,7 @@
   "intuition_bait": {},
   "logical_bait": {
    "Miyakabek'zu": [
-    "Golden Stonefly Nymph"
+    "Popper Lure"
    ]
   },
   "all_bait_by_hole": {
@@ -59301,7 +64229,7 @@
   "id": 43740,
   "zones": {
    "Yak T'el": [
-    "Honeybee"
+    "Red Maggots"
    ]
   },
   "lvl": 97,
@@ -59317,7 +64245,7 @@
   "intuition_bait": {},
   "logical_bait": {
    "Cenote Jayunja": [
-    "Honeybee"
+    "Red Maggots"
    ]
   },
   "all_bait_by_hole": {
@@ -60545,7 +65473,7 @@
   "id": 43775,
   "zones": {
    "Heritage Found": [
-    "Popper Lure"
+    "Red Maggots"
    ]
   },
   "lvl": 100,
@@ -60560,7 +65488,7 @@
   "intuition_bait": {},
   "logical_bait": {
    "Alexandrian Ruins": [
-    "Popper Lure"
+    "Red Maggots"
    ]
   },
   "all_bait_by_hole": {
@@ -68514,15 +73442,31 @@
  "Captain's Finger": {
   "name": "Captain's Finger",
   "id": 51219,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Spectral Current": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -68559,15 +73503,31 @@
  "Pirate's Purse": {
   "name": "Pirate's Purse",
   "id": 51222,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Spectral Current": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Spectral Current": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -68604,45 +73564,97 @@
  "Cieldalaes Roosterfish": {
   "name": "Cieldalaes Roosterfish",
   "id": 51225,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Captain's Pen"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Spectral Current": [
+    "Captain's Pen"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Renegade Rhotanosaurus": {
   "name": "Renegade Rhotanosaurus",
   "id": 51226,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Spectral Current": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Red Boarfish": {
   "name": "Red Boarfish",
   "id": 51227,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -68773,15 +73785,31 @@
  "Silkfin": {
   "name": "Silkfin",
   "id": 51238,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Thavnair Margin": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Thavnair Margin": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -68833,30 +73861,68 @@
  "Silverdart": {
   "name": "Silverdart",
   "id": 51242,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Thavnair Spectral Current": [
+    "Krill"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Thavnair Spectral Current": [
+    "Krill"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
  "Satrapsaurus": {
   "name": "Satrapsaurus",
   "id": 51243,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Thavnair Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Thavnair Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -68893,15 +73959,31 @@
  "Pliosaurus": {
   "name": "Pliosaurus",
   "id": 51246,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Thavnair Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Thavnair Spectral Current": [
+    "Plump Worm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -69045,7 +74127,7 @@
   "id": 52002,
   "zones": {
    "Yak T'el": [
-    "Honeybee"
+    "Red Maggots"
    ]
   },
   "lvl": 100,
@@ -69064,7 +74146,7 @@
   "intuition_bait": {},
   "logical_bait": {
    "Cenote Jayunja": [
-    "Honeybee"
+    "Red Maggots"
    ]
   },
   "all_bait_by_hole": {
@@ -69315,20 +74397,15 @@
  "Pote'uka": {
   "name": "Pote'uka",
   "id": 52012,
-  "zones": {
-   "Kozama'uka": [
-    "Metal Spinner"
-   ]
-  },
+  "zones": {},
   "lvl": 91,
-  "all_bait": {
-   "Kozama'uka": [
-    "Metal Spinner",
-    "Versatile Lure"
-   ]
-  },
+  "all_bait": {},
   "logical_intuition": {},
-  "intuition_bait": {}
+  "intuition_bait": {},
+  "logical_bait": {},
+  "all_bait_by_hole": {},
+  "logical_intuition_by_hole": {},
+  "intuition_bait_by_hole": {}
  },
  "Harbor Cloud": {
   "name": "Harbor Cloud",
@@ -69346,43 +74423,46 @@
    ]
   },
   "logical_intuition": {},
-  "intuition_bait": {}
+  "intuition_bait": {},
+  "logical_bait": {
+   "High Tide Harbor": [
+    "Metal Spinner"
+   ]
+  },
+  "all_bait_by_hole": {
+   "High Tide Harbor": [
+    "Metal Spinner",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition_by_hole": {},
+  "intuition_bait_by_hole": {}
  },
  "Iq Ebaji": {
   "name": "Iq Ebaji",
   "id": 52014,
-  "zones": {
-   "Yak T'el": [
-    "Metal Spinner"
-   ]
-  },
+  "zones": {},
   "lvl": 93,
-  "all_bait": {
-   "Yak T'el": [
-    "Metal Spinner",
-    "Versatile Lure"
-   ]
-  },
+  "all_bait": {},
   "logical_intuition": {},
-  "intuition_bait": {}
+  "intuition_bait": {},
+  "logical_bait": {},
+  "all_bait_by_hole": {},
+  "logical_intuition_by_hole": {},
+  "intuition_bait_by_hole": {}
  },
  "Yowekwa Inkhead": {
   "name": "Yowekwa Inkhead",
   "id": 52015,
-  "zones": {
-   "Shaaloani": [
-    "Metal Spinner"
-   ]
-  },
+  "zones": {},
   "lvl": 95,
-  "all_bait": {
-   "Shaaloani": [
-    "Metal Spinner",
-    "Versatile Lure"
-   ]
-  },
+  "all_bait": {},
   "logical_intuition": {},
-  "intuition_bait": {}
+  "intuition_bait": {},
+  "logical_bait": {},
+  "all_bait_by_hole": {},
+  "logical_intuition_by_hole": {},
+  "intuition_bait_by_hole": {}
  },
  "Burst Lungfish": {
   "name": "Burst Lungfish",
