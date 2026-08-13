@@ -166,7 +166,6 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 world.skipped_duties.update(duels)
 
             if dutyType == "Deep Dungeon":
-                # count = min(len(names), count) # Probably redundant and can be removed, but I'm putting this here while initial testing. Should probably be removed later
                 used_names = names[:count]
             else:
                 count = min(len(names), count)
@@ -377,13 +376,17 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     if remaining < 100:
         prog_levels = prog_levels[:3]
-
+    first = True
     for name in prog_levels:
         remaining = location_count - item_count
         if remaining < capped_count:
             break
-        item_config[name] = {"progression": capped_count}
+        if first:
+            item_config[name] = {ItemClassification.progression: capped_count}
+        else:
+            item_config[name] = {ItemClassification.progression_skip_balancing: capped_count}
         item_count += capped_count
+        first = False
 
     remaining = location_count - item_count
     if remaining > 0:
@@ -555,9 +558,8 @@ def before_create_item(item_name: str, world: World, multiworld: MultiWorld, pla
 
 # The item that was created is provided after creation, in case you want to modify the item
 def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, player: int) -> ManualItem:
-    if getattr(multiworld, 'generation_is_fake', False):
-        if "Levels" in item.name:
-            item.classification = ItemClassification.progression
+    if getattr(multiworld, 'generation_is_fake', False) and "Levels" in item.name:
+        item.classification = ItemClassification.progression
     # elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
     #     item.classification = ItemClassification.progression
     return item
