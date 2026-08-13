@@ -1,0 +1,134 @@
+[
+    {
+        "name": "5 PLD Levels",
+        "id": 5000
+    },
+    {
+        "name": "5 WAR Levels",
+        "id": 5001
+    },
+    {
+        "name": "5 DRK Levels",
+        "id": 5002
+    },
+    {
+        "name": "5 GNB Levels",
+        "id": 5003
+    },
+    {
+        "name": "5 WHM Levels",
+        "id": 5004
+    },
+    {
+        "name": "5 SCH Levels",
+        "id": 5005
+    },
+    {
+        "name": "5 AST Levels",
+        "id": 5006
+    },
+    {
+        "name": "5 SGE Levels",
+        "id": 5007
+    },
+    {
+        "name": "5 MNK Levels",
+        "id": 5008
+    },
+    {
+        "name": "5 DRG Levels",
+        "id": 5009
+    },
+    {
+        "name": "5 NIN Levels",
+        "id": 5010
+    },
+    {
+        "name": "5 SAM Levels",
+        "id": 5011
+    },
+    {
+        "name": "5 RPR Levels",
+        "id": 5012
+    },
+    {
+        "name": "5 VPR Levels",
+        "id": 5013
+    },
+    {
+        "name": "5 BRD Levels",
+        "id": 5014
+    },
+    {
+        "name": "5 MCH Levels",
+        "id": 5015
+    },
+    {
+        "name": "5 DNC Levels",
+        "id": 5016
+    },
+    {
+        "name": "5 BLM Levels",
+        "id": 5017
+    },
+    {
+        "name": "5 SMN Levels",
+        "id": 5018
+    },
+    {
+        "name": "5 RDM Levels",
+        "id": 5019
+    },
+    {
+        "name": "5 PCT Levels",
+        "id": 5020
+    },
+    {
+        "name": "5 BLU Levels",
+        "id": 5021
+    },
+    {
+        "name": "5 CRP Levels",
+        "id": 5022
+    },
+    {
+        "name": "5 BSM Levels",
+        "id": 5023
+    },
+    {
+        "name": "5 ARM Levels",
+        "id": 5024
+    },
+    {
+        "name": "5 GSM Levels",
+        "id": 5025
+    },
+    {
+        "name": "5 LTW Levels",
+        "id": 5026
+    },
+    {
+        "name": "5 WVR Levels",
+        "id": 5027
+    },
+    {
+        "name": "5 ALC Levels",
+        "id": 5028
+    },
+    {
+        "name": "5 CUL Levels",
+        "id": 5029
+    },
+    {
+        "name": "5 MIN Levels",
+        "id": 5030
+    },
+    {
+        "name": "5 BTN Levels",
+        "id": 5031
+    },
+    {
+        "name": "5 FSH Levels",
+        "id": 5032
+    }
+]
