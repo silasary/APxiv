@@ -380,7 +380,7 @@ def generate_fish_list() -> list[dict]:
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
         zones = data['zones']
-        if not zones:
+        if not zones or "The *Endeavor*" in zones:
             _id += 1
             continue
         intuition = data['logical_intuition']
@@ -395,6 +395,7 @@ def generate_fish_list() -> list[dict]:
             if not zones[region]:
                 _id += 1
                 continue
+
             if len(zones[region]) > 1:
                 requires += f" and (|{zones[region][0]}"
                 i = 0
