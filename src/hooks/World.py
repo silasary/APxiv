@@ -66,6 +66,14 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
         return None
     if duty_type == "PvP":
         return None
+    if duty_type == "Deep Dungeon":
+        return None
+    if duty_type == "Criterion Dungeon":
+        return None
+    if duty_type == "Chaotic Raid":
+        return None
+    if duty_type == "Quantum Trial":
+        return None
     if duty_type == "Field Operation":
         return get_int_value(multiworld, player, "field_operation_critical_encounter_count")
     raise ValueError(f"Unknown duty type {duty_type}")
