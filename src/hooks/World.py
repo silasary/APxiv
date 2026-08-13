@@ -376,6 +376,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     if remaining < 100:
         prog_levels = prog_levels[:3]
+        
     first = True
     for name in prog_levels:
         remaining = location_count - item_count
