@@ -279,6 +279,7 @@
         "requires": "",
         "connects_to": [
             "Ul'dah - Steps of Nald",
+            "Ul'dah - Steps of Thal",
             "Central Thanalan",
             "Western Thanalan",
             "Masked Carnivale",
@@ -297,6 +298,15 @@
             259,
             274,
             790
+        ]
+    },
+    "Ul'dah - Steps of Thal": {
+        "connects_to": [],
+        "ids": [
+            131,
+            666,
+            705,
+            706
         ]
     },
     "The Gold Saucer": {
@@ -480,6 +490,7 @@
         "connects_to": [
             "Airship",
             "Foundation",
+            "The Pillars",
             "Coerthas Central Highlands",
             "Coerthas Western Highlands",
             "The Sea of Clouds",
@@ -495,6 +506,13 @@
             418,
             458,
             700
+        ]
+    },
+    "The Pillars": {
+        "connects_to": [],
+        "ids": [
+            419,
+            499
         ]
     },
     "Coerthas Western Highlands": {
@@ -1078,7 +1096,11 @@
     },
     "Lower Jeuno": {
         "requires": "",
-        "connects_to": []
+        "connects_to": [],
+        "ids": [
+            1264,
+            1265
+        ]
     },
     "Shaaloani": {
         "requires": "|Shaaloani Access: 1|",

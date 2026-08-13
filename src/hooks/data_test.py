@@ -1,5 +1,6 @@
 from test.bases import WorldTestBase
 
+
 class FatesanityTest(WorldTestBase):
     game = "Manual_FFXIV_Silasary"
 
