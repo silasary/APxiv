@@ -15,7 +15,7 @@
         "hidden": true
     },
     "PvP": {
-        "yaml_option": ["include_pvp"]
+
     },
     "Bozja": {
         "yaml_option": ["include_bozja"],

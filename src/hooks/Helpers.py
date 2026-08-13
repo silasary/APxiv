@@ -52,7 +52,7 @@ def is_fishing_enabled(multiworld, player):
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the category, False to disable it, or None to use the default behavior
-def before_is_category_enabled(multiworld: MultiWorld, player: int, category_name: str) -> Optional[bool]:
+def before_is_category_enabled(multiworld: MultiWorld, player: int, category_name: str) -> bool | None:
     if category_name == "FATEsanity":
         return Helpers.is_option_enabled(multiworld, player, "fatesanity")
     if category_name == "FATEs":
@@ -65,11 +65,15 @@ def before_is_category_enabled(multiworld: MultiWorld, player: int, category_nam
         return get_int_value(multiworld, player, "fishsanity") > 2
     if category_name == "McGuffin":
         return get_int_value(multiworld, player, "mcguffins_needed") > 0
+    if category_name == "Crystalline Conflict":
+        return Helpers.is_option_enabled(multiworld, player, "include_crystalline_conflict") or Helpers.is_option_enabled(multiworld, player, "include_pvp")
+    if category_name == "Frontline":
+        return Helpers.is_option_enabled(multiworld, player, "include_frontline") or Helpers.is_option_enabled(multiworld, player, "include_pvp")
     return None
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the item, False to disable it, or None to use the default behavior
-def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> Optional[bool]:
+def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> bool | None:
     from .Data import BOSS_GOAL_DATA
     item_name = item.get('name', '')
 
@@ -86,7 +90,7 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
-def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> Optional[bool]:
+def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
     if location.get('victory'):  # This should get fixed in the main code
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
@@ -95,7 +99,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
-    
+
     level_cap = get_int_value(multiworld, player, "level_cap")
     if "level" in location and int(location["level"]) > level_cap:
         return False
@@ -111,5 +115,5 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
     return None
 
 
-def before_is_event_enabled(multiworld: MultiWorld, player: int, event: dict[str, Any]) -> Optional[bool]:
+def before_is_event_enabled(multiworld: MultiWorld, player: int, event: dict[str, Any]) -> bool | None:
     return None

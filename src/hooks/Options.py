@@ -193,48 +193,6 @@ class FieldOperationCriticalEncounterCount(Range):
     range_start = 0
     range_end = 33
 
-class PotDCount(Range):
-    """
-    Number of Palace of the Dead Floorsets to include in the location pool
-
-    This could take dozens of hours if maxed out, as the nearest checkpoint is at floor 51
-    """
-    display_name = "Palace of the Dead Floorset Count"
-    default = 5
-    range_start = 0
-    range_end = 20
-
-class HoHCount(Range):
-    """
-    Number of Heaven-on-High Floorsets to include in the location pool
-
-    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
-    """
-    display_name = "Heaven-on-High Floorset Count"
-    default = 3
-    range_start = 0
-    range_end = 10
-
-class EOCount(Range):
-    """
-    Number of Eureka Orthos Floorsets to include in the location pool
-    
-    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
-    """
-    display_name = "Eureka Orthos Floorset Count"
-    default = 3
-    range_start = 0
-    range_end = 10
-
-class PTCount(Range):
-    """
-    Number of Pilgrim's Traverse Floorsets to include in the location pool
-    """
-    display_name = "Deep Dungeon Floorset Count"
-    default = 3
-    range_start = 0
-    range_end = 10
-
 class UltimateCount(Range):
     """
     Number of Ultimate Raids to include in the location pool
@@ -357,6 +315,17 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
+    visibility = Visibility.none  # Obsolete in favour of separate CC/Frontline options, but left here for backwards compatibility.
+
+class IncludeCrystalineConflict(Toggle):
+    """
+    Include Crystaline Conflict matches in the location pool.
+    """
+
+class IncludeFrontline(Toggle):
+    """
+    Include Frontline matches in the location pool.
+    """
 
 class IncludeBozja(Toggle):
     """
@@ -379,28 +348,6 @@ class IncludeOccultCrescent(Toggle):
 
     This includes the Fates, CEs and Alliance Raids of the Occult Crescent.
     """
-
-class IncludePotD(Toggle):
-    """
-    Include Palace of the Dead in the location pool.
-    """
-
-class IncludeHoH(Toggle):
-    """
-    Include Heaven-on-High in the location pool.
-    """
-
-class IncludeEO(Toggle):
-    """
-    Include Eureka Orthos in the location pool.
-    """
-
-
-class IncludePT(Toggle):
-    """
-    Include Pilgrim's Traverse in the location pool.
-    """
-
 
 class FatesPerZone(Range):
     """
@@ -443,6 +390,8 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
+    options["include_crystalline_conflict"] = IncludeCrystalineConflict
+    options["include_frontline"] = IncludeFrontline
     options["include_guildhests"] = IncludeGuildhests
 
     # Duty Counts
@@ -476,16 +425,6 @@ def before_options_defined(options: dict) -> dict:
     options["include_duels"] = IncludeDuels
     options["include_occult_crescent"] = IncludeOccultCrescent
 
-    # Deep Dungeon
-    options["include_potd"] = IncludePotD
-    options["include_hoh"] = IncludeHoH
-    options["include_eo"] = IncludeEO
-    options["include_pt"] = IncludePT
-    options["potd_count"] = PotDCount
-    options["hoh_count"] = HoHCount
-    options["eo_count"] = EOCount
-    options["pt_count"] = PTCount
-
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options
@@ -507,9 +446,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT, 
-                              PotDCount, HoHCount, EOCount, PTCount]
-    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
+    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
                              NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]
