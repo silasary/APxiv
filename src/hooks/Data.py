@@ -2,8 +2,8 @@ import csv
 import json
 import pkgutil
 import re
-from typing import Any
 from itertools import chain
+from typing import Any, cast
 
 # Location ID Starts
 # 1-7999: Duties
@@ -357,8 +357,9 @@ def generate_fate_list():
     if missing_fatesanity_zones:
         # This is hacky, but it lets me slowly scrape the wiki for FATEs without abusing the API
         for key in list(missing_fatesanity_zones.keys()):
-            from . import wiki_scraper
             import os
+
+            from . import wiki_scraper
             additional = wiki_scraper.find_fates(key)
             fates_path = os.path.join(os.path.dirname(__file__), 'fates.csv')
             with open(fates_path, 'a', newline='') as csvfile:
@@ -379,7 +380,7 @@ def generate_fish_list() -> list[dict]:
         requires = f"|5 FSH Levels:{data['lvl'] // 5}|"
 
         zones = data['zones']
-        if not zones:
+        if not zones or "The *Endeavor*" in zones:
             _id += 1
             continue
         intuition = data['logical_intuition']
@@ -394,6 +395,7 @@ def generate_fish_list() -> list[dict]:
             if not zones[region]:
                 _id += 1
                 continue
+
             if len(zones[region]) > 1:
                 requires += f" and (|{zones[region][0]}"
                 i = 0
@@ -461,57 +463,27 @@ def generate_bait_list() -> list[dict]:
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
 def after_load_item_file(item_table: list) -> list:
     item_table.extend(generate_bait_list())
-    classes = TANKS + HEALERS + MELEE + RANGED + CASTER + ["BLU"]
-    # crafters
-    DOH = [
-        "CRP",
-        "BSM",
-        "ARM",
-        "GSM",
-        "LTW",
-        "WVR",
-        "ALC",
-        "CUL",
-    ]
 
-    # gatherers
-    DOL = [
-        "MIN",
-        "BTN",
-        "FSH",
-        ]
+    from ..Helpers import load_data_file
+    classes = cast(list[dict], load_data_file("items.levels.json"))
 
-    level_items = []
     for job in classes:
-        max_level = LIMITED_LEVEL_CAPS.get(job, LEVEL_CAP)
+        max_level = LIMITED_LEVEL_CAPS.get(job['abbreviation'], LEVEL_CAP)
         n = int(max_level / 5)
 
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOW/DOM"],
+        category = 'DoW/DoM'
+        if job in DOH:
+            category = 'DoH'
+        elif job in DOL:
+            category = 'DoL'
+        job.update({
+            "category": ["Class Level", category],
             "count": 0,
             "max_count": n,
             "filler": True,
         })
 
-    for job in DOH:
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOH"],
-            "count": 0,
-            "max_count": int(LEVEL_CAP / 5),
-            "filler": True,
-        })
-    for job in DOL:
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOL"],
-            "count": 0,
-            "max_count": int(LEVEL_CAP / 5),
-            "filler": True,
-        })
-    level_items[0]['id'] = 5_000
-    item_table.extend(level_items)
+    item_table.extend(classes)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
     _cleared_id = 40_000

@@ -218,7 +218,13 @@ Aether Eye:
   - Signature Skyball
   - Brute Leech
   - Versatile Lure
-Aetheric Seadragon: {}
+Aetheric Seadragon:
+  Southern Merlthor Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Aetherlouse:
   North Silvertear:
   - Glowworm
@@ -235,7 +241,13 @@ Aetherlouse:
 Aetherolectric Guitarfish:
   Scholar's Harbor:
   - Mackerel Strip
-Agama's Strand: {}
+Agama's Strand:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Ragworm
 Agelyss Carp:
   East Agelyss River:
   - Snurble Fly
@@ -553,7 +565,13 @@ Anomalocaris:
   - Balloon Bug
   - Freshwater Boilie
   - Saltwater Boilie
-Anomalocaris Saron: {}
+Anomalocaris Saron:
+  Cieldalaes Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Antheia:
   Lethe:
   - Sky Spoon Lure
@@ -666,8 +684,19 @@ Armored Pleco:
 Armorer:
   Swiftperch:
   - Northern Krill
-Aronnax: {}
-Arrowhead: {}
+Aronnax:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Rat Tail
+  - Versatile Lure
+Arrowhead:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Ash Tuna:
   Costa del Sol:
   - Spoon Worm
@@ -806,7 +835,13 @@ Awaksbane Apoda:
 Axelrod:
   The One River (East):
   - Stonefly Larva
-Azeyma's Sleeve: {}
+Azeyma's Sleeve:
+  Southern Merlthor Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Azure Diver:
   Eastbound Zorgor:
   - Dragonfly
@@ -893,14 +928,24 @@ Banderole:
   - Stonefly Larva
   - Versatile Lure
   - Midge Larva
-Barded Lobster: {}
-Bareface: {}
+Barded Lobster:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Bareface:
+  Open Bloodbrine Sea:
+  - Krill
 Barreleye:
   The Flagship:
   - Signature Skyball
   - Fiend Worm
   - Versatile Lure
-Bartholomew the Chopper: {}
+Bartholomew the Chopper:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Basilosaurus:
   The Perfumed Tides:
   - Mackerel Strip
@@ -939,11 +984,19 @@ Battle Galley:
   - Honey Worm
   - Wildfowl Fly
   - Mythril Spoon Lure
-Beatific Vision: {}
+Beatific Vision:
+  Bloodbrine Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Pill Bug
+  - Versatile Lure
 Beguiler Chub:
   Rogue River:
   - Moth Pupa
-Bekko Rockhugger: {}
+Bekko Rockhugger:
+  Ruby Spectral Current:
+  - Krill
 Belonesox:
   Xd'aa Talat Tsoly:
   - Red Maggots
@@ -1121,7 +1174,9 @@ Black Velodyna Carp:
   - Suspending Minnow
   - Stonefly Larva
   - Nightcrawler
-Black-jawed Helicoprion: {}
+Black-jawed Helicoprion:
+  Sirensong Spectral Current:
+  - Plump Worm
 Blackfin Snake Eel:
   Onokoro:
   - Versatile Lure
@@ -1269,9 +1324,24 @@ Bloodbath:
 Bloodchaser:
   Tharl Oom Khash:
   - Giant Crane Fly
-Blooded Wrasse: {}
-Bloodfresh Tuna: {}
-Bloodpolish Crab: {}
+Blooded Wrasse:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Bloodfresh Tuna:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Bloodpolish Crab:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Bloodsipper:
   The Outer Fist:
   - Salmon Roe
@@ -1543,7 +1613,12 @@ Blue Purse:
   - Ghost Nipper
   - Shucked Clam
   - Metal Spinner
-Blue Stitcher: {}
+Blue Stitcher:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Blue Widow:
   Murmur Rills:
   - Floating Minnow
@@ -1891,7 +1966,13 @@ Bopo'u Sleeper:
   - Red Maggots
   - Popper Lure
   - Metal Spinner
-Bowbarb Lobster: {}
+Bowbarb Lobster:
+  Ruby Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Bowfin:
   Lake Tahtotl:
   - Honey Worm
@@ -2005,13 +2086,28 @@ Brassfish:
   - Midge Larva
   - Versatile Lure
   - Salmon Roe
-Bright Red Coral: {}
+Bright Red Coral:
+  Unnamed Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
 Brightmirror Clam:
   The Spoiled One:
   - Fruit Worm
   - Versatile Lure
-Broadhead: {}
-Brocade Carp: {}
+Broadhead:
+  Sirensong Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Mackerel Strip
+  - Versatile Lure
+Brocade Carp:
+  Lower One River:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Broken Crab:
   Upper Mirage Creek:
   - Salmon Roe
@@ -2236,8 +2332,17 @@ Calicia:
   - Versatile Lure
   - Grey Worm
   - Chimera Worm
-Callichthyid: {}
-Calligraph: {}
+Callichthyid:
+  Cieldalaes Spectral Current:
+  - Plump Worm
+  - Versatile Lure
+Calligraph:
+  Lower One River:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
+  - Plump Worm
 Canal Bream:
   Canal Town North:
   - Versatile Lure
@@ -2278,8 +2383,14 @@ Capsized Squeaker:
 Captain Nemo:
   South Banepool:
   - Brute Leech
-Captain's Finger: {}
-Captain's Pen: {}
+Captain's Finger:
+  Unnamed Spectral Current:
+  - Ragworm
+Captain's Pen:
+  Unnamed Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
 Caravan Eel:
   Sagolii Dunes:
   - Sand Leech
@@ -2294,7 +2405,10 @@ Cardinalfish:
 Carp Diem:
   Upper Black Tea Brook:
   - Crow Fly
-Casket Oyster: {}
+Casket Oyster:
+  Galadion Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Castaway Chocobo Chick:
   North Isle of Endless Summer:
   - Lugworm
@@ -2314,7 +2428,12 @@ Castaway Chocobo Chick:
 Catastrophizer:
   Reflecting Pool:
   - Mayfly
-Catching Carp: {}
+Catching Carp:
+  Lower One River:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Caterwauler:
   The Mourning Widow:
   - Moth Pupa
@@ -2427,7 +2546,13 @@ Charibenet:
   - Metal Spinner
   - Versatile Lure
   - Caddisfly Larva
-Charlatan Survivor: {}
+Charlatan Survivor:
+  Southern Merlthor Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Charon's Lantern:
   Daniffen Pass:
   - Glowworm
@@ -2468,7 +2593,12 @@ Chlorophos Deathworm:
   - Chimera Worm
   - Grey Worm
   - Versatile Lure
-Chrome Hammerhead: {}
+Chrome Hammerhead:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Chub:
   Nym River:
   - Crayfish Ball
@@ -2492,8 +2622,14 @@ Chub:
   - Versatile Lure
   - Moth Pupa
   - Bloodworm
-Cieldalaes Geode: {}
-Cieldalaes Roosterfish: {}
+Cieldalaes Geode:
+  Cieldalaes Margin:
+  - Krill
+Cieldalaes Roosterfish:
+  Unnamed Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
 Cinder Surprise:
   The River of Sand:
   - Desert Dessert Frog
@@ -2754,7 +2890,13 @@ Cobrafish:
   - Versatile Lure
   - Red Balloon
   - Metal Spinner
-Coccosteus: {}
+Coccosteus:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Heavy Steel Jig
+  - Versatile Lure
 Coelacanth:
   Isles of Umbra Southshore:
   - Spoon Worm
@@ -3056,8 +3198,13 @@ Coral Horse:
   - Versatile Lure
   - Metal Spinner
   - Live Shrimp
-Coral Manta: {}
-Coral Seadragon: {}
+Coral Manta:
+  Southern Merlthor Spectral Current:
+  - Shrimp Cage Feeder
+Coral Seadragon:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Corn Dace:
   Ku'uxage:
   - Red Maggots
@@ -3158,7 +3305,12 @@ Crenicichla:
 Crenicichla Miyaka:
   The Dewspun Bank:
   - Red Maggots
-Crepe Sole: {}
+Crepe Sole:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Crimson Crayfish:
   Bronze Lake Shallows:
   - Crayfish Ball
@@ -3194,15 +3346,27 @@ Crimson Crayfish:
   - Floating Minnow
   - Caddisfly Larva
   - Freshwater Boilie
-Crimson Kelp: {}
-Crimson Monkfish: {}
+Crimson Kelp:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Crimson Monkfish:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Crimson Sea Spider:
   The Derelicts:
   - Squid Strip
   - Moyebi Shrimp
   - Versatile Lure
   - Short Bill Minnow
-Crimson Sentry: {}
+Crimson Sentry:
+  Ruby Spectral Current:
+  - Plump Worm
 Crimson Trout:
   Coerthas River:
   - Wildfowl Fly
@@ -3238,8 +3402,19 @@ Crimson Trout:
   - Wildfowl Fly
   - Snurble Fly
   - Glowworm
-Crow Puffer: {}
-Crowshadow Mussel: {}
+Crow Puffer:
+  Outer Rothlyt Sound:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
+Crowshadow Mussel:
+  One River Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Stonefly Nymph
+  - Versatile Lure
 Crystal Knife:
   Crystarium Personal Suites:
   - Baitbugs
@@ -3302,7 +3477,12 @@ Custodian Carp:
   - Red Maggots
   - Versatile Lure
   - Popper Lure
-Cyan Octopus: {}
+Cyan Octopus:
+  Outer Galadion Bay:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Cyan Sea Devil:
   East Caliban Gap:
   - Short Bill Minnow
@@ -3419,7 +3599,12 @@ Dark Crown:
 Dark Knight:
   The Unholy Heir:
   - Crow Fly
-Dark Nautilus: {}
+Dark Nautilus:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Dark Sleeper:
   East Hathoeva River:
   - Syrphid Basket
@@ -3493,8 +3678,17 @@ Darksteel Knifefish:
   - Versatile Lure
   - Gold Salmon Roe
   - Sky Spoon Lure
-Darpana: {}
-Datli Gwl: {}
+Darpana:
+  Thavnair Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+Datli Gwl:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Krill
 Datnioides:
   Leynode Aero:
   - Versatile Lure
@@ -3555,7 +3749,12 @@ Deemster:
 Deep Canopy:
   Iq Br'aax Reservoir:
   - Red Maggots
-Deep Plaice: {}
+Deep Plaice:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Deep Purple Coral:
   The Flounders' Floor:
   - Short Bill Minnow
@@ -3565,11 +3764,22 @@ Deep Purple Coral:
   - Short Bill Minnow
   - Squid Strip
   - Versatile Lure
-Deep-sea Eel: {}
+Deep-sea Eel:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Rat Tail
+  - Versatile Lure
 Deephaunt:
   Woven Oath:
   - Baitbugs
-Deepshade Sardine: {}
+Deepshade Sardine:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Deepwarden:
   Karvarhur the First:
   - Red Maggots
@@ -3611,7 +3821,11 @@ Desert Saw:
   - Jerked Ovim
   - Versatile Lure
   - Desert Dessert Frog
-Devil's Sting: {}
+Devil's Sting:
+  Cieldalaes Spectral Current:
+  - Krill
+  - Versatile Lure
+  - Squid Strip
 Devotion Clam:
   Canal Town North:
   - Shucked Clam
@@ -3829,7 +4043,12 @@ Dravanian Bass:
   - Goblin Jig
   - Stonefly Nymph
   - Metal Spinner
-Dravanian Bream: {}
+Dravanian Bream:
+  Bloodbrine Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Dravanian Scallop:
   Quickspill Delta:
   - Metal Spinner
@@ -3862,7 +4081,9 @@ Driftwood Catfish:
   - Popper Lure
   - Versatile Lure
   - Honeybee
-Drunkfish: {}
+Drunkfish:
+  Outer Galadion Bay:
+  - Krill
 Dry Steppe Skipper:
   Hak Khaal:
   - Suspending Minnow
@@ -3985,7 +4206,9 @@ Dusk Goby:
   - Bloodworm
   - Crayfish Ball
   - Chocobo Fly
-Dusk Shark: {}
+Dusk Shark:
+  Open Sirensong Sea:
+  - Plump Worm
 Duskfish:
   Azim Khaat:
   - Nightcrawler
@@ -4086,8 +4309,15 @@ Eighteyes Eel:
   The Rift of Sighs:
   - Fruit Worm
   - Versatile Lure
-Elasmosaurus: {}
-Elder Dinichthys: {}
+Elasmosaurus:
+  Northern Merlthor Spectral Current:
+  - Heavy Steel Jig
+Elder Dinichthys:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Elder Gourami:
   Tao Khaal:
   - Nightcrawler
@@ -4248,8 +4478,14 @@ Everkeep Yabby:
 Excavator Catfish:
   Marsh Ligaka:
   - Popper Lure
-Executioner: {}
-Exterminator: {}
+Executioner:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Versatile Lure
+Exterminator:
+  Bloodbrine Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Fae Rainbow:
   The Jealous One:
   - Marble Nymph
@@ -4516,9 +4752,25 @@ First Feastfish:
   - Versatile Lure
   - Popper Lure
   - Golden Stonefly Nymph
-First Mate's Finger: {}
-Fishmonger: {}
-Fishy Shark: {}
+First Mate's Finger:
+  Unnamed Margin:
+  - Ragworm
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Ragworm
+  - Ragworm
+  - Krill
+Fishmonger:
+  Galadion Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Glowworm
+  - Versatile Lure
+Fishy Shark:
+  Lower One River:
+  - Plump Worm
 Five-ilm Pleco:
   Goblinblood:
   - Honey Worm
@@ -4532,7 +4784,10 @@ Five-ilm Pleco:
   - Versatile Lure
   - Bass Ball
   - Honey Worm
-Flaming Eel: {}
+Flaming Eel:
+  Cieldalaes Spectral Current:
+  - Krill
+  - Versatile Lure
 Flarefish:
   Unfrozen Pond:
   - Metal Spinner
@@ -4557,7 +4812,13 @@ Fleeting Brand:
   - Versatile Lure
   - Grey Worm
   - Chimera Worm
-Fleeting Squid: {}
+Fleeting Squid:
+  Ruby Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Floating Boulder:
   Lower Hathoeva River:
   - Bass Ball
@@ -4568,16 +4829,36 @@ Floating Fife:
   - Ghost Nipper
   - Shucked Clam
   - Metal Spinner
-Floating Lantern: {}
-Floating Saucer: {}
-Floefish: {}
+Floating Lantern:
+  Kugane Coast:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
+  - Ragworm
+Floating Saucer:
+  Rhotano Spectral Current:
+  - Krill
+  - Versatile Lure
+Floefish:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Flowerhorn:
   The Font of Maya:
   - Mayfly
   - Versatile Lure
   - Sky Spoon Lure
   - Leech
-Flying Squid: {}
+Flying Squid:
+  Ruby Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Forbiddingway:
   Limne 18:
   - Stardust
@@ -4735,13 +5016,28 @@ Functional Proto-hropken:
   - Fiend Worm
   - Versatile Lure
   - Signature Skyball
-Funnel Shark: {}
+Funnel Shark:
+  Galadion Spectral Current:
+  - Plump Worm
+  - Versatile Lure
 Furcacauda:
   Lethe:
   - Sky Spoon Lure
-Gakugyo: {}
-Galadion Chovy: {}
-Galadion Goby: {}
+Gakugyo:
+  One River Spectral Current:
+  - Plump Worm
+Galadion Chovy:
+  Outer Galadion Bay:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
+Galadion Goby:
+  Outer Galadion Bay:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Garden Skipper:
   Nem Khaal:
   - Midge Larva
@@ -4756,7 +5052,12 @@ Garjana Wrasse:
   - Shrimp Ball
   - Versatile Lure
   - Mackerel Strip
-Garlean Bluegill: {}
+Garlean Bluegill:
+  Lower One River:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Garlean Clam:
   The Eblan Thaw:
   - Leech
@@ -4792,8 +5093,19 @@ Garpike:
   - Honey Worm
   - Versatile Lure
   - Glowworm
-Garum Jug: {}
-Gensui Shrimp: {}
+Garum Jug:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Gensui Shrimp:
+  One River Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Stonefly Nymph
+  - Versatile Lure
 Gharlichthys:
   The Perfumed Tides:
   - Mackerel Strip
@@ -4805,7 +5117,13 @@ Ghost Faerie:
   - Metal Spinner
   - Versatile Lure
   - Stonefly Nymph
-Ghost Shark: {}
+Ghost Shark:
+  Galadion Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Glowworm
+  - Versatile Lure
 Ghostfish:
   The For'ard Cabins:
   - Crimson Lugworm
@@ -4813,7 +5131,12 @@ Ghostfish:
   - Shucked Clam
   - Ghost Nipper
   - Metal Spinner
-Ghoul Barracuda: {}
+Ghoul Barracuda:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Giant Aetherlouse:
   Unmoved Source Alpha:
   - Gold Salmon Roe
@@ -5059,19 +5382,33 @@ Gilfish:
 Gilt Dermogenys:
   The Lower Hungering Gardens:
   - Sky Spoon Lure
-Ginkgo Fin: {}
-Ginrin Goshiki: {}
+Ginkgo Fin:
+  Outer Rothlyt Sound:
+  - Ragworm
+Ginrin Goshiki:
+  One River Spectral Current:
+  - Krill
 Glacier Core:
   Greytail Falls:
   - Red Balloon
   - Balloon Bug
   - Versatile Lure
   - Giant Crane Fly
-Gladius: {}
+Gladius:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Glarramundi:
   The Heron's Way:
   - Suspending Minnow
-Glass Dragon: {}
+Glass Dragon:
+  Kugane Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Glass Flounder:
   Onokoro:
   - Bream Lure
@@ -5178,7 +5515,12 @@ Goblin Perch:
   - Freshwater Boilie
   - Glowworm
   - Stem Borer
-Godsbed: {}
+Godsbed:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Gold Hammer:
   Saint Fathric's Temple:
   - Baitbugs
@@ -5314,7 +5656,12 @@ Goldgrouper:
 Gondola Louvar:
   Canal Town South:
   - Ghost Nipper
-Goobbue Ray: {}
+Goobbue Ray:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Goosefish:
   Skull Valley:
   - Lugworm
@@ -5323,7 +5670,13 @@ Goosefish:
   - Rat Tail
   - Goby Ball
   - Saltwater Boilie
-Gory Tuna: {}
+Gory Tuna:
+  Bloodbrine Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Pill Bug
+  - Versatile Lure
 Granite Crab:
   Anyx Old:
   - Magma Worm
@@ -5364,11 +5717,22 @@ Gravel Mussel:
   - Squid Strip
   - Short Bill Minnow
 Great Ball of Lightning: {}
-Great Grandmarlin: {}
+Great Grandmarlin:
+  Southern Merlthor Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Great Gudgeon:
   West Agelyss River:
   - Crayfish Ball
-Great Red Mantis: {}
+Great Red Mantis:
+  Thavnair Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Rat Tail
 Greater Serpent of Ronka:
   Lake Tusi Mek'ta:
   - Robber Ball
@@ -5622,7 +5986,13 @@ Gudgeon:
   - Stem Borer
   - Versatile Lure
   - Crayfish Ball
-Gugrusaurus: {}
+Gugrusaurus:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Heavy Steel Jig
+  - Versatile Lure
 Guitarfish:
   Scholar's Harbor:
   - Shrimp Ball
@@ -5631,7 +6001,12 @@ Guitarfish:
 Guppy:
   Azim Khaat:
   - Stonefly Larva
-Guzel Gwl: {}
+Guzel Gwl:
+  Thavnair Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Rat Tail
 Gwl Crab:
   Yedlihmad:
   - Shrimp Ball
@@ -5668,7 +6043,9 @@ Gyr Abanian Trout:
   - Versatile Lure
   - Nightcrawler
   - Suspending Minnow
-Hafgufa: {}
+Hafgufa:
+  Cieldalaes Spectral Current:
+  - Squid Strip
 Hagoromo Bijin:
   The One River (West):
   - Stonefly Larva
@@ -5694,7 +6071,13 @@ Halibut:
   Swiftperch:
   - Northern Krill
   - Versatile Lure
-Hammerclaw: {}
+Hammerclaw:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Heavy Steel Jig
+  - Versatile Lure
 Hammerhead Shark:
   Halfstone:
   - Steel Jig
@@ -5933,7 +6316,12 @@ Harutsuge:
   Shoal Rock:
   - Blue Bobbit
   - Versatile Lure
-Hatatate: {}
+Hatatate:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Heather Charr:
   The Ephor:
   - Suspending Minnow
@@ -5948,9 +6336,22 @@ Heather Charr:
 Heavens Coral:
   Mok Oogl Island:
   - Giant Crane Fly
-Heavensent Shark: {}
-Heavenskey: {}
-Heavenswimmer: {}
+Heavensent Shark:
+  Open Ruby Sea:
+  - Krill
+Heavenskey:
+  Galadion Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Glowworm
+  - Versatile Lure
+Heavenswimmer:
+  Outer Galadion Bay:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Hedgemole Cricket:
   Middle Thaliak River:
   - Metal Spinner
@@ -6002,7 +6403,9 @@ Helicoprion:
 Heliobatis:
   North Silvertear:
   - Caddisfly Larva
-Hells' Claw: {}
+Hells' Claw:
+  Ruby Spectral Current:
+  - Squid Strip
 Hellsnow Shark:
   Eastbound Zorgor:
   - Cactuar Jig
@@ -6081,8 +6484,20 @@ Heritage Loach:
 Hermit's End:
   Namai:
   - Stonefly Larva
-Heron's Eel: {}
-Hi-aetherlouse: {}
+Heron's Eel:
+  One River Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Stonefly Nymph
+  - Versatile Lure
+Hi-aetherlouse:
+  Southern Merlthor Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 High Allagan Helmet:
   Alpha Quadrant:
   - Fiend Worm
@@ -6112,7 +6527,12 @@ Holier-than Mogpom:
   Greensward:
   - Versatile Lure
   - Metal Spinner
-Honeycomb Fish: {}
+Honeycomb Fish:
+  Outer Rothlyt Sound:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
 Honeycomb Sponge:
   Miyakabek'zoma:
   - Metal Spinner
@@ -6293,7 +6713,12 @@ Icepike:
 Icuvlo's Barter:
   Downripple:
   - Red Maggots
-Idaten's Bolt: {}
+Idaten's Bolt:
+  Kugane Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Idle Goby:
   The Slow Wash:
   - Metal Spinner
@@ -6430,7 +6855,11 @@ Imperial Pleco:
   - Versatile Lure
   - Gold Salmon Roe
   - Sky Spoon Lure
-Impostopus: {}
+Impostopus:
+  Sirensong Spectral Current:
+  - Krill
+  - Mackerel Strip
+  - Versatile Lure
 Indigo Herring:
   Costa del Sol:
   - Spoon Worm
@@ -6521,7 +6950,9 @@ Iribainion:
   - Versatile Lure
   - Leech
   - Gold Salmon Roe
-Iridescent Trout: {}
+Iridescent Trout:
+  One River Spectral Current:
+  - Krill
 Iris Wrasse:
   Canal Town North:
   - Versatile Lure
@@ -6602,7 +7033,10 @@ Jade Eel:
   - Spinner
   - Freshwater Boilie
   - Floating Minnow
-Jade Mantis Shrimp: {}
+Jade Mantis Shrimp:
+  Sirensong Spectral Current:
+  - Krill
+  - Versatile Lure
 Jade Sculpin:
   Lower Yat Khaal:
   - Metal Spinner
@@ -6610,9 +7044,22 @@ Jade Sculpin:
   - Versatile Lure
   - Suspending Minnow
   - Midge Larva
-Jasperhead: {}
-Jetborne Manta: {}
-Jewel of Plum Spring: {}
+Jasperhead:
+  Outer Galadion Bay:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
+Jetborne Manta:
+  Cieldalaes Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
+Jewel of Plum Spring:
+  One River Spectral Current:
+  - Stonefly Nymph
 Jeweled Jellyfish:
   The Flagship:
   - Fiend Worm
@@ -6646,7 +7093,13 @@ Jungle Catfish:
   - Silver Spoon Lure
   - Snurble Fly
   - Stem Borer
-Junior Jinbei: {}
+Junior Jinbei:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  Thavnair Spectral Current:
+  - Plump Worm
+  - Ragworm
 Junkmonger:
   Skull Valley:
   - Lugworm
@@ -6714,7 +7167,12 @@ Killifish:
   The Silver Canal:
   - Midge Larva
   - Versatile Lure
-King Cobrafish: {}
+King Cobrafish:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 King Puffer:
   High Tide Harbor:
   - Crimson Lugworm
@@ -6819,7 +7277,10 @@ Knifefish:
   - Freshwater Boilie
   The Deep Tangle:
   - Glowworm
-Knifejaw: {}
+Knifejaw:
+  Rothlyt Spectral Current:
+  - Krill
+  - Versatile Lure
 Knight Goby:
   Leynode Aero:
   - Versatile Lure
@@ -6919,7 +7380,12 @@ Kuno the Killer:
   - Glowworm
   - Stem Borer
   - Snurble Fly
-La Noscean Jelly: {}
+La Noscean Jelly:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 La Noscean Perch:
   Nym River:
   - Sinking Minnow
@@ -6955,7 +7421,12 @@ Labyrinthos Tilapia:
   - Versatile Lure
   - Leech
   - Sky Spoon Lure
-Lady's Cameo: {}
+Lady's Cameo:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Lake Sphairai:
   The Comet's Tail:
   - Metal Spinner
@@ -7049,7 +7520,12 @@ Lamp Marimo:
   - Syrphid Basket
   - Glowworm
   - Purse Web Spider
-Lampfish: {}
+Lampfish:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Lamprey:
   Burnt Lizard Creek:
   - Midge Basket
@@ -7109,7 +7585,12 @@ Lamprey:
 Lancetfish:
   Northwest Caliban Gorge:
   - Squid Strip
-Lansquenet: {}
+Lansquenet:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Lantern Marimo:
   The Outer Fist:
   - Salmon Roe
@@ -7133,7 +7614,12 @@ Lavalord:
   - Metal Spinner
   - Magma Worm
   - Versatile Lure
-Lavandin Remora: {}
+Lavandin Remora:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Lavender Remora:
   Costa del Sol:
   - Versatile Lure
@@ -7219,15 +7705,30 @@ Lemonfish:
   - Marble Nymph
   - Versatile Lure
   - Robber Ball
-Leopard Eel: {}
-Leopard Prawn: {}
+Leopard Eel:
+  Outer Galadion Bay:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
+Leopard Prawn:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Letter Puffer:
   Landlord Colony:
   - Giant Crane Fly
   - Versatile Lure
   - Red Balloon
   - Metal Spinner
-Levi Elver: {}
+Levi Elver:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Levinlight:
   Everschade:
   - Syrphid Basket
@@ -7259,7 +7760,9 @@ Liopleurodon:
 Listracanthus:
   The Isle of Ken:
   - Baitbugs
-Little Leviathan: {}
+Little Leviathan:
+  The Southern Strait of Merlthor:
+  - Plump Worm
 Little Perykos:
   North Isle of Endless Summer:
   - Lugworm
@@ -7286,8 +7789,17 @@ Little Thalaos:
   Rhotano Sea (Privateer Sterncastle):
   - Northern Krill
   - Versatile Lure
-Living Lantern: {}
-Lodesmate's Pen: {}
+Living Lantern:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Lodesmate's Pen:
+  Unnamed Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
 Lominsan Anchovy:
   Candlekeep Quay:
   - Goby Ball
@@ -7490,7 +8002,12 @@ Madam Butterfly:
   - Metal Spinner
   - Versatile Lure
   - Brute Leech
-Maelstrom Turban: {}
+Maelstrom Turban:
+  Kugane Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
 Magic Bucket:
   South Banepool:
   - Brute Leech
@@ -7684,7 +8201,9 @@ Maiden's Heart:
   - Nightcrawler
   - Versatile Lure
   - Metal Spinner
-Mailfish: {}
+Mailfish:
+  Kugane Spectral Current:
+  - Ragworm
 Malm Kelp:
   Limsa Lominsa Lower Decks:
   - Lugworm
@@ -7708,7 +8227,12 @@ Malm Kelp:
   - Lugworm
   - Yumizuno
   - Rat Tail
-Mamahi-mahi: {}
+Mamahi-mahi:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Manasail:
   Tharl Oom Khash:
   - Metal Spinner
@@ -7728,7 +8252,14 @@ Mangar:
   - Sky Spoon Lure
   - Gold Salmon Roe
   - Leech
-Mantle Moray: {}
+Mantle Moray:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+  - Krill
+  - Krill
 Marble Oscar:
   The Smoldering Wastes:
   - Brute Leech
@@ -7747,8 +8278,18 @@ Marid Frog:
   - Versatile Lure
   - Gold Salmon Roe
   - Sky Spoon Lure
-Marine Bomb: {}
-Marine Matanga: {}
+Marine Bomb:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Marine Matanga:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Marrow Sucker:
   North Drybone:
   - Syrphid Basket
@@ -7799,7 +8340,10 @@ Mazlaya Marlin:
   - Krill Cage Feeder
   - Spoon Worm
   - Floating Minnow
-Meandering Mora: {}
+Meandering Mora:
+  Cieldalaes Spectral Current:
+  - Plump Worm
+  - Versatile Lure
 Meditator:
   The Bull's Bath:
   - Suspending Minnow
@@ -7853,8 +8397,18 @@ Megalodon:
   - Yumizuno
   - Glowworm
   - Sinking Minnow
-Megasquid: {}
-Mehi-mahi: {}
+Megasquid:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Mehi-mahi:
+  Thavnair Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Rat Tail
 Merciless:
   West Banepool:
   - Caddisfly Larva
@@ -7871,7 +8425,12 @@ Mercy Staff:
   - Caddisfly Larva
   - Purse Web Spider
   - Stonefly Nymph
-Merlthor Butterfly: {}
+Merlthor Butterfly:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Merlthor Goby:
   Cape Westwind:
   - Lugworm
@@ -8035,9 +8594,26 @@ Merlthor Goby:
   - Goby Ball
   - Pill Bug
   - Floating Minnow
-Merlthor Lobster: {}
-Mermaid Scale: {}
-Merman's Mane: {}
+Merlthor Lobster:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Mermaid Scale:
+  Sirensong Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Mackerel Strip
+  - Versatile Lure
+Merman's Mane:
+  Galadion Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Glowworm
+  - Versatile Lure
 Mesonauta:
   The Mover Alpha:
   - Sky Spoon Lure
@@ -8045,7 +8621,12 @@ Mesonauta:
   - Versatile Lure
   - Mayfly
   - Leech
-Metallic Boxfish: {}
+Metallic Boxfish:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Meteor Survivor:
   The Salt Strand:
   - Rat Tail
@@ -8111,7 +8692,13 @@ Mirrorscale:
   - Syrphid Basket
   - Streamer
   - Snurble Fly
-Mistbeard's Cup: {}
+Mistbeard's Cup:
+  Cieldalaes Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Misty Killifish:
   The Rusted Reservoir:
   - Baitbugs
@@ -8218,7 +8805,9 @@ Mitten Crab:
   - Versatile Lure
   - Freshwater Boilie
   - Stem Borer
-Mizuhiki: {}
+Mizuhiki:
+  Kugane Coast:
+  - Ragworm
 Moat Carp:
   Empty Heart:
   - Spinnerbait
@@ -8269,7 +8858,13 @@ Moldva:
   - Versatile Lure
   - Caddisfly Larva
   - Butterworm
-Momora Mora: {}
+Momora Mora:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ghoul Barracuda
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Monk Betta:
   Rhalgr's Reach:
   - Versatile Lure
@@ -8380,7 +8975,10 @@ Moonmarking Saucer:
   - Versatile Lure
   - Honeybee
   - Popper Lure
-Mopbeard: {}
+Mopbeard:
+  Northern Merlthor Spectral Current:
+  - Krill
+  - Versatile Lure
 Mora Tecta:
   Northwest Caliban Gorge:
   - Short Bill Minnow
@@ -8679,8 +9277,17 @@ Muttering Matamata:
   - Versatile Lure
   - Popper Lure
   - Metal Spinner
-Mythril Boxfish: {}
-Mythril Sovereign: {}
+Mythril Boxfish:
+  Cieldalaes Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Squid Strip
+  - Versatile Lure
+Mythril Sovereign:
+  Southern Merlthor Spectral Current:
+  - Krill
+  - Versatile Lure
 Nabaath Manta:
   The Hills of Amber:
   - Desert Dessert Frog
@@ -8743,7 +9350,13 @@ Navigator's Dagger:
   - Saltwater Boilie
   - Heavy Steel Jig
   - Floating Minnow
-Navigator's Print: {}
+Navigator's Print:
+  Galadion Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Glowworm
+  - Versatile Lure
 Ndendecki:
   Moondrip:
   - Honey Worm
@@ -8760,7 +9373,12 @@ Neo Arowana:
   - Versatile Lure
   - Red Maggots
   - Popper Lure
-Nephrite Eel: {}
+Nephrite Eel:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Nepto Dragon:
   Rhotano Sea (Privateer Sterncastle):
   - Northern Krill
@@ -8773,7 +9391,12 @@ Nepto Dragon:
   - Steel Jig
   - Heavy Steel Jig
 Ner Lar Dor: {}
-Net Crawler: {}
+Net Crawler:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Nhaama's Boon:
   Dotharl Khaa:
   - Stonefly Larva
@@ -8799,7 +9422,10 @@ Niikwerepi Trout:
   - Popper Lure
   - Versatile Lure
   - Red Maggots
-Nimble Dancer: {}
+Nimble Dancer:
+  Galadion Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Ninja Betta:
   The Tangle:
   - Midge Basket
@@ -8874,7 +9500,9 @@ Nyctosaur:
   Tharl Oom Khash:
   - Giant Crane Fly
   - Versatile Lure
-Nymeia's Wheel: {}
+Nymeia's Wheel:
+  Sirensong Spectral Current:
+  - Krill
 Oakroot:
   Proud Creek:
   - Versatile Lure
@@ -9043,7 +9671,12 @@ Ogre Barracuda:
   - Floating Minnow
   - Saltwater Boilie
   - Steel Jig
-Ogre Eel: {}
+Ogre Eel:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Ogre Horn Snail:
   Dragonspit:
   - Signature Skyball
@@ -9132,7 +9765,12 @@ Opabinia:
 Opal Shrimp:
   The Norvrandt Slope:
   - Squid Strip
-Oracular Crab: {}
+Oracular Crab:
+  Bloodbrine Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Orn Butterfly:
   Quickspill Delta:
   - Purse Web Spider
@@ -9143,7 +9781,13 @@ Orn Butterfly:
 Oschon's Print:
   Moraby Bay:
   - Goby Ball
-Oschon's Stone: {}
+Oschon's Stone:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Tossed Dagger
+  - Plump Worm
+  - Versatile Lure
 Ossicula:
   Greatest Endsvale:
   - Metal Spinner
@@ -9226,7 +9870,11 @@ Paksa Fish:
   - Mackerel Strip
   - Versatile Lure
   - Shrimp Ball
-Palaka's Blade: {}
+Palaka's Blade:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  - Plump Worm
 Pancake Octopus:
   East Caliban Gap:
   - Squid Strip
@@ -9238,13 +9886,22 @@ Pandamoth:
   - Midge Larva
   - Versatile Lure
   - Suspending Minnow
-Panoptes: {}
+Panoptes:
+  Rothlyt Spectral Current:
+  - Plump Worm
+  - Versatile Lure
+  - Krill
+  - Ragworm
 Pantherscale Grouper:
   Yedlihmad:
   - Shrimp Ball
   - Versatile Lure
   - Mackerel Strip
-Parjanya Wrasse: {}
+Parjanya Wrasse:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  - Plump Worm
 Peacock Bass:
   Oinops:
   - Mayfly
@@ -9252,7 +9909,10 @@ Peacock Bass:
   - Versatile Lure
   - Leech
   - Sky Spoon Lure
-Pearl Bombfish: {}
+Pearl Bombfish:
+  Rothlyt Spectral Current:
+  - Krill
+  - Versatile Lure
 Pearl Pipira:
   The Red Chalice:
   - Robber Ball
@@ -9391,11 +10051,21 @@ Pike Eel:
   - Versatile Lure
   - Glowworm
   - Saltwater Boilie
-Pinebark Flounder: {}
+Pinebark Flounder:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Pinhead:
   Isari:
   - Live Shrimp
-Pink Shrimp: {}
+Pink Shrimp:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Pipira:
   Jadeite Flood:
   - Stem Borer
@@ -9502,8 +10172,12 @@ Pirate's Bane:
   - Steel Jig
   - Northern Krill
   - Heavy Steel Jig
-Pirate's Purse: {}
-Pitch Pickle: {}
+Pirate's Purse:
+  Unnamed Spectral Current:
+  - Ragworm
+Pitch Pickle:
+  Ruby Spectral Current:
+  - Ragworm
 Pixel Loach:
   Residential Sector:
   - Red Maggots
@@ -9521,7 +10195,12 @@ Pixie Fish:
   - Metal Spinner
   - Robber Ball
   - Fruit Worm
-Placodus: {}
+Placodus:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Plaguefish:
   Burnt Lizard Creek:
   - Versatile Lure
@@ -9607,13 +10286,20 @@ Pleated Matamata:
   - Popper Lure
   - Versatile Lure
   - Metal Spinner
-Pliosaurus: {}
+Pliosaurus:
+  Thavnair Spectral Current:
+  - Plump Worm
 Plum Gazer:
   Plum Spring:
   - Midge Larva
   - Versatile Lure
   - Suspending Minnow
-Poet's Pipe: {}
+Poet's Pipe:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Poison Dyefrog:
   Bopo'uihih:
   - Honeybee
@@ -9715,7 +10401,12 @@ Prime Adjudicator:
 Princess Killifish:
   The Silver Canal:
   - Nightcrawler
-Princess Salmon: {}
+Princess Salmon:
+  Lower One River:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Princess Trout:
   Nym River:
   - Crayfish Ball
@@ -9753,7 +10444,13 @@ Prochilodus Luminosus:
   - Versatile Lure
   - Leech
   - Mayfly
-Prodigal Son: {}
+Prodigal Son:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Rat Tail
+  - Versatile Lure
 Proto-hropken:
   Aetherochemical Spill:
   - Fiend Worm
@@ -9777,7 +10474,13 @@ Protoflesh:
   - Chimera Worm
   - Grey Worm
   - Versatile Lure
-Prowler: {}
+Prowler:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Heavy Steel Jig
+  - Versatile Lure
 Pteranodon:
   Sohm Al Summit:
   - Giant Crane Fly
@@ -9847,8 +10550,14 @@ Qor Pirarucu:
   - Golden Stonefly Nymph
   - Honeybee
   - Honeybee
-Quartz Hammerhead: {}
-Quicksilver Blade: {}
+Quartz Hammerhead:
+  Bloodbrine Spectral Current:
+  - Plump Worm
+  - Versatile Lure
+Quicksilver Blade:
+  Galadion Spectral Current:
+  - Plump Worm
+  - Versatile Lure
 Rabbit Skipper:
   Sullen:
   - Fruit Worm
@@ -10086,7 +10795,9 @@ Rebel:
 Recordkiller:
   South Mjrl's Regret:
   - Baitbugs
-Red Boarfish: {}
+Red Boarfish:
+  Unnamed Spectral Current:
+  - Krill
 Red Bowfin:
   Unmoved Source Beta:
   - Sky Spoon Lure
@@ -10161,7 +10872,13 @@ Red Hammerhead:
   - Moyebi Shrimp
   - Versatile Lure
   - Short Bill Minnow
-Red Mantis: {}
+Red Mantis:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Ragworm
 Red Prismfish:
   Prism Lake:
   - Stonefly Larva
@@ -10179,13 +10896,20 @@ Redtail:
   - Versatile Lure
   - Suspending Minnow
   - Stonefly Larva
-Reef Squid: {}
+Reef Squid:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Regotoise:
   The Frozen Fissure:
   - Versatile Lure
   - Grey Worm
   - Chimera Worm
-Renegade Rhotanosaurus: {}
+Renegade Rhotanosaurus:
+  Unnamed Spectral Current:
+  - Plump Worm
 Replipirarucu:
   Greatest Endsvale:
   - Mayfly
@@ -10207,12 +10931,39 @@ Rhamphorhynchus:
   - Freshwater Boilie
   - Balloon Bug
   - Saltwater Boilie
-Rhotano Dahlia: {}
-Rhotano Permit: {}
-Rhotano Roosterfish: {}
-Rhotano Sardine: {}
-Rhotano Wahoo: {}
-Rhotanosaurus: {}
+Rhotano Dahlia:
+  Unnamed Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Ragworm
+Rhotano Permit:
+  Unnamed Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+Rhotano Roosterfish:
+  Unnamed Margin:
+  - Ragworm
+  - Plump Worm
+  - Krill
+Rhotano Sardine:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Rhotano Wahoo:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
+Rhotanosaurus:
+  Unnamed Margin:
+  - Ragworm
+  - Plump Worm
+  - Krill
 Ribbon Eel:
   Kugane Piers:
   - Metal Spinner
@@ -10391,7 +11142,13 @@ Rockclimber:
 Rockfish:
   The Arms of Meed:
   - Suspending Minnow
-Roguesaurus: {}
+Roguesaurus:
+  Southern Merlthor Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Roosterfish:
   The Perfumed Tides:
   - Mackerel Strip
@@ -10434,9 +11191,24 @@ Rosebud Frog:
   - Versatile Lure
   - Popper Lure
   - Red Maggots
-Rosy Bream: {}
-Rothlyt Kelp: {}
-Rothlyt Mussel: {}
+Rosy Bream:
+  Outer Galadion Bay:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
+Rothlyt Kelp:
+  Outer Rothlyt Sound:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
+Rothlyt Mussel:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Rothlyt Oyster:
   Candlekeep Quay:
   - Rat Tail
@@ -10483,17 +11255,36 @@ Rothlyt Oyster:
   - Heavy Steel Jig
   - Versatile Lure
   - Rat Tail
-Royal Favorite: {}
-Royal Handmaiden: {}
+Royal Favorite:
+  Unnamed Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+Royal Handmaiden:
+  Unnamed Margin:
+  - Ragworm
+  - Ragworm
+  - Krill
 Rroneek Bichir: {}
-Rubescent Tatsunoko: {}
+Rubescent Tatsunoko:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Ruby Coral:
   Shoal Rock:
   - Bream Lure
   - Live Shrimp
   - Versatile Lure
   - Blue Bobbit
-Ruby Herring: {}
+Ruby Herring:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Leopard Prawn
+  - Versatile Lure
 Ruby Laver:
   Shoal Rock:
   - Live Shrimp
@@ -10556,7 +11347,9 @@ Rudderfish:
   - Red Balloon
   - Versatile Lure
   - Metal Spinner
-Sabaton: {}
+Sabaton:
+  Open Rhotano Sea:
+  - Krill
 Saber Sardine:
   Crescent Cove:
   - Northern Krill
@@ -10604,7 +11397,13 @@ Samurai Fish:
   - Stonefly Larva
   - Versatile Lure
   - Midge Larva
-Sanbaso: {}
+Sanbaso:
+  Open Ruby Sea:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
+  - Krill
 Sand Bream:
   Sagolii Desert:
   - Sand Leech
@@ -10645,7 +11444,12 @@ Sarikuyruk:
   The Great Runoff:
   - Metal Spinner
   - Versatile Lure
-Satrapsaurus: {}
+Satrapsaurus:
+  Thavnair Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Rat Tail
 Saucerfish:
   Witchdrop:
   - Hoverworm
@@ -10773,7 +11577,10 @@ Sea Devil:
   - Yumizuno
   - Glowworm
   - Saltwater Boilie
-Sea Nettle: {}
+Sea Nettle:
+  Southern Merlthor Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Sea Pickle:
   Halfstone:
   - Versatile Lure
@@ -10795,7 +11602,9 @@ Sea Pickle:
   - Steel Jig
   - Heavy Steel Jig
   - Northern Krill
-Seafaring Toad: {}
+Seafaring Toad:
+  Bloodbrine Spectral Current:
+  - Pill Bug
 Seahag:
   Reaver Hide:
   - Lugworm
@@ -10882,8 +11691,20 @@ Seema Patrician:
   - Glowworm
   - Mythril Spoon Lure
   - Syrphid Basket
-Selkie Puffer: {}
-Senbei Octopus: {}
+Selkie Puffer:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+  - Ragworm
+Senbei Octopus:
+  Ruby Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Sepia Sole:
   Sharptongue Drip:
   - Marble Nymph
@@ -10894,7 +11715,13 @@ Seraphim:
   - Stonefly Larva
   - Versatile Lure
   - Suspending Minnow
-Serrated Clam: {}
+Serrated Clam:
+  Bloodbrine Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Pill Bug
+  - Versatile Lure
 Seven Stars:
   The Isle of Bekko:
   - Blue Bobbit
@@ -10961,7 +11788,12 @@ Shadowtongue:
   - Red Maggots
   - Golden Stonefly Nymph
   - Popper Lure
-Shaggy Seadragon: {}
+Shaggy Seadragon:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Shall Shell:
   Candlekeep Quay:
   - Northern Krill
@@ -11052,13 +11884,24 @@ Shipworm:
   - Goblin Jig
   - Bladed Steel Jig
   - Signature Skyball
-Shipwreck's Sail: {}
+Shipwreck's Sail:
+  Southern Merlthor Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Shrimp Cage Feeder
+  - Versatile Lure
 Shirogane Clam:
   Isari:
   - Metal Spinner
   - Live Shrimp
   - Versatile Lure
-Shisui Goby: {}
+Shisui Goby:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Shonisaurus:
   Witchdrop:
   - Hoverworm
@@ -11066,13 +11909,18 @@ Shonisaurus:
   - Freshwater Boilie
   - Balloon Bug
   - Saltwater Boilie
-Shooting Star: {}
+Shooting Star:
+  The Northern Strait of Merlthor:
+  - Ragworm
 Shooting Starscale:
   Chirwagur Lake:
   - Silkmoth Pupa
   - Versatile Lure
   - White Worm
-Shoshitsuki: {}
+Shoshitsuki:
+  Kugane Spectral Current:
+  - Plump Worm
+  - Versatile Lure
 Shovelnose Catfish:
   Marsh Ligaka:
   - Popper Lure
@@ -11093,13 +11941,31 @@ Sidereal Whale:
   - Stardust
   - Panic Jig
   - Versatile Lure
-Silencer: {}
-Silent Shark: {}
+Silencer:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Rat Tail
+  - Versatile Lure
+Silent Shark:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Silken Koi:
   Plum Spring:
   - Stonefly Larva
-Silkfin: {}
-Silkweft Prawn: {}
+Silkfin:
+  Thavnair Margin:
+  - Krill
+Silkweft Prawn:
+  Kugane Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
 Silver Characin:
   Meghaduta:
   - Gold Salmon Roe
@@ -11185,7 +12051,9 @@ Silver Shark:
 Silver Sovereign:
   Oschon's Torch:
   - Yumizuno
-Silverdart: {}
+Silverdart:
+  Thavnair Spectral Current:
+  - Krill
 Silverfish:
   Bluefog:
   - Versatile Lure
@@ -11305,18 +12173,45 @@ Silverfish:
   - Stem Borer
   - Sinking Minnow
   - Silver Spoon Lure
-Simolestes: {}
-Singular Shrimp: {}
+Simolestes:
+  Thavnair Margin:
+  - Krill
+  - Plump Worm
+  - Ragworm
+Singular Shrimp:
+  Lower One River:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Sinspitter:
   The Quadrivium:
   - Fruit Worm
   - Marble Nymph
   - Versatile Lure
   - Robber Ball
-Siren's Sigh: {}
-Sirensong Mullet: {}
-Sirensong Mussel: {}
-Skaldminni: {}
+Siren's Sigh:
+  Sirensong Spectral Current:
+  - Ragworm
+  - Mackerel Strip
+  - Versatile Lure
+Sirensong Mullet:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
+  - Plump Worm
+Sirensong Mussel:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Skaldminni:
+  Bloodbrine Spectral Current:
+  - Krill
+  - Versatile Lure
 Skeletonfish:
   Crystarium Personal Suites:
   - Baitbugs
@@ -11426,7 +12321,10 @@ Skyworm:
 Slime King:
   Lower Soot Creek:
   - Crayfish Ball
-Slipsnail: {}
+Slipsnail:
+  Rhotano Spectral Current:
+  - Ragworm
+  - Versatile Lure
 Sludgeskipper:
   Ceruleum Field:
   - Versatile Lure
@@ -11464,14 +12362,24 @@ Smaragdos:
   - Leech
   - Mayfly
   - Gold Salmon Roe
-Smooth Jaguar: {}
+Smooth Jaguar:
+  Rothlyt Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Snakeskin Discus:
   Sullen:
   - Fruit Worm
   - Baitbugs
   - Versatile Lure
   - Marble Nymph
-Snapping Koban: {}
+Snapping Koban:
+  Kugane Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Snowcaller:
   West Banepool:
   - Brute Leech
@@ -11507,7 +12415,9 @@ Sorcerer Fish:
   - Mythril Spoon Lure
   - Spinner
   - Syrphid Basket
-Sothis: {}
+Sothis:
+  Galadion Spectral Current:
+  - Glowworm
 South Kholusian Cod:
   Seagazer Shoals:
   - Select Bait Ball
@@ -11566,8 +12476,15 @@ Space Bishop:
   "Limne 3-\u03B1":
   - Panic Jig
   - Versatile Lure
-Spadefish: {}
-Spear Squid: {}
+Spadefish:
+  Kugane Spectral Current:
+  - Krill
+Spear Squid:
+  Kugane Coast:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Versatile Lure
 Spearhead Squid:
   The Eastern Kholusian Coast:
   - Short Bill Minnow
@@ -11577,20 +12494,83 @@ Spearhead Squid:
 Spearnose:
   The Goblet:
   - Caddisfly Larva
-Specterfish: {}
-Spectral Bass: {}
-Spectral Butterfly: {}
-Spectral Coelacanth: {}
-Spectral Discus: {}
-Spectral Eel: {}
-Spectral Grouper: {}
-Spectral Kotsu Zetsu: {}
-Spectral Megalodon: {}
-Spectral Sea Bo: {}
-Spectral Snake Eel: {}
-Spectral Starfish: {}
-Spectral Wrasse: {}
-Spectresaur: {}
+Specterfish:
+  Unnamed Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+Spectral Bass:
+  Open Rhotano Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Spectral Butterfly:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Spectral Coelacanth:
+  Open Sirensong Sea:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Spectral Discus:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Spectral Eel:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Spectral Grouper:
+  Thavnair Margin:
+  - Krill
+  - Ragworm
+Spectral Kotsu Zetsu:
+  Lower One River:
+  - Krill
+  - Plump Worm
+  - Ragworm
+Spectral Megalodon:
+  Outer Galadion Bay:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
+Spectral Sea Bo:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Spectral Snake Eel:
+  Open Ruby Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+Spectral Starfish:
+  Unnamed Margin:
+  - Ragworm
+  - Ragworm
+Spectral Wrasse:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Spectresaur:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Spotted Blue-eye:
   The Jealous One:
   - Marble Nymph
@@ -11664,7 +12644,12 @@ Star Faerie:
   - Red Balloon
   - Versatile Lure
   - Metal Spinner
-Star of the Destroyer: {}
+Star of the Destroyer:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Star-blue Guppy:
   Greatest Endsvale:
   - Mayfly
@@ -11774,13 +12759,18 @@ Stickleback:
   - Red Maggots
   - Versatile Lure
   - Popper Lure
-Stingfin Trevally: {}
+Stingfin Trevally:
+  Kugane Spectral Current:
+  - Krill
+  - Versatile Lure
 Stippled Eel:
   Where the Dry Return:
   - Short Bill Minnow
   - Squid Strip
   - Versatile Lure
-Stonescale: {}
+Stonescale:
+  Rhotano Spectral Current:
+  - Rat Tail
 Stonytongue:
   The Ephor:
   - Suspending Minnow
@@ -11983,9 +12973,25 @@ Sunfish:
   - Goby Ball
   - Steel Jig
   - Glowworm
-Sunfly: {}
-Sunken Coelacanth: {}
-Sunken Mask: {}
+Sunfly:
+  The Southern Strait of Merlthor:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Sunken Coelacanth:
+  Sirensong Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Mackerel Strip
+  - Versatile Lure
+Sunken Mask:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Sunken Tome:
   The Haughty One:
   - Marble Nymph
@@ -12016,7 +13022,11 @@ Sweatfish:
   Azim Khaat:
   - Stonefly Larva
   - Versatile Lure
-Sweeper: {}
+Sweeper:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Sweetfish:
   Middle Thaliak River:
   - Goblin Jig
@@ -12072,7 +13082,12 @@ Swordspine Snook:
   - Versatile Lure
   - Sky Spoon Lure
   - Leech
-Swordtip Squid: {}
+Swordtip Squid:
+  Kugane Spectral Current:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
 Sycorax:
   East Caliban Gap:
   - Short Bill Minnow
@@ -12115,14 +13130,21 @@ Takitaro:
   Urth's Gift:
   - Streamer
   - Versatile Lure
-Taniwha: {}
+Taniwha:
+  Sirensong Spectral Current:
+  - Mackerel Strip
 Tao Bitterling:
   Tao Khaal:
   - Stonefly Larva
   - Versatile Lure
   - Suspending Minnow
   - Midge Larva
-Tarnished Shark: {}
+Tarnished Shark:
+  Outer Galadion Bay:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Versatile Lure
 Tawny Wench Shark:
   The Isle of Bekko:
   - Blue Bobbit
@@ -12143,7 +13165,13 @@ Temple Carp:
   - Versatile Lure
   - Stonefly Larva
   - Suspending Minnow
-Tentacle Thresher: {}
+Tentacle Thresher:
+  Ruby Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Terrifyingway:
   Limne 18:
   - Stardust
@@ -12165,7 +13193,12 @@ Thaliak Caiman:
   - Purse Web Spider
   - Stonefly Nymph
   - Goblin Jig
-Thaliak Crab: {}
+Thaliak Crab:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Thavnairian Caiman:
   The Font of Maya:
   - Mayfly
@@ -12197,8 +13230,17 @@ Thavnairian Leaf:
   - Stonefly Nymph
   - Metal Spinner
   - Versatile Lure
-Thavnairian Shark: {}
-Thavnasaurus: {}
+Thavnairian Shark:
+  Outer Rothlyt Sound:
+  - Plump Worm
+  - Ragworm
+  - Krill
+  - Versatile Lure
+Thavnasaurus:
+  Thavnair Margin:
+  - Krill
+  - Plump Worm
+  - Ragworm
 The Archbishop:
   The Comet's Tail:
   - Suspending Minnow
@@ -12228,7 +13270,10 @@ The Ewer King:
   - Versatile Lure
   - Brute Leech
   - Metal Spinner
-The Fallen One: {}
+The Fallen One:
+  Northern Merlthor Spectral Current:
+  - Krill
+  - Versatile Lure
 The Fury's Aegis:
   The Mover Beta:
   - Leech
@@ -12442,7 +13487,13 @@ Thunderscale:
 Thunderswift Trout:
   The Driftdowns:
   - Red Maggots
-Ticinepomis: {}
+Ticinepomis:
+  Bloodbrine Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Pill Bug
+  - Versatile Lure
 Tidal Dahlia:
   Reflecting Pool:
   - Gold Salmon Roe
@@ -12512,7 +13563,9 @@ Tiger Cod:
   - Versatile Lure
   - Rat Tail
   - Yumizuno
-Tiger Mantis: {}
+Tiger Mantis:
+  Thavnair Spectral Current:
+  - Ragworm
 Tiger Muskellunge:
   Outskirts Shallows:
   - Versatile Lure
@@ -12556,7 +13609,13 @@ Titanic Sawfish:
   - Steel Jig
   - Northern Krill
   - Heavy Steel Jig
-Titanshell Crab: {}
+Titanshell Crab:
+  Cieldalaes Spectral Current:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Squid Strip
+  - Versatile Lure
 Toadhead:
   Father Collard's Failings:
   - Baitbugs
@@ -12615,8 +13674,18 @@ Tornado Shark:
   - Versatile Lure
   - Red Balloon
   - Metal Spinner
-Tortoiseshell Crab: {}
-Tossed Dagger: {}
+Tortoiseshell Crab:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Tossed Dagger:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Trader Eel:
   Yugr'am River:
   - Honey Worm
@@ -12672,10 +13741,31 @@ Triple Threat: {}
 Triplespine:
   Isari:
   - Blue Bobbit
-Tripod Fish: {}
-Trollfish: {}
-True Barramundi: {}
-True Scad: {}
+Tripod Fish:
+  The Northern Strait of Merlthor:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+Trollfish:
+  Rothlyt Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
+True Barramundi:
+  Rhotano Spectral Current:
+  - Plump Worm
+  - Krill
+  - Ragworm
+  - Rat Tail
+  - Versatile Lure
+True Scad:
+  Open Bloodbrine Sea:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
 Trunkblessed:
   Meghaduta:
   - Gold Salmon Roe
@@ -12725,7 +13815,13 @@ Twitchbeard:
   - Spoon Worm
   - Versatile Lure
   - Saltwater Boilie
-Tylosaurus: {}
+Tylosaurus:
+  Unnamed Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Cieldalaes Roosterfish
+  - Captain's Pen
 Ukiki:
   Hells' Lid:
   - Blue Bobbit
@@ -12734,7 +13830,9 @@ Ultimoat Carp:
   - Popper Lure
   - Red Maggots
   - Versatile Lure
-Un-Namazu: {}
+Un-Namazu:
+  One River Spectral Current:
+  - Krill
 Unbegotten:
   "Limne 3-\u03B2":
   - Stardust
@@ -12928,11 +14026,18 @@ Violet Prismfish:
   Prism Lake:
   - Stonefly Larva
   - Versatile Lure
-Violet Sentry: {}
+Violet Sentry:
+  Open Ruby Sea:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Vip Viper:
   Upper Hathoeva River:
   - Butterworm
-Vivid Pink Shrimp: {}
+Vivid Pink Shrimp:
+  Sirensong Spectral Current:
+  - Krill
 Void Bass:
   Rathefrost:
   - Glowworm
@@ -13181,7 +14286,12 @@ Water Ball:
   - Versatile Lure
   - Fruit Worm
   - Marble Nymph
-Watermoura: {}
+Watermoura:
+  Cieldalaes Margin:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 Watts Trout:
   Lower Watts River:
   - Baitbugs
@@ -13259,7 +14369,12 @@ Whilom Catfish:
   - Bladed Steel Jig
   - Brute Leech
   - Metal Spinner
-Whirlpool Turban: {}
+Whirlpool Turban:
+  Kugane Coast:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Versatile Lure
 White Clam:
   Mercantile Docks:
   - Metal Spinner
@@ -13357,7 +14472,13 @@ Wild Red Betta:
   - Robber Ball
   - Versatile Lure
   - Marble Nymph
-Wild Urchin: {}
+Wild Urchin:
+  Northern Merlthor Spectral Current:
+  - Ragworm
+  - Plump Worm
+  - Krill
+  - Heavy Steel Jig
+  - Versatile Lure
 Wimple Carp:
   Handmirror Lake:
   - Marble Nymph
@@ -13569,7 +14690,13 @@ Yanxian Barramundi:
   - Stonefly Larva
   - Nightcrawler
   - Versatile Lure
-Yanxian Goby: {}
+Yanxian Goby:
+  One River Spectral Current:
+  - Ragworm
+  - Krill
+  - Plump Worm
+  - Stonefly Nymph
+  - Versatile Lure
 Yanxian Koi:
   The One River (East):
   - Stonefly Larva
@@ -13577,8 +14704,18 @@ Yanxian Koi:
   - Versatile Lure
   - Metal Spinner
   - Suspending Minnow
-Yanxian Softshell: {}
-Yanxian Sturgeon: {}
+Yanxian Softshell:
+  Lower One River:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Versatile Lure
+Yanxian Sturgeon:
+  Lower One River:
+  - Krill
+  - Plump Worm
+  - Ragworm
+  - Versatile Lure
 Yat Goby:
   Lower Yat Khaal:
   - Metal Spinner
@@ -13588,8 +14725,16 @@ Yat Goby:
 Yat Khan:
   Lower Yat Khaal:
   - Stonefly Larva
-Yato-no-kami: {}
-Yellow Iris: {}
+Yato-no-kami:
+  One River Spectral Current:
+  - Krill
+  - Ragworm
+  - Plump Worm
+  - Stonefly Nymph
+  - Versatile Lure
+Yellow Iris:
+  Ruby Spectral Current:
+  - Ragworm
 Yellow Peacock Bass:
   Marsh Ligaka:
   - Golden Stonefly Nymph
