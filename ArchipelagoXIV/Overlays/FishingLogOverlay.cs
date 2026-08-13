@@ -49,7 +49,7 @@ namespace ArchipelagoXIV.Overlays
 
 
         /// <summary>
-        /// Updates APDuty icons
+        /// Updates APDuty icons in Fish list
         /// </summary>
         /// <param name="addon"></param>
         private void OnAddonUpdate(AddonFishingNote* addon)
@@ -62,9 +62,10 @@ namespace ArchipelagoXIV.Overlays
             }
             for (uint i = 0; i <= 9; i++)
             {
-
+                
             }
         }
+
         /// <summary>
         /// Clears icons when the fishing log is closed
         /// </summary>
@@ -74,14 +75,6 @@ namespace ArchipelagoXIV.Overlays
             regionApIcons = new APDutyIcon[1];
         }
 
-
-        private void updateRegions(AddonFishingNote* addon)
-        {
-            //var regionList = addon->GetComponentListById(10)->GetComponentItemRendererById(2);
-            //var AreaList = addon->GetComponentListById(11)->GetComponentItemRendererById(5);
-
-            
-        }
 
         /// <summary>
         /// Adds icons to hole fish list
