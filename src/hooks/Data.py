@@ -3,7 +3,7 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import Any
+from typing import Any, cast
 
 # Location ID Starts
 # 1-7999: Duties
@@ -463,57 +463,27 @@ def generate_bait_list() -> list[dict]:
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
 def after_load_item_file(item_table: list) -> list:
     item_table.extend(generate_bait_list())
-    classes = TANKS + HEALERS + MELEE + RANGED + CASTER + ["BLU"]
-    # crafters
-    DOH = [
-        "CRP",
-        "BSM",
-        "ARM",
-        "GSM",
-        "LTW",
-        "WVR",
-        "ALC",
-        "CUL",
-    ]
 
-    # gatherers
-    DOL = [
-        "MIN",
-        "BTN",
-        "FSH",
-        ]
+    from ..Helpers import load_data_file
+    classes = cast(list[dict], load_data_file("items.levels.json"))
 
-    level_items = []
     for job in classes:
-        max_level = LIMITED_LEVEL_CAPS.get(job, LEVEL_CAP)
+        max_level = LIMITED_LEVEL_CAPS.get(job['abbreviation'], LEVEL_CAP)
         n = int(max_level / 5)
 
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOW/DOM"],
+        category = 'DoW/DoM'
+        if job in DOH:
+            category = 'DoH'
+        elif job in DOL:
+            category = 'DoL'
+        job.update({
+            "category": ["Class Level", category],
             "count": 0,
             "max_count": n,
             "filler": True,
         })
 
-    for job in DOH:
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOH"],
-            "count": 0,
-            "max_count": int(LEVEL_CAP / 5),
-            "filler": True,
-        })
-    for job in DOL:
-        level_items.append({
-            "name": f"5 {job} Levels",
-            "category": ["Class Level", "DOL"],
-            "count": 0,
-            "max_count": int(LEVEL_CAP / 5),
-            "filler": True,
-        })
-    level_items[0]['id'] = 5_000
-    item_table.extend(level_items)
+    item_table.extend(classes)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
     _cleared_id = 40_000

@@ -129,6 +129,18 @@ TIMED_MOOCH = [
 
 ]
 
+CLASSES = [
+    'GLA',
+    'PGL',
+    'MRD',
+    'LNC',
+    'ARC',
+    'CNJ',
+    'THM',
+    'ACN',
+    'ROG',
+]
+
 @functools.lru_cache
 def teamcraft_json(filename: str) -> dict | list:
     print(f"Fetching {filename}.json from Teamcraft repo")
@@ -1059,8 +1071,34 @@ def scrape_territory_types() -> None:
         json.dump(regions, h, indent=4)
         h.write('\n')
 
+def scrape_classjobs() -> None:
+    classjobs = datamining_csv('ClassJob')
+    with open(data_path('items.levels.json'), 'r', newline='') as h:
+        items_levels = json.load(h)
+    existing_names = {item['name'] for item in items_levels}
+    for item in items_levels:
+        item['abbreviation'] = item['name'].split(' ')[1]
+    next_id = max(item['id'] for item in items_levels) + 1
+    for classjob in classjobs.values():
+        if not classjob['Abbreviation'] or classjob['Abbreviation'] in CLASSES:
+            continue
+        for n in [5]:
+            name = f'{n} {classjob["Abbreviation"]} Levels'
+            if name in existing_names:
+                continue
+            items_levels.append({
+                'name': name,
+                'id': next_id,
+                'abbreviation': classjob['Abbreviation'],
+            })
+            next_id += 1
+    items_levels.sort(key=lambda x: x['id'])
+    with open(data_path('items.levels.json'), 'w', newline='') as h:
+        json.dump(items_levels, h, indent=4, sort_keys=True)
+        h.write('\n')
 
 if __name__ == "__main__":
+    scrape_classjobs()
     scrape_aetherytes()
     scrape_hunts()
     scrape_territory_types()
