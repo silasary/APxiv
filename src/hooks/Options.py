@@ -315,6 +315,17 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
+    visibility = Visibility.none  # Obsolete in favour of separate CC/Frontline options, but left here for backwards compatibility.
+
+class IncludeCrystalineConflict(Toggle):
+    """
+    Include Crystaline Conflict matches in the location pool.
+    """
+
+class IncludeFrontline(Toggle):
+    """
+    Include Frontline matches in the location pool.
+    """
 
 class IncludeBozja(Toggle):
     """
@@ -379,6 +390,8 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
+    options["include_crystalline_conflict"] = IncludeCrystalineConflict
+    options["include_frontline"] = IncludeFrontline
     options["include_guildhests"] = IncludeGuildhests
 
     # Duty Counts
@@ -433,7 +446,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
+    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
                              NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]

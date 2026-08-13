@@ -253,6 +253,13 @@ def generate_duty_list() -> tuple[list[dict], list[dict]]:
             if expansion is not None:
                 location["expansion"] = expansion
             category = row["Category"]
+
+            if category == 'PvP':
+                if row['Req Size'] == 'Solo':
+                    location["category"].append("Crystalline Conflict")
+                elif row['Req Size'] == 'Alliance':
+                    location["category"].append("Frontline")
+
             if category.startswith("Variant Dungeon"):
                 category = category.replace("Variant Dungeon", "Dungeon")
             if category != prev_category:
