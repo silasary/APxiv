@@ -195,11 +195,11 @@ class FieldOperationCriticalEncounterCount(Range):
 
 class PotDCount(Range):
     """
-    Number of Palace of the Dead Floorsets to include in the location pool
+    Number of The Palace ofthe Dead Floorsets to include in the location pool
 
     This could take dozens of hours if maxed out, as the nearest checkpoint is at floor 51
     """
-    display_name = "Palace of the Dead Floorset Count"
+    display_name = "The Palace ofthe Dead Floorset Count"
     default = 5
     range_start = 0
     range_end = 20
@@ -393,7 +393,7 @@ class IncludeOccultCrescent(Toggle):
 
 class IncludePotD(Toggle):
     """
-    Include Palace of the Dead in the location pool.
+    Include The Palace ofthe Dead in the location pool.
     """
 
 class IncludeHoH(Toggle):

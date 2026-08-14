@@ -287,8 +287,8 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
                 location["category"].append("Occult Crescent")
-            if row["Location"] in ["Palace of the Dead"]:
-                location["category"].append("Palace of the Dead")
+            if row["Location"] in ["The Palace ofthe Dead"]:
+                location["category"].append("The Palace ofthe Dead")
             if row["Location"] in ["Heaven-on-High"]:
                 location["category"].append("Heaven-on-High")
             if row["Location"] in ["Eureka Orthos"]:

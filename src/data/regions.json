@@ -238,7 +238,7 @@
             "Central Shroud",
             "East Shroud",
             "Eastern Thanalan",
-			"Palace of the Dead"
+			"The Palace of the Dead"
         ],
         "ids": [
             153,
@@ -255,8 +255,8 @@
             473
         ]
     },
-	"Palace of the Dead": {
-        "requires": "|Palace of the Dead Access:1|",
+	"The Palace of the Dead": {
+        "requires": "|The Palace of the Dead Access:1|",
 		"connects_to": []
 	},
     "North Shroud": {
