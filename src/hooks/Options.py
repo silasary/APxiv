@@ -393,7 +393,7 @@ class IncludeOccultCrescent(Toggle):
 
 class IncludePotD(Toggle):
     """
-    Include The Palace ofthe Dead in the location pool.
+    Include The Palace of the Dead in the location pool.
     """
 
 class IncludeHoH(Toggle):
