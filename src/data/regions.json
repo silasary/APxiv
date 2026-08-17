@@ -1143,7 +1143,7 @@
         "connects_to": []
     },
     "The Occult Crescent: North Horn": {
-        "requires": "",
+        "requires": "|The Occult Crescent: North Horn Access: 1|",
         "connects_to": []
     }
 }

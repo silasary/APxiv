@@ -211,6 +211,7 @@ fate_zones = {
     "The Bozjan Southern Front": [71],
     "Zadnor": [76],
     "The Occult Crescent: South Horn": [100],
+    "The Occult Crescent: North Horn": [100],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
