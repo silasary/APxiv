@@ -91,6 +91,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 
     excluded_jobs = get_excluded_jobs(multiworld, player)
     force_jobs = get_option_value(multiworld, player, "force_jobs")
+    assert isinstance(force_jobs, set)
     job_conflicts = [job for job in force_jobs if job in excluded_jobs]
 
     if job_conflicts:

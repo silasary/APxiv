@@ -1,16 +1,16 @@
 import dataclasses
 import inspect
-from typing import TYPE_CHECKING, Any, Callable, Optional, Any
+from typing import TYPE_CHECKING, Any
 from enum import IntEnum
 from operator import eq, ge, le
 
 from .Regions import regionMap
 from .hooks import Rules
-from .Helpers import clamp, is_item_enabled, is_option_enabled, get_option_value, convert_string_to_type,\
+from .Helpers import clamp, is_option_enabled, convert_string_to_type,\
     format_to_valid_identifier, format_state_prog_items_key, ProgItemsCat
 from .Game import game_name
 
-from BaseClasses import MultiWorld, CollectionState, Entrance
+from BaseClasses import MultiWorld, CollectionState
 from worlds.AutoWorld import World
 from worlds.generic.Rules import set_rule, add_rule
 from Options import Choice, Toggle, Range, NamedRange, NumericOption
