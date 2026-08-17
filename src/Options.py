@@ -22,7 +22,7 @@ class GenerateRegionDiagram(Toggle):
     visibility = Visibility.none  # Hidden option
 
 class ManualDeathLink(DeathLink):
-    pass
+    """When you die, everyone who enabled death link dies."""
 
 def createChoiceOptions(values: dict, aliases: dict) -> dict:
     values = {'option_' + i: v for i, v in values.items()}
