@@ -631,5 +631,11 @@
         "category": ["Location"],
         "count": 1,
         "progression": true
+    },
+    {
+        "name": "The Occult Crescent: North Horn Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
     }
 ]

@@ -53,7 +53,7 @@ class XivContext(ManualContext):
 
         class XivJobsLayout(BoxLayout):
             def __init__(self, **kwargs) -> None:
-                from .Data import TANKS, HEALERS, MELEE, RANGED, CASTER
+                from .Data import CASTER, HEALERS, MELEE, RANGED, TANKS
                 super().__init__(**kwargs)
                 self.orientation = "horizontal"
                 self.size_hint = (1, None)
@@ -243,7 +243,7 @@ def launch() -> None:
     parser = get_base_parser(description=client_description)
     parser.add_argument('apmanual_file', default="", type=str, nargs="?",
                         help='Path to an APMANUAL file')
-    args, rest = parser.parse_known_args()
+    args, _rest = parser.parse_known_args()
 
     colorama.init()
     asyncio.run(main(args))
