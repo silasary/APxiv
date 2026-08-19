@@ -85,6 +85,16 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
         if item_name == f"{duty_name} Cleared":
             return False
 
+    if "Potmanders" in item.get('category', []):
+        if "The Palace of the Dead Potmanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_potd"):
+            return True
+        if "Heaven-on-High Potmanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
+            return True
+        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
+            return True
+        if "Pilgrim's Traverse Potmanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
+            return True
+        return False  # If it made it this far, none of the Deep Dungeons that use it are enabled.
 
     return None
 

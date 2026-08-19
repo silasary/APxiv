@@ -16,6 +16,14 @@ from typing import Any, NotRequired, TypedDict, cast
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
 
+# Item ID Starts
+# 1-999:  Access Keys
+# 1000-4999: Bait
+# 5000-9999: Class Level Items
+# 10,000-10,999: Deep Dungeon items
+# 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
+# 999,000-999,999: Filler items
+
 class LocationDict(TypedDict):
     name: str
     region: str
@@ -517,6 +525,8 @@ def after_load_item_file(item_table: list) -> list:
         })
 
     item_table.extend(classes)
+    potmanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
+    item_table.extend(potmanders)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
     _cleared_id = 40_000

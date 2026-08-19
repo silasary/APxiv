@@ -129,8 +129,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
     has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
+    has_potd = is_option_enabled(multiworld, player, 'include_potd')
 
-    if not has_fates and not has_dungeons and not has_fish and not has_hunts:
+    if not has_fates and not has_dungeons and not has_fish and not has_hunts and not has_potd:
         raise OptionError("You can't disable everything.")
 
     if has_hunts and level_cap < 50:
@@ -144,6 +145,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not has_fish
         and not has_fatesanity
         and not has_hunts
+        and not has_potd
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
@@ -377,7 +379,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     if remaining < 100:
         prog_levels = prog_levels[:3]
-        
+
     first = True
     for name in prog_levels:
         remaining = location_count - item_count

@@ -195,11 +195,11 @@ class FieldOperationCriticalEncounterCount(Range):
 
 class PotDCount(Range):
     """
-    Number of The Palace ofthe Dead Floorsets to include in the location pool
+    Number of The Palace of the Dead Floorsets to include in the location pool
 
     This could take dozens of hours if maxed out, as the nearest checkpoint is at floor 51
     """
-    display_name = "The Palace ofthe Dead Floorset Count"
+    display_name = "The Palace of the Dead Floorset Count"
     default = 5
     range_start = 0
     range_end = 20
@@ -218,7 +218,7 @@ class HoHCount(Range):
 class EOCount(Range):
     """
     Number of Eureka Orthos Floorsets to include in the location pool
-    
+
     This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
     """
     display_name = "Eureka Orthos Floorset Count"
@@ -486,7 +486,7 @@ def before_options_defined(options: dict) -> dict:
     options["field_operation_critical_encounter_count"] = FieldOperationCriticalEncounterCount
     options["include_duels"] = IncludeDuels
     options["include_occult_crescent"] = IncludeOccultCrescent
-    
+
     # Deep Dungeon
     options["include_potd"] = IncludePotD
     options["include_hoh"] = IncludeHoH
@@ -518,7 +518,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT, 
+    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT,
                               PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
