@@ -144,7 +144,7 @@ namespace ArchipelagoXIV
             if (!result.Successful)
             {
                 var failure = result as LoginFailure;
-                foreach (var e in failure.Errors)
+                foreach (var e in failure!.Errors)
                     DalamudApi.Echo(e);
                 if (failure.ErrorCodes.Length != 0 && failure.ErrorCodes.First() == ConnectionRefusedError.InvalidGame)
                 {
@@ -179,7 +179,7 @@ namespace ArchipelagoXIV
             config.GameName = this.Game.Name;
             config.SlotName = slotName;
             config.Connection = address;
-            config.Password = password;
+            config.Password = password ?? "";
             config.AddToConnectionHistory();
             config.Save();
             this.DeathLink = session.CreateDeathLinkService();

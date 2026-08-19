@@ -85,10 +85,11 @@ namespace ArchipelagoXIV
         {
             logicBar.Tooltip = text;
         }
-        internal static void SetJobStatusBar(string text)
+        internal static void SetJobStatusBar(string? text)
         {
-            if (text == null)
+            if (string.IsNullOrEmpty(text))
                 return;
+
             jobBar ??= DtrBar.Get("APJob");
             jobBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
         }
