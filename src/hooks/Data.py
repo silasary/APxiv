@@ -296,7 +296,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
                 location["category"].append("Occult Crescent")
-            if row["Location"] in ["The Palace ofthe Dead"]:
+            if row["Location"] in ["The Palace of the Dead"]:
                 location["category"].append("The Palace of the Dead")
             if row["Location"] in ["Heaven-on-High"]:
                 location["category"].append("Heaven-on-High")
@@ -525,8 +525,8 @@ def after_load_item_file(item_table: list) -> list:
         })
 
     item_table.extend(classes)
-    potmanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
-    item_table.extend(potmanders)
+    pomanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
+    item_table.extend(pomanders)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
     _cleared_id = 40_000
