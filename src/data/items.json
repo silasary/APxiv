@@ -609,6 +609,12 @@
         "progression": true
     },
     {
+        "name": "The Occult Crescent: North Horn Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
         "name": "The Palace of the Dead Access",
         "category": ["Location"],
         "count": 1,
@@ -628,12 +634,6 @@
     },
     {
         "name": "Pilgrim's Traverse Access",
-        "category": ["Location"],
-        "count": 1,
-        "progression": true
-    },
-    {
-        "name": "The Occult Crescent: North Horn Access",
         "category": ["Location"],
         "count": 1,
         "progression": true
