@@ -10,7 +10,7 @@ namespace ArchipelagoXIV
     internal static partial class Data
     {
         internal record NotoriousMonsterInfo(string Name, string Rank, string LocationName);
-        internal record AetheryteInfo(string Name, string Zone);
+        internal record AetheryteInfo(string Name, TerritoryType Territory, string EnglishName);
 
         public static FrozenDictionary<string, AetheryteInfo> Aetherytes { get; private set; } = FrozenDictionary<string, AetheryteInfo>.Empty;
         public static TerritoryType[] Territories { get; private set; } = [];
@@ -173,10 +173,18 @@ namespace ArchipelagoXIV
             if (dataManager == null)
                 return;
 
-            Aetherytes = dataManager.GetExcelSheet<Aetheryte>(ClientLanguage.English)
+            AetheryteInfo GetAetheryteInfo(Aetheryte a)
+            {
+                
+                string englishName = dataManager.GetExcelSheet<PlaceName>(ClientLanguage.English)
+                    .FirstOrDefault(pn => pn.RowId == a.PlaceName.RowId).Name.ExtractText() ?? a.PlaceName.Value.Name.ExtractText();
+                return new AetheryteInfo(a.PlaceName.Value.Name.ExtractText(), a.Territory.Value, englishName);
+            }
+
+            Aetherytes = dataManager.GetExcelSheet<Aetheryte>()
                 .Where(a => a.PlaceName.RowId > 10 && a.IsAetheryte)
-                .Select(a => new AetheryteInfo(a.PlaceName.Value.Name.ExtractText(), a.Map.Value.PlaceName.Value.Name.ExtractText()))
-                .ToFrozenDictionary(ae => ae.Name);
+                .Select(GetAetheryteInfo)
+                .ToFrozenDictionary(ae => ae.EnglishName);
 
             Territories = [.. dataManager.GetExcelSheet<TerritoryType>(ClientLanguage.English)];
 

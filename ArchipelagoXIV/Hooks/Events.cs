@@ -42,6 +42,8 @@ namespace ArchipelagoXIV.Hooks
             if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
             {
                 var name = value.Name.ExtractText().TrimEnd();
+                if (!DalamudApi.PlayerState.ClassJob.IsValid)
+                    return;
                 if (DalamudApi.PlayerState.ClassJob.Value.IsFisher() && APData.FishData.ContainsKey(name))
                 {
                     if (apState.MissingLocations.FirstOrDefault(l => l is Fish f && f.Data.Id == data.Item.BaseItemId) is not Fish loc)

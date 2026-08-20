@@ -424,6 +424,8 @@ namespace ArchipelagoXIV
             {
                 DalamudApi.SetStatusBar($"??? ({this.territoryName})");
             }
+            else if (Loading)
+                DalamudApi.SetStatusBar("Loading...");
             else if (BK)
                 DalamudApi.SetStatusBar("BK");
             else if (this.CurrentLocationInLogic)
