@@ -112,6 +112,10 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:
         return False
+    if location["region"] in ["The Bozjan Southern Front", "Zadnor"] and not get_int_value(multiworld, player, "include_bozja"):
+        return False
+    if location["region"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"] and not get_int_value(multiworld, player, "include_occult_crescent"):
+        return False
     return None
 
 
