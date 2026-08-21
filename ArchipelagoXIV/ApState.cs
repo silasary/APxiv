@@ -68,6 +68,7 @@ namespace ArchipelagoXIV
                 if (!localPlayer.IsLoaded)
                     return null;
                 var job = localPlayer.ClassJob.Value;
+                job = DalamudApi.DataManager.GetExcelSheet<ClassJob>(Dalamud.Game.ClientLanguage.English).First(r => r.RowId == job.RowId); // Convert to English
                 this.lastJob = job;
                 var sb = new StringBuilder();
 
