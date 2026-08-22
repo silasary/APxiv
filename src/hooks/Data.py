@@ -312,11 +312,13 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                     name = f"{row['Name']} {i + 1}"
                     if "Deep Dungeon" in row["Category"]:
                         m = deep_dungeon_regex.match(row["Name"])
-                        dd_name = m['dd_name']
-                        dd_floor_name = m['floor_name']
-                        start_floor = int(m['start'])
-                        name = f"{dd_name} {dd_floor_name} {i - 1 + start_floor}"
-
+                        if m:
+                            dd_name = m['dd_name']
+                            dd_floor_name = m['floor_name']
+                            start_floor = int(m['start'])
+                            name = f"{dd_name} {dd_floor_name} {i - 1 + start_floor}"
+                        else:
+                            raise ValueError(f"Deep Dungeon name '{row['Name']}' does not match expected format. Please fix either the duty name or the regex.")
                     extra_list.append({
                         "id": _xid,
                         "name": name,
