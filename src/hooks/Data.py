@@ -349,7 +349,7 @@ def generate_fate_list() -> list[LocationDict]:
                     {
                         "name": name,
                         "region": row['Location'],
-                        "category": ["FATEsanity", row['Location']],
+                        "category": ["FATEsanity", row['Location'], "Fêtes"],
                         # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row['Level Sync'],
                         "filler": True,
