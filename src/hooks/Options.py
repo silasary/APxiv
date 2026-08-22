@@ -51,6 +51,15 @@ class UnreasonableFates(Toggle):
     display_name = "Include Unreasonable FATEs"
     default = False
 
+class Fetesanity(Toggle):
+    """
+    Include Fêtes in the FATEsanity pool.
+
+    Fêtes are part of the Skyrise Celebration.  They run back-to-back every two hours for a day, then go on cooldown for two days.
+    """
+    display_name = "Include Fêtes"
+    default = False
+
 class DutyDifficulty(Choice):
     """
     Maximum difficulty of the duty content.
@@ -472,10 +481,15 @@ def before_options_defined(options: dict) -> dict:
     options["fates_per_zone"] = FatesPerZone
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
+    options["include_fetes"] = Fetesanity
+
+    # Hunts
     options["huntsanity"] = Huntsanity
+
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
+
     # Jobs
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
@@ -514,7 +528,7 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
     groups["Character Settings"] = [LevelCap, ForceJob]
-    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
+    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
