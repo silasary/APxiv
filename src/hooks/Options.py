@@ -457,7 +457,7 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
 
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
-    groups["Character Settings"] = [LevelCap, ForceJob]
+    groups["Character Settings"] = [LevelCap, ForceJob, ExcludeJob]
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
