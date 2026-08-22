@@ -319,6 +319,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                             name = f"{dd_name} {dd_floor_name} {i - 1 + start_floor}"
                         else:
                             raise ValueError(f"Deep Dungeon name '{row['Name']}' does not match expected format. Please fix either the duty name or the regex.")
+
                     extra_list.append({
                         "id": _xid,
                         "name": name,
