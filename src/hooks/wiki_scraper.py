@@ -156,6 +156,16 @@ def datamining_csv(filename: str, key = "#") -> dict[str, dict[str, str]]:
         data[line[key]] = line
     return data
 
+def load_data_file(filename: str) -> Any:
+    with open(data_path(filename), 'r', newline='') as h:
+        data = json.load(h)
+    return data
+
+def save_data_file(filename: str, data: Any, indent=4) -> None:
+    with open(data_path(filename), 'w', newline='') as h:
+        json.dump(data, h, indent=indent)
+        h.write('\n')
+
 def find_fates(zone: str) -> list[str]:
     print('Finding fates for zone: ' + zone)
     url = f"https://ffxiv.consolegameswiki.com/mediawiki/api.php?action=ask&query=[[Category:Fates]]%20[[Located%20in::{zone}]]%20[[Is%20event%20fate::false]]|?Has%20FATE%20level|?Is retired content&format=json&api_version=3"
@@ -1050,13 +1060,11 @@ def scrape_aetherytes() -> None:
         location_data['expansion'] = _EX_VERSION_DATA[territory['ExVersion']][0]
         location_data['level'] = _EX_VERSION_DATA[territory['ExVersion']][1]
         aetheryte_locations.append(location_data)
-    with open(data_path('aetherytes.json'), 'w', newline='') as h:
-        json.dump(aetheryte_locations, h, indent=1)
+    save_data_file('aetherytes.json', aetheryte_locations, indent=1)
 
 def scrape_territory_types() -> None:
     territory_type = datamining_csv("TerritoryType")
-    with open(data_path('regions.json'), 'r', newline='') as h:
-        regions = json.load(h)
+    regions = load_data_file('regions.json')
     for territory in territory_type.values():
         if territory['PlaceName'] == '0':
             continue
@@ -1067,14 +1075,11 @@ def scrape_territory_types() -> None:
             ids.add(int(territory['#']))
             regions[name]['ids'] = sorted(ids)
 
-    with open(data_path('regions.json'), 'w', newline='') as h:
-        json.dump(regions, h, indent=4)
-        h.write('\n')
+    save_data_file('regions.json', regions, indent=4)
 
 def scrape_classjobs() -> None:
     classjobs = datamining_csv('ClassJob')
-    with open(data_path('items.levels.json'), 'r', newline='') as h:
-        items_levels = json.load(h)
+    items_levels = load_data_file('items.levels.json')
     existing_names = {item['name'] for item in items_levels}
     for item in items_levels:
         item['abbreviation'] = item['name'].split(' ')[1]
@@ -1093,13 +1098,41 @@ def scrape_classjobs() -> None:
             })
             next_id += 1
     items_levels.sort(key=lambda x: x['id'])
-    with open(data_path('items.levels.json'), 'w', newline='') as h:
-        json.dump(items_levels, h, indent=4, sort_keys=True)
-        h.write('\n')
+    save_data_file('items.levels.json', items_levels, indent=4)
+
+def scrape_deep_dungeon_items() -> None:
+    deep_dungeon_items = datamining_csv('DeepDungeonItem')
+    items_deepdungeon: list[dict[str, Any]] = load_data_file('items.deepdungeon.json')
+    existing_names = {item['name'] for item in items_deepdungeon}
+
+    for item in deep_dungeon_items.values():
+        if not item['Name'] or item['Name'] in existing_names:
+            continue
+        items_deepdungeon.append({
+            'name': item['Name'],
+            'id': 10_000 + int(item['#']),
+        })
+    for item in items_deepdungeon:
+        item.setdefault('category', ['Pomander'])
+        if item.setdefault('potd', False):
+            item['category'].append("The Palace of the Dead Pomander")
+        if item.setdefault('hoh', False):
+            item['category'].append("Heaven-on-High Pomander")
+        if item.setdefault('eo', 'Protomander' in item['name']):
+            item['category'].append("Eureka Orthos Protomanders")
+        if item.setdefault('pt', False):
+            item['category'].append("Pilgrim's Traverse Pomander")
+        item['category'] = sorted(set(item['category']))
+
+
+    items_deepdungeon.sort(key=lambda x: x['id'])
+    save_data_file('items.deepdungeon.json', items_deepdungeon, indent=4)
+
 
 if __name__ == "__main__":
     scrape_classjobs()
     scrape_aetherytes()
+    scrape_deep_dungeon_items()
     scrape_hunts()
     scrape_territory_types()
     scrape_teamcraft()

@@ -16,6 +16,14 @@ from typing import Any, NotRequired, TypedDict, cast
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
 
+# Item ID Starts
+# 1-999:  Access Keys
+# 1000-4999: Bait
+# 5000-9999: Class Level Items
+# 10,000-10,999: Deep Dungeon items
+# 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
+# 999,000-999,999: Filler items
+
 class LocationDict(TypedDict):
     name: str
     region: str
@@ -217,6 +225,7 @@ fate_zones = {
 bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
+deep_dungeon_regex = re.compile(r"^(?P<dd_name>.+?) \((?P<floor_name>\w+)s (?P<start>\d+)-\d+\)$")
 
 def generate_victory_locations() -> list[LocationDict]:
     # Build victory location entries from BOSS_GOAL_KEY_LOCATIONS
@@ -288,13 +297,32 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
                 location["category"].append("Occult Crescent")
+            if row["Location"] in ["The Palace of the Dead"]:
+                location["category"].append("The Palace of the Dead")
+            if row["Location"] in ["Heaven-on-High"]:
+                location["category"].append("Heaven-on-High")
+            if row["Location"] in ["Eureka Orthos"]:
+                location["category"].append("Eureka Orthos")
+            if row["Location"] in ["Pilgrim's Traverse"]:
+                location["category"].append("Pilgrim's Traverse")
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:
-                for i in range(1, 10):
+                for i in range(1, 10): # TODO: This should be 11.  But it's a breaking change, so we're waiting for 8.0
+                    name = f"{row['Name']} {i + 1}"
+                    if "Deep Dungeon" in row["Category"]:
+                        m = deep_dungeon_regex.match(row["Name"])
+                        if m:
+                            dd_name = m['dd_name']
+                            dd_floor_name = m['floor_name']
+                            start_floor = int(m['start'])
+                            name = f"{dd_name} {dd_floor_name} {i - 1 + start_floor}"
+                        else:
+                            raise ValueError(f"Deep Dungeon name '{row['Name']}' does not match expected format. Please fix either the duty name or the regex.")
+
                     extra_list.append({
                         "id": _xid,
-                        "name": f"{row["Name"]} {i + 1}",
+                        "name": name,
                         "duty_name": row["Name"],
                         "region": row["Location"],
                         "category": [row["Category"], row["Location"]],
@@ -509,6 +537,8 @@ def after_load_item_file(item_table: list) -> list:
         })
 
     item_table.extend(classes)
+    pomanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
+    item_table.extend(pomanders)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
     _cleared_id = 40_000

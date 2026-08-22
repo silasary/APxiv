@@ -1,0 +1,478 @@
+[
+    {
+        "name": "Pomander of Safety",
+        "id": 10001,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Sight",
+        "id": 10002,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Strength",
+        "id": 10003,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Steel",
+        "id": 10004,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Affluence",
+        "id": 10005,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Flight",
+        "id": 10006,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Alteration",
+        "id": 10007,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Purity",
+        "id": 10008,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Fortune",
+        "id": 10009,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Witching",
+        "id": 10010,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Serenity",
+        "id": 10011,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "The Palace of the Dead Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": true,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Rage",
+        "id": 10012,
+        "category": [
+            "The Palace of the Dead Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": false,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Lust",
+        "id": 10013,
+        "category": [
+            "The Palace of the Dead Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": false,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Intuition",
+        "id": 10014,
+        "category": [
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Raising",
+        "id": 10015,
+        "category": [
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Resolution",
+        "id": 10016,
+        "category": [
+            "The Palace of the Dead Pomanders",
+            "Pomanders"
+        ],
+        "potd": true,
+        "hoh": false,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Frailty",
+        "id": 10017,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": true,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Concealment",
+        "id": 10018,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": true,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Petrification",
+        "id": 10019,
+        "category": [
+            "Heaven-on-High Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": true,
+        "eo": false,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Lethargy",
+        "id": 10020,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Storms",
+        "id": 10021,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Dread",
+        "id": 10022,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Safety",
+        "id": 10023,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Sight",
+        "id": 10024,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Strength",
+        "id": 10025,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Steel",
+        "id": 10026,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Affluence",
+        "id": 10027,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Flight",
+        "id": 10028,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Alteration",
+        "id": 10029,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Purity",
+        "id": 10030,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Fortune",
+        "id": 10031,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Witching",
+        "id": 10032,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Serenity",
+        "id": 10033,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Intuition",
+        "id": 10034,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Protomander of Raising",
+        "id": 10035,
+        "category": [
+            "Eureka Orthos Protomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": true,
+        "pt": false
+    },
+    {
+        "name": "Pomander of Haste",
+        "id": 10036,
+        "category": [
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Purification",
+        "id": 10037,
+        "category": [
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": false,
+        "pt": true
+    },
+    {
+        "name": "Pomander of Devotion",
+        "id": 10038,
+        "category": [
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders"
+        ],
+        "potd": false,
+        "hoh": false,
+        "eo": false,
+        "pt": true
+    }
+]
