@@ -1,26 +1,38 @@
 from BaseClasses import PlandoOptions
+from Utils import get_fuzzy_results
+from worlds.AutoWorld import World
+
 from Options import (
     Choice,
     DefaultOnToggle,
-    FreeText,
-    NamedRange,
-    NumericOption,
+    LocalItems,
     Option,
+    OptionError,
     OptionGroup,
     OptionSet,
     PerGameCommonOptions,
     Range,
-    TextChoice,
     Toggle,
     Visibility,
-    OptionError
 )
-from Utils import get_fuzzy_results
-from worlds.AutoWorld import World
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from ..Helpers import get_option_value, is_option_enabled
-from .Data import FULL_NAME_TO_JOB, LEVEL_CAP, CASTER, DOH, DOL, HEALERS, MELEE, RANGED, TANKS
+from .Data import (
+    CASTER,
+    DOH,
+    DOL,
+    FULL_NAME_TO_JOB,
+    HEALERS,
+    LEVEL_CAP,
+    MELEE,
+    RANGED,
+    TANKS,
+)
+
+
+class XivLocalItems(LocalItems):
+    """Forces these items to be in their native world."""
+    default = frozenset(["Memory of a Distant World"])
 
 
 class OceanFishing(Toggle):
@@ -389,7 +401,7 @@ class Huntsanity(OptionSet):
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
-    options["goal"] = None
+    options["local_items"] = XivLocalItems
     options["mcguffin_percentage_needed"] = McGuffinsNeeded
     options["boss_key_pieces"] = BossKeyPieces
 
@@ -469,4 +481,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     return groups
 
 def after_option_groups_created(groups: list[OptionGroup]) -> list[OptionGroup]:
+    item_and_location_group = next((g for g in groups if g.name == "Item & Location Options"), None)
+    if item_and_location_group is not None:
+        item_and_location_group.options.insert(0, XivLocalItems)
     return groups
