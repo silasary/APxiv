@@ -1,11 +1,11 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.30.2",
+    "world_version": "0.31.0",
     "minimum_ap_version": "0.6.7",
     "changelog": [
-        "* Added custom job level UI to the XIV manual client.",
-        "* Fixed bug where Coils of Bahamut would always be in logic.",
-        "* Fixed the name of Ocean Fishing: Ruby Price.",
+        "* Added North Horn FATES and CEs.",
+        "* Fixed bug where Bozja and Occult Crescent FATEs would not respect their yaml settings if FATEsanity was enabled.",
+        "* Added Frontline checks.  The `include_pvp` option has been replaced with separate toggles for CC and Frontline.",
         ""
     ]
 }
