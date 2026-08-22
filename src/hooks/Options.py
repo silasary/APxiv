@@ -13,13 +13,14 @@ from Options import (
     TextChoice,
     Toggle,
     Visibility,
+    OptionError
 )
 from Utils import get_fuzzy_results
 from worlds.AutoWorld import World
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
 from ..Helpers import get_option_value, is_option_enabled
-from .Data import LEVEL_CAP, CASTER, DOH, DOL, HEALERS, MELEE, RANGED, TANKS
+from .Data import FULL_NAME_TO_JOB, LEVEL_CAP, CASTER, DOH, DOL, HEALERS, MELEE, RANGED, TANKS
 
 
 class OceanFishing(Toggle):
@@ -235,7 +236,31 @@ class BossKeyPieces(Range):
     range_start = 0
     range_end = 10
 
-class ForceJob(OptionSet):
+class JobSet(OptionSet):
+    """
+    Superclass for optionsets that allow you to pick jobs.
+    """
+
+    valid_keys = frozenset(TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL)
+
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        for item_name in self.value.copy():
+            if item_name not in self.valid_keys and item_name in FULL_NAME_TO_JOB:
+                self.value.remove(item_name)
+                item_name = FULL_NAME_TO_JOB[item_name]
+                self.value.add(item_name)
+            if item_name not in self.valid_keys:
+                picks = get_fuzzy_results(item_name, self.valid_keys, limit=1) # type: ignore
+                raise OptionError(f"Item {item_name} from option {self} "
+                                f"is not a valid job from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+
+        return super().verify(world, player_name, plando_options)
+
+
+class ForceJob(JobSet):
     """
     Choose which classes are progression.
 
@@ -243,20 +268,9 @@ class ForceJob(OptionSet):
     """
     display_name = "Force Progression Jobs"
 
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
-        print(f"{repr(self.value)}/{repr(all)}")
-        for item_name in self.value:
-            if item_name not in all:
-                picks = get_fuzzy_results(item_name, all, limit=1)
-                raise Exception(f"Item {item_name} from option {self} "
-                                f"is not a valid job from {world.game}. "
-                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
 
 
-        return super().verify(world, player_name, plando_options)
-
-class ExcludeJob(OptionSet):
+class ExcludeJob(JobSet):
     """
     Choose which jobs to exclude from the game entirely.
 
@@ -264,19 +278,7 @@ class ExcludeJob(OptionSet):
     """
     display_name = "Exclude Jobs"
 
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
-        all_jobs = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
 
-        for item_name in self.value:
-            if item_name not in all_jobs:
-                picks = get_fuzzy_results(item_name, all_jobs, limit=1)
-
-                raise Exception(f"Item {item_name} from option {self} "
-                                f"is not a valid job from {world.game}. "
-                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
-
-        return super().verify(world, player_name, plando_options)
 
 class LevelCap(Range):
     """

@@ -75,6 +75,8 @@ JOB_FULL_NAMES = {
     "FSH": "Fisher",
 }
 
+FULL_NAME_TO_JOB = {v: k for k, v in JOB_FULL_NAMES.items()}
+
 LEVEL_CAP = 100
 LIMITED_LEVEL_CAPS = {
     "BLU": 80,
