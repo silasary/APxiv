@@ -225,6 +225,7 @@ fate_zones = {
 bait_to_fish: dict[str, set[str]] = {}
 
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
+deep_dungeon_regex = re.compile(r"^(?P<dd_name>.+?) \((?P<floor_name>\w+)s (?P<start>\d+)-\d+\)$")
 
 def generate_victory_locations() -> list[LocationDict]:
     # Build victory location entries from BOSS_GOAL_KEY_LOCATIONS
@@ -307,10 +308,18 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:
-                for i in range(1, 10):
+                for i in range(1, 10): # TODO: This should be 11.  But it's a breaking change, so we're waiting for 8.0
+                    name = f"{row['Name']} {i + 1}"
+                    if "Deep Dungeon" in row["Category"]:
+                        m = deep_dungeon_regex.match(row["Name"])
+                        dd_name = m['dd_name']
+                        dd_floor_name = m['floor_name']
+                        start_floor = int(m['start'])
+                        name = f"{dd_name} {dd_floor_name} {i - 1 + start_floor}"
+
                     extra_list.append({
                         "id": _xid,
-                        "name": f"{row["Name"]} {i + 1}",
+                        "name": name,
                         "duty_name": row["Name"],
                         "region": row["Location"],
                         "category": [row["Category"], row["Location"]],

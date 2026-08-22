@@ -69,18 +69,18 @@
                     "include_hoh": true,
                     "include_eo": true,
                     "include_pt": true,
-                    "potd_count": 20,
-                    "hoh_count": 10,
-                    "eo_count": 10,
-                    "pt_count": 10,
+                    "potd_count": 5,
+                    "hoh_count": 3,
+                    "eo_count": 3,
+                    "pt_count": 3,
                     "fates_per_zone": 0,
                     "dungeon_count": 0,
                     "trial_count": 0,
                     "alliance_raid_count": 0,
                     "normal_raid_count": 0,
                     "savage_raid_count": 0,
-                    "variant_dungeon_count": 0
-
+                    "variant_dungeon_count": 0,
+                    "extra_dungeon_checks": 10
                 },
                 "Allsanity": {
                     "include_ocean_fishing": true,
