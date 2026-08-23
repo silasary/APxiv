@@ -1,6 +1,6 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.31.0",
+    "world_version": "0.31.1",
     "minimum_ap_version": "0.6.7",
     "changelog": [
         "* Added North Horn FATES and CEs.",
