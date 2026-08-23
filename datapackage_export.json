@@ -12216,6 +12216,13 @@
                     "The Fields of Glory (Shatter)",
                     "Worqor Chirteh (Triumph)"
                 ],
+                "F\u00eates": [
+                    "A Twist of F\u00eate (FETE)",
+                    "Made of Softer Stuff (FETE)",
+                    "Presents of Mind (FETE)",
+                    "Shear-a-Yak (FETE)",
+                    "Toy Hunter (FETE)"
+                ],
                 "Gangos": [
                     "Delubrum Reginae"
                 ],
@@ -24749,7 +24756,7 @@
                 "Attune Solution Nine": 50217,
                 "Attune Dock Poga": 50238
             },
-            "checksum": "36b320b92b2445df569aa639d789e6cfda4bafe7"
+            "checksum": "5576d0dc0a8bf9b4ff8c189df0c44efad43911c4"
         }
     }
 }
