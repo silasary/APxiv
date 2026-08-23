@@ -71,6 +71,15 @@ jobs:
                   body: ${{ steps.get_changelog.outputs.result }}
                   immutableCreate: true
 
+            - name: Update template yamls
+              continue-on-error: true
+              run: |
+                source venv/bin/activate
+                cd Archipelago
+                python Launcher.py "Generate Template Options" --skip_open_folder
+                rm template_yamls/*.yaml
+                cp "Archipelago/Players/Templates/Presets/Final Fantasy XIV - *.yaml" template_yamls/
+
             - uses: silasary/datapackage_validator@main
               with:
                   datapackage-file: ${{ github.workspace }}/datapackage_export.json
@@ -80,14 +89,6 @@ jobs:
                   ap-version: latest
                   python-version: "3.13"
                   update-export: true
-            - name: Update template yamls
-              continue-on-error: true
-              run: |
-                source venv/bin/activate
-                cd Archipelago
-                python Launcher.py "Generate Template Options" --skip_open_folder
-                rm template_yamls/*.yaml
-                cp "Archipelago/Players/Templates/Presets/Final Fantasy XIV - *.yaml" template_yamls/
 
             - uses: stefanzweifel/git-auto-commit-action@v5
               with:
