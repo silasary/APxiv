@@ -69,6 +69,7 @@ jobs:
                   commit: ${{ env.GITHUB_REF }}
                   artifacts: Archipelago/build/apworlds/${{ env.world }}.apworld
                   body: ${{ steps.get_changelog.outputs.result }}
+                  immutableCreate: true
 
             - uses: silasary/datapackage_validator@main
               with:
