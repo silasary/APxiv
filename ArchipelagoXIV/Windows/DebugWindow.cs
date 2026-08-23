@@ -30,6 +30,7 @@ namespace ArchipelagoXIV.Windows
                 }
             } 
             ImGui.Text($"apState.territoryName: `{state.territoryName}`");
+            ImGui.Text($"apState.territory.RowId: `{state.territory.RowId}`");
 
             ImGui.Separator();
             ImGui.Checkbox("Show Completed Locations", ref this.ShowCompletedLocations);

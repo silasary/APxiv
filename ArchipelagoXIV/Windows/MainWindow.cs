@@ -80,10 +80,6 @@ public class MainWindow : SharedWindow
             ImGui.TextColored(new Vector4(1f, 0.3f, 0.3f, 1f), "Death Link is enabled.");
         }
 
-        ImGui.Spacing();
-        ImGui.TextColored(new Vector4(0.6f, 0.9f, 1f, 1f), "Available Checks:");
-        ImGui.Separator();
-
         if (state?.MissingLocations == null)
         {
             return;
@@ -100,7 +96,15 @@ public class MainWindow : SharedWindow
                 else
                     ImGui.TextColored(ImGuiColors.DalamudRed, $"Current Duty: {dutyLocation.DisplayText} (Not in logic)");
             }
+            else
+            {
+                ImGui.TextColored(ImGuiColors.DalamudGrey, $"Current Duty: {state.territoryName} (Not in seed)");
+            }
         }
+
+        ImGui.Spacing();
+        ImGui.TextColored(new Vector4(0.6f, 0.9f, 1f, 1f), "Available Checks:");
+        ImGui.Separator();
         //ImGui.Indent(55);
         var relevantLocations = new List<Location>();
         var hintedLocations = new List<Location>();
