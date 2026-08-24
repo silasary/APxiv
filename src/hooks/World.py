@@ -425,6 +425,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
             doh     = [j for j in doh     if j not in exclude_jobs]
 
         filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
+        filler_levels = [name for name in filler_levels if name not in prog_levels]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
             item_config[name] = min(remaining, capped_count)
