@@ -119,7 +119,15 @@ namespace ArchipelagoXIV
                     {
                         await Task.Delay(1000, this.BackgroundCancellationToken.Token);
                     }
-                    await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+                    try
+                    {
+                        await apState.ConnectAsync(Configuration.Connection, Configuration.SlotName, Configuration.Password);
+                    }
+                    catch (Exception ex)
+                    {
+                        DalamudApi.PluginLog.Error(ex, "Failed to connect to Archipelago server");
+                        DalamudApi.SetStatusBar("AP Connection Failed");
+                    }
                 }
                 await LogicUpdate(this.BackgroundCancellationToken.Token);
             }, this.BackgroundCancellationToken.Token).ContinueWith(ca =>
