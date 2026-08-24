@@ -1044,9 +1044,15 @@ def scrape_aetherytes() -> None:
     aetherytes = datamining_csv('Aetheryte')
     places = datamining_csv('PlaceName')
     territory_type = datamining_csv("TerritoryType")
-    aetheryte_locations = []
+    aetheryte_locations = load_data_file('aetherytes.json')
+    known_ids = {a['id']: a for a in aetheryte_locations}
+    place_name_to_id = {p['Name']: int(p['#']) for p in reversed(list(places.values()))}
     for aetheryte in aetherytes.values():
-        location_data: dict[str, Any] = {}
+        if int(aetheryte['#']) in known_ids:
+            location_data: dict[str, Any] = known_ids[int(aetheryte['#'])]
+        else:
+            location_data = {}
+
         location_data['id'] = int(aetheryte['#'])
         if aetheryte['IsAetheryte'] != 'True':
             continue
@@ -1059,7 +1065,16 @@ def scrape_aetherytes() -> None:
         territory = territory_type[map['TerritoryType']]
         location_data['expansion'] = _EX_VERSION_DATA[territory['ExVersion']][0]
         location_data['level'] = _EX_VERSION_DATA[territory['ExVersion']][1]
-        aetheryte_locations.append(location_data)
+
+        if f'{place['Name']} Aetheryte Plaza' in place_name_to_id:
+            location_data.setdefault("place_name", f'{place["Name"]} Aetheryte Plaza')
+        else:
+            location_data.setdefault("place_name", place["Name"])
+        location_data.setdefault("place_id", place_name_to_id.get(location_data.get("place_name", place["Name"]), int(place["#"])))
+
+        if int(aetheryte['#']) not in known_ids:
+            aetheryte_locations.append(location_data)
+
     save_data_file('aetherytes.json', aetheryte_locations, indent=1)
 
 def scrape_territory_types() -> None:

@@ -1,4 +1,5 @@
 using ArchipelagoXIV.Rando;
+using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Hooking;
 using FFXIVClientStructs.FFXIV.Client.Game.Control;
 using FFXIVClientStructs.FFXIV.Client.Game.Object;
@@ -36,18 +37,12 @@ namespace ArchipelagoXIV.Hooks
                     area = TerritoryInfo.Instance()->AreaPlaceNameId;
                     areaname = DalamudApi.DataManager.GetExcelSheet<PlaceName>().GetRow(area).Name.ExtractText();
                 }
-                if (string.IsNullOrEmpty(areaname))
-                    areaname = apState.territoryName;
-                DalamudApi.PluginLog.Debug("InteractWithObjectDetour called with obj: {0}, baseid: {1}, checkLineOfSight: {2}, area: {3}", obj->NameString, obj->BaseId, checkLineOfSight, areaname);
+                DalamudApi.PluginLog.Debug("InteractWithObjectDetour called with obj: {0}, baseid: {1}, checkLineOfSight: {2}, area: {3} ({4})", obj->NameString, obj->BaseId, checkLineOfSight, areaname, area);
 
                 if (apState.Game.AttunedAetherytes.Add(areaname))
                 {
                     var name = $"Attune {areaname}";
-                    if (Data.DutyAliases.TryGetValue(name, out var alias))
-                    {
-                        name = alias;
-                    }
-                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    var loc = apState.MissingLocations.OfType<AttuneLocation>().FirstOrDefault(l => l.Aetheryte.AttunePlace == area);
                     if (loc != null)
                     {
                         loc.Complete();

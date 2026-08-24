@@ -20,6 +20,7 @@ namespace ArchipelagoXIV.Rando
             APData.LoadHuntsCsv();
             APData.LoadFish();
             APData.LoadRemoved();
+            APData.LoadAetherytes();
         }
 
         internal static void MarkStale(bool reset)

@@ -10,9 +10,6 @@ namespace ArchipelagoXIV
     internal static partial class Data
     {
         internal record NotoriousMonsterInfo(string Name, string Rank, string LocationName);
-        internal record AetheryteInfo(string Name, TerritoryType Territory, string EnglishName);
-
-        public static FrozenDictionary<string, AetheryteInfo> Aetherytes { get; private set; } = FrozenDictionary<string, AetheryteInfo>.Empty;
         public static TerritoryType[] Territories { get; private set; } = [];
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
@@ -147,24 +144,6 @@ namespace ArchipelagoXIV
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
             { "Ocean Fishing: Ruby Sea", "Ocean Fishing: Ruby Price"},
-            // Aetheryte place names that don't match the actual aetheryte name
-            // Because the code happens in a detour, we'd rather hardcode these than do string manipulation at check time
-            { "Attune Crick", "Attune Onokoro" },
-            { "Attune Limsa Lominsa Aetheryte Plaza", "Attune Limsa Lominsa Lower Decks" },
-            { "Attune Gridania Aetheryte Plaza", "Attune New Gridania" },
-            { "Attune Ul'dah Aetheryte Plaza", "Attune Ul'dah - Steps of Nald" },
-            { "Attune Gold Saucer Aetheryte Plaza", "Attune The Gold Saucer" },
-            { "Attune Ishgard Aetheryte Plaza", "Attune Foundation" },
-            { "Attune Idyllshire Aetheryte Plaza", "Attune Idyllshire" },
-            { "Attune Rhalgr's Reach Aetheryte Plaza", "Attune Rhalgr's Reach" },
-            { "Attune Kugane Aetheryte Plaza", "Attune Kugane" },
-            { "Attune Doman Enclave Aetheryte Plaza", "Attune The Doman Enclave" },
-            { "Attune The Crystarium Aetheryte Plaza", "Attune The Crystarium" },
-            { "Attune Eulmore Aetheryte Plaza", "Attune Eulmore" },
-            { "Attune Old Sharlayan Aetheryte Plaza", "Attune Old Sharlayan" },
-            { "Attune Radz-at-Han Aetheryte Plaza", "Attune Radz-at-Han" },
-            { "Attune Tuliyollal Aetheryte Plaza", "Attune Tuliyollal" },
-            { "Attune Solution Nine Aetheryte Plaza", "Attune Solution Nine" },
         };
 
         public static void Initialize() {
@@ -172,19 +151,6 @@ namespace ArchipelagoXIV
 
             if (dataManager == null)
                 return;
-
-            AetheryteInfo GetAetheryteInfo(Aetheryte a)
-            {
-                
-                string englishName = dataManager.GetExcelSheet<PlaceName>(ClientLanguage.English)
-                    .FirstOrDefault(pn => pn.RowId == a.PlaceName.RowId).Name.ExtractText() ?? a.PlaceName.Value.Name.ExtractText();
-                return new AetheryteInfo(a.PlaceName.Value.Name.ExtractText(), a.Territory.Value, englishName);
-            }
-
-            Aetherytes = dataManager.GetExcelSheet<Aetheryte>()
-                .Where(a => a.PlaceName.RowId > 10 && a.IsAetheryte)
-                .Select(GetAetheryteInfo)
-                .ToFrozenDictionary(ae => ae.EnglishName);
 
             Territories = [.. dataManager.GetExcelSheet<TerritoryType>(ClientLanguage.English)];
 
