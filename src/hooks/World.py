@@ -23,7 +23,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
 from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
-from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value
 from .Options import LevelCap
 
 ########################################################################################
@@ -98,13 +98,11 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
 
+    force_jobs = get_set_value(multiworld, player, "force_jobs")
     excluded_jobs = get_excluded_jobs(multiworld, player)
-    force_jobs = get_option_value(multiworld, player, "force_jobs")
-    assert isinstance(force_jobs, set)
-    job_conflicts = [job for job in force_jobs if job in excluded_jobs]
-
-    if job_conflicts:
-        raise OptionError(f"Jobs cannot be both forced and excluded: {', '.join(sorted(job_conflicts))}")
+    all_jobs = set(TANKS + HEALERS + MELEE + CASTER + RANGED + DOH)
+    if not force_jobs and len(all_jobs - excluded_jobs) == 0:
+        raise OptionError("You can't exclude all non-limited combat jobs.")
 
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)

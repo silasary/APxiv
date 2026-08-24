@@ -33,6 +33,12 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     assert isinstance(value, int)
     return value
 
+def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[str]:
+    from ..Helpers import get_option_value
+    value = get_option_value(multiworld, player, option_name)
+    assert isinstance(value, set)
+    return value
+
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
     """Jobs excluded directly via exclude_jobs"""
     from ..Helpers import get_option_value
