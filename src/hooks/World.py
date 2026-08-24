@@ -39,7 +39,7 @@ from .Options import LevelCap
 ########################################################################################
 
 
-def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
+def get_duty_count(duty_type: str, expansion: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
     if duty_type == "Dungeon":
         return get_int_value(multiworld, player, "dungeon_count")
     if duty_type == "Variant Dungeon":
@@ -67,7 +67,16 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
     if duty_type == "PvP":
         return None
     if duty_type == "Deep Dungeon":
-        return None
+        if expansion == "HW":
+            return get_int_value(multiworld, player, "potd_count")
+        if expansion == "StB":
+            return get_int_value(multiworld, player, "hoh_count")
+        if expansion == "EW":
+            return get_int_value(multiworld, player, "eo_count")
+        if expansion == "DT":
+            return get_int_value(multiworld, player, "pt_count")
+        else:
+            raise ValueError(f"Unknown Deep Dungeon expansion {expansion}")
     if duty_type == "Criterion Dungeon":
         return None
     if duty_type == "Chaotic Raid":
@@ -120,8 +129,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
     has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
+    has_potd = is_option_enabled(multiworld, player, 'include_potd')
 
-    if not has_fates and not has_dungeons and not has_fish and not has_hunts:
+    if not has_fates and not has_dungeons and not has_fish and not has_hunts and not has_potd:
         raise OptionError("You can't disable everything.")
 
     if has_hunts and level_cap < 50:
@@ -130,14 +140,29 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
         raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
+    #  Restrictive starts solvable with fates
     if (
         not has_dungeons
         and not has_fish
         and not has_fatesanity
         and not has_hunts
+        and not has_potd
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
+
+    #  Restrictive starts solvable with POTD
+    if (
+        not has_dungeons
+        and not has_fish
+        and not has_fatesanity
+        and not has_hunts
+        and has_potd
+        and get_int_value(multiworld, player, 'fates_per_zone') < 3
+        and get_int_value(multiworld, player, 'extra_dungeon_checks') < 5
+    ):
+        world.options.extra_dungeon_checks.value = 5
+
 
 
 
@@ -147,9 +172,8 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
-            dutyType, _dutyExpansion, dutyDifficulty = category
-            count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
-
+            dutyType, dutyExpansion, dutyDifficulty = category
+            count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
             if count is None:
                 continue
 
@@ -158,9 +182,11 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 names = [n for n in names if n not in duels]
                 world.skipped_duties.update(duels)
 
-
-            count = min(len(names), count)
-            used_names = world.random.sample(names, count)
+            if dutyType == "Deep Dungeon":
+                used_names = names[:count]
+            else:
+                count = min(len(names), count)
+                used_names = world.random.sample(names, count)
 
             goal_name = victory_names[get_option_value(multiworld, player, "goal")]
             goal_data = BOSS_GOAL_DATA.get(goal_name)
