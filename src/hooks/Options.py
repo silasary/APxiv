@@ -295,7 +295,7 @@ class JobSet(OptionSet):
     Superclass for optionsets that allow you to pick jobs.
     """
 
-    valid_keys = frozenset(TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL)
+    valid_keys = frozenset(TANKS + HEALERS + MELEE + CASTER + RANGED)
 
 
     def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:

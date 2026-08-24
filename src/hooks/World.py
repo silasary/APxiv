@@ -234,7 +234,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         ranged  = [j for j in ranged  if j not in exclude_jobs]
         doh     = [j for j in doh     if j not in exclude_jobs]
 
-    force_jobs = sorted(get_option_value(multiworld, player, "force_jobs"))
+    force_jobs = sorted(get_set_value(multiworld, player, "force_jobs"))
 
     if force_jobs:
         if len(force_jobs) > 5:
