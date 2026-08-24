@@ -182,10 +182,16 @@ namespace ArchipelagoXIV.Hooks
                     }
                 }
 
-                var location = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+                Location? location = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(l => l.Content.RowId == duty.Content.RowId);
+                location ??= apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
                 if (location == null)
                 {
-                    DalamudApi.Echo("Location already completed or not in seed, nothing to do.");
+                    DalamudApi.Echo("Location not in seed, nothing to do.");
+                    return;
+                }
+                else if (location.Completed)
+                {
+                    DalamudApi.Echo("Location already completed, nothing to do.");
                     return;
                 }
 

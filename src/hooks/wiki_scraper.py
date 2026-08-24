@@ -1021,6 +1021,9 @@ def cat_region_table(spot_id):
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
 
+def hooks_path(filename: str) -> str:
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'hooks', filename)
+
 def clean_fish():
     all_fish = load_all_fish()
     for fish in all_fish.values():
@@ -1143,8 +1146,56 @@ def scrape_deep_dungeon_items() -> None:
     items_deepdungeon.sort(key=lambda x: x['id'])
     save_data_file('items.deepdungeon.json', items_deepdungeon, indent=4)
 
+def scrape_duties() -> None:
+    content_finder_conditions = datamining_csv('ContentFinderCondition')
+    dynamic_events = datamining_csv('DynamicEvent')
+    with open(hooks_path("duties.csv")) as f:
+        dutyreader = csv.DictReader(f.readlines(), delimiter=',', quotechar='"')
+        duties = list(dutyreader)
+    headers = dutyreader.fieldnames
+    assert headers is not None
+
+    for duty in duties:
+        name = duty['Name']
+        if not name:
+            continue
+        cfid = duty.get('ContentFinderID', None)
+        deid = duty.get('DynamicEventID', None)
+        if cfid and isinstance(cfid, str):
+            cfid = int(cfid)
+        if deid and isinstance(deid, str):
+            deid = int(deid)
+
+        if cfid is None:
+            for cfc in content_finder_conditions.values():
+                if cfc['Name'].casefold().strip().replace('*', '') == name.casefold().strip():
+                    cfid = duty['ContentFinderID'] = int(cfc['#'])
+                    break
+            else:
+                cfid = duty['ContentFinderID'] = 0
+        if cfid == 0 and deid is None:
+            for de in dynamic_events.values():
+                if de['Name'].casefold().strip() == name.casefold().strip():
+                    deid = duty['DynamicEventID'] = int(de['#'])
+                    break
+
+        if not cfid and not deid:
+            print(f"WARNING: Could not find ContentFinderCondition or DynamicEvent for {name}")
+            continue
+
+        if cfid and int(cfid) > 0 and (cf := content_finder_conditions.get(str(cfid))):
+            if not duty["Level Sync"]:
+                duty["Level Sync"] = cf.get('ClassJobLevelSync','')
+            if not duty["Ilvl Sync"]:
+                duty["Ilvl Sync"] = cf.get('ItemLevelRequired','')
+
+    with open(hooks_path("duties.csv"), "w", newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=headers, delimiter=',', quotechar='"')
+        writer.writeheader()
+        writer.writerows(duties)
 
 if __name__ == "__main__":
+    scrape_duties()
     scrape_classjobs()
     scrape_aetherytes()
     scrape_deep_dungeon_items()

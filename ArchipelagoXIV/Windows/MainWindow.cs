@@ -74,20 +74,20 @@ public class MainWindow : SharedWindow
         ImGui.TextColored(canReach ? LogicGreen : new Vector4(1f, 0.4f, 0.4f, 1f),
             $"Current location in logic: {canReach}");
 
-        ImGui.TextColored(new Vector4(1f, 0.85f, 0.2f, 1f), state?.Game?.GoalString() ?? "");
+        ImGui.TextColored(new Vector4(1f, 0.85f, 0.2f, 1f), state.Game?.GoalString() ?? "");
 
         if (state.DeathLinkEnabled)
         {
             ImGui.TextColored(new Vector4(1f, 0.3f, 0.3f, 1f), "Death Link is enabled.");
         }
 
-        if (state?.MissingLocations == null)
+        if (state.MissingLocations == null)
         {
             return;
         }
         if (DalamudApi.DutyState.IsDutyStarted)
         {
-            var location = state.AllLocations.FirstOrDefault(l => l.Name == state.territoryName);
+            var location = state.AllLocations.OfType<DutyLocation>().FirstOrDefault(l => l.Content.RowId == DalamudApi.DutyState.ContentFinderCondition.RowId);
             if (location is DutyLocation dutyLocation)
             {
                 if (dutyLocation.Completed)

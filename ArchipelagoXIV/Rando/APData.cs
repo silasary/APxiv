@@ -84,18 +84,28 @@ namespace ArchipelagoXIV.Rando
 
         public static void LoadDutiesCsv()
         {
-            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"];
+            string[] headers;
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.duties.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
+            headers = reader.ReadLine()?.Split(',') ?? [];
+            var iName = Array.IndexOf(headers, "Name");
+            var iLocation = Array.IndexOf(headers, "Location");
+            var iContentFinderID = Array.IndexOf(headers, "ContentFinderID");
             while ((line = reader.ReadLine()) != null)
             {
                 var row = line.Split(',');
-                if (headers.Contains(row[0].Trim()))
+                if (string.IsNullOrWhiteSpace(row[iName].Trim()))
                     continue;
-                if (row[0].StartsWith('"'))
-                    row[0] = row[0].Trim('"');
-                Aliases[row[0].Trim()] = row[4].Trim();
+
+                if (row[iName].StartsWith('"'))
+                    row[iName] = row[iName].Trim('"');
+                Aliases[row[iName].Trim()] = row[iLocation].Trim();
+                if (ushort.TryParse(row[iContentFinderID].Trim(), out var contentFinderId))
+                {
+                    CheckNameToContentID[row[iName].Trim()] = contentFinderId;
+                    ContentIDToLocationName[contentFinderId] = row[iName].Trim();
+                }
             }
         }
 
