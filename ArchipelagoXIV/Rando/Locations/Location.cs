@@ -27,6 +27,10 @@ namespace ArchipelagoXIV.Rando.Locations
             {
                 return new FateLocation(apState, id, name, fate);
             }
+            if (Regexes.FATE.Match(name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value))
+            {
+                return new GenericFateLocation(apState, id, name, m.Groups[1].Value, m.Groups[2].Value);
+            }
 
             var content = Data.Content.FirstOrDefault(cf => cf.Name == name);
             if (content.RowId == 0 && name.StartsWith("The"))

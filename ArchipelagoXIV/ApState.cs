@@ -529,7 +529,7 @@ namespace ArchipelagoXIV
                 return;
             }
 
-            if (hard || MissingLocations == null || MissingLocations.Length == 0)
+            if (hard || AllLocations == null || AllLocations.Length == 0)
             {
                 AllLocations = [.. session!.Locations.AllLocations.Select(i => Location.Create(this, i))];
                 MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
