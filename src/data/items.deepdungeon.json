@@ -4,9 +4,9 @@
         "id": 10001,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -18,9 +18,9 @@
         "id": 10002,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -32,9 +32,9 @@
         "id": 10003,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -46,9 +46,9 @@
         "id": 10004,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -60,9 +60,9 @@
         "id": 10005,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -74,9 +74,9 @@
         "id": 10006,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -88,9 +88,9 @@
         "id": 10007,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -102,9 +102,9 @@
         "id": 10008,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -116,9 +116,9 @@
         "id": 10009,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -130,9 +130,9 @@
         "id": 10010,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -144,9 +144,9 @@
         "id": 10011,
         "category": [
             "Heaven-on-High Pomanders",
-            "The Palace of the Dead Pomanders",
             "Pilgrim's Traverse Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -157,8 +157,8 @@
         "name": "Pomander of Rage",
         "id": 10012,
         "category": [
-            "The Palace of the Dead Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": false,
@@ -169,8 +169,8 @@
         "name": "Pomander of Lust",
         "id": 10013,
         "category": [
-            "The Palace of the Dead Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": false,
@@ -203,8 +203,8 @@
         "name": "Pomander of Resolution",
         "id": 10016,
         "category": [
-            "The Palace of the Dead Pomanders",
-            "Pomanders"
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": false,

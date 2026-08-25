@@ -1133,13 +1133,13 @@ def scrape_deep_dungeon_items() -> None:
     for item in items_deepdungeon:
         item.setdefault('category', ['Pomander'])
         if item.setdefault('potd', False):
-            item['category'].append("The Palace of the Dead Pomander")
+            item['category'].append("The Palace of the Dead Pomanders")
         if item.setdefault('hoh', False):
-            item['category'].append("Heaven-on-High Pomander")
+            item['category'].append("Heaven-on-High Pomanders")
         if item.setdefault('eo', 'Protomander' in item['name']):
             item['category'].append("Eureka Orthos Protomanders")
         if item.setdefault('pt', False):
-            item['category'].append("Pilgrim's Traverse Pomander")
+            item['category'].append("Pilgrim's Traverse Pomanders")
         item['category'] = sorted(set(item['category']))
 
 
