@@ -104,7 +104,6 @@ namespace ArchipelagoXIV.Rando
                 if (ushort.TryParse(row[iContentFinderID].Trim(), out var contentFinderId))
                 {
                     CheckNameToContentID[row[iName].Trim()] = contentFinderId;
-                    ContentIDToLocationName[contentFinderId] = row[iName].Trim();
                 }
             }
         }

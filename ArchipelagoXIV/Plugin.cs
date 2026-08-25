@@ -29,6 +29,7 @@ namespace ArchipelagoXIV
         internal UIHooks UiHooks { get; private set; }
         internal DeathLinkHooks DLHooks { get; private set; }
         internal HuntHooks HuntHooks { get; private set; }
+        internal ContentDirector ContentDirector { get; private set; }
         public Configuration Configuration { get; private set; }
         public WindowSystem WindowSystem = new("ArchipelagoXIV");
         private CancellationTokenSource BackgroundCancellationToken;
@@ -55,6 +56,7 @@ namespace ArchipelagoXIV
             this.UiHooks = new UIHooks(apState);
             this.DLHooks = new DeathLinkHooks(apState);
             this.HuntHooks = new HuntHooks(apState);
+            this.ContentDirector = new ContentDirector(apState);
 
 
             ConfigWindow = new ConfigWindow(this, this.apState);
@@ -199,6 +201,7 @@ namespace ArchipelagoXIV
 
             Events.CheckAmnesty();
             HuntHooks.OnFrameworkUpdate();
+            ContentDirector.FrameworkUpdate();
         }
 
         private void Chat(string command, string arguments)
