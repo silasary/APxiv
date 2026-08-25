@@ -8861,7 +8861,6 @@ Moldva:
 Momora Mora:
   The Southern Strait of Merlthor:
   - Krill
-  - Ghoul Barracuda
   - Plump Worm
   - Ragworm
   - Versatile Lure
@@ -9390,7 +9389,9 @@ Nepto Dragon:
   - Herring Ball
   - Steel Jig
   - Heavy Steel Jig
-Ner Lar Dor: {}
+Ner Lar Dor:
+  Karvarhur the First:
+  - Red Maggots
 Net Crawler:
   The Northern Strait of Merlthor:
   - Ragworm
@@ -9785,7 +9786,6 @@ Oschon's Stone:
   The Northern Strait of Merlthor:
   - Ragworm
   - Krill
-  - Tossed Dagger
   - Plump Worm
   - Versatile Lure
 Ossicula:
@@ -11283,7 +11283,6 @@ Ruby Herring:
   - Ragworm
   - Krill
   - Plump Worm
-  - Leopard Prawn
   - Versatile Lure
 Ruby Laver:
   Shoal Rock:
@@ -13737,7 +13736,9 @@ Tricolored Carp:
   - Wildfowl Fly
   - Floating Minnow
   - Freshwater Boilie
-Triple Threat: {}
+Triple Threat:
+  Canal Town North:
+  - Ghost Nipper
 Triplespine:
   Isari:
   - Blue Bobbit

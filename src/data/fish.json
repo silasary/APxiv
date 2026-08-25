@@ -74317,16 +74317,32 @@
  "Ner Lar Dor": {
   "name": "Ner Lar Dor",
   "id": 52007,
-  "zones": {},
+  "zones": {
+   "Urqopacha": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Urqopacha": [
+    "Red Maggots"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Karvarhur the First": [
+    "Red Maggots"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Karvarhur the First": [
+    "Red Maggots"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -74381,18 +74397,50 @@
  "Triple Threat": {
   "name": "Triple Threat",
   "id": 52011,
-  "zones": {},
+  "zones": {
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
+  },
+  "logical_intuition": {
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
+  },
+  "intuition_bait": {
+   "Living Memory": [
+    "Ghost Nipper"
+   ]
+  },
+  "logical_bait": {
+   "Canal Town North": [
+    "Ghost Nipper"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Canal Town North": [
+    "Ghost Nipper"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Canal Town North": [
+    "Ghost Nipper"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Canal Town North": [
+    "Ghost Nipper"
+   ]
+  }
  },
  "Pote'uka": {
   "name": "Pote'uka",
