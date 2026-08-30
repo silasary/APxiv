@@ -499,9 +499,9 @@ def after_load_item_file(item_table: list) -> list:
         n = int(max_level / 5)
 
         category = 'DoW/DoM'
-        if job in DOH:
+        if job["abbreviation"] in DOH:
             category = 'DoH'
-        elif job in DOL:
+        elif job["abbreviation"] in DOL:
             category = 'DoL'
         job.update({
             "category": ["Class Level", category],
