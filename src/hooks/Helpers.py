@@ -36,7 +36,12 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
 def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[str]:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
-    assert isinstance(value, set)
+    if isinstance(value, list):
+        value = set(value)
+    if value is None:
+        value = set()
+    if not isinstance(value, set):
+        raise TypeError(f"Expected a set for option '{option_name}', got {type(value).__name__}")
     return value
 
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:

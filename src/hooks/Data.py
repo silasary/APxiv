@@ -3,7 +3,15 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import Any, NotRequired, TypedDict, cast
+from typing import cast
+
+from .common import (
+    DOH,
+    DOL,
+    LEVEL_CAP,
+    LIMITED_LEVEL_CAPS,
+    LocationDict,
+)
 
 # Location ID Starts
 # 1-7999: Duties
@@ -24,23 +32,6 @@ from typing import Any, NotRequired, TypedDict, cast
 # 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
 # 999,000-999,999: Filler items
 
-class LocationDict(TypedDict):
-    name: str
-    region: str
-    category: NotRequired[list[str]]
-    requires: NotRequired[str]
-    level: NotRequired[int | str]
-    id: NotRequired[int]
-    duty_name: NotRequired[str | None]
-    party: NotRequired[int | None]
-    diff: NotRequired[int | None]
-    extra_number: NotRequired[int | None]
-    expansion: NotRequired[str | None]
-    filler: NotRequired[bool | None]
-    victory: NotRequired[bool | None]
-    is_dungeon: NotRequired[bool | None]
-    rank: NotRequired[str | None]
-    fate_number: NotRequired[int]
 
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
@@ -48,48 +39,8 @@ def after_load_game_file(game_table: dict) -> dict:
 
 HEADER_VALUES = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"]
 
-TANKS = ["PLD","WAR","DRK","GNB"]
-HEALERS = ["WHM","SCH","AST","SGE"]
-MELEE = ["MNK","DRG","NIN","SAM","RPR", "VPR"]
-CASTER = ["BLM","SMN","RDM","PCT"]
-RANGED = ["BRD","MCH","DNC"]
-DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
-DOL = ["MIN", "BTN", "FSH"]
-
-JOB_FULL_NAMES = {
-    "PLD": "Paladin",
-    "WAR": "Warrior",
-    "DRK": "Dark Knight",
-    "GNB": "Gunbreaker",
-    "WHM": "White Mage",
-    "SCH": "Scholar",
-    "AST": "Astrologian",
-    "SGE": "Sage",
-    "MNK": "Monk",
-    "DRG": "Dragoon",
-    "NIN": "Ninja",
-    "SAM": "Samurai",
-    "RPR": "Reaper",
-    "VPR": "Viper",
-    "BST": "Beastmaster",
-    "BLM": "Black Mage",
-    "SMN": "Summoner",
-    "RDM": "Red Mage",
-    "BLU": "Blue Mage",
-    "PCT": "Pictomancer",
-    "BRD": "Bard",
-    "MCH": "Machinist",
-    "DNC": "Dancer",
-    "FSH": "Fisher",
-}
-
-FULL_NAME_TO_JOB = {v: k for k, v in JOB_FULL_NAMES.items()}
-
-LEVEL_CAP = 100
-LIMITED_LEVEL_CAPS = {
-    "BLU": 80,
-    "BST": 50,
-}
+JOB_FULL_NAMES = {}
+FULL_NAME_TO_JOB = {}
 
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
@@ -527,9 +478,9 @@ def after_load_item_file(item_table: list) -> list:
         n = int(max_level / 5)
 
         category = 'DoW/DoM'
-        if job in DOH:
+        if job["abbreviation"] in DOH:
             category = 'DoH'
-        elif job in DOL:
+        elif job["abbreviation"] in DOL:
             category = 'DoL'
         job.update({
             "category": ["Class Level", category],
@@ -537,6 +488,8 @@ def after_load_item_file(item_table: list) -> list:
             "max_count": n,
             "filler": True,
         })
+        JOB_FULL_NAMES[job['abbreviation']] = job['name']
+        FULL_NAME_TO_JOB[job['name']] = job['abbreviation']
 
     item_table.extend(classes)
     pomanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
@@ -706,19 +659,6 @@ def after_load_option_file(option_table: dict) -> dict:
 # for more info check https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/world%20api.md#webworld-class
 def after_load_meta_file(meta_table: dict) -> dict:
     return meta_table
-
-# called when an external tool (eg Univeral Tracker) ask for slot data to be read
-# use this if you want to restore more data
-# return True if you want to trigger a regeneration if you changed anything
-def hook_interpret_slot_data(world, player: int, slot_data: dict[str, Any]) -> bool:
-    prog_classes = slot_data.get("prog_classes", [])
-    if not prog_classes:
-        prog_classes = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + ["FSH"]
-
-    for job in prog_classes:
-        world.item_name_to_item["5 " + job + " Levels"]["progression"] = True
-    return False
-
 
 def after_load_event_file(event_table: list) -> list:
     return event_table

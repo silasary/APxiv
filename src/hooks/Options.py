@@ -17,17 +17,17 @@ from Options import (
 )
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from .Data import (
+from .common import (
     CASTER,
     DOH,
     DOL,
-    FULL_NAME_TO_JOB,
     HEALERS,
     LEVEL_CAP,
     MELEE,
     RANGED,
     TANKS,
 )
+from .Data import FULL_NAME_TO_JOB
 
 
 class XivLocalItems(LocalItems):
