@@ -1,12 +1,12 @@
 {
     "game": "Manual_FFXIV_Silasary",
-    "world_version": "0.31.1",
+    "world_version": "0.31.2",
     "minimum_ap_version": "0.6.7",
     "changelog": [
-        "* Added North Horn FATES and CEs.",
-        "* Added Frontline checks.  The `include_pvp` option has been replaced with separate toggles for CC and Frontline.",
-        "* Fixed bug where Bozja and Occult Crescent FATEs would not respect their yaml settings if FATEsanity was enabled.",
-        "* Separate toggle for Skyrise Celebration fetes.",
+        "* Fixed bug where logic thought you could do duties as a Disciple of the Hand or Land.",
+        "* This confused UT, but hopefully shouldn't have caused any unbeatable seeds.",
+        "* That said, if you genned on 0.31.1, and your Fisher is higher than any of your combat classes... You may have to cheat some locations.",
+        "(Only fisher though, because the rest of them will always be filler.)",
         ""
     ]
 }
