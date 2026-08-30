@@ -3,14 +3,13 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import cast
+from typing import cast, NotRequired, TypedDict
 
 from .common import (
     DOH,
     DOL,
     LEVEL_CAP,
     LIMITED_LEVEL_CAPS,
-    LocationDict,
 )
 
 # Location ID Starts
@@ -23,6 +22,23 @@ from .common import (
 # 40,000-40,499: Boss Goal locations and their clear items
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
+class LocationDict(TypedDict):
+    name: str
+    region: str
+    category: NotRequired[list[str]]
+    requires: NotRequired[str]
+    level: NotRequired[int | str]
+    id: NotRequired[int]
+    duty_name: NotRequired[str | None]
+    party: NotRequired[int | None]
+    diff: NotRequired[int | None]
+    extra_number: NotRequired[int | None]
+    expansion: NotRequired[str | None]
+    filler: NotRequired[bool | None]
+    victory: NotRequired[bool | None]
+    is_dungeon: NotRequired[bool | None]
+    rank: NotRequired[str | None]
+    fate_number: NotRequired[int]
 
 # Item ID Starts
 # 1-999:  Access Keys
@@ -31,6 +47,19 @@ from .common import (
 # 10,000-10,999: Deep Dungeon items
 # 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
 # 999,000-999,999: Filler items
+
+class ItemDict(TypedDict):
+    name: str
+    category: NotRequired[list[str]]
+    id: NotRequired[int]
+    count: NotRequired[int]
+    max_count: NotRequired[int]
+
+    progression: NotRequired[bool | None]
+    useful: NotRequired[bool | None]
+    filler: NotRequired[bool | None]
+
+    abbreviation: NotRequired[str]
 
 
 # called after the game.json file has been loaded
@@ -342,7 +371,7 @@ def generate_fate_list() -> list[LocationDict]:
             if "(FATE)" not in name:
                 name += " (FATE)"
 
-            location = {
+            location: LocationDict = {
                     "name": name,
                     "region": row['Location'],
                     "category": ["FATEsanity", row['Location']],
@@ -447,10 +476,10 @@ def generate_fish_list() -> list[LocationDict]:
     return locations
 
 
-def generate_bait_list() -> list[dict]:
+def generate_bait_list() -> list[ItemDict]:
     from ..Helpers import load_data_file
     bait = load_data_file("bait.json")
-    items = []
+    items: list[ItemDict] = []
     _id = 1_000
     for name, data in bait.items():
         if data.get('mooch'):
@@ -467,13 +496,14 @@ def generate_bait_list() -> list[dict]:
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
-def after_load_item_file(item_table: list) -> list:
+def after_load_item_file(item_table: list[ItemDict]) -> list[ItemDict]:
     item_table.extend(generate_bait_list())
 
     from ..Helpers import load_data_file
-    classes = cast(list[dict], load_data_file("items.levels.json"))
+    classes = cast(list[ItemDict], load_data_file("items.levels.json"))
 
     for job in classes:
+        assert 'abbreviation' in job, f"Job entry missing abbreviation: {job['name']}"
         max_level = LIMITED_LEVEL_CAPS.get(job['abbreviation'], LEVEL_CAP)
         n = int(max_level / 5)
 
@@ -492,7 +522,7 @@ def after_load_item_file(item_table: list) -> list:
         FULL_NAME_TO_JOB[job['name']] = job['abbreviation']
 
     item_table.extend(classes)
-    pomanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
+    pomanders = cast(list[ItemDict], load_data_file("items.deepdungeon.json"))
     item_table.extend(pomanders)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
@@ -506,7 +536,7 @@ def after_load_item_file(item_table: list) -> list:
         })
         _cleared_id += 1
 
-    filler_items = []
+    filler_items: list[ItemDict] = []
     for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
@@ -521,7 +551,7 @@ def after_load_item_file(item_table: list) -> list:
 
 # NOTE: Progressive items are not currently supported in Manual. Once they are,
 #       this hook will provide the ability to meaningfully change those.
-def after_load_progressive_item_file(progressive_item_table: list) -> list:
+def after_load_progressive_item_file(progressive_item_table: list[ItemDict]) -> list[ItemDict]:
     return progressive_item_table
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
