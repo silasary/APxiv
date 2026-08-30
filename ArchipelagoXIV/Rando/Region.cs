@@ -65,7 +65,10 @@ namespace ArchipelagoXIV.Rando
                         if (!explored.Contains(conn))
                             queue.Enqueue(conn);
                         if (conn.Distance == null || conn.Distance > region.Distance + 1)
+                        {
                             conn.Distance = region.Distance + 1;
+                            conn.From = region;
+                        }
                     }
                 }
                 return false;
@@ -143,6 +146,7 @@ namespace ArchipelagoXIV.Rando
         public string[] _connections;
 
         public int? Distance = null;
+        public Region From = null;
 
         internal bool stale;
         internal bool Reachable;

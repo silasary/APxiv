@@ -40,7 +40,7 @@ namespace ArchipelagoXIV.Windows
             foreach (var region in regions)
             {
                 var distance = region.Value.Distance ?? 99;
-                ImGui.Text($"{distance.ToString("D2")}: {region.Key}");
+                ImGui.Text($"{distance.ToString("D2")}: {region.Key} (From: {region.Value.From?.Name ?? "null"})");
                 if (checksPerRegion.TryGetValue(region.Value, out var checks))
                 {
                     ImGui.Indent();

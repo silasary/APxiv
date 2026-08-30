@@ -80,6 +80,7 @@ namespace ArchipelagoXIV.Hooks
         private unsafe void EnqueueFateRewardDetour(AgentFateReward* thisPtr, AgentFateReward.Reward* reward)
         {
             EnqueueFateReward.Original(thisPtr, reward);
+            DalamudApi.PluginLog.Debug("Fate Reward Detour: {0} ({1}) Success: {2}, Type: {3}", reward->Id, reward->Name.ExtractText(), reward->IsSuccess, reward->Type);
             var success = reward->IsSuccess;
             var fateID = reward->Id;
 
