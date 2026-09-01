@@ -54,6 +54,15 @@ class Fatesanity(Toggle):
     display_name = "Fatesanity"
     default = False
 
+class AchievementFates(Toggle):
+    """
+    Include Achievement FATTEs and other FATEs that are not reasonable to complete.
+
+    These fates can either require large amounts of players or long/messy chains.
+    """
+    display_name = "Include Achievement FATEs"
+    default = False
+
 class UnreasonableFates(Toggle):
     """
     Include World Bosses and other FATEs that are not reasonable to complete.
@@ -494,6 +503,7 @@ def before_options_defined(options: dict) -> dict:
     # Fates
     options["fates_per_zone"] = FatesPerZone
     options["fatesanity"] = Fatesanity
+    options["include_achievement_fates"] = AchievementFates
     options["include_unreasonable_fates"] = UnreasonableFates
     options["include_fetes"] = Fetesanity
 
@@ -542,7 +552,7 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
     groups["Character Settings"] = [LevelCap, ForceJob, ExcludeJob]
-    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
+    groups["Fates"] = [Fatesanity, FatesPerZone, AchievementFates, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
