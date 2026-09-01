@@ -338,13 +338,13 @@ namespace ArchipelagoXIV
             var upfates = 0;
             var activeFates = new StringBuilder();
             var zoneTT = new StringBuilder();
+            var local = new StringBuilder();
             var unavailable = new StringBuilder();
             var zoneswithchecks = new HashSet<Region>();
             APData.Regions.TryGetValue(RegionContainer.LocationToRegion(this.territoryName, (ushort)this.territory.RowId), out var region);
             if (region != null)
             {
                 this.CurrentLocationInLogic = RegionContainer.CanReach(this, region);
-                zoneTT.AppendLine($"Available Checks in {region.Name}:");
             }
 
             foreach (var l in MissingLocations)
@@ -360,7 +360,7 @@ namespace ArchipelagoXIV
 
                     if (l.IsAccessible())
                     {
-                        zoneTT.AppendLine(l.DisplayText);
+                        local.AppendLine(l.DisplayText);
                         checks++;
                         if (l is FateLocation)
                             fates++;
@@ -391,21 +391,40 @@ namespace ArchipelagoXIV
                 if (!fish && l is Fish)
                     fish = true;
             }
-            
+
+            if (local.Length > 0)
+            {
+                zoneTT.AppendLine($"Available Checks in {region?.Name}:");
+                zoneTT.Append(local);
+            }
+
             if (upfates > 0)
             {
                 zoneTT.Insert(0, "Active Fates:\n" + activeFates.ToString() + '\n');
             }
 
             zoneTT.AppendLine();
-            zoneTT.AppendLine("Zones with checks:");
-
-            foreach (var z in zoneswithchecks)
+            if (zoneswithchecks.Count > 0)
             {
-                if (RegionContainer.CanReach(this, z))
-                    zoneTT.AppendLine(z.Name);
-                else
-                    zoneTT.AppendLine($"{z.Name} (Unreachable)");
+                zoneTT.AppendLine("Zones with checks:");
+
+                var more = 0;
+                if (zoneswithchecks.Count > 15)
+                {
+                    more = zoneswithchecks.Count - 15;
+                    zoneswithchecks = [.. zoneswithchecks.OrderBy(z => z.Distance).Take(15)];
+                }
+                foreach (var z in zoneswithchecks)
+                {
+                    if (RegionContainer.CanReach(this, z))
+                        zoneTT.AppendLine(z.Name);
+                    else
+                        zoneTT.AppendLine($"{z.Name} (Unreachable)");
+                }
+                if (more > 0)
+                {
+                    zoneTT.AppendLine($"...and {more} more");
+                }
             }
             if (unavailable.Length > 0)
             {
