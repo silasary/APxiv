@@ -128,7 +128,9 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
-    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
+    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks") and "Deep Dungeon" not in location["category"][0]:
+        return False
+    if "Deep Dungeon" in location["category"][0] and "extra_number" in location and location["extra_number"] % get_int_value(multiworld, player, "deep_dungeon_bundles") != 0:
         return False
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:

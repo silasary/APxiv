@@ -215,6 +215,19 @@ class FieldOperationCriticalEncounterCount(Range):
     range_start = 0
     range_end = 33
 
+class DeepDungeonBundles(Range):
+    """
+    Amount of floors required per deep dungeon location.
+
+    Each deep dungeon will have a base check of 1 at the floor set boss, meaning that if you set this to be bundled by 3, it will be floors 3, 6, 9, 10 etc
+
+    10 would mean only the end bosses have locations, and 1 would mean every floor is a location 
+    """
+    display_name = "Deep Dungeon Bundle Size"
+    default = 5
+    range_start = 1
+    range_end = 10
+
 class PotDCount(Range):
     """
     Number of The Palace of the Dead Floorsets to include in the location pool
@@ -520,6 +533,7 @@ def before_options_defined(options: dict) -> dict:
     options["include_hoh"] = IncludeHoH
     options["include_eo"] = IncludeEO
     options["include_pt"] = IncludePT
+    options["deep_dungeon_bundles"] = DeepDungeonBundles
     options["potd_count"] = PotDCount
     options["hoh_count"] = HoHCount
     options["eo_count"] = EOCount
@@ -547,7 +561,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
     groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT,
-                              PotDCount, HoHCount, EOCount, PTCount]
+                              DeepDungeonBundles, PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
