@@ -160,7 +160,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
         and get_int_value(multiworld, player, 'extra_dungeon_checks') < 5
     ):
-        world.options.deep_dungeon_bundles.value = 2
+        world.options.deep_dungeon_floor_count.value = 5
 
 
 
