@@ -159,9 +159,10 @@ namespace ArchipelagoXIV.Hooks
             }
 
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2})", name, duty.Content.RowId, territoryType.RowId);
-            var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2} apid={3})", name, duty.Content.RowId, territoryType.RowId, location?.ApId ?? -1);
 
+            location ??= apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
             var atLevel = Logic.Level(duty.ClassJobLevelRequired)(apState, apState.ApplyClassRestrictions);
 
             var currentLevel = DalamudApi.ObjectTable.LocalPlayer?.Level ?? DalamudApi.PlayerState.Level;
@@ -171,18 +172,7 @@ namespace ArchipelagoXIV.Hooks
             {
                 if (apState.Game is NGPlusGame ngGame && ngGame.GoalDutyName == name)
                     ngGame.OnGoalDutyCompleted();
-
-                if (apState.Game is NGPlusGame state)
-                {
-                    for (var i = 2; i < state.ExtraDungeonChecks + 2; i++)
-                    {
-                        DalamudApi.PluginLog.Debug($"looking for {name} {i}");
-                        var extraLocation = apState.MissingLocations.FirstOrDefault(l => l.Name.Equals($"{name} {i}", StringComparison.InvariantCultureIgnoreCase));
-                        extraLocation?.Complete();
-                    }
-                }
-
-                location ??= apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+                
                 if (location == null)
                 {
                     DalamudApi.Echo("Location not in seed, nothing to do.");
@@ -190,7 +180,7 @@ namespace ArchipelagoXIV.Hooks
                 }
                 else if (location.Completed)
                 {
-                    DalamudApi.Echo("Location already completed, nothing to do.");
+                    DalamudApi.Echo($"Location {location.Name} already completed, nothing to do.");
                     return;
                 }
 

@@ -25,6 +25,15 @@ namespace ArchipelagoXIV.Rando.Locations
                 return Name;
             }
         }
+
+        public override void Complete()
+        {
+            base.Complete();
+            foreach (var sub in this.SubLocations)
+            {
+                sub.Complete();
+            }
+        }
     }
 
     internal class DutySubLocation : Location

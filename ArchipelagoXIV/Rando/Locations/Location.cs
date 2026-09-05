@@ -197,7 +197,7 @@ namespace ArchipelagoXIV.Rando.Locations
             return true;
         }
 
-        public void Complete()
+        public virtual void Complete()
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             Completed = true;
