@@ -297,7 +297,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
             if "Dungeon" in row["Category"]:
                 for i in range(1, 10): # TODO: This should be 11.  But it's a breaking change, so we're waiting for 8.0
                     name = f"{row['Name']} {i + 1}"
-                    if "Deep Dungeon" in row["Category"]: #I assume this might break if the above todo is corrected, so this will probably need to be refactored
+                    if "Deep Dungeon" in row["Category"]:
                         m = deep_dungeon_regex.match(row["Name"])
                         if m:
                             dd_name = m['dd_name']
