@@ -17,11 +17,14 @@ namespace ArchipelagoXIV.Rando
         [GeneratedRegex(@"(.+) \d+$")]
         private static partial Regex ExtraCheck();
 
+        [GeneratedRegex(@"^(.+) (Floor|Stone) (\d+)$")]
+        private static partial Regex DeepDungeonSubLocRegex();
 
         public static readonly Regex FATE = FateRegex();
         public static readonly Regex itemRegex = ItemRegex();
         public static readonly Regex Carnivale = CarnivaleRegex();
         public static readonly Regex ExtraCheckName = ExtraCheck();
+        public static readonly Regex DeepDungeonSubLocation = DeepDungeonSubLocRegex();
 
     }
 }
