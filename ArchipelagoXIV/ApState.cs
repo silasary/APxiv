@@ -403,7 +403,9 @@ namespace ArchipelagoXIV
                 zoneTT.Insert(0, "Active Fates:\n" + activeFates.ToString() + '\n');
             }
 
-            zoneTT.AppendLine();
+            if (zoneTT.Length > 0)
+                zoneTT.AppendLine();
+
             if (zoneswithchecks.Count > 0)
             {
                 zoneTT.AppendLine("Zones with checks:");
@@ -552,6 +554,10 @@ namespace ArchipelagoXIV
             {
                 AllLocations = [.. session!.Locations.AllLocations.Select(i => Location.Create(this, i))];
                 MissingLocations = [.. AllLocations.Where(l => !l.Completed && session!.Locations.AllMissingLocations.Contains(l.ApId))];
+                foreach (var l in AllLocations.OfType<DutySubLocation>())
+                {
+                    l.GetParent();
+                }
             }
             else
             {

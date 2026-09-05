@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ArchipelagoXIV.Rando.Locations
 {
@@ -25,6 +26,15 @@ namespace ArchipelagoXIV.Rando.Locations
                 return Name;
             }
         }
+
+        public override void Complete()
+        {
+            base.Complete();
+            foreach (var sub in this.SubLocations)
+            {
+                sub.Complete();
+            }
+        }
     }
 
     internal class DutySubLocation : Location
@@ -32,10 +42,10 @@ namespace ArchipelagoXIV.Rando.Locations
         public DutyLocation? parent;
         public string DutyName { get; }
 
-        public DutySubLocation(ApState apState, long id, string name, ContentFinderCondition content) : base(apState, id, name)
+        public DutySubLocation(ApState apState, long id, string name, ContentFinderCondition content, string parentname) : base(apState, id, name)
         {
             this.Content = content;
-            this.DutyName = Regexes.ExtraCheckName.Match(Name).Groups[1].Value;
+            this.DutyName = parentname;
         }
 
 
