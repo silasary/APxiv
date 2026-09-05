@@ -403,7 +403,9 @@ namespace ArchipelagoXIV
                 zoneTT.Insert(0, "Active Fates:\n" + activeFates.ToString() + '\n');
             }
 
-            zoneTT.AppendLine();
+            if (zoneTT.Length > 0)
+                zoneTT.AppendLine();
+
             if (zoneswithchecks.Count > 0)
             {
                 zoneTT.AppendLine("Zones with checks:");
