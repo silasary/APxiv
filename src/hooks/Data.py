@@ -3,7 +3,7 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import cast, NotRequired, TypedDict
+from typing import NamedTuple, cast, NotRequired, TypedDict
 
 from .common import (
     DOH,
@@ -230,7 +230,12 @@ def get_duty_expansion(category: str) -> tuple[str, str]:
         return expansion_match.group(1), expansion_match.group(2)
     raise ValueError
 
-categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
+class DutyTypeExpansionDifficulty(NamedTuple):
+    duty_type: str
+    duty_expansion: str
+    duty_difficulty: int
+
+categorizedLocationNames: dict[DutyTypeExpansionDifficulty, list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
 
 def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
     duty_list: list[LocationDict] = []
