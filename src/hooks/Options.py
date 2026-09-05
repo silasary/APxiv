@@ -215,6 +215,15 @@ class FieldOperationCriticalEncounterCount(Range):
     range_start = 0
     range_end = 33
 
+class DeepDungeonFloorCount(Range):
+    """
+    Number of floors per floorset to include in the location pool
+    """
+    display_name = "Deep Dungeon Floor Count"
+    default = 10
+    range_start = 1
+    range_end = 10
+
 class PotDCount(Range):
     """
     Number of The Palace of the Dead Floorsets to include in the location pool
@@ -520,6 +529,7 @@ def before_options_defined(options: dict) -> dict:
     options["include_hoh"] = IncludeHoH
     options["include_eo"] = IncludeEO
     options["include_pt"] = IncludePT
+    options["deep_dungeon_floor_count"] = DeepDungeonFloorCount
     options["potd_count"] = PotDCount
     options["hoh_count"] = HoHCount
     options["eo_count"] = EOCount
@@ -547,7 +557,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
     groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT,
-                              PotDCount, HoHCount, EOCount, PTCount]
+                              DeepDungeonFloorCount, PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,

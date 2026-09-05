@@ -27,6 +27,20 @@ REGION_LEVEL_CAP_ADJUSTMENTS: dict[str, int] = {
     "Kozama'uka":                 91,
 }
 
+DEEP_DUNGEON_EXCLUDED_FLOORS = [
+    [1,2,3,4,5,6,7,8,9],
+    [1,2,3,4,6,7,8,9],
+    [1,2,3,5,6,8,9],
+    [1,2,4,5,7,8],
+    [1,3,5,7,9],
+    [2,5,7,9],
+    [3,6,9],
+    [4,9],
+    [5],
+    [],
+]
+
+
 def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
@@ -128,7 +142,9 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
-    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
+    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks") and "Deep Dungeon" not in location["category"][0]:
+        return False
+    if "Deep Dungeon" in location["category"][0] and "extra_number" in location and location["extra_number"] in DEEP_DUNGEON_EXCLUDED_FLOORS[get_int_value(multiworld, player, "deep_dungeon_floor_count")-1]:
         return False
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:
