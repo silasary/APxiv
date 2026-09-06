@@ -152,7 +152,7 @@ namespace ArchipelagoXIV
                 Dispose();
             });
         }
-
+        
         private async Task LogicUpdate(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)

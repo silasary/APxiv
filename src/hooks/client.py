@@ -1,23 +1,46 @@
 import asyncio
-from collections import Counter
 import os
-
-import re
 import urllib.parse
 import webbrowser
+from collections import Counter
 
-from Utils import messagebox
 from CommonClient import get_base_parser, server_loop
 from kvui import GameManager, dp
-from worlds import AutoWorldRegister, network_data_package
-from ..ManualClient import read_apmanual_file, ManualContext, tracker_loaded, gui_enabled, game_watcher_manual
-from .. import Locations, Items
+from Utils import messagebox
 
+from worlds import AutoWorldRegister, network_data_package
+
+from .. import Items, Locations
+from ..ManualClient import (
+    ManualContext,
+    game_watcher_manual,
+    gui_enabled,
+    read_apmanual_file,
+    tracker_loaded,
+)
+from .common import (
+    CASTER,
+    HEALERS,
+    MELEE,
+    RANGED,
+    RE_N_JOB_LEVELS,
+    TANKS,
+)
+
+JOB_ICONS = {
+    "TANK": "https://ffxiv.gamerescape.com/w/images/0/07/Tank_Icon_Flat_1.png",
+    "HEALER": "https://ffxiv.gamerescape.com/w/images/d/d7/Healer_Icon_Flat_1.png",
+    "MELEE":  "https://ffxiv.gamerescape.com/w/images/3/32/Melee_DPS_Icon_Flat_1.png",
+    "RANGED": "https://ffxiv.gamerescape.com/w/images/1/16/Physical_Ranged_DPS_Flat_Icon_1.png",
+    "CASTER": "https://ffxiv.gamerescape.com/w/images/b/b8/Magic_Ranged_DPS_Icon_Flat_1.png",
+
+    "BRD": "https://ffxiv.gamerescape.com/w/images/5/58/Bard_Icon_10.5.png",
+    "DRG": "https://ffxiv.gamerescape.com/w/images/7/77/Dragoon_Icon_10.5.png",
+    "MNK": "https://ffxiv.gamerescape.com/w/images/9/9c/Monk_Icon_10.5.png",
+}
 
 client_name = "Final Fantasy XIV Manual Client"
 client_description = "Manual Final Fantasy XIV Client, for operating the Final Fantasy XIV Manual implementation in Archipelago."
-
-RE_N_JOB_LEVELS = re.compile(r"^(?P<num>\d{1,2})\s+(?P<job>[A-Z]{2,3})\s+Levels$")
 
 def get_context(args, config_file):
     return XivContext(args.connect, args.password, config_file.get("game"), config_file.get("player_name"))
@@ -26,24 +49,37 @@ class XivContext(ManualContext):
     game = ""
 
     def make_gui(self) -> type[GameManager]:
-        from kivy.uix.layout import Layout
         from kivy.uix.boxlayout import BoxLayout
         from kivy.uix.floatlayout import FloatLayout
         from kivy.uix.image import AsyncImage
         from kivy.uix.label import Label
+        from kivy.uix.layout import Layout
         ManualUi = super().make_gui()
 
-        class XivJobIcon(FloatLayout):
+        class XivJobIcon(BoxLayout):
             level = 0
             job = ""
+            orientation = "vertical"
 
             def __init__(self, job: str, **kwargs) -> None:
-                from .Data import JOB_FULL_NAMES
                 super().__init__(**kwargs)
                 self.job = job
-                image_name = JOB_FULL_NAMES.get(job, job).lower()
-                self.image = AsyncImage(source=f"https://ffxiv.gamerescape.com/w/images/1/1d/Dragoon_Icon_3.5.png")
-                self.text_label = Label(text=f"{job}\n{self.level}", font_size=dp(12), halign="center", valign="top", size_hint=(1, 1), pos_hint={"x": 0, "y": 0})
+
+                img_source = JOB_ICONS.get(job)
+                if img_source is None:
+                    if job in TANKS:
+                        img_source = JOB_ICONS.get("TANK")
+                    elif job in HEALERS:
+                        img_source = JOB_ICONS.get("HEALER")
+                    elif job in MELEE:
+                        img_source = JOB_ICONS.get("MELEE")
+                    elif job in RANGED:
+                        img_source = JOB_ICONS.get("RANGED")
+                    elif job in CASTER:
+                        img_source = JOB_ICONS.get("CASTER")
+
+                self.image = AsyncImage(source=img_source, size_hint=(1, 1))
+                self.text_label = Label(text=f"{job}\n{self.level}", font_size=dp(12), halign="center", valign="top", size_hint=(1, 1))
                 # self.add_widget(self.image)
                 self.add_widget(self.text_label)
 
@@ -53,7 +89,6 @@ class XivContext(ManualContext):
 
         class XivJobsLayout(BoxLayout):
             def __init__(self, **kwargs) -> None:
-                from .Data import CASTER, HEALERS, MELEE, RANGED, TANKS
                 super().__init__(**kwargs)
                 self.orientation = "horizontal"
                 self.size_hint = (1, None)

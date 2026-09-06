@@ -44,12 +44,23 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new DutyLocation(apState, id, name, content);
             }
 
+            var match = Regexes.DeepDungeonSubLocation.Match(name);
+            if (match.Success)
+            {
+                var floor = int.Parse(match.Groups[3].Value);
+                var start = floor - (floor % 10) + 1;
+                var end = start + 9;
+                var parentname = $"{match.Groups[1].Value} ({match.Groups[2].Value}s {start}-{end})";
+
+                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == parentname);
+                return new DutySubLocation(apState, id, name, content, parentname);
+            }
             // Bonus checks come in the form "Sastasha 2"
-            var match = Regexes.ExtraCheckName.Match(name);
+            match = Regexes.ExtraCheckName.Match(name);
             if (match.Success)
             {
                 content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
-                return new DutySubLocation(apState, id, name, content);
+                return new DutySubLocation(apState, id, name, content, match.Groups[1].Value);
             }
 
             return new Location(apState, id, name);
@@ -197,7 +208,7 @@ namespace ArchipelagoXIV.Rando.Locations
             return true;
         }
 
-        public void Complete()
+        public virtual void Complete()
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
             Completed = true;

@@ -3,7 +3,14 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import Any, NotRequired, TypedDict, cast
+from typing import NamedTuple, cast, NotRequired, TypedDict
+
+from .common import (
+    DOH,
+    DOL,
+    LEVEL_CAP,
+    LIMITED_LEVEL_CAPS,
+)
 
 # Location ID Starts
 # 1-7999: Duties
@@ -15,15 +22,6 @@ from typing import Any, NotRequired, TypedDict, cast
 # 40,000-40,499: Boss Goal locations and their clear items
 # 45,000-49,999: Hunt Marks (Huntsanity)
 # 50,000-54,999: Aetherite Locations
-
-# Item ID Starts
-# 1-999:  Access Keys
-# 1000-4999: Bait
-# 5000-9999: Class Level Items
-# 10,000-10,999: Deep Dungeon items
-# 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
-# 999,000-999,999: Filler items
-
 class LocationDict(TypedDict):
     name: str
     region: str
@@ -42,54 +40,36 @@ class LocationDict(TypedDict):
     rank: NotRequired[str | None]
     fate_number: NotRequired[int]
 
+# Item ID Starts
+# 1-999:  Access Keys
+# 1000-4999: Bait
+# 5000-9999: Class Level Items
+# 10,000-10,999: Deep Dungeon items
+# 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
+# 999,000-999,999: Filler items
+
+class ItemDict(TypedDict):
+    name: str
+    category: NotRequired[list[str]]
+    id: NotRequired[int]
+    count: NotRequired[int]
+    max_count: NotRequired[int]
+
+    progression: NotRequired[bool | None]
+    useful: NotRequired[bool | None]
+    filler: NotRequired[bool | None]
+
+    abbreviation: NotRequired[str]
+
+
 # called after the game.json file has been loaded
 def after_load_game_file(game_table: dict) -> dict:
     return game_table
 
 HEADER_VALUES = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"]
 
-TANKS = ["PLD","WAR","DRK","GNB"]
-HEALERS = ["WHM","SCH","AST","SGE"]
-MELEE = ["MNK","DRG","NIN","SAM","RPR", "VPR"]
-CASTER = ["BLM","SMN","RDM","PCT"]
-RANGED = ["BRD","MCH","DNC"]
-DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
-DOL = ["MIN", "BTN", "FSH"]
-
-JOB_FULL_NAMES = {
-    "PLD": "Paladin",
-    "WAR": "Warrior",
-    "DRK": "Dark Knight",
-    "GNB": "Gunbreaker",
-    "WHM": "White Mage",
-    "SCH": "Scholar",
-    "AST": "Astrologian",
-    "SGE": "Sage",
-    "MNK": "Monk",
-    "DRG": "Dragoon",
-    "NIN": "Ninja",
-    "SAM": "Samurai",
-    "RPR": "Reaper",
-    "VPR": "Viper",
-    "BST": "Beastmaster",
-    "BLM": "Black Mage",
-    "SMN": "Summoner",
-    "RDM": "Red Mage",
-    "BLU": "Blue Mage",
-    "PCT": "Pictomancer",
-    "BRD": "Bard",
-    "MCH": "Machinist",
-    "DNC": "Dancer",
-    "FSH": "Fisher",
-}
-
-FULL_NAME_TO_JOB = {v: k for k, v in JOB_FULL_NAMES.items()}
-
-LEVEL_CAP = 100
-LIMITED_LEVEL_CAPS = {
-    "BLU": 80,
-    "BST": 50,
-}
+JOB_FULL_NAMES = {}
+FULL_NAME_TO_JOB = {}
 
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
@@ -250,7 +230,12 @@ def get_duty_expansion(category: str) -> tuple[str, str]:
         return expansion_match.group(1), expansion_match.group(2)
     raise ValueError
 
-categorizedLocationNames: dict[tuple[str, str, int], list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
+class DutyTypeExpansionDifficulty(NamedTuple):
+    duty_type: str
+    duty_expansion: str
+    duty_difficulty: int
+
+categorizedLocationNames: dict[DutyTypeExpansionDifficulty, list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
 
 def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
     duty_list: list[LocationDict] = []
@@ -391,7 +376,7 @@ def generate_fate_list() -> list[LocationDict]:
             if "(FATE)" not in name:
                 name += " (FATE)"
 
-            location = {
+            location: LocationDict = {
                     "name": name,
                     "region": row['Location'],
                     "category": ["FATEsanity", row['Location']],
@@ -496,10 +481,10 @@ def generate_fish_list() -> list[LocationDict]:
     return locations
 
 
-def generate_bait_list() -> list[dict]:
+def generate_bait_list() -> list[ItemDict]:
     from ..Helpers import load_data_file
     bait = load_data_file("bait.json")
-    items = []
+    items: list[ItemDict] = []
     _id = 1_000
     for name, data in bait.items():
         if data.get('mooch'):
@@ -516,20 +501,21 @@ def generate_bait_list() -> list[dict]:
 
 # called after the items.json file has been loaded, before any item loading or processing has occurred
 # if you need access to the items after processing to add ids, etc., you should use the hooks in World.py
-def after_load_item_file(item_table: list) -> list:
+def after_load_item_file(item_table: list[ItemDict]) -> list[ItemDict]:
     item_table.extend(generate_bait_list())
 
     from ..Helpers import load_data_file
-    classes = cast(list[dict], load_data_file("items.levels.json"))
+    classes = cast(list[ItemDict], load_data_file("items.levels.json"))
 
     for job in classes:
+        assert 'abbreviation' in job, f"Job entry missing abbreviation: {job['name']}"
         max_level = LIMITED_LEVEL_CAPS.get(job['abbreviation'], LEVEL_CAP)
         n = int(max_level / 5)
 
         category = 'DoW/DoM'
-        if job in DOH:
+        if job["abbreviation"] in DOH:
             category = 'DoH'
-        elif job in DOL:
+        elif job["abbreviation"] in DOL:
             category = 'DoL'
         job.update({
             "category": ["Class Level", category],
@@ -537,9 +523,11 @@ def after_load_item_file(item_table: list) -> list:
             "max_count": n,
             "filler": True,
         })
+        JOB_FULL_NAMES[job['abbreviation']] = job['name']
+        FULL_NAME_TO_JOB[job['name']] = job['abbreviation']
 
     item_table.extend(classes)
-    pomanders = cast(list[dict], load_data_file("items.deepdungeon.json"))
+    pomanders = cast(list[ItemDict], load_data_file("items.deepdungeon.json"))
     item_table.extend(pomanders)
 
     # Add clear items related to the boss goal locations. Prerequisites for victory button
@@ -553,7 +541,7 @@ def after_load_item_file(item_table: list) -> list:
         })
         _cleared_id += 1
 
-    filler_items = []
+    filler_items: list[ItemDict] = []
     for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
@@ -568,7 +556,7 @@ def after_load_item_file(item_table: list) -> list:
 
 # NOTE: Progressive items are not currently supported in Manual. Once they are,
 #       this hook will provide the ability to meaningfully change those.
-def after_load_progressive_item_file(progressive_item_table: list) -> list:
+def after_load_progressive_item_file(progressive_item_table: list[ItemDict]) -> list[ItemDict]:
     return progressive_item_table
 
 # called after the locations.json file has been loaded, before any location loading or processing has occurred
@@ -706,19 +694,6 @@ def after_load_option_file(option_table: dict) -> dict:
 # for more info check https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/world%20api.md#webworld-class
 def after_load_meta_file(meta_table: dict) -> dict:
     return meta_table
-
-# called when an external tool (eg Univeral Tracker) ask for slot data to be read
-# use this if you want to restore more data
-# return True if you want to trigger a regeneration if you changed anything
-def hook_interpret_slot_data(world, player: int, slot_data: dict[str, Any]) -> bool:
-    prog_classes = slot_data.get("prog_classes", [])
-    if not prog_classes:
-        prog_classes = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + ["FSH"]
-
-    for job in prog_classes:
-        world.item_name_to_item["5 " + job + " Levels"]["progression"] = True
-    return False
-
 
 def after_load_event_file(event_table: list) -> list:
     return event_table
