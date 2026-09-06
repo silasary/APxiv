@@ -55514,6 +55514,9 @@
   "zones": {
    "Ultima Thule": [
     "Gold Salmon Roe"
+   ],
+   "Elysion": [
+    "Gold Salmon Roe"
    ]
   },
   "lvl": 90,
@@ -55524,12 +55527,18 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
+   ],
+   "Elysion": [
+    "Gold Salmon Roe"
    ]
   },
   "logical_intuition": {},
   "intuition_bait": {},
   "logical_bait": {
    "Abode of the Ea": [
+    "Gold Salmon Roe"
+   ],
+   "Elysian Seas \u03b1": [
     "Gold Salmon Roe"
    ],
    "The Wellspring of Regret": [
@@ -55543,6 +55552,9 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
+   ],
+   "Elysian Seas \u03b1": [
+    "Gold Salmon Roe"
    ],
    "The Wellspring of Regret": [
     "Gold Salmon Roe",
@@ -55631,6 +55643,9 @@
   "zones": {
    "Ultima Thule": [
     "Gold Salmon Roe"
+   ],
+   "Elysion": [
+    "Gold Salmon Roe"
    ]
   },
   "lvl": 90,
@@ -55641,12 +55656,21 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
+   ],
+   "Elysion": [
+    "Gold Salmon Roe"
    ]
   },
   "logical_intuition": {},
   "intuition_bait": {},
   "logical_bait": {
    "Abode of the Ea": [
+    "Gold Salmon Roe"
+   ],
+   "Elysian Fields": [
+    "Gold Salmon Roe"
+   ],
+   "Elysian Seas \u03b1": [
     "Gold Salmon Roe"
    ],
    "The Wellspring of Regret": [
@@ -55660,6 +55684,13 @@
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
+   ],
+   "Elysian Fields": [
+    "Gold Salmon Roe",
+    "Leech"
+   ],
+   "Elysian Seas \u03b1": [
+    "Gold Salmon Roe"
    ],
    "The Wellspring of Regret": [
     "Gold Salmon Roe",
@@ -55683,6 +55714,7 @@
   "lvl": 90,
   "all_bait": {
    "Ultima Thule": [
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -55697,6 +55729,7 @@
   },
   "all_bait_by_hole": {
    "Abode of the Ea": [
+    "Leech",
     "Mayfly",
     "Sky Spoon Lure",
     "Versatile Lure"
@@ -73427,15 +73460,31 @@
  "Frolicsome Fish": {
   "name": "Frolicsome Fish",
   "id": 51218,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "lvl": 1,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "The *Endeavor*": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Unnamed Margin": [
+    "Ragworm"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Unnamed Margin": [
+    "Ragworm"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -73990,17 +74039,55 @@
  "Manasvin": {
   "name": "Manasvin",
   "id": 51247,
-  "zones": {},
+  "zones": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "The *Endeavor*": [
+    "Rat Tail"
+   ]
+  },
+  "logical_intuition": {
+   "The *Endeavor*": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait": {
+   "The *Endeavor*": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail"
+   ]
+  },
+  "logical_bait": {
+   "Thavnair Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Thavnair Spectral Current": [
+    "Rat Tail"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Thavnair Spectral Current": [
+    "Plump Worm"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Thavnair Spectral Current": [
+    "Krill",
+    "Plump Worm",
+    "Ragworm",
+    "Rat Tail"
+   ]
+  }
  },
  "Junior Jinbei": {
   "name": "Junior Jinbei",
@@ -74349,48 +74436,160 @@
  "Xehabopo'u": {
   "name": "Xehabopo'u",
   "id": 52008,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition": {
+   "Kozama'uka": [
+    "Popper Lure"
+   ]
+  },
+  "intuition_bait": {
+   "Kozama'uka": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Miyakabek'zu": [
+    "Popper Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Miyakabek'zu": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Miyakabek'zu": [
+    "Popper Lure"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Miyakabek'zu": [
+    "Golden Stonefly Nymph",
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  }
  },
  "Skyfrond": {
   "name": "Skyfrond",
   "id": 52009,
-  "zones": {},
+  "zones": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43884,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "Yak T'el": [
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition": {
+   "Yak T'el": [
+    "Red Maggots"
+   ]
+  },
+  "intuition_bait": {
+   "Yak T'el": [
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Cenote Jayunja": [
+    "Red Maggots"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Cenote Jayunja": [
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Cenote Jayunja": [
+    "Red Maggots"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Cenote Jayunja": [
+    "Honeybee",
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  }
  },
  "Rroneek Bichir": {
   "name": "Rroneek Bichir",
   "id": 52010,
-  "zones": {},
+  "zones": {
+   "Shaaloani": [
+    "Popper Lure"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43885,
   "timed": 2,
-  "all_bait": {},
+  "all_bait": {
+   "Shaaloani": [
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Lake Toari": [
+    "Popper Lure"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Lake Toari": [
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -75898,17 +76097,53 @@
  "Great Ball of Lightning": {
   "name": "Great Ball of Lightning",
   "id": 52297,
-  "zones": {},
+  "zones": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
   "lvl": 100,
   "bigfish": true,
   "folklore": 43886,
   "timed": 2,
-  "all_bait": {},
-  "logical_intuition": {},
-  "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
-  "logical_intuition_by_hole": {},
-  "intuition_bait_by_hole": {}
+  "all_bait": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
+  "logical_intuition": {
+   "Heritage Found": [
+    "Red Maggots"
+   ]
+  },
+  "intuition_bait": {
+   "Heritage Found": [
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  },
+  "logical_bait": {
+   "Alexandrian Ruins": [
+    "Red Maggots"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Alexandrian Ruins": [
+    "Red Maggots"
+   ]
+  },
+  "logical_intuition_by_hole": {
+   "Alexandrian Ruins": [
+    "Red Maggots"
+   ]
+  },
+  "intuition_bait_by_hole": {
+   "Alexandrian Ruins": [
+    "Popper Lure",
+    "Red Maggots",
+    "Versatile Lure"
+   ]
+  }
  }
 }
