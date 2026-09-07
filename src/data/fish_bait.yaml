@@ -4953,7 +4953,9 @@ Frilled Shark:
   - Yumizuno
   - Glowworm
   - Sinking Minnow
-Frolicsome Fish: {}
+Frolicsome Fish:
+  Unnamed Margin:
+  - Ragworm
 Frozen Regotoise:
   The Frozen Fissure:
   - Chimera Worm
@@ -5716,7 +5718,9 @@ Gravel Mussel:
   - Versatile Lure
   - Squid Strip
   - Short Bill Minnow
-Great Ball of Lightning: {}
+Great Ball of Lightning:
+  Alexandrian Ruins:
+  - Red Maggots
 Great Grandmarlin:
   Southern Merlthor Spectral Current:
   - Ragworm
@@ -7129,6 +7133,8 @@ Katoptron:
   - Sky Spoon Lure
   - Gold Salmon Roe
   - Leech
+  "Elysian Seas \u03B1":
+  - Gold Salmon Roe
   The Wellspring of Regret:
   - Mayfly
   - Versatile Lure
@@ -8239,7 +8245,9 @@ Manasail:
   - Red Balloon
   - Giant Crane Fly
   - Versatile Lure
-Manasvin: {}
+Manasvin:
+  Thavnair Spectral Current:
+  - Rat Tail
 Maneater Clam:
   Purpure:
   - Short Bill Minnow
@@ -10463,6 +10471,11 @@ Protoflesh:
   - Sky Spoon Lure
   - Gold Salmon Roe
   - Leech
+  Elysian Fields:
+  - Gold Salmon Roe
+  - Leech
+  "Elysian Seas \u03B1":
+  - Gold Salmon Roe
   The Wellspring of Regret:
   - Mayfly
   - Versatile Lure
@@ -11265,7 +11278,11 @@ Royal Handmaiden:
   - Ragworm
   - Ragworm
   - Krill
-Rroneek Bichir: {}
+Rroneek Bichir:
+  Lake Toari:
+  - Popper Lure
+  - Versatile Lure
+  - Red Maggots
 Rubescent Tatsunoko:
   Kugane Coast:
   - Ragworm
@@ -12304,7 +12321,12 @@ Skyfish:
   - Balloon Bug
   - Freshwater Boilie
   - Saltwater Boilie
-Skyfrond: {}
+Skyfrond:
+  Cenote Jayunja:
+  - Red Maggots
+  - Versatile Lure
+  - Honeybee
+  - Popper Lure
 Skytear:
   Upper Yat Khaal:
   - Suspending Minnow
@@ -14196,6 +14218,7 @@ Wandering Starscale:
   - Mayfly
   - Versatile Lure
   - Sky Spoon Lure
+  - Leech
 Warballoon:
   Greytail Falls:
   - Giant Crane Fly
@@ -14563,7 +14586,13 @@ Xd'aa Talat Cichlid:
   - Versatile Lure
   - Popper Lure
   - Golden Stonefly Nymph
-Xehabopo'u: {}
+Xehabopo'u:
+  Miyakabek'zu:
+  - Golden Stonefly Nymph
+  - Red Maggots
+  - Popper Lure
+  - Versatile Lure
+  - Honeybee
 Xenacanthus:
   Timmon Beck:
   - Stonefly Larva
