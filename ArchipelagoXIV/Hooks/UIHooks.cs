@@ -74,7 +74,7 @@ namespace ArchipelagoXIV.Hooks
 
                 var found = icons.TryGetValue(componentNode->NodeId, out var icon);
                 var name = textNode->NodeText.ExtractText();
-                var loc = apState.AllLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);
+                var loc = apState.AllLocations.Where(l => l.Accessible).FirstOrDefault(l => l.Name == name);
                 if (loc != null)
                 {
                     var visible = loc.Accessible && !loc.Completed;
