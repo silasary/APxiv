@@ -414,6 +414,15 @@ class IncludeOccultCrescent(Toggle):
     This includes the Fates, CEs and Alliance Raids of the Occult Crescent.
     """
 
+
+class DeepDungeonSanity(Toggle):
+    """
+    Include all floors per enabled floor set.
+
+    Enabled: All individual floors will become locations.
+    Disabled: Only the final floor of each floor set will become a location.
+    """
+
 class IncludePotD(Toggle):
     """
     Include The Palace of the Dead in the location pool.
@@ -516,6 +525,7 @@ def before_options_defined(options: dict) -> dict:
     options["include_occult_crescent"] = IncludeOccultCrescent
 
     # Deep Dungeon
+    options["deep_dungeon_sanity"] = DeepDungeonSanity
     options["include_potd"] = IncludePotD
     options["include_hoh"] = IncludeHoH
     options["include_eo"] = IncludeEO
@@ -546,7 +556,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Deep Dungeon"] = [IncludePotD, IncludeHoH, IncludeEO, IncludePT,
+    groups["Deep Dungeon"] = [DeepDungeonSanity, IncludePotD, IncludeHoH, IncludeEO, IncludePT,
                               PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
