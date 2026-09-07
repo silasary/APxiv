@@ -111,15 +111,16 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
             return False
 
     if "Pomanders" in item.get('category', []):
-        if get_int_value(multiworld, player, "duty_difficulty") > 0:
-            if "The Palace of the Dead Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_potd"):
-                return True
-            if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
-                return True
-            if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
-                return True
-            if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
-                return True
+        if get_int_value(multiworld, player, "duty_difficulty") == 0:
+            return False
+        if "The Palace of the Dead Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_potd"):
+            return True
+        if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
+            return True
+        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
+            return True
+        if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
+            return True
         return False  # If it made it this far, none of the Deep Dungeons that use it are enabled.
 
     return None
@@ -143,9 +144,9 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
-    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks") and "Deep Dungeon" not in location["category"][0]:
-        return False
-    if "Deep Dungeon" in location["category"][0] and "extra_number" in location and not get_int_value(multiworld, player, "deep_dungeon_sanity"):
+    if "Deep Dungeon" in location["category"][0] and "extra_number" in location:
+        return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+    if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:
