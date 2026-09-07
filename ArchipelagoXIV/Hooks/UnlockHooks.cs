@@ -30,26 +30,20 @@ namespace ArchipelagoXIV.Hooks
         {
             if (apState.Connected && obj->GetObjectKind() == ObjectKind.Aetheryte && apState.CurrentLocationInLogic)
             {
-                var area = TerritoryInfo.Instance()->SubAreaPlaceNameId;
-                var areaname = DalamudApi.DataManager.GetExcelSheet<PlaceName>().GetRow(area).Name.ExtractText();
-                if (string.IsNullOrEmpty(areaname))
-                {
-                    area = TerritoryInfo.Instance()->AreaPlaceNameId;
-                    areaname = DalamudApi.DataManager.GetExcelSheet<PlaceName>().GetRow(area).Name.ExtractText();
-                }
-                DalamudApi.PluginLog.Debug("InteractWithObjectDetour called with obj: {0}, baseid: {1}, checkLineOfSight: {2}, area: {3} ({4})", obj->NameString, obj->BaseId, checkLineOfSight, areaname, area);
+                
+                DalamudApi.PluginLog.Debug("InteractWithObjectDetour called with obj: {0}, baseid: {1}, checkLineOfSight: {2}", obj->NameString, obj->BaseId, checkLineOfSight);
 
-                if (apState.Game.AttunedAetherytes.Add(areaname))
+                if (apState.Game.AttunedAetherytes.Add(obj->BaseId))
                 {
-                    var name = $"Attune {areaname}";
-                    var loc = apState.MissingLocations.OfType<AttuneLocation>().FirstOrDefault(l => l.Aetheryte.AttunePlace == area);
+                    var loc = apState.MissingLocations.OfType<AttuneLocation>().FirstOrDefault(l => l.Aetheryte.id == obj->BaseId);
                     if (loc != null)
                     {
                         loc.Complete();
                     }
                     else
                     {
-                        DalamudApi.PluginLog.Info($"Could not find location for {name} in missing locations.");
+                        APData.Aetherytes.TryGetValue(50000 + obj->BaseId, out var aetheryte);
+                        DalamudApi.PluginLog.Info("Could not find location for {0} ({1}) in missing locations.", aetheryte?.Name, obj->BaseId);
                     }
                 }
             }

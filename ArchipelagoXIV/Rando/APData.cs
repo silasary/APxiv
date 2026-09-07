@@ -13,7 +13,7 @@ namespace ArchipelagoXIV.Rando
 {
     internal static class APData
     {
-        internal record AetheryteInfo(uint apid, string Name, TerritoryType Territory, uint AttunePlace);
+        internal record AetheryteInfo(uint id, uint apid, string Name, TerritoryType Territory, uint AttunePlace);
 
         public static Dictionary<string, string> Aliases = new() {
             // Cities
@@ -244,14 +244,14 @@ namespace ArchipelagoXIV.Rando
             var gamedata = DalamudApi.DataManager.GetExcelSheet<Aetheryte>()
                 .Where(a => a.PlaceName.RowId > 10 && a.IsAetheryte).ToDictionary(a => a.RowId);
 
-            foreach (JObject aetheryte in aetheryte_data)
+            foreach (JObject aetheryte in aetheryte_data.Cast<JObject>())
             {
                 var id = aetheryte.Value<uint>("id");
                 var apid = 50000 + id;
                 var name = gamedata[id].PlaceName.Value.Name.ExtractText();
                 var territory = gamedata[id].Territory.Value;
                 var attunePlace = aetheryte.Value<uint>("place_id");
-                var info = new AetheryteInfo(apid, name, territory, attunePlace);
+                var info = new AetheryteInfo(id, apid, name, territory, attunePlace);
                 aetherytes[apid] = info;
 
             }
