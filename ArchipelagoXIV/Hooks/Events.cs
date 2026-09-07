@@ -218,8 +218,6 @@ namespace ArchipelagoXIV.Hooks
 
                 if (!apState.Connected)
                 {
-                    // Check if known location
-                    //RegionContainer.CanReach(apState, apState.territoryName);
                     return;
                 }
 
@@ -228,6 +226,8 @@ namespace ArchipelagoXIV.Hooks
                     var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
                     PrayReturn?.Complete();
                 }
+
+                apState.Game.AttunedAetherytes.Clear();
             }
             else
             {
