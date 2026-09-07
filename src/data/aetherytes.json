@@ -248,7 +248,7 @@
   "map": "Foundation",
   "expansion": "HW",
   "level": 50,
-  "place_id": 1650,
+  "place_id": 2303,
   "place_name": "Ishgard Aetheryte Plaza"
  },
  {
@@ -293,7 +293,7 @@
   "map": "Idyllshire",
   "expansion": "HW",
   "level": 50,
-  "place_id": 1680,
+  "place_id": 2087,
   "place_name": "Idyllshire Aetheryte Plaza"
  },
  {
@@ -338,7 +338,7 @@
   "map": "The Fringes",
   "expansion": "StB",
   "level": 60,
-  "place_id": 111,
+  "place_id": 2613,
   "place_name": "Castrum Oriens"
  },
  {
@@ -401,7 +401,7 @@
   "map": "The Ruby Sea",
   "expansion": "StB",
   "level": 60,
-  "place_id": 2512,
+  "place_id": 2769,
   "place_name": "Tamamizu"
  },
  {
@@ -419,7 +419,7 @@
   "map": "Yanxia",
   "expansion": "StB",
   "level": 60,
-  "place_id": 1036,
+  "place_id": 2793,
   "place_name": "Namai"
  },
  {
@@ -455,7 +455,7 @@
   "map": "Kugane",
   "expansion": "StB",
   "level": 60,
-  "place_id": 1945,
+  "place_id": 2931,
   "place_name": "Kugane Aetheryte Plaza"
  },
  {
