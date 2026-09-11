@@ -183,10 +183,10 @@
         "category": [
             "Pomanders"
         ],
-        "potd": false,
-        "hoh": false,
+        "potd": true,
+        "hoh": true,
         "eo": false,
-        "pt": false
+        "pt": true
     },
     {
         "name": "Pomander of Raising",
@@ -194,10 +194,10 @@
         "category": [
             "Pomanders"
         ],
-        "potd": false,
-        "hoh": false,
+        "potd": true,
+        "hoh": true,
         "eo": false,
-        "pt": false
+        "pt": true
     },
     {
         "name": "Pomander of Resolution",
