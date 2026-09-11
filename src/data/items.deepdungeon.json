@@ -181,7 +181,10 @@
         "name": "Pomander of Intuition",
         "id": 10014,
         "category": [
-            "Pomanders"
+            "Heaven-on-High Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
@@ -192,7 +195,10 @@
         "name": "Pomander of Raising",
         "id": 10015,
         "category": [
-            "Pomanders"
+            "Heaven-on-High Pomanders",
+            "Pilgrim's Traverse Pomanders",
+            "Pomanders",
+            "The Palace of the Dead Pomanders"
         ],
         "potd": true,
         "hoh": true,
