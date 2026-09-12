@@ -29,16 +29,15 @@ namespace ArchipelagoXIV.Hooks
             if (CurrentDuty == null || CurrentDuty.Content.RowId != DalamudApi.DutyState.ContentFinderCondition.Value.RowId)
             {
                 CurrentDuty = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(d => d.Content.RowId == DalamudApi.DutyState.ContentFinderCondition.Value.RowId);
-                if(CurrentDuty != null && DutyProgress != null)
-                    DutyProgress = 0;
+                DutyProgress = 0;
             }
 
             var contentType = DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value;
-            if (contentType.RowId == 21)
+            if (contentType.RowId == 21 && CurrentDuty != null)
             {
                 DeepDungeonUpdate();
             }
-            else if (contentType.RowId == 2)
+            else if (contentType.RowId == 2 && CurrentDuty != null)
             {
                 InstanceContentUpdate();
             }
