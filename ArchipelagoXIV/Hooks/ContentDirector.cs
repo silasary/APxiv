@@ -29,7 +29,8 @@ namespace ArchipelagoXIV.Hooks
             if (CurrentDuty == null || CurrentDuty.Content.RowId != DalamudApi.DutyState.ContentFinderCondition.Value.RowId)
             {
                 CurrentDuty = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(d => d.Content.RowId == DalamudApi.DutyState.ContentFinderCondition.Value.RowId);
-                DutyProgress = 0;
+                if(CurrentDuty != null && DutyProgress != null)
+                    DutyProgress = 0;
             }
 
             var contentType = DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value;
