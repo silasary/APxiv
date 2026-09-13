@@ -145,7 +145,15 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
     if "Deep Dungeon" in location["category"][0] and "extra_number" in location:
-        return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+        if "The Palace of the Dead" in location["category"][1] and  get_int_value(multiworld, player, "include_potd"):
+            return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+        if "Heaven-on-High" in location["category"][1] and  get_int_value(multiworld, player, "include_hoh"):
+            return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+        if "Eureka Orthos" in location["category"][1] and get_int_value(multiworld, player, "include_eo"):
+            return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+        if "Pilgrim's Traverse" in location["category"][1] and  get_int_value(multiworld, player, "include_pt"):
+            return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
+        return False
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
