@@ -10,10 +10,13 @@ namespace ArchipelagoXIV.Rando.Locations
         public AttuneLocation(ApState apState, long id, string name) : base(apState, id, name)
         {
             var aetheryteName = name.Replace("Attune ", "").Trim();
-            if (!Data.Aetherytes.TryGetValue(aetheryteName, out var info) || !APData.Regions.TryGetValue(info.Zone, out var r))
+            if (!APData.Aetherytes.TryGetValue((uint)id, out var info) || !APData.RegionsByTerritoryType.TryGetValue(info.Territory.RowId, out var r))
                 throw new Exception($"Attune location {name} has no valid region.");
+            Aetheryte = info;
             region = r;
             MeetsRequirements = Logic.Always();
         }
+
+        public APData.AetheryteInfo Aetheryte { get; }
     }
 }

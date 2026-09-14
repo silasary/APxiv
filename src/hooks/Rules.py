@@ -28,7 +28,7 @@ def anyClassLevel(world: World, multiworld: MultiWorld, state: CollectionState, 
     """Has the player reached the given level in any class?"""
     if int(level) < 5:
         return True
-    for job in world.item_name_groups["DOW/DOM"]:
+    for job in world.item_name_groups["DoW/DoM"]:
         if (state.count(job, player) * 5) >= int(level):
             return True
     return False
@@ -37,7 +37,7 @@ def anyCrafterLevel(world: World, multiworld: MultiWorld, state: CollectionState
     """Has the player reached the given level in any class?"""
     if int(level) < 5:
         return True
-    for job in world.item_name_groups["DOH"]:
+    for job in world.item_name_groups["DoH"]:
         if (state.count(job, player) * 5) >= int(level):
             return True
     return False
@@ -62,7 +62,7 @@ if use_rulebuilder:
         level: int
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
             expected_count = math.ceil(int(self.level) / 5)
-            counts = {job: expected_count for job in world.item_name_groups["DOW/DOM"]}
+            counts = {job: expected_count for job in world.item_name_groups["DoW/DoM"]}
             return HasAnyCount(counts).resolve(world)
 
     @dataclasses.dataclass()
@@ -70,7 +70,7 @@ if use_rulebuilder:
         level: int
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
             expected_count = math.ceil(int(self.level) / 5)
-            counts = {job: expected_count for job in world.item_name_groups["DOH"]}
+            counts = {job: expected_count for job in world.item_name_groups["DoH"]}
             return HasAnyCount(counts).resolve(world)
 
     @dataclasses.dataclass()

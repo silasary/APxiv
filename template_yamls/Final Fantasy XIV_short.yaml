@@ -37,7 +37,7 @@ Final Fantasy XIV:
     "false": 50
 
   extra_dungeon_checks:
-    0: 50
+    2: 50
 
   include_ocean_fishing:
     "false": 50

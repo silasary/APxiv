@@ -2,6 +2,7 @@ using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using Dalamud.Game;
 using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
@@ -9,9 +10,6 @@ namespace ArchipelagoXIV
     internal static partial class Data
     {
         internal record NotoriousMonsterInfo(string Name, string Rank, string LocationName);
-        internal record AetheryteInfo(string Name, string Zone);
-
-        public static FrozenDictionary<string, AetheryteInfo> Aetherytes { get; private set; } = FrozenDictionary<string, AetheryteInfo>.Empty;
         public static TerritoryType[] Territories { get; private set; } = [];
         public static InstanceContent[] Duties { get; private set; } = [];
         public static ClassJob[] ClassJobs { get; private set; } = [];
@@ -145,6 +143,7 @@ namespace ArchipelagoXIV
             { "The Second Coil of Bahamut - Turn 4 (Savage)", "The Second Coil of Bahamut (Savage) - Turn 4"},
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
+            { "Ocean Fishing: Ruby Sea", "Ocean Fishing: Ruby Price"},
         };
 
         public static void Initialize() {
@@ -153,28 +152,23 @@ namespace ArchipelagoXIV
             if (dataManager == null)
                 return;
 
-            Aetherytes = dataManager.GetExcelSheet<Aetheryte>()
-                .Where(a => a.PlaceName.RowId > 10 && a.IsAetheryte)
-                .Select(a => new AetheryteInfo(a.PlaceName.Value.Name.ExtractText(), a.Map.Value.PlaceName.Value.Name.ExtractText()))
-                .ToFrozenDictionary(ae => ae.Name);
+            Territories = [.. dataManager.GetExcelSheet<TerritoryType>(ClientLanguage.English)];
 
-            Territories = [.. dataManager.GetExcelSheet<TerritoryType>()];
+            Duties = [.. dataManager.GetExcelSheet<InstanceContent>(ClientLanguage.English)];
 
-            Duties = [.. dataManager.GetExcelSheet<InstanceContent>()];
+            ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>(ClientLanguage.English)];
 
-            ClassJobs = [.. dataManager.GetExcelSheet<ClassJob>()];
+            Content = [.. dataManager.GetExcelSheet<ContentFinderCondition>(ClientLanguage.English)];
 
-            Content = [.. dataManager.GetExcelSheet<ContentFinderCondition>()];
+            DynamicEvents = dataManager.GetExcelSheet<DynamicEvent>(ClientLanguage.English).Where(de => !de.Name.IsEmpty).ToFrozenDictionary(de => de.Name.ExtractText());
 
-            DynamicEvents = dataManager.GetExcelSheet<DynamicEvent>().Where(de => !de.Name.IsEmpty).ToFrozenDictionary(de => de.Name.ExtractText());
+            Items = dataManager.GetExcelSheet<Item>(ClientLanguage.English).ToImmutableDictionary(i => i.RowId);
 
-            Items = dataManager.GetExcelSheet<Item>().ToImmutableDictionary(i => i.RowId);
+            IKDRoutes = [.. dataManager.GetExcelSheet<IKDRoute>(ClientLanguage.English)];
 
-            IKDRoutes = [.. dataManager.GetExcelSheet<IKDRoute>()];
+            FateTable = dataManager.GetExcelSheet<Fate>(ClientLanguage.English).DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
 
-            FateTable = dataManager.GetExcelSheet<Fate>().DistinctBy(f => f.Name.ToString()).ToFrozenDictionary(f => f.Name.ToString().ToLower().Replace(",", "").Trim());
-
-            HuntTable = dataManager.GetExcelSheet<NotoriousMonster>()
+            HuntTable = dataManager.GetExcelSheet<NotoriousMonster>(ClientLanguage.English)
                 .Where(nm => nm.Rank is 1 or 2 or 3 && nm.BNpcName.RowId != 0)
                 .DistinctBy(nm => nm.BNpcName.RowId)
                 .ToFrozenDictionary(

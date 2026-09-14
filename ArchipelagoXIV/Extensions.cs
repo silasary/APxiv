@@ -1,4 +1,6 @@
+using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
+using Lumina.Excel.Sheets;
 
 namespace ArchipelagoXIV
 {
@@ -6,7 +8,14 @@ namespace ArchipelagoXIV
     {
         public static string ReceivingPlayerName(this Hint hint, ApState state)
         {
-            return state.session!.Players.GetPlayerAliasAndName(hint.ReceivingPlayer);
+            var playerinfo = state.session?.Players.GetPlayerInfo(hint.ReceivingPlayer);
+            if (playerinfo == null) {
+                return $"Unknown Player {hint.ReceivingPlayer}";
+            }
+            if (playerinfo.Alias != null && playerinfo.Alias != playerinfo.Name)
+                return $"{playerinfo.Alias} ({playerinfo.Name})";
+
+            return playerinfo.Name;
         }
 
         public static string ItemName(this Hint hint, ApState state)
@@ -48,5 +57,13 @@ namespace ArchipelagoXIV
             //var v1 = new Vector4(color.R, color.G, color.B, 255);
             //return (ushort)ImGui.ColorConvertFloat4ToU32(v1);
         }
+
+        /// <summary>
+        /// Is this classjob Row 18 (FSH)?
+        /// </summary>
+        /// (This is entirely for code readability, because I don't want magic numbers everywhere)
+        /// <param name="classJob"></param>
+        /// <returns></returns>
+        public static bool IsFisher(this ClassJob classJob) => classJob.RowId == 18;
     }
 }

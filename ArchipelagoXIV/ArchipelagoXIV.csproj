@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Silasary</Authors>
         <Company></Company>
-        <Version>0.30.0.0</Version>
+        <Version>0.31.2.0</Version>
         <Description>Archipelago Client</Description>
         <Copyright>Silasary 2026</Copyright>
         <PackageProjectUrl>https://github.com/silasary/APxiv</PackageProjectUrl>
@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <LangVersion>12.0</LangVersion>
+        <LangVersion>14.0</LangVersion>
         <TargetFramework>net10.0-windows8.0</TargetFramework>
     </PropertyGroup>
 
@@ -20,7 +20,12 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Visible>false</Visible>
         </Content>
+        <Content Include="..\images\color-icon.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Visible>false</Visible>
+        </Content>
         <EmbeddedResource Include="..\src\data\removed_locations.json" Link="removed_locations.json" />
+        <EmbeddedResource Include="..\src\data\aetherytes.json" Link="aetherytes.json" />
         <EmbeddedResource Include="..\src\data\fish.json" Link="fish.json" />
         <EmbeddedResource Include="..\src\data\regions.json" Link="regions.json" />
         <EmbeddedResource Include="..\src\hooks\duties.csv" Link="duties.csv" />
@@ -29,6 +34,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Archipelago.MultiClient.Net" Version="6.6.0" />
+        <PackageReference Include="Archipelago.MultiClient.Net" Version="6.7.1" />
+        <PackageReference Include="KamiToolKit" Version="2.2.0" />
     </ItemGroup>
 </Project>

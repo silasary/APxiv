@@ -1,4 +1,5 @@
-from worlds.LauncherComponents import Component, components, launch_subprocess, Type
+from worlds.LauncherComponents import Component, Type, components, launch_subprocess
+
 
 def launch_client(*args):
     from .client import launch as Main

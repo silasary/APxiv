@@ -22,9 +22,10 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
-from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_excluded_expansions
+from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value, get_excluded_expansions
 from .Options import LevelCap
+from .common import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
 
 ########################################################################################
 ## Order of method calls when the world generates:
@@ -39,7 +40,7 @@ from .Options import LevelCap
 ########################################################################################
 
 
-def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
+def get_duty_count(duty_type: str, expansion: str, duty_diff: int, multiworld: MultiWorld, player: int) -> int | None:
     if duty_type == "Dungeon":
         return get_int_value(multiworld, player, "dungeon_count")
     if duty_type == "Variant Dungeon":
@@ -66,6 +67,23 @@ def get_duty_count(duty_type: str, duty_diff: int, multiworld: MultiWorld, playe
         return None
     if duty_type == "PvP":
         return None
+    if duty_type == "Deep Dungeon":
+        if expansion == "HW":
+            return get_int_value(multiworld, player, "potd_count")
+        if expansion == "StB":
+            return get_int_value(multiworld, player, "hoh_count")
+        if expansion == "EW":
+            return get_int_value(multiworld, player, "eo_count")
+        if expansion == "DT":
+            return get_int_value(multiworld, player, "pt_count")
+        else:
+            raise ValueError(f"Unknown Deep Dungeon expansion {expansion}")
+    if duty_type == "Criterion Dungeon":
+        return None
+    if duty_type == "Chaotic Raid":
+        return None
+    if duty_type == "Quantum Trial":
+        return None
     if duty_type == "Field Operation":
         return get_int_value(multiworld, player, "field_operation_critical_encounter_count")
     raise ValueError(f"Unknown duty type {duty_type}")
@@ -81,14 +99,11 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
 
-    direct_excluded_jobs = set(get_option_value(multiworld, player, "exclude_jobs"))
-    force_jobs = get_option_value(multiworld, player, "force_jobs")
-    job_conflicts = [job for job in force_jobs if job in direct_excluded_jobs]
-    # User defined conflict of forced and excluded throws an error
-    # But implicitly excluded jobs via expansions are allowed to be forced
-
-    if job_conflicts:
-        raise OptionError(f"Jobs cannot be both forced and excluded: {', '.join(sorted(job_conflicts))}")
+    force_jobs = get_set_value(multiworld, player, "force_jobs")
+    excluded_jobs = get_excluded_jobs(multiworld, player)
+    all_jobs = set(TANKS + HEALERS + MELEE + CASTER + RANGED + DOH)
+    if not force_jobs and len(all_jobs - excluded_jobs) == 0:
+        raise OptionError("You can't exclude all non-limited combat jobs.")
 
     goal = victory_names[get_option_value(multiworld, player, 'goal')]  # type: ignore
     goal_location = next(loc for loc in location_table if loc.get('victory') and loc['name'] == goal)
@@ -119,8 +134,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     has_dungeons = get_int_value(multiworld, player, 'dungeon_count') > 0 and has_duties
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
     has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
+    has_potd = is_option_enabled(multiworld, player, 'include_potd') and has_duties
 
-    if not has_fates and not has_dungeons and not has_fish and not has_hunts:
+    if not has_fates and not has_dungeons and not has_fish and not has_hunts and not has_potd:
         raise OptionError("You can't disable everything.")
 
     if has_hunts and level_cap < 50:
@@ -129,14 +145,29 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
         raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
+    #  Restrictive starts solvable with fates
     if (
         not has_dungeons
         and not has_fish
         and not has_fatesanity
         and not has_hunts
+        and not has_potd
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
     ):
         world.options.fates_per_zone.value = 3
+
+    #  Restrictive starts solvable with POTD
+    if (
+        not has_dungeons
+        and not has_fish
+        and not has_fatesanity
+        and not has_hunts
+        and has_potd
+        and get_int_value(multiworld, player, 'fates_per_zone') < 3
+        and get_int_value(multiworld, player, 'extra_dungeon_checks') < 5
+    ):
+        world.options.deep_dungeon_sanity.value = True
+
 
 
 
@@ -149,12 +180,10 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
-
+            count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
             if dutyExpansion in excluded_expansions:
                 world.skipped_duties.update(names)
                 continue
-
-            count = get_duty_count(dutyType, dutyDifficulty, multiworld, player)
 
             if count is None:
                 continue
@@ -164,9 +193,11 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 names = [n for n in names if n not in duels]
                 world.skipped_duties.update(duels)
 
-
-            count = min(len(names), count)
-            used_names = world.random.sample(names, count)
+            if dutyType == "Deep Dungeon":
+                used_names = names[:count]
+            else:
+                count = min(len(names), count)
+                used_names = world.random.sample(names, count)
 
             goal_name = victory_names[get_option_value(multiworld, player, "goal")]
             goal_data = BOSS_GOAL_DATA.get(goal_name)
@@ -182,6 +213,15 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             for name in names:
                 if name not in used_names:
                     world.skipped_duties.add(name)
+        if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
+            goal_name = victory_names[get_int_value(multiworld, player, "goal")]
+            goal_data = BOSS_GOAL_DATA.get(goal_name)
+            goal_base_duty_name = goal_data[0] if goal_data else None
+            world.skipped_duties.update(["Castrum Meridianum", "The Praetorium"])
+
+            if goal_base_duty_name != "Porta Decumana":
+                # Add ultima weapon trial regardless of MSQ settings, if set as goal
+                world.skipped_duties.add("The Porta Decumana")
 
     tanks = TANKS.copy()
     healers = HEALERS.copy()
@@ -197,9 +237,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
 
-
-    force_jobs_raw = set(get_option_value(multiworld, player, "force_jobs"))
-    exclude_jobs = get_excluded_jobs(multiworld, player) - force_jobs_raw
+    exclude_jobs = get_excluded_jobs(multiworld, player)
 
     if exclude_jobs:
         tanks   = [j for j in tanks   if j not in exclude_jobs]
@@ -209,7 +247,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         ranged  = [j for j in ranged  if j not in exclude_jobs]
         doh     = [j for j in doh     if j not in exclude_jobs]
 
-    force_jobs = sorted(force_jobs_raw)
+    force_jobs = sorted(get_set_value(multiworld, player, "force_jobs"))
 
     if force_jobs:
         if len(force_jobs) > 5:
@@ -219,6 +257,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     else:
         prog_classes = [role[0] for role in [tanks, healers, melee, caster, ranged] if role]
 
+    world.random.shuffle(prog_classes)
     world.prog_classes = prog_classes
     world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
     world.prog_doh = doh[0] if doh else None
@@ -232,18 +271,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         locationNamesToRemove.extend(UNREASONABLE_FATES)
 
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
-
-    if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
-        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-        goal_data = BOSS_GOAL_DATA.get(goal_name)
-        goal_base_duty_name = goal_data[0] if goal_data else None
-        locations_to_remove = ["Castrum Meridianum", "The Praetorium"]
-
-        if goal_base_duty_name != "Porta Decumana":
-            # Add ultima weapon trial regardless of MSQ settings, if set as goal
-            locations_to_remove.append("The Porta Decumana")
-
-        locationNamesToRemove.extend(locations_to_remove)
 
 
     # Find all region access items.
@@ -378,12 +405,17 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     if remaining < 100:
         prog_levels = prog_levels[:3]
 
+    first = True
     for name in prog_levels:
         remaining = location_count - item_count
         if remaining < capped_count:
             break
-        item_config[name] = {"progression": capped_count}
+        if first:
+            item_config[name] = {ItemClassification.progression: capped_count}
+        else:
+            item_config[name] = {ItemClassification.progression_skip_balancing: capped_count}
         item_count += capped_count
+        first = False
 
     remaining = location_count - item_count
     if remaining > 0:
@@ -404,6 +436,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
             doh     = [j for j in doh     if j not in exclude_jobs]
 
         filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
+        filler_levels = [name for name in filler_levels if name not in prog_levels]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
             item_config[name] = min(remaining, capped_count)
@@ -555,9 +588,8 @@ def before_create_item(item_name: str, world: World, multiworld: MultiWorld, pla
 
 # The item that was created is provided after creation, in case you want to modify the item
 def after_create_item(item: ManualItem, world: World, multiworld: MultiWorld, player: int) -> ManualItem:
-    if getattr(multiworld, 'generation_is_fake', False):
-        if "Levels" in item.name:
-            item.classification = ItemClassification.progression
+    if getattr(multiworld, 'generation_is_fake', False) and "Levels" in item.name:
+        item.classification = ItemClassification.progression
     # elif item.name in getattr(world, "prog_levels", []) or item.name in ["5 FSH Levels", "5 BLU Levels"]:
     #     item.classification = ItemClassification.progression
     return item

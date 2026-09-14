@@ -1,6 +1,8 @@
 using ArchipelagoXIV.Rando.Locations;
+using Lumina.Excel.Sheets;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace ArchipelagoXIV.Rando
 {
     internal static class APData
     {
+        internal record AetheryteInfo(uint id, uint apid, string Name, TerritoryType Territory, uint AttunePlace);
+
         public static Dictionary<string, string> Aliases = new() {
             // Cities
             { "Limsa Lominsa Lower Decks", "Limsa Lominsa"},
@@ -25,20 +29,15 @@ namespace ArchipelagoXIV.Rando
             { "Flame Barracks", "Ul'dah"},
             { "Foundation", "Ishgard"},
             { "The Pillars", "Ishgard"},
-            { "Idyllshire", "The Dravanian Forelands"},
             // Inns
             { "Mizzenmast Inn", "Limsa Lominsa"},
             { "The Roost", "Gridania"},
             { "The Hourglass", "Ul'dah"},
             { "Cloud Nine", "Ishgard"},
             { "Bokairo Inn", "Kugane"},
+            { "The Pendants Personal Suite", "The Crystarium"},
             { "Andron", "Old Sharlayan"},
-            // Player Housing
-            { "The Goblet", "Ul'dah" },
-            { "Mist", "Limsa Lominsa" },
-            { "The Lavender Beds", "Gridania" },
-            { "Shirogane", "Kugane" },
-            { "Empyreum", "Ishgard" },
+            { "The For'ard Cabins", "Tuliyollal"},
             // Gold Saucer
             { "Chocobo Square", "The Gold Saucer" },
             { "The Battlehall", "The Gold Saucer" },
@@ -57,14 +56,6 @@ namespace ArchipelagoXIV.Rando
             { "Return to the Waking Sands", "Western Thanalan" },
         };
 
-        public static Dictionary<uint, string> ContentIDToLocationName = new()
-        {
-            { 1, "The Thousand Maws of Toto-Rak" }, // Yes, this is correct.
-            { 2, "The Tam-Tara Deepcroft" },
-            { 24, "The Tam-Tara Deepcroft (Hard)" },
-            { 1066, "The Merchant's Tale" },
-        };
-
         public static Dictionary<string, ushort> CheckNameToContentID = new()
         {
             { "The Thousand Maws of Toto-Rak", 1 },
@@ -74,25 +65,38 @@ namespace ArchipelagoXIV.Rando
         };
 
         public static readonly Dictionary<string, Region> Regions = [];
+        public static readonly Dictionary<uint, Region> RegionsByTerritoryType = [];
         public static readonly Dictionary<string, FishData> FishData = [];
         public static readonly Dictionary<string, int> FateData = [];
         public static readonly Dictionary<string, int> HuntData = [];
         public static readonly Dictionary<string, string> HuntRankData = [];
 
         public static Dictionary<string, Dictionary<string, string>> ObsoleteChecks { get; private set; } = [];
+        public static FrozenDictionary<uint, AetheryteInfo> Aetherytes { get; private set; }
 
         public static void LoadDutiesCsv()
         {
-            string[] headers = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"];
+            string[] headers;
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.duties.csv");
             using var reader = new StreamReader(stream);
             string? line = null;
+            headers = reader.ReadLine()?.Split(',') ?? [];
+            var iName = Array.IndexOf(headers, "Name");
+            var iLocation = Array.IndexOf(headers, "Location");
+            var iContentFinderID = Array.IndexOf(headers, "ContentFinderID");
             while ((line = reader.ReadLine()) != null)
             {
                 var row = line.Split(',');
-                if (headers.Contains(row[0].Trim()))
+                if (string.IsNullOrWhiteSpace(row[iName].Trim()))
                     continue;
-                Aliases[row[0].Trim()] = row[4].Trim();
+
+                if (row[iName].StartsWith('"'))
+                    row[iName] = row[iName].Trim('"');
+                Aliases[row[iName].Trim()] = row[iLocation].Trim();
+                if (ushort.TryParse(row[iContentFinderID].Trim(), out var contentFinderId))
+                {
+                    CheckNameToContentID[row[iName].Trim()] = contentFinderId;
+                }
             }
         }
 
@@ -125,7 +129,7 @@ namespace ArchipelagoXIV.Rando
 
                 var level = int.Parse(row[1].Trim());
                 level = Math.Max(level - 5, (int)Math.Floor(level / 10.0) * 10);
-                var zone = row[2];
+                var zone = row[2].Trim();
                 if (zone == "The Firmament")
                     name += " (FETE)";
                 else if (!name.EndsWith("(FATE)"))
@@ -174,7 +178,8 @@ namespace ArchipelagoXIV.Rando
                 var requires = region.Value.Value<string>("requires");
                 if (requires != null)
                     rule = Logic.FromString(requires);
-                _ = new Region(region.Key, connections.ToArray() ?? [], rule);
+                var territoryTypeIds = region.Value["ids"]?.ToObject<uint[]>() ?? [];
+                _ = new Region(region.Key, connections.ToArray() ?? [], rule, territoryTypeIds);
             }
         }
 
@@ -228,6 +233,29 @@ namespace ArchipelagoXIV.Rando
                 APData.FishData[fish.Value<string>("name")] = data;
 
             }
+        }
+
+        internal static void LoadAetherytes()
+        {
+            using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ArchipelagoXIV.aetherytes.json");
+            using var reader = new StreamReader(stream);
+            var aetheryte_data = JArray.Parse(reader.ReadToEnd());
+            var aetherytes = new Dictionary<uint, AetheryteInfo>();
+            var gamedata = DalamudApi.DataManager.GetExcelSheet<Aetheryte>()
+                .Where(a => a.PlaceName.RowId > 10 && a.IsAetheryte).ToDictionary(a => a.RowId);
+
+            foreach (JObject aetheryte in aetheryte_data.Cast<JObject>())
+            {
+                var id = aetheryte.Value<uint>("id");
+                var apid = 50000 + id;
+                var name = gamedata[id].PlaceName.Value.Name.ExtractText();
+                var territory = gamedata[id].Territory.Value;
+                var attunePlace = aetheryte.Value<uint>("place_id");
+                var info = new AetheryteInfo(id, apid, name, territory, attunePlace);
+                aetherytes[apid] = info;
+
+            }
+            APData.Aetherytes = aetherytes.ToFrozenDictionary();
         }
     }
 }

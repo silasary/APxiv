@@ -5,9 +5,18 @@ using System.Text;
 
 namespace ArchipelagoXIV.Rando.Locations
 {
+    enum FateType
+    {
+        FATE,
+        FETE,
+        GATE
+    }
     internal class FateLocation : Location
     {
         private string serverName;
+        private string fateName;
+        private readonly FateType fateType;
+        public uint FateID { get; }
 
         public FateLocation(ApState apState, long id, string name, Fate fate)
             : base(apState, id, name)
@@ -15,15 +24,26 @@ namespace ArchipelagoXIV.Rando.Locations
             serverName = name;
             var fatetype = "";
             if (name.EndsWith(" (FATE)"))
+            {
                 fatetype = " (FATE)";
+                this.fateType = FateType.FATE;
+            }
             else if (name.EndsWith(" (FETE)"))
+            {
                 fatetype = " (FETE)";
+                this.fateType = FateType.FETE;
+            }
             else if (name.EndsWith(" (GATE)"))
+            {
                 fatetype = " (GATE)";
-            Name = fate.Name.ToString().Trim() + fatetype;
+                this.fateType = FateType.GATE;
+            }
+            fateName = fate.Name.ExtractText().Trim();
+            Name = fateName + fatetype;
+            FateID = fate.RowId;
         }
 
-        protected override void SetRequirements()
+        internal override void SetRequirements()
         {
             if (Name.EndsWith(" (FATE)"))
             {
@@ -44,6 +64,21 @@ namespace ArchipelagoXIV.Rando.Locations
             else if (Name.EndsWith(" (GATE)"))
             {
                 MeetsRequirements = Logic.Always();
+            }
+        }
+
+        override public string DisplayText
+        {
+            get
+            {
+                var fateTypeText = fateType switch
+                {
+                    FateType.FATE => "FATE)",
+                    FateType.FETE => "FETE)",
+                    FateType.GATE => "GATE)",
+                    _ => ""
+                };
+                return $"{fateName} ({this.region.Name} {fateTypeText}";
             }
         }
     }

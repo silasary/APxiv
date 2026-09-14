@@ -14,3 +14,4 @@ jobs:
           python-version: '3.13'
           runs: 500 # This is optional
           yamls-per-run: 1 # This is optional
+          dump-ignored: true # We'd like to know why yamls are being rejected

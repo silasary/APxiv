@@ -21,6 +21,8 @@ namespace ArchipelagoXIV
         public bool RequireSyncedDuties { get; set; } = false;
         public string Password { get; internal set; } = "";
 
+        public bool ConnectAtStartup { get; set; } = false;
+
         public List<string> ConnectionHistory { get; set; } = [];
 
         public void Initialize(IDalamudPluginInterface pluginInterface)

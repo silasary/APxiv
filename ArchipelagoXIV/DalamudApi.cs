@@ -43,6 +43,7 @@ namespace ArchipelagoXIV
         //[PluginService] public static IPartyList PartyList { get; private set; } = null!;
         [PluginService] public static IPlayerState PlayerState { get; private set; } = null!;
         [PluginService] public static IPluginLog PluginLog { get; private set; } = null!;
+        [PluginService] public static ITextureProvider TextureProvider { get; private set; } = null!;
         [PluginService] public static IToastGui ToastGui { get; private set; } = null!;
 
 
@@ -84,10 +85,11 @@ namespace ArchipelagoXIV
         {
             logicBar.Tooltip = text;
         }
-        internal static void SetJobStatusBar(string text)
+        internal static void SetJobStatusBar(string? text)
         {
-            if (text == null)
+            if (string.IsNullOrEmpty(text))
                 return;
+
             jobBar ??= DtrBar.Get("APJob");
             jobBar.Text = "" + SeIconChar.EurekaLevel.ToIconChar() + " " + text;
         }

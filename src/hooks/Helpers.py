@@ -27,6 +27,20 @@ REGION_LEVEL_CAP_ADJUSTMENTS: dict[str, int] = {
     "Kozama'uka":                 91,
 }
 
+#DEEP_DUNGEON_EXCLUDED_FLOORS = [
+#    [1,2,3,4,5,6,7,8,9],
+#    [1,2,3,4,6,7,8,9],
+#    [1,2,3,5,6,8,9],
+#    [1,2,4,5,7,8],
+#    [1,3,5,7,9],
+#    [2,5,7,9],
+#    [3,6,9],
+#    [4,9],
+#    [5],
+#    [],
+#]
+
+
 def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
@@ -38,6 +52,17 @@ def get_excluded_expansions(multiworld: MultiWorld, player: int) -> set[str]:
     from ..Helpers import get_option_value
 
     return set(get_option_value(multiworld, player, "exclude_expansions"))
+
+def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[str]:
+    from ..Helpers import get_option_value
+    value = get_option_value(multiworld, player, option_name)
+    if isinstance(value, list):
+        value = set(value)
+    if value is None:
+        value = set()
+    if not isinstance(value, set):
+        raise TypeError(f"Expected a set for option '{option_name}', got {type(value).__name__}")
+    return value
 
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
     """Jobs excluded directly via exclude_jobs plus all jobs of any excluded expansion"""
@@ -63,7 +88,7 @@ def is_fishing_enabled(multiworld, player):
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the category, False to disable it, or None to use the default behavior
-def before_is_category_enabled(multiworld: MultiWorld, player: int, category_name: str) -> Optional[bool]:
+def before_is_category_enabled(multiworld: MultiWorld, player: int, category_name: str) -> bool | None:
     if category_name == "FATEsanity":
         return Helpers.is_option_enabled(multiworld, player, "fatesanity")
     if category_name == "FATEs":
@@ -76,11 +101,15 @@ def before_is_category_enabled(multiworld: MultiWorld, player: int, category_nam
         return get_int_value(multiworld, player, "fishsanity") > 2
     if category_name == "McGuffin":
         return get_int_value(multiworld, player, "mcguffins_needed") > 0
+    if category_name == "Crystalline Conflict":
+        return Helpers.is_option_enabled(multiworld, player, "include_crystalline_conflict") or Helpers.is_option_enabled(multiworld, player, "include_pvp")
+    if category_name == "Frontline":
+        return Helpers.is_option_enabled(multiworld, player, "include_frontline") or Helpers.is_option_enabled(multiworld, player, "include_pvp")
     return None
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the item, False to disable it, or None to use the default behavior
-def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> Optional[bool]:
+def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> bool | None:
     from .Data import BOSS_GOAL_DATA
     item_name = item.get('name', '')
 
@@ -92,12 +121,24 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
         if item_name == f"{duty_name} Cleared":
             return False
 
+    if "Pomanders" in item.get('category', []):
+        if get_int_value(multiworld, player, "duty_difficulty") == 0:
+            return False
+        if "The Palace of the Dead Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_potd"):
+            return True
+        if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
+            return True
+        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
+            return True
+        if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
+            return True
+        return False  # If it made it this far, none of the Deep Dungeons that use it are enabled.
 
     return None
 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
-def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> Optional[bool]:
+def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
     if location.get('victory'):  # This should get fixed in the main code
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
@@ -112,7 +153,7 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
         return False
-    
+
     level_cap = get_int_value(multiworld, player, "level_cap")
     if "level" in location and int(location["level"]) > level_cap:
         return False
@@ -120,13 +161,19 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
         return False
+    if "Deep Dungeon" in location["category"][0] and "extra_number" in location:
+        return Helpers.is_option_enabled(multiworld, player, "deep_dungeon_sanity")
     if "extra_number" in location and location["extra_number"] > get_int_value(multiworld, player, "extra_dungeon_checks"):
         return False
     region_min_level = REGION_LEVEL_CAP_ADJUSTMENTS.get(location['region'])
     if region_min_level and level_cap < region_min_level:
         return False
+    if location["region"] in ["The Bozjan Southern Front", "Zadnor"] and not get_int_value(multiworld, player, "include_bozja"):
+        return False
+    if location["region"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"] and not get_int_value(multiworld, player, "include_occult_crescent"):
+        return False
     return None
 
 
-def before_is_event_enabled(multiworld: MultiWorld, player: int, event: dict[str, Any]) -> Optional[bool]:
+def before_is_event_enabled(multiworld: MultiWorld, player: int, event: dict[str, Any]) -> bool | None:
     return None

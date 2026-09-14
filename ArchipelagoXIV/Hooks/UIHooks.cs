@@ -1,18 +1,33 @@
+using ArchipelagoXIV.Overlays.CustomNodes;
+using ArchipelagoXIV.Rando.Locations;
+using Dalamud.Game;
 using Dalamud.Game.Addon.Events;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
+using Dalamud.Plugin.Services;
+using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Component.GUI;
+using KamiToolKit.Enums;
+using Lumina.Excel;
+using Lumina.Excel.Sheets;
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Numerics;
 
 namespace ArchipelagoXIV.Hooks
 {
-    internal unsafe partial class UIHooks(ApState apState)
+    internal unsafe partial class UIHooks(ApState apState) : IDisposable
     {
+
+        private Dictionary<uint, APDutyIcon> icons = new();
+
         public void Enable()
         {
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "ContentsFinder", OnContentsFinderRefresh);
+            DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostClose, "ContentsFinder", OnContentsFinderClose);
             DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Bait", OnOpenBaitList);
             //DalamudApi.AddonLifecycle.RegisterListener(AddonEvent.PostSetup, "ContentsFinder", OnContentsFinderPostSetup);
         }
@@ -49,17 +64,37 @@ namespace ArchipelagoXIV.Hooks
                 var componentNode = itemRenderer.Value->Renderer->AtkDragDropInterface.ComponentNode;
                 if (componentNode is null) continue;
 
-                var textNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(5);
+                var textNode = componentNode->Component->GetTextNodeById(6);
+
                 //var levelNode = (AtkTextNode*)componentNode->Component->GetTextNodeById(18);
-                var hollowsImageNode = componentNode->Component->GetImageNodeById(7);
+                var targetNode = componentNode->Component->GetNodeById(14);
+
                 if (textNode is null)
                     continue;
 
-                var name = textNode->NodeText.ToString();
-                var loc = apState.MissingLocations.Where(l => l.IsAccessible()).FirstOrDefault(l => l.Name == name);
+                var found = icons.TryGetValue(componentNode->NodeId, out var icon);
+                var name = textNode->NodeText.ExtractText();
+                var loc = apState.AllLocations.Where(l => l.Accessible).FirstOrDefault(l => l.Name == name);
                 if (loc != null)
                 {
-                    hollowsImageNode->ToggleVisibility(true);
+                    var visible = loc.Accessible && !loc.Completed;
+                    if (!found)
+                    {
+                        if (!visible)
+                            continue;  // Don't create the icon until we'd need to show it
+
+                        //DalamudApi.PluginLog.Debug($"Creating new icon for {componentNode->NodeId} ({textNode->NodeText.ExtractText()})");
+                        icon = new APDutyIcon
+                        {
+                            Position = new Vector2(targetNode->X - 18 - 2, targetNode->Y + ((targetNode->Height - 18) / 2))
+                        };
+                        icons[componentNode->NodeId] = icon;
+                        targetNode->Width -= (ushort)(18 + 2);
+                        icon.AttachNode(targetNode, NodePosition.AfterTarget);
+                    }
+                    //DalamudApi.PluginLog.Debug($"Setting icon visibility for {componentNode->NodeId} ({name}) to {visible}");
+                    if (icon != null)
+                        icon.Node->ToggleVisibility(visible);
 
                     // todo: Replace the texture, maybe check if it's hinted?
                     //if (hints.Contains(loc.ApId))
@@ -68,13 +103,39 @@ namespace ArchipelagoXIV.Hooks
                     //    hollowsImageNode->GetAsAtkImageNode()->LoadIconTexture(60849, 0); //
 
                 }
+                else
+                {
+                    // Not an Archipelago location, hide the icon if it exists
+                    if (icons.TryGetValue(componentNode->NodeId, out icon))
+                    {
+                        icon.Node->ToggleVisibility(false);
+                    }
+                }
             }
+        }
+
+        private void OnContentsFinderClose(AddonEvent type, AddonArgs args)
+        {
+            foreach (var icon in icons.Values)
+            {
+                icon.Dispose();
+            }
+            icons.Clear();
         }
 
         private void OnOpenBaitList(AddonEvent type, AddonArgs args)
         {
             //AtkUnitBase* addon = (AddonContentsFinder*)args.Addon;
             //addon->GetNodeById(13)->;
+        }
+
+        public void Dispose()
+        {
+            foreach (var icon in icons.Values)
+            {
+                icon.Dispose();
+            }
+            icons.Clear();
         }
     }
 }

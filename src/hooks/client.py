@@ -1,16 +1,43 @@
 import asyncio
 import os
-
 import urllib.parse
 import webbrowser
+from collections import Counter
 
-from Utils import messagebox
 from CommonClient import get_base_parser, server_loop
-from kvui import GameManager
-from worlds import AutoWorldRegister, network_data_package
-from ..ManualClient import read_apmanual_file, ManualContext, tracker_loaded, gui_enabled, game_watcher_manual
-from .. import Locations, Items
+from kvui import GameManager, dp
+from Utils import messagebox
 
+from worlds import AutoWorldRegister, network_data_package
+
+from .. import Items, Locations
+from ..ManualClient import (
+    ManualContext,
+    game_watcher_manual,
+    gui_enabled,
+    read_apmanual_file,
+    tracker_loaded,
+)
+from .common import (
+    CASTER,
+    HEALERS,
+    MELEE,
+    RANGED,
+    RE_N_JOB_LEVELS,
+    TANKS,
+)
+
+JOB_ICONS = {
+    "TANK": "https://ffxiv.gamerescape.com/w/images/0/07/Tank_Icon_Flat_1.png",
+    "HEALER": "https://ffxiv.gamerescape.com/w/images/d/d7/Healer_Icon_Flat_1.png",
+    "MELEE":  "https://ffxiv.gamerescape.com/w/images/3/32/Melee_DPS_Icon_Flat_1.png",
+    "RANGED": "https://ffxiv.gamerescape.com/w/images/1/16/Physical_Ranged_DPS_Flat_Icon_1.png",
+    "CASTER": "https://ffxiv.gamerescape.com/w/images/b/b8/Magic_Ranged_DPS_Icon_Flat_1.png",
+
+    "BRD": "https://ffxiv.gamerescape.com/w/images/5/58/Bard_Icon_10.5.png",
+    "DRG": "https://ffxiv.gamerescape.com/w/images/7/77/Dragoon_Icon_10.5.png",
+    "MNK": "https://ffxiv.gamerescape.com/w/images/9/9c/Monk_Icon_10.5.png",
+}
 
 client_name = "Final Fantasy XIV Manual Client"
 client_description = "Manual Final Fantasy XIV Client, for operating the Final Fantasy XIV Manual implementation in Archipelago."
@@ -22,13 +49,65 @@ class XivContext(ManualContext):
     game = ""
 
     def make_gui(self) -> type[GameManager]:
+        from kivy.uix.boxlayout import BoxLayout
+        from kivy.uix.floatlayout import FloatLayout
+        from kivy.uix.image import AsyncImage
+        from kivy.uix.label import Label
         from kivy.uix.layout import Layout
         ManualUi = super().make_gui()
+
+        class XivJobIcon(BoxLayout):
+            level = 0
+            job = ""
+            orientation = "vertical"
+
+            def __init__(self, job: str, **kwargs) -> None:
+                super().__init__(**kwargs)
+                self.job = job
+
+                img_source = JOB_ICONS.get(job)
+                if img_source is None:
+                    if job in TANKS:
+                        img_source = JOB_ICONS.get("TANK")
+                    elif job in HEALERS:
+                        img_source = JOB_ICONS.get("HEALER")
+                    elif job in MELEE:
+                        img_source = JOB_ICONS.get("MELEE")
+                    elif job in RANGED:
+                        img_source = JOB_ICONS.get("RANGED")
+                    elif job in CASTER:
+                        img_source = JOB_ICONS.get("CASTER")
+
+                self.image = AsyncImage(source=img_source, size_hint=(1, 1))
+                self.text_label = Label(text=f"{job}\n{self.level}", font_size=dp(12), halign="center", valign="top", size_hint=(1, 1))
+                # self.add_widget(self.image)
+                self.add_widget(self.text_label)
+
+            def update_level(self, level: int):
+                self.level = level
+                self.text_label.text = f"{self.job}\n{self.level}"
+
+        class XivJobsLayout(BoxLayout):
+            def __init__(self, **kwargs) -> None:
+                super().__init__(**kwargs)
+                self.orientation = "horizontal"
+                self.size_hint = (1, None)
+                self.height=dp(40)
+                self.job_icons = {}
+                for job in TANKS + HEALERS + MELEE + RANGED + CASTER:
+                    icon = XivJobIcon(job=job)
+                    self.job_icons[job] = icon
+                    self.add_widget(icon)
+            pass
+
+
         class XivUi(ManualUi):
             def build(self) -> Layout:
                 layout = super().build()
                 self.game_bar_text.text = "Manual_FFXIV_Silasary"
                 self.manual_game_layout.parent.remove_widget(self.manual_game_layout)
+                self.jobs_layout = XivJobsLayout()
+                self.controls_panel.parent.add_widget(self.jobs_layout)
                 return layout
             pass
 
@@ -36,6 +115,22 @@ class XivContext(ManualContext):
                 if self.ctx.game == "":
                     return
                 super().build_tracker_and_locations_table()
+
+            def update_tracker_and_locations_table(self, update_highlights=False):
+                super().update_tracker_and_locations_table(update_highlights)
+                items_received = [i.item for i in self.ctx.items_received]
+                levels = Counter()
+                for item in items_received:
+                    name = self.ctx.item_names.lookup_in_game(item)
+                    match = RE_N_JOB_LEVELS.match(name)
+                    if match:
+                        num = int(match.group("num"))
+                        job = match.group("job")
+                        levels[job] += num
+                for job, level in levels.items():
+                    if job in self.jobs_layout.job_icons:
+                        self.jobs_layout.job_icons[job].update_level(level)
+                pass
 
         return XivUi
 
@@ -183,7 +278,7 @@ def launch() -> None:
     parser = get_base_parser(description=client_description)
     parser.add_argument('apmanual_file', default="", type=str, nargs="?",
                         help='Path to an APMANUAL file')
-    args, rest = parser.parse_known_args()
+    args, _rest = parser.parse_known_args()
 
     colorama.init()
     asyncio.run(main(args))

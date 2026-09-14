@@ -23,9 +23,44 @@ namespace ArchipelagoXIV.Rando.Locations
                 return new AttuneLocation(apState, id, name);
             if (Data.DynamicEvents.ContainsKey(name))
                 return new CriticalEncounterLocation(apState, id, name);
-            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
+            if (Data.FateTable.TryGetValue(name.Replace(" (FATE)", "").Replace(" (FETE)", "").Replace(",", "").Trim('"').Trim().ToString().ToLower(), out var fate))
             {
                 return new FateLocation(apState, id, name, fate);
+            }
+            if (Regexes.FATE.Match(name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value))
+            {
+                return new GenericFateLocation(apState, id, name, m.Groups[1].Value, m.Groups[2].Value);
+            }
+
+            var content = Data.Content.FirstOrDefault(cf => cf.Name == name);
+            if (content.RowId == 0 && name.StartsWith("The"))
+                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == "the" + name[3..]);
+            if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(name, out var cid))
+            {
+                content = Data.Content[cid];
+            }
+            if (content.RowId > 0)
+            {
+                return new DutyLocation(apState, id, name, content);
+            }
+
+            var match = Regexes.DeepDungeonSubLocation.Match(name);
+            if (match.Success)
+            {
+                var floor = int.Parse(match.Groups[3].Value);
+                var start = floor - (floor % 10) + 1;
+                var end = start + 9;
+                var parentname = $"{match.Groups[1].Value} ({match.Groups[2].Value}s {start}-{end})";
+
+                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == parentname);
+                return new DutySubLocation(apState, id, name, content, parentname);
+            }
+            // Bonus checks come in the form "Sastasha 2"
+            match = Regexes.ExtraCheckName.Match(name);
+            if (match.Success)
+            {
+                content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
+                return new DutySubLocation(apState, id, name, content, match.Groups[1].Value);
             }
 
             return new Location(apState, id, name);
@@ -38,6 +73,8 @@ namespace ArchipelagoXIV.Rando.Locations
             Name = name;
 
             Level = 0;
+
+            Completed = apState.session!.Locations.AllLocationsChecked.Contains(id);
         }
 
         public string Name { get; protected set; }
@@ -48,49 +85,42 @@ namespace ArchipelagoXIV.Rando.Locations
 
         public bool Accessible;
 
-        public bool Completed { get; protected set; }
+        /// <summary>
+        /// Warning:  Setting this does not send the check.  Use Complete() instead.
+        /// Setting this is only for internal use to mark checks as completed when the server tells us they are completed.
+        /// </summary>
+        public bool Completed { get; internal set; }
 
         internal bool stale = true;
 
         public Func<ApState, bool, bool>? MeetsRequirements = null;
 
-        private ContentFinderCondition content;
+        public ContentFinderCondition Content { get; protected set; }
         public Hint? HintedItem { get; set; } = null;
 
         public virtual bool IsAccessible()
         {
-            if (Completed)
-                return false;
-
             if (stale)
             {
                 stale = false;
-                var allMissingLocations = apState?.session?.Locations?.AllMissingLocations;
-                if (allMissingLocations == null)
+                var allLocations = apState?.session?.Locations?.AllLocations;
+                if (allLocations == null)
                     return Accessible = false;
-                if (!allMissingLocations.Contains(ApId))
+                if (!allLocations.Contains(ApId))
                     return Accessible = false;
                 if (!apState?.Game?.MeetsRequirements(this) ?? false)
                     return Accessible = false;
                 if (MeetsRequirements == null)
                 {
-                    content = Data.Content.FirstOrDefault(cf => cf.Name == Name);
-                    if (content.RowId == 0 && Name.StartsWith("The"))
-                        content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == "the" + Name[3..]);
-                    if (content.RowId == 0)
-                    {
-                        // Bonus checks come in the form "Sastasha 2"
-                        var match = Regexes.ExtraCheckName.Match(Name);
-                        if (match.Success && match.Groups.Count > 1)
-                            content = Data.Content.FirstOrDefault(cf => cf.Name.ExtractText() == match.Groups[1].Value);
-                    }
-                    if (content.RowId == 0 && APData.CheckNameToContentID.TryGetValue(Name, out var id))
-                    {
-                        content = Data.Content[id];
-                    }
-                    if (MeetsRequirements == null)
-                        SetRequirements();
+                    SetRequirements();
                 }
+                if (MeetsRequirements == null)
+                {
+                    // Fallback to always accessible if we can't determine requirements
+                    DalamudApi.PluginLog.Warning($"Could not determine requirements for {Name} ({ApId})");
+                    MeetsRequirements = Logic.Always();
+                }
+
                 if (!MeetsRequirements(apState, false))
                     return Accessible = false;
                 return Accessible = true;
@@ -99,11 +129,11 @@ namespace ArchipelagoXIV.Rando.Locations
             return Accessible;
         }
 
-        protected virtual void SetRequirements()
+        internal virtual void SetRequirements()
         {
-            if (content.RowId > 0)
+            if (Content.RowId > 0)
             {
-                MeetsRequirements = Logic.Level(content.ClassJobLevelRequired);
+                MeetsRequirements = Logic.Level(Content.ClassJobLevelRequired);
             }
             else if (Regexes.FATE.Match(Name) is Match m && m.Success && m.Groups[1].Success && !string.IsNullOrEmpty(m.Groups[1].Value) && Data.FateLevels.TryGetValue(m.Groups[1].Value, out var level))
             {
@@ -142,8 +172,8 @@ namespace ArchipelagoXIV.Rando.Locations
             }
             else if (Name.StartsWith("Ocean Fishing"))
             {
-                if (Name == "Ocean Fishing: Ruby Sea" || Name == "Ocean Fishing: One River" ||Name == "Ocean Fishing: Thavnairian Coast")
-                    MeetsRequirements = Logic.FromString("|5 FSH Levels:12| and |Kugane Access:1|");
+                if (Name == "Ocean Fishing: Ruby Price" || Name == "Ocean Fishing: One River" || Name == "Ocean Fishing: Thavnairian Coast")
+                    MeetsRequirements = Logic.And(Logic.Level(60, "FSH"), Logic.HasItem("Kugane Access"));
                 else
                     MeetsRequirements = Logic.Level(5, "FSH");
             }
@@ -178,28 +208,22 @@ namespace ArchipelagoXIV.Rando.Locations
             return true;
         }
 
-        public void Complete(bool sendNow = true)
-        {
-            Completed = true;
-            apState.localsave!.CompletedChecks.Add(ApId);
-            if (sendNow)
-                Task.Run(CompleteAsync);
-            apState.RefreshBars = true;
-        }
-        private async void CompleteAsync()
+        public virtual void Complete()
         {
             DalamudApi.PluginLog.Information($"Marking {Name} ({ApId}) as complete");
-            apState.SaveCache();
-            await apState.session!.Locations.CompleteLocationChecksAsync(ApId);
+            Completed = true;
+            apState.localsave!.CompletedChecks.Add(ApId);
+            apState.Syncing = true;
+            apState.RefreshBars = true;
         }
 
-        public string DisplayText
+        public virtual string DisplayText
         {
             get
             {
                 if (APData.HuntRankData.TryGetValue(Name, out var rank) && APData.Aliases.TryGetValue(Name, out var zone))
-                    return $"{Name} ({rank}-Rank, {zone}){HintText}";
-                return Name + HintText;
+                    return $"{Name} ({rank}-Rank, {zone})";
+                return Name;
             }
         }
 
@@ -209,7 +233,7 @@ namespace ArchipelagoXIV.Rando.Locations
                 {
                     var p = HintedItem.ReceivingPlayerName(apState);
                     var i = HintedItem.ItemName(apState);
-                    return $" (Contains {p}'s {i})";
+                    return $" Contains {p}'s {i}";
                 }
 
                 return "";

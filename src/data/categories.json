@@ -14,8 +14,12 @@
     "FATEsanity": {
         "hidden": true
     },
+    "Fêtes": {
+        "yaml_option": ["include_fetes"],
+        "hidden": true
+    },
     "PvP": {
-        "yaml_option": ["include_pvp"]
+
     },
     "Bozja": {
         "yaml_option": ["include_bozja"],
@@ -24,6 +28,18 @@
     "Occult Crescent": {
         "yaml_option": ["include_occult_crescent"],
         "hidden": true
+    },
+    "The Palace of the Dead": {
+        "yaml_option": ["include_potd"]
+    },
+    "Heaven-on-High": {
+        "yaml_option": ["include_hoh"]
+    },
+    "Eureka Orthos": {
+        "yaml_option": ["include_eo"]
+    },
+    "Pilgrim's Traverse": {
+        "yaml_option": ["include_pt"]
     },
     "fishsanity": {
         "yaml_option": [],

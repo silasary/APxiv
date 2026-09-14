@@ -1,3 +1,5 @@
+using ArchipelagoXIV.Rando;
+using ArchipelagoXIV.Rando.Locations;
 using Dalamud.Hooking;
 using FFXIVClientStructs.FFXIV.Client.Game.Control;
 using FFXIVClientStructs.FFXIV.Client.Game.Object;
@@ -28,23 +30,20 @@ namespace ArchipelagoXIV.Hooks
         {
             if (apState.Connected && obj->GetObjectKind() == ObjectKind.Aetheryte && apState.CurrentLocationInLogic)
             {
-                var area = TerritoryInfo.Instance()->SubAreaPlaceNameId;
-                var areaname = DalamudApi.DataManager.GetExcelSheet<PlaceName>().GetRow(area).Name.ExtractText();
-                if (string.IsNullOrEmpty(areaname))
-                    areaname = apState.territoryName;
-                DalamudApi.PluginLog.Debug($"InteractWithObjectDetour called with obj: {obj->NameString}, baseid: {obj->BaseId}, checkLineOfSight: {checkLineOfSight}, area: {areaname}");
+                
+                DalamudApi.PluginLog.Debug("InteractWithObjectDetour called with obj: {0}, baseid: {1}, checkLineOfSight: {2}", obj->NameString, obj->BaseId, checkLineOfSight);
 
-                if (apState.Game.AttunedAetherytes.Add(areaname))
+                if (apState.Game.AttunedAetherytes.Add(obj->BaseId))
                 {
-                    var name = $"Attune {areaname}";
-                    var loc = apState.MissingLocations.FirstOrDefault(l => l.Name == name);
+                    var loc = apState.MissingLocations.OfType<AttuneLocation>().FirstOrDefault(l => l.Aetheryte.id == obj->BaseId);
                     if (loc != null)
                     {
                         loc.Complete();
                     }
                     else
                     {
-                        DalamudApi.PluginLog.Info($"Could not find location for {name} in missing locations.");
+                        APData.Aetherytes.TryGetValue(50000 + obj->BaseId, out var aetheryte);
+                        DalamudApi.PluginLog.Info("Could not find location for {0} ({1}) in missing locations.", aetheryte?.Name, obj->BaseId);
                     }
                 }
             }

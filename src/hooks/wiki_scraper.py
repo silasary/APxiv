@@ -118,6 +118,29 @@ NOT_IN_FISHING_GUIDE = [
     "Timeworn Kumbhiraskin Map",
 ]
 
+TIMED_MOOCH = [
+    #Fish that aren't timed in and of themselves, but mooch off of timed fish
+    "Nautilus",
+    "Coelacanth",
+
+    "White Goldfish",
+    "Firelight Goldfish",
+    "Indigo Prismfish",
+
+]
+
+CLASSES = [
+    'GLA',
+    'PGL',
+    'MRD',
+    'LNC',
+    'ARC',
+    'CNJ',
+    'THM',
+    'ACN',
+    'ROG',
+]
+
 @functools.lru_cache
 def teamcraft_json(filename: str) -> dict | list:
     print(f"Fetching {filename}.json from Teamcraft repo")
@@ -132,6 +155,16 @@ def datamining_csv(filename: str, key = "#") -> dict[str, dict[str, str]]:
     for line in csv.DictReader(lines):
         data[line[key]] = line
     return data
+
+def load_data_file(filename: str) -> Any:
+    with open(data_path(filename), 'r', newline='') as h:
+        data = json.load(h)
+    return data
+
+def save_data_file(filename: str, data: Any, indent=4) -> None:
+    with open(data_path(filename), 'w', newline='') as h:
+        json.dump(data, h, indent=indent)
+        h.write('\n')
 
 def find_fates(zone: str) -> list[str]:
     print('Finding fates for zone: ' + zone)
@@ -383,7 +416,7 @@ def scrape_hunts() -> list[dict[str, str]]:
     elite_marks = {name for name, count in zone_count_by_name.items() if count > 1}
 
     if elite_marks:
-        print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
+        # print(f"Filtering out {len(elite_marks)} SS hunts: {sorted(elite_marks)}")
         filtered: list[dict[str, str]] = []
 
         for row in rows:
@@ -507,9 +540,7 @@ query BaitsPerFishPerSpotQuery($fishId: Int, $spotId: Int, $misses: Int, $mLureM
 def lookup_item_by_name(name: str) -> dict | None:
     items = datamining_csv('Item')
     for item in items.values():
-        if item['Name'] == name:
-            return item
-        elif item['Singular'].lower() == name.lower():
+        if item['Name'] == name or item['Singular'].lower() == name.lower():
             return item
     return None
 
@@ -543,6 +574,8 @@ def lookup_fish(id: int | str) -> dict:
     if fishdata.get('folklore'):
         fish['folklore'] = fishdata['folklore']
     timed = fishdata.get('timed') or fishdata.get('weathered') or fishdata.get('during')
+    if fish['name'] in TIMED_MOOCH:
+        timed = 1
     if timed:
         fish['timed'] = timed
 
@@ -643,8 +676,8 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     for spot, baits in per_spot.items():
         baits = sorted(baits, key=lambda b: b.occurences, reverse=True)
         # best_occurences = baits[0].occurences
-        # Anything that is less than 10 catches is best written off as bad data.
-        viable_baits = [b for b in baits if b.occurences >= 10]
+        # Anything that is less than 20 catches is best written off as bad data.
+        viable_baits = [b for b in baits if b.occurences >= 20]
         #if viable_baits[0].bait_name == "Versatile Lure" and len(viable_baits) > 1:
         #    viable_baits = viable_baits[1:] + [viable_baits[0]]
         # fish['spots'][spot] = [b.bait_name for b in viable_baits]
@@ -659,7 +692,6 @@ def fill_bait_from_teamcraft(fish: dict, bait_paths: dict) -> None:
     #         viable_baits = viable_baits[1:] + [viable_baits[0]]
     #     fish['zones'][zone] = [b.bait_name for b in viable_baits]
 
-    return
 
 
 def tribal_fish():
@@ -698,31 +730,27 @@ def apply_bait() -> None:
         if fish.get('tribal'):
             continue
         fish['zones'] = {}
+        fish['logical_bait'] = {}
         fish['all_bait'] = {}
+        fish['all_bait_by_hole'] = {}
         fish['logical_intuition'] = {}
+        fish['logical_intuition_by_hole'] = {}
         fish['intuition_bait'] = {}
+        fish['intuition_bait_by_hole'] = {}
 
         for hole, baits in bait_paths.get(name, {}).copy().items():
             if not baits:
                 del bait_paths[name][hole]
                 continue
             zone_name = spots[hole]['zone_name']
-            #Check if Ocean Fish, moved here
-            if zone_name == "The *Endeavor*":
-                del bait_paths[name][hole]
-                continue
-            elif zone_name == "The Diadem":
-                del bait_paths[name][hole]
-                continue
-            elif zone_name == "Elysion":
-                del bait_paths[name][hole]
-                continue
             # if len(baits) > 1 and 'Versatile Lure' in baits:
             #     baits.remove('Versatile Lure')
             #Adds logical baits from the teamcraft recommended baits list
             try:
-                fish_from_fishingsources = teamcraft_json('fishing-sources')[str(fish['id'])]
+                fish_from_fishingsources = teamcraft_json('fishing-sources').get(str(fish['id']), None)
             except KeyError:
+                continue
+            if fish_from_fishingsources is None:
                 continue
             for fishsource in fish_from_fishingsources:
                 if fishsource['spot'] == spots[hole]["id"]:
@@ -732,14 +760,16 @@ def apply_bait() -> None:
                     item = lookup_item_by_name(teamcraft_optimalbait)
                     category = lookup_item_ui_category(item["ItemUICategory"])
                     if category == "Fishing Tackle":
-                        pass
                         moochstatus = False
                     elif category == "Seafood":
                         moochstatus = True
                     else:
                         print(f"!!! Bait {teamcraft_optimalbait} has unexpected category {category} !!!")
                     while moochstatus:
-                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                        sources = teamcraft_json('fishing-sources').get(str(item['#']), None)
+                        if sources is None:
+                            break
+                        for fish_mooch_source in sources:
                             if fish_mooch_source['spot'] == spots[hole]["id"]:
                                 teamcraft_optimalbait = lookup_item_name(fish_mooch_source['bait'])
                                 item = lookup_item_by_name(teamcraft_optimalbait)
@@ -752,29 +782,42 @@ def apply_bait() -> None:
                     if fishsource.get('predators'):
                         for predators in fishsource.get('predators'):
                             intuition_bait = bait_paths[lookup_item_name(predators["id"])][hole]
-                            for fish_predator_source in teamcraft_json('fishing-sources')[str(predators["id"])]:
+                            sources = teamcraft_json('fishing-sources').get(str(predators["id"]), None)
+                            if sources is None:
+                                continue
+                            logical_intuition = None
+                            for fish_predator_source in sources:
                                 if fish_predator_source['spot'] == spots[hole]["id"]:
                                     logical_intuition = lookup_item_name(fish_predator_source['bait'])
                                     item = lookup_item_by_name(logical_intuition)
+                                    if not item:
+                                        print(f"Could not find item for {logical_intuition}")
+                                        continue
                                     category = lookup_item_ui_category(item["ItemUICategory"])
                                     if category == "Fishing Tackle":
                                         moochstatus = False
-                                        pass
                                     elif category == "Seafood":
                                         moochstatus = True
                                     else:
                                         print(f"!!! Bait {logical_intuition} has unexpected category {category} !!!")
                                     while moochstatus:
-                                        for fish_mooch_source in teamcraft_json('fishing-sources')[str(item['#'])]:
+                                        sources = teamcraft_json('fishing-sources').get(str(item['#']), None)
+                                        if sources is None:
+                                            break
+                                        for fish_mooch_source in sources:
                                             if fish_mooch_source['spot'] == spots[hole]["id"]:
                                                 logical_intuition = lookup_item_name(fish_mooch_source['bait'])
                                                 item = lookup_item_by_name(logical_intuition)
                                                 if lookup_item_ui_category(item["ItemUICategory"]) != "Seafood":
                                                     moochstatus = False
                             fish['intuition_bait'][zone_name] = intuition_bait
+                            fish['intuition_bait_by_hole'][hole] = intuition_bait
                             fish['logical_intuition'].setdefault(zone_name, []).append(logical_intuition)
+                            fish['logical_intuition_by_hole'].setdefault(hole, []).append(logical_intuition)
                             fish['intuition_bait'][zone_name] = sorted(set(fish['intuition_bait'][zone_name]))
+                            fish['intuition_bait_by_hole'][hole] = sorted(set(fish['intuition_bait_by_hole'][hole]))
                             fish['logical_intuition'][zone_name] = sorted(set(fish['logical_intuition'][zone_name]))
+                            fish['logical_intuition_by_hole'][hole] = sorted(set(fish['logical_intuition_by_hole'][hole]))
             for bait in baits.copy():
                 if isinstance(bait, list):
                     baits.remove(bait)
@@ -802,9 +845,9 @@ def apply_bait() -> None:
                 #        info['category'] = category
                 item = lookup_item_by_name(str(bait))
                 category = lookup_item_ui_category(item["ItemUICategory"])
+                moochstatus = False
                 if category == "Fishing Tackle":
                     moochstatus = False
-                    pass
                 elif category == "Seafood":
                     moochstatus = True
                 else:
@@ -817,50 +860,30 @@ def apply_bait() -> None:
                         baits.remove(bait)
                         bait = mooch_path
                         item = lookup_item_by_name(str(bait))
-                        if not item:
-                            baits += bait
-                            moochstatus = False
-                        elif lookup_item_ui_category(item["ItemUICategory"]) == "Fishing Tackle":
+                        if not item or lookup_item_ui_category(item["ItemUICategory"]) == "Fishing Tackle":
                             baits += bait
                             moochstatus = False
                 #if bait not in bait_data and not info.get('mooch'):
                 #    print("if bait not in bait_data and not info.get('mooch')")
+                if len(bait_paths[name][hole]) != len(set(bait_paths[name][hole])):
+                    # There are duplicate entries
+                    deduped = []
+                    for b in bait_paths[name][hole]:
+                        if b not in deduped:
+                            deduped.append(b)
+                    bait_paths[name][hole] = deduped
 
             if baits:
                 fish['zones'].setdefault(zone_name, []).append(teamcraft_optimalbait)
+                fish['logical_bait'].setdefault(hole, []).append(teamcraft_optimalbait)
                 fish['all_bait'][zone_name] = baits
+                fish['all_bait_by_hole'][hole] = baits
                 #sort and clean
                 fish['zones'][zone_name] = sorted(set(fish['zones'][zone_name]))
+                fish['logical_bait'][hole] = sorted(set(fish['logical_bait'][hole]))
                 fish['all_bait'][zone_name] = sorted(set(fish['all_bait'][zone_name]))
+                fish['all_bait_by_hole'][hole] = sorted(set(fish['all_bait_by_hole'][hole]))
                 #Merge zones, comment this out for poptracker scraper
-                if zone_name == 'Limsa Lominsa Lower Decks':
-                    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Lower Decks'])
-                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))
-                    del fish['zones']['Limsa Lominsa Lower Decks']
-                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Lower Decks'])
-                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))
-                    del fish['all_bait']['Limsa Lominsa Lower Decks']
-                elif zone_name == 'Limsa Lominsa Upper Decks':
-                    fish['zones']['Limsa Lominsa'] = combine_lists(fish['zones'].get('Limsa Lominsa', []), fish['zones']['Limsa Lominsa Upper Decks'])
-                    fish['zones']['Limsa Lominsa'] = sorted(set(fish['zones']['Limsa Lominsa']))
-                    del fish['zones']['Limsa Lominsa Upper Decks']
-                    fish['all_bait']['Limsa Lominsa'] = combine_lists(fish['all_bait'].get('Limsa Lominsa', []), fish['all_bait']['Limsa Lominsa Upper Decks'])
-                    fish['all_bait']['Limsa Lominsa'] = sorted(set(fish['all_bait']['Limsa Lominsa']))
-                    del fish['all_bait']['Limsa Lominsa Upper Decks']
-                elif zone_name == 'New Gridania':
-                    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['New Gridania'])
-                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))
-                    del fish['zones']['New Gridania']
-                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['New Gridania'])
-                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))
-                    del fish['all_bait']['New Gridania']
-                elif zone_name == 'Old Gridania':
-                    fish['zones']['Gridania'] = combine_lists(fish['zones'].get('Gridania', []), fish['zones']['Old Gridania'])
-                    fish['zones']['Gridania'] = sorted(set(fish['zones']['Gridania']))
-                    del fish['zones']['Old Gridania']
-                    fish['all_bait']['Gridania'] = combine_lists(fish['all_bait'].get('Gridania', []), fish['all_bait']['Old Gridania'])
-                    fish['all_bait']['Gridania'] = sorted(set(fish['all_bait']['Gridania']))
-                    del fish['all_bait']['Old Gridania']
             else:
                 print(f"No bait for {name} in {hole}")
 
@@ -934,7 +957,6 @@ def scrape_carby(baitless) -> bool:
         bait_paths.setdefault(fish, {}).setdefault(place_name, []).extend(cdata['bestCatchPath'])
         baitless.remove(fish)
         updated = True
-        pass
 
     if updated:
         with open(data_path('fish.json'), 'w', newline='') as h:
@@ -1019,7 +1041,7 @@ def cat_get_spots(regions):
 
     return spots_in_zones, spot_to_id
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 @ratelimit.sleep_and_retry
 @ratelimit.limits(calls=2, period=5)
 def cat_spot_data(spot_id) -> dict[str, dict[str, float]]:
@@ -1060,6 +1082,9 @@ def cat_region_table(spot_id):
 def data_path(filename: str) -> str:
     return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', filename)
 
+def hooks_path(filename: str) -> str:
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'hooks', filename)
+
 def clean_fish():
     all_fish = load_all_fish()
     for fish in all_fish.values():
@@ -1083,9 +1108,15 @@ def scrape_aetherytes() -> None:
     aetherytes = datamining_csv('Aetheryte')
     places = datamining_csv('PlaceName')
     territory_type = datamining_csv("TerritoryType")
-    aetheryte_locations = []
+    aetheryte_locations = load_data_file('aetherytes.json')
+    known_ids = {a['id']: a for a in aetheryte_locations}
+    place_name_to_id = {p['Name']: int(p['#']) for p in reversed(list(places.values()))}
     for aetheryte in aetherytes.values():
-        location_data: dict[str, Any] = {}
+        if int(aetheryte['#']) in known_ids:
+            location_data: dict[str, Any] = known_ids[int(aetheryte['#'])]
+        else:
+            location_data = {}
+
         location_data['id'] = int(aetheryte['#'])
         if aetheryte['IsAetheryte'] != 'True':
             continue
@@ -1098,14 +1129,139 @@ def scrape_aetherytes() -> None:
         territory = territory_type[map['TerritoryType']]
         location_data['expansion'] = _EX_VERSION_DATA[territory['ExVersion']][0]
         location_data['level'] = _EX_VERSION_DATA[territory['ExVersion']][1]
-        aetheryte_locations.append(location_data)
-    with open(data_path('aetherytes.json'), 'w', newline='') as h:
-        json.dump(aetheryte_locations, h, indent=1)
 
+        if f'{place['Name']} Aetheryte Plaza' in place_name_to_id:
+            location_data.setdefault("place_name", f'{place["Name"]} Aetheryte Plaza')
+        else:
+            location_data.setdefault("place_name", place["Name"])
+        location_data.setdefault("place_id", place_name_to_id.get(location_data.get("place_name", place["Name"]), int(place["#"])))
+
+        if int(aetheryte['#']) not in known_ids:
+            aetheryte_locations.append(location_data)
+
+    save_data_file('aetherytes.json', aetheryte_locations, indent=1)
+
+def scrape_territory_types() -> None:
+    territory_type = datamining_csv("TerritoryType")
+    regions = load_data_file('regions.json')
+    for territory in territory_type.values():
+        if territory['PlaceName'] == '0':
+            continue
+        place_name = datamining_csv('PlaceName')[territory['PlaceName']]
+        name = place_name['Name']
+        if name in regions:
+            ids = set(regions[name].get('ids', []))
+            ids.add(int(territory['#']))
+            regions[name]['ids'] = sorted(ids)
+
+    save_data_file('regions.json', regions, indent=4)
+
+def scrape_classjobs() -> None:
+    classjobs = datamining_csv('ClassJob')
+    items_levels = load_data_file('items.levels.json')
+    existing_names = {item['name'] for item in items_levels}
+    for item in items_levels:
+        item['abbreviation'] = item['name'].split(' ')[1]
+    next_id = max(item['id'] for item in items_levels) + 1
+    for classjob in classjobs.values():
+        if not classjob['Abbreviation'] or classjob['Abbreviation'] in CLASSES:
+            continue
+        for n in [5]:
+            name = f'{n} {classjob["Abbreviation"]} Levels'
+            if name in existing_names:
+                continue
+            items_levels.append({
+                'name': name,
+                'id': next_id,
+                'abbreviation': classjob['Abbreviation'],
+            })
+            next_id += 1
+    items_levels.sort(key=lambda x: x['id'])
+    save_data_file('items.levels.json', items_levels, indent=4)
+
+def scrape_deep_dungeon_items() -> None:
+    deep_dungeon_items = datamining_csv('DeepDungeonItem')
+    items_deepdungeon: list[dict[str, Any]] = load_data_file('items.deepdungeon.json')
+    existing_names = {item['name'] for item in items_deepdungeon}
+
+    for item in deep_dungeon_items.values():
+        if not item['Name'] or item['Name'] in existing_names:
+            continue
+        items_deepdungeon.append({
+            'name': item['Name'],
+            'id': 10_000 + int(item['#']),
+        })
+    for item in items_deepdungeon:
+        item.setdefault('category', ['Pomander'])
+        if item.setdefault('potd', False):
+            item['category'].append("The Palace of the Dead Pomanders")
+        if item.setdefault('hoh', False):
+            item['category'].append("Heaven-on-High Pomanders")
+        if item.setdefault('eo', 'Protomander' in item['name']):
+            item['category'].append("Eureka Orthos Protomanders")
+        if item.setdefault('pt', False):
+            item['category'].append("Pilgrim's Traverse Pomanders")
+        item['category'] = sorted(set(item['category']))
+
+
+    items_deepdungeon.sort(key=lambda x: x['id'])
+    save_data_file('items.deepdungeon.json', items_deepdungeon, indent=4)
+
+def scrape_duties() -> None:
+    content_finder_conditions = datamining_csv('ContentFinderCondition')
+    dynamic_events = datamining_csv('DynamicEvent')
+    with open(hooks_path("duties.csv")) as f:
+        dutyreader = csv.DictReader(f.readlines(), delimiter=',', quotechar='"')
+        duties = list(dutyreader)
+    headers = dutyreader.fieldnames
+    assert headers is not None
+
+    for duty in duties:
+        name = duty['Name']
+        if not name:
+            continue
+        cfid = duty.get('ContentFinderID', None)
+        deid = duty.get('DynamicEventID', None)
+        if cfid and isinstance(cfid, str):
+            cfid = int(cfid)
+        if deid and isinstance(deid, str):
+            deid = int(deid)
+
+        if cfid is None:
+            for cfc in content_finder_conditions.values():
+                if cfc['Name'].casefold().strip().replace('*', '') == name.casefold().strip():
+                    cfid = duty['ContentFinderID'] = int(cfc['#'])
+                    break
+            else:
+                cfid = duty['ContentFinderID'] = 0
+        if cfid == 0 and deid is None:
+            for de in dynamic_events.values():
+                if de['Name'].casefold().strip() == name.casefold().strip():
+                    deid = duty['DynamicEventID'] = int(de['#'])
+                    break
+
+        if not cfid and not deid:
+            print(f"WARNING: Could not find ContentFinderCondition or DynamicEvent for {name}")
+            continue
+
+        if cfid and int(cfid) > 0 and (cf := content_finder_conditions.get(str(cfid))):
+            if not duty["Level Sync"]:
+                duty["Level Sync"] = cf.get('ClassJobLevelSync','')
+            if not duty["Ilvl Sync"]:
+                duty["Ilvl Sync"] = cf.get('ItemLevelRequired','')
+
+    with open(hooks_path("duties.csv"), "w", newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=headers, delimiter=',', quotechar='"')
+        writer.writeheader()
+        writer.writerows(duties)
 
 if __name__ == "__main__":
+    scrape_duties()
+    scrape_classjobs()
     scrape_aetherytes()
+    scrape_deep_dungeon_items()
     scrape_hunts()
+    scrape_territory_types()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()

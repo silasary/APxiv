@@ -1,0 +1,167 @@
+[
+    {
+        "abbreviation": "PLD",
+        "id": 5000,
+        "name": "5 PLD Levels"
+    },
+    {
+        "abbreviation": "WAR",
+        "id": 5001,
+        "name": "5 WAR Levels"
+    },
+    {
+        "abbreviation": "DRK",
+        "id": 5002,
+        "name": "5 DRK Levels"
+    },
+    {
+        "abbreviation": "GNB",
+        "id": 5003,
+        "name": "5 GNB Levels"
+    },
+    {
+        "abbreviation": "WHM",
+        "id": 5004,
+        "name": "5 WHM Levels"
+    },
+    {
+        "abbreviation": "SCH",
+        "id": 5005,
+        "name": "5 SCH Levels"
+    },
+    {
+        "abbreviation": "AST",
+        "id": 5006,
+        "name": "5 AST Levels"
+    },
+    {
+        "abbreviation": "SGE",
+        "id": 5007,
+        "name": "5 SGE Levels"
+    },
+    {
+        "abbreviation": "MNK",
+        "id": 5008,
+        "name": "5 MNK Levels"
+    },
+    {
+        "abbreviation": "DRG",
+        "id": 5009,
+        "name": "5 DRG Levels"
+    },
+    {
+        "abbreviation": "NIN",
+        "id": 5010,
+        "name": "5 NIN Levels"
+    },
+    {
+        "abbreviation": "SAM",
+        "id": 5011,
+        "name": "5 SAM Levels"
+    },
+    {
+        "abbreviation": "RPR",
+        "id": 5012,
+        "name": "5 RPR Levels"
+    },
+    {
+        "abbreviation": "VPR",
+        "id": 5013,
+        "name": "5 VPR Levels"
+    },
+    {
+        "abbreviation": "BRD",
+        "id": 5014,
+        "name": "5 BRD Levels"
+    },
+    {
+        "abbreviation": "MCH",
+        "id": 5015,
+        "name": "5 MCH Levels"
+    },
+    {
+        "abbreviation": "DNC",
+        "id": 5016,
+        "name": "5 DNC Levels"
+    },
+    {
+        "abbreviation": "BLM",
+        "id": 5017,
+        "name": "5 BLM Levels"
+    },
+    {
+        "abbreviation": "SMN",
+        "id": 5018,
+        "name": "5 SMN Levels"
+    },
+    {
+        "abbreviation": "RDM",
+        "id": 5019,
+        "name": "5 RDM Levels"
+    },
+    {
+        "abbreviation": "PCT",
+        "id": 5020,
+        "name": "5 PCT Levels"
+    },
+    {
+        "abbreviation": "BLU",
+        "id": 5021,
+        "name": "5 BLU Levels"
+    },
+    {
+        "abbreviation": "CRP",
+        "id": 5022,
+        "name": "5 CRP Levels"
+    },
+    {
+        "abbreviation": "BSM",
+        "id": 5023,
+        "name": "5 BSM Levels"
+    },
+    {
+        "abbreviation": "ARM",
+        "id": 5024,
+        "name": "5 ARM Levels"
+    },
+    {
+        "abbreviation": "GSM",
+        "id": 5025,
+        "name": "5 GSM Levels"
+    },
+    {
+        "abbreviation": "LTW",
+        "id": 5026,
+        "name": "5 LTW Levels"
+    },
+    {
+        "abbreviation": "WVR",
+        "id": 5027,
+        "name": "5 WVR Levels"
+    },
+    {
+        "abbreviation": "ALC",
+        "id": 5028,
+        "name": "5 ALC Levels"
+    },
+    {
+        "abbreviation": "CUL",
+        "id": 5029,
+        "name": "5 CUL Levels"
+    },
+    {
+        "abbreviation": "MIN",
+        "id": 5030,
+        "name": "5 MIN Levels"
+    },
+    {
+        "abbreviation": "BTN",
+        "id": 5031,
+        "name": "5 BTN Levels"
+    },
+    {
+        "abbreviation": "FSH",
+        "id": 5032,
+        "name": "5 FSH Levels"
+    }
+]

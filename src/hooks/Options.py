@@ -1,24 +1,38 @@
 from BaseClasses import PlandoOptions
+from Utils import get_fuzzy_results
+from worlds.AutoWorld import World
+
 from Options import (
     Choice,
     DefaultOnToggle,
-    FreeText,
-    NamedRange,
-    NumericOption,
+    LocalItems,
     Option,
+    OptionError,
     OptionGroup,
     OptionSet,
     PerGameCommonOptions,
     Range,
-    TextChoice,
     Toggle,
     Visibility,
 )
-from Utils import get_fuzzy_results
-from worlds.AutoWorld import World
 
 # These helper methods allow you to determine if an option has been set, or what its value is, for any player in the multiworld
-from ..Helpers import get_option_value, is_option_enabled
+from .common import (
+    CASTER,
+    DOH,
+    DOL,
+    HEALERS,
+    LEVEL_CAP,
+    MELEE,
+    RANGED,
+    TANKS,
+)
+from .Data import EXCLUDABLE_EXPANSIONS, FULL_NAME_TO_JOB
+
+
+class XivLocalItems(LocalItems):
+    """Forces these items to be in their native world."""
+    default = frozenset(["Memory of a Distant World"])
 
 
 class OceanFishing(Toggle):
@@ -48,6 +62,15 @@ class UnreasonableFates(Toggle):
     If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
     """
     display_name = "Include Unreasonable FATEs"
+    default = False
+
+class Fetesanity(Toggle):
+    """
+    Include Fêtes in the FATEsanity pool.
+
+    Fêtes are part of the Skyrise Celebration.  They run back-to-back every two hours for a day, then go on cooldown for two days.
+    """
+    display_name = "Include Fêtes"
     default = False
 
 class DutyDifficulty(Choice):
@@ -192,6 +215,48 @@ class FieldOperationCriticalEncounterCount(Range):
     range_start = 0
     range_end = 33
 
+class PotDCount(Range):
+    """
+    Number of The Palace of the Dead Floorsets to include in the location pool
+
+    This could take dozens of hours if maxed out, as the nearest checkpoint is at floor 51
+    """
+    display_name = "The Palace of the Dead Floorset Count"
+    default = 5
+    range_start = 0
+    range_end = 20
+
+class HoHCount(Range):
+    """
+    Number of Heaven-on-High Floorsets to include in the location pool
+
+    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
+    """
+    display_name = "Heaven-on-High Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
+
+class EOCount(Range):
+    """
+    Number of Eureka Orthos Floorsets to include in the location pool
+
+    This could take multiple hours if maxed out, as the nearest checkpoint is at floor 21
+    """
+    display_name = "Eureka Orthos Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
+
+class PTCount(Range):
+    """
+    Number of Pilgrim's Traverse Floorsets to include in the location pool
+    """
+    display_name = "Pilgrim's Traverse Floorset Count"
+    default = 3
+    range_start = 0
+    range_end = 10
+
 class UltimateCount(Range):
     """
     Number of Ultimate Raids to include in the location pool
@@ -225,7 +290,31 @@ class BossKeyPieces(Range):
     range_start = 0
     range_end = 10
 
-class ForceJob(OptionSet):
+class JobSet(OptionSet):
+    """
+    Superclass for optionsets that allow you to pick jobs.
+    """
+
+    valid_keys = frozenset(TANKS + HEALERS + MELEE + CASTER + RANGED)
+
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        for item_name in self.value.copy():
+            if item_name not in self.valid_keys and item_name in FULL_NAME_TO_JOB:
+                self.value.remove(item_name)
+                item_name = FULL_NAME_TO_JOB[item_name]
+                self.value.add(item_name)
+            if item_name not in self.valid_keys:
+                picks = get_fuzzy_results(item_name, self.valid_keys, limit=1) # type: ignore
+                raise OptionError(f"Item {item_name} from option {self} "
+                                f"is not a valid job from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+
+        return super().verify(world, player_name, plando_options)
+
+
+class ForceJob(JobSet):
     """
     Choose which classes are progression.
 
@@ -233,19 +322,15 @@ class ForceJob(OptionSet):
     """
     display_name = "Force Progression Jobs"
 
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
-        all = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
-        print(f"{repr(self.value)}/{repr(all)}")
-        for item_name in self.value:
-            if item_name not in all:
-                picks = get_fuzzy_results(item_name, all, limit=1)
-                raise Exception(f"Item {item_name} from option {self} "
-                                f"is not a valid job from {world.game}. "
-                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
 
 
-        return super().verify(world, player_name, plando_options)
+class ExcludeJob(JobSet):
+    """
+    Choose which jobs to exclude from the game entirely.
+
+    Excluded jobs will not be chosen as progression or filler jobs.
+    """
+    display_name = "Exclude Jobs"
 
 class ExcludeExpansion(OptionSet):
     """
@@ -256,36 +341,14 @@ class ExcludeExpansion(OptionSet):
     """
     display_name = "Exclude Expansions"
 
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import EXCLUDABLE_EXPANSIONS
+    valid_keys = frozenset(EXCLUDABLE_EXPANSIONS)
 
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
         for item_name in self.value:
             if item_name not in EXCLUDABLE_EXPANSIONS:
                 picks = get_fuzzy_results(item_name, EXCLUDABLE_EXPANSIONS, limit=1)
-                raise Exception(f"Item {item_name} from option {self} "
+                raise OptionError(f"Item {item_name} from option {self} "
                                 f"is not a valid expansion from {world.game}. "
-                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
-
-        return super().verify(world, player_name, plando_options)
-
-class ExcludeJob(OptionSet):
-    """
-    Choose which jobs to exclude from the game entirely.
-
-    Excluded jobs will not be chosen as progression or filler jobs.
-    """
-    display_name = "Exclude Jobs"
-
-    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
-        from .Data import TANKS, HEALERS, MELEE, CASTER, RANGED, DOH, DOL
-        all_jobs = TANKS + HEALERS + MELEE + CASTER + RANGED + DOH + DOL
-
-        for item_name in self.value:
-            if item_name not in all_jobs:
-                picks = get_fuzzy_results(item_name, all_jobs, limit=1)
-
-                raise Exception(f"Item {item_name} from option {self} "
-                                f"is not a valid job from {world.game}. "
                                 f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
 
         return super().verify(world, player_name, plando_options)
@@ -295,9 +358,9 @@ class LevelCap(Range):
     Maximum level of the player.
     """
     display_name = "Level Cap"
-    default = 100
+    default = LEVEL_CAP
     range_start = 30
-    range_end = 100
+    range_end = LEVEL_CAP
 
 class AllowMainScenario(Toggle):
     """
@@ -336,6 +399,17 @@ class IncludePvP(Toggle):
     """
     Include PvP duties in the location pool.
     """
+    visibility = Visibility.none  # Obsolete in favour of separate CC/Frontline options, but left here for backwards compatibility.
+
+class IncludeCrystalineConflict(Toggle):
+    """
+    Include Crystaline Conflict matches in the location pool.
+    """
+
+class IncludeFrontline(Toggle):
+    """
+    Include Frontline matches in the location pool.
+    """
 
 class IncludeBozja(Toggle):
     """
@@ -357,6 +431,35 @@ class IncludeOccultCrescent(Toggle):
     Include Occult Crescent content in the location pool.
 
     This includes the Fates, CEs and Alliance Raids of the Occult Crescent.
+    """
+
+
+class DeepDungeonSanity(Toggle):
+    """
+    Include all floors per enabled floor set.
+
+    Enabled: All individual floors will become locations.
+    Disabled: Only the final floor of each floor set will become a location.
+    """
+
+class IncludePotD(Toggle):
+    """
+    Include The Palace of the Dead in the location pool.
+    """
+
+class IncludeHoH(Toggle):
+    """
+    Include Heaven-on-High in the location pool.
+    """
+
+class IncludeEO(Toggle):
+    """
+    Include Eureka Orthos in the location pool.
+    """
+
+class IncludePT(Toggle):
+    """
+    Include Pilgrim's Traverse in the location pool.
     """
 
 class FatesPerZone(Range):
@@ -388,7 +491,7 @@ class Huntsanity(OptionSet):
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict) -> dict:
-    options["goal"] = None
+    options["local_items"] = XivLocalItems
     options["mcguffin_percentage_needed"] = McGuffinsNeeded
     options["boss_key_pieces"] = BossKeyPieces
 
@@ -400,6 +503,8 @@ def before_options_defined(options: dict) -> dict:
     options["extra_dungeon_checks"] = ExtraDungeonChecks
     options["include_ocean_fishing"] = OceanFishing
     options["include_pvp"] = IncludePvP
+    options["include_crystalline_conflict"] = IncludeCrystalineConflict
+    options["include_frontline"] = IncludeFrontline
     options["include_guildhests"] = IncludeGuildhests
 
     # Duty Counts
@@ -418,11 +523,16 @@ def before_options_defined(options: dict) -> dict:
     options["fates_per_zone"] = FatesPerZone
     options["fatesanity"] = Fatesanity
     options["include_unreasonable_fates"] = UnreasonableFates
+    options["include_fetes"] = Fetesanity
+
+    # Hunts
     options["huntsanity"] = Huntsanity
+
     # Fish
     options["fishsanity"] = Fishsanity
     options["fishsanity_disable_starting_bait"] = FishsanityDisableStartingBait
-    # Jobs & Expansions
+
+    # Jobs
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
     options["exclude_expansions"] = ExcludeExpansion
@@ -433,6 +543,17 @@ def before_options_defined(options: dict) -> dict:
     options["field_operation_critical_encounter_count"] = FieldOperationCriticalEncounterCount
     options["include_duels"] = IncludeDuels
     options["include_occult_crescent"] = IncludeOccultCrescent
+
+    # Deep Dungeon
+    options["deep_dungeon_sanity"] = DeepDungeonSanity
+    options["include_potd"] = IncludePotD
+    options["include_hoh"] = IncludeHoH
+    options["include_eo"] = IncludeEO
+    options["include_pt"] = IncludePT
+    options["potd_count"] = PotDCount
+    options["hoh_count"] = HoHCount
+    options["eo_count"] = EOCount
+    options["pt_count"] = PTCount
 
     return options
 
@@ -450,16 +571,21 @@ def after_options_defined(options: type[PerGameCommonOptions]) -> None:
 
 # Use this Hook if you want to add your Option to an Option group (existing or not)
 def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[str, list[type[Option]]]:
-    groups["Character Settings"] = [LevelCap, ForceJob]
-    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates]
+    groups["Character Settings"] = [LevelCap, ForceJob, ExcludeJob]
+    groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
     groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
-    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeGuildhests,
+    groups["Deep Dungeon"] = [DeepDungeonSanity, IncludePotD, IncludeHoH, IncludeEO, IncludePT,
+                              PotDCount, HoHCount, EOCount, PTCount]
+    groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
                              ExtraDungeonChecks, AllowMainScenario,
                              DungeonCount, VariantDungeonCount, TrialCount, ExtremeTrialCount, EndgameTrialCount,
                              NormalRaidCount, SavageRaidCount,EndgameRaidCount, AllianceRaidCount, UltimateCount]
     return groups
 
 def after_option_groups_created(groups: list[OptionGroup]) -> list[OptionGroup]:
+    item_and_location_group = next((g for g in groups if g.name == "Item & Location Options"), None)
+    if item_and_location_group is not None:
+        item_and_location_group.options.insert(0, XivLocalItems)
     return groups
