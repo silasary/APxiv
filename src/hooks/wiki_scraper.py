@@ -581,28 +581,28 @@ def lookup_fish(id: int | str) -> dict:
 
     if fishdata.get('stars'):
         fishdata['stars'] = fishdata['stars']
-        
+
     expansion = get_patch_expansion(fishdata['itemId'])
-    
+
     if expansion is not None:
         fish['expansion'] = expansion
-        
+
     return fish
 
 def apply_fish_expansions() -> None:
     """Backfill the `expansion` field on existing fish.json records"""
     all_fish = load_all_fish()
     missing = []
-    
+
     for name, fish in all_fish.items():
         expansion = get_patch_expansion(fish.get('id'))
-        
+
         if expansion is None:
             missing.append(name)
             continue
-        
+
         fish['expansion'] = expansion
-        
+
     print(f"Set expansion for {len(all_fish) - len(missing)} fish, "
           f"{len(missing)} missing patch data.")
 
