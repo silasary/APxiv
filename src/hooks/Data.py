@@ -86,6 +86,38 @@ BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
 }
 
+ACHIEVEMENT_FATES = [
+    "Poor Maid's Misfortune",
+    "It's Not Lupus",
+    "Lazy for You",
+    "Clearing the Hive",
+    "Defending the Hive",
+    "Keeping the Hive",
+    "Attack on Highbridge: Act III",
+    "Dark Devices - The End",
+    "Go, Go, Gorgimera",
+    "Svara's Fall",
+    "Svara's Fury",
+    "The Eyes Have It (FATE)",
+    "We Fought a Dzu",
+    "Special Tarasque Force",
+    "Darkscale Devoureth",
+    "Vedrfolnir Devoteth",
+    "On Dangerous Ground",
+    "Metal Gears Revengeance 2",
+    "The Evil Seed",
+    "Rattle and Humbaba",
+    "Tall Tale",
+    "Never Say Daimyo",
+    "The Dataqi Chronicles: Dominion",
+    "Wham, Bam, Thank You, Mammoth",
+    "Curiosity Killed the Catfish",
+    #"Deadly Nightshade", Currently in UNREASONABLE_FATES, this could possibly be moved to this group?
+    "Fuath to Be Reckoned With",
+    "Tojil Eclipse",
+    "The Elderblade"
+    ]
+
 UNREASONABLE_FATES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
