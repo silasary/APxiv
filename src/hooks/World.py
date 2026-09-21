@@ -24,7 +24,7 @@ from ..Helpers import get_option_value, is_option_enabled
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
 from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
-from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value
+from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value, get_excluded_expansions
 from .Options import LevelCap
 from .common import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
 
@@ -124,6 +124,12 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if goal_level and goal_level > level_cap:
         world.options.level_cap.value = goal_level
 
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+    goal_expansion = goal_location.get("expansion")
+    
+    if goal_expansion in excluded_expansions:
+        raise OptionError(f"The selected goal '{goal}' belongs to expansion '{goal_expansion}', which is excluded.")
+
     has_fatesanity = get_option_value(multiworld, player, 'fatesanity')
     fate_count = get_int_value(multiworld, player, 'fates_per_zone')
     has_fates = has_fatesanity or fate_count > 0
@@ -170,10 +176,16 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
 
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+
     if not getattr(multiworld, 'generation_is_fake', False):
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
+            if dutyExpansion in excluded_expansions:
+                world.skipped_duties.update(names)
+                continue
+
             if count is None:
                 continue
 

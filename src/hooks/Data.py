@@ -71,6 +71,17 @@ HEADER_VALUES = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"]
 JOB_FULL_NAMES = {}
 FULL_NAME_TO_JOB = {}
 
+EXCLUDABLE_EXPANSIONS = ["HW", "StB", "ShB", "EW", "DT"]
+EXPANSION_ORDER = {"ARR": 0, "HW": 1, "StB": 2, "ShB": 3, "EW": 4, "DT": 5}
+
+JOB_EXPANSION = {
+    "DRK": "HW", "AST": "HW", "MCH": "HW",
+    "SAM": "StB", "RDM": "StB", "BLU": "StB",
+    "GNB": "ShB", "DNC": "ShB",
+    "SGE": "EW", "RPR": "EW",
+    "VPR": "DT", "PCT": "DT",
+}
+
 BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     # Goal: (Name, Region, Level)
     "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
@@ -206,6 +217,8 @@ fate_zones = {
 
 bait_to_fish: dict[str, set[str]] = {}
 
+region_expansion: dict[str, str] = {}
+
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 deep_dungeon_regex = re.compile(r"^(?P<dd_name>.+?) \((?P<floor_name>\w+)s (?P<start>\d+)-\d+\)$")
 
@@ -216,7 +229,7 @@ def generate_victory_locations() -> list[LocationDict]:
     locations: list[LocationDict] = []
 
     for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
-        locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
+        locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id, "expansion": region_expansion[region]})
         _id += 1
 
     return locations
@@ -319,6 +332,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                         "diff" : difficulties.index(row["Difficulty"]),
                         "is_dungeon": True,
                         "extra_number": i,
+                        "expansion": expansion,
                     })
                     _xid += 1
 
@@ -331,17 +345,18 @@ def generate_fate_list() -> list[LocationDict]:
     _id = 8000
     for key in list(fate_zones.keys()):
         level = fate_zones[key][0]
+        expansion = region_expansion[key]
         #ilvl = fate_zones[key][1]
-        fate_list.append(create_FATE_location(1,key,level, _id))
-        fate_list.append(create_FATE_location(2,key,level))
-        fate_list.append(create_FATE_location(3,key,level))
-        fate_list.append(create_FATE_location(4,key,level))
-        fate_list.append(create_FATE_location(5,key,level))
-        fate_list.append(create_FATE_location(6,key,level))
-        fate_list.append(create_FATE_location(7,key,level))
-        fate_list.append(create_FATE_location(8,key,level))
-        fate_list.append(create_FATE_location(9,key,level))
-        fate_list.append(create_FATE_location(10,key,level))
+        fate_list.append(create_FATE_location(1,key,level,expansion, _id))
+        fate_list.append(create_FATE_location(2,key,level,expansion))
+        fate_list.append(create_FATE_location(3,key,level,expansion))
+        fate_list.append(create_FATE_location(4,key,level,expansion))
+        fate_list.append(create_FATE_location(5,key,level,expansion))
+        fate_list.append(create_FATE_location(6,key,level,expansion))
+        fate_list.append(create_FATE_location(7,key,level,expansion))
+        fate_list.append(create_FATE_location(8,key,level,expansion))
+        fate_list.append(create_FATE_location(9,key,level,expansion))
+        fate_list.append(create_FATE_location(10,key,level,expansion))
         _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
@@ -368,7 +383,8 @@ def generate_fate_list() -> list[LocationDict]:
                         # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
                         "level" : row['Level Sync'],
                         "filler": True,
-                        "id": _id
+                        "id": _id,
+                        "expansion": region_expansion[row['Location']],
                     }
                 )
                 continue
@@ -382,7 +398,8 @@ def generate_fate_list() -> list[LocationDict]:
                     "category": ["FATEsanity", row['Location']],
                     "requires": "",
                     "level" : row['Level Sync'],
-                    "id": _id
+                    "id": _id,
+                    "expansion": region_expansion[row['Location']],
                 }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
@@ -449,7 +466,6 @@ def generate_fish_list() -> list[LocationDict]:
             else:
                 requires += f" and |{zones[region][0]}|"
 
-
             if intuition:
                 #I'm going to assume there will continue to be one hole per intuition fish, and as such only require the first baitset seen(should only be one)
                 for bait_intuition in intuition[region]:
@@ -458,6 +474,13 @@ def generate_fish_list() -> list[LocationDict]:
         for bait in chain.from_iterable(zones.values()):
              bait_to_fish.setdefault(bait, set()).add(name)
 
+        expansion = data.get('expansion')
+
+        # Fallback based on region
+        if expansion is None:
+            zone_expansions = (region_expansion[zone] for zone in zones)
+            expansion = min(zone_expansions, key=lambda exp: EXPANSION_ORDER[exp])
+
         loc: LocationDict = {
             "name": name,
             "category": ['Fish', "fishsanity"] + list(zones.keys()) + (["Big Fishing"] if data.get('bigfish') else []) + (["Timed Fish"] if data.get('timed') else []),
@@ -465,6 +488,7 @@ def generate_fish_list() -> list[LocationDict]:
             "requires": requires,
             "id": _id,
             "level": data['lvl'],
+            "expansion": expansion,
         }
         if data.get('tribal'):
             if name not in removed_fish:
@@ -580,6 +604,7 @@ def generate_hunt_list() -> list[LocationDict]:
             "requires": "{anyClassLevel(" + level + ")}",
             "level": level,
             "rank": rank,
+            "expansion": expansion,
         })
 
         _id += 1
@@ -598,14 +623,18 @@ def generate_aetheryte_list() -> list[LocationDict]:
                 'name': f"Attune {ae['name']}",
                 'region': ae['map'],
                 'category': ["Aetherytes", ae['map']],
-                'level': ae['level']
+                'level': ae['level'],
+                'expansion': ae['expansion'],
             }
         )
 
     return aetheryte_list
 
 def after_load_location_file(location_table: list[LocationDict]) -> list[LocationDict]:
-    #add FATE locations
+    from ..Data import region_table
+
+    region_expansion.update({name: data.get("expansion") for name, data in region_table.items()})
+
     duty_locations, extra_duty_locations = generate_duty_list()
 
     location_table.extend(duty_locations)
@@ -631,7 +660,7 @@ def after_load_region_file(region_table: dict) -> dict:
             region_table[e]['connects_to'].append(r)
     return region_table
 
-def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None) -> LocationDict:
+def create_FATE_location(number: int, key: str, lvl: int, expansion: str, _id: int = None) -> LocationDict:
     location: LocationDict = {
             "name": key + ": FATE #" + str(number),
             "region": key,
@@ -639,6 +668,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None
             "requires": "",
             "level" : lvl,
             "fate_number": number,
+            "expansion": expansion,
         }
     if lvl > 0:
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
