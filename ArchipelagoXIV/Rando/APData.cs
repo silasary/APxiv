@@ -61,7 +61,7 @@ namespace ArchipelagoXIV.Rando
             { "The Thousand Maws of Toto-Rak", 1 },
             { "The Tam-Tara Deepcroft", 2 },
             { "The Tam-Tara Deepcroft (Hard)", 24 },
-            { "*The Merchant's Tale*", 1066 },
+            { "The Merchant's Tale", 1066 },
         };
 
         public static readonly Dictionary<string, Region> Regions = [];

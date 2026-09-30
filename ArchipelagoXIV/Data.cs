@@ -144,7 +144,6 @@ namespace ArchipelagoXIV
             { "Consigned Sealed and Undelivered (FATE)", "Consigned, Sealed, and Undelivered (FATE)"},
             { "Phallaina ", "Phallaina"},
             { "Ocean Fishing: Ruby Sea", "Ocean Fishing: Ruby Price"},
-            { "The Merchant's Tale", "*The Merchant's Tale*"}
         };
 
         public static void Initialize() {
