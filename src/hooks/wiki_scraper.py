@@ -1169,7 +1169,7 @@ def scrape_duties() -> None:
         if cfid is None:
             for cfc in content_finder_conditions.values():
                 if cfc['Name'].casefold().strip().replace('*', '') == name.casefold().strip():
-                    cfid = duty['ContentFinderID'] = int(cfc['Content'])
+                    cfid = duty['ContentFinderID'] = int(cfc['#'])
                     break
             else:
                 cfid = duty['ContentFinderID'] = 0
