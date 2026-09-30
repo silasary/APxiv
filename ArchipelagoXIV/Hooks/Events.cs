@@ -159,7 +159,7 @@ namespace ArchipelagoXIV.Hooks
             }
 
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2} apid={3}) test={4}", name, duty.Content.RowId, territoryType.RowId, location?.ApId ?? -1, duty.RowId);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2} apid={3})", name, duty.RowId, territoryType.RowId, location?.ApId ?? -1);
 
             location ??= apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
