@@ -133,7 +133,7 @@ namespace ArchipelagoXIV.Hooks
                 return;
             var territory = apState.territory = Data.Territories.FirstOrDefault(row => row.RowId == territoryType.RowId);
             var duty = args.ContentFinderCondition.Value;
-            Location? location = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(l => l.Content.RowId == duty.Content.RowId);
+            Location? location = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(l => l.Content.RowId == duty.RowId);
 
             var name = duty.Name.ExtractText();
             if (name == "Ocean Fishing")
@@ -159,7 +159,7 @@ namespace ArchipelagoXIV.Hooks
             }
 
             DalamudApi.Echo($"{name} Completed");
-            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2} apid={3})", name, duty.Content.RowId, territoryType.RowId, location?.ApId ?? -1);
+            DalamudApi.PluginLog.Information("Completed Duty {0} (cf={1} tt={2} apid={3}) test={4}", name, duty.Content.RowId, territoryType.RowId, location?.ApId ?? -1, duty.RowId);
 
             location ??= apState.MissingLocations.FirstOrDefault(l => l.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
             var canReach = RegionContainer.CanReach(apState, apState.territoryName, territoryType.Value.RowId);
