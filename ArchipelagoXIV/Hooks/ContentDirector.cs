@@ -40,11 +40,11 @@ namespace ArchipelagoXIV.Hooks
             {
                 DynamicContentUpdate();
             }
+            
             if (CurrentDuty == null)
                 return;
 
             var contentType = DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value;
-
             if (contentType.RowId == 21)
             {
                 DeepDungeonUpdate();
@@ -95,8 +95,6 @@ namespace ArchipelagoXIV.Hooks
 
         private unsafe void DeepDungeonUpdate()
         {
-            
-            
             var contentDirector = EventFramework.Instance()->GetInstanceContentDeepDungeon();
             if (contentDirector == null)
                 return;
