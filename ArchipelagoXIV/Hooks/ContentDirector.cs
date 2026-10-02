@@ -132,10 +132,8 @@ namespace ArchipelagoXIV.Hooks
                 var currentId = container->CurrentEventId;
                 foreach(var dynamicEvent in container->Events)
                 {
-                    //var dynamicEvent = container->Events[i];
                     var name = dynamicEvent.Name.ToString();
                     var dynamicId = dynamicEvent.DynamicEventId;
-                    //DalamudApi.Echo(dynamicId.ToString());
                     if (dynamicEvent.Progress == 100 && currentId == dynamicId && DutyProgress != dynamicEvent.Progress)
                     {
                         DalamudApi.PluginLog.Debug("Dynamic Content Update: {0} ({1})", dynamicId, name);
@@ -156,11 +154,6 @@ namespace ArchipelagoXIV.Hooks
                         }
                         DutyProgress = dynamicEvent.Progress;
                     }
-                    //if (dynamicId == 64)
-                    //{
-                    //    DalamudApi.Echo(dynamicEvent.Progress.ToString());
-                    //    DalamudApi.Echo(i.ToString());
-                    //}
                     else if(DutyProgress != 0 && currentId == 0)
                     {
                         //Force DutyProgress back to 0 upon leaving the Dynamic Raid
