@@ -35,12 +35,11 @@ namespace ArchipelagoXIV.Hooks
                 DutyProgress = 0;
             }
 
-            
             if (DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value.RowId == 29 || DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value.RowId == 38 )
             {
                 DynamicContentUpdate();
             }
-            
+
             if (CurrentDuty == null)
                 return;
 
