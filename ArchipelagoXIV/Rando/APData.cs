@@ -86,7 +86,9 @@ namespace ArchipelagoXIV.Rando
             var iContentFinderID = Array.IndexOf(headers, "ContentFinderID");
             while ((line = reader.ReadLine()) != null)
             {
-                var row = line.Split(',');
+                Regex CSVParser = new Regex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+
+                var row = CSVParser.Split(line);
                 if (string.IsNullOrWhiteSpace(row[iName].Trim()))
                     continue;
 
