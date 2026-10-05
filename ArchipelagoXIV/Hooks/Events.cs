@@ -33,7 +33,7 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.DutyState.DutyStarted += DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
-            DalamudApi.GameInventory.ItemAdded += GameInventory_ItemAdded;
+            //DalamudApi.GameInventory.ItemAdded += GameInventory_ItemAdded;
             this.EnqueueFateReward = DalamudApi.GameInteropProvider.HookFromAddress<EnqueueRewardDelegate>(AgentFateReward.MemberFunctionPointers.EnqueueReward, this.EnqueueFateRewardDetour);
             this.EnqueueFateReward?.Enable();
             this.UpdateFishCatch = DalamudApi.GameInteropProvider.HookFromAddress<UpdateCatchDelegate>(AgentCatch.MemberFunctionPointers.UpdateCatch, this.UpdateFishCatchDetour);
@@ -41,16 +41,16 @@ namespace ArchipelagoXIV.Hooks
             RefreshTerritory();
         }
 
-        private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
-        {
-            //Currently unused, but didn't want to fully delete as it might be reused in the future for other settings
-            if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
-            {
-                var name = value.Name.ExtractText().TrimEnd();
-                if (!DalamudApi.PlayerState.ClassJob.IsValid)
-                    return;
-            }
-        }
+        //private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
+        //{
+        //    //Currently unused, but didn't want to fully delete as it might be reused in the future for other settings
+        //    if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
+        //    {
+        //        var name = value.Name.ExtractText().TrimEnd();
+        //        if (!DalamudApi.PlayerState.ClassJob.IsValid)
+        //            return;
+        //    }
+        //}
 
         private unsafe void EnqueueFateRewardDetour(AgentFateReward* thisPtr, AgentFateReward.Reward* reward)
         {
