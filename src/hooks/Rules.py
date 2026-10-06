@@ -54,10 +54,40 @@ def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState,
     assert isinstance(goal_count, int)
     return state.count("Memory of a Distant World", player) >= goal_count
 
-def pomanderSoftLogic(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
+def pomanderSoftLogicPotD(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
     """Has the player collected enough pomanders for this floorset?"""
     current_count = 0
-    for pomander in world.item_name_groups["Pomanders"]:
+    for pomander in world.item_name_groups["The Palace of the Dead Pomanders"]:
+        if (state.count(pomander, player) > 0):
+            current_count += 1
+    if current_count >= int(pomander_count):
+        return True
+    return False
+
+def pomanderSoftLogicHoH(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
+    """Has the player collected enough pomanders for this floorset?"""
+    current_count = 0
+    for pomander in world.item_name_groups["Heaven-on-High Pomanders"]:
+        if (state.count(pomander, player) > 0):
+            current_count += 1
+    if current_count >= int(pomander_count):
+        return True
+    return False
+
+def pomanderSoftLogicEO(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
+    """Has the player collected enough pomanders for this floorset?"""
+    current_count = 0
+    for pomander in world.item_name_groups["Eureka Orthos Protomanders"]:
+        if (state.count(pomander, player) > 0):
+            current_count += 1
+    if current_count >= int(pomander_count):
+        return True
+    return False
+
+def pomanderSoftLogicPT(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
+    """Has the player collected enough pomanders for this floorset?"""
+    current_count = 0
+    for pomander in world.item_name_groups["Pilgrim's Traverse Pomanders"]:
         if (state.count(pomander, player) > 0):
             current_count += 1
     if current_count >= int(pomander_count):
@@ -99,8 +129,29 @@ if use_rulebuilder:
             return Has("Memory of a Distant World", world.mcguffins_needed).resolve(world)
         
     @dataclasses.dataclass()
-    class pomanderSoftLogicRule(Rule["ManualWorld"], game=game_name):
+    class pomanderSoftLogicPotDRule(Rule["ManualWorld"], game=game_name):
         pomander_count: int
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
             expected_count = int(self.pomander_count)
-            return HasGroup("Pomanders", count=expected_count).resolve(world)
+            return HasGroup("The Palace of the Dead Pomanders", count=expected_count).resolve(world)
+
+    @dataclasses.dataclass()
+    class pomanderSoftLogicHoHRule(Rule["ManualWorld"], game=game_name):
+        pomander_count: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.pomander_count)
+            return HasGroup("Heaven-on-High Pomanders", count=expected_count).resolve(world)
+
+    @dataclasses.dataclass()
+    class pomanderSoftLogicEORule(Rule["ManualWorld"], game=game_name):
+        pomander_count: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.pomander_count)
+            return HasGroup("Eureka Orthos Protomanders", count=expected_count).resolve(world)
+
+    @dataclasses.dataclass()
+    class pomanderSoftLogicPTRule(Rule["ManualWorld"], game=game_name):
+        pomander_count: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.pomander_count)
+            return HasGroup("Pilgrim's Traverse Pomanders", count=expected_count).resolve(world)
