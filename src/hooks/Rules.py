@@ -54,8 +54,21 @@ def EnoughMemories(world: World, multiworld: MultiWorld, state: CollectionState,
     assert isinstance(goal_count, int)
     return state.count("Memory of a Distant World", player) >= goal_count
 
+def pomanderSoftLogic(world: World, multiworld: MultiWorld, state: CollectionState, player: int, pomander_count: str):
+    """Has the player collected enough pomanders for this floorset?"""
+    current_count = 0
+    for pomander in world.item_name_groups["Pomanders"]:
+        if (state.count(pomander, player) > 0):
+            current_count += 1
+    if current_count >= int(pomander_count):
+        return True
+    return False
+
+
+    
+
 if use_rulebuilder:
-    from rule_builder.rules import Rule, Has, True_, False_, HasAnyCount
+    from rule_builder.rules import Rule, Has, True_, False_, HasAnyCount, HasGroup
 
     @dataclasses.dataclass()
     class anyClassLevelRule(Rule["ManualWorld"], game=game_name):
@@ -84,3 +97,10 @@ if use_rulebuilder:
     class EnoughMemoriesRule(Rule["ManualWorld"], game=game_name):
         def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
             return Has("Memory of a Distant World", world.mcguffins_needed).resolve(world)
+        
+    @dataclasses.dataclass()
+    class pomanderSoftLogicRule(Rule["ManualWorld"], game=game_name):
+        pomander_count: int
+        def _instantiate(self, world: "ManualWorld") -> Rule.Resolved:
+            expected_count = int(self.pomander_count)
+            return HasGroup("Pomanders", count=expected_count).resolve(world)
