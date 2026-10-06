@@ -289,7 +289,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 location["category"].append("The Palace of the Dead")
                 requires_str += " and {pomanderSoftLogicPotD(" + str(pomanders_count) + ")}"
                 location["requires"] = requires_str
-                pomanders_count = min(16, pomanders_count + 3)
+                pomanders_count = min(16, pomanders_count + 2)
             if row["Location"] in ["Heaven-on-High"]:
                 location["category"].append("Heaven-on-High")
                 requires_str += " and {pomanderSoftLogicHoH(" + str(pomanders_count) + ")}"
