@@ -86,12 +86,41 @@ BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
 }
 
+ACHIEVEMENT_FATES = [
+    "Poor Maid's Mess", "Poor Maid's Mishap", "Poor Maid's Misfortune",
+    "It's Not Lupus",
+    "Lazy for You",
+    "Breaching the Hive", "Clearing the Hive", "Defending the Hive", "Keeping the Hive",
+    "Attack on Highbridge: Prelude", "Attack on Highbridge: Denouement", "Attack on Highbridge: Act I", "Attack on Highbridge: Act II", "Attack on Highbridge: Act III",
+    "Dark Devices - The Plea", "Dark Devices - The Bait", "Dark Devices - The Switch", "Dark Devices - The End",
+    "Go, Go, Gorgimera",
+    "Svara's Flight", "Svara's Fear", "Svara's Fall", "Svara's Fury",
+    "The Eyes Have It (FATE)",
+    "We Fought a Dzu",
+    "Special Tarasque Force",
+    "Darkscale Descendeth", "Darkscale Disappeareth", "Darkscale Devoureth", "Vedrfolnir Devoteth",
+    "On Dangerous Ground",
+    "Metal Gears Rising", "Metal Gears Revengeance", "Metal Gears Revengeance 2",
+    "The Evil Seed",
+    "Mouth for Water",
+    "Rattle and Humbaba",
+    "Tall Tale",
+    "Never Say Daimyo",
+    "The Dataqi Chronicles: Departures", "The Dataqi Chronicles: Distractions", "The Dataqi Chronicles: Duty", "The Dataqi Chronicles: Deprivation", "The Dataqi Chronicles: Deterrence", "The Dataqi Chronicles: Desperation", "The Dataqi Chronicles: Distress", "The Dataqi Chronicles: Displacement", "The Dataqi Chronicles: Diplomacy", "The Dataqi Chronicles: Decimation", "The Dataqi Chronicles: Divergence", "The Dataqi Chronicles: Declarations", "The Dataqi Chronicles: Dominion",
+    "Wham, Bam, Thank You, Mammoth",
+    "Curiosity Killed the Catfish",
+    "Subtle Nightshade", "Toxic Nightshade", "Deadly Nightshade",
+    "Frog Standard", "Great Daens", "Fuath of Habit", "Back and Fuath", "Brute Fuath", "Breaking the Fuath Wall", "Go Fuath a Conqueror", "Fuath to Be Reckoned With",
+    "Barking Mad", "Creepy Crawlers", "Pluck of the Draw", "The End of the Sentry", "Tojil War", "Tojil Annihilation", "Tojil Carnage", "Tojil Eclipse",
+    "Scavengers Hunted", "Reptilian Roadblock", "Cactus Makes Perfect", "Theft from Above", "Sand and Deliver", "This Time, It's Personal", "Armadillo Peccadillo", "The Elderblade",
+    ]
+
 UNREASONABLE_FATES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
     "A Horse Outside (FATE)", "Foxy Lady (FATE)",
     "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
-    "Subtle Nightshade", "Toxic Nightshade", "Deadly Nightshade",  # Not a world boss, but a very messy fate chain that frequently fails due to conflicting FATEs being up.
+    
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
     "The Serpentlord Seethes", "Mascot Murder",
     ]
