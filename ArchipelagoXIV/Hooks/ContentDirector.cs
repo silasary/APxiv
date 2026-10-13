@@ -34,8 +34,9 @@ namespace ArchipelagoXIV.Hooks
                 CurrentDuty = apState.AllLocations.OfType<DutyLocation>().FirstOrDefault(d => d.Content.RowId == DalamudApi.DutyState.ContentFinderCondition.Value.RowId);
                 DutyProgress = 0;
             }
+            var contentType = DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value;
 
-            if (DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value.RowId == 29 || DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value.RowId == 38 )
+            if (contentType.RowId == 29 || contentType.RowId == 38 )
             {
                 DynamicContentUpdate();
             }
@@ -43,7 +44,6 @@ namespace ArchipelagoXIV.Hooks
             if (CurrentDuty == null)
                 return;
 
-            var contentType = DalamudApi.DutyState.ContentFinderCondition.Value.ContentType.Value;
             if (contentType.RowId == 21)
             {
                 DeepDungeonUpdate();
