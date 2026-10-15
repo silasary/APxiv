@@ -18,6 +18,7 @@ using Lumina.Excel.Sheets;
 using System;
 using System.Linq;
 using EnqueueRewardDelegate = FFXIVClientStructs.FFXIV.Client.UI.Agent.AgentFateReward.Delegates.EnqueueReward;
+using UpdateCatchDelegate = FFXIVClientStructs.FFXIV.Client.UI.Agent.AgentCatch.Delegates.UpdateCatch;
 
 namespace ArchipelagoXIV.Hooks
 {
@@ -25,57 +26,31 @@ namespace ArchipelagoXIV.Hooks
     {
         private bool amnestyTripped;
         private Hook<EnqueueRewardDelegate> EnqueueFateReward = null;
+        private Hook<UpdateCatchDelegate> UpdateFishCatch = null;
 
         public unsafe void Enable()
         {
             DalamudApi.DutyState.DutyStarted += DutyState_DutyStarted;
             DalamudApi.DutyState.DutyCompleted += DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged += ClientState_TerritoryChanged;
-            DalamudApi.GameInventory.ItemAdded += GameInventory_ItemAdded;
+            //DalamudApi.GameInventory.ItemAdded += GameInventory_ItemAdded;
             this.EnqueueFateReward = DalamudApi.GameInteropProvider.HookFromAddress<EnqueueRewardDelegate>(AgentFateReward.MemberFunctionPointers.EnqueueReward, this.EnqueueFateRewardDetour);
             this.EnqueueFateReward?.Enable();
+            this.UpdateFishCatch = DalamudApi.GameInteropProvider.HookFromAddress<UpdateCatchDelegate>(AgentCatch.MemberFunctionPointers.UpdateCatch, this.UpdateFishCatchDetour);
+            this.UpdateFishCatch.Enable();
             RefreshTerritory();
         }
 
-        private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
-        {
-            if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
-            {
-                var name = value.Name.ExtractText().TrimEnd();
-                if (!DalamudApi.PlayerState.ClassJob.IsValid)
-                    return;
-                if (DalamudApi.PlayerState.ClassJob.Value.IsFisher() && APData.FishData.ContainsKey(name))
-                {
-                    if (apState.MissingLocations.FirstOrDefault(l => l is Fish f && f.Data.Id == data.Item.BaseItemId) is not Fish loc)
-                        return;
-
-                    APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
-                    if (region == null || !loc.Data.Regions.Contains(region))
-                    {
-                        // This fish was traded, in a retainer, or otherwise obtained in a way that isn't catching it in its native habitat.
-                        return;
-                    }
-                    if (!RegionContainer.CanReach(apState, region))
-                    {
-                        DalamudApi.ShowError($"{region.Name} is not in logic");
-                        return;
-                    }
-                    if (loc != null && loc.IsAccessible())
-                    {
-                        // The fish is in logic, and we caught it.
-                        // Note:  Because we don't want to punish free trial players for not hoarding scrip bait, we don't actually care if they used the correct bait.
-                        // If they caught it suboptimally with OoL bait, it still counts.
-                        loc.Complete();
-                    }
-                    else if (loc is Fish f && f.OutOfLogic())
-                    {
-                        // We caught a fish that's currently out of logic, but everything we did (Hole, bait, etc) was in logic.
-                        // This is usually because the in-logic bait is suboptimal.  We send these.
-                        loc.Complete();
-                    }
-                }
-            }
-        }
+        //private void GameInventory_ItemAdded(Dalamud.Game.Inventory.GameInventoryEvent type, Dalamud.Game.Inventory.InventoryEventArgTypes.InventoryEventArgs data)
+        //{
+        //    //Currently unused, but didn't want to fully delete as it might be reused in the future for other settings
+        //    if (Data.Items.TryGetValue(data.Item.BaseItemId, out var value))
+        //    {
+        //        var name = value.Name.ExtractText().TrimEnd();
+        //        if (!DalamudApi.PlayerState.ClassJob.IsValid)
+        //            return;
+        //    }
+        //}
 
         private unsafe void EnqueueFateRewardDetour(AgentFateReward* thisPtr, AgentFateReward.Reward* reward)
         {
@@ -117,6 +92,40 @@ namespace ArchipelagoXIV.Hooks
                 }
             }
         }
+        private unsafe void UpdateFishCatchDetour(AgentCatch* thisPtr, uint itemId, bool isLarge, ushort size, byte amount, byte level, byte stars, byte oceanStars, bool isMoochable, bool isFirstTimeCatch, byte a11, byte a12)
+        {
+            UpdateFishCatch.Original(thisPtr, itemId, isLarge, size, amount, level, stars, oceanStars, isMoochable, isFirstTimeCatch, a11, a12);
+            if (Data.Items.TryGetValue(itemId, out var value))
+            {
+                var name = value.Name.ExtractText().TrimEnd();
+                DalamudApi.PluginLog.Debug("Fish Catch Detour: {0} ({1}) Level: {2}", itemId,  name, level);
+                if (apState.MissingLocations.FirstOrDefault(l => l is Fish f && f.Data.Id == itemId) is not Fish loc)
+                    return;
+                APData.Regions.TryGetValue(RegionContainer.LocationToRegion(apState.territoryName, (ushort)apState.territory.RowId), out var region);
+                if (!RegionContainer.CanReach(apState, region))
+                {
+                    DalamudApi.ShowError($"{region.Name} is not in logic");
+                    return;
+                }
+                if (loc != null && loc.IsAccessible())
+                {
+                    // The fish is in logic, and we caught it.
+                    // Note:  Because we don't want to punish free trial players for not hoarding scrip bait, we don't actually care if they used the correct bait.
+                    // If they caught it suboptimally with OoL bait, it still counts.
+                    loc.Complete();
+                }
+                else if (loc is Fish f && f.OutOfLogic())
+                {
+                    // We caught a fish that's currently out of logic, but everything we did (Hole, bait, etc) was in logic.
+                    // This is usually because the in-logic bait is suboptimal.  We send these.
+                    loc.Complete();
+                }
+            }
+            else
+            {
+                DalamudApi.Echo($"TryGetValue failed, {itemId}");
+            }
+        }
 
         public void Disable()
         {
@@ -124,6 +133,7 @@ namespace ArchipelagoXIV.Hooks
             DalamudApi.DutyState.DutyCompleted -= DutyState_DutyCompleted;
             DalamudApi.ClientState.TerritoryChanged -= ClientState_TerritoryChanged;
             this.EnqueueFateReward?.Disable();
+            this.UpdateFishCatch?.Disable();
         }
 
         private unsafe void DutyState_DutyCompleted(IDutyStateEventArgs args)
@@ -323,6 +333,7 @@ namespace ArchipelagoXIV.Hooks
         public void Dispose()
         {
             this.EnqueueFateReward?.Dispose();
+            this.UpdateFishCatch?.Dispose();
         }
     }
 }
