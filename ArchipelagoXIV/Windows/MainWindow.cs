@@ -153,6 +153,12 @@ public class MainWindow : SharedWindow
         {
             var name = location.DisplayText;
             ImGui.Text($"{name}");
+            var extraText = location.ExtraText;
+            if (!string.IsNullOrEmpty(extraText))
+            {
+                ImGui.TextColored(ImGuiColors.DalamudGrey, $" {extraText}");
+            };
+
             if (location.HintedItem != null)
             {
                 var colour = ImGuiColors.DalamudGrey;
