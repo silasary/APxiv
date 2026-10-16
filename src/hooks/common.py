@@ -10,6 +10,7 @@ CASTER = ["BLM","SMN","RDM","PCT"]
 RANGED = ["BRD","MCH","DNC"]
 DOH = ["CRP", "BSM", "ARM", "GSM", "LTW", "WVR", "ALC", "CUL"]
 DOL = ["MIN", "BTN", "FSH"]
+
 LEVEL_CAP = 100
 LIMITED_LEVEL_CAPS = {
     "BLU": 80,

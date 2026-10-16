@@ -71,5 +71,14 @@ namespace ArchipelagoXIV.Rando.Locations
             return true;
 
         }
+
+        public override string ExtraText
+        {
+            get
+            {
+                var baitText = Data.Baits[0];
+                return $"{baitText} in {region.Name}";
+            }
+        }
     }
 }
