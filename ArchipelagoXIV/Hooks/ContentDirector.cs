@@ -63,6 +63,16 @@ namespace ArchipelagoXIV.Hooks
         {
             if (CurrentDuty != null && DutyProgress > 0 && CurrentDuty.SubLocations.Length >= DutyProgress)
             {
+                if (!CurrentDuty.IsAccessible())
+                {
+                    DalamudApi.PluginLog.Debug($"{CurrentDuty.Name} currently out of logic.");
+                    return;
+                }
+                if (!CurrentDuty.CanClearAsCurrentClass())
+                {
+                    DalamudApi.PluginLog.Debug($"Cannot clear {CurrentDuty.Name} as current class");
+                    return;
+                }
                 CurrentDuty.SubLocations[DutyProgress - 1].Complete();
             }
         }
