@@ -227,6 +227,8 @@ namespace ArchipelagoXIV.Rando.Locations
             }
         }
 
+        public virtual string ExtraText => string.Empty;
+
         public string HintText { get
             {
                 if (HintedItem != null)

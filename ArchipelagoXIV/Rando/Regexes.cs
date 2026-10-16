@@ -20,11 +20,15 @@ namespace ArchipelagoXIV.Rando
         [GeneratedRegex(@"^(.+) (Floor|Stone) (\d+)$")]
         private static partial Regex DeepDungeonSubLocRegex();
 
+        [GeneratedRegex(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))")]
+        private static partial Regex CsvParser();
+
         public static readonly Regex FATE = FateRegex();
         public static readonly Regex itemRegex = ItemRegex();
         public static readonly Regex Carnivale = CarnivaleRegex();
         public static readonly Regex ExtraCheckName = ExtraCheck();
         public static readonly Regex DeepDungeonSubLocation = DeepDungeonSubLocRegex();
+        public static readonly Regex CsvSplitter = CsvParser();
 
     }
 }

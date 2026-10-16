@@ -86,6 +86,7 @@ namespace ArchipelagoXIV
             {"The Bozjan Southern Front", 71 },
             {"Zadnor", 76},
             {"The Occult Crescent: South Horn", 100},
+            {"The Occult Crescent: North Horn", 100},
         };
 
         public static Dictionary<string, string> DutyAliases = new()
