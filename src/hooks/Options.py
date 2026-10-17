@@ -27,7 +27,7 @@ from .common import (
     RANGED,
     TANKS,
 )
-from .Data import FULL_NAME_TO_JOB
+from .Data import EXCLUDABLE_EXPANSIONS, FULL_NAME_TO_JOB
 
 
 class XivLocalItems(LocalItems):
@@ -332,7 +332,26 @@ class ExcludeJob(JobSet):
     """
     display_name = "Exclude Jobs"
 
+class ExcludeExpansion(OptionSet):
+    """
+    Choose which expansions to exclude from the game entirely.
 
+    Locations and jobs belonging to excluded expansions will not appear in the pool.
+    Forced jobs that are part of an excluded expansion remain force-enabled.
+    """
+    display_name = "Exclude Expansions"
+
+    valid_keys = frozenset(EXCLUDABLE_EXPANSIONS)
+
+    def verify(self, world: type[World], player_name: str, plando_options: PlandoOptions) -> None:
+        for item_name in self.value:
+            if item_name not in EXCLUDABLE_EXPANSIONS:
+                picks = get_fuzzy_results(item_name, EXCLUDABLE_EXPANSIONS, limit=1)
+                raise OptionError(f"Item {item_name} from option {self} "
+                                f"is not a valid expansion from {world.game}. "
+                                f"Did you mean '{picks[0][0]}' ({picks[0][1]}% sure)")
+
+        return super().verify(world, player_name, plando_options)
 
 class LevelCap(Range):
     """
@@ -516,6 +535,7 @@ def before_options_defined(options: dict) -> dict:
     # Jobs
     options["force_jobs"] = ForceJob
     options["exclude_jobs"] = ExcludeJob
+    options["exclude_expansions"] = ExcludeExpansion
     options["level_cap"] = LevelCap
 
     # Field Ops
