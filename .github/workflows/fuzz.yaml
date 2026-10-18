@@ -10,6 +10,7 @@ jobs:
       - uses: Eijebong/ap-actions/fuzz@main
         with:
           apworld-path: src
+          fuzzer-commit: 53686ba34f9e8852cbe1970666a5f56fd6abf75a
           ap-version: latest
           python-version: '3.13'
           runs: 500 # This is optional
