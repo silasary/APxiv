@@ -13,3 +13,5 @@ else:
     starting_index = 1
 
 unused_goals_are_locations = game_table.get("unused_goals_are_locations", False)
+
+game_name = "Final Fantasy XIV"
