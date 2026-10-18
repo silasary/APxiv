@@ -47,6 +47,12 @@ def get_int_value(multiworld: MultiWorld, player: int, option_name: str) -> int:
     assert isinstance(value, int)
     return value
 
+def get_excluded_expansions(multiworld: MultiWorld, player: int) -> set[str]:
+    """Expansions excluded via exclude_expansions"""
+    from ..Helpers import get_option_value
+
+    return set(get_option_value(multiworld, player, "exclude_expansions"))
+
 def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[str]:
     from ..Helpers import get_option_value
     value = get_option_value(multiworld, player, option_name)
@@ -59,10 +65,15 @@ def get_set_value(multiworld: MultiWorld, player: int, option_name: str) -> set[
     return value
 
 def get_excluded_jobs(multiworld: MultiWorld, player: int) -> set[str]:
-    """Jobs excluded directly via exclude_jobs"""
+    """Jobs excluded directly via exclude_jobs plus all jobs of any excluded expansion"""
     from ..Helpers import get_option_value
+    from .Data import JOB_EXPANSION
 
-    return set(get_option_value(multiworld, player, "exclude_jobs"))
+    excluded = set(get_option_value(multiworld, player, "exclude_jobs"))
+    expansions = get_excluded_expansions(multiworld, player)
+    excluded.update(job for job, exp in JOB_EXPANSION.items() if exp in expansions)
+
+    return excluded
 
 def is_fishsanity_only(multiworld: MultiWorld, player: int) -> bool:
     from ..Helpers import is_option_enabled
@@ -132,6 +143,12 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
         return False
+
+    excluded_expansions = get_excluded_expansions(multiworld, player)
+    
+    if location.get("expansion") in excluded_expansions:
+        return False
+
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
