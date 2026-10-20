@@ -156,7 +156,10 @@ namespace ArchipelagoXIV.Hooks
             {
                 // We will never have unreals in the seed, because they're not permanent content.
                 // But if you clear it, I'll absolutely give you credit for the associated Extreme.
-                name = name.Replace("(Unreal)", "(Extreme)");
+                if (name == "Shinryu's Domain (Unreal)")
+                    name = "The Minstrel's Ballad: Shinryu's Domain";
+                else
+                    name = name.Replace("(Unreal)", "(Extreme)");
             }
             if (name.StartsWith("the"))
             {
