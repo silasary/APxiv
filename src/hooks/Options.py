@@ -56,7 +56,7 @@ class Fatesanity(Toggle):
 
 class AchievementFates(Toggle):
     """
-    Include Achievement FATTEs and other FATEs that are not reasonable to complete.
+    Include Achievement FATEs and other FATEs that are not reasonable to complete.
 
     These fates can either require large amounts of players or long/messy chains.
     """
