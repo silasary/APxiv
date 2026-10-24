@@ -21,6 +21,10 @@
     "PvP": {
 
     },
+    "Eureka": {
+        "yaml_option": ["include_eureka"],
+        "hidden": true
+    },
     "Bozja": {
         "yaml_option": ["include_bozja"],
         "hidden": true

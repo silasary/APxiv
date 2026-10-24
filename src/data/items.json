@@ -637,5 +637,29 @@
         "category": ["Location"],
         "count": 1,
         "progression": true
+    },
+    {
+        "name": "Eureka Anemos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Eureka Pagos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Eureka Pyros Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "Eureka Hydatos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
     }
 ]

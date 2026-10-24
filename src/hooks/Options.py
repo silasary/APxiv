@@ -392,11 +392,18 @@ class IncludeFrontline(Toggle):
     Include Frontline matches in the location pool.
     """
 
-class IncludeBozja(Toggle):
+class IncludeEureka(Toggle):
     """
     Include Save the Queen content in the location pool.
 
     This includes the Fates, CEs and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    """
+
+class IncludeBozja(Toggle):
+    """
+    Include Eureka content in the location pool.
+
+    This includes the NMs and Bunny FATEs of Eureka.
     """
 
 class IncludeDuels(Toggle):
@@ -519,6 +526,7 @@ def before_options_defined(options: dict) -> dict:
     options["level_cap"] = LevelCap
 
     # Field Ops
+    options["include_eureka"] = IncludeEureka
     options["include_bozja"] = IncludeBozja
     options["field_operation_critical_encounter_count"] = FieldOperationCriticalEncounterCount
     options["include_duels"] = IncludeDuels
@@ -555,7 +563,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
-    groups["Field Operations"] = [IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
+    groups["Field Operations"] = [IncludeEureka, IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
     groups["Deep Dungeon"] = [DeepDungeonSanity, IncludePotD, IncludeHoH, IncludeEO, IncludePT,
                               PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,
