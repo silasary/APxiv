@@ -394,16 +394,16 @@ class IncludeFrontline(Toggle):
 
 class IncludeEureka(Toggle):
     """
-    Include Save the Queen content in the location pool.
+    Include Eureka content in the location pool.
 
-    This includes the Fates, CEs and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
+    This includes the NMs and Bunny FATEs of Eureka.
     """
 
 class IncludeBozja(Toggle):
     """
-    Include Eureka content in the location pool.
+    Include Save the Queen content in the location pool.
 
-    This includes the NMs and Bunny FATEs of Eureka.
+    This includes the Fates, CEs and Alliance Raids of the Bozjan Southern Front, Delubrum Reginae and Zadnor.
     """
 
 class IncludeDuels(Toggle):
