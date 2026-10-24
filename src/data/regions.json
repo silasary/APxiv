@@ -710,7 +710,8 @@
         "requires": "|Kugane Access: 1|",
         "connects_to": [
             "The Ruby Sea",
-            "Shirogane"
+            "Shirogane",
+            "Eureka Anemos"
         ],
         "ids": [
             628,
@@ -1230,6 +1231,22 @@
     },
     "The Occult Crescent: North Horn": {
         "requires": "|The Occult Crescent: North Horn Access: 1|",
+        "connects_to": []
+    },
+    "Eureka Anemos": {
+        "requires": "|Eureka Anemos Access: 1|",
+        "connects_to": ["Eureka Pagos"]
+    },
+    "Eureka Pagos": {
+        "requires": "|Eureka Pagos Access: 1|",
+        "connects_to": ["Eureka Pyros"]
+    },
+    "Eureka Pyros": {
+        "requires": "|Eureka Pyros Access: 1|",
+        "connects_to": ["Eureka Hydatos"]
+    },
+    "Eureka Hydatos": {
+        "requires": "|Eureka Hydatos Access: 1|",
         "connects_to": []
     }
 }
