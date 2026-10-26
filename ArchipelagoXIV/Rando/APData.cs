@@ -59,7 +59,6 @@ namespace ArchipelagoXIV.Rando
             { "Unmoored Isle", "Mor Dhona"  }, //Revisit this in 8.0
             { "The Ocular", "The Crystarium"  },
             { "Excavation Tunnels", "Kholusia"  },
-            { "Anogg's Lair", "Kholusia"  },
             { "Lyhe Mheg", "Il Mheg"  },
             { "Main Hall", "Old Sharlayan" },
             { "The Nethergate", "Garlemald"},
