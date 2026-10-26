@@ -48,6 +48,7 @@ namespace ArchipelagoXIV.Rando
             { "Matoya's Cave", "The Dravanian Hinterlands" },
             { "The Lightfeather Proving Grounds", "Ishgard" },
             { "The Parrock", "The Sea of Clouds" },
+            { "Leofard's Chambers", "The Sea of Clouds" },
             { "Ruby Bazaar Offices", "Kugane" },
             { "The Prima Vista Tiring Room", "Kugane" },
             { "The Prima Vista Bridge", "Kugane" },
