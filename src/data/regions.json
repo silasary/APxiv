@@ -711,7 +711,10 @@
         "connects_to": [
             "The Ruby Sea",
             "Shirogane",
-            "The Forbidden Land, Eureka Anemos"
+            "The Forbidden Land, Eureka Anemos",
+            "The Forbidden Land, Eureka Pagos",
+            "The Forbidden Land, Eureka Pyros",
+            "The Forbidden Land, Eureka Hydatos"
         ],
         "ids": [
             628,
@@ -1235,15 +1238,15 @@
     },
     "The Forbidden Land, Eureka Anemos": {
         "requires": "|The Forbidden Land, Eureka Anemos Access: 1|",
-        "connects_to": ["The Forbidden Land, Eureka Pagos"]
+        "connects_to": []
     },
     "The Forbidden Land, Eureka Pagos": {
         "requires": "|The Forbidden Land, Eureka Pagos Access: 1|",
-        "connects_to": ["The Forbidden Land, Eureka Pyros"]
+        "connects_to": []
     },
     "The Forbidden Land, Eureka Pyros": {
         "requires": "|The Forbidden Land, Eureka Pyros Access: 1|",
-        "connects_to": ["The Forbidden Land, Eureka Hydatos"]
+        "connects_to": []
     },
     "The Forbidden Land, Eureka Hydatos": {
         "requires": "|The Forbidden Land, Eureka Hydatos Access: 1|",
