@@ -203,10 +203,10 @@ fate_zones = {
     "The Occult Crescent: South Horn": [100],
     "The Occult Crescent: North Horn": [100],
 
-    "Eureka Anemos": [61],
-    "Eureka Pagos": [61],
-    "Eureka Pyros": [61],
-    "Eureka Hydatos": [61],
+    "The Forbidden Land, Eureka Anemos": [61],
+    "The Forbidden Land, Eureka Pagos": [61],
+    "The Forbidden Land, Eureka Pyros": [61],
+    "The Forbidden Land, Eureka Hydatos": [61],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
@@ -285,7 +285,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 _id += 50
                 prev_category = category
                 location["id"] = _id
-            #if row["Location"] in ["Eureka Anemos", "Eureka Pagos", "Eureka Pyros", "Eureka Hydatos"]:
+            #if row["Location"] in ["The Forbidden Land, Eureka Anemos", "The Forbidden Land, Eureka Pagos", "The Forbidden Land, Eureka Pyros", "The Forbidden Land, Eureka Hydatos"]:
             #    location["category"].append("Eureka")
             if row["Location"] in ["Gangos", "The Bozjan Southern Front", "Zadnor"]:
                 location["category"].append("Bozja")
@@ -651,7 +651,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
-    if key in ["Eureka Anemos", "Eureka Pagos", "Eureka Pyros", "Eureka Hydatos"]:
+    if key in ["The Forbidden Land, Eureka Anemos", "The Forbidden Land, Eureka Pagos", "The Forbidden Land, Eureka Pyros", "The Forbidden Land, Eureka Hydatos"]:
         location["category"].append("Eureka")
     if key in ["The Bozjan Southern Front", "Zadnor"]:
         location["category"].append("Bozja")
