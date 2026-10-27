@@ -247,7 +247,7 @@
   "name": "Foundation",
   "map": "Foundation",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2303,
   "place_name": "Ishgard Aetheryte Plaza"
  },
@@ -256,7 +256,7 @@
   "name": "Falcon's Nest",
   "map": "Coerthas Western Highlands",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2204,
   "place_name": "Falcon's Nest"
  },
@@ -265,7 +265,7 @@
   "name": "Camp Cloudtop",
   "map": "The Sea of Clouds",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2116,
   "place_name": "Camp Cloudtop"
  },
@@ -274,7 +274,7 @@
   "name": "Ok' Zundu",
   "map": "The Sea of Clouds",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2123,
   "place_name": "Ok' Zundu"
  },
@@ -283,7 +283,7 @@
   "name": "Helix",
   "map": "Azys Lla",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2131,
   "place_name": "Helix"
  },
@@ -292,7 +292,7 @@
   "name": "Idyllshire",
   "map": "Idyllshire",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2087,
   "place_name": "Idyllshire Aetheryte Plaza"
  },
@@ -301,7 +301,7 @@
   "name": "Tailfeather",
   "map": "The Dravanian Forelands",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2018,
   "place_name": "Tailfeather"
  },
@@ -310,7 +310,7 @@
   "name": "Anyx Trine",
   "map": "The Dravanian Forelands",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2025,
   "place_name": "Anyx Trine"
  },
@@ -319,7 +319,7 @@
   "name": "Moghome",
   "map": "The Churning Mists",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2042,
   "place_name": "Moghome"
  },
@@ -328,7 +328,7 @@
   "name": "Zenith",
   "map": "The Churning Mists",
   "expansion": "HW",
-  "level": 50,
+  "level": 51,
   "place_id": 2046,
   "place_name": "Zenith"
  },
@@ -337,7 +337,7 @@
   "name": "Castrum Oriens",
   "map": "The Fringes",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2613,
   "place_name": "Castrum Oriens"
  },
@@ -346,7 +346,7 @@
   "name": "The Peering Stones",
   "map": "The Fringes",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2634,
   "place_name": "The Peering Stones"
  },
@@ -355,7 +355,7 @@
   "name": "Ala Gannha",
   "map": "The Peaks",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2646,
   "place_name": "Ala Gannha"
  },
@@ -364,7 +364,7 @@
   "name": "Ala Ghiri",
   "map": "The Peaks",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2660,
   "place_name": "Ala Ghiri"
  },
@@ -373,7 +373,7 @@
   "name": "Porta Praetoria",
   "map": "The Lochs",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2670,
   "place_name": "Porta Praetoria"
  },
@@ -382,7 +382,7 @@
   "name": "The Ala Mhigan Quarter",
   "map": "The Lochs",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2610,
   "place_name": "The Ala Mhigan Quarter"
  },
@@ -391,7 +391,7 @@
   "name": "Rhalgr's Reach",
   "map": "Rhalgr's Reach",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2705,
   "place_name": "Rhalgr's Reach Aetheryte Plaza"
  },
@@ -400,7 +400,7 @@
   "name": "Tamamizu",
   "map": "The Ruby Sea",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2769,
   "place_name": "Tamamizu"
  },
@@ -409,7 +409,7 @@
   "name": "Onokoro",
   "map": "The Ruby Sea",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2774,
   "place_name": "Crick"
  },
@@ -418,7 +418,7 @@
   "name": "Namai",
   "map": "Yanxia",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2793,
   "place_name": "Namai"
  },
@@ -427,7 +427,7 @@
   "name": "The House of the Fierce",
   "map": "Yanxia",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2805,
   "place_name": "The House of the Fierce"
  },
@@ -436,7 +436,7 @@
   "name": "Reunion",
   "map": "The Azim Steppe",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2814,
   "place_name": "Reunion"
  },
@@ -445,7 +445,7 @@
   "name": "The Dawn Throne",
   "map": "The Azim Steppe",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2822,
   "place_name": "The Dawn Throne"
  },
@@ -454,7 +454,7 @@
   "name": "Kugane",
   "map": "Kugane",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2931,
   "place_name": "Kugane Aetheryte Plaza"
  },
@@ -463,7 +463,7 @@
   "name": "The Doman Enclave",
   "map": "The Doman Enclave",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2849,
   "place_name": "Doman Enclave Aetheryte Plaza"
  },
@@ -472,7 +472,7 @@
   "name": "Dhoro Iloh",
   "map": "The Azim Steppe",
   "expansion": "StB",
-  "level": 60,
+  "level": 61,
   "place_id": 2850,
   "place_name": "Dhoro Iloh"
  },
@@ -481,7 +481,7 @@
   "name": "Fort Jobb",
   "map": "Lakeland",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3044,
   "place_name": "Fort Jobb"
  },
@@ -490,7 +490,7 @@
   "name": "The Crystarium",
   "map": "The Crystarium",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3241,
   "place_name": "The Crystarium Aetheryte Plaza"
  },
@@ -499,7 +499,7 @@
   "name": "Eulmore",
   "map": "Eulmore",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3275,
   "place_name": "Eulmore Aetheryte Plaza"
  },
@@ -508,7 +508,7 @@
   "name": "The Ostall Imperative",
   "map": "Lakeland",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3057,
   "place_name": "The Ostall Imperative"
  },
@@ -517,7 +517,7 @@
   "name": "Stilltide",
   "map": "Kholusia",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3075,
   "place_name": "Stilltide"
  },
@@ -526,7 +526,7 @@
   "name": "Wright",
   "map": "Kholusia",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3094,
   "place_name": "Wright"
  },
@@ -535,7 +535,7 @@
   "name": "Tomra",
   "map": "Kholusia",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3105,
   "place_name": "Tomra"
  },
@@ -544,7 +544,7 @@
   "name": "Mord Souq",
   "map": "Amh Araeng",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3122,
   "place_name": "Mord Souq"
  },
@@ -553,7 +553,7 @@
   "name": "Twine",
   "map": "Amh Araeng",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3135,
   "place_name": "Twine"
  },
@@ -562,7 +562,7 @@
   "name": "Slitherbough",
   "map": "The Rak'tika Greatwood",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3170,
   "place_name": "Slitherbough"
  },
@@ -571,7 +571,7 @@
   "name": "Fanow",
   "map": "The Rak'tika Greatwood",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3179,
   "place_name": "Fanow"
  },
@@ -580,7 +580,7 @@
   "name": "Lydha Lran",
   "map": "Il Mheg",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3147,
   "place_name": "Lydha Lran"
  },
@@ -589,7 +589,7 @@
   "name": "Pla Enni",
   "map": "Il Mheg",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3156,
   "place_name": "Pla Enni"
  },
@@ -598,7 +598,7 @@
   "name": "Wolekdorf",
   "map": "Il Mheg",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3157,
   "place_name": "Wolekdorf"
  },
@@ -607,7 +607,7 @@
   "name": "The Ondo Cups",
   "map": "The Tempest",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3195,
   "place_name": "The Ondo Cups"
  },
@@ -616,7 +616,7 @@
   "name": "The Macarenses Angle",
   "map": "The Tempest",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3205,
   "place_name": "The Macarenses Angle"
  },
@@ -625,7 +625,7 @@
   "name": "The Inn at Journey's Head",
   "map": "Amh Araeng",
   "expansion": "ShB",
-  "level": 70,
+  "level": 71,
   "place_id": 3129,
   "place_name": "The Inn at Journey's Head"
  },
@@ -634,7 +634,7 @@
   "name": "The Archeion",
   "map": "Labyrinthos",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3833,
   "place_name": "The Archeion"
  },
@@ -643,7 +643,7 @@
   "name": "Sharlayan Hamlet",
   "map": "Labyrinthos",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3850,
   "place_name": "Sharlayan Hamlet"
  },
@@ -652,7 +652,7 @@
   "name": "Aporia",
   "map": "Labyrinthos",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3852,
   "place_name": "Aporia"
  },
@@ -661,7 +661,7 @@
   "name": "Yedlihmad",
   "map": "Thavnair",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3880,
   "place_name": "Yedlihmad"
  },
@@ -670,7 +670,7 @@
   "name": "The Great Work",
   "map": "Thavnair",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3886,
   "place_name": "The Great Work"
  },
@@ -679,7 +679,7 @@
   "name": "Palaka's Stand",
   "map": "Thavnair",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3894,
   "place_name": "Palaka's Stand"
  },
@@ -688,7 +688,7 @@
   "name": "Camp Broken Glass",
   "map": "Garlemald",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3903,
   "place_name": "Camp Broken Glass"
  },
@@ -697,7 +697,7 @@
   "name": "Tertium",
   "map": "Garlemald",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3915,
   "place_name": "Tertium"
  },
@@ -706,7 +706,7 @@
   "name": "Sinus Lacrimarum",
   "map": "Mare Lamentorum",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3949,
   "place_name": "Sinus Lacrimarum"
  },
@@ -715,7 +715,7 @@
   "name": "Bestways Burrow",
   "map": "Mare Lamentorum",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3966,
   "place_name": "Bestways Burrow"
  },
@@ -724,7 +724,7 @@
   "name": "Anagnorisis",
   "map": "Elpis",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3928,
   "place_name": "Anagnorisis"
  },
@@ -733,7 +733,7 @@
   "name": "The Twelve Wonders",
   "map": "Elpis",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3929,
   "place_name": "The Twelve Wonders"
  },
@@ -742,7 +742,7 @@
   "name": "Poieten Oikos",
   "map": "Elpis",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3938,
   "place_name": "Poieten Oikos"
  },
@@ -751,7 +751,7 @@
   "name": "Reah Tahra",
   "map": "Ultima Thule",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3973,
   "place_name": "Reah Tahra"
  },
@@ -760,7 +760,7 @@
   "name": "Abode of the Ea",
   "map": "Ultima Thule",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3978,
   "place_name": "Abode of the Ea"
  },
@@ -769,7 +769,7 @@
   "name": "Base Omicron",
   "map": "Ultima Thule",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3983,
   "place_name": "Base Omicron"
  },
@@ -778,7 +778,7 @@
   "name": "Old Sharlayan",
   "map": "Old Sharlayan",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3814,
   "place_name": "Old Sharlayan Aetheryte Plaza"
  },
@@ -787,7 +787,7 @@
   "name": "Radz-at-Han",
   "map": "Radz-at-Han",
   "expansion": "EW",
-  "level": 80,
+  "level": 81,
   "place_id": 3875,
   "place_name": "Radz-at-Han Aetheryte Plaza"
  },
@@ -796,7 +796,7 @@
   "name": "Wachunpelo",
   "map": "Urqopacha",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4550,
   "place_name": "Wachunpelo"
  },
@@ -805,7 +805,7 @@
   "name": "Worlar's Echo",
   "map": "Urqopacha",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4562,
   "place_name": "Worlar's Echo"
  },
@@ -814,7 +814,7 @@
   "name": "Ok'hanu",
   "map": "Kozama'uka",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4582,
   "place_name": "Ok'hanu"
  },
@@ -823,7 +823,7 @@
   "name": "Many Fires",
   "map": "Kozama'uka",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4598,
   "place_name": "Many Fires"
  },
@@ -832,7 +832,7 @@
   "name": "Earthenshire",
   "map": "Kozama'uka",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4603,
   "place_name": "Earthenshire"
  },
@@ -841,7 +841,7 @@
   "name": "Iq Br'aax",
   "map": "Yak T'el",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4614,
   "place_name": "Iq Br'aax"
  },
@@ -850,7 +850,7 @@
   "name": "Mamook",
   "map": "Yak T'el",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4625,
   "place_name": "Mamook"
  },
@@ -859,7 +859,7 @@
   "name": "Hhusatahwi",
   "map": "Shaaloani",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4659,
   "place_name": "Hhusatahwi"
  },
@@ -868,7 +868,7 @@
   "name": "Sheshenewezi Springs",
   "map": "Shaaloani",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4667,
   "place_name": "Sheshenewezi Springs"
  },
@@ -877,7 +877,7 @@
   "name": "Mehwahhetsoan",
   "map": "Shaaloani",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4664,
   "place_name": "Mehwahhetsoan"
  },
@@ -886,7 +886,7 @@
   "name": "Yyasulani Station",
   "map": "Heritage Found",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4678,
   "place_name": "Yyasulani Station"
  },
@@ -895,7 +895,7 @@
   "name": "The Outskirts",
   "map": "Heritage Found",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4685,
   "place_name": "The Outskirts"
  },
@@ -904,7 +904,7 @@
   "name": "Electrope Strike",
   "map": "Heritage Found",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4694,
   "place_name": "Electrope Strike"
  },
@@ -913,7 +913,7 @@
   "name": "Leynode Mnemo",
   "map": "Living Memory",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4700,
   "place_name": "Leynode Mnemo"
  },
@@ -922,7 +922,7 @@
   "name": "Leynode Pyro",
   "map": "Living Memory",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4721,
   "place_name": "Leynode Pyro"
  },
@@ -931,7 +931,7 @@
   "name": "Leynode Aero",
   "map": "Living Memory",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4713,
   "place_name": "Leynode Aero"
  },
@@ -940,7 +940,7 @@
   "name": "Tuliyollal",
   "map": "Tuliyollal",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4535,
   "place_name": "Tuliyollal Aetheryte Plaza"
  },
@@ -949,7 +949,7 @@
   "name": "Solution Nine",
   "map": "Solution Nine",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4746,
   "place_name": "Solution Nine Aetheryte Plaza"
  },
@@ -958,7 +958,7 @@
   "name": "Dock Poga",
   "map": "Kozama'uka",
   "expansion": "DT",
-  "level": 90,
+  "level": 91,
   "place_id": 4595,
   "place_name": "Dock Poga"
  }
