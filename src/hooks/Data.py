@@ -203,10 +203,10 @@ fate_zones = {
     "The Occult Crescent: South Horn": [100],
     "The Occult Crescent: North Horn": [100],
 
-    "The Forbidden Land, Eureka Anemos": [61],
-    "The Forbidden Land, Eureka Pagos": [61],
-    "The Forbidden Land, Eureka Pyros": [61],
-    "The Forbidden Land, Eureka Hydatos": [61],
+    "The Forbidden Land, Eureka Anemos": [70],
+    "The Forbidden Land, Eureka Pagos": [70],
+    "The Forbidden Land, Eureka Pyros": [70],
+    "The Forbidden Land, Eureka Hydatos": [70],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
