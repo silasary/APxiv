@@ -127,7 +127,7 @@ namespace ArchipelagoXIV.Rando
 
                 var level = int.Parse(row[1].Trim());
                 level = Math.Max(level - 5, (int)Math.Floor(level / 10.0) * 10);
-                var zone = row[2].Trim();
+                var zone = row[2].Trim('"').Trim();
                 if (zone == "The Firmament")
                     name += " (FETE)";
                 else if (!name.EndsWith("(FATE)"))
