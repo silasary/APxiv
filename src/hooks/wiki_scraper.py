@@ -1067,7 +1067,12 @@ def scrape_aetherytes() -> None:
         location_data['map'] = places[map['PlaceName']]['Name']
         territory = territory_type[map['TerritoryType']]
         location_data['expansion'] = _EX_VERSION_DATA[territory['ExVersion']][0]
-        location_data['level'] = _EX_VERSION_DATA[territory['ExVersion']][1]
+        level = _EX_VERSION_DATA[territory['ExVersion']][1]
+        if level > 1:
+            # Put expansion aetherytes at X1 instead of the previous expansion's level cap
+            level += 1
+
+        location_data['level'] = level
 
         if f'{place['Name']} Aetheryte Plaza' in place_name_to_id:
             location_data.setdefault("place_name", f'{place["Name"]} Aetheryte Plaza')
