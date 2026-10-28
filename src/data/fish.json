@@ -74704,13 +74704,29 @@
  "Iq Ebaji": {
   "name": "Iq Ebaji",
   "id": 52014,
-  "zones": {},
-  "lvl": 93,
-  "all_bait": {},
+  "zones": {
+   "Yak T'el": [
+    "Metal Spinner"
+   ]
+  },
+  "lvl": 92,
+  "all_bait": {
+   "Yak T'el": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Iq Br'aax Reservoir": [
+    "Metal Spinner"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Iq Br'aax Reservoir": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
@@ -74759,13 +74775,29 @@
  "Timberpond Skipper": {
   "name": "Timberpond Skipper",
   "id": 52096,
-  "zones": {},
-  "lvl": 10,
-  "all_bait": {},
+  "zones": {
+   "Shaaloani": [
+    "Metal Spinner"
+   ]
+  },
+  "lvl": 97,
+  "all_bait": {
+   "Shaaloani": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Westbound Zorgor": [
+    "Metal Spinner"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Westbound Zorgor": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
