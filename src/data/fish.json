@@ -74644,13 +74644,29 @@
  "Pote'uka": {
   "name": "Pote'uka",
   "id": 52012,
-  "zones": {},
+  "zones": {
+   "Kozama'uka": [
+    "Metal Spinner"
+   ]
+  },
   "lvl": 91,
-  "all_bait": {},
+  "all_bait": {
+   "Kozama'uka": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition": {},
   "intuition_bait": {},
-  "logical_bait": {},
-  "all_bait_by_hole": {},
+  "logical_bait": {
+   "Waters Hanu": [
+    "Metal Spinner"
+   ]
+  },
+  "all_bait_by_hole": {
+   "Waters Hanu": [
+    "Metal Spinner"
+   ]
+  },
   "logical_intuition_by_hole": {},
   "intuition_bait_by_hole": {}
  },
