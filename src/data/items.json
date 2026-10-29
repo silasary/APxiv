@@ -637,5 +637,29 @@
         "category": ["Location"],
         "count": 1,
         "progression": true
+    },
+    {
+        "name": "The Forbidden Land, Eureka Anemos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "The Forbidden Land, Eureka Pagos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "The Forbidden Land, Eureka Pyros Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
+    },
+    {
+        "name": "The Forbidden Land, Eureka Hydatos Access",
+        "category": ["Location"],
+        "count": 1,
+        "progression": true
     }
 ]
