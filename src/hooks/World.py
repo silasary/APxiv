@@ -140,6 +140,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
         raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
+    if goal and get_int_value(multiworld, player, 'duty_difficulty') == 0:
+        raise OptionError("Duty diffculty must have duties for duty related goals.")    
+
     #  Restrictive starts solvable with fates
     if (
         not has_dungeons
