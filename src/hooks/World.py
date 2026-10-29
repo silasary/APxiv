@@ -100,6 +100,9 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     Use it to check or modify incompatible options, or to set up variables for later use.
     """
 
+    if is_option_enabled(multiworld, player, "include_unreasonable_fates"):
+        world.options.fatesanity.value = 3
+
     force_jobs = get_set_value(multiworld, player, "force_jobs")
     excluded_jobs = get_excluded_jobs(multiworld, player)
     all_jobs = set(TANKS + HEALERS + MELEE + CASTER + RANGED)
@@ -212,6 +215,12 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 # Add ultima weapon trial regardless of MSQ settings, if set as goal
                 world.skipped_duties.add("The Porta Decumana")
 
+        fatesanity = get_int_value(multiworld, player, "fatesanity")
+        if 0 < fatesanity < 3:
+            world.skipped_duties.update(UNREASONABLE_FATES)
+        if 0 < fatesanity < 2:
+            world.skipped_duties.update(ACHIEVEMENT_FATES)
+
     tanks = TANKS.copy()
     healers = HEALERS.copy()
     melee = MELEE.copy()
@@ -256,10 +265,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove = []
     locationNamesToExclude = []
     empty_regions = []
-    if not is_option_enabled(multiworld, player, "include_achievement_fates"):
-        locationNamesToRemove.extend(ACHIEVEMENT_FATES)
-    if not is_option_enabled(multiworld, player, "include_unreasonable_fates"):
-        locationNamesToRemove.extend(UNREASONABLE_FATES)
 
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 

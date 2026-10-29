@@ -120,7 +120,7 @@ UNREASONABLE_FATES = [
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
     "A Horse Outside (FATE)", "Foxy Lady (FATE)",
     "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
-    
+
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
     "The Serpentlord Seethes (FATE)", "Mascot Murder (FATE)",
     ]
@@ -392,6 +392,7 @@ def generate_fate_list() -> list[LocationDict]:
                 fate_list.append(
                     {
                         "name": name,
+                        "duty_name": name,
                         "region": row['Location'],
                         "category": ["FATEsanity", row['Location'], "Fêtes"],
                         # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
@@ -407,11 +408,12 @@ def generate_fate_list() -> list[LocationDict]:
 
             location: LocationDict = {
                     "name": name,
+                    "duty_name": name,
                     "region": row['Location'],
                     "category": ["FATEsanity", row['Location']],
                     "requires": "",
                     "level" : row['Level Sync'],
-                    "id": _id
+                    "id": _id,
                 }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
