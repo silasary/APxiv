@@ -35,6 +35,10 @@
 
     <ItemGroup>
         <PackageReference Include="Archipelago.MultiClient.Net" Version="6.7.1" />
-        <PackageReference Include="KamiToolKit" Version="2.2.0" />
+        <PackageReference Include="Archipelago.MultiClient.Net.Analyzers" Version="2.0.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="KamiToolKit" Version="2.2.65" />
     </ItemGroup>
 </Project>

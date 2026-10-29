@@ -96,9 +96,10 @@ namespace ArchipelagoXIV
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.PluginInterface.UiBuilder.OpenMainUi += () => MainWindow.IsOpen = true;
 
+            await KamiToolKitLibrary.InitializeAsync(PluginInterface);
+
             await DalamudApi.Framework.RunOnFrameworkThread(() =>
             {
-                KamiToolKitLibrary.Initialize(PluginInterface);
                 this.Hooks.Enable();
                 this.Events.Enable();
                 UiHooks.Enable();
