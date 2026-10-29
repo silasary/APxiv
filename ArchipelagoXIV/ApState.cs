@@ -291,8 +291,7 @@ namespace ArchipelagoXIV
                 if (hint.Found)
                     continue;
                 var location = MissingLocations.FirstOrDefault(l => l.ApId == hint.LocationId);
-                if (location != null)
-                    location.HintedItem = hint;
+                location?.HintedItem = hint;
             }
         }
 
