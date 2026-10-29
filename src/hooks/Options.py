@@ -65,6 +65,9 @@ class Fatesanity(Choice):
     option_enabled_include_achievement_fates = 2
     option_enabled_include_unreasonable_fates = 3
 
+    alias_true = option_enabled_normal_fates
+    alias_false = option_disabled
+
     default = 0
 
 class UnreasonableFates(Toggle):
@@ -76,7 +79,7 @@ class UnreasonableFates(Toggle):
     """
     display_name = "Include Unreasonable FATEs"
     default = False
-    visibility = Visibility.none
+    visibility = Visibility.none  # deprecated, sets above option to 3 if enabled.
 
 class Fetesanity(Toggle):
     """
