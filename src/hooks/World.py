@@ -101,7 +101,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     """
 
     if is_option_enabled(multiworld, player, "include_unreasonable_fates"):
-        world.options.fatesanity.value = 3
+        world.options.fatesanity.value = 4
 
     force_jobs = get_set_value(multiworld, player, "force_jobs")
     excluded_jobs = get_excluded_jobs(multiworld, player)
@@ -218,7 +218,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         fatesanity = get_int_value(multiworld, player, "fatesanity")
         if 0 < fatesanity < 3:
             world.skipped_duties.update(UNREASONABLE_FATES)
-        if 0 < fatesanity < 2:
+        if 0 < fatesanity < 2 or fatesanity == 3:
             world.skipped_duties.update(ACHIEVEMENT_FATES)
 
     tanks = TANKS.copy()
