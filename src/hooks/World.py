@@ -218,7 +218,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         fatesanity = get_int_value(multiworld, player, "fatesanity")
         if 0 < fatesanity < 3:
             world.skipped_duties.update(UNREASONABLE_FATES)
-        if Fatesanity in [1, 3] :
+        if fatesanity in [1, 3] :
             world.skipped_duties.update(ACHIEVEMENT_FATES)
 
     tanks = TANKS.copy()
