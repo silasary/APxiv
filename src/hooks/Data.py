@@ -86,14 +86,43 @@ BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
     "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
 }
 
+ACHIEVEMENT_FATES = [
+    "Poor Maid's Mess (FATE)", "Poor Maid's Mishap (FATE)", "Poor Maid's Misfortune (FATE)",
+    "It's Not Lupus (FATE)",
+    "Lazy for You (FATE)",
+    "Breaching the Hive (FATE)", "Clearing the Hive (FATE)", "Defending the Hive (FATE)", "Keeping the Hive (FATE)",
+    "Attack on Highbridge: Prelude (FATE)", "Attack on Highbridge: Denouement (FATE)", "Attack on Highbridge: Act I (FATE)", "Attack on Highbridge: Act II (FATE)", "Attack on Highbridge: Act III (FATE)",
+    "Dark Devices - The Plea (FATE)", "Dark Devices - The Bait (FATE)", "Dark Devices - The Switch", "Dark Devices - The End",
+    "Go, Go, Gorgimera (FATE)",
+    "Svara's Flight (FATE)", "Svara's Fear (FATE)", "Svara's Fall (FATE)", "Svara's Fury (FATE)",
+    "The Eyes Have It (FATE)",
+    "We Fought a Dzu (FATE)",
+    "Special Tarasque Force (FATE)",
+    "Darkscale Descendeth (FATE)", "Darkscale Disappeareth (FATE)", "Darkscale Devoureth (FATE)", "Vedrfolnir Devoteth (FATE)",
+    "On Dangerous Ground (FATE)",
+    "Metal Gears Rising (FATE)", "Metal Gears Revengeance (FATE)", "Metal Gears Revengeance 2 (FATE)",
+    "The Evil Seed (FATE)",
+    "Mouth for Water (FATE)",
+    "Rattle and Humbaba (FATE)",
+    "Tall Tale (FATE)",
+    "Never Say Daimyo (FATE)",
+    "The Dataqi Chronicles: Departures (FATE)", "The Dataqi Chronicles: Distractions (FATE)", "The Dataqi Chronicles: Duty (FATE)", "The Dataqi Chronicles: Deprivation (FATE)", "The Dataqi Chronicles: Deterrence (FATE)", "The Dataqi Chronicles: Desperation (FATE)", "The Dataqi Chronicles: Distress (FATE)", "The Dataqi Chronicles: Displacement (FATE)", "The Dataqi Chronicles: Diplomacy (FATE)", "The Dataqi Chronicles: Decimation (FATE)", "The Dataqi Chronicles: Divergence (FATE)", "The Dataqi Chronicles: Declarations (FATE)", "The Dataqi Chronicles: Dominion (FATE)",
+    "Wham, Bam, Thank You, Mammoth (FATE)",
+    "Curiosity Killed the Catfish (FATE)",
+    "Subtle Nightshade (FATE)", "Toxic Nightshade (FATE)", "Deadly Nightshade (FATE)",
+    "Frog Standard (FATE)", "Great Daens (FATE)", "Fuath of Habit (FATE)", "Back and Fuath (FATE)", "Brute Fuath (FATE)", "Breaking the Fuath Wall (FATE)", "Go Fuath a Conqueror (FATE)", "Fuath to Be Reckoned With (FATE)",
+    "Barking Mad (FATE)", "Creepy Crawlers (FATE)", "Pluck of the Draw (FATE)", "The End of the Sentry (FATE)", "Tojil War (FATE)", "Tojil Annihilation (FATE)", "Tojil Carnage (FATE)", "Tojil Eclipse (FATE)",
+    "Scavengers Hunted (FATE)", "Reptilian Roadblock (FATE)", "Cactus Makes Perfect (FATE)", "Theft from Above (FATE)", "Sand and Deliver (FATE)", "This Time, It's Personal (FATE)", "Armadillo Peccadillo (FATE)", "The Elderblade (FATE)",
+    ]
+
 UNREASONABLE_FATES = [
-    "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
+    "Behold Now Behemoth (FATE)", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
     "A Horse Outside (FATE)", "Foxy Lady (FATE)",
     "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
-    "Subtle Nightshade", "Toxic Nightshade", "Deadly Nightshade",  # Not a world boss, but a very messy fate chain that frequently fails due to conflicting FATEs being up.
+
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
-    "The Serpentlord Seethes", "Mascot Murder",
+    "The Serpentlord Seethes (FATE)", "Mascot Murder (FATE)",
     ]
 
 FILLER_ITEMS = {
@@ -376,6 +405,7 @@ def generate_fate_list() -> list[LocationDict]:
                 fate_list.append(
                     {
                         "name": name,
+                        "duty_name": name,
                         "region": row['Location'],
                         "category": ["FATEsanity", row['Location'], "Fêtes"],
                         # "requires": "{anyCrafterLevel(" + str(max(level - 5, level // 10 * 10)) + ")}",
@@ -391,11 +421,12 @@ def generate_fate_list() -> list[LocationDict]:
 
             location: LocationDict = {
                     "name": name,
+                    "duty_name": name,
                     "region": row['Location'],
                     "category": ["FATEsanity", row['Location']],
                     "requires": "",
                     "level" : row['Level Sync'],
-                    "id": _id
+                    "id": _id,
                 }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"

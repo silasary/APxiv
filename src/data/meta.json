@@ -93,8 +93,7 @@
                     "allow_main_scenario_duties": true,
                     "duty_difficulty": "endgame",
                     "fishsanity": "big_fish",
-                    "fatesanity": true,
-                    "include_unreasonable_fates": true,
+                    "fatesanity": "enabled_include_achievement_fates_and_unreasonable_fates",
                     "extra_dungeon_checks": 10,
                     "huntsanity": ["B", "A", "S"]
                 },
