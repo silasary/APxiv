@@ -45,14 +45,31 @@ class OceanFishing(Toggle):
     display_name = "Enable Ocean Fishing"
     default = False
 
-class Fatesanity(Toggle):
+class Fatesanity(Choice):
     """
     Include individual FATEs in the location pool.
 
-    If enabled, each named FATE is a check.  If disabled, you only need to complete 5 FATEs of your choice per zone.
+    If disabled, you only need to complete 5 FATEs of your choice per zone.
+    If enabled, each named FATE is a check.
+
+    Achievement FATEs can either require large amounts of players or long/messy chains.
+        You may need to form a party with other players to complete them.
+
+    Unreasonable FATEs will also include world bosses and other FATEs that are not reasonable to complete.
+        These fates often spawn once every 2-3 days, don't show up on the map, and can require a large number of players to defeat.
+        If you use this option, keep an eye on Faloop (or your DC's equivalent) to know when they're up.
     """
     display_name = "Fatesanity"
-    default = False
+    option_disabled = 0
+    option_enabled_normal_fates = 1
+    option_enabled_include_achievement_fates = 2
+    option_enabled_include_unreasonable_fates = 3
+    option_enabled_include_achievement_fates_and_unreasonable_fates = 4
+
+    alias_true = option_enabled_normal_fates
+    alias_false = option_disabled
+
+    default = 0
 
 class UnreasonableFates(Toggle):
     """
@@ -63,6 +80,7 @@ class UnreasonableFates(Toggle):
     """
     display_name = "Include Unreasonable FATEs"
     default = False
+    visibility = Visibility.none  # deprecated, sets above option to 4 if enabled.
 
 class Fetesanity(Toggle):
     """
