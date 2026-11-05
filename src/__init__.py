@@ -544,7 +544,9 @@ class ManualWorld(World):
 
     def adjust_filler_items(self, item_pool, traps):
         extras = len(self.multiworld.get_unfilled_locations(player=self.player)) - len(item_pool)
-
+        # Don't generate an extra filler for trial goals
+        if get_option_value(self.multiworld, self.player, "goal") > 0:
+            extras -= 1
         if extras > 0:
             trap_percent = get_option_value(self.multiworld, self.player, "filler_traps")
             if not traps:
