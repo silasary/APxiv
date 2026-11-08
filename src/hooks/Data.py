@@ -118,7 +118,7 @@ ACHIEVEMENT_FATES = [
 UNREASONABLE_FATES = [
     "Behold Now Behemoth (FATE)", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
     "Long Live the Coeurl (FATE)", "Coeurls Chase Boys (FATE)", "Coeurls Chase Boys Chase Coeurls (FATE)", "Prey Online (FATE)",
-    "A Horse Outside (FATE)", "Foxy Lady (FATE)",
+    "A Horse Outside (FATE)", "Foxy Lady (FATE)", "Outfoxed (FATE)", # Outfoxed is the third FATE in the Foxy Lady chain, and respawns every 2 hours
     "Nothing Like a Trappin' Life (FATE)", "A Finale Most Formidable (FATE)", "The Head the Tail the Whole Damned Thing (FATE)",
 
     "Devout Pilgrims vs. Daivadipa (FATE)", "Omicron Recall: Killing Order (FATE)",
