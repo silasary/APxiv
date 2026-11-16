@@ -42,7 +42,7 @@ namespace ArchipelagoXIV.Rando
         MaskedCarnivale30,
         None,
         Unknown,
-        PotDFloor50,
+        PotDFloor50
     };
 
     public abstract class BaseGame(ApState apState)
