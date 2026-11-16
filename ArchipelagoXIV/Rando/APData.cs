@@ -19,7 +19,7 @@ namespace ArchipelagoXIV.Rando
             // Cities
             { "Blue Sky", "Masked Carnivale" },
             // AP Checks
-            //{ "Return to the Waking Sands", "Western Thanalan" },
+            { "Return to the Waking Sands", "Western Thanalan" },
         };
 
         public static Dictionary<string, ushort> CheckNameToContentID = new()
