@@ -152,6 +152,15 @@ namespace ArchipelagoXIV.Hooks
                 var route = Data.IKDRoutes.FirstOrDefault(r => r.RowId == oceanfishing->CurrentRoute);
                 name = "Ocean Fishing: " + route.Name.ExtractText();
             }
+            if (name.Contains("(Unreal)"))
+            {
+                // We will never have unreals in the seed, because they're not permanent content.
+                // But if you clear it, I'll absolutely give you credit for the associated Extreme.
+                if (name == "Shinryu's Domain (Unreal)")
+                    name = "The Minstrel's Ballad: Shinryu's Domain";
+                else
+                    name = name.Replace("(Unreal)", "(Extreme)");
+            }
             if (name.StartsWith("the"))
             {
                 // It looks nicer
