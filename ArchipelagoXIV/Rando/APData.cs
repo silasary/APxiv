@@ -17,62 +17,9 @@ namespace ArchipelagoXIV.Rando
 
         public static Dictionary<string, string> Aliases = new() {
             // Cities
-            { "Limsa Lominsa Lower Decks", "Limsa Lominsa"},
-            { "Limsa Lominsa Upper Decks", "Limsa Lominsa"},
-            { "Old Gridania", "Gridania" },
-            { "New Gridania", "Gridania" },
-            { "Ul'dah - Steps of Nald", "Ul'dah" },
-            { "Ul'dah - Steps of Thal", "Ul'dah" },
             { "Blue Sky", "Masked Carnivale" },
-            { "Maelstrom Barracks", "Limsa Lominsa"},
-            { "Twin Adder Barracks", "Gridania"},
-            { "Flame Barracks", "Ul'dah"},
-            { "Foundation", "Ishgard"},
-            { "The Pillars", "Ishgard"},
-            // Inns
-            { "Mizzenmast Inn", "Limsa Lominsa"},
-            { "The Roost", "Gridania"},
-            { "The Hourglass", "Ul'dah"},
-            { "Cloud Nine", "Ishgard"},
-            { "Bokairo Inn", "Kugane"},
-            { "The Pendants Personal Suite", "The Crystarium"},
-            { "Andron", "Old Sharlayan"},
-            { "The For'ard Cabins", "Tuliyollal"},
-            // Gold Saucer
-            { "Chocobo Square", "The Gold Saucer" },
-            { "The Battlehall", "The Gold Saucer" },
-            // Instanced Zone
-            { "The Waking Sands", "Western Thanalan" },
-            { "Fortemps Manor", "Ishgard" },
-            { "Sacrificial Chamber", "The Dravanian Forelands" },
-            { "Matoya's Cave", "The Dravanian Hinterlands" },
-            { "The Lightfeather Proving Grounds", "Ishgard" },
-            { "The Parrock", "The Sea of Clouds" },
-            { "Leofard's Chambers", "The Sea of Clouds" },
-            { "Ruby Bazaar Offices", "Kugane" },
-            { "The Prima Vista Tiring Room", "Kugane" },
-            { "The Prima Vista Bridge", "Kugane" },
-            { "Reisen Temple", "The Ruby Sea" },
-            { "Terncliff", "The Lochs" },
-            { "The Omphalos", "Mor Dhona"  },
-            { "The Syrcus Trench", "Mor Dhona"  },
-            { "The Rising Stones", "Mor Dhona"  },
-            { "Unmoored Isle", "Mor Dhona"  }, //Revisit this in 8.0
-            { "The Ocular", "The Crystarium"  },
-            { "Excavation Tunnels", "Kholusia"  },
-            { "Lyhe Mheg", "Il Mheg"  },
-            { "Main Hall", "Old Sharlayan" },
-            { "The Nethergate", "Garlemald"},
-            { "Senatus", "Garlemald"},
-            { "Elysion", "Ultima Thule"},
-            { "Earthen Sky Hideout", "Heritage Found" },
-            { "The Backroom", "Solution Nine" },
-            { "Greenroom", "The Arcadion" },
-            { "Tritails Training", "The Arcadion" },
-            { "Skydeep Cenote Inner Chamber", "Yak T'el" },
-            { "Zirgorteh the Open-armed", "Urqopacha" },
             // AP Checks
-            { "Return to the Waking Sands", "Western Thanalan" },
+            //{ "Return to the Waking Sands", "Western Thanalan" },
         };
 
         public static Dictionary<string, ushort> CheckNameToContentID = new()
