@@ -153,7 +153,6 @@ namespace ArchipelagoXIV.Rando
             VictoryType.DefeatLindwurm => "Defeat Lindwurm at AAC Heavyweight M4",
             VictoryType.MaskedCarnivale30 => "Masked Carnivale Stage 30",
             VictoryType.PotDFloor50 => "Clear Floor 50 of Palace of the Dead",
-
             _ => "Unknown Goal",
         };
 
