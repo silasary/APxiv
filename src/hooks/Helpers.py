@@ -128,7 +128,6 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
-        
     from ..Locations import victory_names, location_name_to_location
     from .Data import BOSS_GOAL_DATA
     from ..Helpers import get_option_value
