@@ -165,17 +165,6 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     ):
         world.options.deep_dungeon_sanity.value = True
 
-    # Fill issue when both EO and another DD are enabled, in small games
-    if (
-        has_eo
-        and has_pomander
-        and not has_fates
-        and not has_fish
-        and (not has_dungeons or get_int_value(multiworld, player, 'extra_dungeon_checks') < 1)
-        and not is_option_enabled(multiworld, player, 'deep_dungeon_sanity')
-    ):
-        world.options.deep_dungeon_sanity.value = True
-
 
 
 
