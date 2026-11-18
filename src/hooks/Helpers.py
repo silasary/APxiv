@@ -117,7 +117,7 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
             return True
         if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
             return True
-        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
+        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo") and get_int_value(multiworld, player, "level_cap") > 80:
             return True
         if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
             return True
