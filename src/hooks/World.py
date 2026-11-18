@@ -132,8 +132,6 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
     has_fish = is_option_enabled(multiworld, player, 'fishsanity')
     has_hunts = bool(get_option_value(multiworld, player, 'huntsanity'))
     has_potd = is_option_enabled(multiworld, player, 'include_potd') and has_duties
-    has_eo = is_option_enabled(multiworld, player, 'include_eo') and get_int_value(multiworld, player, "level_cap") > 80 and has_duties
-    has_pomander = (is_option_enabled(multiworld, player, 'include_potd') or is_option_enabled(multiworld, player, 'include_hoh') or is_option_enabled(multiworld, player, 'include_pt')) and has_duties
 
     if not has_fates and not has_dungeons and not has_fish and not has_hunts and not has_potd:
         # We're going for a walk, we don't need to worry about restrictive start adjustments
