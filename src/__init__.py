@@ -544,6 +544,7 @@ class ManualWorld(World):
 
     def adjust_filler_items(self, item_pool, traps):
         extras = len(self.multiworld.get_unfilled_locations(player=self.player)) - len(item_pool)
+
         if extras > 0:
             trap_percent = get_option_value(self.multiworld, self.player, "filler_traps")
             if not traps:
