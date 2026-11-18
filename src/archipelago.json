@@ -4,6 +4,7 @@
     "minimum_ap_version": "0.6.7",
     "changelog": [
         "* Added Deep Dungeon checks.",
+        "* Assorted bug fixes related to restrictive starts.",
         ""
     ]
 }
