@@ -115,11 +115,11 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
             return False
         if "The Palace of the Dead Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_potd"):
             return True
-        if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh"):
+        if "Heaven-on-High Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_hoh") and get_int_value(multiworld, player, "level_cap") > 60:
             return True
-        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo"):
+        if "Eureka Orthos Protomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_eo") and get_int_value(multiworld, player, "level_cap") > 80:
             return True
-        if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt"):  # noqa: SIM103
+        if "Pilgrim's Traverse Pomanders" in item.get('category', []) and Helpers.is_option_enabled(multiworld, player, "include_pt") and get_int_value(multiworld, player, "level_cap") > 90:  # noqa: SIM103
             return True
         return False  # If it made it this far, none of the Deep Dungeons that use it are enabled.
 
