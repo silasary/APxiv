@@ -193,7 +193,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             goal_base_duty_name = goal_data[0] if goal_data else None
 
             # Force the goal's required trial into the location pool if it belongs to this category
-            if dutyType == "Trial" and goal_base_duty_name:
+            if goal_base_duty_name:
                 goal_trial = next((n for n in names if n == f"The {goal_base_duty_name}" or n == goal_base_duty_name), None)
 
                 if goal_trial and goal_trial not in used_names:
@@ -360,13 +360,12 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     if goal_duty_base_name:
         for (duty_type, _, _), names in categorizedLocationNames.items():
-            if duty_type == "Trial":
-                goal_trial = next((n for n in names if n == f"The {goal_duty_base_name}" or n == goal_duty_base_name), None)
+            goal_trial = next((n for n in names if n == f"The {goal_duty_base_name}" or n == goal_duty_base_name), None)
 
-                if goal_trial and goal_trial in all_location_names:
-                    world._goal_trial = goal_trial
-                    location_count -= 1
-                    break
+            if goal_trial and goal_trial in all_location_names:
+                world._goal_trial = goal_trial
+                location_count -= 1
+                break
 
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
