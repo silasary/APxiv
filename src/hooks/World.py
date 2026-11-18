@@ -137,8 +137,8 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         # We're going for a walk, we don't need to worry about restrictive start adjustments
         return
 
-    if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
-        raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
+    # if has_hunts and not has_dungeons and not has_fish and (not has_fates or fate_count < 2):
+    #     raise OptionError("Enable at least 2 fates per zone, or other locations, to use huntsanity.")
 
     #  Restrictive starts solvable with fates
     if (
@@ -171,6 +171,9 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
 
     if not getattr(multiworld, 'generation_is_fake', False):
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        goal_data = BOSS_GOAL_DATA.get(goal_name)
+        goal_base_duty_name = goal_data[0] if goal_data else None
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
@@ -187,10 +190,6 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             else:
                 count = min(len(names), count)
                 used_names = world.random.sample(names, count)
-
-            goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-            goal_data = BOSS_GOAL_DATA.get(goal_name)
-            goal_base_duty_name = goal_data[0] if goal_data else None
 
             # Force the goal's required trial into the location pool if it belongs to this category
             if dutyType == "Trial" and goal_base_duty_name:
@@ -366,6 +365,10 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
                 if goal_trial and goal_trial in all_location_names:
                     world._goal_trial = goal_trial
                     location_count -= 1
+                    event_name = f"{goal_duty_base_name} Cleared"
+                    item_id = world.item_name_to_id.get(event_name)
+                    trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
+                    multiworld.get_location(goal_trial, player).place_locked_item(trial_event)
                     break
 
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
@@ -546,11 +549,6 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     if goal_duty_base_name and goal_trial:
         event_name = f"{goal_duty_base_name} Cleared"
         trial_location = multiworld.get_location(goal_trial, player)
-
-        # Put goal's "Cleared" item into it's trial location and require it for goal
-        item_id = world.item_name_to_id.get(event_name)
-        trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
-        trial_location.place_locked_item(trial_event)
 
         def has_cleared_goal_trial(state: CollectionState) -> bool:
             return state.has(event_name, player)
