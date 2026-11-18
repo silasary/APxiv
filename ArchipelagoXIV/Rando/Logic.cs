@@ -10,7 +10,7 @@ namespace ArchipelagoXIV.Rando
 
         public static Func<ApState, bool, bool> HasItem(string Item, string? Quantity = null) => (state, asCurrentClass) =>
         {
-            if (Item.StartsWith("|"))
+            if (Item.StartsWith('|'))
             {
                 var m = Regexes.itemRegex.Match(Item);
                 return HasItem(m.Groups["ItemName"].Value, m.Groups["Quantity"]?.Value)(state, asCurrentClass);

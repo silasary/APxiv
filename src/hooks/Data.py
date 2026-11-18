@@ -284,6 +284,7 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
             if category != prev_category:
                 _id += 50
                 prev_category = category
+                pomanders_count = 0
                 location["id"] = _id
             #if row["Location"] in ["The Forbidden Land, Eureka Anemos", "The Forbidden Land, Eureka Pagos", "The Forbidden Land, Eureka Pyros", "The Forbidden Land, Eureka Hydatos"]:
             #    location["category"].append("Eureka")
@@ -293,12 +294,24 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 location["category"].append("Occult Crescent")
             if row["Location"] in ["The Palace of the Dead"]:
                 location["category"].append("The Palace of the Dead")
+                requires_str += " and {pomanderSoftLogicPotD(" + str(pomanders_count) + ")}"
+                location["requires"] = requires_str
+                pomanders_count = min(16, pomanders_count + 2)
             if row["Location"] in ["Heaven-on-High"]:
                 location["category"].append("Heaven-on-High")
+                requires_str += " and {pomanderSoftLogicHoH(" + str(pomanders_count) + ")}"
+                location["requires"] = requires_str
+                pomanders_count = min(16, pomanders_count + 3)
             if row["Location"] in ["Eureka Orthos"]:
                 location["category"].append("Eureka Orthos")
+                requires_str += " and {pomanderSoftLogicEO(" + str(pomanders_count) + ")}"
+                location["requires"] = requires_str
+                pomanders_count = min(16, pomanders_count + 3)
             if row["Location"] in ["Pilgrim's Traverse"]:
                 location["category"].append("Pilgrim's Traverse")
+                requires_str += " and {pomanderSoftLogicPT(" + str(pomanders_count) + ")}"
+                location["requires"] = requires_str
+                pomanders_count = min(16, pomanders_count + 3)
             duty_list.append(location)
             categorizedLocationNames.setdefault((content_type, expansion, location["diff"]), []).append(row["Name"])
             if "Dungeon" in row["Category"]:
