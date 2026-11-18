@@ -26,7 +26,7 @@ from ..Locations import victory_names, location_name_to_location
 from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value
 from .Options import LevelCap
-from .common import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
+from .common import CASTER, DOH, DOL, HEALERS, MELEE, RANGED, TANKS
 
 ########################################################################################
 ## Order of method calls when the world generates:
@@ -218,6 +218,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     caster = CASTER.copy()
     ranged = RANGED.copy()
     doh = DOH.copy()
+    dol = DOL.copy()
 
     world.random.shuffle(tanks)
     world.random.shuffle(healers)
@@ -225,6 +226,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.random.shuffle(caster)
     world.random.shuffle(ranged)
     world.random.shuffle(doh)
+    world.random.shuffle(dol)
 
     exclude_jobs = get_excluded_jobs(multiworld, player)
 
@@ -235,6 +237,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
         caster  = [j for j in caster  if j not in exclude_jobs]
         ranged  = [j for j in ranged  if j not in exclude_jobs]
         doh     = [j for j in doh     if j not in exclude_jobs]
+        dol     = [j for j in dol     if j not in exclude_jobs]
 
     force_jobs = sorted(get_set_value(multiworld, player, "force_jobs"))
 
@@ -250,6 +253,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.prog_classes = prog_classes
     world.prog_levels = [f"5 {job} Levels" for job in world.prog_classes]
     world.prog_doh = doh[0] if doh else None
+    world.prog_dol = dol[0] if dol else None
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
@@ -423,6 +427,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         caster = CASTER.copy()
         ranged = RANGED.copy()
         doh = DOH.copy()
+        dol = DOL.copy()
         if exclude_jobs:
             tanks   = [j for j in tanks   if j not in exclude_jobs]
             healers = [j for j in healers if j not in exclude_jobs]
@@ -430,8 +435,9 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
             caster  = [j for j in caster  if j not in exclude_jobs]
             ranged  = [j for j in ranged  if j not in exclude_jobs]
             doh     = [j for j in doh     if j not in exclude_jobs]
+            dol     = [j for j in dol     if j not in exclude_jobs]
 
-        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh]
+        filler_levels = [f"5 {job} Levels" for job in tanks + healers + melee + caster + ranged + doh + dol]
         filler_levels = [name for name in filler_levels if name not in prog_levels]
         world.random.shuffle(filler_levels)
         for name in filler_levels:
@@ -455,6 +461,7 @@ def before_create_items_filler(
     prog_levels = world.prog_levels
     start_class = world.random.choice(prog_levels)
     prog_doh = f"5 {world.prog_doh} Levels" if world.prog_doh else ""
+    prog_dol = f"5 {world.prog_dol} Levels" if world.prog_dol else ""
     level_cap = get_option_value(multiworld, player, "level_cap") or LevelCap.range_end
 
     seen_levels = {}
@@ -481,6 +488,9 @@ def before_create_items_filler(
         if prog_doh and item.name == prog_doh:
             item.classification = ItemClassification.progression
             prog_doh = ""
+        if prog_dol and item.name == prog_dol:
+            item.classification = ItemClassification.progression
+            prog_dol = ""
 
         if "Levels" in item.name:
             # Add the levels from this item, always 5 currently.
