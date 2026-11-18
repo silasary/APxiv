@@ -419,8 +419,8 @@ class DeepDungeonSanity(Toggle):
     """
     Include all floors per enabled floor set.
 
-    Enabled: All individual floors will become locations.
     Disabled: Only the final floor of each floor set will become a location.
+    Enabled: All individual floors will become locations.
     """
 
 class IncludePotD(Toggle):

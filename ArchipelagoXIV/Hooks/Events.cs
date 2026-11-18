@@ -95,6 +95,8 @@ namespace ArchipelagoXIV.Hooks
         private unsafe void UpdateFishCatchDetour(AgentCatch* thisPtr, uint itemId, bool isLarge, ushort size, byte amount, byte level, byte stars, byte oceanStars, bool isMoochable, bool isFirstTimeCatch, byte a11, byte a12)
         {
             UpdateFishCatch.Original(thisPtr, itemId, isLarge, size, amount, level, stars, oceanStars, isMoochable, isFirstTimeCatch, a11, a12);
+            if (itemId >= 500000) //Removes collectable tag
+                itemId -= 500000;
             if (Data.Items.TryGetValue(itemId, out var value))
             {
                 var name = value.Name.ExtractText().TrimEnd();

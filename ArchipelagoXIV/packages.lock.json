@@ -8,6 +8,12 @@
         "resolved": "6.7.1",
         "contentHash": "wheDMl5C0e175RvuY+E3oDY13myaa7f2pRRjOg9PgcbOJApVu3QT62mQ46jYJ0sn/X7Fu4bdVVxZ2bx0vwncBQ=="
       },
+      "Archipelago.MultiClient.Net.Analyzers": {
+        "type": "Direct",
+        "requested": "[2.0.3, )",
+        "resolved": "2.0.3",
+        "contentHash": "rC45ABdEF2tW9YAcGqCXV2OeIDqRrWnNSBs3xtRhIqjzxldtJkroWZGMXLfsSq//LMMB4YdGoKIMui/prACXpQ=="
+      },
       "DalamudPackager": {
         "type": "Direct",
         "requested": "[15.0.0, )",
@@ -22,9 +28,9 @@
       },
       "KamiToolKit": {
         "type": "Direct",
-        "requested": "[2.2.0, )",
-        "resolved": "2.2.0",
-        "contentHash": "UjXtEsTFNugLU/KJgszq0RgrNAOb1vmFHRSAgAHQHm1u7uPAEvbVU7u1gb7BzKRWaQ35WICX+9vdOX6sPedDbg=="
+        "requested": "[2.2.65, )",
+        "resolved": "2.2.65",
+        "contentHash": "74Y51OEOWcLljCfoZA207VUU/juE8kpkjEWB7/WIEJEF3fv/K/z5RCNzUv0agD4qQBOsVZg0xBAv/DJ33L7C3A=="
       }
     }
   }
