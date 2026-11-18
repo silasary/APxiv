@@ -173,7 +173,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not has_fish
         and (not has_dungeons or get_int_value(multiworld, player, 'extra_dungeon_checks') < 1)
         and not is_option_enabled(multiworld, player, 'deep_dungeon_sanity')
-    )
+    ):
         world.options.deep_dungeon_sanity.value = True
 
 
