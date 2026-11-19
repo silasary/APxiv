@@ -169,7 +169,6 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
-    world.skipped_nms: set[str] = set()
 
     if not getattr(multiworld, 'generation_is_fake', False):
         goal_name = victory_names[get_option_value(multiworld, player, "goal")]
