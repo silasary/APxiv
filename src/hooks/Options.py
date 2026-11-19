@@ -399,6 +399,24 @@ class IncludeEureka(Toggle):
     This includes the NMs and Bunny FATEs of Eureka.
     """
 
+class NMSanity(Toggle):
+    """
+    Include individual Notorious Monsters in the location pool.
+
+    If enabled, each named Notorious Monsters is a check.  If disabled, each location will be any Notorious Monster from the zone.
+    """
+    display_name = "NMSanity"
+    default = False
+
+class NMsPerZone(Range):
+    """
+    Number of Notorious Monsters per zone.
+    """
+    display_name = "Notorious Monsters Per Zone"
+    default = 5
+    range_start = 0
+    range_end = 20
+
 class IncludeBozja(Toggle):
     """
     Include Save the Queen content in the location pool.
@@ -527,6 +545,8 @@ def before_options_defined(options: dict) -> dict:
 
     # Field Ops
     options["include_eureka"] = IncludeEureka
+    options["nmsanity"] = NMSanity
+    options["nms_per_zone"] = NMsPerZone
     options["include_bozja"] = IncludeBozja
     options["field_operation_critical_encounter_count"] = FieldOperationCriticalEncounterCount
     options["include_duels"] = IncludeDuels
@@ -563,7 +583,7 @@ def before_option_groups_created(groups: dict[str, list[type[Option]]]) -> dict[
     groups["Fates"] = [Fatesanity, FatesPerZone, UnreasonableFates, Fetesanity]
     groups["Fishsanity"] = [Fishsanity, FishsanityDisableStartingBait, OceanFishing]
     groups["Huntsanity"] = [Huntsanity]
-    groups["Field Operations"] = [IncludeEureka, IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
+    groups["Field Operations"] = [IncludeEureka, NMSanity, NMsPerZone, IncludeBozja, IncludeOccultCrescent, FieldOperationCriticalEncounterCount, IncludeDuels]
     groups["Deep Dungeon"] = [DeepDungeonSanity, IncludePotD, IncludeHoH, IncludeEO, IncludePT,
                               PotDCount, HoHCount, EOCount, PTCount]
     groups["Duty Finder"] = [DutyDifficulty, IncludePvP, IncludeCrystalineConflict, IncludeFrontline, IncludeGuildhests,

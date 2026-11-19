@@ -80,8 +80,12 @@ def is_fishing_enabled(multiworld, player):
 def before_is_category_enabled(multiworld: MultiWorld, player: int, category_name: str) -> bool | None:
     if category_name == "FATEsanity":
         return Helpers.is_option_enabled(multiworld, player, "fatesanity")
+    if category_name == "NMsanity":
+        return Helpers.is_option_enabled(multiworld, player, "nmsanity")
     if category_name == "FATEs":
         return not Helpers.is_option_enabled(multiworld, player, "fatesanity")
+    if category_name == "NMs":
+        return not Helpers.is_option_enabled(multiworld, player, "nmsanity")
     if category_name == "fishsanity":
         return get_int_value(multiworld, player, "fishsanity") > 0
     if category_name == "Timed Fish":
@@ -143,6 +147,8 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
     if "rank" in location and location["rank"] not in Helpers.get_option_value(multiworld, player, "huntsanity"):
         return False
     if "fate_number" in location and location["fate_number"] > get_int_value(multiworld, player, "fates_per_zone"):
+        return False
+    if "nm_number" in location and location["nm_number"] > get_int_value(multiworld, player, "nms_per_zone"):
         return False
     if "Deep Dungeon" in location["category"][0] and "extra_number" in location:
         if location["region"] == "The Palace of the Dead" and get_int_value(multiworld, player, "include_potd"):

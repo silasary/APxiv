@@ -39,6 +39,7 @@ class LocationDict(TypedDict):
     is_dungeon: NotRequired[bool | None]
     rank: NotRequired[str | None]
     fate_number: NotRequired[int]
+    nm_number: NotRequired[int]
 
 # Item ID Starts
 # 1-999:  Access Keys
@@ -362,6 +363,17 @@ def generate_fate_list() -> list[LocationDict]:
         fate_list.append(create_FATE_location(8,key,level))
         fate_list.append(create_FATE_location(9,key,level))
         fate_list.append(create_FATE_location(10,key,level))
+        if ["The Forbidden Land, Eureka"] in key:
+            fate_list.append(create_FATE_location(11,key,level))
+            fate_list.append(create_FATE_location(12,key,level))
+            fate_list.append(create_FATE_location(13,key,level))
+            fate_list.append(create_FATE_location(14,key,level))
+            fate_list.append(create_FATE_location(15,key,level))
+            fate_list.append(create_FATE_location(16,key,level))
+            fate_list.append(create_FATE_location(17,key,level))
+            fate_list.append(create_FATE_location(18,key,level))
+            fate_list.append(create_FATE_location(19,key,level))
+            fate_list.append(create_FATE_location(20,key,level))
         _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
@@ -396,14 +408,25 @@ def generate_fate_list() -> list[LocationDict]:
             if "(FATE)" not in name:
                 name += " (FATE)"
 
-            location: LocationDict = {
-                    "name": name,
-                    "region": row['Location'],
-                    "category": ["FATEsanity", row['Location']],
-                    "requires": "",
-                    "level" : row['Level Sync'],
-                    "id": _id
-                }
+            
+            if "The Forbidden Land, Eureka" in  row['Location']:
+                location: LocationDict = {
+                        "name": name,
+                        "region": row['Location'],
+                        "category": ["NMsanity", row['Location']],
+                        "requires": "",
+                        "level" : row['Level Sync'],
+                        "id": _id
+                    }
+            else:
+                location: LocationDict = {
+                        "name": name,
+                        "region": row['Location'],
+                        "category": ["FATEsanity", row['Location']],
+                        "requires": "",
+                        "level" : row['Level Sync'],
+                        "id": _id
+                    }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
             # if level > 30:
@@ -664,8 +687,11 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
-    if key in ["The Forbidden Land, Eureka Anemos", "The Forbidden Land, Eureka Pagos", "The Forbidden Land, Eureka Pyros", "The Forbidden Land, Eureka Hydatos"]:
+    if ["The Forbidden Land, Eureka"] in key:
+        location["category"] = ["NMs", key]
         location["category"].append("Eureka")
+        location.remove("fate_number")
+        location["nm_number"] = number
     if key in ["The Bozjan Southern Front", "Zadnor"]:
         location["category"].append("Bozja")
     if key in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
