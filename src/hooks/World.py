@@ -210,7 +210,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             if goal_base_duty_name != "Porta Decumana":
                 # Add ultima weapon trial regardless of MSQ settings, if set as goal
                 world.skipped_duties.add("The Porta Decumana")
-        if is_option_enabled(multiworld, player, "nmsanity"):
+        if is_option_enabled(multiworld, player, "nmsanity") and is_option_enabled(multiworld, player, "include_eureka"):
             anemos_nms = [n for n in nm_list if "Anemos" in n['region']]
             pagos_nms = [n for n in nm_list if "Pagos" in n['region']]
             pyros_nms = [n for n in nm_list if "Pyros" in n['region']]
@@ -306,15 +306,6 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 region.locations.remove(location)
         # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
         else:
-            # nmCount = get_int_value(multiworld, player, "nms_per_zone")
-            # if "The Forbidden Land, Eureka" in region:
-            #     nmLocations = []
-            #     for location in list(region.locations):
-            #         nmLocations.extend(location)
-            #     if len(nmLocations) > nmCount:
-            #         count = len(nmLocations) - nmCount
-            #         removeNMs = world.random.sample(nmLocations, count)
-            #         locationNamesToRemove.extend(removeNMs)
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
