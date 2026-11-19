@@ -374,6 +374,7 @@ def generate_fate_list() -> list[LocationDict]:
             fate_list.append(create_NM_location(18,key,level))
             fate_list.append(create_NM_location(19,key,level))
             fate_list.append(create_NM_location(20,key,level))
+            _id += 20
         else:
             fate_list.append(create_FATE_location(1,key,level, _id))
             fate_list.append(create_FATE_location(2,key,level))
@@ -385,7 +386,7 @@ def generate_fate_list() -> list[LocationDict]:
             fate_list.append(create_FATE_location(8,key,level))
             fate_list.append(create_FATE_location(9,key,level))
             fate_list.append(create_FATE_location(10,key,level))
-        _id += 10
+            _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
     fatereader = csv.DictReader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
