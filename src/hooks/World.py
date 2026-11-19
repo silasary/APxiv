@@ -159,7 +159,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not has_hunts
         and has_potd
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
-        and get_int_value(multiworld, player, 'extra_dungeon_checks') < 5
+        and not is_option_enabled(multiworld, player, 'deep_dungeon_sanity')
     ):
         world.options.deep_dungeon_sanity.value = True
 
