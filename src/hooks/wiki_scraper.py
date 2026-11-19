@@ -157,11 +157,22 @@ def datamining_csv(filename: str, key = "#") -> dict[str, dict[str, str]]:
     return data
 
 def load_data_file(filename: str) -> Any:
+    if filename.endswith('.json'):
+        return load_data_json(filename)
+    raise ValueError(f"Unsupported file type: {filename}")
+
+def load_data_json(filename: str) -> Any:
     with open(data_path(filename), 'r', newline='') as h:
         data = json.load(h)
     return data
 
 def save_data_file(filename: str, data: Any, indent=4) -> None:
+    if filename.endswith('.json'):
+        save_data_json(filename, data, indent=indent)
+        return
+    raise ValueError(f"Unsupported file type: {filename}")
+
+def save_data_json(filename: str, data: Any, indent=4) -> None:
     with open(data_path(filename), 'w', newline='') as h:
         json.dump(data, h, indent=indent)
         h.write('\n')
@@ -1199,6 +1210,16 @@ def scrape_duties() -> None:
         writer.writeheader()
         writer.writerows(duties)
 
+def build_trophy_data() -> None:
+    from common import BOSS_GOAL_DATA
+    trophies: list[dict] = load_data_file('items.trophies.json')
+    trophy_names = {t['name'] for t in trophies}
+    for goal in BOSS_GOAL_DATA.values():
+        if goal.trophy_name is not None and goal.trophy_name not in trophy_names:
+            trophies.append({"name": goal.trophy_name})
+    save_data_file('items.trophies.json', trophies)
+
+
 if __name__ == "__main__":
     scrape_duties()
     scrape_classjobs()
@@ -1206,6 +1227,7 @@ if __name__ == "__main__":
     scrape_deep_dungeon_items()
     scrape_hunts()
     scrape_territory_types()
+    build_trophy_data()
     scrape_teamcraft()
     tribal_fish()
     apply_bait()
