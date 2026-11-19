@@ -23,9 +23,9 @@ leading_words = ["Defeat", "Catch", "the"]
 @dataclass
 class GoalData:
     name: str
-    region: str
-    level: int
     location_name: str
+    region: str = ""
+    level: int = 0
     _trophy_name: str | None = None
     _key_name: str | None = None
 
@@ -53,68 +53,46 @@ goals = [
     GoalData(
         name="Defeat the Ultima Weapon",
         location_name="The Porta Decumana",
-        region="Northern Thanalan",
-        level=50,
     ),
     GoalData(
         name="Defeat King Thordan",
         location_name="The Singularity Reactor",
-        region="Azys Lla",
-        level=60,
     ),
     GoalData(
         name="Defeat Nidhogg",
         location_name="The Final Steps of Faith",
-        region="Foundation",
-        level=60,
     ),
     GoalData(
         name="Defeat Shinryu",
         location_name="The Royal Menagerie",
-        region="The Lochs",
-        level=70,
     ),
     GoalData(
         name="Defeat Tsukuyomi",
         location_name="Castrum Fluminis",
-        region="Yanxia",
-        level=70,
     ),
     GoalData(
         name="Defeat Hades",
         location_name="The Dying Gasp",
-        region="The Tempest",
-        level=80,
     ),
     GoalData(
         name="Defeat the Warrior of Light",
         location_name="The Seat of Sacrifice",
-        region="The Crystarium",
-        level=80,
     ),
     GoalData(
         name="Defeat the Endsinger",
         location_name="The Final Day",
-        region="Ultima Thule",
-        level=90,
     ),
     GoalData(
         name="Defeat Zeromus",
         location_name="The Abyssal Fracture",
-        region="Mare Lamentorum",
-        level=90,
     ),
     GoalData(
         name="Defeat Sphene",
         location_name="The Interphos",
-        region="Living Memory",
-        level=100,
     ),
     GoalData(
         name="Defeat Necron",
         location_name="The Ageless Necropolis",
-        region="Living Memory",
-        level=100,
     ),
 ]
 

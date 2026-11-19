@@ -208,7 +208,11 @@ def generate_victory_locations(location_table: list[LocationDict]) -> list[Locat
             original_location = next((l for l in location_table if l["name"] == goal_data.location_name), None)
             if original_location is None:
                 raise ValueError(f"Original location for {goal_data.location_name} not found")
-            if goal_data.region != original_location["region"]:
+            if not goal_data.level and original_location.get("level") is not None:
+                goal_data.level = int(original_location.get("level", 0))
+            if not goal_data.region and original_location.get("region") is not None:
+                goal_data.region = original_location["region"]
+            elif goal_data.region != original_location["region"]:
                 raise ValueError(f"Region mismatch for {goal_data.location_name}: expected {original_location['region']}, found {goal_data.region}")
             requires_str = original_location.get("requires", "")
 
