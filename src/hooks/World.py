@@ -292,6 +292,15 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 region.locations.remove(location)
         # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
         else:
+            nmCount = get_int_value(multiworld, player, "nms_per_zone")
+            if "The Forbidden Land, Eureka" in region:
+                nmLocations = []
+                for location in list(region.locations):
+                    nmLocations.extend(location)
+                if len(nmLocations) > nmCount:
+                    count = len(nmLocations) - nmCount
+                    removeNMs = world.random.sample(nmLocations, count)
+                    locationNamesToRemove.extend(removeNMs)
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
