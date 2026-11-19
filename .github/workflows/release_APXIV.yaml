@@ -16,9 +16,17 @@ jobs:
 
         steps:
             - name: Checkout repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@v7
+            - name: Set up Python
+              uses: actions/setup-python@v7
+              with:
+                python-version: '3.13.15'
+            - name: Install libcairo
+              if: runner.os == 'Linux'
+              run: |
+                  sudo apt install libcairo2-dev
             - name: Checkout Archipelago
-              uses: actions/checkout@v3
+              uses: actions/checkout@v7
               with:
                   repository: ArchipelagoMW/Archipelago
                   path: Archipelago
@@ -37,7 +45,7 @@ jobs:
               run: |
                   source venv/bin/activate
                   cd Archipelago
-                  python Launcher.py "Build APWorlds" -- "Manual_FFXIV_Silasary"
+                  python Launcher.py "Build APWorlds" -- "Final Fantasy XIV"
 
             - name: Upload apworld as an artifact
               uses: actions/upload-artifact@v4
@@ -76,7 +84,7 @@ jobs:
               run: |
                 source venv/bin/activate
                 cd Archipelago
-                python Launcher.py "Generate Template Options" --skip_open_folder
+                python Launcher.py "Generate Template Options" -- --skip_open_folder
                 rm template_yamls/*.yaml
                 cp "Archipelago/Players/Templates/Presets/Final Fantasy XIV - *.yaml" template_yamls/
 
@@ -87,7 +95,7 @@ jobs:
                   apworld-path: src
                   apworld-name: ffxiv
                   ap-version: latest
-                  python-version: "3.13"
+                  python-version: "3.13.15"
                   update-export: true
 
             - uses: stefanzweifel/git-auto-commit-action@v5

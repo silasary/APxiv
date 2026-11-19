@@ -159,7 +159,7 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
         and not has_hunts
         and has_potd
         and get_int_value(multiworld, player, 'fates_per_zone') < 3
-        and get_int_value(multiworld, player, 'extra_dungeon_checks') < 5
+        and not is_option_enabled(multiworld, player, 'deep_dungeon_sanity')
     ):
         world.options.deep_dungeon_sanity.value = True
 
@@ -171,6 +171,9 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
 
     if not getattr(multiworld, 'generation_is_fake', False):
+        goal_name = victory_names[get_option_value(multiworld, player, "goal")]
+        goal_data = BOSS_GOAL_DATA.get(goal_name)
+        goal_base_duty_name = goal_data[0] if goal_data else None
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
@@ -187,10 +190,6 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             else:
                 count = min(len(names), count)
                 used_names = world.random.sample(names, count)
-
-            goal_name = victory_names[get_option_value(multiworld, player, "goal")]
-            goal_data = BOSS_GOAL_DATA.get(goal_name)
-            goal_base_duty_name = goal_data[0] if goal_data else None
 
             # Force the goal's required trial into the location pool if it belongs to this category
             if dutyType == "Trial" and goal_base_duty_name:
