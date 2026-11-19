@@ -180,8 +180,17 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
             if count is None:
                 if "NMsanity" in category[0]:
+                    anemos_nms = [n for n in names if "Anemos" in location_name_to_location[n].get('region', None)]
+                    pagos_nms = [n for n in names if "Pagos" in location_name_to_location[n].get('region', None)]
+                    pyros_nms = [n for n in names if "Pyros" in location_name_to_location[n].get('region', None)]
+                    hydatos_nms = [n for n in names if "Hydatos" in location_name_to_location[n].get('region', None)]
+                    if "The Baldesion Arsenal: Expedition Support" in hydatos_nms: #hard coded BA exclusion for now.
+                        hydatos_nms.remove("The Baldesion Arsenal: Expedition Support")
                     count = min(len(names), get_int_value(multiworld, player, "nms_per_zone"))
-                    used_nms = world.random.sample(names, count)
+                    used_nms = world.random.sample(anemos_nms, min(len(anemos_nms), get_int_value(multiworld, player, "nms_per_zone")))
+                    used_nms += world.random.sample(pagos_nms, min(len(pagos_nms), get_int_value(multiworld, player, "nms_per_zone")))
+                    used_nms += world.random.sample(pyros_nms, min(len(pyros_nms), get_int_value(multiworld, player, "nms_per_zone")))
+                    used_nms += world.random.sample(hydatos_nms, min(len(hydatos_nms), get_int_value(multiworld, player, "nms_per_zone")))
                     for name in names:
                         if name not in used_nms:
                             world.skipped_nms.add(name)
