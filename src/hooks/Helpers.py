@@ -134,7 +134,7 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
     if location.get('victory'):  # This should get fixed in the main code
         return True
-    if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
+    if location.get("name") in multiworld.worlds[player].skipped_duties:
         return False
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False

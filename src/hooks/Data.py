@@ -243,6 +243,9 @@ class DutyTypeExpansionDifficulty(NamedTuple):
 
 categorizedLocationNames: dict[DutyTypeExpansionDifficulty, list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
 
+
+nm_list: list[LocationDict] = []
+
 def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
     duty_list: list[LocationDict] = []
     extra_list: list[LocationDict] = []
@@ -430,6 +433,7 @@ def generate_fate_list() -> list[LocationDict]:
                         "level" : row['Level Sync'],
                         "id": _id
                     }
+                nm_list.append(location)
             else:
                 location: LocationDict = {
                         "name": name,
