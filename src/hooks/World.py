@@ -178,6 +178,12 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
             if count is None:
+                if "NMsanity" in category[0]:
+                    count = min(len(names), get_int_value(multiworld, player, "nms_per_zone"))
+                    used_nms = world.random.sample(names, count)
+                    for name in names:
+                        if name not in used_nms:
+                            world.skipped_nms.add(name)
                 continue
 
             if dutyType == "Field Operation" and not is_option_enabled(multiworld, player, "include_duels"):
@@ -292,15 +298,15 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
                 region.locations.remove(location)
         # Remove/exclude locations in `locationNamesToRemove`/`locationNamesToExclude`.
         else:
-            nmCount = get_int_value(multiworld, player, "nms_per_zone")
-            if "The Forbidden Land, Eureka" in region:
-                nmLocations = []
-                for location in list(region.locations):
-                    nmLocations.extend(location)
-                if len(nmLocations) > nmCount:
-                    count = len(nmLocations) - nmCount
-                    removeNMs = world.random.sample(nmLocations, count)
-                    locationNamesToRemove.extend(removeNMs)
+            # nmCount = get_int_value(multiworld, player, "nms_per_zone")
+            # if "The Forbidden Land, Eureka" in region:
+            #     nmLocations = []
+            #     for location in list(region.locations):
+            #         nmLocations.extend(location)
+            #     if len(nmLocations) > nmCount:
+            #         count = len(nmLocations) - nmCount
+            #         removeNMs = world.random.sample(nmLocations, count)
+            #         locationNamesToRemove.extend(removeNMs)
             for location in list(region.locations):
                 if location.name in locationNamesToRemove:
                     # print(f"Removing {location.name} from {player}'s pool")
@@ -621,6 +627,7 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["prog_classes"] = world.prog_classes
     slot_data["skipped_duties"] = list(world.skipped_duties)
+    slot_data["skipped_nms"] = list(world.skipped_nms)
     slot_data["world_version"] = world.world_version.as_simple_string()
     if slot_data["world_version"] == "0.0.0":
         # fallback

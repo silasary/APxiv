@@ -136,6 +136,8 @@ def before_is_location_enabled(multiworld: MultiWorld, player: int, location: di
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
         return False
+    if location.get("name") in multiworld.worlds[player].skipped_nms:
+        return False
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
