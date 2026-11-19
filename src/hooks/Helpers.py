@@ -128,10 +128,18 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
+    from ..Locations import victory_names
+    from .Data import BOSS_GOAL_DATA
+    goal_name = victory_names[Helpers.get_option_value(multiworld, player, "goal")]
+    goal_data = BOSS_GOAL_DATA.get(goal_name)
+    goal_base_duty_name = goal_data[0] if goal_data else None
     if location.get('victory'):  # This should get fixed in the main code
         return True
-    if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
-        return False
+    if location.get("duty_name") is not None:
+        if location.get("duty_name") and goal_base_duty_name and location.get("duty_name") in (goal_base_duty_name or location.get("duty_name") in f"The {goal_base_duty_name}"):
+            return True
+        if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
+            return False
     if "diff" in location and location["diff"] > get_int_value(multiworld, player, "duty_difficulty"):
         return False
     if "party" in location and location["party"] > get_int_value(multiworld, player, "max_party_size"):
