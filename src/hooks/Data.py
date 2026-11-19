@@ -363,7 +363,7 @@ def generate_fate_list() -> list[LocationDict]:
         fate_list.append(create_FATE_location(8,key,level))
         fate_list.append(create_FATE_location(9,key,level))
         fate_list.append(create_FATE_location(10,key,level))
-        if ["The Forbidden Land, Eureka"] in key:
+        if "The Forbidden Land, Eureka" in key:
             fate_list.append(create_FATE_location(11,key,level))
             fate_list.append(create_FATE_location(12,key,level))
             fate_list.append(create_FATE_location(13,key,level))
@@ -687,7 +687,7 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None
         location["requires"] = "{anyClassLevel(" + str(lvl) + ")}"
     if lvl > 30 and number > 2:
         location["filler"] = True
-    if ["The Forbidden Land, Eureka"] in key:
+    if "The Forbidden Land, Eureka" in key:
         location["category"] = ["NMs", key]
         location["category"].append("Eureka")
         location.remove("fate_number")
