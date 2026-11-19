@@ -203,7 +203,6 @@ def generate_victory_locations(location_table: list[LocationDict]) -> list[Locat
     locations: list[LocationDict] = []
 
     for goal_name, goal_data in BOSS_GOAL_DATA.items():
-        requires_str = ""
         if goal_data.location_name is not None:
             original_location = next((l for l in location_table if l["name"] == goal_data.location_name), None)
             if original_location is None:
@@ -214,7 +213,6 @@ def generate_victory_locations(location_table: list[LocationDict]) -> list[Locat
                 goal_data.region = original_location["region"]
             elif goal_data.region != original_location["region"]:
                 raise ValueError(f"Region mismatch for {goal_data.location_name}: expected {original_location['region']}, found {goal_data.region}")
-            requires_str = original_location.get("requires", "")
 
         locations.append({
             "name": goal_name,
@@ -222,7 +220,6 @@ def generate_victory_locations(location_table: list[LocationDict]) -> list[Locat
             "level": goal_data.level,
             "victory": True,
             "id": _id,
-            "requires": requires_str,
             })
         _id += 1
 
