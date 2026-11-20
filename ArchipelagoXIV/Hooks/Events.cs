@@ -233,7 +233,7 @@ namespace ArchipelagoXIV.Hooks
                     return;
                 }
 
-                if (apState.territoryName == "The Waking Sands" && RegionContainer.CanReach(apState, apState.territoryName))
+                if (apState.territoryName == "The Waking Sands")
                 {
                     var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
                     if (PrayReturn.Accessible)
