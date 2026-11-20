@@ -23,7 +23,7 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
+from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS, nm_list
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value
 from .Options import LevelCap
 from .common import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
@@ -210,6 +210,20 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             if goal_base_duty_name != "Porta Decumana":
                 # Add ultima weapon trial regardless of MSQ settings, if set as goal
                 world.skipped_duties.add("The Porta Decumana")
+        if is_option_enabled(multiworld, player, "nmsanity") and is_option_enabled(multiworld, player, "include_eureka"):
+            anemos_nms = [n for n in nm_list if "Anemos" in n['region']]
+            pagos_nms = [n for n in nm_list if "Pagos" in n['region']]
+            pyros_nms = [n for n in nm_list if "Pyros" in n['region']]
+            hydatos_nms = [n for n in nm_list if "Hydatos" in n['region']]
+            if "The Baldesion Arsenal: Expedition Support" in hydatos_nms: #hard coded BA exclusion for now.
+                hydatos_nms.remove("The Baldesion Arsenal: Expedition Support")
+            used_nms = world.random.sample(anemos_nms, min(len(anemos_nms), get_int_value(multiworld, player, "nms_per_zone")))
+            used_nms += world.random.sample(pagos_nms, min(len(pagos_nms), get_int_value(multiworld, player, "nms_per_zone")))
+            used_nms += world.random.sample(pyros_nms, min(len(pyros_nms), get_int_value(multiworld, player, "nms_per_zone")))
+            used_nms += world.random.sample(hydatos_nms, min(len(hydatos_nms), get_int_value(multiworld, player, "nms_per_zone")))
+            for nms in nm_list:
+                if nms not in used_nms:
+                    world.skipped_duties.add(nms["duty_name"])
 
     tanks = TANKS.copy()
     healers = HEALERS.copy()

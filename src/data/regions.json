@@ -712,7 +712,11 @@
         "requires": "|Kugane Access: 1|",
         "connects_to": [
             "The Ruby Sea",
-            "Shirogane"
+            "Shirogane",
+            "The Forbidden Land, Eureka Anemos",
+            "The Forbidden Land, Eureka Pagos",
+            "The Forbidden Land, Eureka Pyros",
+            "The Forbidden Land, Eureka Hydatos"
         ],
         "ids": [
             628,
@@ -1232,6 +1236,22 @@
     },
     "The Occult Crescent: North Horn": {
         "requires": "|The Occult Crescent: North Horn Access: 1|",
+        "connects_to": []
+    },
+    "The Forbidden Land, Eureka Anemos": {
+        "requires": "|The Forbidden Land, Eureka Anemos Access: 1|",
+        "connects_to": []
+    },
+    "The Forbidden Land, Eureka Pagos": {
+        "requires": "|The Forbidden Land, Eureka Pagos Access: 1|",
+        "connects_to": []
+    },
+    "The Forbidden Land, Eureka Pyros": {
+        "requires": "|The Forbidden Land, Eureka Pyros Access: 1|",
+        "connects_to": []
+    },
+    "The Forbidden Land, Eureka Hydatos": {
+        "requires": "|The Forbidden Land, Eureka Hydatos Access: 1|",
         "connects_to": []
     }
 }

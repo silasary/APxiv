@@ -39,6 +39,7 @@ class LocationDict(TypedDict):
     is_dungeon: NotRequired[bool | None]
     rank: NotRequired[str | None]
     fate_number: NotRequired[int]
+    nm_number: NotRequired[int]
 
 # Item ID Starts
 # 1-999:  Access Keys
@@ -202,6 +203,11 @@ fate_zones = {
     "Zadnor": [76],
     "The Occult Crescent: South Horn": [100],
     "The Occult Crescent: North Horn": [100],
+
+    "The Forbidden Land, Eureka Anemos": [70],
+    "The Forbidden Land, Eureka Pagos": [70],
+    "The Forbidden Land, Eureka Pyros": [70],
+    "The Forbidden Land, Eureka Hydatos": [70],
 }
 
 bait_to_fish: dict[str, set[str]] = {}
@@ -236,6 +242,9 @@ class DutyTypeExpansionDifficulty(NamedTuple):
     duty_difficulty: int
 
 categorizedLocationNames: dict[DutyTypeExpansionDifficulty, list[str]] = {}  # (dutyType, dutyExpansion, dutyDifficulty) -> [locationName, ...]
+
+
+nm_list: list[LocationDict] = []
 
 def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
     duty_list: list[LocationDict] = []
@@ -281,6 +290,8 @@ def generate_duty_list() -> tuple[list[LocationDict], list[LocationDict]]:
                 prev_category = category
                 pomanders_count = 0
                 location["id"] = _id
+            #if row["Location"] in ["The Forbidden Land, Eureka Anemos", "The Forbidden Land, Eureka Pagos", "The Forbidden Land, Eureka Pyros", "The Forbidden Land, Eureka Hydatos"]:
+            #    location["category"].append("Eureka")
             if row["Location"] in ["Gangos", "The Bozjan Southern Front", "Zadnor"]:
                 location["category"].append("Bozja")
             if row["Location"] in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
@@ -345,17 +356,40 @@ def generate_fate_list() -> list[LocationDict]:
     for key in list(fate_zones.keys()):
         level = fate_zones[key][0]
         #ilvl = fate_zones[key][1]
-        fate_list.append(create_FATE_location(1,key,level, _id))
-        fate_list.append(create_FATE_location(2,key,level))
-        fate_list.append(create_FATE_location(3,key,level))
-        fate_list.append(create_FATE_location(4,key,level))
-        fate_list.append(create_FATE_location(5,key,level))
-        fate_list.append(create_FATE_location(6,key,level))
-        fate_list.append(create_FATE_location(7,key,level))
-        fate_list.append(create_FATE_location(8,key,level))
-        fate_list.append(create_FATE_location(9,key,level))
-        fate_list.append(create_FATE_location(10,key,level))
-        _id += 10
+        if "The Forbidden Land, Eureka" in key:
+            fate_list.append(create_NM_location(1,key,level, _id))
+            fate_list.append(create_NM_location(2,key,level))
+            fate_list.append(create_NM_location(3,key,level))
+            fate_list.append(create_NM_location(4,key,level))
+            fate_list.append(create_NM_location(5,key,level))
+            fate_list.append(create_NM_location(6,key,level))
+            fate_list.append(create_NM_location(7,key,level))
+            fate_list.append(create_NM_location(8,key,level))
+            fate_list.append(create_NM_location(9,key,level))
+            fate_list.append(create_NM_location(10,key,level))
+            fate_list.append(create_NM_location(11,key,level))
+            fate_list.append(create_NM_location(12,key,level))
+            fate_list.append(create_NM_location(13,key,level))
+            fate_list.append(create_NM_location(14,key,level))
+            fate_list.append(create_NM_location(15,key,level))
+            fate_list.append(create_NM_location(16,key,level))
+            fate_list.append(create_NM_location(17,key,level))
+            fate_list.append(create_NM_location(18,key,level))
+            fate_list.append(create_NM_location(19,key,level))
+            fate_list.append(create_NM_location(20,key,level))
+            _id += 20
+        else:
+            fate_list.append(create_FATE_location(1,key,level, _id))
+            fate_list.append(create_FATE_location(2,key,level))
+            fate_list.append(create_FATE_location(3,key,level))
+            fate_list.append(create_FATE_location(4,key,level))
+            fate_list.append(create_FATE_location(5,key,level))
+            fate_list.append(create_FATE_location(6,key,level))
+            fate_list.append(create_FATE_location(7,key,level))
+            fate_list.append(create_FATE_location(8,key,level))
+            fate_list.append(create_FATE_location(9,key,level))
+            fate_list.append(create_FATE_location(10,key,level))
+            _id += 10
 
     missing_fatesanity_zones = fate_zones.copy()
     fatereader = csv.DictReader(pkgutil.get_data(__name__, "fates.csv").decode().splitlines(), delimiter=',', quotechar='"')
@@ -389,14 +423,27 @@ def generate_fate_list() -> list[LocationDict]:
             if "(FATE)" not in name:
                 name += " (FATE)"
 
-            location: LocationDict = {
-                    "name": name,
-                    "region": row['Location'],
-                    "category": ["FATEsanity", row['Location']],
-                    "requires": "",
-                    "level" : row['Level Sync'],
-                    "id": _id
-                }
+            
+            if "The Forbidden Land, Eureka" in  row['Location']:
+                location: LocationDict = {
+                        "name": name,
+                        "duty_name": name,
+                        "region": row['Location'],
+                        "category": ["NMsanity", row['Location']],
+                        "requires": "",
+                        "level" : row['Level Sync'],
+                        "id": _id
+                    }
+                nm_list.append(location)
+            else:
+                location: LocationDict = {
+                        "name": name,
+                        "region": row['Location'],
+                        "category": ["FATEsanity", row['Location']],
+                        "requires": "",
+                        "level" : row['Level Sync'],
+                        "id": _id
+                    }
             if level > 5:
                 location["requires"] = "{anyClassLevel(" + str(max(level - 5, level // 10 * 10)) + ")}"
             # if level > 30:
@@ -661,6 +708,22 @@ def create_FATE_location(number: int, key: str, lvl: int, _id: int | None = None
         location["category"].append("Bozja")
     if key in ["The Occult Crescent: South Horn", "The Occult Crescent: North Horn"]:
         location["category"].append("Occult Crescent")
+    if _id:
+        location["id"] = _id
+    return location
+
+def create_NM_location(number: int, key: str, lvl: int, _id: int | None = None) -> LocationDict:
+    location: LocationDict = {
+            "name": key + ": FATE #" + str(number),
+            "region": key,
+            "category": ["NMs", key, "Eureka"],
+            "requires": "{anyClassLevel(" + str(lvl) + ")}",
+            "level" : lvl,
+            "nm_number": number,
+        }
+    #Revisit this later, but since NMs function differently from FATEs(and are always higher than lv30), no need to force them to be Filler, at least not this quickly
+    #if lvl > 30 and number > 2:
+    #    location["filler"] = True
     if _id:
         location["id"] = _id
     return location
