@@ -223,7 +223,7 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
             used_nms += world.random.sample(hydatos_nms, min(len(hydatos_nms), get_int_value(multiworld, player, "nms_per_zone")))
             for nms in nm_list:
                 if nms not in used_nms:
-                    world.skipped_duties.add(nms['name'])
+                    world.skipped_duties.add(nms["duty_name"])
 
     tanks = TANKS.copy()
     healers = HEALERS.copy()

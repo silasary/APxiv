@@ -427,6 +427,7 @@ def generate_fate_list() -> list[LocationDict]:
             if "The Forbidden Land, Eureka" in  row['Location']:
                 location: LocationDict = {
                         "name": name,
+                        "duty_name": name,
                         "region": row['Location'],
                         "category": ["NMsanity", row['Location']],
                         "requires": "",
