@@ -236,8 +236,8 @@ namespace ArchipelagoXIV.Hooks
                 if (territory.RowId == 212)
                 {
                     var PrayReturn = apState.MissingLocations.FirstOrDefault(l => l.Name == "Return to the Waking Sands");
-                    if (PrayReturn.Accessible)
-                        PrayReturn?.Complete();
+                    if (PrayReturn?.Accessible ?? false)
+                        PrayReturn.Complete();
                 }
 
                 apState.Game.AttunedAetherytes.Clear();
