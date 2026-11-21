@@ -99,17 +99,6 @@ def before_is_category_enabled(multiworld: MultiWorld, player: int, category_nam
 # Use this if you want to override the default behavior of is_option_enabled
 # Return True to enable the item, False to disable it, or None to use the default behavior
 def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, Any]) -> bool | None:
-    from .Data import BOSS_GOAL_DATA
-    item_name = item.get('name', '')
-
-    for duty_name, _, _ in BOSS_GOAL_DATA.values():
-        # Disable all boss key/key piece items. The correct one is re-enabled in before_create_items_all
-        if item_name in (f"{duty_name} Key", f"{duty_name} Key Piece"):
-            return False
-        # Disable all boss cleared items. The correct one is placed as a locked item in after_set_rules
-        if item_name == f"{duty_name} Cleared":
-            return False
-
     if "Pomanders" in item.get('category', []):
         if get_int_value(multiworld, player, "duty_difficulty") == 0:
             return False
@@ -129,6 +118,8 @@ def before_is_item_enabled(multiworld: MultiWorld, player: int, item: dict[str, 
 # Return True to enable the location, False to disable it, or None to use the default behavior
 def before_is_location_enabled(multiworld: MultiWorld, player: int, location: dict[str, Any]) -> bool | None:
     if location.get('victory'):  # This should get fixed in the main code
+        return True
+    if location.get("duty_name") in multiworld.worlds[player].forced_duties:
         return True
     if location.get("duty_name") in multiworld.worlds[player].skipped_duties:
         return False

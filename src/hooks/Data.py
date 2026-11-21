@@ -3,14 +3,16 @@ import json
 import pkgutil
 import re
 from itertools import chain
-from typing import NamedTuple, cast, NotRequired, TypedDict
+from typing import NamedTuple, NotRequired, TypedDict, cast
 
 from .common import (
+    BOSS_GOAL_DATA,
     DOH,
     DOL,
     LEVEL_CAP,
     LIMITED_LEVEL_CAPS,
 )
+
 
 # Location ID Starts
 # 1-7999: Duties
@@ -45,7 +47,7 @@ class LocationDict(TypedDict):
 # 1000-4999: Bait
 # 5000-9999: Class Level Items
 # 10,000-10,999: Deep Dungeon items
-# 40,000-40,999: Boss Clear events.  These don't technically need IDs, but currently do due to a manual bug.
+# 40,000-40,999: Victory Trophies
 # 999,000-999,999: Filler items
 
 class ItemDict(TypedDict):
@@ -70,21 +72,6 @@ HEADER_VALUES = ["", "Name", "ARR", "HW", "STB", "SHB", "EW", "DT"]
 
 JOB_FULL_NAMES = {}
 FULL_NAME_TO_JOB = {}
-
-BOSS_GOAL_DATA: dict[str, tuple[str, str, int]] = {
-    # Goal: (Name, Region, Level)
-    "Defeat the Ultima Weapon":    ("Porta Decumana",       "Northern Thanalan", 50),
-    "Defeat King Thordan":         ("Singularity Reactor",  "Azys Lla",          60),
-    "Defeat Nidhogg":              ("Final Steps of Faith", "Ishgard",           60),
-    "Defeat Shinryu":              ("Royal Menagerie",      "The Lochs",         70),
-    "Defeat Tsukuyomi":            ("Castrum Fluminis",     "Yanxia",            70),
-    "Defeat Hades":                ("Dying Gasp",           "The Tempest",       80),
-    "Defeat the Warrior of Light": ("Seat of Sacrifice",    "The Crystarium",    80),
-    "Defeat the Endsinger":        ("Final Day",            "Ultima Thule",      90),
-    "Defeat Zeromus":              ("Abyssal Fracture",     "Mare Lamentorum",   90),
-    "Defeat Sphene":               ("Interphos",            "Living Memory",    100),
-    "Defeat Necron":               ("Ageless Necropolis",   "Living Memory",    100),
-}
 
 UNREASONABLE_FATES = [
     "Behold Now Behemoth", "He Taketh It with His Eyes (FATE)", "Steel Reign (FATE)",
@@ -209,14 +196,31 @@ bait_to_fish: dict[str, set[str]] = {}
 expansion_regex = re.compile(r"^(.*?) \(([^\)]+)\)$")
 deep_dungeon_regex = re.compile(r"^(?P<dd_name>.+?) \((?P<floor_name>\w+)s (?P<start>\d+)-\d+\)$")
 
-def generate_victory_locations() -> list[LocationDict]:
+def generate_victory_locations(location_table: list[LocationDict]) -> list[LocationDict]:
     # Build victory location entries from BOSS_GOAL_KEY_LOCATIONS
     # to preserve existing location IDs for backwards compatibility
     _id = 40_000
     locations: list[LocationDict] = []
 
-    for goal_name, (_, region, level) in BOSS_GOAL_DATA.items():
-        locations.append({"name": goal_name, "region": region, "level": level, "victory": True, "id": _id})
+    for goal_name, goal_data in BOSS_GOAL_DATA.items():
+        if goal_data.location_name is not None:
+            original_location = next((l for l in location_table if l["name"] == goal_data.location_name), None)
+            if original_location is None:
+                raise ValueError(f"Original location for {goal_data.location_name} not found")
+            if not goal_data.level and original_location.get("level") is not None:
+                goal_data.level = int(original_location.get("level", 0))
+            if not goal_data.region and original_location.get("region") is not None:
+                goal_data.region = original_location["region"]
+            elif goal_data.region != original_location["region"]:
+                raise ValueError(f"Region mismatch for {goal_data.location_name}: expected {original_location['region']}, found {goal_data.region}")
+
+        locations.append({
+            "name": goal_name,
+            "region": goal_data.region,
+            "level": goal_data.level,
+            "victory": True,
+            "id": _id,
+            })
         _id += 1
 
     return locations
@@ -542,25 +546,18 @@ def after_load_item_file(item_table: list[ItemDict]) -> list[ItemDict]:
     item_table.extend(classes)
     pomanders = cast(list[ItemDict], load_data_file("items.deepdungeon.json"))
     item_table.extend(pomanders)
-
-    # Add clear items related to the boss goal locations. Prerequisites for victory button
-    _cleared_id = 40_000
-    for base_name, _, _ in BOSS_GOAL_DATA.values():
-        item_table.append({
-            "name": f"{base_name} Cleared",
-            "progression": True,
-            "count": 0,
-            "id": _cleared_id,
-        })
-        _cleared_id += 1
+    trophies = cast(list[ItemDict], load_data_file("items.trophies.json"))
+    for trophy in trophies:
+        trophy["progression"] = True
+        trophy["count"] = 0
+        trophy["category"] = ["Trophies"]
+    item_table.extend(trophies)
 
     filler_items: list[ItemDict] = []
     for emote in FILLER_NAMES:
         filler_items.append({
             "name": emote,
             "category": ["Filler"],
-            "progression": False,
-            "filler": True,
         })
     filler_items[0]['id'] = 999_000
     item_table.extend(filler_items)
@@ -626,7 +623,7 @@ def after_load_location_file(location_table: list[LocationDict]) -> list[Locatio
     location_table.extend(ocean_fishing())
     location_table.extend(generate_fish_list())
     location_table.extend(extra_duty_locations)
-    location_table.extend(generate_victory_locations())
+    location_table.extend(generate_victory_locations(location_table))
     location_table.extend(generate_hunt_list())
     location_table.extend(generate_aetheryte_list())
 

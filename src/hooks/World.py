@@ -23,10 +23,10 @@ from ..Helpers import get_option_value, is_option_enabled
 # Object classes from Manual -- extending AP core -- representing items and locations that are used in generation
 from ..Items import ManualItem, item_name_to_item
 from ..Locations import victory_names, location_name_to_location
-from .Data import BOSS_GOAL_DATA, UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
+from .Data import UNREASONABLE_FATES, categorizedLocationNames, bait_to_fish, FILLER_NAMES, FILLER_WEIGHTS
 from .Helpers import get_int_value, is_fishing_enabled, get_excluded_jobs, get_set_value
 from .Options import LevelCap
-from .common import CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
+from .common import BOSS_GOAL_DATA, CASTER, DOH, HEALERS, MELEE, RANGED, TANKS
 
 ########################################################################################
 ## Order of method calls when the world generates:
@@ -169,11 +169,15 @@ def before_generate_early(world: World, multiworld: MultiWorld, player: int) -> 
 # Called before regions and locations are created. Not clear why you'd want this, but it's here. Victory location is included, but Victory event is not placed yet.
 def before_create_regions(world: World, multiworld: MultiWorld, player: int):
     world.skipped_duties: set[str] = set()
+    world.forced_duties: set[str] = set()
 
     if not getattr(multiworld, 'generation_is_fake', False):
         goal_name = victory_names[get_option_value(multiworld, player, "goal")]
         goal_data = BOSS_GOAL_DATA.get(goal_name)
-        goal_base_duty_name = goal_data[0] if goal_data else None
+        goal_base_duty_name = goal_data.location_name if goal_data else None
+        if goal_data:
+            world.forced_duties.add(goal_data.location_name)
+
         for category, names in categorizedLocationNames.items():
             dutyType, dutyExpansion, dutyDifficulty = category
             count = get_duty_count(dutyType, dutyExpansion, dutyDifficulty, multiworld, player)
@@ -191,25 +195,12 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
                 count = min(len(names), count)
                 used_names = world.random.sample(names, count)
 
-            # Force the goal's required trial into the location pool if it belongs to this category
-            if dutyType == "Trial" and goal_base_duty_name:
-                goal_trial = next((n for n in names if n == f"The {goal_base_duty_name}" or n == goal_base_duty_name), None)
-
-                if goal_trial and goal_trial not in used_names:
-                    used_names.append(goal_trial)
-
             for name in names:
                 if name not in used_names:
                     world.skipped_duties.add(name)
-        if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
-            goal_name = victory_names[get_int_value(multiworld, player, "goal")]
-            goal_data = BOSS_GOAL_DATA.get(goal_name)
-            goal_base_duty_name = goal_data[0] if goal_data else None
-            world.skipped_duties.update(["Castrum Meridianum", "The Praetorium"])
 
-            if goal_base_duty_name != "Porta Decumana":
-                # Add ultima weapon trial regardless of MSQ settings, if set as goal
-                world.skipped_duties.add("The Porta Decumana")
+        if not is_option_enabled(multiworld, player, "allow_main_scenario_duties"):
+            world.skipped_duties.update(["Castrum Meridianum", "The Praetorium", "The Porta Decumana"])
 
     tanks = TANKS.copy()
     healers = HEALERS.copy()
@@ -330,11 +321,11 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 def before_create_items_all(item_config: dict[str, int|dict], world: World, multiworld: MultiWorld, player: int) -> dict[str, int|dict]:
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
     goal_data = BOSS_GOAL_DATA.get(goal_name)
-    goal_duty_base_name = goal_data[0] if goal_data else None
+    goal_duty_base_name = goal_data.location_name if goal_data else None
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
 
-    if boss_key_pieces > 0 and goal_duty_base_name:
-        key_item = f"{goal_duty_base_name} Key" if boss_key_pieces == 1 else f"{goal_duty_base_name} Key Piece"
+    if boss_key_pieces > 0 and goal_data:
+        key_item = goal_data.key_name if boss_key_pieces == 1 else f"{goal_data.key_name} Piece"
         item_config[key_item] = boss_key_pieces
         world._boss_key_item = key_item
         world._boss_key_pieces = boss_key_pieces
@@ -357,19 +348,8 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     # If there's a boss goal, its trial location will host a "cleared" item, specifically for the manual client.
     world._goal_trial = None
 
-    if goal_duty_base_name:
-        for (duty_type, _, _), names in categorizedLocationNames.items():
-            if duty_type == "Trial":
-                goal_trial = next((n for n in names if n == f"The {goal_duty_base_name}" or n == goal_duty_base_name), None)
-
-                if goal_trial and goal_trial in all_location_names:
-                    world._goal_trial = goal_trial
-                    location_count -= 1
-                    event_name = f"{goal_duty_base_name} Cleared"
-                    item_id = world.item_name_to_id.get(event_name)
-                    trial_event = ManualItem(event_name, ItemClassification.progression, item_id, player)
-                    multiworld.get_location(goal_trial, player).place_locked_item(trial_event)
-                    break
+    if goal_data:
+        world.get_location(goal_data.location_name).place_locked_item(world.create_item(goal_data.trophy_name))
 
     level_cap = get_int_value(multiworld, player, "level_cap") or LevelCap.range_end
     actual_level_cap = max([int(location_name_to_location[l.name].get("level", 0)) for l in world.get_locations()])
@@ -378,7 +358,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
     remaining = location_count - item_count - capped_count
 
-    if goal_duty_base_name:
+    if goal_data:
         # Boss goal: no McGuffins needed
         item_config['Memory of a Distant World'] = 0
         world.mcguffins_needed = 0
@@ -542,18 +522,16 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
     goal_data = BOSS_GOAL_DATA.get(goal_name)
-    goal_duty_base_name = goal_data[0] if goal_data else None
+    goal_duty_base_name = goal_data.location_name if goal_data else None
     goal_location = multiworld.get_location(goal_name, player)
-    goal_trial = getattr(world, '_goal_trial', None)
 
-    if goal_duty_base_name and goal_trial:
-        event_name = f"{goal_duty_base_name} Cleared"
-        trial_location = multiworld.get_location(goal_trial, player)
+    if goal_duty_base_name and goal_data:
+        event_name = goal_data.trophy_name
+        trial_location = world.get_location(goal_data.location_name)
 
-        def has_cleared_goal_trial(state: CollectionState) -> bool:
-            return state.has(event_name, player)
+        from rule_builder.rules import Has
 
-        add_rule(goal_location, has_cleared_goal_trial)
+        world.set_rule(goal_location, Has(event_name))
 
         key_item = getattr(world, "_boss_key_item", "")
         key_count = getattr(world, "_boss_key_pieces", 0)
