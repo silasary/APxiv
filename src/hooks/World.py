@@ -339,8 +339,10 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         item_config[key_item] = boss_key_pieces_amount
         world._boss_key_item = key_item
         world._boss_key_pieces = boss_key_pieces
+        world._boss_key_pieces_amount = boss_key_pieces_amount
     else:
         world._boss_key_item = ""
+        world._boss_key_pieces = 0
         world._boss_key_pieces = 0
 
     for name in world.culled_access_items:
@@ -612,7 +614,7 @@ def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld,
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["mcguffins_needed"] = world.mcguffins_needed
     slot_data["boss_key_pieces"] = getattr(world, "_boss_key_pieces", 0)
-    slot_data["boss_key_pieces_amount"] = world.boss_key_pieces_amount
+    slot_data["boss_key_pieces_amount"] = getattr(world, "_boss_key_pieces_amount", 0)
     slot_data["boss_key_item"] = getattr(world, "_boss_key_item", "")
 
     return slot_data
