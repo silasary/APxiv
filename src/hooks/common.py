@@ -80,7 +80,7 @@ goals = [
     GoalData(name="Defeat Athena",               location_name="Anabaseios: The Twelfth Circle"),
     GoalData(name="Defeat Wicked Thunder",       location_name="AAC Light-heavyweight M4"),
     GoalData(name="Defeat Howling Blade",        location_name="AAC Cruiserweight M4"),
-    GoalData(name="Defeat Lindwurm",             location_name="AAC Heavyweight M4")
+    GoalData(name="Defeat Lindwurm",             location_name="AAC Heavyweight M4"),
 ]
 
 BOSS_GOAL_DATA: dict[str, GoalData] = {goal.name: goal for goal in goals}
