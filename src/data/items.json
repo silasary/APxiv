@@ -637,5 +637,221 @@
         "category": ["Location"],
         "count": 1,
         "progression": true
+    },
+     {
+        "name": "Binding Coil of Bahamut - Turn 5 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Binding Coil of Bahamut - Turn 5 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Second Coil of Bahamut - Turn 4 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Second Coil of Bahamut - Turn 4 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Coil of Bahamut - Turn 4 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Final Coil of Bahamut - Turn 4 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Burden of the Father Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Burden of the Father Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Burden of the Son Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Burden of the Son Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Soul of the Creator Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alexander - The Soul of the Creator Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Deltascape V4.0 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Deltascape V4.0 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Sigmascape V4.0 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Sigmascape V4.0 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alphascape V4.0 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Alphascape V4.0 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Gate: Sepulture Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Gate: Sepulture Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Verse: Refulgence Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Verse: Refulgence Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Promise: Eternity Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Eden's Promise: Eternity Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Asphodelos: The Fourth Circle Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Asphodelos: The Fourth Circle Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Abyssos: The Eighth Circle Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Abyssos: The Eighth Circle Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Anabaseios: The Twelfth Circle Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "Anabaseios: The Twelfth Circle Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Light-heavyweight M4 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Light-heavyweight M4 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Cruiserweight M4 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Cruiserweight M4 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Heavyweight M4 Key",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
+    },
+    {
+        "name": "AAC Heavyweight M4 Key Piece",
+        "category": ["Boss Key"],
+        "count": 0,
+        "progression": true
     }
 ]
