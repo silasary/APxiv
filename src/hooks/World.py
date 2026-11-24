@@ -343,7 +343,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     else:
         world._boss_key_item = ""
         world._boss_key_pieces = 0
-        world._boss_key_pieces = 0
+        world._boss_key_pieces_amount = 0
 
     for name in world.culled_access_items:
         if name in item_config:
