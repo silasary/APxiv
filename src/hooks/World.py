@@ -322,11 +322,21 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     goal_name = victory_names[get_option_value(multiworld, player, "goal")]
     goal_data = BOSS_GOAL_DATA.get(goal_name)
     goal_duty_base_name = goal_data.location_name if goal_data else None
-    boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
+    
+    if get_int_value(multiworld, player, "boss_key_pieces") > get_int_value(multiworld, player, "boss_key_pieces_amount") and goal_data:
+        logging.info(
+            f" Swapping Boss Key Pieces {get_int_value(multiworld, player, "boss_key_pieces")} and Boss Key Pieces Amount {get_int_value(multiworld, player, "boss_key_pieces_amount")}")
+        temp = get_int_value(multiworld, player, "boss_key_pieces_amount")
+        world.options.boss_key_pieces.value = get_int_value(multiworld, player, "boss_key_pieces")
+        world.options.boss_key_pieces_amount.value = temp
 
-    if boss_key_pieces > 0 and goal_data:
+    boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
+    boss_key_pieces_amount = get_int_value(multiworld, player, "boss_key_pieces_amount")
+
+    if boss_key_pieces > 0 and boss_key_pieces_amount > 0 and goal_data:
+
         key_item = goal_data.key_name if boss_key_pieces == 1 else f"{goal_data.key_name} Piece"
-        item_config[key_item] = boss_key_pieces
+        item_config[key_item] = boss_key_pieces_amount
         world._boss_key_item = key_item
         world._boss_key_pieces = boss_key_pieces
     else:
@@ -602,6 +612,7 @@ def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld,
 def after_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
     slot_data["mcguffins_needed"] = world.mcguffins_needed
     slot_data["boss_key_pieces"] = getattr(world, "_boss_key_pieces", 0)
+    slot_data["boss_key_pieces_amount"] = world.boss_key_pieces_amount
     slot_data["boss_key_item"] = getattr(world, "_boss_key_item", "")
 
     return slot_data
