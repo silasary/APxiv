@@ -327,8 +327,8 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
         logging.info(
             f" Swapping Boss Key Pieces {get_int_value(multiworld, player, "boss_key_pieces")} and Boss Key Pieces Amount {get_int_value(multiworld, player, "boss_key_pieces_amount")}")
         temp = get_int_value(multiworld, player, "boss_key_pieces_amount")
-        world.options.boss_key_pieces.value = get_int_value(multiworld, player, "boss_key_pieces")
-        world.options.boss_key_pieces_amount.value = temp
+        world.options.boss_key_pieces_amount.value = get_int_value(multiworld, player, "boss_key_pieces")
+        world.options.boss_key_pieces.value = temp
 
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
     boss_key_pieces_amount = get_int_value(multiworld, player, "boss_key_pieces_amount")
