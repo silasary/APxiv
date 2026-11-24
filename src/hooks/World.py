@@ -333,7 +333,7 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
     boss_key_pieces = get_int_value(multiworld, player, "boss_key_pieces")
     boss_key_pieces_amount = get_int_value(multiworld, player, "boss_key_pieces_amount")
 
-    if boss_key_pieces > 0 and boss_key_pieces_amount > 0 and goal_data:
+    if boss_key_pieces > 0 and goal_data:
 
         key_item = goal_data.key_name if boss_key_pieces == 1 else f"{goal_data.key_name} Piece"
         item_config[key_item] = boss_key_pieces_amount
