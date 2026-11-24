@@ -290,6 +290,21 @@ class BossKeyPieces(Range):
     range_start = 0
     range_end = 10
 
+class BossKeyPiecesAmount(Range):
+    """
+    Number of key pieces total to be added to the item pool (boss goal only).
+
+    When set to 0, no key is required and the victory location is accessible on region and level alone.
+    When set to 1-10, that many key items are shuffled into the item pool
+    and must all be collected before the goal location is accessible.
+    If Boss Key Pieces is greater than Boss Key Pieces Amount, then the values will be flipped.
+    Has no effect when the goal is set to McGuffin Hunt (Collect Memories).
+    """
+    display_name = "Boss Key Pieces Amount"
+    default = 0
+    range_start = 0
+    range_end = 10
+
 class JobSet(OptionSet):
     """
     Superclass for optionsets that allow you to pick jobs.
@@ -475,6 +490,7 @@ def before_options_defined(options: dict) -> dict:
     options["local_items"] = XivLocalItems
     options["mcguffin_percentage_needed"] = McGuffinsNeeded
     options["boss_key_pieces"] = BossKeyPieces
+    options["boss_key_pieces_amount"] = BossKeyPiecesAmount
 
     # Duties
     options["duty_difficulty"] = DutyDifficulty
