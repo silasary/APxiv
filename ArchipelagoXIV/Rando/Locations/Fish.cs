@@ -19,7 +19,7 @@ namespace ArchipelagoXIV.Rando.Locations
         public Fish(ApState apState, long id, string name) : base(apState, id, name)
         {
             Data = APData.FishData[name];
-            region = Data.Regions[0];
+            region = Data?.Regions?.FirstOrDefault();
         }
 
         public FishData Data { get; }
